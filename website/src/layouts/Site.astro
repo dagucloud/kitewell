@@ -1,5 +1,6 @@
 ---
 import "../styles/site.css";
+import Analytics from "../components/Analytics.astro";
 interface Props {
   title: string;
   description?: string;
@@ -78,6 +79,7 @@ const links = [
         <a href="https://github.com/dagucloud/runstead">GitHub</a>
         <a href="/third-party/">Third-party notices</a>
         <a href="/support/">Support</a>
+        <Analytics />
       </div>
       <p class="fine">© {new Date().getFullYear()} Runstead. Public preview.</p>
     </footer>

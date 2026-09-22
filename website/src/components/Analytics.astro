@@ -1,0 +1,144 @@
+<div class="analytics" data-analytics data-pagefind-ignore>
+  <button class="preferences" type="button" data-preferences hidden>
+    Analytics preferences
+  </button>
+  <aside aria-label="Analytics preferences" data-consent hidden>
+    <p>
+      Optional analytics help improve this website. Page views and interactions are
+      sent to <a href="https://posthog.com/privacy">PostHog</a> only if you accept.
+    </p>
+    <div class="actions">
+      <button type="button" data-choice="declined">Decline</button>
+      <button type="button" data-choice="accepted">Accept</button>
+    </div>
+  </aside>
+</div>
+
+<script>
+  import { createAnalytics } from "../lib/analytics";
+
+  const root = document.querySelector<HTMLElement>("[data-analytics]");
+  const setConsent = createAnalytics(window.location.hostname);
+
+  if (root && setConsent) {
+    const storageKey = "runstead_analytics_consent";
+    const panel = root.querySelector<HTMLElement>("[data-consent]")!;
+    const preferences = root.querySelector<HTMLButtonElement>("[data-preferences]")!;
+
+    function apply(value: string | null) {
+      panel.hidden = value === "accepted" || value === "declined";
+      void setConsent!(value === "accepted").catch(() => {
+        // Analytics failures must not interrupt browsing.
+      });
+    }
+
+    let saved = null;
+    try {
+      saved = localStorage.getItem(storageKey);
+    } catch {
+      // The choice can still apply to this page when storage is unavailable.
+    }
+    apply(saved);
+    preferences.hidden = false;
+
+    preferences.addEventListener("click", () => {
+      panel.hidden = false;
+      panel.querySelector<HTMLButtonElement>("[data-choice]")?.focus();
+    });
+
+    root.querySelectorAll<HTMLButtonElement>("[data-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const choice = button.dataset.choice!;
+        try {
+          localStorage.setItem(storageKey, choice);
+        } catch {
+          // Keep the current-page choice usable without persistent storage.
+        }
+        apply(choice);
+        preferences.focus({ preventScroll: true });
+      });
+    });
+
+    window.addEventListener("storage", (event) => {
+      if (event.key === storageKey || event.key === null) apply(event.newValue);
+    });
+  }
+</script>
+
+<style>
+  .analytics {
+    font: inherit;
+  }
+  [hidden] {
+    display: none !important;
+  }
+  button {
+    cursor: pointer;
+    font: inherit;
+  }
+  .preferences {
+    border: 0;
+    padding: 0;
+    background: none;
+    color: inherit;
+    font-size: 0.875rem;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  aside {
+    position: fixed;
+    inset: auto 1rem 1rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    max-width: 68rem;
+    margin-inline: auto;
+    padding: 1rem 1.25rem;
+    border: 1px solid #bac6b7;
+    border-radius: 0.65rem;
+    background: #f8f8f3;
+    color: #183e35;
+    box-shadow: 0 4px 24px #183e3520;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .actions button {
+    min-height: 2.75rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #183e35;
+    border-radius: 0.35rem;
+    background: #f8f8f3;
+    color: #183e35;
+  }
+  .actions button:hover {
+    background: #eaf0df;
+  }
+  button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+  @media (max-width: 40rem) {
+    aside {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+    }
+    .actions {
+      justify-content: flex-end;
+    }
+  }
+</style>

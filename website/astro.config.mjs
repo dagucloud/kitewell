@@ -12,6 +12,7 @@ export default defineConfig({
       favicon: "/favicon.svg",
       disable404Route: true,
       customCss: ["./src/styles/docs.css"],
+      components: { Footer: "./src/components/DocsFooter.astro" },
       social: [
         {
           icon: "github",
