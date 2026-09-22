@@ -1,0 +1,33 @@
+type: graph
+# Replace this with the absolute path to the folder containing orders.csv.
+working_dir: /absolute/path/to/daily-report
+steps:
+  - id: read_orders
+    name: Read orders
+    run: cat orders.csv
+    output: ORDERS
+
+  - id: build_report
+    name: Build report
+    depends: [read_orders]
+    run: |
+      #!/usr/bin/env python3
+      import csv
+      import io
+      import os
+      from decimal import Decimal
+
+      orders = list(csv.DictReader(io.StringIO(os.environ["ORDERS"])))
+      revenue = sum(Decimal(order["amount_usd"]) for order in orders)
+      print("# Daily sales report\n")
+      print(f"- Orders: {len(orders)}")
+      print(f"- Revenue: ${revenue:,.2f}")
+      print(f"- Average order: ${revenue / len(orders):,.2f}")
+    output: REPORT
+
+  - id: save_report
+    name: Save report
+    depends: [build_report]
+    run: |
+      printenv REPORT > report.md
+      cat report.md

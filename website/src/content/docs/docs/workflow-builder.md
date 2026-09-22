@@ -7,20 +7,101 @@ steps. Commands, Docker images, AI agents, remote servers, and human decisions
 can share one workflow. The graph shows the order; selecting a step opens its
 settings beside it.
 
-## Start with the flow
+## Example: build a daily report
 
-Choose **Create a job**, name it, and pick a first task. In **Build**, use the
-**+** control to add another task. **Continue the flow after** inserts it before
-the next steps; those steps wait for it. **Add a branch after** creates another
-path, while **Start independently** adds work that does not wait for that step.
+Read a CSV of orders, calculate the totals with Python, and save a Markdown
+report. This example uses three sample orders and runs entirely on your
+computer. It requires Python 3.
 
-A useful example is:
+**Read orders → Build report → Save report**
 
-**Prepare a report in Docker → Ask an AI agent to review it → Ask a person →
-Run a command on a server group.**
+### Set up the sample
 
-This is an example you configure with your own images, agents, and servers.
-Start with a manual run, check each result, then add a schedule.
+Create a folder named `daily-report`. Download [orders.csv](/examples/orders.csv)
+into it, or save this text as `orders.csv`:
+
+```csv
+order_id,amount_usd
+1001,1200.00
+1002,800.00
+1003,450.00
+```
+
+Choose **Create a job**, name it **Daily sales report**, and open
+**Tools → Edit YAML**. Replace the contents with this workflow.
+Change `working_dir` to the absolute path of your `daily-report` folder.
+
+You can also download [the workflow YAML](/examples/daily-report.yaml).
+
+```yaml
+type: graph
+# Replace this with the absolute path to the folder containing orders.csv.
+working_dir: /absolute/path/to/daily-report
+steps:
+  - id: read_orders
+    name: Read orders
+    run: cat orders.csv
+    output: ORDERS
+
+  - id: build_report
+    name: Build report
+    depends: [read_orders]
+    run: |
+      #!/usr/bin/env python3
+      import csv
+      import io
+      import os
+      from decimal import Decimal
+
+      orders = list(csv.DictReader(io.StringIO(os.environ["ORDERS"])))
+      revenue = sum(Decimal(order["amount_usd"]) for order in orders)
+      print("# Daily sales report\n")
+      print(f"- Orders: {len(orders)}")
+      print(f"- Revenue: ${revenue:,.2f}")
+      print(f"- Average order: ${revenue / len(orders):,.2f}")
+    output: REPORT
+
+  - id: save_report
+    name: Save report
+    depends: [build_report]
+    run: |
+      printenv REPORT > report.md
+      cat report.md
+```
+
+If Runstead cannot find `python3`, replace `/usr/bin/env python3` with the
+absolute path returned by `command -v python3` in Terminal.
+
+### Run it and inspect the result
+
+Choose **Tools → Visual editor** to see the three steps. **Read orders** saves
+the CSV as `ORDERS`; **Build report** reads that value and saves its result as
+`REPORT`. Each step waits for the one before it.
+
+Choose **Tools → Check workflow**, then **Review & run → Save and run… → Start
+run**. Open **Runs & logs** and select **Save report**. Its output should be:
+
+```markdown
+# Daily sales report
+
+- Orders: 3
+- Revenue: $2,450.00
+- Average order: $816.67
+```
+
+The same text is written to `report.md` in your `daily-report` folder. Each run
+replaces that file. Change an amount in `orders.csv` and run again to see the
+totals change.
+
+After the manual run works, open **Schedule** to choose a daily time and
+timezone. Keep the computer awake and Runstead running at that time. See
+[Scheduling](/docs/scheduling/) for background operation and missed runs.
+
+### Add your own steps
+
+In **Build**, use **+** to add another task. **Continue the flow after** inserts
+it before the next steps; those steps wait for it. **Add a branch after** creates
+another path. **Start independently** adds work that does not wait for that step.
 
 ## Run a Docker image
 
