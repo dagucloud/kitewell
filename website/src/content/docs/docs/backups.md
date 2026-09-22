@@ -8,8 +8,8 @@ Open **This device → Backups** and create a manual snapshot. Download the
 archive to a location you control. You can also configure scheduled local
 backups. Backups cover all projects on the device.
 
-A backup on the same Mac is useful for undoing a change but does not protect
-against losing that Mac. Keep a separate protected copy when needed.
+A backup on the same device is useful for undoing a change but does not protect
+against losing that device. Keep a separate protected copy when needed.
 
 ## What is included
 
@@ -29,7 +29,7 @@ separately. Cloud device credentials are excluded from workspace backups.
 
 Finish active work, open **This device → Backups**, and choose **Restore backup**
 for a saved snapshot. Restore creates a safety backup, replaces workspace data
-and settings, and reloads the workspace. This Mac keeps its GUI login, API keys,
+and settings, and reloads the workspace. This device keeps its GUI login, API keys,
 and which projects are stopped.
 
 Managed secrets are not restored. Enter the credentials needed by your workflows
@@ -38,7 +38,7 @@ Archives are limited to 2 GiB of uncompressed data.
 
 ## Find local data
 
-Runstead stores its data under:
+On macOS, Runstead stores its data under:
 
 ```text
 ~/Library/Application Support/Runstead

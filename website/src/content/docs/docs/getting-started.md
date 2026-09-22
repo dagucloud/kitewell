@@ -31,7 +31,7 @@ installed engine.
 ## Add a schedule
 
 Return to the workflow, open **Schedule**, choose a daily time and timezone,
-and save. Confirm **Enable saved schedules** is enabled. Keep the Mac awake
+and save. Confirm **Enable saved schedules** is enabled. Keep the computer awake
 and Runstead running for the scheduled time.
 
 See [Scheduling](/docs/scheduling/) before relying on unattended runs.

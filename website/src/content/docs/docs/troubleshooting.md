@@ -12,7 +12,7 @@ or a credential stored only in the shell session.
 ## A scheduled job did not run
 
 Confirm the saved schedule is enabled, its timezone is correct, the project
-engine is running, and the Mac was awake with your user logged in. Check
+engine is running, and the computer was awake with your user logged in. Check
 catch-up settings before expecting a missed schedule to run later.
 
 ## Docker is unavailable
@@ -35,7 +35,7 @@ installer verification failure instead of bypassing it.
 
 ## Find logs
 
-Start with **Runs & logs** for a task failure. Service logs are under
+Start with **Runs & logs** for a task failure. On macOS, service logs are under
 `~/Library/Application Support/Runstead/logs`. They currently append without
 size rotation. Quit Runstead before manually clearing service logs; save any
 needed evidence first.

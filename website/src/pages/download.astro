@@ -10,20 +10,25 @@ const architectures = [
 
 <Site
   title="Download Runstead"
-  description="Runstead for macOS 13 and later. Apple Silicon and Intel installers, installation instructions, and release status."
+  description="Get Runstead and check platform availability, system requirements, and installation instructions."
 >
   <section class="page wrap">
-    <p class="eyebrow">Runstead for Mac</p>
+    <p class="eyebrow">Downloads</p>
     <h1>
       {release
         ? `Download Runstead ${release.version}`
-        : "Your workflows. Coming soon."}
+        : "Get Runstead"}
     </h1>
     <p class="lead">
       {release
-        ? "The public beta is ready to download. Choose the installer for your Mac."
-        : "The first public beta is being prepared. Explore the docs while signed Mac installers are being verified."}
+        ? "The public beta is ready to download. Check the supported platforms and system requirements below."
+        : "The first public beta is being prepared. Explore the docs to see what you can build."}
     </p>
+    <div class="platforms">
+      <span>macOS · {release ? "Public beta" : "Coming soon"}</span>
+      <span>Linux · Planned</span>
+      <span>Windows · Planned</span>
+    </div>
     {release ? (
       <div class="cards">
         {architectures.map(([arch, title, description]) => (
@@ -54,7 +59,7 @@ const architectures = [
       </div>
     )}
     <div class="prose">
-      <h2>Before installing</h2>
+      <h2>Installing on macOS</h2>
       <ul>
         <li>
           macOS 13 or later. To check your chip, open Apple menu → About This
@@ -76,11 +81,6 @@ const architectures = [
       <p>
         <a href="/docs/install/">Read installation instructions →</a>
       </p>
-    </div>
-    <div class="platforms">
-      <span>macOS · {release ? "Public beta" : "Coming soon"}</span>
-      <span>Linux · Planned</span>
-      <span>Windows · Planned</span>
     </div>
   </section>
 </Site>

@@ -13,8 +13,8 @@ body:
   - type: input
     id: system
     attributes:
-      label: macOS version and chip
-      placeholder: macOS 15, Apple M3
+      label: Operating system version and processor
+      placeholder: OS name and version, processor model
     validations:
       required: true
   - type: textarea

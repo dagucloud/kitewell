@@ -10,6 +10,8 @@ confirm **Enable saved schedules** is enabled.
 
 ## Keep Runstead running
 
+On macOS:
+
 - Closing the window or choosing **Keep Running in Menu Bar** hides the window
   while the service and project engines continue running.
 - **Open Runstead** restores the interface.
@@ -22,18 +24,18 @@ projects in the interface does not stop other projects' schedules.
 
 ## Sleep, logout, and missed runs
 
-The Mac must be awake and your user logged in. Runstead does not wake a sleeping
-Mac. A powered-off, sleeping, or logged-out machine cannot run work at the
+The computer must be awake and your user logged in. Runstead does not wake a
+sleeping computer. A powered-off, sleeping, or logged-out machine cannot run work at the
 scheduled time.
 
 Missed-run behavior depends on the workflow and project catch-up settings.
 Check the catch-up period and missed-run policy in workflow defaults, then
 verify the behavior with your own schedule. Do not assume every missed run will
-be replayed after the Mac wakes.
+be replayed after the computer wakes.
 
 ## Task requirements
 
-A command runs with your macOS user's permissions. Docker tasks need a running
+A command runs with the permissions of the user running Runstead. Docker tasks need a running
 Docker daemon. AI tasks need their configured tool or provider. Remote tasks
 need a reachable server and accepted SSH host key. Test those prerequisites
 before scheduling unattended work.

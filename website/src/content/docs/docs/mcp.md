@@ -24,7 +24,7 @@ must name a project when several exist.
 
 Start with the least access that supports the task. Read access inspects
 workflows and history. Run access can trigger work. Edit access can change
-workflow definitions, including commands that execute as your macOS user.
+workflow definitions, including commands that execute as the user running Runstead.
 Revoke a key in Runstead when it is no longer needed.
 
 ## Remote clients

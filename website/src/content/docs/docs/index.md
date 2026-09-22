@@ -25,11 +25,13 @@ for up to ten projects. Projects hold separate workflows, history, and secrets.
 
 ## What runs where
 
-The Mac app manages a local Dagu workflow engine. Closing the window keeps
-Runstead in the menu bar; **Quit Runstead** stops the service and engines.
-Workflows run with your macOS user permissions. Only run workflow definitions
+Runstead manages a local Dagu workflow engine. Workflows run with the
+permissions of the user account running Runstead. Only run workflow definitions
 and commands you trust.
 
-Your Mac must be awake and your user signed in for scheduled work to run.
+On macOS, closing the window keeps Runstead in the menu bar; **Quit Runstead**
+stops the service and engines.
+
+Your computer must be awake and your user signed in for scheduled work to run.
 Runstead does not provide a hosted machine. AI providers, remote servers,
 containers, and external services have their own requirements and costs.
