@@ -1,9 +1,11 @@
 # Runstead
 
-A visual home for your workflows. Connect Docker containers, commands across
-server groups, AI agents, and human approvals. Run, schedule, and inspect
-every step from your own machine, then share the project with your other
-devices, teammates, or organization.
+Build and run workflows on your own machine. Runstead is a desktop app for
+connecting scripts, containers, and AI agents in a visual editor. Schedule
+runs and inspect the output of each step.
+
+Export a project to use it on another device, or enable API access on a
+shared host. Each device needs its own tools and credentials.
 
 **Public beta coming soon.** This repository contains the website,
 documentation, support issues, and public releases.

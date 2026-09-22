@@ -1,14 +1,16 @@
 ---
 import "../styles/site.css";
 import Analytics from "../components/Analytics.astro";
+import { readManifest } from "../lib/releases.mjs";
 interface Props {
   title: string;
   description?: string;
 }
 const {
   title,
-  description = "Build workflows visually with Docker containers, server groups, AI agents, and human approvals. Run and inspect them from your own machine.",
+  description = "Runstead is a desktop workflow builder for scripts, containers, and AI agents. Schedule runs and inspect each step's output on your own machine.",
 } = Astro.props;
+const release = await readManifest();
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const links = [
   ["/docs/", "Docs"],
@@ -58,7 +60,8 @@ const links = [
         ))}
       </nav>
       <a class="button small" href="/download/">
-        Get Runstead <span aria-hidden="true">↗</span>
+        {release ? "Download Runstead" : "Beta status"}
+        <span aria-hidden="true">↗</span>
       </a>
     </header>
     <main id="main">
@@ -72,7 +75,7 @@ const links = [
           </span>
           runstead
         </a>
-        <p>A home for your workflows.</p>
+        <p>Build and run workflows locally.</p>
       </div>
       <div class="footer-links">
         <a href="/docs/">Documentation</a>

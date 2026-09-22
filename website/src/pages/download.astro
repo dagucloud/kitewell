@@ -9,20 +9,20 @@ const architectures = [
 ---
 
 <Site
-  title="Download Runstead"
-  description="Get Runstead and check platform availability, system requirements, and installation instructions."
+  title={release ? "Download Runstead" : "Beta availability"}
+  description="Check Runstead beta availability, supported platforms, system requirements, and installation instructions."
 >
   <section class="page wrap">
     <p class="eyebrow">Downloads</p>
     <h1>
       {release
         ? `Download Runstead ${release.version}`
-        : "Get Runstead"}
+        : "Public beta coming soon"}
     </h1>
     <p class="lead">
       {release
         ? "The public beta is ready to download. Check the supported platforms and system requirements below."
-        : "The first public beta is being prepared. Explore the docs to see what you can build."}
+        : "There are no public installers yet. The first release will be for macOS; Linux and Windows support is planned."}
     </p>
     <div class="platforms">
       <span>macOS · {release ? "Public beta" : "Coming soon"}</span>
@@ -48,13 +48,15 @@ const architectures = [
       </div>
     ) : (
       <div class="notice">
-        <h3>Public beta coming soon</h3>
+        <h2>See how Runstead works</h2>
         <p>
-          There are no public installers yet.{" "}
-          <a href="https://github.com/dagucloud/runstead">
-            Watch the GitHub repository
+          Read the <a href="/docs/getting-started/">getting started guide</a>
+          {" "}or explore the <a href="/docs/workflow-builder/">workflow editor</a>.
+          Installers will appear here and on{" "}
+          <a href="https://github.com/dagucloud/runstead/releases">
+            GitHub Releases
           </a>{" "}
-          for releases.
+          when the beta is published.
         </p>
       </div>
     )}
