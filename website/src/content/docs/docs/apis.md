@@ -21,7 +21,9 @@ across its workflows.
 
 The **API identifier** is the name workflows use to find this connection.
 The imported specification is stored in the project, including when it came
-from a URL.
+from a URL. Previewing or connecting an API does not call its operations.
+If the specification URL requires authentication, download it separately and
+use **Upload file** or **Paste specification**.
 
 ## Connect credentials
 
@@ -30,10 +32,16 @@ password**, according to the API's requirements. For an API key, enter its
 **Key name** and choose whether to send it in a header, query parameter, or
 cookie.
 
-Enter an existing **Secret reference**, such as `services/support-token`.
-Administrators can also use **Store a new secret** in the connection form.
-The connection saves the reference; credentials stay in project secrets.
-See [Secrets](/docs/secrets/) for rotation and access details.
+Select or enter an existing **Secret reference** from the same project, such
+as `services/support-token`. If your role cannot list secrets, enter the
+reference supplied by an administrator. Administrators can also use
+**Store a new secret** in the connection form.
+
+For bearer or API key authentication, the secret contains the token or key.
+For **Username and password**, enter the username in the connection and use
+a secret for the password. The connection stores the reference and supplies
+authentication to every API action that uses it; credentials stay in project
+secrets. See [Secrets](/docs/secrets/) for rotation and access details.
 
 OAuth sign-in and token refresh are not included. For an API that accepts an
 OAuth access token, obtain the token separately and connect it as a bearer
@@ -72,8 +80,23 @@ original URL does not update the project automatically.
 
 Open the connection in **API library**, choose **Update specification**, and
 upload, fetch, or paste the replacement. Choose **Preview actions**, review the
-operations, then select **Save connection**. Check workflows that use changed or removed
-operations before running them again.
+operations, then select **Save connection**. Runstead validates dependent
+workflows before saving. If the replacement invalidates a saved workflow,
+the update is rejected and the previous connection is kept. Update affected
+workflows first, or import the replacement under a different API identifier.
+
+Runstead also refuses to delete a connection while a saved workflow uses it.
+
+## Share a connection without its credentials
+
+Use [project export](/docs/sharing/) to share the imported specification and
+connection settings, including the server URL, authentication type, and secret
+reference. Managed secret values are excluded. On the receiving device,
+create the referenced secret in the imported project before running its API
+actions, or change the connection to use another secret in that project.
+
+Exports retain the specification and its source URL. Credentials entered
+directly into those fields or workflow inputs are not removed automatically.
 
 ## Import limits
 
@@ -81,7 +104,9 @@ operations before running them again.
   converted to OpenAPI 3.0 or 3.1 first.
 - References must point within the same document. Bundle external references
   before importing.
-- File uploads and binary request bodies are not supported by API actions.
+- Request bodies can use JSON, URL-encoded forms, or text. Multipart bodies,
+  including file uploads, and binary request bodies are not supported by API
+  actions.
 - An action cannot require multiple credentials at once. Unsupported
   authentication schemes are marked in the action picker.
 - Pagination is not automatic. Supply page or cursor inputs and control

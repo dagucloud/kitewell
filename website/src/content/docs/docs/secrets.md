@@ -16,6 +16,15 @@ Saved values cannot be read back through Runstead. **Replace value** rotates a
 credential without changing its reference. Disabling or deleting it prevents
 future resolution of that secret.
 
+## Reuse a secret in imported APIs
+
+In **API library**, open a connection, choose its authentication type, and
+select or enter the existing **Secret reference** from that project. Every
+workflow action using the connection receives its authentication automatically.
+Use **Replace value** in **Secrets** to rotate the credential while keeping
+the same reference; the connection and workflows do not need to be edited.
+See [Import an API](/docs/apis/#connect-credentials) for the supported types.
+
 ## Understand the boundary
 
 Secrets are encrypted on disk by Dagu. Tasks receive credentials when they run.
@@ -26,12 +35,17 @@ Literal secret values are masked in execution logs, but encoded or transformed
 values may not be. Avoid printing credentials. Multiline values are not
 supported.
 
-## Backups
+## Exports and backups
 
-Workspace backups exclude managed secrets and their decryption keys. After a
-restore, enter the required credentials again. Keep a separate secure record of
-credentials you need to recover.
+Project exports retain secret references, including those in imported API
+connections, but exclude managed secret values. Create the referenced secrets
+in the receiving project before running its workflows.
 
-Backup archives are unencrypted and can still contain sensitive settings and
-values written directly into workflows. Store them privately and apply your own
-encryption before moving them to shared storage.
+Workspace backups also exclude managed secrets and their decryption keys.
+After a restore, enter the required credentials again. Keep a separate secure
+record of credentials you need to recover.
+
+Both archive types are unencrypted. Credentials written directly into
+workflows, OpenAPI specifications, or source URLs remain in the archive;
+backups can also contain sensitive device settings. Review archives before
+sharing and apply your own encryption before moving them to shared storage.

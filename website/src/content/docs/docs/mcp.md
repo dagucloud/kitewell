@@ -27,8 +27,35 @@ and build workflows from its operations. Clients can inspect the imported
 request and response schemas to choose inputs and use results in later steps.
 Running the workflow requires run or edit access and appears in its run history.
 
-Connections use project secret references. See [Import an API](/docs/apis/) for
-supported specs, authentication, and explicit updates.
+The MCP server exposes three tools: `read`, `change`, and `execute`. Call
+`read` with `target: "reference"` for the usage guide, then use this flow:
+
+1. Preview with `change`, `type: "preview_api"`, and either `spec` (JSON or
+   YAML text) or `url`. Previewing does not save the connection or execute an
+   API operation.
+2. Save with `change`, `type: "upsert_api"`, an `id`, and an `api` definition.
+   Provide `api.spec`, or omit it to fetch `api.sourceUrl` once. Set
+   `api.auth.type` to `none`, `bearer`, `apiKey`, or `basic`. For authentication,
+   use `api.auth.secretRef` to name an existing project secret. Create or
+   rotate secret values in the local GUI.
+3. Discover with `read`: `target: "apis"` lists connections;
+   `target: "api_operations"` searches an API by `id` and optional `query`;
+   `target: "api_operation"` with `id` and `operationId` returns its inputs,
+   responses, and a starting workflow step.
+4. Add `api.request` steps to a workflow, then validate, save, and run through
+   the usual workflow tools. The returned step is a template: review examples
+   and replace placeholders before running it.
+
+Updating with `upsert_api` replaces the entire connection. First read
+`target: "api"` with its `id` and retain the fields you still need.
+`change`, `type: "delete_api"`, with the `id` removes a connection only when
+no saved workflow uses it. See [Import an API](/docs/apis/) for supported specs,
+authentication, exports, and update behavior.
+
+API imports and connection management are available through the GUI and MCP.
+The public REST API exposes workflow operations, including running workflows
+that use saved API connections; it does not expose API catalog management or
+secret administration.
 
 ## Permissions
 

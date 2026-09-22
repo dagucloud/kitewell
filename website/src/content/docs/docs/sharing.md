@@ -24,8 +24,11 @@ against that device's project limit: one on Free, up to ten on Pro.
 ## What travels with a project
 
 The archive includes workflow definitions and schedules, named agents and
-models, server addresses and groups, queues, image registry definitions, and
-project workflow defaults.
+models, imported OpenAPI specifications and API connection settings, server
+addresses and groups, queues, image registry definitions, and project workflow
+defaults. API connections retain their secret references. Create those secrets
+in the imported project, or choose other secrets in that project, before
+running its API actions.
 
 The receiving device supplies its own:
 
@@ -34,9 +37,11 @@ The receiving device supplies its own:
 - Custom agent commands, installed tools, and agent sign-ins.
 - External scripts, input files, and Docker-mounted data.
 
-Run history, logs, device settings, and API keys are not part of a project
-export. The archive is unencrypted. Review workflow commands and project
-configuration for credentials entered directly before sharing it.
+Run history, logs, device settings, and Runstead client API keys are not part
+of a project export. The archive is unencrypted. Credentials entered directly
+into workflow commands, OpenAPI specifications, source URLs, or other project
+configuration are not removed automatically. Review those fields before
+sharing the archive.
 
 ## Choose where schedules run
 

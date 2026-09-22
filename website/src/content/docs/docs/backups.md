@@ -13,13 +13,16 @@ against losing that device. Keep a separate protected copy when needed.
 
 ## What is included
 
-Snapshots include workspace settings, projects, workflow definitions, and run
-history. They exclude managed secrets and their decryption keys, run output log
-directories, and this device's GUI login and API key hashes.
+Snapshots include workspace settings, projects, workflow definitions, imported
+OpenAPI specifications and API connection settings, and run history. API
+connections retain secret references. Snapshots exclude managed secret values
+and their decryption keys, run output log directories, and this device's GUI
+login and API key hashes.
 
 The archive is not encrypted. Settings can contain SMTP passwords and Slack
-webhook URLs, and workflow definitions can contain values entered directly.
-Treat downloaded snapshots as sensitive.
+webhook URLs. Credentials entered directly into workflow definitions, OpenAPI
+specifications, or source URLs are not removed. Treat downloaded snapshots as
+sensitive.
 
 External scripts, their input files, Docker volumes, mounted directories, and
 third-party services are not copied into a Runstead backup. Back those up

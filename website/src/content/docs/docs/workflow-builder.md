@@ -190,9 +190,9 @@ step for each machine, so its result appears separately in **Runs & logs**.
 
 To send all command and script steps to the same target, use the workflow's
 **Settings → Where it runs**. A group at this level runs the workflow on each
-machine in turn, with a separate run per machine. Docker, AI, HTTP, and
-sub-workflow steps still execute from the device running Runstead; this setting
-does not move the entire engine to a server.
+machine in turn, with a separate run per machine. Docker, AI, HTTP, imported
+API, and sub-workflow steps still execute from the device running Runstead;
+this setting does not move the entire engine to a server.
 
 ## Check, run, and schedule
 
