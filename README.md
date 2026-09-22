@@ -57,10 +57,17 @@ Connect only this public repository to Cloudflare Pages:
 Pages project: `runstead` at https://runstead-ekj.pages.dev. Builds and
 deployments are connected to this repository.
 
-Add `runstead.dev` and `www.runstead.dev` as custom domains through Pages after
-connecting the domain’s DNS zone to the Cloudflare account. The current account
-does not contain that zone, so the custom-domain setup is pending. The website
-redirects `www` to the canonical apex. `_headers` marks Pages previews as noindex and disables caching
+The preview project and the active `runstead.dev` DNS zone are currently in
+different Cloudflare accounts. Move the Git-connected project to the domain's
+account before adding the custom domains. Cloudflare currently blocks creation
+there because the other account's project already uses this repository.
+
+Wrangler is authenticated to the domain's account. Its OAuth grant supports
+Pages operations but lacks DNS record permissions; DNS API requests are rejected.
+CLI DNS configuration requires a token with DNS Edit scoped to `runstead.dev`.
+Do not put that token in Git. Configure a
+Cloudflare zone redirect from `www` to the canonical apex, preserving the path
+and query string. `_headers` marks Pages previews as noindex and disables caching
 of the update feed. Site changes deploy from `main`; pull requests receive
 Cloudflare preview deployments. No Cloudflare token is stored in this repo.
 
