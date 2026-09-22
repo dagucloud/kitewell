@@ -24,7 +24,8 @@ a:hover {
 }
 a:focus-visible,
 button:focus-visible,
-summary:focus-visible {
+summary:focus-visible,
+video:focus-visible {
   outline: 3px solid #77985e;
   outline-offset: 5px;
 }
@@ -194,6 +195,61 @@ h3 {
 }
 figure {
   margin: 0;
+}
+.promo {
+  padding-block: 24px 54px;
+  scroll-margin-top: 24px;
+}
+.promo-heading {
+  margin-bottom: 24px;
+}
+.promo-heading .eyebrow {
+  margin-bottom: 12px;
+}
+.promo-heading > p:last-child {
+  margin-top: 14px;
+  color: var(--muted);
+}
+.promo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 11px;
+  background: #0b241f;
+}
+.promo-film figcaption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px 20px;
+  padding-block: 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.promo-extras {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 24px;
+  padding-top: 8px;
+}
+.promo-extras summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding-block: 10px;
+}
+.promo-short video {
+  max-width: 360px;
+  margin: 18px auto 0;
+}
+.promo-transcript p {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.promo-transcript strong {
+  color: var(--ink);
 }
 .product-preview {
   padding: 15px 15px 0;
@@ -523,6 +579,7 @@ code {
     font-size: 11px;
     padding: 9px 3px;
   }
+  .promo-extras,
   .cards,
   .report-example,
   .operations {
@@ -534,6 +591,12 @@ code {
   }
   .section {
     padding-block: 42px;
+  }
+  .promo {
+    padding-block: 16px 36px;
+  }
+  .promo-extras {
+    gap: 4px;
   }
   .connections,
   .closing {
