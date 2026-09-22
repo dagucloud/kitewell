@@ -9,7 +9,8 @@ devices, teammates, or organization.
 documentation, support issues, and public release materials. Runstead's
 application source is private; this is not an application build checkout.
 
-- Website: https://runstead.dev
+- Live preview: https://runstead-ekj.pages.dev
+- Product domain: https://runstead.dev (DNS connection pending)
 - Documentation: https://runstead.dev/docs/
 - Downloads: https://runstead.dev/download/
 - Support: https://github.com/dagucloud/runstead/issues
@@ -53,9 +54,13 @@ Connect only this public repository to Cloudflare Pages:
 | Build command | `npm run check && npm test && npm run build` |
 | Output directory | `dist` |
 
-Add `runstead.dev` and `www.runstead.dev` as custom domains through Pages.
-The existing Cloudflare zone hosts DNS. The website redirects `www` to the
-canonical apex. `_headers` marks Pages previews as noindex and disables caching
+Pages project: `runstead` at https://runstead-ekj.pages.dev. Builds and
+deployments are connected to this repository.
+
+Add `runstead.dev` and `www.runstead.dev` as custom domains through Pages after
+connecting the domain’s DNS zone to the Cloudflare account. The current account
+does not contain that zone, so the custom-domain setup is pending. The website
+redirects `www` to the canonical apex. `_headers` marks Pages previews as noindex and disables caching
 of the update feed. Site changes deploy from `main`; pull requests receive
 Cloudflare preview deployments. No Cloudflare token is stored in this repo.
 
