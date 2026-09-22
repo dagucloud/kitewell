@@ -8,9 +8,9 @@ devices, teammates, or organization.
 **Public beta coming soon.** This repository contains the website,
 documentation, support issues, and public releases.
 
-- Website preview: https://runstead-5tx.pages.dev
-- Documentation: https://runstead-5tx.pages.dev/docs/
-- Downloads: https://runstead-5tx.pages.dev/download/
+- Website: https://runstead.dev
+- Documentation: https://runstead.dev/docs/
+- Downloads: https://runstead.dev/download/
 - Releases: https://github.com/dagucloud/runstead/releases
 - Support: https://github.com/dagucloud/runstead/issues
 
