@@ -1,0 +1,114 @@
+---
+title: Build a workflow
+---
+
+Build a workflow by choosing what each task should do, then connecting the
+steps. Commands, Docker images, AI agents, remote servers, and human decisions
+can share one workflow. The graph shows the order; selecting a step opens its
+settings beside it.
+
+## Start with the flow
+
+Choose **Create a job**, name it, and pick a first task. In **Build**, use the
+**+** control to add another task. **Continue the flow after** inserts it before
+the next steps; those steps wait for it. **Add a branch after** creates another
+path, while **Start independently** adds work that does not wait for that step.
+
+A useful example is:
+
+**Prepare a report in Docker → Ask an AI agent to review it → Ask a person →
+Run a command on a server group.**
+
+This is an example you configure with your own images, agents, and servers.
+Start with a manual run, check each result, then add a schedule.
+
+## Run a Docker image
+
+Start Docker on your device. In the task picker, choose **Run in Docker**.
+
+1. Choose an **Image**, including its tag. Search the image suggestions or use
+   **Browse images**. **Inspect** reads the image's ports, folder, and variables
+   to help configure the step.
+2. Enter the command to run inside it. Use **Shell script** for multiple lines,
+   pipes, or shell variables; that image must include `/bin/sh`.
+3. Expand the options you need: working folder, mounts, environment, published
+   ports, or network. Files created inside a container need a mount if you want
+   them to remain available outside it.
+4. Use **Check Docker** to check the connection. **Run this step** executes the
+   configured image and command, so review its mounts and effects first.
+
+Runstead does not install or start Docker. Containers are removed after a run
+unless **Keep container after run** is enabled. Your mounted files and Docker
+volumes need their own backups.
+
+## Ask an AI agent or model
+
+Set up a named agent or model under **Agents & models**, then add it to the
+workflow:
+
+- **Ask an AI agent** runs an installed command-line agent. Select the agent,
+  write its prompt, and use **Agent settings and context** to set its project
+  folder and optional context.
+- **Ask a model** sends a prompt directly to a configured API model. Select the
+  model and describe the answer you need.
+
+Save a result as a variable when a later step needs it. Type `${` in a supported
+field to select workflow inputs, secrets, or results from earlier steps. Make
+sure a step that uses a result waits for the step producing it.
+
+**Tools → Review AI prompts** shows the authored instructions before execution.
+Runtime values are filled in when the workflow runs. See
+[AI agents and models](/docs/ai/) for credentials, permissions, and provider
+requirements.
+
+## Pause for a person
+
+Choose **Ask a person** to add instructions and, optionally, a form. A task can
+ask for acknowledgement or collect values such as a choice, comment, or number.
+The run waits until someone completes it.
+
+To review an automatic step's result, open that step's **Approval** section and
+enable **Pause for approval after this step runs**. Enter the question and any
+values to collect. **Sending back re-runs** selects the step to repeat if the
+reviewer requests changes.
+
+An approval gate pauses **after** its step has executed. To require permission
+before a remote command or other action, put an **Ask a person** task before
+that action, or attach approval to an earlier preparation step.
+
+Find paused runs under **Runs & logs → Waiting**, then open **Waiting for you**.
+A human task offers **Complete task**. An approval gate offers **Approve**,
+**Send back**, or **Reject run**. Sending back repeats the selected step and
+following work; rejecting ends the run.
+
+## Run commands on servers or groups
+
+Open **Servers** in the project's sidebar. Add each server's address, username,
+and authentication details. Store passwords in [Secrets](/docs/secrets/) or use
+a local private key. Check and approve the host fingerprint through **Test
+connection** when using the default approved-key verification.
+
+Create a group to give several servers one target. Put them in the required
+order, choose how many may run at once, and choose whether a failure stops the
+rollout or lets it continue.
+
+In the workflow, add **Run on another machine**. Select the server or group in
+**Where it runs**, then enter the remote command. A group produces a separate
+step for each machine, so its result appears separately in **Runs & logs**.
+
+To send all command and script steps to the same target, use the workflow's
+**Settings → Where it runs**. A group at this level runs the workflow on each
+machine in turn, with a separate run per machine. Docker, AI, HTTP, and
+sub-workflow steps still execute from the device running Runstead; this setting
+does not move the entire engine to a server.
+
+## Check, run, and schedule
+
+Use **Tools → Check workflow** to validate the draft. **Review & run** brings
+together the schedule, inputs, and task details. **Save and run…** saves it and
+opens the input form; **Start run** begins execution.
+
+Open **Runs & logs** and select a step to inspect its output. Once the manual
+run works, configure **Schedule** and enable saved schedules. See
+[Schedules and background operation](/docs/scheduling/) for device availability
+and missed runs.

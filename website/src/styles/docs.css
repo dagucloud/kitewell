@@ -1,0 +1,22 @@
+:root {
+  --sl-color-accent-low: #193d32;
+  --sl-color-accent: #90ac74;
+  --sl-color-accent-high: #c8dcc1;
+  --sl-font: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+:root[data-theme="light"] {
+  --sl-color-bg: #f8f8f3;
+  --sl-color-bg-nav: #f8f8f3;
+  --sl-color-accent-high: #183e35;
+  --sl-color-accent: #426147;
+  --sl-color-accent-low: #eaf0df;
+}
+.site-title {
+  font-weight: 650;
+  letter-spacing: -0.04em;
+}
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.035em;
+  font-weight: 400;
+}

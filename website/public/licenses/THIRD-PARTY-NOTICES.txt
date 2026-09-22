@@ -1,0 +1,24 @@
+Runstead includes Dagu, the workflow engine by the Dagu contributors.
+Dagu is distributed under the GNU General Public License, version 3.
+The full license is included in DAGU-LICENSE.txt.
+
+Pinned engine release: Dagu 2.17.0
+Upstream source: https://github.com/dagucloud/dagu/tree/v2.17.0
+Release: https://github.com/dagucloud/dagu/releases/tag/v2.17.0
+
+Runstead's interface and background manager are separate executables that
+communicate with Dagu through its command-line and HTTP interfaces.
+
+The MCP DAG viewer bundles the official MCP Apps SDK and its dependencies.
+Their license notices are included in MCP-LICENSES.txt.
+Source: https://github.com/modelcontextprotocol/ext-apps
+
+Go dependency notices, including the MCP Go SDK and YAML parser, are included
+in GO-LICENSES.txt. Versions are pinned in go.mod and go.sum.
+
+The bundled DAG editor includes syntax and schema editing libraries.
+Their notices are included in DAG-EDITOR-LICENSES.txt.
+
+The artifact viewer bundles a Markdown parser and an HTML sanitizer so that
+reports written by workflows render without reaching the network.
+Their notices are included in MARKDOWN-LICENSES.txt.

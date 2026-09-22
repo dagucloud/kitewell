@@ -1,0 +1,63 @@
+---
+import Site from "../layouts/Site.astro";
+---
+
+<Site
+  title="Third-party notices"
+  description="Open-source components included in Runstead, their licenses, and source references."
+>
+  <section class="page wrap">
+    <p class="eyebrow">Built with open-source software</p>
+    <h1>Third-party notices.</h1>
+    <div class="prose">
+      <p>
+        Runstead includes Dagu as its workflow engine, alongside open-source
+        libraries. Runstead's application source is private. Each included
+        component retains its own license.
+      </p>
+      <h2>Dagu</h2>
+      <p>
+        The currently bundled engine is Dagu 2.17.0, distributed under the GNU
+        General Public License, version 3.
+      </p>
+      <ul>
+        <li>
+          <a href="https://github.com/dagucloud/dagu/tree/v2.17.0">
+            Version-matched upstream source
+          </a>
+        </li>
+        <li>
+          <a href="/licenses/DAGU-LICENSE.txt">Dagu license</a>
+        </li>
+        <li>
+          <a href="/licenses/THIRD-PARTY-NOTICES.txt">
+            Component notices and source references
+          </a>
+        </li>
+      </ul>
+      <p>
+        Published installers will be accompanied by the applicable source
+        materials in their GitHub Release assets.
+      </p>
+      <h2>Library notices</h2>
+      <ul>
+        <li>
+          <a href="/licenses/GO-LICENSES.txt">Go dependencies</a>
+        </li>
+        <li>
+          <a href="/licenses/MCP-LICENSES.txt">MCP viewer dependencies</a>
+        </li>
+        <li>
+          <a href="/licenses/DAG-EDITOR-LICENSES.txt">
+            Workflow editor dependencies
+          </a>
+        </li>
+        <li>
+          <a href="/licenses/MARKDOWN-LICENSES.txt">
+            Markdown viewer dependencies
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</Site>

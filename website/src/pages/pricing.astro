@@ -1,0 +1,58 @@
+---
+import Site from "../layouts/Site.astro";
+---
+
+<Site
+  title="Pricing"
+  description="Planned Runstead launch pricing: one project free, or up to ten projects with Runstead Pro for $15 per month."
+>
+  <section class="page wrap">
+    <p class="eyebrow">Planned launch pricing</p>
+    <h1>Start with one project.</h1>
+    <p class="lead">
+      The same workflow tools on both plans. Choose how many projects you need
+      on your machine.
+    </p>
+    <div class="cards">
+      <article class="card">
+        <h2>Free</h2>
+        <div class="price">$0</div>
+        <ul>
+          <li>One project</li>
+          <li>Visual workflows and YAML</li>
+          <li>Schedules, history, and notifications</li>
+          <li>AI tasks, MCP, and API access</li>
+          <li>No Runstead account required</li>
+        </ul>
+        <a class="button secondary" href="/docs/">
+          Explore Runstead
+        </a>
+      </article>
+      <article class="card pro">
+        <h2>Pro</h2>
+        <div class="price">
+          $15 <span>/ month · USD</span>
+        </div>
+        <ul>
+          <li>Up to ten projects</li>
+          <li>Every feature in Free</li>
+          <li>Separate workflows, logs, and secrets per project</li>
+          <li>Subscription managed through Dagu Cloud</li>
+          <li>Existing projects keep running if Pro lapses</li>
+        </ul>
+        <p class="fine">Purchase will be available with the public launch.</p>
+      </article>
+    </div>
+    <div class="prose">
+      <h2>Bring your own tools</h2>
+      <p>
+        AI provider usage, third-party subscriptions, and infrastructure costs
+        are separate. Runstead does not include AI credits or a hosted computer
+        to run your workflows.
+      </p>
+      <p>
+        <a href="/docs/ai/">Learn how AI tasks connect →</a>
+      </p>
+    </div>
+  </section>
+</Site>

@@ -1,0 +1,86 @@
+---
+import Site from "../layouts/Site.astro";
+import { readManifest } from "../lib/releases.mjs";
+const release = await readManifest();
+const architectures = [
+  ["arm64", "Apple Silicon", "For Macs with Apple M-series chips."],
+  ["amd64", "Intel", "For Macs with Intel processors."],
+];
+---
+
+<Site
+  title="Download Runstead"
+  description="Runstead for macOS 13 and later. Apple Silicon and Intel installers, installation instructions, and release status."
+>
+  <section class="page wrap">
+    <p class="eyebrow">Runstead for Mac</p>
+    <h1>
+      {release
+        ? `Download Runstead ${release.version}`
+        : "Your workflows. Coming soon."}
+    </h1>
+    <p class="lead">
+      {release
+        ? "The public beta is ready to download. Choose the installer for your Mac."
+        : "The first public beta is being prepared. Explore the docs while signed Mac installers are being verified."}
+    </p>
+    {release ? (
+      <div class="cards">
+        {architectures.map(([arch, title, description]) => (
+          <article class="card">
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <a class="button" href={release.downloads[`darwin-${arch}`].url}>
+              Download .pkg
+            </a>
+            <p class="checksum">
+              SHA256
+              <br />
+              <code>{release.downloads[`darwin-${arch}`].sha256}</code>
+            </p>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="notice">
+        <h3>Public beta coming soon</h3>
+        <p>
+          There are no public installers yet.{" "}
+          <a href="https://github.com/dagucloud/runstead">
+            Watch the GitHub repository
+          </a>{" "}
+          for releases.
+        </p>
+      </div>
+    )}
+    <div class="prose">
+      <h2>Before installing</h2>
+      <ul>
+        <li>
+          macOS 13 or later. To check your chip, open Apple menu → About This
+          Mac.
+        </li>
+        <li>
+          The package installs into Applications and requires an administrator
+          password.
+        </li>
+        <li>
+          Python, Docker, AI command-line agents, and other tools are needed
+          only for workflows that use them.
+        </li>
+        <li>
+          When updating, save edits and let running jobs finish. Installation
+          restarts Runstead.
+        </li>
+      </ul>
+      <p>
+        <a href="/docs/install/">Read installation instructions →</a>
+      </p>
+    </div>
+    <div class="platforms">
+      <span>macOS · {release ? "Public beta" : "Coming soon"}</span>
+      <span>Linux · Planned</span>
+      <span>Windows · Planned</span>
+    </div>
+  </section>
+</Site>

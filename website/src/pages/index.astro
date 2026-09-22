@@ -1,0 +1,290 @@
+---
+import Site from "../layouts/Site.astro";
+import { readManifest } from "../lib/releases.mjs";
+const release = await readManifest();
+---
+
+<Site title="A home for your workflows">
+  <div class="wrap">
+    <section class="hero">
+      <p class="eyebrow dot">
+        {release
+          ? `Public beta · ${release.version}`
+          : "Visual workflow builder · Public beta coming soon"}
+      </p>
+      <h1>
+        Your workflows.
+        <br />
+        <em>Every step, in view.</em>
+      </h1>
+      <p class="lead">
+        Connect Docker containers, server groups, AI agents, and human
+        approvals. Build visually on your machine, then share the workflow with
+        your team.
+      </p>
+      <div class="actions">
+        <a
+          class="button"
+          href={release ? "/download/" : "/docs/workflow-builder/"}
+        >
+          {release ? "Download for Mac" : "Explore the workflow builder"}{" "}
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a class="button secondary" href="/docs/">
+          Explore the docs
+        </a>
+      </div>
+    </section>
+    <section class="builder-demo" aria-labelledby="builder-example-title">
+      <div class="canvas-header">
+        <div>
+          <span class="eyebrow">An example workflow</span>
+          <h2 id="builder-example-title">
+            From a container to a reviewed rollout.
+          </h2>
+        </div>
+        <span class="canvas-label">Build it step by step</span>
+      </div>
+      <ol class="flow-steps">
+        <li>
+          <span class="step-kind">Docker</span>
+          <h3>Run checks</h3>
+          <p>
+            Choose an image.
+            <br />
+            Set the command.
+          </p>
+          <span class="step-detail">01 · Container task</span>
+        </li>
+        <li>
+          <span class="step-kind">AI agent</span>
+          <h3>Review the output</h3>
+          <p>
+            Give an agent the context
+            <br />
+            and a clear task.
+          </p>
+          <span class="step-detail">02 · Agent task</span>
+        </li>
+        <li class="human-step">
+          <span class="step-kind">Human approval</span>
+          <h3>Make the call</h3>
+          <p>
+            Approve, send back,
+            <br />
+            or reject the result.
+          </p>
+          <span class="step-detail">03 · Approval gate</span>
+        </li>
+        <li>
+          <span class="step-kind">Server group</span>
+          <h3>Roll out remotely</h3>
+          <p>
+            Run commands over SSH
+            <br />
+            across your servers.
+          </p>
+          <span class="step-detail">04 · Remote command</span>
+        </li>
+      </ol>
+      <p class="canvas-caption">
+        Illustrative flow. Configure your own images, agents, credentials, and
+        server targets.{" "}
+        <a href="/docs/workflow-builder/">See how the builder works →</a>
+      </p>
+    </section>
+    <div class="under-shot">
+      <span>Workflow definitions and logs, stored locally.</span>
+      <span>Powered by the Dagu workflow engine.</span>
+    </div>
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Different tools. One workflow.</p>
+          <h2>
+            Build the steps.
+            <br />
+            Connect the work.
+          </h2>
+        </div>
+        <p>
+          Add a step, choose how it runs, and connect what comes next. Configure
+          the workflow visually, with YAML available when you need it.
+        </p>
+      </div>
+      <div class="features builder-features">
+        <article class="feature">
+          <div class="number">01 / Containers</div>
+          <h3>Start from a Docker image.</h3>
+          <p>
+            Choose an image, set the command, and configure the container's
+            environment and mounts. Bring private registry credentials when you
+            need them.
+          </p>
+          <a class="release-link" href="/docs/workflow-builder/">
+            Build a container task →
+          </a>
+        </article>
+        <article class="feature">
+          <div class="number">02 / Remote commands</div>
+          <h3>Reach a whole server group.</h3>
+          <p>
+            Define SSH machines once, arrange them into rollout groups, and
+            choose how many run at once and what happens when a machine fails.
+          </p>
+          <a class="release-link" href="/docs/workflow-builder/">
+            Connect your servers →
+          </a>
+        </article>
+        <article class="feature">
+          <div class="number">03 / AI agents</div>
+          <h3>Give your agent a clear step.</h3>
+          <p>
+            Use a command-line agent or an API model alongside ordinary tasks.
+            Set the prompt, provide context, and inspect the result as part of
+            the run.
+          </p>
+          <a class="release-link" href="/docs/ai/">
+            Add an AI task →
+          </a>
+        </article>
+        <article class="feature">
+          <div class="number">04 / Human in the loop</div>
+          <h3>Leave room for a decision.</h3>
+          <p>
+            Collect input with a human task or attach an approval gate to a
+            step. Review the output, approve it, send it back, or reject it
+            before work continues.
+          </p>
+          <a class="release-link" href="/docs/workflow-builder/">
+            Add a human checkpoint →
+          </a>
+        </article>
+      </div>
+    </section>
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Your devices. Your team. Your organization.</p>
+        <h2>
+          Build once.
+          <br />
+          Bring your team along.
+        </h2>
+        <p>
+          Move a project between your devices or share it with teammates across
+          your organization. Workflow definitions and reusable configuration
+          travel together. Each device supplies its own credentials and chooses
+          what runs.
+        </p>
+        <a class="release-link" href="/docs/sharing/">
+          Share a workflow with your team →
+        </a>
+      </div>
+      <ul class="detail-list">
+        <li>
+          <h3>Take the project to another device</h3>
+          <p>
+            Export a project and import it on another Runstead installation.
+            Bring its workflows, agents, server groups, and defaults together.
+          </p>
+        </li>
+        <li>
+          <h3>Give teammates a shared starting point</h3>
+          <p>
+            Hand over a repeatable workflow instead of a set of instructions.
+            Imported schedules start paused, so each person decides when to run
+            them.
+          </p>
+        </li>
+        <li>
+          <h3>Connect to a shared Runstead host</h3>
+          <p>
+            Let team members use MCP or REST clients with separate API keys and
+            role permissions. Configure the network access for your environment.
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">From building to running</p>
+          <h2>
+            Make it repeatable.
+            <br />
+            Keep it understandable.
+          </h2>
+        </div>
+        <p>
+          Run on demand or set a schedule. Follow each step, inspect its output,
+          and find what needs attention. Add inputs, retries, and notifications
+          as the workflow grows.
+        </p>
+      </div>
+      <figure class="showcase">
+        <img
+          src="/images/workflows.png"
+          alt="Development preview of Runstead showing scheduled jobs and recent runs"
+          width="1090"
+          height="768"
+          loading="lazy"
+        />
+        <figcaption>
+          Development preview of the overview screen. The interface may change
+          before launch.
+        </figcaption>
+      </figure>
+    </section>
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Your machine. Your workspace.</p>
+        <h2>
+          Keep your work
+          <br />
+          close to home.
+        </h2>
+        <p>
+          Runstead hosts the workflow engine on your machine. Your workflow
+          definitions, execution logs, and backups are stored locally. Tasks and
+          connected clients can send data to the services you choose.
+        </p>
+        <a class="release-link" href="/docs/scheduling/">
+          Understand background operation →
+        </a>
+      </div>
+      <ul class="detail-list">
+        <li>
+          <h3>Keep working in the background</h3>
+          <p>
+            Keep Runstead running while you work. On macOS, closing the window
+            leaves it in the menu bar. Scheduled work needs an awake machine
+            with your user signed in.
+          </p>
+        </li>
+        <li>
+          <h3>Connect on your terms</h3>
+          <p>
+            Use scoped API keys for MCP and REST access. Remote access requires
+            your own secure network setup.
+          </p>
+        </li>
+        <li>
+          <h3>Start without an account</h3>
+          <p>
+            The free plan holds one project. A Dagu Cloud account is only needed
+            for Pro.
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section class="closing">
+      <div>
+        <p class="eyebrow">Start small. Make it useful.</p>
+        <h2>One workflow is a good start.</h2>
+      </div>
+      <a class="button" href="/docs/getting-started/">
+        Read the getting-started guide <span aria-hidden="true">↗</span>
+      </a>
+    </section>
+  </div>
+</Site>
