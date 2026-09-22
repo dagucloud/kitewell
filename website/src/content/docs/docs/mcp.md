@@ -20,6 +20,16 @@ projects first, then pass the selected `projectId` with project-specific MCP
 calls or REST requests. A device with one project can omit the ID; requests
 must name a project when several exist.
 
+## Work with imported APIs
+
+MCP clients with edit access can import an OpenAPI spec, save an API connection,
+and build workflows from its operations. Clients can inspect the imported
+request and response schemas to choose inputs and use results in later steps.
+Running the workflow requires run or edit access and appears in its run history.
+
+Connections use project secret references. See [Import an API](/docs/apis/) for
+supported specs, authentication, and explicit updates.
+
 ## Permissions
 
 Start with the least access that supports the task. Read access inspects

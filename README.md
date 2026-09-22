@@ -1,8 +1,12 @@
 # Runstead
 
 Build and run workflows on your own machine. Runstead is a desktop app for
-connecting scripts, containers, and AI agents in a visual editor. Schedule
+connecting scripts, APIs, containers, and AI agents in a visual editor. Schedule
 runs and inspect the output of each step.
+
+Import an OpenAPI spec, choose an operation, and fill in its request fields.
+Pass response values to later workflow steps and reuse the connection across
+workflows in the project.
 
 Export a project to use it on another device, or enable API access on a
 shared host. Each device needs its own tools and credentials.

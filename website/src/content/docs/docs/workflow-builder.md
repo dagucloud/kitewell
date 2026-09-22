@@ -103,6 +103,17 @@ In **Build**, use **+** to add another task. **Continue the flow after** inserts
 it before the next steps; those steps wait for it. **Add a branch after** creates
 another path. **Start independently** adds work that does not wait for that step.
 
+## Use an imported API
+
+[Import an OpenAPI spec into the API library](/docs/apis/), then add
+**Use an API action** to your workflow. Choose the connected API and an
+operation. Runstead builds the request fields from the spec, including required
+parameters and the request body.
+
+In a later step, open **Variables** and choose a response field from the API
+step. Runstead saves the value and connects the steps so the request finishes
+before its result is used.
+
 ## Run a Docker image
 
 Start Docker on your device. In the task picker, choose **Run in Docker**.

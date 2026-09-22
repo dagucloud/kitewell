@@ -3,7 +3,9 @@ title: Runstead documentation
 ---
 
 Runstead runs workflows on your own machine. Combine scripts, AI agents, containers,
-and web requests; schedule the result; inspect each run in one interface.
+and API calls; schedule the result; inspect each run in one interface.
+[Import an OpenAPI spec](/docs/apis/) to choose API operations and fill in
+request forms generated from the spec.
 Share a project across your devices or team, with each device supplying its own
 credentials and choosing which workflows to run.
 

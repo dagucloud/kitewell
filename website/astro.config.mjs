@@ -37,6 +37,7 @@ export default defineConfig({
         {
           label: "Connect and automate",
           items: [
+            { label: "Import an API", slug: "docs/apis" },
             { label: "AI agents and models", slug: "docs/ai" },
             { label: "MCP and API access", slug: "docs/mcp" },
             { label: "Share workflows with your team", slug: "docs/sharing" },
