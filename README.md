@@ -45,19 +45,3 @@ The website uses Astro for marketing pages and Starlight for documentation.
 Docs are Markdown under `website/src/content/docs/docs/`; the nested `docs`
 segment preserves the public `/docs/` route. Published Markdown notes live in
 `releases/`. The build checks internal links, including documentation anchors.
-
-## Deployment
-
-The existing Cloudflare Pages project `runstead` serves `kitewell.app` and
-`www.kitewell.app`. Its name is an internal project identity; the repository
-rename does not require a new Worker or Wrangler configuration. Manage the Git
-source and build settings in the Pages dashboard:
-
-| Setting | Value |
-| --- | --- |
-| Target GitHub repository | `dagucloud/kitewell` |
-| Production branch | `main` |
-| Root directory | `website` |
-| Build command | `npm run check && npm test && npm run build` |
-| Build output directory | `dist` |
-| Node version | 24, specified in `website/.node-version` |
