@@ -1,4 +1,4 @@
-Libraries bundled in the Runstead DAG editor and language worker.
+Libraries bundled in the Kitewell DAG editor and language worker.
 
 --- @codemirror/autocomplete 6.20.3 ---
 

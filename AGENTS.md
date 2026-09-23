@@ -1,4 +1,4 @@
-# Runstead public repository
+# Kitewell public repository
 
 - Website, customer documentation, and release materials only. Application source stays private.
 - Work in this checkout. Commit and push incremental changes on main.

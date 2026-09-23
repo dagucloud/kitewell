@@ -8,7 +8,7 @@ interface Props {
 }
 const {
   title,
-  description = "Runstead is a desktop workflow builder for scripts, APIs, containers, and AI agents. Schedule runs and inspect each step's output on your own machine.",
+  description = "Kitewell is a desktop workflow builder for scripts, APIs, containers, and AI agents. Schedule runs and inspect each step's output on your own machine.",
 } = Astro.props;
 const release = await readManifest();
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -25,15 +25,15 @@ const links = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} — Runstead</title>
+    <title>{title} — Kitewell</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${title} — Runstead`} />
+    <meta property="og:title" content={`${title} — Kitewell`} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="https://runstead.dev/social.png" />
+    <meta property="og:image" content="https://kitewell.app/social.png" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
@@ -41,11 +41,9 @@ const links = [
       Skip to content
     </a>
     <header class="header wrap">
-      <a class="brand" href="/" aria-label="Runstead home">
-        <span class="brand-mark" aria-hidden="true">
-          r.
-        </span>
-        runstead
+      <a class="brand" href="/" aria-label="Kitewell home">
+        <img class="brand-mark" src="/favicon.svg" alt="" width="36" height="36" />
+        kitewell
       </a>
       <nav aria-label="Main navigation">
         {links.map(([href, label]) => (
@@ -60,7 +58,7 @@ const links = [
         ))}
       </nav>
       <a class="button small" href="/download/">
-        {release ? "Download Runstead" : "Beta status"}
+        {release ? "Download Kitewell" : "Beta status"}
         <span aria-hidden="true">↗</span>
       </a>
     </header>
@@ -70,10 +68,8 @@ const links = [
     <footer class="footer wrap">
       <div>
         <a class="brand" href="/">
-          <span class="brand-mark" aria-hidden="true">
-            r.
-          </span>
-          runstead
+          <img class="brand-mark" src="/favicon.svg" alt="" width="36" height="36" />
+          kitewell
         </a>
         <p>Build and run workflows locally.</p>
       </div>
@@ -84,7 +80,7 @@ const links = [
         <a href="/support/">Support</a>
         <Analytics />
       </div>
-      <p class="fine">© {new Date().getFullYear()} Runstead. Public preview.</p>
+      <p class="fine">© {new Date().getFullYear()} Kitewell. Public preview.</p>
     </footer>
   </body>
 </html>

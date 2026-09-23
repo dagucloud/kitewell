@@ -2,7 +2,7 @@
 title: Updates
 ---
 
-Runstead has two separate update flows: the application and its Dagu engine.
+Kitewell has two separate update flows: the application and its Dagu engine.
 
 ## Update the application
 
@@ -11,9 +11,9 @@ update is available, **Download and Install** downloads the matching installer,
 checks its SHA256 checksum, and opens macOS Installer.
 
 Save edits and let jobs finish before installing. Installation restarts
-Runstead and its service. Back up important workspace data first.
+Kitewell and its service. Back up important workspace data first.
 
-Public macOS builds use `https://runstead.dev/updates/macos/latest.json`. Until the
+Public macOS builds use `https://kitewell.app/updates/macos/latest.json`. Until the
 first public release, that feed is not available. An unavailable feed is an
 update-check failure, not proof that the installed app is current.
 
@@ -21,7 +21,7 @@ update-check failure, not proof that the installed app is current.
 
 Dagu updates are managed separately in device settings. Manual and scheduled
 engine updates support verification, backup, and rollback. Updating Dagu does
-not replace the Runstead application.
+not replace the Kitewell application.
 
 ## Recover from a problem
 

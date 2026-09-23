@@ -23,7 +23,7 @@ for (const file of htmlFiles) {
     if (/^(?:https?:|mailto:|data:|javascript:|\/\/)/.test(value)) continue;
     const url = new URL(
       value.replaceAll("&amp;", "&"),
-      "https://runstead.dev" + route,
+      "https://kitewell.app" + route,
     );
     let target = path.join(root, decodeURIComponent(url.pathname));
     try {

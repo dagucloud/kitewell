@@ -3,11 +3,11 @@ import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://runstead.dev",
+  site: "https://kitewell.app",
   trailingSlash: "always",
   integrations: [
     starlight({
-      title: "Runstead",
+      title: "Kitewell",
       description: "Run workflows and AI agents on your own machine.",
       favicon: "/favicon.svg",
       disable404Route: true,
@@ -25,7 +25,7 @@ export default defineConfig({
           label: "Get started",
           items: [
             { label: "Introduction", slug: "docs" },
-            { label: "Install Runstead", slug: "docs/install" },
+            { label: "Install Kitewell", slug: "docs/install" },
             { label: "Your first workflow", slug: "docs/getting-started" },
             { label: "Build a workflow", slug: "docs/workflow-builder" },
             {

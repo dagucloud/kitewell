@@ -7,13 +7,13 @@ service or require an AI account.
 
 ## Create a job
 
-1. Open Runstead and choose the project in the sidebar.
+1. Open Kitewell and choose the project in the sidebar.
 2. Choose **Create a job** and name it **Morning check-in**.
 3. Pick **Command or script** for its first task.
 4. Enter this command:
 
 ```sh
-printf 'Runstead is ready.\n'
+printf 'Kitewell is ready.\n'
 ```
 
 The graph shows how tasks connect. Select a task to edit its fields in the
@@ -32,7 +32,7 @@ installed engine.
 
 Return to the workflow, open **Schedule**, choose a daily time and timezone,
 and save. Confirm **Enable saved schedules** is enabled. Keep the computer awake
-and Runstead running for the scheduled time.
+and Kitewell running for the scheduled time.
 
 See [Scheduling](/docs/scheduling/) before relying on unattended runs.
 

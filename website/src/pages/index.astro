@@ -6,7 +6,7 @@ const release = await readManifest();
 
 <Site
   title="Build and run workflows on your own machine"
-  description="Connect scripts, APIs, containers, and AI agents in Runstead's visual editor. Schedule workflows and inspect the output of each step."
+  description="Connect scripts, APIs, containers, and AI agents in Kitewell's visual editor. Schedule workflows and inspect the output of each step."
 >
   <div class="wrap home">
     <section class="hero" aria-labelledby="hero-title">
@@ -22,7 +22,7 @@ const release = await readManifest();
       </p>
       <div class="actions">
         <a class="button" href={release ? "/download/" : "#film"}>
-          {release ? "Download Runstead" : "Watch the film"}
+          {release ? "Download Kitewell" : "Watch the film"}
           <span aria-hidden="true">{release ? "↗" : "↓"}</span>
         </a>
         <a class="text-link" href="/docs/getting-started/">
@@ -34,7 +34,7 @@ const release = await readManifest();
 
     <section class="promo" id="film" aria-labelledby="film-title">
       <div class="promo-heading">
-        <p class="eyebrow">Meet Runstead</p>
+        <p class="eyebrow">Meet Kitewell</p>
         <h2 id="film-title">Serious workflows. Seriously simple.</h2>
         <p>Build visually. Run on your terms. With or without code.</p>
       </div>
@@ -43,14 +43,14 @@ const release = await readManifest();
           controls
           playsinline
           preload="none"
-          poster="/videos/runstead-film.webp"
+          poster="/videos/kitewell-film.webp"
           width="1920"
           height="1080"
-          aria-label="Runstead product film, 60 seconds"
+          aria-label="Kitewell product film, 60 seconds"
           aria-describedby="film-caption"
         >
-          <source src="/videos/runstead-film-v2.mp4" type="video/mp4" />
-          <p><a href="/videos/runstead-film-v2.mp4">Watch the Runstead film.</a></p>
+          <source src="/videos/kitewell-film.mp4" type="video/mp4" />
+          <p><a href="/videos/kitewell-film.mp4">Watch the Kitewell film.</a></p>
         </video>
         <figcaption id="film-caption">
           <span>60 seconds · Original music · Sound on</span>
@@ -64,13 +64,13 @@ const release = await readManifest();
             controls
             playsinline
             preload="none"
-            poster="/videos/runstead-social.webp"
+            poster="/videos/kitewell-social.webp"
             width="1080"
             height="1920"
-            aria-label="Runstead short film, 30 seconds, portrait"
+            aria-label="Kitewell short film, 30 seconds, portrait"
           >
-            <source src="/videos/runstead-social.mp4" type="video/mp4" />
-            <p><a href="/videos/runstead-social.mp4">Watch the short film.</a></p>
+            <source src="/videos/kitewell-social.mp4" type="video/mp4" />
+            <p><a href="/videos/kitewell-social.mp4">Watch the short film.</a></p>
           </video>
         </details>
         <details class="promo-transcript">
@@ -78,7 +78,7 @@ const release = await readManifest();
           <div>
             <p>
               <strong>Serious workflows. Seriously simple.</strong> For builders,
-              with or without code. Runstead: build visually, run on your terms.
+              with or without code. Kitewell: build visually, run on your terms.
               Instrumental electronic music plays throughout; there is no narration.
             </p>
             <p>
@@ -104,15 +104,15 @@ const release = await readManifest();
             <p>
               <strong>Or simply ask.</strong> A chat agent connected through MCP
               receives the request “Build a daily feedback workflow. Flag urgent
-              issues for review.” Runstead creates, validates, and schedules the
+              issues for review.” Kitewell creates, validates, and schedules the
               workflow for review. Build, run, inspect, and fix workflows from
               the conversation.
             </p>
             <p>
               <strong>Easy to build. Yours to run.</strong> For the team that
               imagines it and the people who make it happen. The short film ends
-              with “Runs on your Mac. Shared with your team.” Explore Runstead at
-              runstead.dev.
+              with “Runs on your Mac. Shared with your team.” Explore Kitewell at
+              kitewell.app.
             </p>
           </div>
         </details>
@@ -126,7 +126,7 @@ const release = await readManifest();
       >
         <img
           src="/images/workflow-builder.jpg"
-          alt="Runstead workflow editor with a daily report workflow and the selected step's settings"
+          alt="Kitewell workflow editor with a daily report workflow and the selected step's settings"
           width="1869"
           height="1012"
           fetchpriority="high"
@@ -178,7 +178,7 @@ const release = await readManifest();
         >
           <img
             src="/images/workflow-run.jpg"
-            alt="Completed daily report workflow in Runstead with the report visible in the selected step's output"
+            alt="Completed daily report workflow in Kitewell with the report visible in the selected step's output"
             width="1345"
             height="886"
             loading="lazy"
@@ -194,7 +194,7 @@ const release = await readManifest();
       <article>
         <h2 id="api-title">Use API operations as workflow steps.</h2>
         <p>
-          Import an OpenAPI spec and choose an operation by name. Runstead
+          Import an OpenAPI spec and choose an operation by name. Kitewell
           builds its request form from the spec. Reuse the connection across
           workflows in the project.
         </p>
@@ -221,7 +221,7 @@ const release = await readManifest();
         <h2>Schedule a workflow.</h2>
         <p>
           Run on demand, daily, on weekdays, or on a custom schedule. On macOS,
-          Runstead keeps working from the menu bar when you close its window.
+          Kitewell keeps working from the menu bar when you close its window.
           Scheduled runs need an awake machine with your user signed in.
         </p>
         <a class="text-link" href="/docs/scheduling/">How schedules work →</a>
@@ -242,7 +242,7 @@ const release = await readManifest();
     <aside class="connections" aria-label="Sharing and integrations">
       <p>
         <strong>Share a project.</strong> Export a project and import it on
-        another device. Connect clients to a running Runstead host through
+        another device. Connect clients to a running Kitewell host through
         MCP or REST, using API keys.
       </p>
       <div>
@@ -256,14 +256,14 @@ const release = await readManifest();
         <p class="eyebrow">Planned launch pricing</p>
         <h2 id="pricing-title">Free for one project.</h2>
         <p>
-          No Runstead account required. Pro supports up to ten projects for
+          No Kitewell account required. Pro supports up to ten projects for
           $15/month (USD).
           <a href="/pricing/">Compare plans →</a>
         </p>
       </div>
       <div class="availability">
         <a class="button" href="/download/">
-          {release ? "Download Runstead" : "Check release availability"}
+          {release ? "Download Kitewell" : "Check release availability"}
           <span aria-hidden="true">↗</span>
         </a>
         <p class="fine">

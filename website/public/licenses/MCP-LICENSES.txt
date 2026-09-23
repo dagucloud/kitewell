@@ -1,4 +1,4 @@
-Libraries bundled in the Runstead MCP DAG viewer.
+Libraries bundled in the Kitewell MCP DAG viewer.
 
 --- @modelcontextprotocol/client 2.0.0 ---
 

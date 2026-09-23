@@ -3,7 +3,7 @@ title: Import an API
 ---
 
 Import an OpenAPI specification to use its operations as workflow steps.
-Runstead builds input forms from the specification and exposes response
+Kitewell builds input forms from the specification and exposes response
 fields for later steps. Connections belong to a project and can be reused
 across its workflows.
 
@@ -66,7 +66,7 @@ choose **Create workflow with this action**.
 
 Expand **Response fields** on the API step to see the fields described by the
 specification. In another step, open **Variables** beside an input and choose
-a field from that API response. Runstead adds the output mapping and connects
+a field from that API response. Kitewell adds the output mapping and connects
 the steps so the receiving step waits for the API call.
 
 For example, a customer lookup can provide its returned `id` to a later action
@@ -75,17 +75,17 @@ imported specification.
 
 ## Update a specification
 
-Runstead keeps the imported snapshot until you replace it. A change at the
+Kitewell keeps the imported snapshot until you replace it. A change at the
 original URL does not update the project automatically.
 
 Open the connection in **API library**, choose **Update specification**, and
 upload, fetch, or paste the replacement. Choose **Preview actions**, review the
-operations, then select **Save connection**. Runstead validates dependent
+operations, then select **Save connection**. Kitewell validates dependent
 workflows before saving. If the replacement invalidates a saved workflow,
 the update is rejected and the previous connection is kept. Update affected
 workflows first, or import the replacement under a different API identifier.
 
-Runstead also refuses to delete a connection while a saved workflow uses it.
+Kitewell also refuses to delete a connection while a saved workflow uses it.
 
 ## Share a connection without its credentials
 

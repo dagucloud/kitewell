@@ -25,7 +25,7 @@ specifications, or source URLs are not removed. Treat downloaded snapshots as
 sensitive.
 
 External scripts, their input files, Docker volumes, mounted directories, and
-third-party services are not copied into a Runstead backup. Back those up
+third-party services are not copied into a Kitewell backup. Back those up
 separately. Cloud device credentials are excluded from workspace backups.
 
 ## Restore
@@ -41,12 +41,12 @@ Archives are limited to 2 GiB of uncompressed data.
 
 ## Find local data
 
-On macOS, Runstead stores its data under:
+On macOS, Kitewell stores its data under:
 
 ```text
-~/Library/Application Support/Runstead
+~/Library/Application Support/Kitewell
 ```
 
 The `data`, `backups`, `runtime`, and `logs` folders serve different purposes.
-Quit Runstead before manually moving its data. Do not delete that directory to
+Quit Kitewell before manually moving its data. Do not delete that directory to
 fix an installation problem without preserving a backup.

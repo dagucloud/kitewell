@@ -13,18 +13,18 @@ const releases = await Promise.all(
 
 <Site
   title="Releases"
-  description="Runstead release notes, known issues, and versioned downloads."
+  description="Kitewell release notes, known issues, and versioned downloads."
 >
   <section class="page wrap">
     <p class="eyebrow">What's new</p>
     <h1>A record of each release.</h1>
     <p class="lead">
-      Changes, known issues, and downloads for every public Runstead version.
+      Changes, known issues, and downloads for every public Kitewell version.
     </p>
     {releases.length ? (
       releases.map((release) => (
         <article class="release prose">
-          <h2>Runstead {release.version}</h2>
+          <h2>Kitewell {release.version}</h2>
           <a
             class="release-link"
             href={`https://github.com/dagucloud/runstead/releases/tag/v${release.version}`}

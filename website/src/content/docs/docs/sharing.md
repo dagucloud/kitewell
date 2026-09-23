@@ -10,7 +10,7 @@ on one shared host.
 ## Send a project to another device
 
 1. Open the project selector and choose **Manage projects**.
-2. Choose **Export** beside the project. Runstead downloads a `.tgz` project
+2. Choose **Export** beside the project. Kitewell downloads a `.tgz` project
    archive.
 3. Share the file through your team's chosen channel.
 4. On the receiving device, open **Manage projects → Import project** and select
@@ -37,7 +37,7 @@ The receiving device supplies its own:
 - Custom agent commands, installed tools, and agent sign-ins.
 - External scripts, input files, and Docker-mounted data.
 
-Run history, logs, device settings, and Runstead client API keys are not part
+Run history, logs, device settings, and Kitewell client API keys are not part
 of a project export. The archive is unencrypted. Credentials entered directly
 into workflow commands, OpenAPI specifications, source URLs, or other project
 configuration are not removed automatically. Review those fields before
@@ -56,13 +56,13 @@ scheduled time. See [Schedules and background operation](/docs/scheduling/).
 ## Keep a shared definition in version control
 
 Project definitions are ordinary JSON and YAML files. A team can review and
-version them in its own Git repository. Runstead does not push, pull, or merge
+version them in its own Git repository. Kitewell does not push, pull, or merge
 that repository for you.
 
 On the current Mac app, each project's portable files are under:
 
 ```text
-~/Library/Application Support/Runstead/data/workspace/project-<id>/
+~/Library/Application Support/Kitewell/data/workspace/project-<id>/
   project.json
   workflows/
 ```
@@ -72,9 +72,9 @@ holds its workflow files. Use the project name inside `project.json` to identify
 the right directory. Preserve the existing file structure and document IDs
 when applying updates to that project.
 
-Quit Runstead before replacing files or applying changes from version control,
+Quit Kitewell before replacing files or applying changes from version control,
 resolve conflicts, then reopen it and review the project before running it.
-Share this project's portable files rather than the entire Runstead data
+Share this project's portable files rather than the entire Kitewell data
 folder: device credentials, secrets, and execution data belong to each host.
 New recipients can use **Import project** to start from a reviewed export.
 
@@ -95,6 +95,6 @@ its optional login are managed by the host's owner; these API keys do not
 create individual GUI accounts.
 
 Remote clients require a reachable HTTPS endpoint and your own secure network
-configuration. Runstead does not supply a hosted execution machine or automatic
+configuration. Kitewell does not supply a hosted execution machine or automatic
 cloud synchronization. See [MCP and API access](/docs/mcp/) for connection and
 permission details.

@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Documentation
-    url: https://runstead.dev/docs/
+    url: https://kitewell.app/docs/
     about: Installation, workflows, and troubleshooting.
   - name: Private security report
     url: https://github.com/dagucloud/runstead/security/advisories/new

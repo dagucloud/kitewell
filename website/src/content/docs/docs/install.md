@@ -1,5 +1,5 @@
 ---
-title: Install Runstead
+title: Install Kitewell
 ---
 
 ## Requirements
@@ -15,7 +15,7 @@ Docker, command-line AI agents, or other tools only when a workflow uses them.
 
 1. Open the [download page](/download/) and select your Mac's architecture.
 2. Open the downloaded `.pkg` and follow macOS Installer.
-3. Open **Runstead** from Applications.
+3. Open **Kitewell** from Applications.
 4. [Create your first workflow](/docs/getting-started/). No account is needed
    for the free project.
 
@@ -25,7 +25,7 @@ If no installer is listed, the public package is still being prepared.
 ## Update an existing installation
 
 Save edits and let active jobs finish before installing. The installer
-restarts the current user's running Runstead app and service. Workspace data
+restarts the current user's running Kitewell app and service. Workspace data
 and the start-at-login preference are preserved.
 
 See [Updates](/docs/updates/) for the app's update flow. If macOS reports that

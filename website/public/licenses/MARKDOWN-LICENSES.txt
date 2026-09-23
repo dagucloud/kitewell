@@ -1,4 +1,4 @@
-Libraries bundled in the Runstead artifact viewer.
+Libraries bundled in the Kitewell artifact viewer.
 
 --- dompurify 3.4.14 ---
 

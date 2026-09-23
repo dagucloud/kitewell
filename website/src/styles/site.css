@@ -79,19 +79,10 @@ h3 {
   text-decoration: none;
 }
 .brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  flex-shrink: 0;
   width: 36px;
   height: 36px;
-  border-radius: 10px;
-  background: var(--green);
-  color: var(--paper);
-  font:
-    bold 33px Georgia,
-    serif;
-  padding-bottom: 5px;
-  letter-spacing: -2px;
 }
 .header nav {
   display: flex;

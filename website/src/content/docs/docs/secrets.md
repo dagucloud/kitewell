@@ -12,7 +12,7 @@ of putting their values directly in workflow definitions.
 3. In the workflow editor, choose that secret for the field that needs it, or
    use **Use in a DAG** to obtain the reference syntax.
 
-Saved values cannot be read back through Runstead. **Replace value** rotates a
+Saved values cannot be read back through Kitewell. **Replace value** rotates a
 credential without changing its reference. Disabling or deleting it prevents
 future resolution of that secret.
 

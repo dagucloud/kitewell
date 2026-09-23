@@ -2,7 +2,7 @@
 title: Troubleshooting
 ---
 
-## A command works in Terminal but fails in Runstead
+## A command works in Terminal but fails in Kitewell
 
 The application's environment can differ from your interactive shell. Use
 absolute executable paths, set a working folder, and provide required
@@ -18,7 +18,7 @@ catch-up settings before expecting a missed schedule to run later.
 ## Docker is unavailable
 
 Start the local Docker daemon and use **Check Docker** in the workflow editor.
-Runstead does not install or start Docker. Check that mounts and file paths
+Kitewell does not install or start Docker. Check that mounts and file paths
 exist on the machine where the container runs.
 
 ## An AI task fails
@@ -36,8 +36,8 @@ installer verification failure instead of bypassing it.
 ## Find logs
 
 Start with **Runs & logs** for a task failure. On macOS, service logs are under
-`~/Library/Application Support/Runstead/logs`. They currently append without
-size rotation. Quit Runstead before manually clearing service logs; save any
+`~/Library/Application Support/Kitewell/logs`. They currently append without
+size rotation. Quit Kitewell before manually clearing service logs; save any
 needed evidence first.
 
 If the guides do not resolve the issue, [open a support issue](/support/) with

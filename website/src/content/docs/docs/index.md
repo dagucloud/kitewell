@@ -1,8 +1,8 @@
 ---
-title: Runstead documentation
+title: Kitewell documentation
 ---
 
-Runstead runs workflows on your own machine. Combine scripts, AI agents, containers,
+Kitewell runs workflows on your own machine. Combine scripts, AI agents, containers,
 and API calls; schedule the result; inspect each run in one interface.
 [Import an OpenAPI spec](/docs/apis/) to choose API operations and fill in
 request forms generated from the spec.
@@ -16,24 +16,24 @@ Check [Downloads](/download/) for current release availability.
 
 ## Start here
 
-1. [Install Runstead](/docs/install/).
+1. [Install Kitewell](/docs/install/).
 2. [Create your first workflow](/docs/getting-started/).
 3. [Connect Docker, AI, human decisions, and remote servers](/docs/workflow-builder/).
 4. [Set a schedule and understand background operation](/docs/scheduling/).
 5. [Share workflows with your team](/docs/sharing/).
 
-One project is free and needs no Runstead account. Pro is planned at $15/month
+One project is free and needs no Kitewell account. Pro is planned at $15/month
 for up to ten projects. Projects hold separate workflows, history, and secrets.
 
 ## What runs where
 
-Runstead manages a local Dagu workflow engine. Workflows run with the
-permissions of the user account running Runstead. Only run workflow definitions
+Kitewell manages a local Dagu workflow engine. Workflows run with the
+permissions of the user account running Kitewell. Only run workflow definitions
 and commands you trust.
 
-On macOS, closing the window keeps Runstead in the menu bar; **Quit Runstead**
+On macOS, closing the window keeps Kitewell in the menu bar; **Quit Kitewell**
 stops the service and engines.
 
 Your computer must be awake and your user signed in for scheduled work to run.
-Runstead does not provide a hosted machine. AI providers, remote servers,
+Kitewell does not provide a hosted machine. AI providers, remote servers,
 containers, and external services have their own requirements and costs.

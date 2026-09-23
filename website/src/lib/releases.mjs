@@ -28,7 +28,7 @@ export function parseManifest(text) {
       throw new Error(`Missing installer or checksum: ${architecture}`);
     }
     const url = new URL(asset.url);
-    const expected = `/dagucloud/runstead/releases/download/v${manifest.version}/Runstead-${manifest.version}-${architecture.slice(7)}.pkg`;
+    const expected = `/dagucloud/runstead/releases/download/v${manifest.version}/Kitewell-${manifest.version}-${architecture.slice(7)}.pkg`;
     if (
       url.protocol !== "https:" ||
       url.host !== "github.com" ||

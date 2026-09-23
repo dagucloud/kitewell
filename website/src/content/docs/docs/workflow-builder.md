@@ -69,7 +69,7 @@ steps:
       cat report.md
 ```
 
-If Runstead cannot find `python3`, replace `/usr/bin/env python3` with the
+If Kitewell cannot find `python3`, replace `/usr/bin/env python3` with the
 absolute path returned by `command -v python3` in Terminal.
 
 ### Run it and inspect the result
@@ -94,7 +94,7 @@ replaces that file. Change an amount in `orders.csv` and run again to see the
 totals change.
 
 After the manual run works, open **Schedule** to choose a daily time and
-timezone. Keep the computer awake and Runstead running at that time. See
+timezone. Keep the computer awake and Kitewell running at that time. See
 [Scheduling](/docs/scheduling/) for background operation and missed runs.
 
 ### Add your own steps
@@ -107,11 +107,11 @@ another path. **Start independently** adds work that does not wait for that step
 
 [Import an OpenAPI spec into the API library](/docs/apis/), then add
 **Use an API action** to your workflow. Choose the connected API and an
-operation. Runstead builds the request fields from the spec, including required
+operation. Kitewell builds the request fields from the spec, including required
 parameters and the request body.
 
 In a later step, open **Variables** and choose a response field from the API
-step. Runstead saves the value and connects the steps so the request finishes
+step. Kitewell saves the value and connects the steps so the request finishes
 before its result is used.
 
 ## Run a Docker image
@@ -129,7 +129,7 @@ Start Docker on your device. In the task picker, choose **Run in Docker**.
 4. Use **Check Docker** to check the connection. **Run this step** executes the
    configured image and command, so review its mounts and effects first.
 
-Runstead does not install or start Docker. Containers are removed after a run
+Kitewell does not install or start Docker. Containers are removed after a run
 unless **Keep container after run** is enabled. Your mounted files and Docker
 volumes need their own backups.
 
@@ -191,7 +191,7 @@ step for each machine, so its result appears separately in **Runs & logs**.
 To send all command and script steps to the same target, use the workflow's
 **Settings → Where it runs**. A group at this level runs the workflow on each
 machine in turn, with a separate run per machine. Docker, AI, HTTP, imported
-API, and sub-workflow steps still execute from the device running Runstead;
+API, and sub-workflow steps still execute from the device running Kitewell;
 this setting does not move the entire engine to a server.
 
 ## Check, run, and schedule

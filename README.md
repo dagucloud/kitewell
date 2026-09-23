@@ -1,6 +1,6 @@
-# Runstead
+# Kitewell
 
-Build and run workflows on your own machine. Runstead is a desktop app for
+Build and run workflows on your own machine. Kitewell is a desktop app for
 connecting scripts, APIs, containers, and AI agents in a visual editor. Schedule
 runs and inspect the output of each step.
 
@@ -14,9 +14,9 @@ shared host. Each device needs its own tools and credentials.
 **Public beta coming soon.** This repository contains the website,
 documentation, support issues, and public releases.
 
-- Website: https://runstead.dev
-- Documentation: https://runstead.dev/docs/
-- Downloads: https://runstead.dev/download/
+- Website: https://kitewell.app
+- Documentation: https://kitewell.app/docs/
+- Downloads: https://kitewell.app/download/
 - Releases: https://github.com/dagucloud/runstead/releases
 - Support: https://github.com/dagucloud/runstead/issues
 

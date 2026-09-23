@@ -1,4 +1,4 @@
-Go libraries included in the Runstead background service.
+Go libraries included in the Kitewell background service.
 
 --- github.com/ebitengine/purego v0.10.2 ---
 

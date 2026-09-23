@@ -1,7 +1,7 @@
 <script>
   import posthog from "posthog-js";
 
-  if (["runstead.dev", "www.runstead.dev"].includes(window.location.hostname)) {
+  if (["kitewell.app", "www.kitewell.app"].includes(window.location.hostname)) {
     posthog.init("phc_MqwcYt09eiG9BYkwCMLbYwL4yqgtDoyZqYnLRb5IZuT", {
       api_host: "https://us.i.posthog.com",
       defaults: "2026-05-30",
@@ -11,7 +11,7 @@
       disable_session_recording: true,
       disable_surveys: true,
       loaded(client) {
-        client.register({ product: "runstead", surface: "website" });
+        client.register({ product: "kitewell", surface: "website" });
       },
     });
   }

@@ -2,7 +2,7 @@
 title: MCP and API access
 ---
 
-MCP lets a compatible AI client work with Runstead workflows. REST access is
+MCP lets a compatible AI client work with Kitewell workflows. REST access is
 available for scripts and other integrations.
 
 ## Connect a local client
@@ -10,7 +10,7 @@ available for scripts and other integrations.
 1. Open **This device → MCP**.
 2. Create an API key with the access level the client needs: read-only, run,
    or edit.
-3. Use the endpoint and connection information shown in Runstead. The default
+3. Use the endpoint and connection information shown in Kitewell. The default
    local MCP endpoint is `http://127.0.0.1:19742/mcp`.
 4. Configure the client to send the key as a Bearer credential. The client must
    support custom Bearer credentials; OAuth sign-in is not included.
@@ -61,8 +61,8 @@ secret administration.
 
 Start with the least access that supports the task. Read access inspects
 workflows and history. Run access can trigger work. Edit access can change
-workflow definitions, including commands that execute as the user running Runstead.
-Revoke a key in Runstead when it is no longer needed.
+workflow definitions, including commands that execute as the user running Kitewell.
+Revoke a key in Kitewell when it is no longer needed.
 
 ## Remote clients
 
