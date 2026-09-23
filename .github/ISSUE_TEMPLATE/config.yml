@@ -4,5 +4,5 @@ contact_links:
     url: https://kitewell.app/docs/
     about: Installation, workflows, and troubleshooting.
   - name: Private security report
-    url: https://github.com/dagucloud/runstead/security/advisories/new
+    url: https://github.com/dagucloud/kitewell/security/advisories/new
     about: Report a vulnerability privately.

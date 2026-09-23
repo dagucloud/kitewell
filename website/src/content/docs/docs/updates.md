@@ -26,6 +26,6 @@ not replace the Kitewell application.
 ## Recover from a problem
 
 Report the app version, engine version, and operating system version with the error.
-Older published installers remain on the [GitHub releases page](https://github.com/dagucloud/runstead/releases).
+Older published installers remain on the [GitHub releases page](https://github.com/dagucloud/kitewell/releases).
 Installing an older app does not itself restore older workspace data; use a
 suitable backup when recovery requires restoring data.

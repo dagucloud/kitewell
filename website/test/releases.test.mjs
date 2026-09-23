@@ -12,7 +12,7 @@ function fixture() {
       ["arm64", "amd64"].map((arch) => [
         `darwin-${arch}`,
         {
-          url: `https://github.com/dagucloud/runstead/releases/download/v0.16.0/Kitewell-0.16.0-${arch}.pkg`,
+          url: `https://github.com/dagucloud/kitewell/releases/download/v0.16.0/Kitewell-0.16.0-${arch}.pkg`,
           sha256: "a".repeat(64),
         },
       ]),
@@ -25,7 +25,7 @@ test("the published manifest exposes matching versioned downloads for both chips
   assert.equal(release.version, "0.16.0");
   assert.equal(
     release.downloads["darwin-arm64"].url,
-    "https://github.com/dagucloud/runstead/releases/download/v0.16.0/Kitewell-0.16.0-arm64.pkg",
+    "https://github.com/dagucloud/kitewell/releases/download/v0.16.0/Kitewell-0.16.0-arm64.pkg",
   );
   assert.equal(release.downloads["darwin-amd64"].sha256, "a".repeat(64));
 });
