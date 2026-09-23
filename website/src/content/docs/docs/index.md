@@ -22,8 +22,9 @@ Check [Downloads](/download/) for current release availability.
 4. [Set a schedule and understand background operation](/docs/scheduling/).
 5. [Share workflows with your team](/docs/sharing/).
 
-One project is free and needs no Kitewell account. Pro is planned at $15/month
-for up to ten projects. Projects hold separate workflows, history, and secrets.
+One project with up to 10 workflows is free and needs no Kitewell account. Pro
+is planned at $15/month for up to ten projects of 200 workflows each, plus
+[alerts](/docs/alerts/). Projects hold separate workflows, history, and secrets.
 
 ## What runs where
 

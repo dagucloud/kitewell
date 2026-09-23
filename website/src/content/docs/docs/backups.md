@@ -19,10 +19,14 @@ connections retain secret references. Snapshots exclude managed secret values
 and their decryption keys, run output log directories, and this device's GUI
 login and API key hashes.
 
-The archive is not encrypted. Settings can contain SMTP passwords and Slack
-webhook URLs. Credentials entered directly into workflow definitions, OpenAPI
-specifications, or source URLs are not removed. Treat downloaded snapshots as
-sensitive.
+The archive is not encrypted. Credentials entered directly into workflow
+definitions, OpenAPI specifications, or source URLs are not removed. Treat
+downloaded snapshots as sensitive.
+
+[Alert](/docs/alerts/) channels and rules are included, but the secrets that
+reach them are not: the email server password, Slack and Teams addresses,
+webhook URLs and signing secrets, and PagerDuty keys stay on the device. Enter
+them again after restoring on another computer.
 
 External scripts, their input files, Docker volumes, mounted directories, and
 third-party services are not copied into a Kitewell backup. Back those up

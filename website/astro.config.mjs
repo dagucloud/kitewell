@@ -32,6 +32,7 @@ export default defineConfig({
               label: "Schedules and background operation",
               slug: "docs/scheduling",
             },
+            { label: "Alerts", slug: "docs/alerts" },
           ],
         },
         {

@@ -194,6 +194,27 @@ machine in turn, with a separate run per machine. Docker, AI, HTTP, imported
 API, and sub-workflow steps still execute from the device running Kitewell;
 this setting does not move the entire engine to a server.
 
+## Run a task when the workflow ends
+
+Event handlers are tasks that run beside the workflow's steps: before the
+first step, while the run waits for approval, on success, on failure, on
+cancel, or always at the end. Use them to clean up temporary files, roll back a
+change, or call a recovery service.
+
+Under the graph, **Event handlers** lists the ones this workflow has. Choose
+**Add handler** and pick when it runs; the handler opens in the step editor on
+its own. Change its **Task type** to a command, script, Docker image, AI agent
+or model, text template, HTTP request, imported API action, SSH command, file
+transfer, or another workflow. Human tasks, AI decisions, branches, loops,
+waits, and repeats cannot be handlers. **← Workflow** returns to the graph.
+
+A handler can use the workflow's inputs and variables and the run's status, but
+not results from its steps. In **Runs & logs**, a run lists its handlers beside
+its steps; select one to read its output.
+
+To tell people a workflow failed, use [alerts](/docs/alerts/) rather than a
+handler.
+
 ## Check, run, and schedule
 
 Use **Tools → Check workflow** to validate the draft. **Review & run** brings

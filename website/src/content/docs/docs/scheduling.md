@@ -31,7 +31,9 @@ scheduled time.
 Missed-run behavior depends on the workflow and project catch-up settings.
 Check the catch-up period and missed-run policy in workflow defaults, then
 verify the behavior with your own schedule. Do not assume every missed run will
-be replayed after the computer wakes.
+be replayed after the computer wakes. With Kitewell Pro, a
+[missed-schedule alert](/docs/alerts/) says how many scheduled runs did not
+start and why.
 
 ## Task requirements
 

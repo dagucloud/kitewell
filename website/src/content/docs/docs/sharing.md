@@ -19,7 +19,9 @@ on one shared host.
    that device's credentials and tools.
 
 Import creates a new project; it does not replace an existing one. It counts
-against that device's project limit: one on Free, up to ten on Pro.
+against that device's project limit: one on Free, up to ten on Pro. A project
+with more workflows than the plan holds (10 on Free, 200 on Pro) cannot be
+imported.
 
 ## What travels with a project
 
