@@ -20,6 +20,9 @@ projects first, then pass the selected `projectId` with project-specific MCP
 calls or REST requests. A device with one project can omit the ID; requests
 must name a project when several exist.
 
+The free plan issues one API key; Kitewell Pro issues any number. A key issued
+earlier keeps working if Pro lapses, and revoking a key makes room for another.
+
 ## Work with imported APIs
 
 MCP clients with edit access can import an OpenAPI spec, save an API connection,
