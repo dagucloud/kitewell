@@ -13,7 +13,8 @@ or a credential stored only in the shell session.
 
 Confirm the saved schedule is enabled, its timezone is correct, the project
 engine is running, and the computer was awake with your user logged in. Check
-catch-up settings before expecting a missed schedule to run later.
+the workflow's **Schedule → Missed schedules** and the workflow defaults before
+expecting a missed schedule to run later.
 
 ## Docker is unavailable
 
@@ -24,7 +25,8 @@ exist on the machine where the container runs.
 ## An AI task fails
 
 Verify the agent is installed and signed in, or that the selected model has a
-valid provider credential. Review the recorded prompt, task stderr, provider
+valid provider credential. **Test agent** and **Test model** in **Agents &
+models** check this before a run. Review the recorded prompt, task stderr, provider
 limits, and billing status. Keep real credentials out of issue reports.
 
 ## An update check fails
@@ -35,10 +37,10 @@ installer verification failure instead of bypassing it.
 
 ## Find logs
 
-Start with **Runs & logs** for a task failure. On macOS, service logs are under
-`~/Library/Application Support/Kitewell/logs`. They currently append without
-size rotation. Quit Kitewell before manually clearing service logs; save any
-needed evidence first.
+Start with **Runs & logs** for a task failure. Open **This device →
+Diagnostics** to view, search, or download service and project engine logs.
+Each log rotates at 10 MiB and keeps three archives. On macOS, service logs
+are under `~/Library/Application Support/Kitewell/logs`.
 
 If the guides do not resolve the issue, [open a support issue](/support/) with
 versions, reproduction steps, and sanitized output.

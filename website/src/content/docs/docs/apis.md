@@ -33,9 +33,8 @@ password**, according to the API's requirements. For an API key, enter its
 cookie.
 
 Select or enter an existing **Secret reference** from the same project, such
-as `services/support-token`. If your role cannot list secrets, enter the
-reference supplied by an administrator. Administrators can also use
-**Store a new secret** in the connection form.
+as `services/support-token`, or use **Store a new secret** in the connection
+form.
 
 For bearer or API key authentication, the secret contains the token or key.
 For **Username and password**, enter the username in the connection and use

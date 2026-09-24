@@ -19,8 +19,10 @@ update-check failure, not proof that the installed app is current.
 
 ## Update the workflow engine
 
-Dagu updates are managed separately in device settings. Manual and scheduled
-engine updates support verification, backup, and rollback. Updating Dagu does
+Dagu updates are managed separately in device settings. New installations
+update the engine automatically at 03:00 local time; change or turn this off in
+**Device settings**. Manual and scheduled engine updates support verification,
+backup, and rollback. Updating Dagu does
 not replace the Kitewell application.
 
 ## Recover from a problem

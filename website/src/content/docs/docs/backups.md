@@ -16,8 +16,9 @@ against losing that device. Keep a separate protected copy when needed.
 Snapshots include workspace settings, projects, workflow definitions, imported
 OpenAPI specifications and API connection settings, and run history. API
 connections retain secret references. Snapshots exclude managed secret values
-and their decryption keys, run output log directories, and this device's GUI
-login and API key hashes.
+and their decryption keys, run output log directories, local edit history, and
+this device's GUI login and API key hashes. Restoring a snapshot also clears
+local edit history.
 
 The archive is not encrypted. Credentials entered directly into workflow
 definitions, OpenAPI specifications, or source URLs are not removed. Treat

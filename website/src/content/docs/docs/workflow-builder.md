@@ -3,8 +3,11 @@ title: Build a workflow
 ---
 
 Build a workflow by choosing what each task should do, then connecting the
-steps. Commands, Docker images, AI agents, remote servers, and human decisions
-can share one workflow. The graph shows the order; selecting a step opens its
+steps. A task can run a command or script, a Docker image, an AI agent, a
+model, or an AI decision; fill in a text template; call a web service or an
+imported API; run on another machine or copy files to or from one; ask a
+person; run another workflow; branch by value; repeat for each item; wait; or
+repeat until a condition matches. All of these can share one workflow. The graph shows the order; selecting a step opens its
 settings beside it.
 
 ## Example: build a daily report

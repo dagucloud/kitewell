@@ -8,17 +8,20 @@ available for scripts and other integrations.
 ## Connect a local client
 
 1. Open **This device → MCP**.
-2. Create an API key with the access level the client needs: read-only, run,
-   or edit.
+2. Choose **Connect an AI agent**, name the client, and pick its permission
+   (**Read only**, **Run jobs**, or **Edit and run**), the projects it can
+   reach, and an optional expiry.
 3. Use the endpoint and connection information shown in Kitewell. The default
    local MCP endpoint is `http://127.0.0.1:19742/mcp`.
 4. Configure the client to send the key as a Bearer credential. The client must
    support custom Bearer credentials; OAuth sign-in is not included.
 
-Keys are device-wide and can reach every project. Ask the client to list
-projects first, then pass the selected `projectId` with project-specific MCP
-calls or REST requests. A device with one project can omit the ID; requests
-must name a project when several exist.
+Each key reaches only the projects you allow: selected projects, or all
+current and future projects. A key limited to selected projects does not gain
+projects created later. Ask the client to list projects first, then pass the
+selected `projectId` with project-specific MCP calls or REST requests. A key
+that reaches exactly one project can omit the ID; a key that reaches several
+must name one.
 
 The free plan issues one API key; Kitewell Pro issues any number. A key issued
 earlier keeps working if Pro lapses, and revoking a key makes room for another.

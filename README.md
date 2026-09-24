@@ -57,8 +57,9 @@ run log.
 
 ## Pricing
 
-Free for one project, with no Kitewell account required. Pro supports up to
-ten projects for $15/month (USD). These are planned launch prices; see
+Free for one project with up to 10 workflows and one API key, with no Kitewell
+account required. Pro supports up to ten projects of 200 workflows each, any
+number of API keys, and alerts for $15/month (USD). These are planned launch prices; see
 [Pricing](https://kitewell.app/pricing/).
 
 ## Documentation

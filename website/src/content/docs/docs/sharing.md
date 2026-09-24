@@ -27,8 +27,8 @@ imported.
 
 The archive includes workflow definitions and schedules, named agents and
 models, imported OpenAPI specifications and API connection settings, server
-addresses and groups, queues, image registry definitions, and project workflow
-defaults. API connections retain their secret references. Create those secrets
+addresses and groups, queues, image registry definitions, saved batch input
+sets, and project workflow defaults. API connections retain their secret references. Create those secrets
 in the imported project, or choose other secrets in that project, before
 running its API actions.
 
@@ -67,10 +67,14 @@ On the current Mac app, each project's portable files are under:
 ~/Library/Application Support/Kitewell/data/workspace/project-<id>/
   project.json
   workflows/
+  batch-sets/
+  agents/  apis/  queues/  registries/  server-groups/  servers/
 ```
 
-`project.json` contains the project name and shared configuration; `workflows`
-holds its workflow files. Use the project name inside `project.json` to identify
+`project.json` holds the project name, description, and workflow defaults;
+`workflows` holds its workflow files, `batch-sets` its saved batch inputs, and
+each other folder one JSON file per agent, API, queue, registry, server group,
+or server. Version the whole `project-<id>` folder. Use the project name inside `project.json` to identify
 the right directory. Preserve the existing file structure and document IDs
 when applying updates to that project.
 
@@ -87,12 +91,13 @@ through your team's process.
 ## Work together on one host
 
 For workflows that should run on a single team machine, create a separate
-API key for each client under **This device → MCP**. Choose read-only, run, or
-edit-and-run access for each client's role. Teammates use compatible MCP or
-REST clients to inspect, run, or edit workflows on that host.
+API key for each client under **This device → MCP**. Choose **Read only**,
+**Run jobs**, or **Edit and run** for each client's role. Teammates use
+compatible MCP or REST clients to inspect, run, or edit workflows on that host.
 
-Each key reaches every project on the host. Use separate hosts when teams need
-an access boundary between their projects. The local graphical interface and
+Limit each key to the projects its client needs; a key cannot reach projects
+outside its list. Every workflow still runs as the host's user, so project
+limits are not an operating-system sandbox. The local graphical interface and
 its optional login are managed by the host's owner; these API keys do not
 create individual GUI accounts.
 

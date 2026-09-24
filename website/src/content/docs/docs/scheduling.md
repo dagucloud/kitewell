@@ -26,11 +26,13 @@ projects in the interface does not stop other projects' schedules.
 
 The computer must be awake and your user logged in. Kitewell does not wake a
 sleeping computer. A powered-off, sleeping, or logged-out machine cannot run work at the
-scheduled time.
+scheduled time. On macOS, **Device settings → Sleep protection** keeps the
+computer from idle sleep while work is running; it is off by default.
 
-Missed-run behavior depends on the workflow and project catch-up settings.
-Check the catch-up period and missed-run policy in workflow defaults, then
-verify the behavior with your own schedule. Do not assume every missed run will
+By default, schedules missed in the previous 24 hours run after the computer
+wakes. Change this under **Device settings → Workflow defaults**, **Project
+settings → Workflow defaults**, or a workflow's **Schedule → Missed schedules**,
+then verify the behavior with your own schedule. Do not assume every missed run will
 be replayed after the computer wakes. With Kitewell Pro, a
 [missed-schedule alert](/docs/alerts/) says how many scheduled runs did not
 start and why.

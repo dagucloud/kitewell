@@ -6,8 +6,9 @@ Kitewell runs workflows on your own machine. Combine scripts, AI agents, contain
 and API calls; schedule the result; inspect each run in one interface.
 [Import an OpenAPI spec](/docs/apis/) to choose API operations and fill in
 request forms generated from the spec.
-Share a project across your devices or team, with each device supplying its own
-credentials and choosing which workflows to run.
+Export a project and import it on another device or for a teammate; each
+device supplies its own credentials and enables only the workflows it should
+run.
 
 :::note[Platform availability]
 The first public installers target macOS. Linux and Windows support is planned.
@@ -29,7 +30,7 @@ hold separate workflows, history, and secrets.
 
 ## What runs where
 
-Kitewell manages a local Dagu workflow engine. Workflows run with the
+Kitewell runs a local Dagu workflow engine for each project. Workflows run with the
 permissions of the user account running Kitewell. Only run workflow definitions
 and commands you trust.
 
