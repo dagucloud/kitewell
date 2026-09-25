@@ -7,8 +7,8 @@ service or require an AI account.
 
 ## Create a job
 
-1. Open Kitewell. On first launch, choose **Start on this Mac** to create your
-   project; afterwards, choose the project in the sidebar.
+1. Open Kitewell. On first launch, choose **Start on this device** to create
+   your project; afterwards, choose the project in the sidebar.
 2. Choose **Create a job** and name it **Morning check-in**.
 3. Pick **Run a command or script** for its first task.
 4. Enter this command:

@@ -10,8 +10,8 @@ Kitewell open to find out. They are part of Kitewell Pro. On the free plan,
 
 Open **Notifications** under **This device**. A channel is somewhere alerts go:
 
-- **This Mac** shows desktop notifications on macOS. Turn on **Notify on this
-  Mac** and allow notifications when macOS asks.
+- **This device** shows desktop notifications on macOS. Turn on **Notify on
+  this device** and allow notifications when macOS asks.
 - **Email** sends to a list of recipients through the **Email server** set up
   on the same page. The server must support TLS or STARTTLS; use an app
   password if your provider requires one.
