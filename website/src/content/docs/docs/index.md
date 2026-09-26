@@ -36,6 +36,9 @@ Kitewell runs a local Dagu workflow engine for each project. Workflows run with 
 permissions of the user account running Kitewell. Only run workflow definitions
 and commands you trust.
 
+Your projects stay on your device unless you choose to
+[sync one with Dagu Cloud](/docs/cloud-sync/), and secret values never leave it.
+
 On macOS, closing the window keeps Kitewell in the menu bar; **Quit Kitewell**
 stops the service and engines.
 
