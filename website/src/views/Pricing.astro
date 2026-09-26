@@ -1,0 +1,125 @@
+---
+import Site from "../layouts/Site.astro";
+import { localize } from "../lib/i18n.mjs";
+interface Props {
+  locale: "en" | "ja";
+}
+const { locale } = Astro.props;
+const text = {
+  en: {
+    title: "Pricing",
+    description:
+      "Planned Kitewell launch pricing: one project with up to 10 workflows free, or up to ten projects of 200 workflows with alerts and team sync on Kitewell Pro for $15 per person per month.",
+    eyebrow: "Planned launch pricing",
+    heading: "One project, free.",
+    lead: "A project keeps its workflows, run history, and secrets separate. Both plans include the same workflow tools; Pro adds room for more work, alerts when it needs you, and a team to share it with.",
+    free: [
+      "One project with up to 10 workflows",
+      "Visual workflows and YAML",
+      "Schedules, run history, and event handlers",
+      "AI tasks, plus MCP and API access with one key",
+      "No Kitewell account required",
+      "Optionally, sync the project with a free Dagu Cloud account",
+    ],
+    guide: "Read the getting started guide",
+    per: "/ person / month · USD",
+    pro: [
+      "Up to ten projects, 200 workflows each",
+      "Any number of API keys",
+      "Alerts by desktop notification, email, Slack, Microsoft Teams, PagerDuty, or webhook",
+      "A team that syncs its projects through Dagu Cloud, with a role for each person on each project; secret values stay on each device",
+      "Every feature in Free",
+      "Dagu Cloud account required for the subscription",
+      "Existing projects and workflows keep running if Pro lapses; alerts stop",
+    ],
+    purchase: "Purchase will be available with the public launch.",
+    enterprise:
+      "Need more than 100 seats, invoice billing, or terms of your own? Email us and we'll set it up with you.",
+    costs: "Costs outside Kitewell",
+    costsText:
+      "AI provider usage, third-party subscriptions, and infrastructure costs are separate. Kitewell does not include AI credits or a hosted computer to run your workflows.",
+    ai: "Learn how AI tasks connect →",
+  },
+  ja: {
+    title: "料金",
+    description:
+      "Kitewell の正式リリース時の予定価格です。1 プロジェクト・10 ワークフローまでは無料。Kitewell Pro は 1 人あたり月額 $15 で、最大 10 プロジェクト・各 200 ワークフロー、アラート、チームでの同期を利用できます。",
+    eyebrow: "正式リリース時の予定価格",
+    heading: "1 プロジェクトなら無料。",
+    lead: "プロジェクトごとに、ワークフロー、実行履歴、シークレットが分かれます。どちらのプランでも同じワークフロー機能を使えます。Pro では扱える量が増え、対応が必要なときに知らせるアラートと、一緒に使うチームが加わります。",
+    free: [
+      "1 プロジェクト、最大 10 ワークフロー",
+      "ビジュアルエディタと YAML",
+      "スケジュール、実行履歴、イベントハンドラー",
+      "AI タスク、1 つのキーでの MCP と API アクセス",
+      "Kitewell アカウントは不要",
+      "無料の Dagu Cloud アカウントでプロジェクトを同期することも可能",
+    ],
+    guide: "はじめかたガイドを読む",
+    per: "/ 1 人 / 月 · USD",
+    pro: [
+      "最大 10 プロジェクト、各 200 ワークフロー",
+      "API キーは無制限",
+      "デスクトップ通知、メール、Slack、Microsoft Teams、PagerDuty、Webhook によるアラート",
+      "Dagu Cloud でプロジェクトを同期するチーム。プロジェクトごとにメンバーのロールを設定でき、シークレットの値は各デバイスにとどまります",
+      "Free のすべての機能",
+      "サブスクリプションには Dagu Cloud アカウントが必要",
+      "Pro が失効しても既存のプロジェクトとワークフローは動き続けます（アラートは停止）",
+    ],
+    purchase: "購入は正式リリース時に開始します。",
+    enterprise:
+      "100 シートを超える利用、請求書払い、個別の契約条件をご希望ですか？メールでご連絡ください。ご要望に合わせてご用意します。",
+    costs: "Kitewell 以外の費用",
+    costsText:
+      "AI プロバイダーの利用料、サードパーティのサブスクリプション、インフラの費用は別途かかります。Kitewell には AI クレジットや、ワークフローを動かすホスト型のコンピューターは含まれません。",
+    ai: "AI タスクの接続方法 →",
+  },
+}[locale];
+---
+
+<Site title={text.title} description={text.description}>
+  <section class="page wrap">
+    <p class="eyebrow">{text.eyebrow}</p>
+    <h1>{text.heading}</h1>
+    <p class="lead">{text.lead}</p>
+    <div class="cards">
+      <article class="card">
+        <h2>Free</h2>
+        <div class="price">$0</div>
+        <ul>
+          {text.free.map((item) => <li>{item}</li>)}
+        </ul>
+        <a class="button secondary" href={localize("/docs/getting-started/", locale)}>
+          {text.guide}
+        </a>
+      </article>
+      <article class="card pro">
+        <h2>Pro</h2>
+        <div class="price">
+          $15 <span>{text.per}</span>
+        </div>
+        <ul>
+          {text.pro.map((item) => <li>{item}</li>)}
+        </ul>
+        <p class="fine">{text.purchase}</p>
+      </article>
+    </div>
+    <div class="notice">
+      <h2>Enterprise</h2>
+      <p>{text.enterprise}</p>
+      <a
+        class="button"
+        href="mailto:contact@dagu.sh?subject=Kitewell%20Enterprise"
+      >
+        contact@dagu.sh
+      </a>
+    </div>
+    <div class="prose">
+      <h2>{text.costs}</h2>
+      <p>{text.costsText}</p>
+      <p>
+        <a href={localize("/docs/ai/", locale)}>{text.ai}</a>
+      </p>
+    </div>
+  </section>
+</Site>

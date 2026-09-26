@@ -1,0 +1,101 @@
+---
+import Site from "../layouts/Site.astro";
+import { localize } from "../lib/i18n.mjs";
+interface Props {
+  locale: "en" | "ja";
+}
+const { locale } = Astro.props;
+const text = {
+  en: {
+    title: "Support",
+    description: "Get help with Kitewell, report a bug, or privately report a security issue.",
+    eyebrow: "A little help",
+    heading: "Find your next step.",
+    lead: "Start with the guides. If something still isn't working, open an issue with the details needed to reproduce it.",
+    bugs: "Questions & bugs",
+    bugsText:
+      "Include your Kitewell version, operating system, processor, and the steps that led to the problem. Remove credentials and private data from logs.",
+    issue: "Open an issue ↗",
+    security: "Security reports",
+    securityText:
+      "Report vulnerabilities privately through GitHub. Include the affected version and a reproducible example without real credentials.",
+    report: "Report privately ↗",
+    start: "Useful starting points",
+    guides: [
+      ["/docs/getting-started/", "Create your first workflow"],
+      ["/docs/troubleshooting/", "Troubleshoot a failed run"],
+      ["/docs/scheduling/", "Understand sleep and background operation"],
+      ["/docs/backups/", "Back up and restore your workspace"],
+    ],
+    business: "For team rollouts, pricing, or other business questions, email",
+  },
+  ja: {
+    title: "サポート",
+    description:
+      "Kitewell のヘルプ、不具合の報告、セキュリティ上の問題の非公開報告はこちら。",
+    eyebrow: "お手伝いします",
+    heading: "次の一歩を見つける。",
+    lead: "まずはガイドをご覧ください。それでも解決しない場合は、再現に必要な情報を添えて Issue を作成してください。",
+    bugs: "質問と不具合",
+    bugsText:
+      "Kitewell のバージョン、OS、プロセッサー、問題が起きるまでの手順を書いてください。ログから認証情報や個人的なデータは取り除いてください。",
+    issue: "Issue を作成 ↗",
+    security: "セキュリティの報告",
+    securityText:
+      "脆弱性は GitHub で非公開で報告してください。影響を受けるバージョンと、本物の認証情報を含まない再現例を添えてください。",
+    report: "非公開で報告 ↗",
+    start: "役立つ入り口",
+    guides: [
+      ["/docs/getting-started/", "最初のワークフローを作る"],
+      ["/docs/troubleshooting/", "失敗した実行を調べる"],
+      ["/docs/scheduling/", "スリープとバックグラウンド動作を理解する"],
+      ["/docs/backups/", "ワークスペースをバックアップ・復元する"],
+    ],
+    business: "チームでの導入、料金、そのほかのビジネスに関するご質問は、こちらへメールでご連絡ください：",
+  },
+}[locale];
+---
+
+<Site title={text.title} description={text.description}>
+  <section class="page wrap">
+    <p class="eyebrow">{text.eyebrow}</p>
+    <h1>{text.heading}</h1>
+    <p class="lead">{text.lead}</p>
+    <div class="cards">
+      <article class="card">
+        <h2>{text.bugs}</h2>
+        <p>{text.bugsText}</p>
+        <a
+          class="button"
+          href="https://github.com/dagucloud/kitewell/issues/new/choose"
+        >
+          {text.issue}
+        </a>
+      </article>
+      <article class="card">
+        <h2>{text.security}</h2>
+        <p>{text.securityText}</p>
+        <a
+          class="button secondary"
+          href="https://github.com/dagucloud/kitewell/security/advisories/new"
+        >
+          {text.report}
+        </a>
+      </article>
+    </div>
+    <div class="prose">
+      <h2>{text.start}</h2>
+      <ul>
+        {text.guides.map(([href, label]) => (
+          <li>
+            <a href={localize(href, locale)}>{label}</a>
+          </li>
+        ))}
+      </ul>
+      <p>
+        {text.business}{" "}
+        <a href="mailto:contact@dagu.sh?subject=Kitewell">contact@dagu.sh</a>{locale === "en" ? "." : ""}
+      </p>
+    </div>
+  </section>
+</Site>

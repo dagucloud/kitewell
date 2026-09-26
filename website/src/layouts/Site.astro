@@ -2,32 +2,68 @@
 import "../styles/site.css";
 import Analytics from "../components/Analytics.astro";
 import { readManifest } from "../lib/releases.mjs";
+import { counterparts, localeOf, localize } from "../lib/i18n.mjs";
 interface Props {
   title: string;
   description?: string;
 }
-const {
-  title,
-  description = "Kitewell is a desktop workflow builder for scripts, APIs, containers, and AI agents. Schedule runs and inspect each step's output on your own machine.",
-} = Astro.props;
+const locale = localeOf(Astro.url.pathname);
+const text = {
+  en: {
+    description:
+      "Kitewell is a desktop workflow builder for scripts, APIs, containers, and AI agents. Schedule runs and inspect each step's output on your own machine.",
+    skip: "Skip to content",
+    home: "Kitewell home",
+    nav: "Main navigation",
+    links: ["Docs", "Releases", "Pricing", "Support"],
+    download: "Download Kitewell",
+    status: "Beta status",
+    tagline: "Build and run workflows locally.",
+    footer: ["Documentation", "Third-party notices", "Support", "Contact"],
+    fine: "Public beta.",
+  },
+  ja: {
+    description:
+      "Kitewell は、スクリプト、API、コンテナ、AI エージェントをつなぐデスクトップのワークフロービルダーです。実行をスケジュールし、各ステップの出力を自分のマシンで確認できます。",
+    skip: "本文へスキップ",
+    home: "Kitewell ホーム",
+    nav: "メインナビゲーション",
+    links: ["ドキュメント", "リリース", "料金", "サポート"],
+    download: "Kitewell をダウンロード",
+    status: "ベータの状況",
+    tagline: "ワークフローを、自分のマシンで作って動かす。",
+    footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ"],
+    fine: "パブリックベータ。",
+  },
+}[locale];
+const { title, description = text.description } = Astro.props;
 const release = await readManifest();
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const links = [
-  ["/docs/", "Docs"],
-  ["/releases/", "Releases"],
-  ["/pricing/", "Pricing"],
-  ["/support/", "Support"],
-];
+const pages = counterparts(Astro.url.pathname);
+// The switch offers the other language, named in that language.
+const other = locale === "ja" ? "en" : "ja";
+const otherLabel = other === "ja" ? "日本語" : "English";
+const links = ["/docs/", "/releases/", "/pricing/", "/support/"].map((href, i) => [
+  localize(href, locale),
+  text.links[i],
+]);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} — Kitewell</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {pages && (
+      <>
+        <link rel="alternate" hreflang="en" href={new URL(pages.en, Astro.site)} />
+        <link rel="alternate" hreflang="ja" href={new URL(pages.ja, Astro.site)} />
+        <link rel="alternate" hreflang="x-default" href={new URL(pages.en, Astro.site)} />
+      </>
+    )}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={`${title} — Kitewell`} />
@@ -38,14 +74,14 @@ const links = [
   </head>
   <body>
     <a class="skip" href="#main">
-      Skip to content
+      {text.skip}
     </a>
     <header class="header wrap">
-      <a class="brand" href="/" aria-label="Kitewell home">
+      <a class="brand" href={localize("/", locale)} aria-label={text.home}>
         <img class="brand-mark" src="/favicon.svg" alt="" width="36" height="36" />
         Kitewell
       </a>
-      <nav aria-label="Main navigation">
+      <nav aria-label={text.nav}>
         {links.map(([href, label]) => (
           <a
             href={href}
@@ -56,9 +92,14 @@ const links = [
             {label}
           </a>
         ))}
+        {pages && (
+          <a href={pages[other]} lang={other} hreflang={other}>
+            {otherLabel}
+          </a>
+        )}
       </nav>
-      <a class="button small" href="/download/">
-        {release ? "Download Kitewell" : "Beta status"}
+      <a class="button small" href={localize("/download/", locale)}>
+        {release ? text.download : text.status}
         <span aria-hidden="true">↗</span>
       </a>
     </header>
@@ -67,21 +108,21 @@ const links = [
     </main>
     <footer class="footer wrap">
       <div>
-        <a class="brand" href="/">
+        <a class="brand" href={localize("/", locale)}>
           <img class="brand-mark" src="/favicon.svg" alt="" width="36" height="36" />
           Kitewell
         </a>
-        <p>Build and run workflows locally.</p>
+        <p>{text.tagline}</p>
       </div>
       <div class="footer-links">
-        <a href="/docs/">Documentation</a>
+        <a href={localize("/docs/", locale)}>{text.footer[0]}</a>
         <a href="https://github.com/dagucloud/kitewell">GitHub</a>
-        <a href="/third-party/">Third-party notices</a>
-        <a href="/support/">Support</a>
-        <a href="mailto:contact@dagu.sh?subject=Kitewell">Contact</a>
+        <a href="/third-party/">{text.footer[1]}</a>
+        <a href={localize("/support/", locale)}>{text.footer[2]}</a>
+        <a href="mailto:contact@dagu.sh?subject=Kitewell">{text.footer[3]}</a>
         <Analytics />
       </div>
-      <p class="fine">© {new Date().getFullYear()} Kitewell. Public beta.</p>
+      <p class="fine">© {new Date().getFullYear()} Kitewell. {text.fine}</p>
     </footer>
   </body>
 </html>

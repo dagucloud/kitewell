@@ -1,0 +1,73 @@
+---
+import Site from "../layouts/Site.astro";
+import { releaseNotes } from "../lib/releases.mjs";
+import { localize } from "../lib/i18n.mjs";
+import { createMarkdownProcessor } from "@astrojs/markdown-remark";
+interface Props {
+  locale: "en" | "ja";
+}
+const { locale } = Astro.props;
+const processor = await createMarkdownProcessor();
+const releases = await Promise.all(
+  (await releaseNotes()).map(async (release) => ({
+    ...release,
+    html: (await processor.render(release.body)).code,
+  })),
+);
+const text = {
+  en: {
+    title: "Releases",
+    description: "Kitewell release notes, known issues, and versioned downloads.",
+    eyebrow: "What's new",
+    heading: "A record of each release.",
+    lead: "Changes, known issues, and downloads for every public Kitewell version.",
+    assets: "Installers and release assets ↗",
+    soon: "The first public beta is coming soon",
+    soonText: "Release notes will appear here when a verified installer is published.",
+    docs: "Explore the documentation",
+    docsAfter: " in the meantime.",
+  },
+  ja: {
+    title: "リリース",
+    description: "Kitewell のリリースノート、既知の問題、バージョンごとのダウンロード。",
+    eyebrow: "最新情報",
+    heading: "リリースの記録。",
+    lead: "公開された各バージョンの変更点、既知の問題、ダウンロード。リリースノートは英語で掲載します。",
+    assets: "インストーラーとリリースアセット ↗",
+    soon: "最初のパブリックベータを近日公開",
+    soonText: "検証済みのインストーラーを公開すると、ここにリリースノートを掲載します。",
+    docs: "それまではドキュメントをご覧ください",
+    docsAfter: "。",
+  },
+}[locale];
+---
+
+<Site title={text.title} description={text.description}>
+  <section class="page wrap">
+    <p class="eyebrow">{text.eyebrow}</p>
+    <h1>{text.heading}</h1>
+    <p class="lead">{text.lead}</p>
+    {releases.length ? (
+      releases.map((release) => (
+        <article class="release prose" lang="en">
+          <h2>Kitewell {release.version}</h2>
+          <a
+            class="release-link"
+            href={`https://github.com/dagucloud/kitewell/releases/tag/v${release.version}`}
+          >
+            {text.assets}
+          </a>
+          <div set:html={release.html} />
+        </article>
+      ))
+    ) : (
+      <div class="notice">
+        <h3>{text.soon}</h3>
+        <p>
+          {text.soonText}{" "}
+          <a href={localize("/docs/", locale)}>{text.docs}</a>{text.docsAfter}
+        </p>
+      </div>
+    )}
+  </section>
+</Site>

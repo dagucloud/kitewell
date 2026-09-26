@@ -1,0 +1,400 @@
+---
+import Site from "../layouts/Site.astro";
+import { readManifest } from "../lib/releases.mjs";
+import { localize } from "../lib/i18n.mjs";
+interface Props {
+  locale: "en" | "ja";
+}
+const { locale } = Astro.props;
+const release = await readManifest();
+const text = {
+  en: {
+    title: "Build and run workflows on your own machine",
+    description:
+      "Connect scripts, APIs, containers, and AI agents in Kitewell's visual editor. Schedule workflows and inspect the output of each step.",
+    eyebrow: release ? `Public beta · ${release.version}` : "Public beta coming soon",
+    heading: "Build and run workflows on your own machine.",
+    lead: "Connect scripts, APIs, containers, and AI agents in a desktop app. Build the workflow visually, schedule it, and inspect the output of each step.",
+    primary: release ? "Download Kitewell" : "Watch the film",
+    setup: "Read the setup guide →",
+    platform: "First release for macOS 13 or later.",
+    meet: "Meet Kitewell",
+    tagline: "Serious workflows. Seriously simple.",
+    taglineText: "Build visually. Run on your terms. With or without code.",
+    filmLabel: "Kitewell product film, 60 seconds",
+    filmLink: "Watch the Kitewell film.",
+    filmCaption: ["60 seconds · Original music · Sound on", "Illustrative product demo"],
+    short: "Watch the 30-second version",
+    shortLabel: "Kitewell short film, 30 seconds, portrait",
+    shortLink: "Watch the short film.",
+    transcript: "Read the video transcript",
+    scenes: [
+      [
+        "Serious workflows. Seriously simple.",
+        "For builders, with or without code. Kitewell: build visually, run on your terms. Instrumental electronic music plays throughout; there is no narration.",
+      ],
+      [
+        "Build a workflow without writing code.",
+        "In the visual editor, customer feedback flows from a connected API to an AI decision. The question “Does this feedback need a reply?” creates the next path: draft a reply, then ask a person to approve it. Select Weekdays at 9:00, review, and start the run. All four steps complete on your machine. This illustrative demo uses tools configured in advance.",
+      ],
+      [
+        "Your tools. One flow.",
+        "Connect AI harnesses such as Codex, Claude Code, and Gemini; Docker images; commands; remote servers over SSH; decision APIs; and imported OpenAPI actions.",
+      ],
+      [
+        "Runs locally. Works together.",
+        "The full film shows team members running workflows, viewing results, and managing workflows through MCP. Share access through MCP and REST while keeping execution on your machine.",
+      ],
+      [
+        "Or simply ask.",
+        "A chat agent connected through MCP receives the request “Build a daily feedback workflow. Flag urgent issues for review.” Kitewell creates, validates, and schedules the workflow for review. Build, run, inspect, and fix workflows from the conversation.",
+      ],
+      [
+        "Easy to build. Yours to run.",
+        "For the team that imagines it and the people who make it happen. The short film ends with “Runs on your machine. Shared with your team.” Explore Kitewell at kitewell.app.",
+      ],
+    ],
+    editorLabel: "Open the workflow editor screenshot at full size",
+    editorAlt:
+      "Kitewell workflow editor with a daily report workflow and the selected step's settings",
+    editorCaption: [
+      "Connect steps on the canvas. Select a step to edit its settings.",
+      "Development preview · Open image to enlarge",
+    ],
+    example: "Example workflow",
+    exampleTitle: "Turn a CSV into a daily report.",
+    exampleText:
+      "Run a Python script against sample sales data, save a Markdown report, and check the result in the run log.",
+    exampleSteps: [
+      ["Read orders", "Read the sample orders from a CSV."],
+      ["Build report", "Calculate revenue and average order value."],
+      ["Save report", "Write the report and print its contents."],
+    ],
+    exampleLink: "Build this workflow →",
+    runLabel: "Open the completed workflow run screenshot at full size",
+    runAlt:
+      "Completed daily report workflow in Kitewell with the report visible in the selected step's output",
+    runCaption: "Sample data · 3 orders · $2,450.00 revenue. Open image to enlarge.",
+    apiTitle: "Use API operations as workflow steps.",
+    apiText:
+      "Import an OpenAPI spec and choose an operation by name. Kitewell builds its request form from the spec. Reuse the connection across workflows in the project.",
+    apiLink: "Import an API →",
+    apiSteps: [
+      ["Import the spec", "Upload JSON or YAML, paste it, or enter its URL."],
+      [
+        "Configure the request",
+        "Fill in inputs and connect a project secret if authentication is needed.",
+      ],
+      ["Use the response", "Pass response fields into a script, agent, or another API step."],
+    ],
+    opsLabel: "Scheduling and debugging",
+    scheduleTitle: "Schedule a workflow.",
+    scheduleText:
+      "Run on demand, daily, on weekdays, or on a custom schedule. On macOS, Kitewell keeps working from the menu bar when you close its window. Scheduled runs need an awake machine with your user signed in.",
+    scheduleLink: "How schedules work →",
+    inspectTitle: "Inspect a failed step.",
+    inspectText:
+      "Open a run to see which steps finished and which failed. Select a step to read its output and errors. Workflow definitions and execution logs are stored on your machine.",
+    inspectLink: "Run and inspect a workflow →",
+    shareLabel: "Sharing and integrations",
+    shareTitle: "Share a project.",
+    shareText:
+      "Export a project and import it on another device, or sync it with Dagu Cloud so every device and teammate works from the same copy; secret values stay on each device. Connect clients to a running Kitewell host through MCP or REST, using API keys.",
+    shareLinks: ["Project sharing →", "Sync with Dagu Cloud →", "MCP and API access →"],
+    pricing: "Planned launch pricing",
+    pricingTitle: "Free for one project.",
+    pricingText:
+      "One project with up to 10 workflows needs no Kitewell account. Pro holds up to ten projects of 200 workflows each and adds alerts and team sync, for $15 per person per month (USD).",
+    compare: "Compare plans →",
+    availability: release ? "Download Kitewell" : "Check release availability",
+    status: release ? "Public beta available" : "Public beta coming soon",
+  },
+  ja: {
+    title: "ワークフローを、自分のマシンで作って動かす",
+    description:
+      "スクリプト、API、コンテナ、AI エージェントを Kitewell のビジュアルエディタでつなぎます。ワークフローをスケジュールし、各ステップの出力を確認できます。",
+    eyebrow: release ? `パブリックベータ · ${release.version}` : "パブリックベータを近日公開",
+    heading: "ワークフローを、自分のマシンで作って動かす。",
+    lead: "スクリプト、API、コンテナ、AI エージェントをデスクトップアプリでつなげます。ワークフローをビジュアルに組み立て、スケジュールし、各ステップの出力を確認できます。",
+    primary: release ? "Kitewell をダウンロード" : "紹介映像を見る",
+    setup: "セットアップガイドを読む →",
+    platform: "最初のリリースは macOS 13 以降に対応。",
+    meet: "Kitewell の紹介",
+    tagline: "本格的なワークフローを、驚くほどシンプルに。",
+    taglineText: "ビジュアルに組み立て、思いどおりに動かす。コードを書いても、書かなくても。",
+    filmLabel: "Kitewell 紹介映像（60 秒）",
+    filmLink: "Kitewell の紹介映像を見る。",
+    filmCaption: ["60 秒 · オリジナル音楽 · 音声あり", "説明用の製品デモ"],
+    short: "30 秒版を見る",
+    shortLabel: "Kitewell ショート映像（30 秒・縦型）",
+    shortLink: "ショート映像を見る。",
+    transcript: "映像の内容をテキストで読む",
+    scenes: [
+      [
+        "Serious workflows. Seriously simple.",
+        "（本格的なワークフローを、驚くほどシンプルに。）コードを書く人にも、書かない人にも。Kitewell：ビジュアルに組み立て、思いどおりに動かす。全編にエレクトロニックのインストゥルメンタル音楽が流れ、ナレーションはありません。",
+      ],
+      [
+        "Build a workflow without writing code.",
+        "（コードを書かずにワークフローを作る。）ビジュアルエディタで、接続した API から届いた顧客フィードバックが AI の判断へ流れます。「このフィードバックに返信が必要か？」という問いが次の経路を作り、返信を下書きしてから人に承認を求めます。「平日 9:00」を選び、確認して実行を開始すると、4 つのステップすべてが自分のマシンで完了します。この説明用デモでは、あらかじめ設定したツールを使っています。",
+      ],
+      [
+        "Your tools. One flow.",
+        "（使い慣れたツールを、ひとつの流れに。）Codex、Claude Code、Gemini などの AI ハーネス、Docker イメージ、コマンド、SSH 経由のリモートサーバー、判断用の API、インポートした OpenAPI のアクションをつなげます。",
+      ],
+      [
+        "Runs locally. Works together.",
+        "（ローカルで動き、チームで使える。）フルバージョンの映像では、チームメンバーがワークフローを実行し、結果を確認し、MCP でワークフローを管理する様子を紹介します。実行は自分のマシンにとどめたまま、MCP と REST でアクセスを共有できます。",
+      ],
+      [
+        "Or simply ask.",
+        "（あるいは、頼むだけ。）MCP で接続したチャットエージェントが「毎日のフィードバック用ワークフローを作って。緊急の問題はレビュー用にフラグを立てて」という依頼を受けます。Kitewell がワークフローを作成・検証し、レビューできるようスケジュールします。会話の中でワークフローの作成、実行、確認、修正ができます。",
+      ],
+      [
+        "Easy to build. Yours to run.",
+        "（作るのは簡単、動かすのはあなた。）構想するチームと、それを形にする人のために。ショート映像は「Runs on your machine. Shared with your team.」（自分のマシンで動き、チームと共有できる）で締めくくられます。詳しくは kitewell.app をご覧ください。",
+      ],
+    ],
+    editorLabel: "ワークフローエディタのスクリーンショットを原寸で開く",
+    editorAlt:
+      "日次レポートのワークフローと、選択したステップの設定を表示した Kitewell のワークフローエディタ",
+    editorCaption: [
+      "キャンバス上でステップをつなぎます。ステップを選ぶと設定を編集できます。",
+      "開発中の画面 · 画像を開くと拡大します",
+    ],
+    example: "ワークフローの例",
+    exampleTitle: "CSV を日次レポートに。",
+    exampleText:
+      "サンプルの売上データに Python スクリプトを実行し、Markdown のレポートを保存して、結果を実行ログで確認します。",
+    exampleSteps: [
+      ["注文を読み込む", "CSV からサンプルの注文を読み込みます。"],
+      ["レポートを作成", "売上と平均注文額を計算します。"],
+      ["レポートを保存", "レポートを書き出し、内容を表示します。"],
+    ],
+    exampleLink: "このワークフローを作る →",
+    runLabel: "完了したワークフロー実行のスクリーンショットを原寸で開く",
+    runAlt:
+      "選択したステップの出力にレポートが表示された、Kitewell の完了済み日次レポートワークフロー",
+    runCaption: "サンプルデータ · 注文 3 件 · 売上 $2,450.00。画像を開くと拡大します。",
+    apiTitle: "API のオペレーションをワークフローのステップに。",
+    apiText:
+      "OpenAPI の仕様をインポートし、オペレーションを名前で選びます。Kitewell が仕様からリクエストフォームを作成します。接続はプロジェクト内のワークフローで再利用できます。",
+    apiLink: "API をインポートする →",
+    apiSteps: [
+      ["仕様をインポート", "JSON か YAML をアップロードするか、貼り付けるか、URL を入力します。"],
+      ["リクエストを設定", "入力を埋め、認証が必要ならプロジェクトのシークレットを接続します。"],
+      ["レスポンスを使う", "レスポンスのフィールドを、スクリプト、エージェント、別の API ステップに渡します。"],
+    ],
+    opsLabel: "スケジュールとデバッグ",
+    scheduleTitle: "ワークフローをスケジュールする。",
+    scheduleText:
+      "手動、毎日、平日、またはカスタムのスケジュールで実行できます。macOS では、ウィンドウを閉じても Kitewell はメニューバーで動き続けます。スケジュール実行には、スリープしていないマシンとユーザーのログインが必要です。",
+    scheduleLink: "スケジュールのしくみ →",
+    inspectTitle: "失敗したステップを調べる。",
+    inspectText:
+      "実行を開くと、どのステップが完了し、どれが失敗したかがわかります。ステップを選ぶと、出力とエラーを読めます。ワークフローの定義と実行ログは自分のマシンに保存されます。",
+    inspectLink: "ワークフローを実行して確認する →",
+    shareLabel: "共有と連携",
+    shareTitle: "プロジェクトを共有する。",
+    shareText:
+      "プロジェクトをエクスポートして別のデバイスでインポートするか、Dagu Cloud と同期すれば、すべてのデバイスとチームメンバーが同じ内容で作業できます。シークレットの値は各デバイスにとどまります。API キーを使えば、稼働中の Kitewell に MCP や REST でクライアントを接続できます。",
+    shareLinks: ["プロジェクトの共有 →", "Dagu Cloud との同期 →", "MCP と API アクセス →"],
+    pricing: "正式リリース時の予定価格",
+    pricingTitle: "1 プロジェクトなら無料。",
+    pricingText:
+      "10 ワークフローまでの 1 プロジェクトなら、Kitewell アカウントは不要です。Pro は最大 10 プロジェクト・各 200 ワークフローに対応し、アラートとチームでの同期が加わって、1 人あたり月額 $15（USD）です。",
+    compare: "プランを比較 →",
+    availability: release ? "Kitewell をダウンロード" : "提供状況を確認",
+    status: release ? "パブリックベータ公開中" : "パブリックベータを近日公開",
+  },
+}[locale];
+const to = (path: string) => localize(path, locale);
+---
+
+<Site title={text.title} description={text.description}>
+  <div class="wrap home">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow dot">{text.eyebrow}</p>
+      <h1 id="hero-title">{text.heading}</h1>
+      <p class="lead">{text.lead}</p>
+      <div class="actions">
+        <a class="button" href={release ? to("/download/") : "#film"}>
+          {text.primary}
+          <span aria-hidden="true">{release ? "↗" : "↓"}</span>
+        </a>
+        <a class="text-link" href={to("/docs/getting-started/")}>
+          {text.setup}
+        </a>
+      </div>
+      <p class="fine">{text.platform}</p>
+    </section>
+
+    <section class="promo" id="film" aria-labelledby="film-title">
+      <div class="promo-heading">
+        <p class="eyebrow">{text.meet}</p>
+        <h2 id="film-title">{text.tagline}</h2>
+        <p>{text.taglineText}</p>
+      </div>
+      <figure class="promo-film">
+        <video
+          controls
+          playsinline
+          preload="none"
+          poster="/videos/kitewell-film.webp"
+          width="1920"
+          height="1080"
+          aria-label={text.filmLabel}
+          aria-describedby="film-caption"
+        >
+          <source src="/videos/kitewell-film-v2.mp4" type="video/mp4" />
+          <p><a href="/videos/kitewell-film-v2.mp4">{text.filmLink}</a></p>
+        </video>
+        <figcaption id="film-caption">
+          <span>{text.filmCaption[0]}</span>
+          <span>{text.filmCaption[1]}</span>
+        </figcaption>
+      </figure>
+      <div class="promo-extras">
+        <details class="promo-short">
+          <summary>{text.short}</summary>
+          <video
+            controls
+            playsinline
+            preload="none"
+            poster="/videos/kitewell-social-v2.webp"
+            width="1080"
+            height="1920"
+            aria-label={text.shortLabel}
+          >
+            <source src="/videos/kitewell-social-v2.mp4" type="video/mp4" />
+            <p><a href="/videos/kitewell-social-v2.mp4">{text.shortLink}</a></p>
+          </video>
+        </details>
+        <details class="promo-transcript">
+          <summary>{text.transcript}</summary>
+          <div>
+            {text.scenes.map(([caption, scene]) => (
+              <p>
+                <strong lang="en">{caption}</strong> {scene}
+              </p>
+            ))}
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <figure class="product-preview">
+      <a href="/images/workflow-builder.jpg" aria-label={text.editorLabel}>
+        <img
+          src="/images/workflow-builder.jpg"
+          alt={text.editorAlt}
+          width="1869"
+          height="1012"
+          fetchpriority="high"
+        />
+      </a>
+      <figcaption>
+        <span>{text.editorCaption[0]}</span>
+        <span>{text.editorCaption[1]}</span>
+      </figcaption>
+    </figure>
+
+    <section
+      class="section report-example"
+      id="example"
+      aria-labelledby="example-title"
+    >
+      <div class="example-copy">
+        <p class="eyebrow">{text.example}</p>
+        <h2 id="example-title">{text.exampleTitle}</h2>
+        <p>{text.exampleText}</p>
+        <ol class="example-steps">
+          {text.exampleSteps.map(([name, detail]) => (
+            <li>
+              <strong>{name}</strong>
+              <span>{detail}</span>
+            </li>
+          ))}
+        </ol>
+        <a
+          class="text-link"
+          href={to("/docs/workflow-builder/#example-build-a-daily-report")}
+        >
+          {text.exampleLink}
+        </a>
+      </div>
+      <figure class="product-preview run-preview">
+        <a href="/images/workflow-run.jpg" aria-label={text.runLabel}>
+          <img
+            src="/images/workflow-run.jpg"
+            alt={text.runAlt}
+            width="1345"
+            height="886"
+            loading="lazy"
+          />
+        </a>
+        <figcaption>{text.runCaption}</figcaption>
+      </figure>
+    </section>
+
+    <section class="section operations" aria-labelledby="api-title">
+      <article>
+        <h2 id="api-title">{text.apiTitle}</h2>
+        <p>{text.apiText}</p>
+        <a class="text-link" href={to("/docs/apis/")}>{text.apiLink}</a>
+      </article>
+      <ol class="example-steps">
+        {text.apiSteps.map(([name, detail]) => (
+          <li>
+            <strong>{name}</strong>
+            <span>{detail}</span>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="section operations" aria-label={text.opsLabel}>
+      <article>
+        <h2>{text.scheduleTitle}</h2>
+        <p>{text.scheduleText}</p>
+        <a class="text-link" href={to("/docs/scheduling/")}>{text.scheduleLink}</a>
+      </article>
+      <article>
+        <h2>{text.inspectTitle}</h2>
+        <p>{text.inspectText}</p>
+        <a class="text-link" href={to("/docs/workflow-builder/#check-run-and-schedule")}>
+          {text.inspectLink}
+        </a>
+      </article>
+    </section>
+
+    <aside class="connections" aria-label={text.shareLabel}>
+      <p>
+        <strong>{text.shareTitle}</strong> {text.shareText}
+      </p>
+      <div>
+        <a class="text-link" href={to("/docs/sharing/")}>{text.shareLinks[0]}</a>
+        <a class="text-link" href={to("/docs/cloud-sync/")}>{text.shareLinks[1]}</a>
+        <a class="text-link" href={to("/docs/mcp/")}>{text.shareLinks[2]}</a>
+      </div>
+    </aside>
+
+    <section class="closing" aria-labelledby="pricing-title">
+      <div>
+        <p class="eyebrow">{text.pricing}</p>
+        <h2 id="pricing-title">{text.pricingTitle}</h2>
+        <p>
+          {text.pricingText}{" "}
+          <a href={to("/pricing/")}>{text.compare}</a>
+        </p>
+      </div>
+      <div class="availability">
+        <a class="button" href={to("/download/")}>
+          {text.availability}
+          <span aria-hidden="true">↗</span>
+        </a>
+        <p class="fine">{text.status} · macOS 13+</p>
+      </div>
+    </section>
+  </div>
+</Site>

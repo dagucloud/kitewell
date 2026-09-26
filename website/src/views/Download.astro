@@ -1,0 +1,124 @@
+---
+import Site from "../layouts/Site.astro";
+import { readManifest } from "../lib/releases.mjs";
+import { localize } from "../lib/i18n.mjs";
+interface Props {
+  locale: "en" | "ja";
+}
+const { locale } = Astro.props;
+const release = await readManifest();
+const text = {
+  en: {
+    title: release ? "Download Kitewell" : "Beta availability",
+    description:
+      "Check Kitewell beta availability, supported platforms, system requirements, and installation instructions.",
+    eyebrow: "Downloads",
+    heading: release ? `Download Kitewell ${release.version}` : "Public beta coming soon",
+    lead: release
+      ? "The public beta is ready to download. Check the supported platforms and system requirements below."
+      : "There are no public installers yet. The first release will be for macOS; Linux and Windows support is planned.",
+    platforms: [`macOS · ${release ? "Public beta" : "Coming soon"}`, "Linux · Planned", "Windows · Planned"],
+    architectures: [
+      ["arm64", "Apple Silicon", "For Macs with Apple M-series chips."],
+      ["amd64", "Intel", "For Macs with Intel processors."],
+    ],
+    pkg: "Download .pkg",
+    preview: "See how Kitewell works",
+    installing: "Installing on macOS",
+    requirements: [
+      "macOS 13 or later. To check your chip, open Apple menu → About This Mac.",
+      "The package installs into Applications and requires an administrator password.",
+      "Python, Docker, AI command-line agents, and other tools are needed only for workflows that use them.",
+      "When updating, save edits and let running jobs finish. Installation restarts Kitewell.",
+    ],
+    install: "Read installation instructions →",
+  },
+  ja: {
+    title: release ? "Kitewell をダウンロード" : "ベータの提供状況",
+    description:
+      "Kitewell ベータの提供状況、対応プラットフォーム、動作環境、インストール方法を確認できます。",
+    eyebrow: "ダウンロード",
+    heading: release ? `Kitewell ${release.version} をダウンロード` : "パブリックベータを近日公開",
+    lead: release
+      ? "パブリックベータをダウンロードできます。対応プラットフォームと動作環境は以下をご確認ください。"
+      : "公開中のインストーラーはまだありません。最初のリリースは macOS 向けで、Linux と Windows にも対応予定です。",
+    platforms: [`macOS · ${release ? "パブリックベータ" : "近日公開"}`, "Linux · 対応予定", "Windows · 対応予定"],
+    architectures: [
+      ["arm64", "Apple Silicon", "Apple M シリーズチップ搭載の Mac 向け。"],
+      ["amd64", "Intel", "Intel プロセッサー搭載の Mac 向け。"],
+    ],
+    pkg: ".pkg をダウンロード",
+    preview: "Kitewell の使い方を見る",
+    installing: "macOS へのインストール",
+    requirements: [
+      "macOS 13 以降。チップの種類は、アップルメニュー →「この Mac について」で確認できます。",
+      "パッケージは「アプリケーション」フォルダにインストールされ、管理者パスワードが必要です。",
+      "Python、Docker、AI のコマンドラインエージェントなどのツールは、それを使うワークフローでのみ必要です。",
+      "アップデートの際は、編集内容を保存し、実行中のジョブが終わるのを待ってください。インストールすると Kitewell が再起動します。",
+    ],
+    install: "インストール手順を読む →",
+  },
+}[locale];
+---
+
+<Site title={text.title} description={text.description}>
+  <section class="page wrap">
+    <p class="eyebrow">{text.eyebrow}</p>
+    <h1>{text.heading}</h1>
+    <p class="lead">{text.lead}</p>
+    <div class="platforms">
+      {text.platforms.map((platform) => <span>{platform}</span>)}
+    </div>
+    {release ? (
+      <div class="cards">
+        {text.architectures.map(([arch, title, description]) => (
+          <article class="card">
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <a class="button" href={release.downloads[`darwin-${arch}`].url}>
+              {text.pkg}
+            </a>
+            <p class="checksum">
+              SHA256
+              <br />
+              <code>{release.downloads[`darwin-${arch}`].sha256}</code>
+            </p>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="notice">
+        <h2>{text.preview}</h2>
+        {locale === "ja" ? (
+          <p>
+            <a href={localize("/docs/getting-started/", locale)}>はじめかたガイド</a>
+            を読むか、
+            <a href={localize("/docs/workflow-builder/", locale)}>ワークフローエディタ</a>
+            をご覧ください。ベータを公開すると、インストーラーがこのページと{" "}
+            <a href="https://github.com/dagucloud/kitewell/releases">GitHub Releases</a>{" "}
+            に掲載されます。
+          </p>
+        ) : (
+          <p>
+            Read the <a href="/docs/getting-started/">getting started guide</a>
+            {" "}or explore the <a href="/docs/workflow-builder/">workflow editor</a>.
+            Installers will appear here and on{" "}
+            <a href="https://github.com/dagucloud/kitewell/releases">
+              GitHub Releases
+            </a>{" "}
+            when the beta is published.
+          </p>
+        )}
+      </div>
+    )}
+    <div class="prose">
+      <h2>{text.installing}</h2>
+      <ul>
+        {text.requirements.map((item) => <li>{item}</li>)}
+      </ul>
+      <p>
+        <a href={localize("/docs/install/", locale)}>{text.install}</a>
+      </p>
+    </div>
+  </section>
+</Site>

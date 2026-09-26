@@ -57,6 +57,14 @@ h3 {
   line-height: 1.35;
   letter-spacing: -0.02em;
 }
+/* Japanese sets taller and untightened, and breaks lines between phrases. */
+:lang(ja) :is(h1, h2) {
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+:lang(ja) :is(h1, h2, h3, .lead) {
+  word-break: auto-phrase;
+}
 .wrap {
   width: min(1160px, calc(100% - 64px));
   margin-inline: auto;
