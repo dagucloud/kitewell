@@ -17,12 +17,13 @@ only the projects you choose, and never their secret values.
 
 A synced project carries what a [project export](/docs/sharing/) carries:
 workflow definitions and schedules, agents and models, API connections and
-imported specifications, servers and groups, queues, image registries, saved
-batch inputs, and project workflow defaults.
+imported specifications, servers and groups, queues, image registries, secret
+names and descriptions, saved batch inputs, and project workflow defaults.
 
 :::note[Secrets stay on your device]
-Secret values are never sent to Dagu Cloud. A synced workflow names a secret by
-reference, and each device stores its own value, set on that device. Only text
+Secret values are never sent to Dagu Cloud. A synced project lists the secrets
+it uses by name, and each device stores its own value, set on that device;
+**Secrets** shows **Value needed** until it is. Only text
 typed directly into workflow YAML, batch inputs, or API addresses travels as
 written, so keep credentials in [secrets](/docs/secrets/).
 :::

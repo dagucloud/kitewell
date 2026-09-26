@@ -16,6 +16,11 @@ Saved values cannot be read back through Kitewell. **Replace value** rotates a
 credential without changing its reference. Disabling or deleting it prevents
 future resolution of that secret.
 
+A secret's name and description belong to the project; its value stays on the
+device where you set it. **Value needed** marks a secret the project uses that
+has no value on this device yet: choose **Set value**. **Only on this device**
+marks a secret the project does not list yet: choose **Declare** to add it.
+
 ## Reuse a secret in imported APIs
 
 In **API library**, open a connection, choose its authentication type, and
@@ -37,13 +42,14 @@ supported.
 
 ## Exports, sync, and backups
 
-Project exports retain secret references, including those in imported API
-connections, but exclude managed secret values. Create the referenced secrets
-in the receiving project before running its workflows.
+Project exports retain secret names, descriptions, and references, including
+those in imported API connections, but exclude managed secret values. The
+receiving project lists each secret as **Value needed**; set the values before
+running its workflows.
 
 [Syncing a project with Dagu Cloud](/docs/cloud-sync/) works the same way:
-secret values are never sent to Dagu Cloud. Each device that syncs the project
-sets its own values for the secrets its workflows reference.
+secret names and descriptions sync with the project, and secret values are never
+sent to Dagu Cloud. Each device that syncs the project sets its own values.
 
 Workspace backups also exclude managed secrets and their decryption keys.
 After a restore, enter the required credentials again. Keep a separate secure
