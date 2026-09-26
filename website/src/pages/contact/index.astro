@@ -1,0 +1,91 @@
+---
+import Site from "../../layouts/Site.astro";
+---
+
+<Site
+  title="Contact"
+  description="Talk to the Kitewell team about rolling Kitewell out across an organization, pricing, or fit."
+>
+  <section class="page wrap">
+    <p class="eyebrow">Talk to us</p>
+    <h1>Let's talk.</h1>
+    <p class="lead">
+      Planning to roll Kitewell out across a team or an organization, or
+      wondering whether it fits? Reach out, and a person will reply.
+    </p>
+    <div class="cards">
+      <article class="card">
+        <h2>Email</h2>
+        <p>Write to us about seats, terms, deployment, or anything else.</p>
+        <a class="button" href="mailto:contact@dagu.sh">contact@dagu.sh</a>
+      </article>
+      <article class="card">
+        <h2>Book a call</h2>
+        <p>Prefer a conversation? Pick a time for a 30-minute call.</p>
+        <a
+          class="button secondary"
+          href="https://calendly.com/yota-hamada-descarty/30min"
+        >
+          Book a call ↗
+        </a>
+      </article>
+    </div>
+    <div class="prose">
+      <h2>Send a message</h2>
+      <form
+        class="contact-form"
+        action="https://api.web3forms.com/submit"
+        method="POST"
+      >
+        <input
+          type="hidden"
+          name="access_key"
+          value="81d327c7-60e9-4461-a0c4-d6fbc0cab56a"
+        />
+        <input type="hidden" name="subject" value="Kitewell inquiry" />
+        <input type="hidden" name="from_name" value="Kitewell Website" />
+        <input
+          type="hidden"
+          name="redirect"
+          value="https://kitewell.app/contact/thanks/"
+        />
+        <input
+          type="checkbox"
+          name="botcheck"
+          class="botcheck"
+          tabindex="-1"
+          autocomplete="off"
+        />
+        <label>
+          Name
+          <input name="name" required maxlength="200" autocomplete="name" />
+        </label>
+        <label>
+          Email
+          <input
+            type="email"
+            name="email"
+            required
+            maxlength="320"
+            autocomplete="email"
+          />
+        </label>
+        <label>
+          <span>Organization <em>(optional)</em></span>
+          <input
+            name="organization"
+            maxlength="200"
+            autocomplete="organization"
+          />
+        </label>
+        <label>
+          Message
+          <textarea name="message" required rows="6" maxlength="5000"
+          ></textarea>
+        </label>
+        <button class="button" type="submit">Send message</button>
+      </form>
+      <p class="fine">Your message reaches us by email through Web3Forms.</p>
+    </div>
+  </section>
+</Site>

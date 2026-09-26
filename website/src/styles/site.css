@@ -428,6 +428,48 @@ figure {
   margin-top: 8px;
   color: var(--muted);
 }
+.notice .button {
+  margin-top: 18px;
+}
+.contact-form {
+  display: grid;
+  gap: 18px;
+  max-width: 560px;
+  margin-top: 20px;
+}
+.contact-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.contact-form label em {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--muted);
+}
+.contact-form input,
+.contact-form textarea {
+  font: inherit;
+  font-weight: 400;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--ink);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--green);
+  outline-offset: 1px;
+}
+.contact-form .button {
+  justify-self: start;
+  cursor: pointer;
+}
+.contact-form .botcheck {
+  display: none;
+}
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
