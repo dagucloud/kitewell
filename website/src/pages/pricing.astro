@@ -4,15 +4,15 @@ import Site from "../layouts/Site.astro";
 
 <Site
   title="Pricing"
-  description="Planned Kitewell launch pricing: one project with up to 10 workflows free, or up to ten projects of 200 workflows with alerts on Kitewell Pro for $15 per month."
+  description="Planned Kitewell launch pricing: one project with up to 10 workflows free, or up to ten projects of 200 workflows with alerts and team sync on Kitewell Pro for $15 per person per month."
 >
   <section class="page wrap">
     <p class="eyebrow">Planned launch pricing</p>
     <h1>One project, free.</h1>
     <p class="lead">
       A project keeps its workflows, run history, and secrets separate. Both
-      plans include the same workflow tools; Pro adds room for more work and
-      alerts when it needs you.
+      plans include the same workflow tools; Pro adds room for more work,
+      alerts when it needs you, and a team to share it with.
     </p>
     <div class="cards">
       <article class="card">
@@ -24,6 +24,7 @@ import Site from "../layouts/Site.astro";
           <li>Schedules, run history, and event handlers</li>
           <li>AI tasks, plus MCP and API access with one key</li>
           <li>No Kitewell account required</li>
+          <li>Optionally, sync the project with a free Dagu Cloud account</li>
         </ul>
         <a class="button secondary" href="/docs/getting-started/">
           Read the getting started guide
@@ -32,7 +33,7 @@ import Site from "../layouts/Site.astro";
       <article class="card pro">
         <h2>Pro</h2>
         <div class="price">
-          $15 <span>/ month · USD</span>
+          $15 <span>/ person / month · USD</span>
         </div>
         <ul>
           <li>Up to ten projects, 200 workflows each</li>
@@ -40,6 +41,10 @@ import Site from "../layouts/Site.astro";
           <li>
             Alerts by desktop notification, email, Slack, Microsoft Teams,
             PagerDuty, or webhook
+          </li>
+          <li>
+            A team that syncs its projects through Dagu Cloud, with a role for
+            each person on each project; secret values stay on each device
           </li>
           <li>Every feature in Free</li>
           <li>Dagu Cloud account required for the subscription</li>

@@ -46,7 +46,8 @@ have been published yet.
 - **Inspect every run.** See which steps finished or failed, and read each
   step's output and errors.
 - **Work with agents and teammates.** Connect MCP clients or the REST API with
-  API keys. Export a project to use it on another device.
+  API keys. Export a project to use it on another device, or sync it with Dagu
+  Cloud to share it with your team. Secret values stay on each device.
 
 ![Completed daily report workflow with the report visible in the selected step's output](website/public/images/workflow-run.jpg)
 
@@ -59,7 +60,8 @@ run log.
 
 Free for one project with up to 10 workflows and one API key, with no Kitewell
 account required. Pro supports up to ten projects of 200 workflows each, any
-number of API keys, and alerts for $15/month (USD). These are planned launch prices; see
+number of API keys, alerts, and team sync for $15 per person per month (USD).
+These are planned launch prices; see
 [Pricing](https://kitewell.app/pricing/).
 
 ## Documentation

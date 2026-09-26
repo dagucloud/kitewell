@@ -42,6 +42,7 @@ export default defineConfig({
             { label: "AI agents and models", slug: "docs/ai" },
             { label: "MCP and API access", slug: "docs/mcp" },
             { label: "Share workflows with your team", slug: "docs/sharing" },
+            { label: "Sync with Dagu Cloud", slug: "docs/cloud-sync" },
             { label: "Secrets", slug: "docs/secrets" },
           ],
         },

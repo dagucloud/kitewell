@@ -6,7 +6,8 @@ Kitewell runs workflows on your own machine. Combine scripts, AI agents, contain
 and API calls; schedule the result; inspect each run in one interface.
 [Import an OpenAPI spec](/docs/apis/) to choose API operations and fill in
 request forms generated from the spec.
-Export a project and import it on another device or for a teammate; each
+Export a project and import it on another device or for a teammate, or
+[sync it with Dagu Cloud](/docs/cloud-sync/) to keep every copy the same; each
 device supplies its own credentials and enables only the workflows it should
 run.
 
@@ -24,9 +25,10 @@ Check [Downloads](/download/) for current release availability.
 5. [Share workflows with your team](/docs/sharing/).
 
 One project with up to 10 workflows and one API key is free and needs no
-Kitewell account. Pro is planned at $15/month for up to ten projects of 200
-workflows each, any number of API keys, and [alerts](/docs/alerts/). Projects
-hold separate workflows, history, and secrets.
+Kitewell account. Pro is planned at $15 per person per month for up to ten
+projects of 200 workflows each, any number of API keys, [alerts](/docs/alerts/),
+and a team that syncs its projects. Projects hold separate workflows, history,
+and secrets.
 
 ## What runs where
 

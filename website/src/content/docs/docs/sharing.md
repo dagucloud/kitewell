@@ -5,7 +5,8 @@ title: Share workflows with your team
 Build a workflow once and share its project with another device, teammate, or
 team in your organization. Each device can run its own copy with its own
 credentials. Teammates can also use MCP or REST clients to work with workflows
-on one shared host.
+on one shared host. To keep every copy the same as it changes, [sync the
+project with Dagu Cloud](/docs/cloud-sync/) instead.
 
 ## Send a project to another device
 
@@ -85,8 +86,8 @@ folder: device credentials, secrets, and execution data belong to each host.
 New recipients can use **Import project** to start from a reviewed export.
 
 A project export is a snapshot. Changes made after sharing do not automatically
-appear on other devices; distribute a new export or update the versioned files
-through your team's process.
+appear on other devices; distribute a new export, update the versioned files
+through your team's process, or [sync the project](/docs/cloud-sync/).
 
 ## Work together on one host
 
@@ -102,6 +103,5 @@ its optional login are managed by the host's owner; these API keys do not
 create individual GUI accounts.
 
 Remote clients require a reachable HTTPS endpoint and your own secure network
-configuration. Kitewell does not supply a hosted execution machine or automatic
-cloud synchronization. See [MCP and API access](/docs/mcp/) for connection and
-permission details.
+configuration. Kitewell does not supply a hosted execution machine. See
+[MCP and API access](/docs/mcp/) for connection and permission details.

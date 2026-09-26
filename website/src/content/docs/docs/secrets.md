@@ -35,11 +35,15 @@ Literal secret values are masked in execution logs, but encoded or transformed
 values may not be. Avoid printing credentials. Multiline values are not
 supported.
 
-## Exports and backups
+## Exports, sync, and backups
 
 Project exports retain secret references, including those in imported API
 connections, but exclude managed secret values. Create the referenced secrets
 in the receiving project before running its workflows.
+
+[Syncing a project with Dagu Cloud](/docs/cloud-sync/) works the same way:
+secret values are never sent to Dagu Cloud. Each device that syncs the project
+sets its own values for the secrets its workflows reference.
 
 Workspace backups also exclude managed secrets and their decryption keys.
 After a restore, enter the required credentials again. Keep a separate secure
