@@ -2,6 +2,7 @@
 import "../styles/site.css";
 import Analytics from "../components/Analytics.astro";
 import { readManifest } from "../lib/releases.mjs";
+import { descartyUrl } from "../lib/descarty.mjs";
 import { counterparts, localeOf, localize } from "../lib/i18n.mjs";
 interface Props {
   title: string;
@@ -122,7 +123,7 @@ const links = ["/docs/", "/releases/", "/pricing/", "/support/"].map((href, i) =
         <a href="mailto:contact@dagu.sh?subject=Kitewell">{text.footer[3]}</a>
         <Analytics />
       </div>
-      <p class="fine">© {new Date().getFullYear()} Kitewell. {text.fine}</p>
+      <p class="fine">© {new Date().getFullYear()} <a href={descartyUrl(locale)}>Descarty, Inc.</a> {text.fine}</p>
     </footer>
   </body>
 </html>
