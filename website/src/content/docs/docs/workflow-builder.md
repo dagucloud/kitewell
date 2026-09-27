@@ -4,11 +4,29 @@ title: Build a workflow
 
 Build a workflow by choosing what each task should do, then connecting the
 steps. A task can run a command or script, a Docker image, an AI agent, a
-model, or an AI decision; fill in a text template; call a web service or an
-imported API; run on another machine or copy files to or from one; ask a
+model, or an AI decision; [automate a website](/docs/browser/); fill in a text
+template; call a web service or an imported API; run on another machine or copy files to or from one; ask a
 person; run another workflow; branch by value; repeat for each item; wait; or
 repeat until a condition matches. All of these can share one workflow. The graph shows the order; selecting a step opens its
 settings beside it.
+
+A new, empty workflow offers two quicker starts: describe it under
+**Describe what this workflow should do** and choose **Ask the assistant**, or
+pick a card under **Or start from an example**. **Tools → Browse examples**
+opens the examples later.
+
+## Test a step
+
+**Test** (⌘↩) runs the selected step on its own, with your unsaved changes and
+the workflow's inputs, variables, and secrets, without saving the workflow or
+running any other step. **Values and inputs** shows what the step reads; values
+from earlier steps come from the latest passing test, or you can type them. A
+workflow keeps its latest 50 tests, and one test runs at a time. Human tasks,
+steps inside a loop, event handlers, and steps on a server group cannot be
+tested alone yet.
+
+Any step that prints output can also save it as a file: fill in **Artifact
+name (optional)**, and the file appears in the run's artifacts.
 
 ## Example: build a daily report
 
@@ -129,8 +147,8 @@ Start Docker on your device. In the task picker, choose **Run in Docker**.
 3. Expand the options you need: working folder, mounts, environment, published
    ports, or network. Files created inside a container need a mount if you want
    them to remain available outside it.
-4. Use **Check Docker** to check the connection. **Run this step** executes the
-   configured image and command, so review its mounts and effects first.
+4. Use **Check Docker** to check the connection. **Test** runs the configured
+   image and command, so review its mounts and effects first.
 
 Kitewell does not install or start Docker. Containers are removed after a run
 unless **Keep container after run** is enabled. Your mounted files and Docker
@@ -167,21 +185,30 @@ enable **Pause for approval after this step runs**. Enter the question and any
 values to collect. **Sending back re-runs** selects the step to repeat if the
 reviewer requests changes.
 
+A human task can let its reviewer send work back too: under **Send back for
+changes**, turn on **Let the reviewer send the work back** and choose **Send
+the work back to**, a step the task runs after, with an optional feedback
+form. AI tasks and model prompts that run again receive the feedback
+automatically; commands read each value as a shell variable, empty on the
+first run.
+
 An approval gate pauses **after** its step has executed. To require permission
 before a remote command or other action, put an **Ask a person** task before
 that action, or attach approval to an earlier preparation step.
 
 Find paused runs under **Runs & logs → Waiting**, then open **Waiting for you**.
-A human task offers **Complete task**. An approval gate offers **Approve**,
-**Send back**, or **Reject run**. Sending back repeats the selected step and
+A human task offers **Complete task**, and **Send back…** when it allows it.
+An approval gate offers **Approve**, **Send back**, or **Reject run**. Sending back repeats the selected step and
 following work; rejecting ends the run.
 
 ## Run commands on servers or groups
 
-Open **Servers** in the project's sidebar. Add each server's address, username,
-and authentication details. Store passwords in [Secrets](/docs/secrets/) or use
-a local private key. Check and approve the host fingerprint through **Test
-connection** when using the default approved-key verification.
+Open **More → Servers** in the project's sidebar. Add each server's address,
+username, and authentication details. Store passwords in
+[Secrets](/docs/secrets/) or use a local private key without a passphrase.
+Under **Host key checking**, keep the default and approve the host fingerprint
+through **Test connection**, use **This device's known hosts**, or choose **Do
+not check**. A **Jump host** reaches servers behind another machine.
 
 Create a group to give several servers one target. Put them in the required
 order, choose how many may run at once, and choose whether a failure stops the
@@ -207,8 +234,8 @@ change, or call a recovery service.
 Under the graph, **Event handlers** lists the ones this workflow has. Choose
 **Add handler** and pick when it runs; the handler opens in the step editor on
 its own. Change its **Task type** to a command, script, Docker image, AI agent
-or model, text template, HTTP request, imported API action, SSH command, file
-transfer, or another workflow. Human tasks, AI decisions, branches, loops,
+or model, website automation, text template, HTTP request, imported API
+action, SSH command, file transfer, or another workflow. Human tasks, AI decisions, branches, loops,
 waits, and repeats cannot be handlers. **← Workflow** returns to the graph.
 
 A handler can use the workflow's inputs and variables and the run's status, but
@@ -224,7 +251,10 @@ Use **Tools → Check workflow** to validate the draft. **Review & run** brings
 together the schedule, inputs, and task details. **Save and run…** saves it and
 opens the input form; **Start run** begins execution.
 
-Open **Runs & logs** and select a step to inspect its output. Once the manual
+Open **Runs & logs** and select a step to inspect its output. If a run fails,
+**Fix in editor** opens the workflow at that run, and **Save and continue…**
+starts a new run with the same inputs and files from the step you choose,
+reusing earlier results; see [Runs and logs](/docs/runs/). Once the manual
 run works, configure **Schedule** and enable saved schedules. See
 [Schedules and background operation](/docs/scheduling/) for device availability
 and missed runs.

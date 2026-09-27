@@ -9,7 +9,7 @@ found.
 
 ## Create a sheet
 
-Open **Batches** and choose **New sheet**, then pick the workflow and name the
+Open **More → Batches** in the sidebar and choose **New sheet**, then pick the workflow and name the
 sheet. You can also start from a workflow's run dialog: switch from **Single
 run** to **Batch sheet**, and the values you typed become the new sheet's
 shared inputs.
