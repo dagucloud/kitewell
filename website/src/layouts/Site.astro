@@ -20,7 +20,7 @@ const text = {
     download: "Download Kitewell",
     status: "Beta status",
     tagline: "Build and run workflows locally.",
-    footer: ["Documentation", "Third-party notices", "Support", "Contact"],
+    footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms"],
     fine: "Public beta.",
   },
   ja: {
@@ -33,7 +33,7 @@ const text = {
     download: "Kitewell をダウンロード",
     status: "ベータの状況",
     tagline: "ワークフローを、自分のマシンで作って動かす。",
-    footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ"],
+    footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約"],
     fine: "パブリックベータ。",
   },
 }[locale];
@@ -121,6 +121,8 @@ const links = ["/docs/", "/releases/", "/pricing/", "/support/"].map((href, i) =
         <a href="/third-party/">{text.footer[1]}</a>
         <a href={localize("/support/", locale)}>{text.footer[2]}</a>
         <a href="mailto:contact@dagu.sh?subject=Kitewell">{text.footer[3]}</a>
+        <a href={localize("/privacy/", locale)}>{text.footer[4]}</a>
+        <a href={localize("/terms/", locale)}>{text.footer[5]}</a>
         <Analytics />
       </div>
       <p class="fine">© {new Date().getFullYear()} <a href={descartyUrl(locale)}>Descarty, Inc.</a> {text.fine}</p>

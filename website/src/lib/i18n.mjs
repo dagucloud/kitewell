@@ -1,7 +1,7 @@
 // The site is in English at the root and in Japanese under /ja/. Every
 // documentation page and the pages below have a Japanese version; any other
 // page is English only, whichever language links to it.
-const translatedPages = ["/", "/pricing/", "/download/", "/releases/", "/support/"];
+const translatedPages = ["/", "/pricing/", "/download/", "/releases/", "/support/", "/privacy/", "/terms/"];
 
 export function localeOf(pathname) {
   return pathname === "/ja" || pathname.startsWith("/ja/") ? "ja" : "en";

@@ -1,0 +1,28 @@
+---
+import Site from "../layouts/Site.astro";
+interface Props {
+  locale: "en" | "ja";
+  document: "privacy" | "terms";
+}
+const { locale, document } = Astro.props;
+const documents = import.meta.glob<{
+  frontmatter: { title: string; description: string; updated: string };
+  Content: astroHTML.JSX.Element;
+}>("../legal/*/*.md", { eager: true });
+const { frontmatter, Content } = documents[`../legal/${locale}/${document}.md`];
+const updatedLabel = { en: "Last updated", ja: "最終更新日" }[locale];
+const updated = new Intl.DateTimeFormat(locale === "ja" ? "ja-JP" : "en-US", {
+  dateStyle: "long",
+  timeZone: "UTC",
+}).format(new Date(frontmatter.updated));
+---
+
+<Site title={frontmatter.title} description={frontmatter.description}>
+  <section class="page wrap">
+    <h1>{frontmatter.title}</h1>
+    <p class="fine">{updatedLabel}: <time datetime={new Date(frontmatter.updated).toISOString().slice(0, 10)}>{updated}</time></p>
+    <div class="prose">
+      <Content />
+    </div>
+  </section>
+</Site>
