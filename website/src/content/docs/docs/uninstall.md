@@ -5,9 +5,11 @@ title: Uninstall Kitewell
 Uninstalling the app and deleting workspace data are separate actions.
 These instructions preserve your workflows and backups.
 
-1. Save your work, let active jobs finish, and choose **Quit Kitewell**.
-2. Remove Kitewell from **System Settings → General → Login Items** if it is
-   configured to start at login. Labels can vary by macOS version.
+1. Save your work, let active jobs finish, and choose **Quit Kitewell** from
+   the menu bar or the application menu. ⌘Q only hides the window.
+2. Turn off **Start at login** in the menu bar menu before quitting, or remove
+   Kitewell from **System Settings → General → Login Items**. Labels can vary
+   by macOS version.
 3. Move **Kitewell.app** from Applications to the Trash.
 
 ## Remove a leftover background registration
@@ -28,5 +30,7 @@ They do not delete workflow data or backups.
 ## Workspace data
 
 Your remaining data is in `~/Library/Application Support/Kitewell`. Keep it to
-reinstall later. If you want to remove it permanently, first copy any needed
+reinstall later. If the device synced projects with
+[Dagu Cloud](/docs/cloud-sync/), they stay there, and the device keeps one of
+your three places in the workspace until a fourth device replaces it. If you want to remove it permanently, first copy any needed
 backups and external files, then remove that folder using Finder.
