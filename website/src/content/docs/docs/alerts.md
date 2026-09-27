@@ -26,32 +26,42 @@ Open **Notifications** under **This device**. A channel is somewhere alerts go:
 
 **Send test** delivers a sample alert with the values you typed, before you
 save them. Each channel shows whether its last delivery arrived, and
-**Recent alerts** lists what was sent and what is still being retried.
+**Recent alerts** lists what was sent and what is still being retried. Turn
+off **Send workflow alerts** to pause every alert from this device.
 
 ## Choose what you hear about
 
 Rules decide which events reach which channels:
 
 1. **Default alert rules** on the **Notifications** page apply to every
-   project without rules of its own.
+   project without rules of its own. Until you save your own, they send
+   **Fails**, **Needs input**, **Misses a schedule**, and **Finishes a batch**
+   to this device.
 2. **Project settings → Notifications** gives one project its own rules.
 3. The bell on a workflow, in its editor or the **Jobs** list, mutes it for an
    hour, a day, a week, or until unmuted, gives it rules of its own, or sets
    when its runs count as long. These changes apply at once and do not change
    the workflow's definition.
 
+**Missed after**, in the default and project rules, sets how many minutes a
+scheduled run may start late before it counts as missed. The default is 5.
+
 ## Events
 
 - **Fails**: after the last automatic retry. You hear when a failure streak
   begins, not on every failed run, and again with **Recovered** when the next
   run succeeds.
-- **Needs input**: a human task or approval is waiting for someone.
+- **Needs input**: a human task or approval is waiting for someone, or a
+  website step is waiting for an answer.
 - **Misses a schedule**: scheduled runs did not start, with how many and why,
   such as the computer being asleep or Kitewell not running. **Schedule
   resumed** follows when it runs on time again.
 - **Runs long**: a run is still going well past the time its recent successes
   took, or past a limit you set for the workflow.
 - **Is cancelled** and **Succeeds**: off unless you route them.
+- **Finishes a batch**: every row of a [batch](/docs/batches/) has finished,
+  with how many did not succeed. A batch you cancelled is not announced. Batch
+  rows do not raise the run events above one by one, except **Needs input**.
 
 PagerDuty receives only failures, missed schedules, and long runs, since those
 are the alerts that later end.
@@ -60,7 +70,8 @@ are the alerts that later end.
 
 Alerts name the project, workflow, and failed step, with an exit code or time
 limit when that was the cause. They leave out step output and run parameters.
-Links open the run in Kitewell on the computer running it.
+Links open the run in Kitewell on the computer running it; missed-schedule
+alerts open the project's **Jobs** page, and batch alerts open the sheet.
 
 Alerts are sent by the background service while the computer is awake. An
 alert that cannot be delivered is retried for up to a day. Kitewell does not
