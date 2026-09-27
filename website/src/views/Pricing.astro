@@ -27,14 +27,14 @@ const text = {
       "Up to ten projects, 200 workflows each",
       "Any number of API keys",
       "Alerts by desktop notification, email, Slack, Microsoft Teams, PagerDuty, or webhook",
-      "A team that syncs its projects through Dagu Cloud, with a role for each person on each project; secret values stay on each device",
+      "A team of up to 10 people that syncs its projects through Dagu Cloud, with a role for each person on each project; secret values stay on each device",
       "Every feature in Free",
       "Dagu Cloud account required for the subscription",
       "Existing projects and workflows keep running if Pro lapses; alerts stop",
     ],
     purchase: "Purchase will be available with the public launch.",
     enterprise:
-      "Need more than 100 seats, invoice billing, or terms of your own? Email us and we'll set it up with you.",
+      "More than 10 people, invoice billing, or terms of your own? Email us and we'll set it up with you.",
     costs: "Costs outside Kitewell",
     costsText:
       "AI provider usage, third-party subscriptions, and infrastructure costs are separate. Kitewell does not include AI credits or a hosted computer to run your workflows.",
@@ -61,14 +61,14 @@ const text = {
       "最大 10 プロジェクト、各 200 ワークフロー",
       "API キーは無制限",
       "デスクトップ通知、メール、Slack、Microsoft Teams、PagerDuty、Webhook によるアラート",
-      "Dagu Cloud でプロジェクトを同期するチーム。プロジェクトごとにメンバーのロールを設定でき、シークレットの値は各デバイスにとどまります",
+      "最大 10 人のチームで Dagu Cloud を通じてプロジェクトを同期。プロジェクトごとにメンバーのロールを設定でき、シークレットの値は各デバイスにとどまります",
       "Free のすべての機能",
       "サブスクリプションには Dagu Cloud アカウントが必要",
       "Pro が失効しても既存のプロジェクトとワークフローは動き続けます（アラートは停止）",
     ],
     purchase: "購入は正式リリース時に開始します。",
     enterprise:
-      "100 シートを超える利用、請求書払い、個別の契約条件をご希望ですか？メールでご連絡ください。ご要望に合わせてご用意します。",
+      "11 人以上での利用、請求書払い、個別の契約条件をご希望ですか？メールでご連絡ください。ご要望に合わせてご用意します。",
     costs: "Kitewell 以外の費用",
     costsText:
       "AI プロバイダーの利用料、サードパーティのサブスクリプション、インフラの費用は別途かかります。Kitewell には AI クレジットや、ワークフローを動かすホスト型のコンピューターは含まれません。",
@@ -104,7 +104,7 @@ const text = {
         <p class="fine">{text.purchase}</p>
       </article>
     </div>
-    <div class="notice">
+    <div class="notice" id="enterprise">
       <h2>Enterprise</h2>
       <p>{text.enterprise}</p>
       <a

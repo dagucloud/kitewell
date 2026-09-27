@@ -78,8 +78,9 @@ are replaced by the next update.
 ## Work as a team
 
 A team shares synced projects under Kitewell Pro, which costs $15 per person
-per month. The team's owner pays for every seat; members need no subscription
-of their own.
+per month for up to 10 people; a larger team takes
+[Enterprise](/pricing/#enterprise). The team's owner pays for every seat;
+members need no subscription of their own.
 
 The owner manages the team on the **Kitewell** page in Dagu Cloud:
 
