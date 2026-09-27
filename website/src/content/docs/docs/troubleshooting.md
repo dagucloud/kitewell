@@ -16,6 +16,40 @@ engine is running, and the computer was awake with your user logged in. Check
 the workflow's **Schedule → Missed schedules** and the workflow defaults before
 expecting a missed schedule to run later.
 
+The **Overview** also points out what stops scheduled work: a stopped project
+engine, a workflow the engine will not accept (everything else keeps
+running), workflows that arrived paused, and secrets that still need a value
+on this device.
+
+## A run failed
+
+Open the run from **Runs & logs**. **Inspect failure** shows the failed step
+and its log. **Fix in editor** lets you correct the workflow and continue the
+run from a step you choose, and **Ask the assistant** looks into it for you.
+With [failure diagnosis](/docs/ai/#failure-diagnosis) on, the run says whether
+to try again, what needs you, or what to change. See
+[Runs and logs](/docs/runs/#fix-a-failed-run).
+
+## A website step fails
+
+Check the step's screenshots in the run's artifacts first: a sign-in page,
+cookie banner, or bot check often explains it. Also check that:
+
+- Chrome is installed and **Check the browser** succeeds;
+- the page's hosts are in **Allowed websites**, if you set it;
+- waits are long enough for the page;
+- no instruction contains a secret; use **Values the browser types**;
+- the step or workflow has a model chosen.
+
+If a site changed and a replayed action no longer works, clear it under
+**Project settings → Storage → Replay cache**. See
+[Automate a website](/docs/browser/).
+
+## A run is missing from history
+
+Runs older than the run history retention are removed, and editors can delete
+runs. See [Runs and logs](/docs/runs/#delete-runs).
+
 ## Docker is unavailable
 
 Start the local Docker daemon and use **Check Docker** in the workflow editor.
