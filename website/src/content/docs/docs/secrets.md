@@ -21,6 +21,10 @@ device where you set it. **Value needed** marks a secret the project uses that
 has no value on this device yet: choose **Set value**. **Only on this device**
 marks a secret the project does not list yet: choose **Declare** to add it.
 
+**Overview** lists every secret this device still needs, with **Set value**
+beside each. Until a value is set, a run, batch, or step test that needs it is
+refused before it starts and names the secret; a scheduled run fails at start.
+
 ## Reuse a secret in imported APIs
 
 In **API library**, open a connection, choose its authentication type, and
