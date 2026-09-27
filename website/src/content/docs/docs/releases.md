@@ -12,24 +12,41 @@ settings. Several projects on one device need Kitewell Pro.
 
 1. Open **Jobs** in the project you work in. The line above the list shows the
    newest release and how many workflows changed since.
-2. Choose **Release…**, compare the changes, and give the release a title.
+2. Choose **Release…**, **Compare** the changes, give the release a title,
+   and add **Notes (optional)**.
 3. Kitewell creates the next number, such as **v13**: a frozen copy of the
    project's workflows and the names of the secrets they read.
 
+Editors cut releases. The first release holds every workflow of the project;
+when nothing changed since the newest one, no release is made.
+
 A release never changes, so edits you make afterwards stay out of it until the
-next one. Kitewell keeps the 20 newest releases. In a synced project, releases
-sync like everything else, so every teammate can apply the same one.
+next one. Kitewell keeps the 20 newest releases; **Delete** removes an older
+one sooner. Projects that took it keep their workflows, but it can no longer
+be applied. In a synced project, releases sync like everything else, so every
+teammate can apply the same one. Releases are left out of project exports but
+kept in [backups](/docs/backups/).
 
 ## Apply a release
 
 1. Choose **Releases**, then **Apply to…** beside a release.
-2. Pick the project it goes to. The preview shows, for each workflow, whether it
-   is new, updated, or unchanged, and says when a workflow would not run there,
-   calls a workflow the project lacks, or changes its schedule.
+2. Pick the project it goes to, another project on this device. Workflows
+   move; the other project keeps its own servers, models, queues, and secret
+   values. The preview shows, for each workflow, whether it is new, updated,
+   unchanged, or kept because it was edited there and the release did not
+   change it. It also says when a workflow would not run there, calls a
+   workflow or uses a queue the project lacks, has a name another workflow
+   there already uses, or changes a schedule that takes effect as soon as
+   you apply.
 3. Choose **Apply**.
 
+If the project changed since the preview, look at the preview again. If
+applying stops partway, for example at the plan's workflow limit, the preview
+names what was not applied yet; apply again to finish.
+
 New workflows arrive paused; turn on the ones this project should run. A
-workflow that exists already keeps whether it is on and where it runs. The
+workflow that exists already keeps whether it is on, where it runs, its
+alerts, and its failure-diagnosis choice. The
 project also gets the names of the secrets the release reads; set their values
 on each of its devices from **Secrets** or the Overview.
 
