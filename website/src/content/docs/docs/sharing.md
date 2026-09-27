@@ -28,10 +28,11 @@ imported.
 
 The archive includes workflow definitions and schedules, named agents and
 models, imported OpenAPI specifications and API connection settings, server
-addresses and groups, queues, image registry definitions, saved batch input
-sets, and project workflow defaults. API connections retain their secret references. Create those secrets
-in the imported project, or choose other secrets in that project, before
-running its API actions.
+addresses and groups, queues, image registry definitions, batch sheets, secret
+names and descriptions, project workflow defaults, and which release the
+project last took. API connections retain their secret references; the
+imported project lists each secret as **Value needed** until you set its value
+on the receiving device.
 
 The receiving device supplies its own:
 
@@ -40,8 +41,9 @@ The receiving device supplies its own:
 - Custom agent commands, installed tools, and agent sign-ins.
 - External scripts, input files, and Docker-mounted data.
 
-Run history, logs, device settings, and Kitewell client API keys are not part
-of a project export. The archive is unencrypted. Credentials entered directly
+Run history, logs, artifacts, releases, local edit history, project alert
+rules, failure-diagnosis settings, website sign-ins, device settings, and
+Kitewell client API keys are not part of a project export. The archive is unencrypted. Credentials entered directly
 into workflow commands, OpenAPI specifications, source URLs, or other project
 configuration are not removed automatically. Review those fields before
 sharing the archive.
@@ -69,18 +71,21 @@ On macOS, each project's portable files are under:
   project.json
   workflows/
   batch-sets/
-  agents/  apis/  queues/  registries/  server-groups/  servers/
+  agents/  apis/  queues/  registries/  secrets/  server-groups/  servers/
+  releases/
 ```
 
 `project.json` holds the project name, description, and workflow defaults;
-`workflows` holds its workflow files, `batch-sets` its saved batch inputs, and
-each other folder one JSON file per agent, API, queue, registry, server group,
-or server. Version the whole `project-<id>` folder. Use the project name inside `project.json` to identify
+`workflows` holds its workflow files, `batch-sets` its batch sheets,
+`releases` its releases, and each other folder one JSON file per agent, API,
+queue, registry, secret name, server group, or server. Version the whole `project-<id>` folder. Use the project name inside `project.json` to identify
 the right directory. Preserve the existing file structure and document IDs
 when applying updates to that project.
 
 Quit Kitewell before replacing files or applying changes from version control,
 resolve conflicts, then reopen it and review the project before running it.
+Quitting interrupts runs in progress, so wait for them to finish. Do not manage
+a [synced project](/docs/cloud-sync/) this way; its files follow Dagu Cloud.
 Share this project's portable files rather than the entire Kitewell data
 folder: device credentials, secrets, and execution data belong to each host.
 New recipients can use **Import project** to start from a reviewed export.
@@ -92,7 +97,8 @@ through your team's process, or [sync the project](/docs/cloud-sync/).
 ## Work together on one host
 
 For workflows that should run on a single team machine, create a separate
-API key for each client under **This device → MCP**. Choose **Read only**,
+API key for each client under **This device → MCP**; the free plan issues one
+key, Kitewell Pro any number. Choose **Read only**,
 **Run jobs**, or **Edit and run** for each client's role. Teammates use
 compatible MCP or REST clients to inspect, run, or edit workflows on that host.
 

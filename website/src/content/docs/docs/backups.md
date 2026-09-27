@@ -4,9 +4,15 @@ title: Backups and recovery
 
 ## Create a backup
 
-Open **This device → Backups** and create a manual snapshot. Download the
-archive to a location you control. You can also configure scheduled local
-backups. Backups cover all projects on the device.
+Open **This device → Backups** and choose **Create backup**. Download the
+archive to a location you control. Backups cover all projects on the device.
+To back up every day, turn on **Device settings → Automatic backups → Daily
+backups** and choose the **Backup hour**; Kitewell keeps the 10 newest
+automatic snapshots, and manual ones until you delete them.
+
+A backup or restore waits until no run is running, queued, or waiting,
+including a run waiting for approval; an automatic backup tries again every
+15 minutes. Project engines stop briefly while a snapshot is taken.
 
 A backup on the same device is useful for undoing a change but does not protect
 against losing that device. Keep a separate protected copy when needed.
@@ -14,10 +20,12 @@ against losing that device. Keep a separate protected copy when needed.
 ## What is included
 
 Snapshots include workspace settings, projects, workflow definitions, imported
-OpenAPI specifications and API connection settings, and run history. API
+OpenAPI specifications and API connection settings, batch sheets, releases,
+secret names, run history, and artifacts. API
 connections retain secret references. Snapshots exclude managed secret values
-and their decryption keys, run output log directories, local edit history, and
-this device's GUI login and API key hashes. Restoring a snapshot also clears
+and their decryption keys, run output log directories, local edit history,
+[website](/docs/browser/) sign-ins and replay caches, alert history, and this
+device's GUI login and API key hashes. Restoring a snapshot also clears
 local edit history.
 
 The archive is not encrypted. Credentials entered directly into workflow
@@ -40,9 +48,21 @@ for a saved snapshot. Restore creates a safety backup, replaces workspace data
 and settings, and reloads the workspace. This device keeps its GUI login, API keys,
 and which projects are stopped.
 
-Managed secrets are not restored. Enter the credentials needed by your workflows
-and project resources again, and review anything reported as needing attention.
+Managed secrets are not restored. The restore reports, for each project, which
+secrets to enter again and which website steps must sign in again. Review
+anything reported as needing attention. A restore never writes to Dagu Cloud:
+a [synced project](/docs/cloud-sync/) comes back as it was in the backup, and
+its next update takes Dagu Cloud's copy.
 Archives are limited to 2 GiB of uncompressed data.
+
+## See what uses space
+
+**Project settings → Storage** shows how much space the project uses and how
+much is free on the disk, and warns when it runs low. It lists each
+workflow's run history with **Delete history…**, website sign-ins with
+**Forget sign-in…**, the replay cache with **Clear**, and other project data.
+Run history older than **Device settings → Run history retention** is removed
+automatically.
 
 ## Find local data
 
