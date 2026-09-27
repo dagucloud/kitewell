@@ -9,7 +9,7 @@ across its workflows.
 
 ## Import and connect
 
-1. Open **API library** in the project sidebar and choose **Import an API**.
+1. Open **More → API library** in the project sidebar and choose **Import an API**.
 2. Choose **Upload file**, **From URL**, or **Paste specification**. Supply an
    OpenAPI 3.0 or 3.1 document in JSON or YAML.
 3. Select **Preview actions**. Search by action name, path, or tag, and inspect
@@ -90,9 +90,10 @@ Kitewell also refuses to delete a connection while a saved workflow uses it.
 
 Use [project export](/docs/sharing/) to share the imported specification and
 connection settings, including the server URL, authentication type, and secret
-reference. Managed secret values are excluded. On the receiving device,
-create the referenced secret in the imported project before running its API
-actions, or change the connection to use another secret in that project.
+reference. Managed secret values are excluded. The imported project lists the
+referenced secret as **Value needed**; set its value on the receiving device
+before running its API actions, or change the connection to use another
+secret in that project.
 
 Exports retain the specification and its source URL. Credentials entered
 directly into those fields or workflow inputs are not removed automatically.
