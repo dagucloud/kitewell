@@ -1,5 +1,6 @@
 ---
 import Site from "../layouts/Site.astro";
+import { descartyUrl } from "../lib/descarty.mjs";
 import { localize } from "../lib/i18n.mjs";
 interface Props {
   locale: "en" | "ja";
@@ -35,6 +36,7 @@ const text = {
     purchase: "Purchase will be available with the public launch.",
     enterprise:
       "More than 10 people, invoice billing, or terms of your own? Email us and we'll set it up with you.",
+    enterpriseLink: "How an enterprise PoC works",
     costs: "Costs outside Kitewell",
     costsText:
       "AI provider usage, third-party subscriptions, and infrastructure costs are separate. Kitewell does not include AI credits or a hosted computer to run your workflows.",
@@ -69,6 +71,7 @@ const text = {
     purchase: "購入は正式リリース時に開始します。",
     enterprise:
       "11 人以上での利用、請求書払い、個別の契約条件をご希望ですか？メールでご連絡ください。ご要望に合わせてご用意します。",
+    enterpriseLink: "法人向け PoC の進め方",
     costs: "Kitewell 以外の費用",
     costsText:
       "AI プロバイダーの利用料、サードパーティのサブスクリプション、インフラの費用は別途かかります。Kitewell には AI クレジットや、ワークフローを動かすホスト型のコンピューターは含まれません。",
@@ -113,6 +116,7 @@ const text = {
       >
         contact@dagu.sh
       </a>
+      <a class="button secondary" href={descartyUrl(locale, "/enterprise/")}>{text.enterpriseLink}</a>
     </div>
     <div class="prose">
       <h2>{text.costs}</h2>

@@ -439,6 +439,9 @@ figure {
 .notice .button {
   margin-top: 18px;
 }
+.notice .button + .button {
+  margin-left: 10px;
+}
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
