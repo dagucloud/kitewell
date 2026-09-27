@@ -1,6 +1,7 @@
 ---
 import Site from "../layouts/Site.astro";
 import { readManifest } from "../lib/releases.mjs";
+import { descartyUrl } from "../lib/descarty.mjs";
 import { localize } from "../lib/i18n.mjs";
 interface Props {
   locale: "en" | "ja";
@@ -71,6 +72,7 @@ const text = {
       ["Save report", "Write the report and print its contents."],
     ],
     exampleLink: "Build this workflow →",
+    useCasesLink: "Use cases by industry →",
     runLabel: "Open the completed workflow run screenshot at full size",
     runAlt:
       "Completed daily report workflow in Kitewell with the report visible in the selected step's output",
@@ -172,6 +174,7 @@ const text = {
       ["レポートを保存", "レポートを書き出し、内容を表示します。"],
     ],
     exampleLink: "このワークフローを作る →",
+    useCasesLink: "業界別の活用例 →",
     runLabel: "完了したワークフロー実行のスクリーンショットを原寸で開く",
     runAlt:
       "選択したステップの出力にレポートが表示された、Kitewell の完了済み日次レポートワークフロー",
@@ -316,12 +319,15 @@ const to = (path: string) => localize(path, locale);
             </li>
           ))}
         </ol>
-        <a
-          class="text-link"
-          href={to("/docs/workflow-builder/#example-build-a-daily-report")}
-        >
-          {text.exampleLink}
-        </a>
+        <div class="actions">
+          <a
+            class="text-link"
+            href={to("/docs/workflow-builder/#example-build-a-daily-report")}
+          >
+            {text.exampleLink}
+          </a>
+          <a class="text-link" href={descartyUrl(locale, "/use-cases/")}>{text.useCasesLink}</a>
+        </div>
       </div>
       <figure class="product-preview run-preview">
         <a href="/images/workflow-run.jpg" aria-label={text.runLabel}>
