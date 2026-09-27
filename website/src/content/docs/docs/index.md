@@ -26,9 +26,11 @@ public installers target macOS. Linux and Windows support is planned. Check
 1. [Install Kitewell](/docs/install/).
 2. [Create your first workflow](/docs/getting-started/).
 3. [Connect Docker, AI, human decisions, and remote servers](/docs/workflow-builder/).
-4. [Run a workflow over a sheet](/docs/batches/).
-5. [Set a schedule and understand background operation](/docs/scheduling/).
-6. [Share workflows with your team](/docs/sharing/).
+4. [Automate a website](/docs/browser/): sign in, click, type, and collect
+   information in plain language.
+5. [Run a workflow over a sheet](/docs/batches/).
+6. [Set a schedule and understand background operation](/docs/scheduling/).
+7. [Share workflows with your team](/docs/sharing/).
 
 One project with up to 10 workflows and one API key is free and needs no
 Kitewell account. Pro is planned at $15 per person per month for up to ten
