@@ -19,7 +19,8 @@ secret values.
 A synced project carries what a [project export](/docs/sharing/) carries:
 workflow definitions and schedules, agents and models, API connections and
 imported specifications, servers and groups, queues, image registries, secret
-names and descriptions, saved batch inputs, and project workflow defaults.
+names and descriptions, batch sheets, and project workflow defaults. It also
+carries the project's [releases](/docs/releases/), which exports do not.
 
 :::note[Secrets stay on your device]
 Secret values are never sent to Dagu Cloud. A synced project lists the secrets
@@ -40,9 +41,13 @@ logs. None of these reach Dagu Cloud either.
 2. Your browser opens Dagu Cloud. Sign in, check that the code matches the one
    Kitewell shows, and connect the device.
 
-Each person can connect up to three devices; connecting a fourth disconnects
-their oldest. A free account syncs one project. Kitewell Pro syncs up to ten
-projects per team.
+A device syncs with one workspace, shown as **Workspace** in **Device
+settings**. Each person can connect up to three devices to a workspace;
+connecting a fourth disconnects their oldest. A free account syncs one
+project. Kitewell Pro syncs up to ten projects per team, each with up to 200
+workflows; syncing a project the plan has no room for is refused and says
+why. Synced projects count toward the workspace's plan, not the device's
+project limit.
 
 ## Sync a project
 
@@ -54,14 +59,22 @@ and API addresses are shared as written, so remove any secret typed into them
 before syncing.
 
 To work on the project from another device, sign in there, open **Manage
-projects → Download from Dagu Cloud**, and choose **Download**. Its workflows
-arrive paused: enable the ones this device should run.
+projects → Download from Dagu Cloud**, and choose **Download**. **Projects in
+Dagu Cloud** marks projects already **On this device** and those you may only
+view. A project with the same name as one already on the device is refused
+until you rename one of them. Downloaded workflows arrive paused: enable the
+ones this device should run.
+
+If an upload is cut short, the project shows **Upload incomplete**; choose
+**Resume upload**. Saves wait until the upload finishes.
 
 ## Stay up to date
 
 Kitewell takes changes made elsewhere when it starts, when you open the
-project, and when you open a workflow to edit it. To check at any other time,
-choose **Update from Dagu Cloud** in **Manage projects**.
+project, and when you open a workflow to edit it, asking Dagu Cloud at most
+once a minute. To check at any other time, choose **Update from Dagu Cloud**
+in **Manage projects**. A workflow open in the editor takes the update in
+place when you have not typed anything.
 
 Taking a change restarts the project's engine. Runs already in progress
 continue with the definition they started with. A workflow that is new to the
@@ -73,7 +86,16 @@ If someone saved the same item since you opened it, your save stops and shows
 yours, or **Cancel** to keep your edit without saving it.
 
 Kitewell manages a synced project's files. Edits made to them outside Kitewell
-are replaced by the next update.
+are replaced when a change to them arrives from Dagu Cloud or they are next
+saved in Kitewell.
+
+## View-only projects
+
+A project where your role is **Viewer** shows **View only** in the page header
+and in the download list. You can run its workflows, set its secret values on
+your device, and enable the workflows this device should run, but Kitewell
+hides the edits Dagu Cloud would refuse, such as changing workflows, cutting
+or applying releases, and declaring secrets.
 
 ## Work as a team
 
@@ -110,11 +132,16 @@ Dagu Cloud asks.
 
 **Stop syncing** in **Manage projects** keeps the project on this device and in
 Dagu Cloud; later saves on this device stay local. **Delete from Dagu Cloud**
-in the download list removes a project that this device does not sync, and
-frees its place in the plan.
+in the download list, offered where your role is **Admin**, removes a project
+that this device does not sync, and frees its place in the plan. Copies on
+other devices can no longer save to Dagu Cloud. A project synced with another
+workspace shows **Another workspace** and only offers **Stop syncing**.
 
 If a project is deleted from Dagu Cloud, or you lose access to it, it stays on
 your device as a local project.
 
-While a device is offline or signed out, saves to its synced projects are
-refused. Enabled workflows keep running from the device's copy.
+While a device is offline, saves to its synced projects are refused; changes
+that stay on the device, such as enabling workflows or setting secret values,
+still work, and enabled workflows keep running from the device's copy. If Dagu
+Cloud stops accepting the device's connection, use **Reconnect account** in
+**Device settings**.
