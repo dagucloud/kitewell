@@ -8,9 +8,14 @@ service or require an AI account.
 ## Create a job
 
 1. Open Kitewell. On first launch, choose **Start on this device** to create
-   your project; afterwards, choose the project in the sidebar.
-2. Choose **Create a job** and name it **Morning check-in**.
-3. Pick **Run a command or script** for its first task.
+   your project; afterwards, choose the project in the sidebar. The first time
+   you open a project, a short tour shows where things are; **?** in the top
+   bar shows it again.
+2. Choose **Create a job** and enter **Morning check-in** as the workflow
+   name.
+3. A new workflow offers to describe it to the assistant or to start from an
+   example. This guide builds it by hand: pick **Run a command or script** for
+   its first task.
 4. Enter this command:
 
 ```sh
@@ -45,4 +50,9 @@ differ from an interactive Terminal session. Add input fields for values that
 change between runs, and keep credentials in [Secrets](/docs/secrets/).
 
 See [Build a workflow](/docs/workflow-builder/) to connect Docker images, AI
-agents, human decisions, and commands on server groups.
+agents, human decisions, and commands on server groups. To run the workflow
+once for each item in a list, use a [batch sheet](/docs/batches/).
+
+With an API model set up, you can also describe a workflow in plain language
+and let [the assistant](/docs/ai/#the-assistant) draft it; nothing is saved
+until you apply its proposal.

@@ -3,7 +3,11 @@ title: Kitewell documentation
 ---
 
 Kitewell runs workflows on your own machine. Combine scripts, AI agents, containers,
-and API calls; schedule the result; inspect each run in one interface.
+website automation, and API calls; schedule the result; inspect each run in one
+interface. Run a workflow once for every row of a [sheet](/docs/batches/) and
+collect what each run found, let [the assistant](/docs/ai/#the-assistant) draft
+and fix workflows, and have failed runs
+[diagnosed](/docs/ai/#failure-diagnosis).
 [Import an OpenAPI spec](/docs/apis/) to choose API operations and fill in
 request forms generated from the spec.
 Export a project and import it on another device or for a teammate, or
@@ -22,8 +26,9 @@ public installers target macOS. Linux and Windows support is planned. Check
 1. [Install Kitewell](/docs/install/).
 2. [Create your first workflow](/docs/getting-started/).
 3. [Connect Docker, AI, human decisions, and remote servers](/docs/workflow-builder/).
-4. [Set a schedule and understand background operation](/docs/scheduling/).
-5. [Share workflows with your team](/docs/sharing/).
+4. [Run a workflow over a sheet](/docs/batches/).
+5. [Set a schedule and understand background operation](/docs/scheduling/).
+6. [Share workflows with your team](/docs/sharing/).
 
 One project with up to 10 workflows and one API key is free and needs no
 Kitewell account. Pro is planned at $15 per person per month for up to ten
@@ -39,6 +44,9 @@ and commands you trust.
 
 Your projects stay on your device unless you choose to
 [sync one with Dagu Cloud](/docs/cloud-sync/), and secret values never leave it.
+Assistant conversations, failure diagnoses, and the values read into sheets
+stay on the device too. AI features send what they read, such as run output
+and workflow definitions, to the model provider you choose.
 
 On macOS, closing the window keeps Kitewell in the menu bar; **Quit Kitewell**
 stops the service and engines.
