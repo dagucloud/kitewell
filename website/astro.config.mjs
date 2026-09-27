@@ -35,6 +35,7 @@ export default defineConfig({
             { label: "Install Kitewell", translations: { ja: "Kitewell のインストール" }, slug: "docs/install" },
             { label: "Your first workflow", translations: { ja: "最初のワークフロー" }, slug: "docs/getting-started" },
             { label: "Build a workflow", translations: { ja: "ワークフローを組み立てる" }, slug: "docs/workflow-builder" },
+            { label: "Run a workflow over a sheet", translations: { ja: "シートでワークフローを一括実行" }, slug: "docs/batches" },
             {
               label: "Schedules and background operation",
               translations: { ja: "スケジュールとバックグラウンド動作" },
