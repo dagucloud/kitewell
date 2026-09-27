@@ -26,6 +26,27 @@ must name one.
 The free plan issues one API key; Kitewell Pro issues any number. A key issued
 earlier keeps working if Pro lapses, and revoking a key makes room for another.
 
+## What a client can do
+
+The MCP server exposes three tools: `read`, `change`, and `execute`. Call
+`read` with `target: "reference"` for the usage guide.
+
+- **Read** projects, workflows and their schema, runs with their logs and
+  artifacts, agents and API models, servers, queues, workflow defaults,
+  imported APIs, and [batch sheets](/docs/batches/) with their values. A
+  failed run carries its [failure diagnosis](/docs/ai/#failure-diagnosis)
+  when there is one.
+- **Change** workflows, agents and models, servers and server groups, queues,
+  workflow defaults, API connections, and sheets.
+- **Execute** runs: start, retry, rerun, or cancel them; approve, reject,
+  send back, or complete a step waiting for a person; answer or restart a
+  website step waiting for input; and run a sheet's rows, read their values,
+  or cancel them.
+
+Every replacement or deletion needs the `version` returned by the latest
+read, so a client never overwrites a change it has not seen. On a conflict,
+read again, review, and resubmit deliberately.
+
 ## Work with imported APIs
 
 MCP clients with edit access can import an OpenAPI spec, save an API connection,
@@ -33,8 +54,7 @@ and build workflows from its operations. Clients can inspect the imported
 request and response schemas to choose inputs and use results in later steps.
 Running the workflow requires run or edit access and appears in its run history.
 
-The MCP server exposes three tools: `read`, `change`, and `execute`. Call
-`read` with `target: "reference"` for the usage guide, then use this flow:
+Use this flow:
 
 1. Preview with `change`, `type: "preview_api"`, and either `spec` (JSON or
    YAML text) or `url`. Previewing does not save the connection or execute an
@@ -53,15 +73,16 @@ The MCP server exposes three tools: `read`, `change`, and `execute`. Call
    and replace placeholders before running it.
 
 Updating with `upsert_api` replaces the entire connection. First read
-`target: "api"` with its `id` and retain the fields you still need.
-`change`, `type: "delete_api"`, with the `id` removes a connection only when
-no saved workflow uses it. See [Import an API](/docs/apis/) for supported specs,
+`target: "api"` with its `id`, retain the fields you still need, and pass its
+`definitionVersion` as `version`. `change`, `type: "delete_api"`, with the
+`id` and `version` removes a connection only when no saved workflow uses it. See [Import an API](/docs/apis/) for supported specs,
 authentication, exports, and update behavior.
 
 API imports and connection management are available through the GUI and MCP.
 The public REST API exposes workflow operations, including running workflows
-that use saved API connections; it does not expose API catalog management or
-secret administration.
+that use saved API connections, and batch sheets: listing, saving, and
+deleting sheets, launching and cancelling their rows, and reading their
+values. It does not expose API catalog management or secret administration.
 
 ## Permissions
 
