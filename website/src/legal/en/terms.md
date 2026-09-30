@@ -99,6 +99,6 @@ exclusive jurisdiction in the first instance over any dispute about Kitewell.
 
 Descarty, Inc.\
 Shibuya Dogenzaka Tokyu Bldg. 2F-C, 1-10-8 Dogenzaka, Shibuya-ku, Tokyo 150-0043, Japan\
-contact@dagu.sh
+company@descarty.com
 
 The Japanese version of these terms prevails if the two versions differ.

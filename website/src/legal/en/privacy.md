@@ -147,6 +147,6 @@ in the release notes before it takes effect.
 
 Descarty, Inc.\
 Shibuya Dogenzaka Tokyu Bldg. 2F-C, 1-10-8 Dogenzaka, Shibuya-ku, Tokyo 150-0043, Japan\
-contact@dagu.sh
+company@descarty.com
 
 The Japanese version of this policy prevails if the two versions differ.

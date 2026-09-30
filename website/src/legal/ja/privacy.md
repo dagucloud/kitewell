@@ -78,6 +78,6 @@ PostHog, Inc.、Cloudflare, Inc.、GitHub, Inc. はアメリカ合衆国の事�
 
 Descarty株式会社\
 〒150-0043 東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル2F-C\
-contact@dagu.sh
+company@descarty.com
 
 本ポリシーの日本語版と英語版に相違がある場合は、日本語版が優先します。
