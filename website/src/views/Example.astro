@@ -1,0 +1,94 @@
+---
+import Site from "../layouts/Site.astro";
+import { localize } from "../lib/i18n.mjs";
+import { labelsFor } from "../lib/examples.mjs";
+interface Props {
+  locale: "en" | "ja";
+  example: any;
+}
+const { locale, example } = Astro.props;
+const copy = example[locale];
+const labels = labelsFor(example, locale);
+const text = {
+  en: {
+    eyebrow: "Example",
+    steps: "The steps",
+    needs: "What it needs",
+    yaml: "The workflow",
+    yamlText:
+      "Create a job, open Tools → Edit YAML, and paste this. Then Tools → Check workflow, and Review & run.",
+    ask: "Or ask for it",
+    askText: "Open the assistant with ⌘J (Ctrl+J), or use Claude Code or Codex through MCP, and say:",
+    docs: "Read more",
+    back: "← All examples",
+    audiences: { personal: "For yourself", ops: "For the work of a team", dev: "For developers" },
+  },
+  ja: {
+    eyebrow: "活用例",
+    steps: "ステップ",
+    needs: "必要なもの",
+    yaml: "ワークフロー",
+    yamlText:
+      "ジョブを作成し、ツール → YAML を編集 を開いて貼り付けます。次に ツール → ワークフローを確認、そして 確認して実行 です。",
+    ask: "または頼む",
+    askText: "⌘J（Ctrl+J）でアシスタントを開くか、MCP で Claude Code や Codex を使って、こう伝えます。",
+    docs: "関連ドキュメント",
+    back: "← 活用例の一覧",
+    audiences: { personal: "自分のために", ops: "チームの業務に", dev: "開発者に" },
+  },
+}[locale];
+const to = (path: string) => localize(path, locale);
+---
+
+<Site title={copy.title} description={copy.summary}>
+  <section class="page wrap example-page" data-example={example.slug}>
+    <p class="eyebrow">
+      {text.eyebrow} · {text.audiences[example.audience]}
+    </p>
+    <h1>{copy.title}</h1>
+    <p class="lead">{copy.summary}</p>
+    <div class="prose">
+      <p>{copy.intro}</p>
+      <h2>{text.steps}</h2>
+      <ol class="example-steps">
+        {copy.steps.map(([name, detail]) => (
+          <li>
+            <strong>{name}</strong>
+            <span>{detail}</span>
+          </li>
+        ))}
+      </ol>
+      <h2>{text.needs}</h2>
+      <ul>
+        {labels.needs.map((need) => (
+          <li>{need}</li>
+        ))}
+      </ul>
+      <h2>{text.yaml}</h2>
+      <p>{text.yamlText}</p>
+      <pre class="example-yaml"><code>{example.yaml}</code></pre>
+      {copy.note && <p class="fine">{copy.note}</p>}
+      <h2>{text.ask}</h2>
+      <p>{text.askText}</p>
+      <blockquote class="example-prompt">{copy.prompt}</blockquote>
+      <h2>{text.docs}</h2>
+      <ul>
+        {labels.docs.map(([href, label]) => (
+          <li>
+            <a href={to(href)}>{label}</a>
+          </li>
+        ))}
+      </ul>
+      <p>
+        <a class="text-link" href={to("/examples/")}>{text.back}</a>
+      </p>
+    </div>
+  </section>
+  <script>
+    import posthog from "posthog-js";
+    const page = document.querySelector<HTMLElement>("[data-example]");
+    if (page && posthog.__loaded) {
+      posthog.capture("example_viewed", { slug: page.dataset.example });
+    }
+  </script>
+</Site>

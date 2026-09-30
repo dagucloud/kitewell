@@ -1,0 +1,11 @@
+---
+import Example from "../../../views/Example.astro";
+import { examples } from "../../../lib/examples.mjs";
+
+export function getStaticPaths() {
+  return examples.map((example) => ({ params: { slug: example.slug }, props: { example } }));
+}
+const { example } = Astro.props;
+---
+
+<Example locale="ja" example={example} />

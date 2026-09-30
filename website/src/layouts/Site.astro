@@ -16,7 +16,7 @@ const text = {
     skip: "Skip to content",
     home: "Kitewell home",
     nav: "Main navigation",
-    links: ["Docs", "Releases", "Pricing", "Support"],
+    links: ["Docs", "Examples", "Pricing", "Releases", "Support"],
     download: "Download Kitewell",
     status: "Release status",
     tagline: "Build and run workflows locally.",
@@ -29,7 +29,7 @@ const text = {
     skip: "本文へスキップ",
     home: "Kitewell ホーム",
     nav: "メインナビゲーション",
-    links: ["ドキュメント", "リリース", "料金", "サポート"],
+    links: ["ドキュメント", "活用例", "料金", "リリース", "サポート"],
     download: "Kitewell をダウンロード",
     status: "リリース状況",
     tagline: "ワークフローを、自分のマシンで作って動かす。",
@@ -46,7 +46,7 @@ const pages = counterparts(Astro.url.pathname);
 // The switch offers the other language, named in that language.
 const other = locale === "ja" ? "en" : "ja";
 const otherLabel = other === "ja" ? "日本語" : "English";
-const links = ["/docs/", "/releases/", "/pricing/", "/support/"].map((href, i) => [
+const links = ["/docs/", "/examples/", "/pricing/", "/releases/", "/support/"].map((href, i) => [
   localize(href, locale),
   text.links[i],
 ]);

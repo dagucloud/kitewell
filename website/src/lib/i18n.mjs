@@ -2,6 +2,8 @@
 // documentation page and the pages below have a Japanese version; any other
 // page is English only, whichever language links to it.
 const translatedPages = ["/", "/pricing/", "/download/", "/releases/", "/support/", "/privacy/", "/terms/"];
+// Every page under these paths has a Japanese version too.
+const translatedSections = ["/docs/", "/examples/"];
 
 export function localeOf(pathname) {
   return pathname === "/ja" || pathname.startsWith("/ja/") ? "ja" : "en";
@@ -9,7 +11,7 @@ export function localeOf(pathname) {
 
 function hasJapanese(path) {
   const page = path.split("#")[0];
-  return page === "/docs/" || page.startsWith("/docs/") || translatedPages.includes(page);
+  return translatedSections.some((section) => page.startsWith(section)) || translatedPages.includes(page);
 }
 
 // localize returns the link to an English path in the given language.

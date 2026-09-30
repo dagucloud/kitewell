@@ -659,3 +659,47 @@ code {
     scroll-behavior: auto;
   }
 }
+
+/* Examples */
+.example-group {
+  margin-top: 40px;
+}
+.example-group h2 {
+  font-size: 26px;
+  margin: 0;
+}
+.cards.examples {
+  margin-block: 18px 0;
+}
+.cards.examples h3 {
+  font-size: 24px;
+  margin: 0;
+}
+.cards.examples h3 a {
+  text-decoration: none;
+}
+.cards.examples h3 a:hover {
+  text-decoration: underline;
+}
+.cards.examples .fine {
+  margin-top: 16px;
+}
+.cards.examples .text-link {
+  display: inline-block;
+  margin-top: 14px;
+}
+.example-page .example-steps {
+  padding-left: 0;
+}
+.example-yaml {
+  font-size: 13px;
+  line-height: 1.55;
+}
+.example-prompt {
+  margin: 14px 0;
+  padding: 16px 20px;
+  border-left: 3px solid var(--green);
+  background: #fff;
+  color: var(--ink);
+  font-style: normal;
+}
