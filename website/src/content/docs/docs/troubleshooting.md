@@ -69,12 +69,28 @@ Check the network and [release status](/releases/). The public update feed is
 not active before the first public release. Report a persistent checksum or
 installer verification failure instead of bypassing it.
 
+## Windows shows a SmartScreen notice
+
+Windows may warn about an installer from a new publisher. Check that the
+downloaded file's SHA256 matches the one on the [download page](/download/),
+then choose **More info → Run anyway**. If Windows reports that the
+installer's signature is invalid, stop and [report it](/support/) instead.
+
+## Kitewell asks to install WebView2
+
+Kitewell's window needs the Microsoft Edge WebView2 runtime. The installer
+sets it up when it is missing; if Kitewell still opens without it, choose
+**Install WebView2** in the window. It downloads the runtime from Microsoft
+and takes about a minute.
+
 ## Find logs
 
 Start with **Runs & logs** for a task failure. Open **This device →
 Diagnostics** to view, search, or download service and project engine logs.
-Each log rotates at 10 MiB and keeps three archives. On macOS, service logs
-are under `~/Library/Application Support/Kitewell/logs`.
+Each log rotates at 10 MiB and keeps three archives. Service logs are under
+`~/Library/Application Support/Kitewell/logs` on macOS and
+`%LOCALAPPDATA%\Kitewell\logs` on Windows, where `shell.log` also records
+what the app itself did: starts, restarts, and quits.
 
 If the guides do not resolve the issue, [open a support issue](/support/) with
 versions, reproduction steps, and sanitized output.

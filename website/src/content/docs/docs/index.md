@@ -16,8 +16,8 @@ device supplies its own credentials and enables only the workflows it should
 run.
 
 :::note[Public beta]
-Kitewell is in public beta, so features and limits may still change. The first
-public installers target macOS. Linux and Windows support is planned. Check
+Kitewell is in public beta, so features and limits may still change. The
+public installers target macOS and Windows. Linux support is planned. Check
 [Downloads](/download/) for current release availability.
 :::
 
@@ -50,8 +50,8 @@ Assistant conversations, failure diagnoses, and the values read into sheets
 stay on the device too. AI features send what they read, such as run output
 and workflow definitions, to the model provider you choose.
 
-On macOS, closing the window keeps Kitewell in the menu bar; **Quit Kitewell**
-stops the service and engines.
+Closing the window keeps Kitewell running in the menu bar on macOS or the tray
+on Windows; **Quit Kitewell** stops the service and engines.
 
 Your computer must be awake and your user signed in for scheduled work to run.
 Kitewell does not provide a hosted machine. AI providers, remote servers,

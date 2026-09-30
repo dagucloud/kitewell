@@ -20,16 +20,28 @@ On macOS:
   active jobs finish first.
 - **Start at login** opens Kitewell in the menu bar when you sign in.
 
-The menu bar lists projects with individual Start and Stop controls. Switching
-projects in the interface does not stop other projects' schedules.
+On Windows:
+
+- Closing the window hides it while the service and project engines continue
+  running; Kitewell stays in the tray (the notification area).
+- Left-click the tray icon, or choose **Open Kitewell** in its menu, to
+  restore the interface.
+- **Quit Kitewell** stops the service and project engines. When runs are in
+  progress, it warns first and then interrupts them. Save drafts and let
+  active jobs finish first.
+- **Start at login** opens Kitewell in the tray when you sign in.
+
+The menu bar menu and the tray menu list projects with individual Start and
+Stop controls. Switching projects in the interface does not stop other
+projects' schedules.
 
 ## Sleep, logout, and missed runs
 
 The computer must be awake and your user logged in. Kitewell does not wake a
 sleeping computer. A powered-off, sleeping, or logged-out machine cannot run work at the
-scheduled time. On macOS, **Device settings → Sleep protection**, or **Keep
-awake while jobs run** in the menu bar, keeps the computer from idle sleep
-while work is running; it is off by default.
+scheduled time. **Device settings → Sleep protection**, or **Keep awake while
+jobs run** in the menu bar menu on macOS or the tray menu on Windows, keeps
+the computer from idle sleep while work is running; it is off by default.
 
 By default, schedules missed in the previous 24 hours run after the computer
 wakes. Change this for a project under **Project settings → Workflow

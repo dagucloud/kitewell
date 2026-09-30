@@ -37,10 +37,10 @@ title: チームでワークフローを共有
 
 プロジェクトの定義は、通常の JSON ファイルと YAML ファイルです。チームは自分たちの Git リポジトリで、これらをレビューし、バージョン管理できます。Kitewell がそのリポジトリへのプッシュ、プル、マージを代行することはありません。
 
-macOS では、各プロジェクトの持ち運び可能なファイルは次の場所にあります。
+各プロジェクトの持ち運び可能なファイルは、Kitewell のデータフォルダー（macOS では `~/Library/Application Support/Kitewell`、Windows では `%LOCALAPPDATA%\Kitewell`）の次の場所にあります。
 
 ```text
-~/Library/Application Support/Kitewell/data/workspace/project-<id>/
+data/workspace/project-<id>/
   project.json
   workflows/
   batch-sets/

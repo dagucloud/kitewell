@@ -66,10 +66,11 @@ automatically.
 
 ## Find local data
 
-On macOS, Kitewell stores its data under:
+Kitewell stores its data under:
 
 ```text
-~/Library/Application Support/Kitewell
+macOS:    ~/Library/Application Support/Kitewell
+Windows:  %LOCALAPPDATA%\Kitewell
 ```
 
 The `data`, `backups`, `runtime`, and `logs` folders serve different purposes.

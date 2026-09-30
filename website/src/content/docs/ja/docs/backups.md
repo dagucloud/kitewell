@@ -32,10 +32,11 @@ title: バックアップと復旧
 
 ## ローカルデータの場所
 
-macOS では、Kitewell は次の場所にデータを保存します。
+Kitewell は次の場所にデータを保存します。
 
 ```text
-~/Library/Application Support/Kitewell
+macOS:    ~/Library/Application Support/Kitewell
+Windows:  %LOCALAPPDATA%\Kitewell
 ```
 
 `data`、`backups`、`runtime`、`logs` の各フォルダーは、それぞれ異なる用途に使われます。データを手動で移動する前に、Kitewell を終了してください。バックアップを残さないまま、インストールの問題を解決する目的でこのディレクトリを削除しないでください。

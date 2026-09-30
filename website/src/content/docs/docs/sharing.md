@@ -64,10 +64,12 @@ Project definitions are ordinary JSON and YAML files. A team can review and
 version them in its own Git repository. Kitewell does not push, pull, or merge
 that repository for you.
 
-On macOS, each project's portable files are under:
+Each project's portable files are under Kitewell's data folder
+(`~/Library/Application Support/Kitewell` on macOS, `%LOCALAPPDATA%\Kitewell`
+on Windows):
 
 ```text
-~/Library/Application Support/Kitewell/data/workspace/project-<id>/
+data/workspace/project-<id>/
   project.json
   workflows/
   batch-sets/

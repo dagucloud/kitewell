@@ -27,8 +27,8 @@ inspect the output of each step. Workflow definitions and execution logs stay
 on your machine.
 
 **Public beta coming soon.** The first installers will support macOS 13+ on
-Apple Silicon and Intel. Linux and Windows support is planned. No installers
-have been published yet.
+Apple Silicon and Intel, and Windows 10 (version 1809) or later and Windows 11
+on x64. Linux support is planned. No installers have been published yet.
 
 ![Kitewell workflow editor with a daily report workflow and the selected step's settings](website/public/images/workflow-builder.jpg)
 
@@ -42,7 +42,8 @@ have been published yet.
 - **Call APIs without code.** Import an OpenAPI spec, choose an operation, and
   fill in its request form. Pass response values to later steps.
 - **Schedule runs.** Run on demand, daily, on weekdays, or on a custom
-  schedule. On macOS, Kitewell keeps working from the menu bar.
+  schedule. Kitewell keeps working from the menu bar on macOS or the tray on
+  Windows.
 - **Inspect every run.** See which steps finished or failed, and read each
   step's output and errors.
 - **Work with agents and teammates.** Connect MCP clients or the REST API with

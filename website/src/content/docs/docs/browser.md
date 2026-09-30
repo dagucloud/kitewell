@@ -22,15 +22,17 @@ device.
 
 ## Before the first run
 
-- **Chrome**: install Google Chrome in `/Applications`. For Chromium, Brave,
-  Microsoft Edge, or Chrome elsewhere, set **Device settings → Browser →
+- **Chrome**: on macOS, install Google Chrome in `/Applications`; on Windows,
+  Kitewell uses the installed Chrome or Microsoft Edge. For Chromium, Brave,
+  Edge on macOS, or Chrome elsewhere, set **Device settings → Browser →
   Browser executable**.
 - **Check the browser**, on the step or in **Device settings**, opens the
-  browser once from Kitewell's background service, so macOS asks its
-  questions now rather than during a scheduled run. It also reports a browser
+  browser once from Kitewell's background service, the way a run does, so a
+  browser that cannot start is found now rather than during a scheduled run.
+  On macOS, it also lets macOS ask its questions first, and reports a browser
   or engine that macOS has not allowed to open yet.
 - **A model**: choose an API model from [Agents & models](/docs/ai/) on the
-  step, or set **Default model for browser steps** in the workflow's
+  step, or set **Default model for browser and desktop steps** in the workflow's
   **Settings**. Use an Anthropic, OpenAI, or Gemini model; small local models
   usually cannot drive a browser.
 
