@@ -236,7 +236,7 @@ Under the graph, **Event handlers** lists the ones this workflow has. Choose
 its own. Change its **Task type** to a command, script, Docker image, AI agent
 or model, website automation, text template, HTTP request, imported API
 action, SSH command, file transfer, or another workflow. Human tasks, AI decisions, branches, loops,
-waits, and repeats cannot be handlers. **← Workflow** returns to the graph.
+waits, and repeats cannot be handlers. **Back to workflow** returns to the graph.
 
 A handler can use the workflow's inputs and variables and the run's status, but
 not results from its steps. In **Runs & logs**, a run lists its handlers beside

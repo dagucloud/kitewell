@@ -91,7 +91,7 @@ before a column was changed are marked out of date.
 
 - **Export CSV** saves the inputs, the values, each judgment's probability,
   and each row's run.
-- The sheet menu (**⋯**) offers **Duplicate**, a copy with the same rows,
+- The sheet menu (**Sheet actions**, ⋯) offers **Duplicate**, a copy with the same rows,
   inputs, result columns, and models, and **Duplicate without rows**, the same
   setup with one empty row. Copies start without results, since values belong
   to the runs that produced them.
