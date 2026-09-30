@@ -2,13 +2,15 @@
 import Site from "../layouts/Site.astro";
 import { localize } from "../lib/i18n.mjs";
 import { labelsFor } from "../lib/examples.mjs";
+type Audience = "personal" | "ops" | "dev";
+type Copy = { title: string; summary: string; intro: string; prompt: string; note?: string; steps: string[][] };
 interface Props {
   locale: "en" | "ja";
-  example: any;
+  example: { slug: string; audience: string; yaml: string; en: Copy; ja: Copy; needs: string[]; docs: string[]; steps: string[] };
 }
 const { locale, example } = Astro.props;
-const copy = example[locale];
-const labels = labelsFor(example, locale);
+const copy: Copy = example[locale];
+const labels: { needs: string[]; docs: [string, string][] } = labelsFor(example, locale);
 const text = {
   en: {
     eyebrow: "Example",
@@ -43,7 +45,7 @@ const to = (path: string) => localize(path, locale);
 <Site title={copy.title} description={copy.summary}>
   <section class="page wrap example-page" data-example={example.slug}>
     <p class="eyebrow">
-      {text.eyebrow} · {text.audiences[example.audience]}
+      {text.eyebrow} · {text.audiences[example.audience as Audience]}
     </p>
     <h1>{copy.title}</h1>
     <p class="lead">{copy.summary}</p>

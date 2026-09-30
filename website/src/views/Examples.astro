@@ -39,6 +39,7 @@ const text = {
   },
 }[locale];
 const to = (path: string) => localize(path, locale);
+const groups = audiences as ("personal" | "ops" | "dev")[];
 ---
 
 <Site title={text.title} description={text.description}>
@@ -46,7 +47,7 @@ const to = (path: string) => localize(path, locale);
     <p class="eyebrow">{text.eyebrow}</p>
     <h1>{text.heading}</h1>
     <p class="lead">{text.lead}</p>
-    {audiences.map((audience) => (
+    {groups.map((audience) => (
       <section class="example-group" aria-labelledby={`group-${audience}`}>
         <h2 id={`group-${audience}`}>{text.groups[audience]}</h2>
         <div class="cards examples">
@@ -54,7 +55,7 @@ const to = (path: string) => localize(path, locale);
             .filter((example) => example.audience === audience)
             .map((example) => {
               const copy = example[locale];
-              const labels = labelsFor(example, locale);
+              const labels: { needs: string[]; docs: [string, string][] } = labelsFor(example, locale);
               return (
                 <article class="card">
                   <h3>
