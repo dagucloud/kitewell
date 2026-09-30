@@ -43,6 +43,13 @@ const text = {
       ],
     },
     preview: "See how Kitewell works",
+    before: "Before you start",
+    beforeItems: [
+      "Website steps drive Google Chrome, or Microsoft Edge on Windows. Install one first.",
+      "Desktop-app steps need permission to record the screen and control the computer; Kitewell asks for it under Device settings → Desktop automation.",
+      "AI steps need an API key from a provider such as Anthropic, OpenAI, or Google, or a local server such as Ollama. Keys are stored as project secrets.",
+      "Docker steps use Docker Desktop, which Kitewell does not install.",
+    ],
     installingMac: "Installing on macOS",
     requirementsMac: [
       "macOS 13 or later. To check your chip, open Apple menu → About This Mac.",
@@ -93,6 +100,13 @@ const text = {
       ],
     },
     preview: "Kitewell の使い方を見る",
+    before: "始める前に",
+    beforeItems: [
+      "Web サイトのステップは Google Chrome（Windows では Microsoft Edge も可）を操作します。先にインストールしてください。",
+      "デスクトップアプリのステップには、画面収録とコンピューターの制御の許可が必要です。Kitewell は デバイス設定 → デスクトップ自動操作 で許可を求めます。",
+      "AI のステップには、Anthropic、OpenAI、Google などのプロバイダーの API キー、または Ollama のようなローカルサーバーが必要です。キーはプロジェクトのシークレットとして保存されます。",
+      "Docker のステップは Docker Desktop を使います。Kitewell はインストールしません。",
+    ],
     installingMac: "macOS へのインストール",
     requirementsMac: [
       "macOS 13 以降。チップの種類は、アップルメニュー →「この Mac について」で確認できます。",
@@ -178,6 +192,10 @@ const platforms = [
       </div>
     )}
     <div class="prose">
+      <h2>{text.before}</h2>
+      <ul>
+        {text.beforeItems.map((item) => <li>{item}</li>)}
+      </ul>
       <h2>{text.installingMac}</h2>
       <ul>
         {text.requirementsMac.map((item) => <li>{item}</li>)}

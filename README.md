@@ -6,9 +6,9 @@
 </p>
 
 <p align="center">
-  <strong>Build and run workflows on your own machine.</strong><br>
+  <strong>AI automation that runs on your own computer.</strong><br>
   <a href="https://kitewell.app/#film">▶ Watch the 60-second film</a> ·
-  <a href="https://kitewell.app/videos/kitewell-social.mp4">30-second version</a>
+  <a href="https://kitewell.app/videos/kitewell-social-v2.mp4">30-second version</a>
 </p>
 
 <p align="center">
@@ -21,10 +21,10 @@
 
 ---
 
-Kitewell is a desktop app for connecting scripts, APIs, containers, and AI
-agents in a visual editor. Build a workflow on a canvas, schedule it, and
-inspect the output of each step. Workflow definitions and execution logs stay
-on your machine.
+Kitewell automates websites, desktop apps, email, scripts, and coding agents
+on your own Mac or PC. Build a workflow on a canvas or by asking the
+assistant, schedule it, put an approval where it matters, and read the log of
+every step. Your credentials and data stay on your machine.
 
 **First installers coming soon.** They will support macOS 13+ on
 Apple Silicon and Intel, and Windows 10 (version 1809) or later and Windows 11
@@ -34,13 +34,20 @@ on x64. Linux support is planned. No installers have been published yet.
 
 ## What you can do
 
-- **Build visually.** Connect steps on a canvas and edit each one in the
-  inspector, or switch to YAML.
-- **Use your tools.** Run commands and scripts, Docker images, AI harnesses
-  such as Codex, Claude Code, and Gemini, remote servers over SSH, and AI
-  decisions that choose the next path.
-- **Call APIs without code.** Import an OpenAPI spec, choose an operation, and
-  fill in its request form. Pass response values to later steps.
+- **Automate websites.** Open pages, click, type, and collect information in
+  your own Chrome from instructions in plain words; sign-ins stay on the
+  device.
+- **Automate desktop apps.** On macOS or Windows, a model reads the screen and
+  uses the mouse and keyboard for the app that has no API.
+- **Automate email.** Find, organize, and send email in Gmail, Microsoft 365,
+  or any IMAP mailbox connected on your computer.
+- **Use your tools.** Run commands and scripts, Docker images, coding agents
+  such as Codex, Claude Code, and Gemini, remote servers over SSH, AI
+  decisions that choose the next path, and operations from any OpenAPI spec.
+- **Build by asking.** The assistant proposes workflows as a diff you apply,
+  or connect Claude Code or Codex through MCP.
+- **Keep control.** Approval gates and human tasks, a test for one step, and
+  replay of website and desktop actions that worked.
 - **Schedule runs.** Run on demand, daily, on weekdays, or on a custom
   schedule. Kitewell keeps working from the menu bar on macOS or the tray on
   Windows.
@@ -52,10 +59,9 @@ on x64. Linux support is planned. No installers have been published yet.
 
 ![Completed daily report workflow with the report visible in the selected step's output](website/public/images/workflow-run.jpg)
 
-Try it with the
-[daily report example](https://kitewell.app/docs/workflow-builder/#example-build-a-daily-report):
-read a CSV, build a Markdown report with Python, and check the result in the
-run log.
+Start from a complete [example](https://kitewell.app/examples/): an inbox
+digest, invoices from email into a ledger, a nightly dependency update with
+approval, a price watch, desktop-app entry, and more.
 
 ## Pricing
 
@@ -69,6 +75,10 @@ These are planned launch prices; see
 
 - [Getting started](https://kitewell.app/docs/getting-started/)
 - [Workflow builder](https://kitewell.app/docs/workflow-builder/)
+- [Automate a website](https://kitewell.app/docs/browser/)
+- [Automate a desktop app](https://kitewell.app/docs/desktop/)
+- [Automate email](https://kitewell.app/docs/email/)
+- [What leaves your computer](https://kitewell.app/docs/data-flow/)
 - [AI agents and models](https://kitewell.app/docs/ai/)
 - [APIs](https://kitewell.app/docs/apis/)
 - [Scheduling](https://kitewell.app/docs/scheduling/)

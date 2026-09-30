@@ -561,6 +561,80 @@ code {
   margin-top: 10px;
   color: var(--muted);
 }
+/* Home: what it automates, split sections, facts */
+.section-lead {
+  max-width: 660px;
+  margin-top: 18px;
+  color: var(--muted);
+}
+.kinds {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 34px;
+}
+.kind {
+  display: block;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  text-decoration: none;
+}
+.kind:hover {
+  border-color: var(--green);
+  color: inherit;
+}
+.kind strong,
+.kind span {
+  display: block;
+}
+.kind strong {
+  font-size: 18px;
+}
+.kind span {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.split {
+  display: grid;
+  grid-template-columns: minmax(270px, 0.9fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: 48px;
+}
+.split .product-preview {
+  padding-bottom: 15px;
+}
+.split .shot-tall {
+  max-width: 460px;
+  justify-self: center;
+}
+.split .example-steps {
+  padding-left: 23px;
+}
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+  margin: 30px 0 26px;
+}
+.facts > div {
+  padding-block: 16px;
+  border-top: 1px solid var(--line);
+}
+.facts dt {
+  font-weight: 600;
+}
+.facts dd {
+  margin: 6px 0 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+.cards.examples + .text-link {
+  margin-top: 22px;
+}
+
 @media (max-width: 760px) {
   .wrap {
     width: calc(100% - 36px);
@@ -609,6 +683,17 @@ code {
   .report-example,
   .operations {
     gap: 30px;
+  }
+  .kinds,
+  .split,
+  .facts {
+    grid-template-columns: 1fr;
+  }
+  .split {
+    gap: 26px;
+  }
+  .split .product-preview {
+    order: 1;
   }
   .section {
     padding-block: 42px;
