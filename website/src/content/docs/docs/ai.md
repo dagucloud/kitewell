@@ -33,7 +33,8 @@ a short request to confirm the setup.
 
 API models are used by **Ask a model** tasks, the assistant, failure
 diagnosis, the result columns of [batch sheets](/docs/batches/), and
-**Automate a website** tasks.
+**Automate a website** and **Automate a desktop app** tasks. See
+[What leaves your computer](/docs/data-flow/) for what each sends.
 
 **Add decision model** configures a model on OpenRouter or TypeSafe. **Make an
 AI decision** tasks use it to classify, score, or answer yes/no questions with

@@ -45,6 +45,48 @@ If a site changed and a replayed action no longer works, clear it under
 **Project settings → Storage → Replay cache**. See
 [Automate a website](/docs/browser/).
 
+## A desktop step fails
+
+Check the step's screenshots in the run's artifacts first. Then check that:
+
+- **Device settings → Desktop automation → Check desktop access** reports
+  every permission as allowed; on macOS, **Kitewell Agent** needs Screen
+  Recording and Accessibility, and on Windows, Kitewell must run in your
+  signed-in session, not as a service;
+- the screen is unlocked and the computer is awake; a locked screen fails
+  every desktop step;
+- on Windows, the app does not run as administrator while Kitewell does not;
+- the task fits within **Most actions per task**, or is split into smaller
+  tasks;
+- the model has a computer-use tool, or the step uses **Plain tools, for any
+  vision model**;
+- no instruction contains a secret; use **Values the step types**.
+
+A step that waited for the desktop to be free was paused by your own mouse or
+keyboard; on a computer nobody works at, shorten or turn off the wait under
+**Desktop settings**. If an app changed and a replayed task no longer works,
+clear it under **Project settings → Storage → Replay cache**. See
+[Automate a desktop app](/docs/desktop/).
+
+## A mailbox needs reconnecting
+
+A run that names a mailbox this computer cannot sign in to is refused, and
+the Overview says which address to connect or reconnect. Open **Mail
+accounts** and choose **Reconnect**. Common causes:
+
+- the account's password changed, or an administrator revoked sessions;
+- a Google sign-in went unused for six months, or a Microsoft sign-in was
+  refreshed more than 90 days ago because the computer was off;
+- an app password was deleted on the provider's site;
+- a Microsoft 365 administrator turned off IMAP or Authenticated SMTP, or
+  requires admin approval for Kitewell; the error carries the link to send
+  them;
+- a Google Workspace administrator blocks third-party apps.
+
+A project that arrived from a teammate or from Dagu Cloud lists its
+mailboxes as not connected until you connect them here. See
+[Automate email](/docs/email/).
+
 ## A run is missing from history
 
 Runs older than the run history retention are removed, and editors can delete

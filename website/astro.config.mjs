@@ -36,6 +36,8 @@ export default defineConfig({
             { label: "Your first workflow", translations: { ja: "最初のワークフロー" }, slug: "docs/getting-started" },
             { label: "Build a workflow", translations: { ja: "ワークフローを組み立てる" }, slug: "docs/workflow-builder" },
             { label: "Automate a website", translations: { ja: "Web サイトを自動操作" }, slug: "docs/browser" },
+            { label: "Automate a desktop app", translations: { ja: "デスクトップアプリを自動操作" }, slug: "docs/desktop" },
+            { label: "Automate email", translations: { ja: "メールを自動化" }, slug: "docs/email" },
             { label: "Run a workflow over a sheet", translations: { ja: "シートでワークフローを一括実行" }, slug: "docs/batches" },
             { label: "Runs and logs", translations: { ja: "実行とログ" }, slug: "docs/runs" },
             {
@@ -63,6 +65,7 @@ export default defineConfig({
           label: "Look after your workspace",
           translations: { ja: "ワークスペースの管理" },
           items: [
+            { label: "What leaves your computer", translations: { ja: "コンピューターの外に出るもの" }, slug: "docs/data-flow" },
             { label: "Updates", translations: { ja: "更新" }, slug: "docs/updates" },
             { label: "Backups and recovery", translations: { ja: "バックアップと復旧" }, slug: "docs/backups" },
             { label: "Troubleshooting", translations: { ja: "トラブルシューティング" }, slug: "docs/troubleshooting" },

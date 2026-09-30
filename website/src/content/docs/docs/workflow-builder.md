@@ -4,10 +4,12 @@ title: Build a workflow
 
 Build a workflow by choosing what each task should do, then connecting the
 steps. A task can run a command or script, a Docker image, an AI agent, a
-model, or an AI decision; [automate a website](/docs/browser/); fill in a text
-template; call a web service or an imported API; run on another machine or copy files to or from one; ask a
-person; run another workflow; branch by value; repeat for each item; wait; or
-repeat until a condition matches. All of these can share one workflow. The graph shows the order; selecting a step opens its
+model, or an AI decision; [automate a website](/docs/browser/) or a
+[desktop app](/docs/desktop/); find, organize, and send [email](/docs/email/);
+fill in a text template; call a web service or an imported API; run on another
+machine or copy files to or from one; ask a person; run another workflow;
+branch by value; repeat for each item; wait; or repeat until a condition
+matches. All of these can share one workflow. The graph shows the order; selecting a step opens its
 settings beside it.
 
 A new, empty workflow offers two quicker starts: describe it under

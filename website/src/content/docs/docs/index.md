@@ -49,6 +49,7 @@ Your projects stay on your device unless you choose to
 Assistant conversations, failure diagnoses, and the values read into sheets
 stay on the device too. AI features send what they read, such as run output
 and workflow definitions, to the model provider you choose.
+[What leaves your computer](/docs/data-flow/) lists every destination.
 
 Closing the window keeps Kitewell running in the menu bar on macOS or the tray
 on Windows; **Quit Kitewell** stops the service and engines.
