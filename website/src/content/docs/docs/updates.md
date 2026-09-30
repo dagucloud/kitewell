@@ -6,17 +6,25 @@ Kitewell has two separate update flows: the application and its Dagu engine.
 
 ## Update the application
 
-On macOS, choose **Check for Updates…** in the application menu or menu bar. When an
-update is available, **Download and Install** downloads the matching installer,
-checks its SHA256 checksum, and opens macOS Installer.
+Choose **Check for Updates…**: on macOS in the application menu or the menu
+bar menu, on Windows in the tray menu. When an update is available,
+**Download and Install** downloads the matching installer and checks its
+SHA256 checksum before anything runs.
+
+- On macOS, it then opens macOS Installer.
+- On Windows, it then runs the installer on its own: Kitewell asks about
+  unsaved changes and exits, and the installer replaces it, restarts its
+  service, and opens the new version.
 
 Save edits and let jobs finish before installing. Installation restarts
 Kitewell and its service; runs in progress keep going, but unsaved drafts are
 lost. Back up important workspace data first.
 
-Public macOS builds use `https://kitewell.app/updates/macos/latest.json`. Until the
-first public release, that feed is not available. An unavailable feed is an
-update-check failure, not proof that the installed app is current.
+Public builds read their update feed from
+`https://kitewell.app/updates/macos/latest.json` on macOS and
+`https://kitewell.app/updates/windows/latest.json` on Windows. Until the
+first public release for a system, its feed is not available. An unavailable
+feed is an update-check failure, not proof that the installed app is current.
 
 ## Update the workflow engine
 
