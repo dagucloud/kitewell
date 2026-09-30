@@ -15,7 +15,7 @@ const text = {
     title: "Build and run workflows on your own machine",
     description:
       "Connect scripts, APIs, containers, and AI agents in Kitewell's visual editor. Schedule workflows and inspect the output of each step.",
-    eyebrow: release ? `Public beta · ${release.version}` : "Public beta coming soon",
+    eyebrow: release ? `Version ${release.version}` : "Coming soon",
     heading: "Build and run workflows on your own machine.",
     lead: "Connect scripts, APIs, containers, and AI agents in a desktop app. Build the workflow visually, schedule it, and inspect the output of each step.",
     primary: release ? "Download Kitewell" : "Watch the film",
@@ -111,13 +111,13 @@ const text = {
       "One project with up to 10 workflows needs no Kitewell account. Pro holds up to ten projects of 200 workflows each and adds alerts and team sync, for $15 per person per month (USD).",
     compare: "Compare plans →",
     availability: release ? "Download Kitewell" : "Check release availability",
-    status: release ? "Public beta available" : "Public beta coming soon",
+    status: release ? "Available now" : "Coming soon",
   },
   ja: {
     title: "ワークフローを、自分のマシンで作って動かす",
     description:
       "スクリプト、API、コンテナ、AI エージェントを Kitewell のビジュアルエディタでつなぎます。ワークフローをスケジュールし、各ステップの出力を確認できます。",
-    eyebrow: release ? `パブリックベータ · ${release.version}` : "パブリックベータを近日公開",
+    eyebrow: release ? `バージョン ${release.version}` : "近日公開",
     heading: "ワークフローを、自分のマシンで作って動かす。",
     lead: "スクリプト、API、コンテナ、AI エージェントをデスクトップアプリでつなげます。ワークフローをビジュアルに組み立て、スケジュールし、各ステップの出力を確認できます。",
     primary: release ? "Kitewell をダウンロード" : "紹介映像を見る",
@@ -210,7 +210,7 @@ const text = {
       "10 ワークフローまでの 1 プロジェクトなら、Kitewell アカウントは不要です。Pro は最大 10 プロジェクト・各 200 ワークフローに対応し、アラートとチームでの同期が加わって、1 人あたり月額 $15（USD）です。",
     compare: "プランを比較 →",
     availability: release ? "Kitewell をダウンロード" : "提供状況を確認",
-    status: release ? "パブリックベータ公開中" : "パブリックベータを近日公開",
+    status: release ? "公開中" : "近日公開",
   },
 }[locale];
 const to = (path: string) => localize(path, locale);

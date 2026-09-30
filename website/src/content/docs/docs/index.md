@@ -15,8 +15,8 @@ Export a project and import it on another device or for a teammate, or
 device supplies its own credentials and enables only the workflows it should
 run.
 
-:::note[Public beta]
-Kitewell is in public beta, so features and limits may still change. The
+:::note[Early releases]
+Kitewell is new, so features and limits may still change. The
 public installers target macOS and Windows. Linux support is planned. Check
 [Downloads](/download/) for current release availability.
 :::

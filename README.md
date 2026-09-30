@@ -26,7 +26,7 @@ agents in a visual editor. Build a workflow on a canvas, schedule it, and
 inspect the output of each step. Workflow definitions and execution logs stay
 on your machine.
 
-**Public beta coming soon.** The first installers will support macOS 13+ on
+**First installers coming soon.** They will support macOS 13+ on
 Apple Silicon and Intel, and Windows 10 (version 1809) or later and Windows 11
 on x64. Linux support is planned. No installers have been published yet.
 

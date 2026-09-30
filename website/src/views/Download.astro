@@ -12,17 +12,17 @@ const { macos, windows } = await readReleases();
 const release = macos ?? windows;
 const text = {
   en: {
-    title: release ? "Download Kitewell" : "Beta availability",
+    title: release ? "Download Kitewell" : "Release availability",
     description:
-      "Check Kitewell beta availability for macOS and Windows, system requirements, and installation instructions.",
+      "Check Kitewell release availability for macOS and Windows, system requirements, and installation instructions.",
     eyebrow: "Downloads",
-    heading: release ? `Download Kitewell ${release.version}` : "Public beta coming soon",
+    heading: release ? `Download Kitewell ${release.version}` : "Coming soon",
     lead: release
-      ? "The public beta is ready to download. Check the supported platforms and system requirements below."
+      ? "Kitewell is ready to download. Check the supported platforms and system requirements below."
       : "There are no public installers yet. Kitewell runs on macOS and Windows; Linux support is planned.",
     platforms: [
-      `macOS · ${macos ? "Public beta" : "Coming soon"}`,
-      `Windows · ${windows ? "Public beta" : "Coming soon"}`,
+      `macOS · ${macos ? "Available" : "Coming soon"}`,
+      `Windows · ${windows ? "Available" : "Coming soon"}`,
       "Linux · Planned",
     ],
     macos: {
@@ -62,17 +62,17 @@ const text = {
     install: "Read installation instructions →",
   },
   ja: {
-    title: release ? "Kitewell をダウンロード" : "ベータの提供状況",
+    title: release ? "Kitewell をダウンロード" : "リリースの提供状況",
     description:
-      "macOS と Windows 向け Kitewell ベータの提供状況、動作環境、インストール方法を確認できます。",
+      "macOS と Windows 向け Kitewell の提供状況、動作環境、インストール方法を確認できます。",
     eyebrow: "ダウンロード",
-    heading: release ? `Kitewell ${release.version} をダウンロード` : "パブリックベータを近日公開",
+    heading: release ? `Kitewell ${release.version} をダウンロード` : "近日公開",
     lead: release
-      ? "パブリックベータをダウンロードできます。対応プラットフォームと動作環境は以下をご確認ください。"
+      ? "Kitewell をダウンロードできます。対応プラットフォームと動作環境は以下をご確認ください。"
       : "公開中のインストーラーはまだありません。Kitewell は macOS と Windows で動作し、Linux にも対応予定です。",
     platforms: [
-      `macOS · ${macos ? "パブリックベータ" : "近日公開"}`,
-      `Windows · ${windows ? "パブリックベータ" : "近日公開"}`,
+      `macOS · ${macos ? "提供中" : "近日公開"}`,
+      `Windows · ${windows ? "提供中" : "近日公開"}`,
       "Linux · 対応予定",
     ],
     macos: {
@@ -160,7 +160,7 @@ const platforms = [
             <a href={localize("/docs/getting-started/", locale)}>はじめかたガイド</a>
             を読むか、
             <a href={localize("/docs/workflow-builder/", locale)}>ワークフローエディタ</a>
-            をご覧ください。ベータを公開すると、インストーラーがこのページと{" "}
+            をご覧ください。リリースを公開すると、インストーラーがこのページと{" "}
             <a href="https://github.com/dagucloud/kitewell/releases">GitHub Releases</a>{" "}
             に掲載されます。
           </p>
@@ -172,7 +172,7 @@ const platforms = [
             <a href="https://github.com/dagucloud/kitewell/releases">
               GitHub Releases
             </a>{" "}
-            when the beta is published.
+            when the first release is published.
           </p>
         )}
       </div>
