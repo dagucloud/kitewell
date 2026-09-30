@@ -27,6 +27,11 @@ be applied. In a synced project, releases sync like everything else, so every
 teammate can apply the same one. Releases are left out of project exports but
 kept in [backups](/docs/backups/).
 
+To hold on to a version you trust however many releases follow, choose **Keep**
+beside it in **Releases**. A kept release is never removed, on any device or in
+Dagu Cloud, and cannot be deleted until someone chooses **Stop keeping**. Up to
+20 releases can be kept.
+
 ## Apply a release
 
 1. Choose **Releases**, then **Apply to…** beside a release.
@@ -64,3 +69,8 @@ preview warns you and lets you keep the project's version.
 Apply an older release the same way. Workflows a newer release added are listed
 and removed only if you tick them. Every replaced workflow also stays in the
 project's history on this device, so it can be restored on its own.
+
+You can also start from the project that runs the release. Choose **Releases of
+Dev…** beside **From Dev v13** to see Dev's releases, with the one running here
+marked, and choose **Apply here** on the one you want. This works while Dev is
+on the same device.
