@@ -545,6 +545,22 @@ code {
   font-size: 13px;
   color: var(--muted);
 }
+.platform {
+  margin-top: 40px;
+}
+.platform h2 {
+  font-size: 32px;
+}
+.platform .cards {
+  margin-block: 18px 0;
+}
+.platform .card h3 {
+  font-size: 28px;
+}
+.platform .soon {
+  margin-top: 10px;
+  color: var(--muted);
+}
 @media (max-width: 760px) {
   .wrap {
     width: calc(100% - 36px);
