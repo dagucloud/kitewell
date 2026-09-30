@@ -1,13 +1,15 @@
 ---
 import Site from "../layouts/Site.astro";
-import { readManifest } from "../lib/releases.mjs";
+import { readReleases } from "../lib/releases.mjs";
 import { descartyUrl } from "../lib/descarty.mjs";
 import { localize } from "../lib/i18n.mjs";
 interface Props {
   locale: "en" | "ja";
 }
 const { locale } = Astro.props;
-const release = await readManifest();
+// A release published for either system is enough to offer the download.
+const { macos, windows } = await readReleases();
+const release = macos ?? windows;
 const text = {
   en: {
     title: "Build and run workflows on your own machine",
@@ -18,7 +20,7 @@ const text = {
     lead: "Connect scripts, APIs, containers, and AI agents in a desktop app. Build the workflow visually, schedule it, and inspect the output of each step.",
     primary: release ? "Download Kitewell" : "Watch the film",
     setup: "Read the setup guide →",
-    platform: "First release for macOS 13 or later.",
+    platform: "Runs on macOS 13 or later and Windows 10 (version 1809) or later.",
     meet: "Meet Kitewell",
     tagline: "Serious workflows. Seriously simple.",
     taglineText: "Build visually. Run on your terms. With or without code.",
@@ -92,7 +94,7 @@ const text = {
     opsLabel: "Scheduling and debugging",
     scheduleTitle: "Schedule a workflow.",
     scheduleText:
-      "Run on demand, daily, on weekdays, or on a custom schedule. On macOS, Kitewell keeps working from the menu bar when you close its window. Scheduled runs need an awake machine with your user signed in.",
+      "Run on demand, daily, on weekdays, or on a custom schedule. Kitewell keeps working from the menu bar on macOS, or the tray on Windows, when you close its window. Scheduled runs need an awake machine with your user signed in.",
     scheduleLink: "How schedules work →",
     inspectTitle: "Inspect a failed step.",
     inspectText:
@@ -120,7 +122,7 @@ const text = {
     lead: "スクリプト、API、コンテナ、AI エージェントをデスクトップアプリでつなげます。ワークフローをビジュアルに組み立て、スケジュールし、各ステップの出力を確認できます。",
     primary: release ? "Kitewell をダウンロード" : "紹介映像を見る",
     setup: "セットアップガイドを読む →",
-    platform: "最初のリリースは macOS 13 以降に対応。",
+    platform: "macOS 13 以降と Windows 10（バージョン 1809）以降で動作します。",
     meet: "Kitewell の紹介",
     tagline: "本格的なワークフローを、驚くほどシンプルに。",
     taglineText: "ビジュアルに組み立て、思いどおりに動かす。コードを書いても、書かなくても。",
@@ -191,7 +193,7 @@ const text = {
     opsLabel: "スケジュールとデバッグ",
     scheduleTitle: "ワークフローをスケジュールする。",
     scheduleText:
-      "手動、毎日、平日、またはカスタムのスケジュールで実行できます。macOS では、ウィンドウを閉じても Kitewell はメニューバーで動き続けます。スケジュール実行には、スリープしていないマシンとユーザーのログインが必要です。",
+      "手動、毎日、平日、またはカスタムのスケジュールで実行できます。ウィンドウを閉じても、Kitewell は macOS ではメニューバー、Windows ではトレイで動き続けます。スケジュール実行には、スリープしていないマシンとユーザーのログインが必要です。",
     scheduleLink: "スケジュールのしくみ →",
     inspectTitle: "失敗したステップを調べる。",
     inspectText:
@@ -399,7 +401,7 @@ const to = (path: string) => localize(path, locale);
           {text.availability}
           <span aria-hidden="true">↗</span>
         </a>
-        <p class="fine">{text.status} · macOS 13+</p>
+        <p class="fine">{text.status} · macOS 13+ · Windows 10+</p>
       </div>
     </section>
   </div>

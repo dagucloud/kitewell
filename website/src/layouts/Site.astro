@@ -1,7 +1,7 @@
 ---
 import "../styles/site.css";
 import Analytics from "../components/Analytics.astro";
-import { readManifest } from "../lib/releases.mjs";
+import { readReleases } from "../lib/releases.mjs";
 import { descartyUrl } from "../lib/descarty.mjs";
 import { counterparts, localeOf, localize } from "../lib/i18n.mjs";
 interface Props {
@@ -38,7 +38,9 @@ const text = {
   },
 }[locale];
 const { title, description = text.description } = Astro.props;
-const release = await readManifest();
+// A release published for either system is enough to offer the download.
+const { macos, windows } = await readReleases();
+const release = macos ?? windows;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const pages = counterparts(Astro.url.pathname);
 // The switch offers the other language, named in that language.
