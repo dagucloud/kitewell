@@ -33,7 +33,7 @@ public installers target macOS and Windows. Linux support is planned. Check
 7. [Share workflows with your team](/docs/sharing/).
 
 One project with up to 10 workflows and one API key is free and needs no
-Kitewell account. Pro is planned at $15 per person per month for up to ten
+Kitewell account. Pro is planned at $25 per person per month for up to ten
 projects of 200 workflows each, any number of API keys, [alerts](/docs/alerts/),
 and a team that syncs its projects. Projects hold separate workflows, history,
 and secrets.

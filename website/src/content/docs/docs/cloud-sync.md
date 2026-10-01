@@ -99,7 +99,7 @@ or applying releases, and declaring secrets.
 
 ## Work as a team
 
-A team shares synced projects under Kitewell Pro, which costs $15 per person
+A team shares synced projects under Kitewell Pro, which costs $25 per person
 per month for up to 10 people; a larger team takes
 [Enterprise](/pricing/#enterprise). The team's owner pays for every seat;
 members need no subscription of their own.
