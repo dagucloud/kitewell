@@ -1,0 +1,3 @@
+# License notices are copied from the app's packages byte for byte, CRLF and
+# all, so Git must not change their line endings.
+website/public/licenses/*.txt -text
