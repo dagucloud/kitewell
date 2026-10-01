@@ -30,6 +30,9 @@ A sheet holds up to 5,000 rows and 30 result columns.
   match an input's name are mapped for you.
 - **Shared inputs**: values every row uses unless the row sets its own. An
   empty cell shows, in grey, the shared value or workflow default it will use.
+- **From a workflow's run**: let a run find the items, such as the listings a
+  search turns up, and keep the rows up to date. See
+  [Fill rows from a workflow's run](#fill-rows-from-a-workflows-run).
 
 Each value is read by its input's type: text as typed, numbers, `true` or
 `false`, and lists or objects as JSON. A value that does not fit, such as text
@@ -38,6 +41,40 @@ red with the reason. The sheet still saves, and that row does not run until
 the value is fixed.
 
 The sheet saves as you edit.
+
+## Fill rows from a workflow's run
+
+Rows can come from a list a workflow's run finds, so new items become rows
+without anyone adding them. Under **Import**, or below a new sheet's blank row,
+choose **Fill rows from a workflow's run**.
+
+1. Pick the **Workflow**, which may be the sheet's own, and the **List** its
+   runs publish: a [website](/docs/browser/) or [desktop](/docs/desktop/)
+   step's **List of items**, the emails a **Find emails** step finds, or an
+   output read as JSON.
+2. Check the first items of its latest run. When it has not run, or its fields
+   are only known from a run, choose **Run it now**.
+3. Under **What fills each input**, each input takes the item field of the
+   same name, rows are matched by an address or ID, and a title labels them.
+   Change any of these, and set the inputs the list's run takes.
+4. Choose **Fill rows**. The workflow runs once and adds a row for each item.
+
+The toolbar then shows where rows come from, and **Refresh rows** runs the
+workflow again. When the run succeeds:
+
+- An item fills the row with the same key, such as its URL. A row you added by
+  hand with that key is taken over rather than repeated.
+- A new item adds a row, marked **New** until it runs.
+- A row whose item is gone stays, greyed as **No longer listed**, and comes back
+  when its item does. Running all rows, failed rows, or changed rows leaves it
+  out; select it to run it anyway. The **No longer listed** filter shows these
+  rows and can remove them together.
+- Items without a key, and items repeating another's key, are skipped and
+  counted.
+
+A banner says what changed, with **Show new rows** and **Show rows no longer
+listed**. A failed run changes nothing and says why. Inputs filled from the
+list carry a small mark, and edits you make while a refresh runs are kept.
 
 ## Run rows
 
@@ -139,6 +176,10 @@ and the sheet list show the next run.
   within five minutes. At most one missed run happens either way.
 - A due time that finds the last run still going is skipped. A run that did not
   start shows a mark on the schedule with why.
+- A sheet whose rows come from a workflow's run refreshes them first, so new
+  items run as new rows and rows no longer listed are left out. The due time
+  waits however long the list takes. Untick **Refresh rows from … first** to
+  run the rows as they are.
 
 Each row keeps the values its previous run with the same inputs read. A result
 that changed since is marked in its cell: an arrow for a number that went up or
@@ -165,20 +206,23 @@ copy what a step publishes where you can.
 - With Kitewell Pro, the **Finishes a batch** [alert](/docs/alerts/) tells
   you once every row of a launch has finished and its values were read: how
   many did not succeed and what changed by column, such as "Price: 9 dropped,
-  3 rose". A scheduled run where every row succeeded and nothing changed stays
-  quiet, and a scheduled run that could not start says why. Batch rows do not
+  3 rose", and, when the rows were refreshed first, how many are new or no
+  longer listed. A scheduled run where every row succeeded and nothing changed
+  stays quiet, and a scheduled run that could not start says why. Batch rows do not
   raise run alerts one by one, except when a row waits for a person.
 - The assistant can propose adding or changing rows and columns. The proposal
   shows in the open sheet until you apply it, apply it and run the rows it
   touches, or reject it. An applied change can be undone.
 - [MCP clients](/docs/mcp/) can list and read sheets, with what each workflow
   publishes and what each changed value was; create, replace, and delete them;
-  copy published values into columns; schedule them on this device; run rows,
-  read values, and cancel runs.
+  copy published values into columns; fill rows from a workflow's run and
+  refresh them; schedule them on this device; run rows, read values, and cancel
+  runs.
 
 ## What stays on this device
 
 The sheet itself belongs to the project, so it travels with project exports
-and [syncs with Dagu Cloud](/docs/cloud-sync/). Row statuses, the values read
-from runs, what they were before, and the sheet's schedule stay on the device
-that ran them.
+and [syncs with Dagu Cloud](/docs/cloud-sync/), including where its rows come
+from and which rows are no longer listed. Row statuses, the values read from
+runs, what they were before, the latest refresh, and the sheet's schedule stay
+on the device that ran them.

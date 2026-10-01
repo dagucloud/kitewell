@@ -42,7 +42,7 @@ The MCP server exposes three tools: `read`, `change`, and `execute`. Call
 - **Execute** runs: start, retry, rerun, or cancel them; approve, reject,
   send back, or complete a step waiting for a person; answer or restart a
   website step waiting for input; and run a sheet's rows, read their values,
-  or cancel them.
+  cancel them, or refresh the rows a workflow's run fills.
 
 Every replacement or deletion needs the `version` returned by the latest
 read, so a client never overwrites a change it has not seen. On a conflict,

@@ -99,8 +99,10 @@ Operations run in order in one browser. Describe one action per operation.
   `Click Download next to the latest invoice`. `%name%` types one of the
   values the browser types, or an earlier answer.
 - **Collect information**: **What to look for**, and under **What to
-  collect**, each value's name, type (**Text**, **Number**, **Yes or no**, or
-  **List**), and a description for the model. Each value becomes a result
+  collect**, each value's name, type (**Text**, **Number**, **Yes or no**,
+  **List**, or **List of items**), and a description for the model. A **List
+  of items** names the fields each item holds, such as a listing's `url`,
+  `title`, and `price`. Each value becomes a result
   later steps read as `${steps.<id>.outputs.<name>}`.
 - **Make sure that…**: what **The page should…** show. The step fails when it
   does not. The model judges a check written in plain words; **Page contains
@@ -168,6 +170,9 @@ written in plain words ask the model on every run.
   Result columns copy what each run's extract collected, with no model, and
   the sheet shows progress, failures, and time left. Schedule the sheet to check
   every row again each morning and see which values changed.
+- **A list the site shows**: collect a **List of items**, such as every listing
+  in a search, and [fill a sheet's rows](/docs/batches/#fill-rows-from-a-workflows-run)
+  from it. Refreshing adds new listings as rows and marks those that are gone.
 - **A list inside one run**: put the step in a **For each item** loop.
 - **On a schedule**: add a [schedule](/docs/scheduling/), hide the browser
   window, and let [alerts](/docs/alerts/) tell you when a run fails or waits
