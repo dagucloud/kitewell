@@ -52,8 +52,9 @@ does not accept, nothing starts, and the row shows why.
 Each row then becomes its own run in the workflow's queue. The banner shows
 how many have finished, how many run at once, the queue's name when the
 workflow shares one, and, once a few rows have finished, about how long is
-left. The **default** queue runs 5 at a time across the project; change that
-on the **Queues** page.
+left. The **default** queue runs 5 at a time across the project. When a site
+turns away bursts of requests, choose **Change how many run at once** in the
+banner to open that queue on the **Queues** page.
 
 - **Cancel queued rows** cancels rows still waiting. Running rows continue.
 - **Stop all** stops running rows as well.
@@ -64,14 +65,48 @@ A row whose inputs changed since its run shows **Changed**; the **Changed
 since last run** filter lists them. Retrying a row's run or changing a step's
 status from **Runs & logs** updates the row as well.
 
+Select a failed row's last run to see the step it stopped at and that step's
+error. **Set up retries for** the step opens it in the workflow editor with its
+retry limit, interval, and backoff ready to set: a site that refuses a burst
+usually lets a later try through. New retry rules apply when the rows run
+again.
+
 ## Collect results
 
-A result column describes one value to find in each run. Choose **Add a result
-column**, name it, choose a type (**Text**, **Number**, **Yes or no**,
-**Choice**, or **Level**), and describe what to read, such as the unit and
-which value to take when there are several.
+A result column collects one value from each run. It gets that value in one of
+two ways, chosen under **Where the value comes from** when you add the column.
 
-Result columns are filled by API models from **Agents & models**. Under
+### Copy a value the workflow publishes
+
+When a step already collects the value, such as a price a
+[website step](/docs/browser/) extracts, the column copies it from each run as
+it is: no model, no cost, and exactly what the step found, as soon as the run
+finishes. Rows that ran before the column existed fill in too.
+
+- A new sheet whose workflow publishes values lists them, ticked, under **This
+  workflow publishes these values. Add them as columns?** Untick any you do not
+  want and add the rest.
+- **Result column** starts from a published value no column copies yet, named
+  and typed after it, with what the latest run published beside it.
+- A value that does not fit the column's type, such as `¥12,800` in a number
+  column, shows as published and marked. Its details offer **Change the column
+  to Text** or **Let a model read it**.
+- A column whose value the workflow no longer publishes is marked in its header.
+
+Only values that reach a run's outputs can be copied: those of website and
+desktop extracts, email steps, and results a command step declares, not a
+person's form answers or the steps inside a loop. When two steps publish the
+same name, the one that ran last wins.
+
+### Have a model read the run
+
+For any other value, choose **A model reads the run**, name the column, choose a
+type (**Text**, **Number**, **Yes or no**, **Choice**, or **Level**), and
+describe what to read, such as the unit and which value to take when there are
+several. A model column whose name matches a published value offers to copy it
+instead.
+
+These columns are filled by API models from **Agents & models**. Under
 **Choose models**:
 
 - The **Extraction model** reads text and number columns, and the other
@@ -87,10 +122,36 @@ reads finished rows that are missing values, and **Read again** in a row's
 details reads one run again. Neither runs the workflow again. Values read
 before a column was changed are marked out of date.
 
+## Run on a schedule and see what changed
+
+To watch values over time, such as prices or listings checked every morning,
+choose **Schedule** in the sheet's toolbar and pick when every row runs again:
+**Every hour**, **Every day**, **Weekdays**, **Every week** at a time, or a
+**Custom schedule** in cron form. A sheet runs at most once an hour. The toolbar
+and the sheet list show the next run.
+
+- **The schedule belongs to this device.** It never syncs with the sheet, so a
+  sheet a teammate shares runs only where someone schedules it, and never on
+  two computers by accident.
+- **It runs while this computer is awake.** For a run missed while it was off or
+  asleep, choose what happens when it is back: run it unless the next run is
+  already nearer (the default), always run it, or skip it unless it is back
+  within five minutes. At most one missed run happens either way.
+- A due time that finds the last run still going is skipped. A run that did not
+  start shows a mark on the schedule with why.
+
+Each row keeps the values its previous run with the same inputs read. A result
+that changed since is marked in its cell: an arrow for a number that went up or
+down, a dot for anything else, with what it was on hover and in the cell's
+details. A banner counts the changes, and **Show them** applies the **Results
+changed** filter. Values that differ only in spacing or letter case count as
+unchanged, but a model can word the same value differently from run to run, so
+copy what a step publishes where you can.
+
 ## Export, duplicate, and delete
 
 - **Export CSV** saves the inputs, the values, each judgment's probability,
-  and each row's run.
+  what each changed result was before, and each row's run.
 - The sheet menu (**Sheet actions**, ⋯) offers **Duplicate**, a copy with the same rows,
   inputs, result columns, and models, and **Duplicate without rows**, the same
   setup with one empty row. Copies start without results, since values belong
@@ -102,17 +163,22 @@ before a column was changed are marked out of date.
 ## Alerts, the assistant, and MCP
 
 - With Kitewell Pro, the **Finishes a batch** [alert](/docs/alerts/) tells
-  you when every row of a launch has finished, with how many did not succeed.
-  Batch rows do not raise run alerts one by one, except when a row waits for a
-  person.
+  you once every row of a launch has finished and its values were read: how
+  many did not succeed and what changed by column, such as "Price: 9 dropped,
+  3 rose". A scheduled run where every row succeeded and nothing changed stays
+  quiet, and a scheduled run that could not start says why. Batch rows do not
+  raise run alerts one by one, except when a row waits for a person.
 - The assistant can propose adding or changing rows and columns. The proposal
   shows in the open sheet until you apply it, apply it and run the rows it
   touches, or reject it. An applied change can be undone.
-- [MCP clients](/docs/mcp/) can list and read sheets, create, replace, and
-  delete them, run rows, read values, and cancel runs.
+- [MCP clients](/docs/mcp/) can list and read sheets, with what each workflow
+  publishes and what each changed value was; create, replace, and delete them;
+  copy published values into columns; schedule them on this device; run rows,
+  read values, and cancel runs.
 
 ## What stays on this device
 
 The sheet itself belongs to the project, so it travels with project exports
-and [syncs with Dagu Cloud](/docs/cloud-sync/). Row statuses and the values
-read from runs stay on the device that ran them.
+and [syncs with Dagu Cloud](/docs/cloud-sync/). Row statuses, the values read
+from runs, what they were before, and the sheet's schedule stay on the device
+that ran them.
