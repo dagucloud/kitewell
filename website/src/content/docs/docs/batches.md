@@ -82,15 +82,26 @@ workflow again. When the run succeeds:
   hand with that key is taken over rather than repeated.
 - A new item adds a row, marked **New** until it runs.
 - A row whose item is gone stays, greyed as **No longer listed**, and comes back
-  when its item does. Running all rows, failed rows, or changed rows leaves it
+  in the list when its item does. Running all rows, failed rows, or changed rows leaves it
   out; select it to run it anyway. The **No longer listed** filter shows these
   rows and can remove them together.
 - Items without a key, and items repeating another's key, are skipped and
   counted.
 
 A banner says what changed, with **Show new rows** and **Show rows no longer
-listed**. A failed run changes nothing and says why. Inputs filled from the
-list carry a small mark, and edits you make while a refresh runs are kept.
+listed**, and names any input no item filled. A failed run changes nothing and
+says why. So does a list with no items, or none with the key: a broken run
+never greys out the whole sheet, and a list that is truly empty keeps the rows
+until items return. Inputs filled from the list carry a small mark, and edits
+you make while a refresh runs are kept.
+
+When the source stops fitting, the sheet says why and the Batches list marks
+it: the workflow was deleted or no longer publishes the list, an input it
+fills was renamed, or the list's items lost a field. **Change the source**
+opens the panel with the mapping refitted: inputs the workflow no longer has
+are taken out, a renamed one gets its field back, and saving moves the rows'
+values so they keep matching their items instead of coming back as
+duplicates. The Batches list also marks a sheet whose last refresh failed.
 
 ## Run rows
 
@@ -211,7 +222,9 @@ copy what a step publishes where you can.
   judgment's probability, what each changed result was before, and each row's
   run, in a file named after the sheet and the day. The workbook opens with a
   frozen header with filters, numbers and dates as cells Excel can sort, and
-  each row's status coloured. Importing it again maps its inputs for you.
+  each row's status coloured. Importing it again maps its inputs for you. For a
+  sheet filled from a workflow's run, a **Listing** column says which rows are
+  new or no longer listed.
 - The sheet menu (**Sheet actions**, ⋯) offers **Duplicate**, a copy with the same rows,
   inputs, result columns, and models, and **Duplicate without rows**, the same
   setup with one empty row. Copies start without results, since values belong
@@ -225,8 +238,8 @@ copy what a step publishes where you can.
 - With Kitewell Pro, the **Finishes a batch** [alert](/docs/alerts/) tells
   you once every row of a launch has finished and its values were read: how
   many did not succeed and what changed by column, such as "Price: 9 dropped,
-  3 rose", and, when the rows were refreshed first, how many are new or no
-  longer listed. A scheduled run where every row succeeded and nothing changed
+  3 rose", and, when the rows were refreshed first, how many are new, back in
+  the list, or no longer listed. A scheduled run where every row succeeded and nothing changed
   stays quiet, and a scheduled run that could not start says why. Batch rows do not
   raise run alerts one by one, except when a row waits for a person.
 - The assistant can propose adding or changing rows and columns. The proposal
