@@ -165,8 +165,9 @@ written in plain words ask the model on every run.
 
 - **A list in a spreadsheet**: give the workflow an input such as the order
   number, then run it from a [batch sheet](/docs/batches/), one row per item.
-  Result columns collect what each run found, and the sheet shows progress,
-  failures, and time left.
+  Result columns copy what each run's extract collected, with no model, and
+  the sheet shows progress, failures, and time left. Schedule the sheet to check
+  every row again each morning and see which values changed.
 - **A list inside one run**: put the step in a **For each item** loop.
 - **On a schedule**: add a [schedule](/docs/scheduling/), hide the browser
   window, and let [alerts](/docs/alerts/) tell you when a run fails or waits

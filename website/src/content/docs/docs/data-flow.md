@@ -11,7 +11,7 @@ so you know what leaves and when.
 
 | Destination | What it receives | When |
 | --- | --- | --- |
-| The AI provider you choose | What the task reads: a prompt and its context, run output, logs and artifacts you pass, the visible text and layout of a page (website steps), a screenshot of the whole screen (desktop steps), a sheet's rows (result columns), a failed run's steps and workflow (failure diagnosis) | Only when a task, the assistant, diagnosis, or a sheet uses that model |
+| The AI provider you choose | What the task reads: a prompt and its context, run output, logs and artifacts you pass, the visible text and layout of a page (website steps), a screenshot of the whole screen (desktop steps), a sheet's rows (result columns a model reads; columns that copy a published value send nothing), a failed run's steps and workflow (failure diagnosis) | Only when a task, the assistant, diagnosis, or a sheet uses that model |
 | A command-line agent's provider | The prompt and whatever the agent reads in its working folder, under that tool's own terms | When an **Ask an AI agent** task runs |
 | Sites, servers, APIs, and mailboxes | What your steps send them | When those steps run |
 | Dagu Cloud (Descarty) | Which plan the workspace has and the Kitewell version, every six hours; a synced project's definitions, secret names and descriptions, and sheets | Only after you sign in; project data only after you sync that project |

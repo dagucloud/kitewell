@@ -37,7 +37,8 @@ The MCP server exposes three tools: `read`, `change`, and `execute`. Call
   failed run carries its [failure diagnosis](/docs/ai/#failure-diagnosis)
   when there is one.
 - **Change** workflows, agents and models, servers and server groups, queues,
-  workflow defaults, API connections, and sheets.
+  workflow defaults, API connections, and sheets, including the schedule a
+  sheet runs on this device.
 - **Execute** runs: start, retry, rerun, or cancel them; approve, reject,
   send back, or complete a step waiting for a person; answer or restart a
   website step waiting for input; and run a sheet's rows, read their values,
@@ -80,9 +81,9 @@ authentication, exports, and update behavior.
 
 API imports and connection management are available through the GUI and MCP.
 The public REST API exposes workflow operations, including running workflows
-that use saved API connections, and batch sheets: listing, saving, and
-deleting sheets, launching and cancelling their rows, and reading their
-values. It does not expose API catalog management or secret administration.
+that use saved API connections, and batch sheets: listing, saving,
+scheduling, and deleting sheets, launching and cancelling their rows, and
+reading their values. It does not expose API catalog management or secret administration.
 
 ## Permissions
 

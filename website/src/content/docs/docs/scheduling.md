@@ -63,7 +63,8 @@ define admits one run at a time.
 
 A queue paces manual starts, catch-up runs, retries, and
 [batch](/docs/batches/) rows: each waits for a free slot. A run its schedule
-starts on time is not held back. **Runs & logs** shows how many runs each
+starts on time is not held back. A batch sheet has a schedule of its own, set
+on the sheet, separate from its workflow's. **Runs & logs** shows how many runs each
 queue is running and how many are waiting, and lets you remove waiting runs.
 
 ## Run history

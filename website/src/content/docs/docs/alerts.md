@@ -60,9 +60,13 @@ scheduled run may start late before it counts as missed. The default is 5.
 - **Runs long**: a run is still going well past the time its recent successes
   took, or past a limit you set for the workflow.
 - **Is cancelled** and **Succeeds**: off unless you route them.
-- **Finishes a batch**: every row of a [batch](/docs/batches/) has finished,
-  with how many did not succeed. A batch you cancelled is not announced. Batch
-  rows do not raise the run events above one by one, except **Needs input**.
+- **Finishes a batch**: every row of a [batch](/docs/batches/) has finished
+  and its values were read, with how many did not succeed and what changed by
+  column, such as "Price: 9 dropped, 3 rose". A batch you cancelled is not
+  announced, and neither is a scheduled run where every row succeeded and
+  nothing changed. A scheduled run that could not start, such as one missed
+  while the computer slept, is announced with why. Batch rows do not raise the
+  run events above one by one, except **Needs input**.
 
 PagerDuty receives only failures, missed schedules, and long runs, since those
 are the alerts that later end.
