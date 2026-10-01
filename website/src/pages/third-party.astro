@@ -1,5 +1,9 @@
 ---
 import Site from "../layouts/Site.astro";
+import { readLibraryNotices, readNotices } from "../lib/notices.mjs";
+
+const dagu = await readNotices();
+const libraries = await readLibraryNotices();
 ---
 
 <Site
@@ -17,14 +21,15 @@ import Site from "../layouts/Site.astro";
       </p>
       <h2>Dagu</h2>
       <p>
-        The currently bundled engine is Dagu 2.17.0, distributed under the GNU
-        General Public License, version 3.
+        Kitewell's installers include Dagu {dagu.version} as the workflow
+        engine, distributed under the GNU General Public License, version 3.
       </p>
       <ul>
         <li>
-          <a href="https://github.com/dagucloud/dagu/tree/v2.17.0">
-            Version-matched upstream source
-          </a>
+          <a href={dagu.source}>Source for Dagu {dagu.version}</a>
+        </li>
+        <li>
+          <a href={dagu.release}>Dagu {dagu.version} release</a>
         </li>
         <li>
           <a href="/licenses/DAGU-LICENSE.txt">Dagu license</a>
@@ -36,27 +41,24 @@ import Site from "../layouts/Site.astro";
         </li>
       </ul>
       <p>
+        After installation, Kitewell can update the engine to a newer stable
+        Dagu release, which it downloads from the Dagu project's GitHub
+        releases, where each release's source and license are published.
+      </p>
+      <p>
         Published installers will be accompanied by the applicable source
         materials in their GitHub Release assets.
       </p>
       <h2>Library notices</h2>
       <ul>
-        <li>
-          <a href="/licenses/GO-LICENSES.txt">Go dependencies</a>
-        </li>
-        <li>
-          <a href="/licenses/MCP-LICENSES.txt">MCP viewer dependencies</a>
-        </li>
-        <li>
-          <a href="/licenses/DAG-EDITOR-LICENSES.txt">
-            Workflow editor dependencies
-          </a>
-        </li>
-        <li>
-          <a href="/licenses/MARKDOWN-LICENSES.txt">
-            Markdown viewer dependencies
-          </a>
-        </li>
+        {
+          libraries.map(({ file, label }) => (
+            <li>
+              <a href={`/licenses/${file}`}>{label}</a>
+              {file === "WINDOWS-LICENSES.txt" && " (Windows app only)"}
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>
