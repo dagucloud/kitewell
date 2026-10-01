@@ -25,9 +25,16 @@ A sheet holds up to 5,000 rows and 30 result columns.
 
 - **Type or paste**: edit cells directly, or paste cells copied from a
   spreadsheet, starting at the focused cell. Rows are added as needed.
-- **Import**: paste cells or one value per line, or choose a CSV file. Map
-  each column to an input, to **Label**, or to **Skip column**. Headers that
-  match an input's name are mapped for you.
+- **Import**: choose an Excel workbook (`.xlsx` or `.xlsm`) or a CSV file,
+  drop one anywhere on the sheet, or paste cells or one value per line. A
+  preview shows the first rows with the row of column names picked for you;
+  pick another row, or none. Columns whose names match an input's name or title
+  are mapped for you, and with column names any other column is skipped; map
+  any column to an input, to **Label**, or to **Skip column**. Rows above the
+  column names, blank rows, and total rows such as 合計 or Subtotal are left
+  out, with a choice to include the totals. A workbook opens on the sheet Excel
+  opens on, offers its other sheets, and lets you leave out rows hidden in
+  Excel. Kitewell only reads the file; it never changes it.
 - **Shared inputs**: values every row uses unless the row sets its own. An
   empty cell shows, in grey, the shared value or workflow default it will use.
 - **From a workflow's run**: let a run find the items, such as the listings a
@@ -39,6 +46,15 @@ Each value is read by its input's type: text as typed, numbers, `true` or
 in a whole-number input after the workflow changed, is kept and outlined in
 red with the reason. The sheet still saves, and that row does not run until
 the value is fixed.
+
+A workbook's cells arrive the way Excel shows them: dates as `2026-10-01` and
+times as `09:30:00`, numbers without separators or currency signs, percentages
+as fractions (12% is `0.12`), TRUE and FALSE as `true` and `false`, and codes
+such as `00123` with their zeros. A cell merged down over several rows repeats
+on each, a formula gives the result Excel last saved, and a cell that shows an
+Excel error such as `#N/A` arrives empty and is counted. An older `.xls` file or
+a workbook protected with a password is not read: save it as `.xlsx`, or remove
+the password, first. A file can be up to 16 MiB.
 
 The sheet saves as you edit.
 
@@ -191,8 +207,11 @@ copy what a step publishes where you can.
 
 ## Export, duplicate, and delete
 
-- **Export CSV** saves the inputs, the values, each judgment's probability,
-  what each changed result was before, and each row's run.
+- **Export Excel** and **Export CSV** save the inputs, the values, each
+  judgment's probability, what each changed result was before, and each row's
+  run, in a file named after the sheet and the day. The workbook opens with a
+  frozen header with filters, numbers and dates as cells Excel can sort, and
+  each row's status coloured. Importing it again maps its inputs for you.
 - The sheet menu (**Sheet actions**, ⋯) offers **Duplicate**, a copy with the same rows,
   inputs, result columns, and models, and **Duplicate without rows**, the same
   setup with one empty row. Copies start without results, since values belong
