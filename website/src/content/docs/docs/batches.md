@@ -85,6 +85,8 @@ workflow again. When the run succeeds:
   in the list when its item does. Running all rows, failed rows, or changed rows leaves it
   out; select it to run it anyway. The **No longer listed** filter shows these
   rows and can remove them together.
+- Each row says since when it is in the list, or out of it, in its details and
+  on the **No longer listed** mark.
 - Items without a key, and items repeating another's key, are skipped and
   counted.
 
@@ -216,6 +218,19 @@ changed** filter. Values that differ only in spacing or letter case count as
 unchanged, but a model can word the same value differently from run to run, so
 copy what a step publishes where you can.
 
+## See a sheet's activity and each value's history
+
+**Activity** in the sheet's toolbar lists its finished runs from the last year,
+newest first. Each says how many rows ran and failed, what rose, dropped, or
+changed in each column, which rows are new, back in the list, or no longer
+listed, and the values that changed, with what they were. Select a changed
+value to open its row. A run is listed once all its values are read.
+
+Select a value to see how it changed over that year, with a line for numbers.
+
+This history stays on the device that ran the sheet: one file a month,
+compressed once the month is over and removed after a year.
+
 ## Export, duplicate, and delete
 
 - **Export Excel** and **Export CSV** save the inputs, the values, each
@@ -249,12 +264,12 @@ copy what a step publishes where you can.
   publishes and what each changed value was; create, replace, and delete them;
   copy published values into columns; fill rows from a workflow's run and
   refresh them; schedule them on this device; run rows, read values, and cancel
-  runs.
+  runs. A sheet report includes its latest finished runs and what they changed.
 
 ## What stays on this device
 
 The sheet itself belongs to the project, so it travels with project exports
 and [syncs with Dagu Cloud](/docs/cloud-sync/), including where its rows come
 from and which rows are no longer listed. Row statuses, the values read from
-runs, what they were before, the latest refresh, and the sheet's schedule stay
-on the device that ran them.
+runs, what they were before, the latest refresh, a year of activity and value
+history, and the sheet's schedule stay on the device that ran them.
