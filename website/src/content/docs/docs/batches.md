@@ -122,6 +122,12 @@ left. The **default** queue runs 5 at a time across the project. When a site
 turns away bursts of requests, choose **Change how many run at once** in the
 banner to open that queue on the **Queues** page.
 
+Rows join the queue a few at a time, and the rest show **Pending** until there
+is room. A scheduled run of another workflow sharing the queue therefore waits
+for one round of rows at most, never the whole sheet. The workflow's own
+schedule is not held back either: its scheduled runs start on time while the
+sheet runs.
+
 - **Cancel queued rows** cancels rows still waiting. Running rows continue.
 - **Stop all** stops running rows as well.
 
