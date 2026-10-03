@@ -66,7 +66,7 @@ approval, a price watch, desktop-app entry, and more.
 ## Pricing
 
 Free for one project with up to 10 workflows and one API key, with no Kitewell
-account required. Pro supports up to ten projects of 200 workflows each, any
+account required. Pro supports up to ten projects of 100 workflows each, any
 number of API keys, alerts, and team sync for $25 per person per month (USD).
 These are planned launch prices; see
 [Pricing](https://kitewell.app/pricing/).

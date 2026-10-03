@@ -44,7 +44,7 @@ logs. None of these reach Dagu Cloud either.
 A device syncs with one workspace, shown as **Workspace** in **Device
 settings**. Each person can connect up to three devices to a workspace;
 connecting a fourth disconnects their oldest. A free account syncs one
-project. Kitewell Pro syncs up to ten projects per team, each with up to 200
+project. Kitewell Pro syncs up to ten projects per team, each with up to 100
 workflows; syncing a project the plan has no room for is refused and says
 why. Synced projects count toward the workspace's plan, not the device's
 project limit.
