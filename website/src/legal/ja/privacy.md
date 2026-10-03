@@ -34,7 +34,7 @@ Kitewell は、ワークフローの定義、実行の記録、ログ、出力�
 
 **Limited Use**　Kitewell's use and transfer of information received from Google APIs to any other app will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.（Google API から受け取った情報の Kitewell による利用と他のアプリへの転送は、Limited Use の要件を含む Google API サービスのユーザーデータに関するポリシーに従います。）
 
-**接続の解除**　Kitewell でメールボックスの接続を解除すると、端末からトークンを削除し、Google アカウントへの Kitewell のアクセスを取り消します。[Google アカウントの権限のページ](https://myaccount.google.com/permissions)からも、いつでもアクセスを削除できます。Microsoft の場合は、アカウントのアプリの権限から削除できます。
+**接続の解除**　Kitewell でメールボックスの接続を解除すると、端末からトークンを削除します。同じ端末のほかのプロジェクトがそのメールボックスを使っていなければ、Google アカウントへの Kitewell のアクセスも取り消します。取り消すと、そのアカウントの Kitewell のアクセスはすべての端末で終わります。[Google アカウントの権限のページ](https://myaccount.google.com/permissions)からも、いつでもアクセスを削除できます。Microsoft の場合は、アカウントのアプリの権限から削除できます。
 
 ## 4. Dagu Cloud のアカウントとプロジェクトの同期
 

@@ -73,7 +73,9 @@ Google APIs to any other app will adhere to the
 including the Limited Use requirements.
 
 **Disconnecting.** Disconnecting a mailbox in Kitewell deletes its token from
-your device and revokes Kitewell's access to your Google account. You can also
+your device. Kitewell then revokes its access to your Google account, unless
+another project on the same device still uses that mailbox; revoking ends that
+account's Kitewell access on every device. You can also
 remove access at any time from your
 [Google Account permissions](https://myaccount.google.com/permissions) page or,
 for Microsoft, from your account's app permissions.

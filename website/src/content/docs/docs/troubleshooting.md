@@ -68,6 +68,13 @@ keyboard; on a computer nobody works at, shorten or turn off the wait under
 clear it under **Project settings → Storage → Replay cache**. See
 [Automate a desktop app](/docs/desktop/).
 
+## Google says "This app is blocked"
+
+Until Google finishes reviewing Kitewell's Gmail access, it blocks Kitewell's
+browser sign-in for most accounts, and the page offers no way past it. Close
+it, return to Kitewell, and choose **Use an app password instead**. See
+[Automate email](/docs/email/).
+
 ## A mailbox needs reconnecting
 
 A run that names a mailbox this computer cannot sign in to is refused, and

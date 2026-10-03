@@ -27,7 +27,7 @@ the provider from the domain, or from where a custom domain's mail goes, and
 
 | Provider | Connects with |
 | --- | --- |
-| Gmail, Google Workspace | Sign in through the browser, or an app password |
+| Gmail, Google Workspace | An app password while Google reviews Kitewell; sign in through the browser after |
 | Microsoft 365, Outlook.com | Sign in through the browser |
 | iCloud, Yahoo, Fastmail | An app password made on the provider's site, which the dialog links to; servers are filled in |
 | Any other mailbox | IMAP and SMTP host, port, security, user name, and password |
@@ -39,12 +39,14 @@ sign-in failed. Nothing is saved until that check passes.
 
 Things to know per provider:
 
-- **Google** requires that you sign in as the address you typed. Until Google
-  finishes verifying Kitewell's Gmail access, its consent page shows "Google
-  hasn't verified this app"; continue with **Advanced → Go to Kitewell**, and
-  tick the Gmail box. Kitewell can connect at most 100 Google accounts in
-  total until then. A Google Workspace administrator who restricts third-party
-  apps must allow Kitewell under **API controls**.
+- **Google** blocks Kitewell's browser sign-in for most accounts until it
+  finishes reviewing Kitewell's Gmail access; its page says "This app is
+  blocked" and offers no way past it. Until then the dialog starts a Gmail
+  mailbox from an app password: turn on 2-Step Verification, make an app
+  password named Kitewell, and paste it. A browser sign-in that works must use
+  the address you typed and tick the Gmail box. A Google Workspace
+  administrator who restricts third-party apps must allow Kitewell under **API
+  controls**.
 - **Microsoft 365** mailboxes need IMAP and Authenticated SMTP turned on, which
   an administrator does in the Microsoft 365 admin center under the user's
   **Mail → Manage email apps**. An organization that allows only approved apps
@@ -154,9 +156,10 @@ Connections and their credentials stay on this computer and are excluded from
 backups, exports, and sync; a restored device asks you to connect again.
 Email text a step reads is stored with the run on this computer under the
 run's retention, and leaves it only where your workflow sends it, such as to
-the model you choose in an AI task. Gmail access covers the whole mailbox,
-because IMAP offers no narrower permission; the consent page and the
-[privacy policy](/privacy/) say so.
+the model you choose in an AI task. A Gmail browser sign-in asks for permission
+to read, label, trash, and send email (`gmail.modify`), never to delete it
+permanently; the consent page and the [privacy policy](/privacy/) say so. An
+app password gives IMAP and SMTP access to the whole mailbox.
 
 ## Limits
 
