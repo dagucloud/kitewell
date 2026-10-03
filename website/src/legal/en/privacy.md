@@ -39,11 +39,13 @@ email in it. This section describes how Kitewell handles the data it receives
 from that mailbox, including data received through Google APIs.
 
 **What Kitewell requests.** When you connect a Google account, Kitewell asks
-Google for your email address (`openid`, `email`) and for access to Gmail
-(`https://mail.google.com/`). Kitewell reads and sends email over IMAP and SMTP,
-and Google offers no narrower permission for them. The Microsoft sign-in asks
-for the equivalent IMAP and SMTP permissions. Other mailboxes connect with an app
-password.
+Google for your email address (`openid`, `email`) and for permission to read,
+organize, and send your Gmail (`https://www.googleapis.com/auth/gmail.modify`).
+Kitewell reaches Gmail through the Gmail API. This permission lets it read email,
+change labels such as read and unread, move email to the trash, and send email;
+it does not let Kitewell delete email permanently. The Microsoft sign-in asks for
+permission to read and send email over IMAP and SMTP. Other mailboxes connect with
+an app password.
 
 **How Kitewell uses it.** Kitewell uses your email address to confirm that the
 account you signed in with is the mailbox you entered. It uses mail access only
