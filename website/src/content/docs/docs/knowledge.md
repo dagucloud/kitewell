@@ -44,8 +44,8 @@ left without a title takes its first line.
   about a supplier's website or a team rule, is fine too.
 - **Links** open only `https://` addresses.
 - **Paste** keeps what a page can hold: a table copied from a spreadsheet
-  stays a table, Markdown text becomes formatted text, and code copied from an
-  editor becomes a code block.
+  stays a table, with its first row as the header, Markdown text becomes
+  formatted text, and code copied from an editor becomes a code block.
 - **⋯ → Edit as Markdown** shows the page's Markdown, for anyone who prefers
   it. A page with images or HTML opens there, since the editor cannot show
   them.
