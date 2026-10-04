@@ -52,6 +52,17 @@ const text = {
     ],
     controlLink: "Runs and logs →",
     controlAlt: "A completed daily report workflow in Kitewell, with the report visible in the selected step's output",
+    knowledge: "Knowledge",
+    knowledgeTitle: "Tell it once, and it's in the handover notes.",
+    knowledgeText:
+      "A workflow's steps never say who uses its result, why it was built that way, or what broke last time. The assistant writes that down in knowledge pages as you work and reads them before it answers, so the next conversation, and the next person to take over, start from what your team already knows.",
+    knowledgeItems: [
+      ["Written as you work", "Tell the assistant a fact, a rule, or a fix, and it updates the right page and marks the lines it changed, with Undo. After it reads a web page or a log, it asks first."],
+      ["Edited like a document", "Headings, checklists, and tables from the toolbar, “/”, or Markdown shortcuts. Pages save as you type."],
+      ["Shared with the project", "Pages sync with your team, travel in project exports, and fill in the robot ledger."],
+    ],
+    knowledgeLink: "How knowledge works →",
+    knowledgeAlt: "A knowledge page the assistant just updated: the line it added about a one-time code is marked, with Undo and Keep, beside the assistant's receipt and reply",
     machine: "Runs on your machine",
     machineTitle: "You decide what leaves it.",
     machineRows: [
@@ -59,7 +70,7 @@ const text = {
       ["Websites, desktop apps, and email", "Sign-ins stay on the device. A step sends only what it reads to the model you chose."],
       ["AI models", "Anthropic, OpenAI, Gemini, OpenRouter, or a local server such as Ollama or vLLM. A workflow without AI sends nothing to any provider."],
       ["Runs, logs, and files", "On your computer, under the retention you set."],
-      ["Dagu Cloud", "Only if you sign in and sync a project: its definitions and secret names, never values, runs, or logs."],
+      ["Dagu Cloud", "Only if you sign in and sync a project: its definitions, knowledge, and secret names, never values, runs, or logs."],
     ],
     machineLink: "Everything that leaves, and when →",
     examplesEyebrow: "Examples",
@@ -160,6 +171,17 @@ const text = {
     ],
     controlLink: "実行とログ →",
     controlAlt: "Kitewell の実行画面。仕入れ先ポータルから注文を集めたワークフローが、オーナーの承認を待っている",
+    knowledge: "ナレッジ",
+    knowledgeTitle: "一度伝えれば、引き継ぎ書になる。",
+    knowledgeText:
+      "ワークフローのステップには、結果を誰が使うのか、なぜこの作りなのか、前回何が壊れたのかは書かれていません。アシスタントは作業しながらそれをナレッジのページに書き留め、答える前に読みます。次の会話も、異動で引き継いだ人も、チームがすでに知っていることから始められます。",
+    knowledgeItems: [
+      ["作業しながら書く", "事実、ルール、直し方を伝えると、アシスタントが該当のページを更新し、変えた行に印を付けます。元に戻すこともできます。Web ページやログを読んだあとは、保存する前に確認します。"],
+      ["文書のように編集", "見出し、チェックリスト、表を、ツールバー、「/」、Markdown のショートカットで。日本語入力のままでも使え、入力すると自動で保存されます。"],
+      ["プロジェクトと一緒に", "ページはチームと同期され、プロジェクトのエクスポートに含まれ、ロボット管理台帳にも書き出されます。"],
+    ],
+    knowledgeLink: "ナレッジのしくみ →",
+    knowledgeAlt: "アシスタントが更新したナレッジのページ。ワンタイムコードについて追加した行に印が付き、「元に戻す」と「保持」がある。横にアシスタントの記録と返信",
     machine: "あなたのマシンで動く",
     machineTitle: "何を外に出すかは、あなたが決める。",
     machineRows: [
@@ -167,7 +189,7 @@ const text = {
       ["Web サイト、デスクトップアプリ、メール", "サインインはデバイスに残ります。ステップは読み取った内容だけを、あなたが選んだモデルに送ります。"],
       ["AI モデル", "Anthropic、OpenAI、Gemini、OpenRouter、または Ollama や vLLM のようなローカルサーバー。AI のないワークフローは、どのプロバイダーにも何も送りません。"],
       ["実行、ログ、ファイル", "あなたのコンピューターに、設定した保持期間だけ残ります。"],
-      ["Dagu Cloud", "サインインしてプロジェクトを同期したときだけ、その定義とシークレットの名前。値、実行、ログは送られません。"],
+      ["Dagu Cloud", "サインインしてプロジェクトを同期したときだけ、その定義、ナレッジ、シークレットの名前。値、実行、ログは送られません。"],
     ],
     machineLink: "外に出るものと、そのタイミングのすべて →",
     examplesEyebrow: "活用例",
@@ -236,6 +258,7 @@ const images = {
   editor: locale === "ja" ? "/images/home/ja/editor-browser.png" : "/images/workflow-builder.jpg",
   proposal: `/images/home/${locale}/assistant-proposal.png`,
   approval: locale === "ja" ? "/images/home/ja/run-approval.png" : "/images/workflow-run.jpg",
+  knowledge: `/images/home/${locale}/knowledge.png`,
 };
 const approvalSize = locale === "ja" ? [1600, 720] : [1345, 886];
 const proposalWidth = locale === "ja" ? 716 : 752;
@@ -322,6 +345,26 @@ const proposalWidth = locale === "ja" ? 716 : 752;
         </ol>
         <a class="text-link" href={to("/docs/runs/")}>{text.controlLink}</a>
       </div>
+    </section>
+
+    <section class="section split" aria-labelledby="knowledge-title">
+      <div>
+        <p class="eyebrow">{text.knowledge}</p>
+        <h2 id="knowledge-title">{text.knowledgeTitle}</h2>
+        <p class="section-lead">{text.knowledgeText}</p>
+        <ol class="example-steps">
+          {text.knowledgeItems.map(([name, detail]) => (
+            <li>
+              <strong>{name}</strong>
+              <span>{detail}</span>
+            </li>
+          ))}
+        </ol>
+        <a class="text-link" href={to("/docs/knowledge/")}>{text.knowledgeLink}</a>
+      </div>
+      <figure class="product-preview">
+        <img src={images.knowledge} alt={text.knowledgeAlt} width="1600" height="874" loading="lazy" />
+      </figure>
     </section>
 
     <section class="section machine" aria-labelledby="machine-title">
