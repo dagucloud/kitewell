@@ -113,3 +113,20 @@ create individual GUI accounts.
 Remote clients require a reachable HTTPS endpoint and your own secure network
 configuration. Kitewell does not supply a hosted execution machine. See
 [MCP and API access](/docs/mcp/) for connection and permission details.
+
+## Export a robot ledger
+
+Many teams keep a robot ledger: a row for each automation saying what it
+does, what it reaches, and who looks after it. On the **Jobs** page,
+**Export ledger** downloads one as an Excel workbook (.xlsx): a row for each
+workflow, with its columns in the order of the robot management items that
+FISC (the Center for Financial Industry Information Systems) lists.
+
+Kitewell fills in what it knows from each workflow's definition and its
+[knowledge](/docs/knowledge/), without asking a model: the workflow's name
+and ID, its schedule, whether it is on, the workflows it starts, its
+description, the workbooks it opens, the sites, APIs, servers, mailboxes, and
+models it reaches, and its knowledge pages in full. The owner, contractor,
+error handling, business importance, customer impact, and legal and
+regulatory impact columns are left empty for you to fill in. Column names
+follow the language Kitewell is shown in.
