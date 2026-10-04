@@ -4,7 +4,9 @@ title: Kitewell documentation
 
 Kitewell runs workflows on your own machine. Combine scripts, AI agents, containers,
 website automation, and API calls; schedule the result; inspect each run in one
-interface. Run a workflow once for every row of a [sheet](/docs/batches/) and
+interface. Read and write the [Excel workbooks](/docs/spreadsheets/) your
+office already has, without opening Excel.
+Run a workflow once for every row of a [sheet](/docs/batches/) and
 collect what each run found, let [the assistant](/docs/ai/#the-assistant) draft
 and fix workflows, and have failed runs
 [diagnosed](/docs/ai/#failure-diagnosis).
@@ -28,9 +30,11 @@ public installers target macOS and Windows. Linux support is planned. Check
 3. [Connect Docker, AI, human decisions, and remote servers](/docs/workflow-builder/).
 4. [Automate a website](/docs/browser/): sign in, click, type, and collect
    information in plain language.
-5. [Run a workflow over a sheet](/docs/batches/).
-6. [Set a schedule and understand background operation](/docs/scheduling/).
-7. [Share workflows with your team](/docs/sharing/).
+5. [Automate Excel](/docs/spreadsheets/): read the workbooks you already have,
+   and write each result back into the row it came from.
+6. [Run a workflow over a sheet](/docs/batches/).
+7. [Set a schedule and understand background operation](/docs/scheduling/).
+8. [Share workflows with your team](/docs/sharing/).
 
 One project with up to 10 workflows and one API key is free and needs no
 Kitewell account. Pro is planned at $25 per person per month for up to ten

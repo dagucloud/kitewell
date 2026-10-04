@@ -40,6 +40,10 @@ A sheet holds up to 5,000 rows and 30 result columns.
 - **From a workflow's run**: let a run find the items, such as the listings a
   search turns up, and keep the rows up to date. See
   [Fill rows from a workflow's run](#fill-rows-from-a-workflows-run).
+- **Linked to a workbook**: **New → From a spreadsheet** keeps the connection
+  to the file rather than copying the rows in, so each row's result is written
+  back into the row it came from, with Undo, and the sheet reads the workbook
+  again when it changes. See [Automate Excel](/docs/spreadsheets/).
 
 Each value is read by its input's type: text as typed, numbers, `true` or
 `false`, and lists or objects as JSON. A value that does not fit, such as text

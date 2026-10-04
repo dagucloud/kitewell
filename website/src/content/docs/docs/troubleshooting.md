@@ -45,6 +45,24 @@ If a site changed and a replayed action no longer works, clear it under
 **Project settings → Storage → Replay cache**. See
 [Automate a website](/docs/browser/).
 
+## A spreadsheet step fails
+
+Most refusals name the workbook, the sheet, and the cell. Press **Check** in
+the step to ask the engine before running anything. Common causes:
+
+- the path is not the full path to an `.xlsx` or `.xlsm` file on this
+  computer; an `.xls` or `.ods` file needs **Save As** `.xlsx` in Excel first;
+- the sheet or a column the step names is no longer in the workbook, which the
+  message lists the present ones for;
+- a cell will not convert to the type a column is pinned to, such as 数量
+  holding 十二;
+- the file is open in Excel, which holds a write until it closes;
+- a merged cell covers where the step would write, which the message names the
+  range to unmerge for.
+
+A write to a linked workbook can be undone from the sheet while the file is
+unchanged since Kitewell wrote it. See [Automate Excel](/docs/spreadsheets/).
+
 ## A desktop step fails
 
 Check the step's screenshots in the run's artifacts first. Then check that:

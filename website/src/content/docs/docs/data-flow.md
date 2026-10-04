@@ -33,6 +33,13 @@ Descarty never receives the data your runs process.
   syncs definitions, never runs.
 - **Assistant conversations, failure diagnoses, and the values read into
   sheets.** Kept on the device.
+- **Excel workbooks.** Read and written in place on the computer that holds
+  the file, never uploaded. A sheet linked to one carries the file's name and
+  which computer has it, never a cell; its path, the copies kept for Undo, and
+  which row each result goes back to stay on that computer and are not in
+  exports or backups. Setting a sheet up from a file with the assistant is the
+  one time anything is sent: the column names, their types, and up to ten
+  rows, or the names alone. See [Automate Excel](/docs/spreadsheets/).
 - **Workflow definitions and knowledge** stay on the device until you export,
   share, or sync them.
 

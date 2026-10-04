@@ -38,6 +38,7 @@ export default defineConfig({
             { label: "Automate a website", translations: { ja: "Web サイトを自動操作" }, slug: "docs/browser" },
             { label: "Automate a desktop app", translations: { ja: "デスクトップアプリを自動操作" }, slug: "docs/desktop" },
             { label: "Automate email", translations: { ja: "メールを自動化" }, slug: "docs/email" },
+            { label: "Automate Excel", translations: { ja: "Excel を自動化" }, slug: "docs/spreadsheets" },
             { label: "Run a workflow over a sheet", translations: { ja: "シートでワークフローを一括実行" }, slug: "docs/batches" },
             { label: "Runs and logs", translations: { ja: "実行とログ" }, slug: "docs/runs" },
             {
