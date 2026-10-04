@@ -51,14 +51,19 @@ in a whole-number input after the workflow changed, is kept and outlined in
 red with the reason. The sheet still saves, and that row does not run until
 the value is fixed.
 
-A workbook's cells arrive the way Excel shows them: dates as `2026-10-01` and
-times as `09:30:00`, numbers without separators or currency signs, percentages
-as fractions (12% is `0.12`), TRUE and FALSE as `true` and `false`, and codes
-such as `00123` with their zeros. A cell merged down over several rows repeats
-on each, a formula gives the result Excel last saved, and a cell that shows an
-Excel error such as `#N/A` arrives empty and is counted. An older `.xls` file or
-a workbook protected with a password is not read: save it as `.xlsx`, or remove
-the password, first. A file can be up to 16 MiB.
+A workbook's cells arrive the way Excel shows them:
+
+- dates as `2026-10-01`, times as `09:30:00`;
+- numbers without separators or currency signs, percentages as fractions
+  (12% is `0.12`);
+- `TRUE` and `FALSE` as `true` and `false`, and codes such as `00123` with
+  their zeros;
+- a cell merged down over several rows repeats on each;
+- a formula gives the result Excel last saved;
+- a cell showing an Excel error such as `#N/A` arrives empty, and is counted.
+
+An older `.xls` file or a workbook protected with a password is not read: save
+it as `.xlsx`, or remove the password, first. A file can be up to 16 MiB.
 
 The sheet saves as you edit.
 
@@ -95,19 +100,22 @@ workflow again. When the run succeeds:
   counted.
 
 A banner says what changed, with **Show new rows** and **Show rows no longer
-listed**, and names any input no item filled. A failed run changes nothing and
-says why. So does a list with no items, or none with the key: a broken run
-never greys out the whole sheet, and a list that is truly empty keeps the rows
-until items return. Inputs filled from the list carry a small mark, and edits
-you make while a refresh runs are kept.
+listed**, and names any input no item filled. Inputs filled from the list carry
+a small mark, and edits you make while a refresh runs are kept.
+
+A failed run changes nothing and says why. So does a list with no items, or
+none with the key: a broken run never greys out the whole sheet, and a list
+that is truly empty keeps the rows until items return.
 
 When the source stops fitting, the sheet says why and the Batches list marks
 it: the workflow was deleted or no longer publishes the list, an input it
-fills was renamed, or the list's items lost a field. **Change the source**
-opens the panel with the mapping refitted: inputs the workflow no longer has
-are taken out, a renamed one gets its field back, and saving moves the rows'
-values so they keep matching their items instead of coming back as
-duplicates. The Batches list also marks a sheet whose last refresh failed.
+fills was renamed, or the list's items lost a field.
+
+**Change the source** opens the panel with the mapping refitted. Inputs the
+workflow no longer has are taken out, a renamed one gets its field back, and
+saving moves the rows' values so they keep matching their items instead of
+coming back as duplicates. The Batches list also marks a sheet whose last
+refresh failed.
 
 ## Run rows
 
@@ -221,12 +229,14 @@ and the sheet list show the next run.
   run the rows as they are.
 
 Each row keeps the values its previous run with the same inputs read. A result
-that changed since is marked in its cell: an arrow for a number that went up or
-down, a dot for anything else, with what it was on hover and in the cell's
-details. A banner counts the changes, and **Show them** applies the **Results
-changed** filter. Values that differ only in spacing or letter case count as
-unchanged, but a model can word the same value differently from run to run, so
-copy what a step publishes where you can.
+that changed since is marked in its cell: an arrow for a number that went up
+or down, a dot for anything else, with what it was on hover and in the cell's
+details. A banner counts the changes, and **Show them** applies the
+**Results changed** filter.
+
+Values that differ only in spacing or letter case count as unchanged. A model
+can still word the same value differently from run to run, so copy what a step
+publishes where you can.
 
 ## See a sheet's activity and each value's history
 

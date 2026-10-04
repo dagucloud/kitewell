@@ -129,12 +129,14 @@ steps:
 
 ## Handle each email once
 
-Keep **Unread only** on and mark each email read, or move it, after its work
-is done, inside the loop, right after that email's tasks. A failed email
-stays unread, so the next run retries only it. Marking after the loop instead
-would leave every email unread when one fails, and the next run would repeat
-the work already done for the rest. For work on the whole batch, such as a
-digest, one **Organize emails** task at the end is right.
+Keep **Unread only** on, and mark each email read — or move it — inside the
+loop, right after that email's own tasks. A failed email then stays unread, so
+the next run retries only it.
+
+Marking after the loop instead would leave every email unread when one fails,
+and the next run would repeat the work already done for the rest. For work on
+the whole batch, such as a digest, one **Organize emails** task at the end is
+right.
 
 **Review & run** warns when found email is never marked, when it is marked
 only after the loop, and when email text reaches a command or an AI agent
@@ -152,14 +154,15 @@ process the same email.
 
 ## Privacy
 
-Connections and their credentials stay on this computer and are excluded from
-backups, exports, and sync; a restored device asks you to connect again.
-Email text a step reads is stored with the run on this computer under the
-run's retention, and leaves it only where your workflow sends it, such as to
-the model you choose in an AI task. A Gmail browser sign-in asks for permission
-to read, label, trash, and send email (`gmail.modify`), never to delete it
-permanently; the consent page and the [privacy policy](/privacy/) say so. An
-app password gives IMAP and SMTP access to the whole mailbox.
+- **Connections stay here.** Credentials are excluded from backups, exports,
+  and sync; a restored device asks you to connect again.
+- **Email a step reads** is stored with the run on this computer, under the
+  run's retention. It leaves only where your workflow sends it, such as to the
+  model you choose in an AI task.
+- **A Gmail browser sign-in** asks to read, label, trash, and send email
+  (`gmail.modify`), never to delete it permanently. The consent page and the
+  [privacy policy](/privacy/) say so.
+- **An app password** gives IMAP and SMTP access to the whole mailbox.
 
 ## Limits
 

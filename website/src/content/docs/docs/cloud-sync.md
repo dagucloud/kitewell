@@ -75,9 +75,11 @@ Kitewell takes changes made elsewhere when it starts, when you open the
 project, and when you open a workflow to edit it, asking Dagu Cloud at most
 once a minute. On Kitewell Pro, a device also checks on its own about every
 five minutes, so a device that runs workflows unattended takes a new version
-without anyone opening it. To check at any other time, choose **Update from
-Dagu Cloud** in **Manage projects**. A workflow open in the editor takes the update in
-place when you have not typed anything.
+without anyone opening it.
+
+To check at any other time, choose **Update from Dagu Cloud** in **Manage
+projects**. A workflow open in the editor takes the update in place when you
+have not typed anything.
 
 Taking a change restarts the project's engine. Runs already in progress
 continue with the definition they started with. A workflow that is new to the

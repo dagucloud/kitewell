@@ -3,14 +3,19 @@ title: Build a workflow
 ---
 
 Build a workflow by choosing what each task should do, then connecting the
-steps. A task can run a command or script, a Docker image, an AI agent, a
-model, or an AI decision; [automate a website](/docs/browser/) or a
-[desktop app](/docs/desktop/); find, organize, and send [email](/docs/email/);
-fill in a text template; call a web service or an imported API; run on another
-machine or copy files to or from one; ask a person; run another workflow;
-branch by value; repeat for each item; wait; or repeat until a condition
-matches. All of these can share one workflow. The graph shows the order; selecting a step opens its
-settings beside it.
+steps. The graph shows the order; selecting a step opens its settings beside
+it. Any of these can share one workflow:
+
+- **Run something**: a command or script, a Docker image, another workflow.
+- **Use AI**: an AI agent, a model, or an AI decision.
+- **Work an application**: [a website](/docs/browser/), a
+  [desktop app](/docs/desktop/), or [email](/docs/email/).
+- **Work a file**: an [Excel workbook](/docs/spreadsheets/), or a filled-in
+  text template.
+- **Reach a service**: a web service, an imported API, another machine over
+  SSH, or files copied to and from one.
+- **Decide and repeat**: ask a person, branch by value, repeat for each item,
+  wait, or repeat until a condition matches.
 
 A new, empty workflow offers two quicker starts: describe it under
 **Describe what this workflow should do** and choose **Ask the assistant**, or

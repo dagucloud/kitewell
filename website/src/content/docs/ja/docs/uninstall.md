@@ -30,4 +30,11 @@ rm -f "$HOME/Library/Application Support/Kitewell/native-token"
 
 ## ワークスペースデータ
 
-残りのデータは、macOS では `~/Library/Application Support/Kitewell`、Windows では `%LOCALAPPDATA%\Kitewell` にあります。後で再インストールする場合は、そのまま残しておいてください。[Dagu Cloud](/ja/docs/cloud-sync/)とプロジェクトを同期していた場合、プロジェクトは Dagu Cloud に残り、このデバイスは 4 台目のデバイスに置き換えられるまで、ワークスペースで使える 3 台分の枠の 1 つを使い続けます。完全に削除する場合は、先に必要なバックアップと外部ファイルをコピーしてから、Finder またはエクスプローラーでこのフォルダーを削除してください。
+残りのデータは次の場所にあります。後で再インストールする場合は、そのまま残しておいてください。
+
+- macOS：`~/Library/Application Support/Kitewell`
+- Windows：`%LOCALAPPDATA%\Kitewell`
+
+[Dagu Cloud](/ja/docs/cloud-sync/)とプロジェクトを同期していた場合、プロジェクトは Dagu Cloud に残ります。このデバイスは、4 台目のデバイスに置き換えられるまで、ワークスペースで使える 3 台分の枠の 1 つを使い続けます。
+
+完全に削除する場合は、先に必要なバックアップと外部ファイルをコピーしてから、Finder またはエクスプローラーでこのフォルダーを削除してください。

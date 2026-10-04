@@ -83,9 +83,11 @@ Pages reach the assistant as reference material, never as instructions.
 If a teammate, another device, or the assistant changes a page while you are
 typing in it, nothing you typed is lost. The page says so and offers **Keep my
 version** or **Use their version**; using theirs can be undone with ⌘Z
-(Ctrl+Z). Edits that cannot be saved, for example while Dagu Cloud cannot be
-reached, stay on the page and say **Not saved**; if you leave the page, they
-come back when you open it again while Kitewell is open.
+(Ctrl+Z).
+
+Edits that cannot be saved — while Dagu Cloud cannot be reached, say — stay on
+the page and show **Not saved**. If you leave the page, they come back when you
+open it again, as long as Kitewell is still open.
 
 ## Who sees it
 

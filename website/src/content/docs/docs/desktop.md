@@ -5,9 +5,10 @@ title: Automate a desktop app
 An **Automate a desktop app** step has a model use the apps on your computer
 the way a person does: it looks at the screen, then clicks and types. You
 describe a task in plain words, such as "Create an invoice for %client% and
-save it", and the model works until it is done. It runs on macOS and Windows,
-on your own screen, so it reaches the accounting package, the ERP client, or
-the spreadsheet that has no API and no web version.
+save it", and the model works until it is done.
+
+It runs on macOS and Windows, on your own screen, so it reaches the accounting
+package or the ERP client that has no API and no web version.
 
 Combined with [website steps](/docs/browser/), [email steps](/docs/email/),
 schedules, and [batch sheets](/docs/batches/), it covers the desktop side of

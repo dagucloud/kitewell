@@ -46,13 +46,15 @@ Descarty never receives the data your runs process.
 ## Choose where AI runs
 
 Every AI feature names a model you added under [Agents & models](/docs/ai/).
-Providers: Anthropic, OpenAI, Google Gemini, OpenRouter, Z.ai, OpenCode Zen,
-or an OpenAI-compatible server you run, such as Ollama or vLLM, on this
-computer or in your own network. A local server keeps prompts, page text, and
-screenshots inside your network; small local models usually cannot drive a
-browser or a desktop, so choose them per task. A workflow with no AI task
-sends nothing to any provider. Through OpenRouter, the assistant's requests
-go only to providers that neither store nor train on them.
+A workflow with no AI task sends nothing to any provider.
+
+- **Providers**: Anthropic, OpenAI, Google Gemini, OpenRouter, Z.ai, OpenCode
+  Zen, or an OpenAI-compatible server you run, such as Ollama or vLLM.
+- **A server of your own** keeps prompts, page text, and screenshots inside
+  your network. Small local models usually cannot drive a browser or a
+  desktop, so choose them per task.
+- **Through OpenRouter**, the assistant's requests go only to providers that
+  neither store nor train on them.
 
 Values a website or desktop step types, such as a password, are written as
 `%name%` and never reach the model; only the name does.

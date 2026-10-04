@@ -54,8 +54,8 @@ the step to ask the engine before running anything. Common causes:
   computer; an `.xls` or `.ods` file needs **Save As** `.xlsx` in Excel first;
 - the sheet or a column the step names is no longer in the workbook, which the
   message lists the present ones for;
-- a cell will not convert to the type a column is pinned to, such as 数量
-  holding 十二;
+- a cell will not convert to the type a column is pinned to, such as a
+  quantity written out in words;
 - the file is open in Excel, which holds a write until it closes;
 - a merged cell covers where the step would write, which the message names the
   range to unmerge for.

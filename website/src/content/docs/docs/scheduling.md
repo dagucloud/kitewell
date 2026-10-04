@@ -44,15 +44,19 @@ jobs run** in the menu bar menu on macOS or the tray menu on Windows, keeps
 the computer from idle sleep while work is running; it is off by default.
 
 By default, schedules missed in the previous 24 hours run after the computer
-wakes. Change this for a project under **Project settings → Workflow
-defaults**, or for one workflow under **Schedule → Missed schedules**: look
-back up to 30 days, and run every missed occurrence, only the latest, or skip
-while a run is active. Up to 1,000 missed starts per workflow are kept. **Device
-settings → Workflow defaults** only sets the starting values for new projects.
-Verify the behavior with your own schedule. Do not assume every missed run will
-be replayed after the computer wakes. With Kitewell Pro, a
-[missed-schedule alert](/docs/alerts/) says how many scheduled runs did not
-start and why.
+wakes. Change it for a project under **Project settings → Workflow defaults**,
+or for one workflow under **Schedule → Missed schedules**:
+
+- look back up to 30 days;
+- run every missed occurrence, only the latest, or skip while a run is active;
+- up to 1,000 missed starts per workflow are kept.
+
+**Device settings → Workflow defaults** only sets the starting values for new
+projects. Verify the behaviour with your own schedule rather than assuming
+every missed run is replayed after the computer wakes.
+
+With Kitewell Pro, a [missed-schedule alert](/docs/alerts/) says how many
+scheduled runs did not start, and why.
 
 ## Queues
 

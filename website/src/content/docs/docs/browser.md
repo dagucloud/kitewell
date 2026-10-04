@@ -157,11 +157,13 @@ cannot share one; run it one item at a time or turn sign-in off.
 
 Actions that worked are remembered and replayed on later runs without asking
 the model, which is faster and costs nothing. When the site changed and a
-replayed action no longer works, the model is asked again. **Decide again on
-every run** turns replay off for one action, and **Project settings → Storage
-→ Replay cache** clears remembered actions after a redesign. A run shows how
-many actions in each step were replayed. **Collect information** and checks
-written in plain words ask the model on every run.
+replayed action no longer works, the model is asked again. A run shows how many
+actions in each step were replayed.
+
+**Decide again on every run** turns replay off for one action, and
+**Project settings → Storage → Replay cache** clears remembered actions after
+a redesign. **Collect information** and checks written in plain words ask the
+model on every run.
 
 ## Run it for many items
 

@@ -24,12 +24,15 @@ available to its process.
 
 Choose **Add API model** and pick a provider: Anthropic, OpenAI, Google
 Gemini, OpenRouter, Z.ai, OpenCode Zen, or a local server such as Ollama or
-vLLM. Put the provider API key in a project [secret](/docs/secrets/) and
-select that secret as the model's credential. A local server needs no key,
-and its **Base URL** is optional when it runs at the usual local address. For
-OpenRouter, OpenCode Zen, and a running local server, **Model ID** lists every
-model the provider offers; type part of a name to search. **Test model** sends
-a short request to confirm the setup.
+vLLM.
+
+- **Credential**: put the provider API key in a project
+  [secret](/docs/secrets/), and select that secret as the model's credential.
+  A local server needs no key, and its **Base URL** is optional when it runs
+  at the usual local address.
+- **Model ID**: for OpenRouter, OpenCode Zen, and a running local server, this
+  lists every model the provider offers; type part of a name to search.
+- **Test model** sends a short request to confirm the setup.
 
 API models are used by **Ask a model** tasks, the assistant, failure
 diagnosis, the result columns of [batch sheets](/docs/batches/), and

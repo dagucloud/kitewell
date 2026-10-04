@@ -88,6 +88,7 @@ Quit Kitewell before replacing files or applying changes from version control,
 resolve conflicts, then reopen it and review the project before running it.
 Quitting interrupts runs in progress, so wait for them to finish. Do not manage
 a [synced project](/docs/cloud-sync/) this way; its files follow Dagu Cloud.
+
 Share this project's portable files rather than the entire Kitewell data
 folder: device credentials, secrets, and execution data belong to each host.
 New recipients can use **Import project** to start from a reviewed export.
@@ -123,10 +124,14 @@ workflow, with its columns in the order of the robot management items that
 FISC (the Center for Financial Industry Information Systems) lists.
 
 Kitewell fills in what it knows from each workflow's definition and its
-[knowledge](/docs/knowledge/), without asking a model: the workflow's name
-and ID, its schedule, whether it is on, the workflows it starts, its
-description, the workbooks it opens, the sites, APIs, servers, mailboxes, and
-models it reaches, and its knowledge pages in full. The owner, contractor,
-error handling, business importance, customer impact, and legal and
-regulatory impact columns are left empty for you to fill in. Column names
+[knowledge](/docs/knowledge/), without asking a model:
+
+- its name and ID, its schedule, and whether it is on;
+- the workflows it starts, and its description;
+- the workbooks it opens, and the sites, APIs, servers, mailboxes, and models
+  it reaches;
+- its knowledge pages, in full.
+
+Owner, contractor, error handling, business importance, customer impact, and
+legal and regulatory impact are left empty for you to fill in. Column names
 follow the language Kitewell is shown in.
