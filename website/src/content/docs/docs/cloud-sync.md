@@ -19,8 +19,9 @@ secret values.
 A synced project carries what a [project export](/docs/sharing/) carries:
 workflow definitions and schedules, agents and models, API connections and
 imported specifications, servers and groups, queues, image registries, secret
-names and descriptions, batch sheets, and project workflow defaults. It also
-carries the project's [releases](/docs/releases/), which exports do not.
+names and descriptions, batch sheets, project workflow defaults, and the
+project's [knowledge](/docs/knowledge/). It also carries the project's
+[releases](/docs/releases/), which exports do not.
 
 :::note[Secrets stay on your device]
 Secret values are never sent to Dagu Cloud. A synced project lists the secrets

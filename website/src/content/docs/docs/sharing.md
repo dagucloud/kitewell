@@ -29,8 +29,8 @@ imported.
 The archive includes workflow definitions and schedules, named agents and
 models, imported OpenAPI specifications and API connection settings, server
 addresses and groups, queues, image registry definitions, batch sheets, secret
-names and descriptions, project workflow defaults, and which release the
-project last took. API connections retain their secret references; the
+names and descriptions, project workflow defaults, the project's
+[knowledge](/docs/knowledge/), and which release the project last took. API connections retain their secret references; the
 imported project lists each secret as **Value needed** until you set its value
 on the receiving device.
 

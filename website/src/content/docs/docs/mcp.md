@@ -33,9 +33,9 @@ The MCP server exposes three tools: `read`, `change`, and `execute`. Call
 
 - **Read** projects, workflows and their schema, runs with their logs and
   artifacts, agents and API models, servers, queues, workflow defaults,
-  imported APIs, and [batch sheets](/docs/batches/) with their values. A
-  failed run carries its [failure diagnosis](/docs/ai/#failure-diagnosis)
-  when there is one.
+  imported APIs, [batch sheets](/docs/batches/) with their values, and the
+  project's [knowledge](/docs/knowledge/). A failed run carries its
+  [failure diagnosis](/docs/ai/#failure-diagnosis) when there is one.
 - **Change** workflows, agents and models, servers and server groups, queues,
   workflow defaults, API connections, and sheets, including the schedule a
   sheet runs on this device.

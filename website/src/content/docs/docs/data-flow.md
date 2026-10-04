@@ -11,10 +11,10 @@ so you know what leaves and when.
 
 | Destination | What it receives | When |
 | --- | --- | --- |
-| The AI provider you choose | What the task reads: a prompt and its context, run output, logs and artifacts you pass, the visible text and layout of a page (website steps), a screenshot of the whole screen (desktop steps), a sheet's rows (result columns a model reads; columns that copy a published value send nothing), a failed run's steps and workflow (failure diagnosis) | Only when a task, the assistant, diagnosis, or a sheet uses that model |
+| The AI provider you choose | What the task reads: a prompt and its context, run output, logs and artifacts you pass, the visible text and layout of a page (website steps), a screenshot of the whole screen (desktop steps), a sheet's rows (result columns a model reads; columns that copy a published value send nothing), a failed run's steps and workflow (failure diagnosis), the project's knowledge (the assistant: a summary of every page, and the pages about what you have open) | Only when a task, the assistant, diagnosis, or a sheet uses that model |
 | A command-line agent's provider | The prompt and whatever the agent reads in its working folder, under that tool's own terms | When an **Ask an AI agent** task runs |
 | Sites, servers, APIs, and mailboxes | What your steps send them | When those steps run |
-| Dagu Cloud (Descarty) | Which plan the workspace has and the Kitewell version, every six hours; a synced project's definitions, secret names and descriptions, and sheets | Only after you sign in; project data only after you sync that project |
+| Dagu Cloud (Descarty) | Which plan the workspace has and the Kitewell version, every six hours; a synced project's definitions, secret names and descriptions, sheets, and knowledge | Only after you sign in; project data only after you sync that project |
 | kitewell.app and GitHub | An update check; the installer you download | On the update schedule, and when you install |
 
 Kitewell itself sends nothing else. The app has no usage tracking, and
@@ -33,8 +33,8 @@ Descarty never receives the data your runs process.
   syncs definitions, never runs.
 - **Assistant conversations, failure diagnoses, and the values read into
   sheets.** Kept on the device.
-- **Workflow definitions** stay on the device until you export, share, or
-  sync them.
+- **Workflow definitions and knowledge** stay on the device until you export,
+  share, or sync them.
 
 ## Choose where AI runs
 
@@ -60,8 +60,8 @@ Values a website or desktop step types, such as a password, are written as
   agent that runs commands can steer it; **Review & run** warns when a
   workflow does that.
 - Backups and project exports are not encrypted. They leave secret values and
-  sign-ins out, but hold workflow definitions, sheets, and settings as
-  written. Encrypt them yourself before moving them to shared storage.
+  sign-ins out, but hold workflow definitions, sheets, knowledge, and settings
+  as written. Encrypt them yourself before moving them to shared storage.
 - Alert channel credentials, such as a Slack webhook, are stored in a file only
   your user can read, not in the system keychain.
 - Remote access through MCP or REST reaches a Kitewell host only on this
