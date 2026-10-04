@@ -1,14 +1,13 @@
 <p align="center">
   <a href="https://kitewell.app/#film">
-    <img src="website/public/videos/kitewell-film.webp" width="720"
-      alt="Kitewell. Build visually. Run on your terms. Open the 60-second product film.">
+    <img src="website/public/videos/kitewell-launch.webp" width="720"
+      alt="What if you only had to explain it once? Open the 80-second Kitewell film.">
   </a>
 </p>
 
 <p align="center">
   <strong>AI automation that runs on your own computer.</strong><br>
-  <a href="https://kitewell.app/#film">▶ Watch the 60-second film</a> ·
-  <a href="https://kitewell.app/videos/kitewell-social-v2.mp4">30-second version</a>
+  <a href="https://kitewell.app/#film">▶ Watch the 80-second film</a>
 </p>
 
 <p align="center">

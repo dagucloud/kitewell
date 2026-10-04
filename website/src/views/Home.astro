@@ -20,9 +20,6 @@ const text = {
     primary: release ? "Download Kitewell" : "See what it can do",
     setup: "Read the setup guide →",
     platform: "macOS 13+ · Windows 10+ · Free for one project · No account needed",
-    previewLabel: "Open the workflow editor screenshot at full size",
-    previewAlt: "The Kitewell workflow editor with a daily report workflow and the selected step's settings",
-    previewCaption: ["Connect steps on the canvas. Select a step to edit its settings.", "Open image to enlarge"],
     automate: "What it automates",
     automateTitle: "The work that happens on your computer.",
     automateText: "Each of these is a step you add from the task picker. Mix them in one workflow.",
@@ -97,40 +94,43 @@ const text = {
       ["Project sharing →", "/docs/sharing/"],
     ],
     enterprise: "Larger team, or a rollout with support? Descarty ↗",
-    meet: "Meet Kitewell in 60 seconds",
-    tagline: "Serious workflows. Seriously simple.",
-    taglineText: "Build visually. Run on your terms. With or without code.",
-    filmLabel: "Kitewell product film, 60 seconds",
+    filmLabel: "Kitewell film, 80 seconds, narrated",
     filmLink: "Watch the Kitewell film.",
-    filmCaption: ["60 seconds · Original music · Sound on", "Illustrative product demo"],
-    short: "Watch the 30-second version",
-    shortLabel: "Kitewell short film, 30 seconds, portrait",
-    shortLink: "Watch the short film.",
-    transcript: "Read the video transcript",
+    filmCaption: ["80 seconds · Narrated · Captions", "Kitewell's own screens with sample data; the supplier portal and Ledger are made up"],
+    transcript: "Read the film's narration",
     scenes: [
       [
-        "Serious workflows. Seriously simple.",
-        "For builders, with or without code. Kitewell: build visually, run on your terms. Instrumental electronic music plays throughout; there is no narration.",
+        "Log in. Download. Copy. Paste. Send. Every week, the same clicks.",
+        "A pointer races through one Monday: signing in to a supplier portal, downloading invoices, copying a total from a PDF, pasting it into an old desktop accounting app, and sending a summary. The camera pulls back on a whole year of the same weekdays until everything stops.",
+      ],
+      ["What if you only had to explain it once?", "The question on a blank page."],
+      [
+        "Just tell Kitewell what you do, in plain words. It lays out every step, for you to check.",
+        "The request goes to Kitewell's assistant: “Every weekday at 9, collect new invoices from the Harbor Supply portal, enter them in Ledger, and email me a summary.” It proposes a workflow with a preview of its steps. Applied, it opens in the editor: weekdays at 9:00, collect the new invoices from the website, enter them in Ledger with an approval, save them, and email a summary. Each website step is an instruction in plain words.",
       ],
       [
-        "Build a workflow without writing code.",
-        "In the visual editor, customer feedback flows from a connected API to an AI decision. The question “Does this feedback need a reply?” creates the next path: draft a reply, then ask a person to approve it. Select Weekdays at 9:00, review, and start the run. All four steps complete on your machine. This illustrative demo uses tools configured in advance.",
+        "Then it does the clicking — on websites, desktop apps, and email. Even the old app nothing else can talk to.",
+        "The run starts. Kitewell's own pointer signs in to the portal and reads the new invoices, types them into Ledger, a desktop app from 2009 with no API, and drafts the summary, while the run checks off its steps.",
       ],
       [
-        "Your tools. One flow.",
-        "Connect AI harnesses such as Codex, Claude Code, and Gemini; Docker images; commands; remote servers over SSH; decision APIs; and imported OpenAPI actions.",
+        "It stops for your OK where it matters. And it keeps a record of every step.",
+        "A notification says the run is waiting. In the run, the viewer approves saving the bills; the run finishes, and its record shows each step, how long it took, and who approved.",
       ],
       [
-        "Runs locally. Works together.",
-        "The full film shows team members running workflows, viewing results, and managing workflows through MCP. Share access through MCP and REST while keeping execution on your machine.",
+        "It learns the clicks once. After that, it repeats them every weekday — without paying for AI each time.",
+        "A week of runs: on Monday a model learns the clicks in 4 minutes 12 seconds; Tuesday to Friday replay them without AI in under a minute.",
       ],
       [
-        "Or simply ask.",
-        "A chat agent connected through MCP receives the request “Build a daily feedback workflow. Flag urgent issues for review.” Kitewell creates, validates, and schedules the workflow for review. Build, run, inspect, and fix workflows from the conversation.",
+        "Prefer code? It's plain YAML underneath. Run scripts, containers, and coding agents like Claude Code and Codex. Or build it all from your own agent, over MCP.",
+        "For developers: the workflow's YAML, its plain-language steps highlighted; steps that run a script, a container, Claude Code, and Codex; and a terminal where an agent changes the workflow through Kitewell's MCP tools, previewing the change before applying it.",
       ],
       [
-        "Easy to build. Yours to run.",
-        "For the team that imagines it and the people who make it happen. The short film ends with “Runs on your machine. Shared with your team.” Explore Kitewell at kitewell.app.",
+        "And it all runs on your own computer. Share workflows with your team — your passwords stay on your machine.",
+        "A laptop running Kitewell, then three: the workflow syncs between teammates, and each computer keeps its own passwords.",
+      ],
+      [
+        "Kitewell. It flies on its own. You hold the string.",
+        "The kite leaves the logo and flies, its string running back to the last word. kitewell.app. Free for one project, no account needed.",
       ],
     ],
     pricing: "Planned launch pricing",
@@ -151,9 +151,6 @@ const text = {
     primary: release ? "Kitewell をダウンロード" : "できることを見る",
     setup: "セットアップガイドを読む →",
     platform: "macOS 13 以降 · Windows 10 以降 · 1 プロジェクトまで無料 · アカウント不要",
-    previewLabel: "ワークフローエディターのスクリーンショットを原寸で開く",
-    previewAlt: "Kitewell のワークフローエディター。ログイン ID の入力など、Web の操作が自然な言葉で書かれている",
-    previewCaption: ["Web の操作は文で書きます。各ページでのクリックはモデルが判断します。", "画像を開いて拡大"],
     automate: "自動化できること",
     automateTitle: "あなたのコンピューターで起きる仕事を。",
     automateText: "どれもタスクの選択肢から追加するステップです。1 つのワークフローに混ぜて使えます。",
@@ -228,40 +225,43 @@ const text = {
       ["プロジェクトの共有 →", "/docs/sharing/"],
     ],
     enterprise: "それより大きなチームや、支援付きの導入は Descarty へ ↗",
-    meet: "60 秒で見る Kitewell",
-    tagline: "本格的なワークフローを、驚くほどシンプルに。",
-    taglineText: "ビジュアルに組み立て、思いどおりに動かす。コードを書いても、書かなくても。",
-    filmLabel: "Kitewell 紹介映像（60 秒）",
+    filmLabel: "Kitewell 紹介映像（80 秒・ナレーション付き）",
     filmLink: "Kitewell の紹介映像を見る。",
-    filmCaption: ["60 秒 · オリジナル音楽 · 音声あり", "説明用の製品デモ"],
-    short: "30 秒版を見る",
-    shortLabel: "Kitewell ショート映像（30 秒・縦型）",
-    shortLink: "ショート映像を見る。",
-    transcript: "映像の内容をテキストで読む",
+    filmCaption: ["80 秒 · 英語ナレーション · 日本語字幕", "Kitewell の実際の画面とサンプルデータ。仕入れ先ポータルと Ledger は架空のものです"],
+    transcript: "ナレーションをテキストで読む",
     scenes: [
       [
-        "Serious workflows. Seriously simple.",
-        "（本格的なワークフローを、驚くほどシンプルに。）コードを書く人にも、書かない人にも。Kitewell：ビジュアルに組み立て、思いどおりに動かす。全編にエレクトロニックのインストゥルメンタル音楽が流れ、ナレーションはありません。",
+        "Log in. Download. Copy. Paste. Send. Every week, the same clicks.",
+        "（ログイン。ダウンロード。コピー。貼り付け。送信。毎週、同じクリックの繰り返し。）ポインターが月曜の雑務を駆け抜けます。仕入れ先ポータルへのサインイン、請求書のダウンロード、PDF の合計のコピー、古いデスクトップ会計アプリへの貼り付け、まとめのメール送信。カメラが引くと、同じ平日が 1 年分並び、すべてが止まります。",
+      ],
+      ["What if you only had to explain it once?", "（説明するのが、一度だけで済むとしたら？）白いページに問いが浮かびます。"],
+      [
+        "Just tell Kitewell what you do, in plain words. It lays out every step, for you to check.",
+        "（やっていることを、ふだんの言葉で Kitewell に伝えるだけ。確認できるように、すべてのステップを並べてくれます。）Kitewell のアシスタントに「平日の 9 時に、Harbor Supply のポータルから新しい請求書を集めて Ledger に入力し、まとめをメールして」と頼みます。アシスタントはステップのプレビュー付きでワークフローを提案し、適用するとエディターで開きます。平日 9:00 に、Web サイトから新しい請求書を集め、承認を挟んで Ledger に入力し、保存し、まとめをメールする。Web の各ステップは、ふだんの言葉の指示です。",
       ],
       [
-        "Build a workflow without writing code.",
-        "（コードを書かずにワークフローを作る。）ビジュアルエディターで、顧客からのフィードバックが接続済みの API から AI の判断へ流れます。「このフィードバックには返信が必要か？」という問いが次の経路を作ります。返信の下書きを作り、人に承認を求める。平日 9:00 を選び、確認して、実行を開始。4 つのステップがすべてあなたのマシンで完了します。この説明用デモは、事前に設定したツールを使っています。",
+        "Then it does the clicking — on websites, desktop apps, and email. Even the old app nothing else can talk to.",
+        "（そして、クリックを代わりにこなします。Web サイトでも、デスクトップアプリでも、メールでも。ほかの何ともつながらない、古いアプリでさえも。）実行が始まります。Kitewell のポインターがポータルにサインインして新しい請求書を読み取り、API のない 2009 年のデスクトップアプリ Ledger に入力し、まとめのメールを下書きします。実行のステップが順に完了していきます。",
       ],
       [
-        "Your tools. One flow.",
-        "（あなたのツールを、ひとつの流れに。）Codex、Claude Code、Gemini などの AI ハーネス、Docker イメージ、コマンド、SSH 経由のリモートサーバー、判断 API、インポートした OpenAPI のアクションをつなぎます。",
+        "It stops for your OK where it matters. And it keeps a record of every step.",
+        "（大事なところでは、あなたの OK を待ちます。そして、すべてのステップの記録を残します。）実行が承認を待っているという通知。実行画面で請求の保存を承認すると実行が終わり、記録には各ステップとかかった時間、承認した人が残ります。",
       ],
       [
-        "Runs locally. Works together.",
-        "（ローカルで動き、チームで使う。）フルバージョンでは、チームのメンバーがワークフローを実行し、結果を見て、MCP でワークフローを管理する様子を映しています。実行はあなたのマシンに置いたまま、MCP と REST でアクセスを共有します。",
+        "It learns the clicks once. After that, it repeats them every weekday — without paying for AI each time.",
+        "（クリックを覚えるのは一度だけ。あとは毎平日、そのたびに AI の費用を払うことなく繰り返します。）1 週間の実行。月曜はモデルが 4 分 12 秒でクリックを覚え、火曜から金曜は AI なしで 1 分足らずで再生します。",
       ],
       [
-        "Or simply ask.",
-        "（あるいは、ただ頼む。）MCP でつないだチャットエージェントが「日次のフィードバックワークフローを作って。緊急の問題はレビュー用にフラグを立てて」という依頼を受け取ります。Kitewell がワークフローを作成し、検証し、レビュー用にスケジュールします。会話の中から、ワークフローを作り、動かし、調べ、直せます。",
+        "Prefer code? It's plain YAML underneath. Run scripts, containers, and coding agents like Claude Code and Codex. Or build it all from your own agent, over MCP.",
+        "（コードで書きたい？中身はそのまま読める YAML です。スクリプト、コンテナー、Claude Code や Codex のようなコーディングエージェントも動かせます。あなたのエージェントから MCP で組み立てることも。）開発者向けに、ふだんの言葉のステップを強調したワークフローの YAML、スクリプト・コンテナー・Claude Code・Codex を動かすステップ、そしてエージェントが Kitewell の MCP ツールで変更をプレビューしてから適用するターミナルを映します。",
       ],
       [
-        "Easy to build. Yours to run.",
-        "（作るのは簡単に。動かすのはあなたの手で。）思い描くチームと、実現する人たちのために。ショート映像は「あなたのマシンで動き、チームと共有する。」で終わります。kitewell.app で Kitewell をご覧ください。",
+        "And it all runs on your own computer. Share workflows with your team — your passwords stay on your machine.",
+        "（しかも、すべてあなたのコンピューターで動きます。ワークフローはチームと共有。パスワードは、あなたのマシンから出ません。）Kitewell が動くノートパソコンが 3 台に増え、ワークフローは同期され、パスワードはそれぞれのコンピューターにとどまります。",
+      ],
+      [
+        "Kitewell. It flies on its own. You hold the string.",
+        "（Kitewell。ひとりでに空を飛ぶ。糸を握るのは、あなた。）凧がロゴから飛び立ち、その糸は最後の言葉までつながっています。kitewell.app。1 プロジェクトまで無料、アカウント不要。",
       ],
     ],
     pricing: "正式リリース時の予定価格",
@@ -277,9 +277,8 @@ const to = (path: string) => localize(path, locale);
 const featured = ["inbox-digest", "invoice-intake", "nightly-dependency-update", "price-watch", "desktop-app-entry", "company-research-sheet"]
   .map((slug) => examples.find((example) => example.slug === slug)!)
   .map((example) => ({ slug: example.slug, ...example[locale] }));
-// The English editor shot carries English demo data; the other shots do in both languages.
+// The English approval shot carries English demo data; the other shots do in both languages.
 const images = {
-  editor: locale === "ja" ? "/images/home/ja/editor-browser.png" : "/images/workflow-builder.jpg",
   proposal: `/images/home/${locale}/assistant-proposal.png`,
   approval: locale === "ja" ? "/images/home/ja/run-approval.png" : "/images/workflow-run.jpg",
   knowledge: `/images/home/${locale}/knowledge.png`,
@@ -307,21 +306,39 @@ const proposalWidth = locale === "ja" ? 716 : 752;
       <p class="fine">{text.platform}</p>
     </section>
 
-    <figure class="product-preview">
-      <a href={images.editor} aria-label={text.previewLabel}>
-        <img
-          src={images.editor}
-          alt={text.previewAlt}
-          width={locale === "ja" ? 1600 : 1869}
-          height={locale === "ja" ? 913 : 1012}
-          fetchpriority="high"
-        />
-      </a>
-      <figcaption>
-        <span>{text.previewCaption[0]}</span>
-        <span>{text.previewCaption[1]}</span>
-      </figcaption>
-    </figure>
+    <section class="promo" id="film" aria-label={text.filmLabel}>
+      <figure class="promo-film">
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          poster="/videos/kitewell-launch.webp"
+          width="1920"
+          height="1080"
+          aria-label={text.filmLabel}
+          aria-describedby="film-caption"
+        >
+          <source src="/videos/kitewell-launch.mp4" type="video/mp4" />
+          <track kind="captions" src="/videos/kitewell-launch.en.vtt" srclang="en" label="English" />
+          <track kind="subtitles" src="/videos/kitewell-launch.ja.vtt" srclang="ja" label="日本語" default={locale === "ja"} />
+          <p><a href="/videos/kitewell-launch.mp4">{text.filmLink}</a></p>
+        </video>
+        <figcaption id="film-caption">
+          <span>{text.filmCaption[0]}</span>
+          <span>{text.filmCaption[1]}</span>
+        </figcaption>
+      </figure>
+      <details class="promo-transcript">
+        <summary>{text.transcript}</summary>
+        <div>
+          {text.scenes.map(([caption, scene]) => (
+            <p>
+              <strong lang="en">{caption}</strong> {scene}
+            </p>
+          ))}
+        </div>
+      </details>
+    </section>
 
     <section class="section automate" id="automate" aria-labelledby="automate-title">
       <p class="eyebrow">{text.automate}</p>
@@ -453,60 +470,6 @@ const proposalWidth = locale === "ja" ? 716 : 752;
         <a class="text-link" href={descartyUrl(locale, "/enterprise/")}>{text.enterprise}</a>
       </div>
     </aside>
-
-    <section class="promo" id="film" aria-labelledby="film-title">
-      <div class="promo-heading">
-        <p class="eyebrow">{text.meet}</p>
-        <h2 id="film-title">{text.tagline}</h2>
-        <p>{text.taglineText}</p>
-      </div>
-      <figure class="promo-film">
-        <video
-          controls
-          playsinline
-          preload="none"
-          poster="/videos/kitewell-film.webp"
-          width="1920"
-          height="1080"
-          aria-label={text.filmLabel}
-          aria-describedby="film-caption"
-        >
-          <source src="/videos/kitewell-film-v2.mp4" type="video/mp4" />
-          <p><a href="/videos/kitewell-film-v2.mp4">{text.filmLink}</a></p>
-        </video>
-        <figcaption id="film-caption">
-          <span>{text.filmCaption[0]}</span>
-          <span>{text.filmCaption[1]}</span>
-        </figcaption>
-      </figure>
-      <div class="promo-extras">
-        <details class="promo-short">
-          <summary>{text.short}</summary>
-          <video
-            controls
-            playsinline
-            preload="none"
-            poster="/videos/kitewell-social-v2.webp"
-            width="1080"
-            height="1920"
-            aria-label={text.shortLabel}
-          >
-            <source src="/videos/kitewell-social-v2.mp4" type="video/mp4" />
-            <p><a href="/videos/kitewell-social-v2.mp4">{text.shortLink}</a></p>
-          </video>
-        </details>
-        <details class="promo-transcript">
-          <summary>{text.transcript}</summary>
-          <div>
-            {text.scenes.map(([caption, scene]) => (
-              <p>
-                <strong lang="en">{caption}</strong> {scene}
-              </p>
-            ))}
-          </div>
-        </details>
-      </div>
-    </section>
 
     <section class="closing" aria-labelledby="pricing-title">
       <div>
