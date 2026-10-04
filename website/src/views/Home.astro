@@ -74,6 +74,7 @@ const text = {
       ["Results you can take back", "Status and values go into the columns you agreed to, with Undo. A file open in Excel means waiting, not failing."],
     ],
     sheetsLink: "How Excel automation works →",
+    sheetsAlt: "A sheet in Kitewell linked to orders.xlsx: 233 rows still to run, and the twelve finished ones showing the receipt number each run produced, written back beside the order it came from",
     machine: "Runs on your machine",
     machineTitle: "You decide what leaves it.",
     machineRows: [
@@ -204,6 +205,7 @@ const text = {
       ["結果は取り消せる", "状態と値は、あなたが同意した列に入ります。元に戻すこともできます。Excel で開いていても、失敗ではなく待ちます。"],
     ],
     sheetsLink: "Excel 自動化のしくみ →",
+    sheetsAlt: "受注一覧.xlsx にリンクした Kitewell のシート。未実行が 233 行あり、完了した 12 行には実行が返した受付番号が、元の受注の行に書き戻されている",
     machine: "あなたのマシンで動く",
     machineTitle: "何を外に出すかは、あなたが決める。",
     machineRows: [
@@ -281,6 +283,7 @@ const images = {
   proposal: `/images/home/${locale}/assistant-proposal.png`,
   approval: locale === "ja" ? "/images/home/ja/run-approval.png" : "/images/workflow-run.jpg",
   knowledge: `/images/home/${locale}/knowledge.png`,
+  sheets: `/images/home/${locale}/sheets.png`,
 };
 const approvalSize = locale === "ja" ? [1600, 720] : [1345, 886];
 const proposalWidth = locale === "ja" ? 716 : 752;
@@ -334,19 +337,24 @@ const proposalWidth = locale === "ja" ? 716 : 752;
       </div>
     </section>
 
-    <section class="section" aria-labelledby="sheets-title">
-      <p class="eyebrow">{text.sheets}</p>
-      <h2 id="sheets-title">{text.sheetsTitle}</h2>
-      <p class="section-lead">{text.sheetsText}</p>
-      <ol class="example-steps">
-        {text.sheetsItems.map(([name, detail]) => (
-          <li>
-            <strong>{name}</strong>
-            <span>{detail}</span>
-          </li>
-        ))}
-      </ol>
-      <a class="text-link" href={to("/docs/spreadsheets/")}>{text.sheetsLink}</a>
+    <section class="section split" aria-labelledby="sheets-title">
+      <div>
+        <p class="eyebrow">{text.sheets}</p>
+        <h2 id="sheets-title">{text.sheetsTitle}</h2>
+        <p class="section-lead">{text.sheetsText}</p>
+        <ol class="example-steps">
+          {text.sheetsItems.map(([name, detail]) => (
+            <li>
+              <strong>{name}</strong>
+              <span>{detail}</span>
+            </li>
+          ))}
+        </ol>
+        <a class="text-link" href={to("/docs/spreadsheets/")}>{text.sheetsLink}</a>
+      </div>
+      <figure class="product-preview">
+        <img src={images.sheets} alt={text.sheetsAlt} width="1600" height="1150" loading="lazy" />
+      </figure>
     </section>
 
     <section class="section split" aria-labelledby="build-title">
