@@ -63,6 +63,10 @@ project secret.
 - **Secrets**: it can ask for a secret by name. You type the value into its
   card, it is saved to the project's secret store, and the assistant never
   sees it. Administrators' assistants can list secret names, never values.
+- **Knowledge**: it reads the project's [knowledge](/docs/knowledge/) every
+  message and writes down what it learns as you work, with a receipt and
+  **Undo**. After it has read a web page or run output, it
+  [asks first](/docs/knowledge/#what-the-assistant-does).
 
 On a failed run, **Ask the assistant** asks it to find out why and propose a
 fix. Conversations stay on this device; **Device settings → Assistant** sets

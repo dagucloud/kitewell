@@ -54,6 +54,7 @@ export default defineConfig({
           items: [
             { label: "Import an API", translations: { ja: "API のインポート" }, slug: "docs/apis" },
             { label: "AI agents and models", translations: { ja: "AI エージェントとモデル" }, slug: "docs/ai" },
+            { label: "Knowledge", translations: { ja: "ナレッジ" }, slug: "docs/knowledge" },
             { label: "MCP and API access", translations: { ja: "MCP と API アクセス" }, slug: "docs/mcp" },
             { label: "Share workflows with your team", translations: { ja: "チームでワークフローを共有" }, slug: "docs/sharing" },
             { label: "Sync with Dagu Cloud", translations: { ja: "Dagu Cloud と同期" }, slug: "docs/cloud-sync" },
