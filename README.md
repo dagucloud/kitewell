@@ -45,6 +45,10 @@ on x64. Linux support is planned. No installers have been published yet.
   decisions that choose the next path, and operations from any OpenAPI spec.
 - **Build by asking.** The assistant proposes workflows as a diff you apply,
   or connect Claude Code or Codex through MCP.
+- **Use it from ChatGPT and Claude.** Connect them on the web, desktop, or
+  phone to check what failed, start a workflow, or approve a waiting step,
+  while the workflows keep running on your computer. You choose each app's
+  permission and projects, and can revoke it at any time.
 - **Keep control.** Approval gates and human tasks, a test for one step, and
   replay of website and desktop actions that worked.
 - **Schedule runs.** Run on demand, daily, on weekdays, or on a custom
@@ -53,8 +57,9 @@ on x64. Linux support is planned. No installers have been published yet.
 - **Inspect every run.** See which steps finished or failed, and read each
   step's output and errors.
 - **Work with agents and teammates.** Connect MCP clients or the REST API with
-  API keys. Export a project to use it on another device, or sync it with Dagu
-  Cloud to share it with your team. Secret values stay on each device.
+  API keys, or ChatGPT and Claude as connected apps. Export a project to use it
+  on another device, or sync it with Dagu Cloud to share it with your team.
+  Secret values stay on each device.
 
 ![Completed daily report workflow with the report visible in the selected step's output](website/public/images/workflow-run.jpg)
 
@@ -64,9 +69,11 @@ approval, a price watch, desktop-app entry, and more.
 
 ## Pricing
 
-Free for one project with up to 10 workflows and one API key, with no Kitewell
-account required. Pro supports up to ten projects of 100 workflows each, any
-number of API keys, alerts, and team sync for $25 per person per month (USD).
+Free for one project with up to 10 workflows and one API key or connected app
+(ChatGPT or Claude), with no Kitewell account required for local use. Pro
+supports up to ten projects of 100 workflows each, any number of API keys and
+connected apps, alerts, MCP Events, and team sync for $25 per person per month
+(USD).
 These are planned launch prices; see
 [Pricing](https://kitewell.app/pricing/).
 
