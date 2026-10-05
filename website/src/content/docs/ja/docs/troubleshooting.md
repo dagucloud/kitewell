@@ -88,7 +88,7 @@ ChatGPT や Claude から Kitewell を削除し、もう一度追加してくだ
 
 ### 接続が読み取り専用だとして拒否される
 
-拒否のメッセージには、`This connection is read-only` や `This connection can run jobs but not edit` のように、その接続の権限でできることが示されます。アプリにもっと任せるには、**このデバイス → MCP → 接続済みのアプリ** で権限を変更してください。変更はアプリの次の呼び出しから適用されます。
+拒否のメッセージには、`This connection is read-only` や `This connection can run workflows but not edit them` のように、その接続の権限でできることが示されます。アプリにもっと任せるには、**このデバイス → MCP → 接続済みのアプリ** で権限を変更してください。変更はアプリの次の呼び出しから適用されます。
 
 ### 同意のページに、コンピューターがオフライン、または空きがないと表示される
 

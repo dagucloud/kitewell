@@ -129,9 +129,9 @@ Remove Kitewell from ChatGPT or Claude and add it again. See
 ### A call is refused because the connection is read-only
 
 The refusal says what the connection's permission allows, such as "This
-connection is read-only" or "This connection can run jobs but not edit". To
-let the app do more, change its permission under **This device → MCP →
-Connected apps**; the change applies to its next call.
+connection is read-only" or "This connection can run workflows but not edit
+them". To let the app do more, change its permission under **This device →
+MCP → Connected apps**; the change applies to its next call.
 
 ### The consent page says the computer is offline or has no room
 
