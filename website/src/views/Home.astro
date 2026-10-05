@@ -22,7 +22,7 @@ const text = {
     platform: "macOS 13+ · Windows 10+ · Free for one project · No account needed",
     automate: "What it automates",
     automateTitle: "The work that happens on your computer.",
-    automateText: "Each of these is a step you add from the task picker. Mix them in one workflow.",
+    automateText: "Each of these is a step you add from the task picker. Mix them in one workflow, and start it by hand, on a schedule, or when GitHub, Stripe, or a form sends it a webhook.",
     kinds: [
       ["Websites", "Open pages, click, type, and collect information in your own Chrome, from instructions in plain words. Saved sign-ins stay on the device.", "/docs/browser/"],
       ["Desktop apps", "A model reads the screen and uses the mouse and keyboard, on macOS or Windows, for the app that has no API.", "/docs/desktop/"],
@@ -81,6 +81,7 @@ const text = {
       ["Runs, logs, and files", "On your computer, under the retention you set."],
       ["Dagu Cloud", "Only if you sign in and sync a project: its definitions, knowledge, and secret names, never values, runs, or logs."],
       ["ChatGPT and Claude", "Only if you connect one: what it reads through Kitewell passes through Kitewell's relay, which stores none of it, on its way to OpenAI or Anthropic."],
+      ["Webhooks", "Only if you turn one on: requests other services send wait at Kitewell's relay until your computer takes them, for at most 7 days."],
     ],
     machineLink: "Everything that leaves, and when →",
     examplesEyebrow: "Examples",
@@ -141,7 +142,7 @@ const text = {
     pricing: "Planned launch pricing",
     pricingTitle: "Free for one project.",
     pricingText:
-      "One project with up to 10 workflows needs no Kitewell account, and includes website, desktop, and email automation. Pro holds up to ten projects of 100 workflows each and adds alerts and team sync, for $25 per person per month (USD).",
+      "One project with up to 10 workflows needs no Kitewell account, and includes website, desktop, and email automation. Pro holds up to ten projects of 100 workflows each and adds alerts, webhooks, and team sync, for $25 per person per month (USD).",
     compare: "Compare plans →",
     availability: release ? "Download Kitewell" : "Check release availability",
     status: release ? "Available now" : "Coming soon",
@@ -158,7 +159,7 @@ const text = {
     platform: "macOS 13 以降 · Windows 10 以降 · 1 プロジェクトまで無料 · アカウント不要",
     automate: "自動化できること",
     automateTitle: "あなたのコンピューターで起きる仕事を。",
-    automateText: "どれもタスクの選択肢から追加するステップです。1 つのワークフローに混ぜて使えます。",
+    automateText: "どれもタスクの選択肢から追加するステップです。1 つのワークフローに混ぜて使え、手動、スケジュール、または GitHub、Stripe、フォームから届く Webhook で開始できます。",
     kinds: [
       ["Web サイト", "自然な言葉の指示で、あなたの Chrome でページを開き、クリックし、入力し、情報を集めます。保存したサインインはデバイスに残ります。", "/docs/browser/"],
       ["デスクトップアプリ", "API のないアプリのために、モデルが画面を読み、マウスとキーボードを使います。macOS と Windows に対応。", "/docs/desktop/"],
@@ -217,6 +218,7 @@ const text = {
       ["実行、ログ、ファイル", "あなたのコンピューターに、設定した保持期間だけ残ります。"],
       ["Dagu Cloud", "サインインしてプロジェクトを同期したときだけ、その定義、ナレッジ、シークレットの名前。値、実行、ログは送られません。"],
       ["ChatGPT と Claude", "接続したときだけ、Kitewell を通じて読んだ内容が、Kitewell のリレーを経由して OpenAI や Anthropic に届きます。リレーはその内容を保存しません。"],
+      ["Webhook", "オンにしたときだけ、ほかのサービスが送ったリクエストが、コンピューターが受け取るまで最大 7 日間、Kitewell のリレーで待ちます。"],
     ],
     machineLink: "外に出るものと、そのタイミングのすべて →",
     examplesEyebrow: "活用例",
@@ -277,7 +279,7 @@ const text = {
     pricing: "正式リリース時の予定価格",
     pricingTitle: "1 プロジェクトなら無料。",
     pricingText:
-      "ワークフロー 10 個までの 1 プロジェクトは、Kitewell アカウントなしで使え、Web サイト、デスクトップ、メールの自動化も含まれます。Pro は 1 人あたり月額 $25（USD）で、各 100 ワークフローのプロジェクトを 10 個まで持て、アラートとチームでの同期が加わります。",
+      "ワークフロー 10 個までの 1 プロジェクトは、Kitewell アカウントなしで使え、Web サイト、デスクトップ、メールの自動化も含まれます。Pro は 1 人あたり月額 $25（USD）で、各 100 ワークフローのプロジェクトを 10 個まで持て、アラート、Webhook、チームでの同期が加わります。",
     compare: "プランを比較する →",
     availability: release ? "Kitewell をダウンロード" : "リリース状況を確認する",
     status: release ? "提供中" : "近日公開",
