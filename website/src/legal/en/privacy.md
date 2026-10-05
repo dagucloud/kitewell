@@ -158,7 +158,7 @@ never stored, except the discovery answers described next.
 Kitewell version, last-seen time, and its last answers to the discovery calls
 (`server/discover`, `initialize`, `tools/list`, `resources/list`, and
 `resources/templates/list`), so the connector keeps working while your device
-is offline.
+is offline. It deletes all of this 30 days after it last heard from the device.
 
 **What Dagu Cloud stores.** You sign in to Dagu Cloud to connect an app. For
 each connection, Dagu Cloud stores:

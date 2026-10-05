@@ -67,7 +67,7 @@ ChatGPT や Claude を、`https://mcp.kitewell.app/mcp` を通じてお使いの
 
 **リレーを通過するもの**　AI アプリから端末へのリクエストと端末の応答は、Kitewell のリレー（mcp.kitewell.app で動く Cloudflare Worker）を通過します。通過するだけで、次に説明する探索の応答を除き、その内容が保存されることはありません。
 
-**リレーが保存するもの**　リレーが端末ごとに保存するのは、端末の名前、Kitewell のバージョン、最後に接続を確認した時刻、探索の呼び出し（`server/discover`、`initialize`、`tools/list`、`resources/list`、`resources/templates/list`）への直近の応答だけです。これにより、端末がオフラインの間もコネクタが使える状態に保たれます。
+**リレーが保存するもの**　リレーが端末ごとに保存するのは、端末の名前、Kitewell のバージョン、最後に接続を確認した時刻、探索の呼び出し（`server/discover`、`initialize`、`tools/list`、`resources/list`、`resources/templates/list`）への直近の応答だけです。これにより、端末がオフラインの間もコネクタが使える状態に保たれます。これらは、端末との最後の通信から 30 日後にすべて削除されます。
 
 **Dagu Cloud が保存するもの**　アプリを接続するには Dagu Cloud にサインインします。Dagu Cloud は、接続ごとに次の情報を保存します。
 
