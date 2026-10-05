@@ -46,4 +46,4 @@ title: ナレッジ
 
 ## 見られる人
 
-プロジェクトのナレッジは全員が読め、編集者とアシスタントが変更できます。ページはプロジェクトに属し、[Dagu Cloud と同期](/ja/docs/cloud-sync/)され、[プロジェクトのエクスポート](/ja/docs/sharing/)にも含まれます。[リリース](/ja/docs/releases/)には含まれません。[MCP クライアント](/ja/docs/mcp/)は `read` に `target: "knowledge"` を指定して読めますが、変更はできません。
+プロジェクトのナレッジは全員が読め、編集者とアシスタントが変更できます。ページはプロジェクトに属し、[Dagu Cloud と同期](/ja/docs/cloud-sync/)され、[プロジェクトのエクスポート](/ja/docs/sharing/)にも含まれます。[リリース](/ja/docs/releases/)には含まれません。[MCP クライアント](/ja/docs/mcp/)は `read` に `target: "knowledge"` を指定して読めます。**編集と実行** の権限があれば、`change` で作成、置き換え、削除もできます。

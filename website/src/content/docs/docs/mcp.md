@@ -71,8 +71,9 @@ Claude's Free plan allows one custom connector.
 
 ChatGPT connects on the web only, through developer mode.
 
-- On Plus and Pro, ChatGPT can use Kitewell's `read` tool only. Starting runs
-  and editing workflows need ChatGPT Business, Enterprise, or Edu.
+- On Plus and Pro, ChatGPT can use only Kitewell's read-only tools, such as
+  `read` and `show`. Starting runs and editing workflows need ChatGPT
+  Business, Enterprise, or Edu.
 - On Business, only admins and owners can use developer mode. On Enterprise and
   Edu, an admin first grants it.
 
@@ -99,7 +100,9 @@ page shows the connected account.
 
 The computer must be on, awake, and running Kitewell. Otherwise the app still
 lists Kitewell's tools, but every call answers that Kitewell on that computer
-is not reachable. Open Kitewell on that computer and try again.
+is not reachable. Open Kitewell on that computer and try again. See
+[Troubleshooting](/docs/troubleshooting/#chatgpt-and-claude) if it still
+fails.
 
 ## MCP Events
 
@@ -118,21 +121,56 @@ part of Kitewell Pro, like [alerts](/docs/alerts/).
 
 ## What a client can do
 
-The MCP server exposes three tools: `read`, `change`, and `execute`. Call
-`read` with `target: "reference"` for the usage guide.
+Kitewell offers five tools: `read`, `show`, `preview_api`, `change`, and
+`execute`. Each one either only reads or only writes. A connection, through a
+key or a connected app, lists only the tools its permission allows, so a
+read-only connection never sees a tool that writes:
 
-- **Read** projects, workflows and their schema, runs with their logs and
-  artifacts, agents and API models, servers, queues, workflow defaults,
+| Permission | Tools it lists |
+| --- | --- |
+| **Read only** | `read`, `show` |
+| **Run jobs** | `read`, `show`, `execute` |
+| **Edit and run** | `read`, `show`, `preview_api`, `change`, `execute` |
+
+A call its permission does not allow, such as one from a tool list the client
+kept from an earlier permission, is refused with where in Kitewell to change
+the permission.
+
+- **`read`** reads projects, workflows and their schema, runs with their logs
+  and artifacts, agents and API models, servers, queues, workflow defaults,
   imported APIs, [batch sheets](/docs/batches/) with their values, and the
   project's [knowledge](/docs/knowledge/). A failed run carries its
   [failure diagnosis](/docs/ai/#failure-diagnosis) when there is one.
-- **Change** workflows, agents and models, servers and server groups, queues,
-  workflow defaults, API connections, and sheets, including the schedule a
-  sheet runs on this device.
-- **Execute** runs: start, retry, rerun, or cancel them; approve, reject,
-  send back, or complete a step waiting for a person; answer or restart a
-  website step waiting for input; and run a sheet's rows, read their values,
-  cancel them, or refresh the rows a workflow's run fills.
+  Previewing which steps a rerun can reuse (**Run jobs**) and checking a
+  workflow's YAML without saving it (**Edit and run**) are reads too. It
+  changes nothing and reaches nothing outside your computer. Call it with
+  `target: "reference"` for the usage guide.
+- **`show`** draws a workflow's dependency graph and, for a run, each step's
+  state. ChatGPT and Claude display it as an interactive view that follows a
+  run in progress; other clients receive the steps in order as text, with
+  each state. It only reads.
+- **`preview_api`** reads an OpenAPI document you give, or fetches it from a
+  URL, and lists its operations, saving nothing. It only reads, but fetching
+  a URL reaches outside your computer.
+- **`change`** creates, replaces, or deletes workflows, agents and models,
+  servers and server groups, queues, workflow defaults, API connections,
+  sheets, including the schedule a sheet runs on this device, and knowledge
+  pages. It can overwrite or delete what you have, importing an API fetches
+  its source URL, and saving an enabled schedule may run the workflow.
+- **`execute`** starts, retries, reruns, or cancels runs; approves, rejects,
+  sends back, or completes a step waiting for a person; answers or restarts a
+  website or desktop step waiting for input; and runs a sheet's rows, reads
+  their values, or cancels them. With **Edit and run**, it also refreshes a
+  sheet's rows from their source and links a sheet to an Excel workbook.
+  Workflow commands can change files and reach other services, and cancelling
+  cannot undo what already ran.
+
+To follow a run without polling, pass `wait`, up to 60 seconds, to `execute`
+when starting, retrying, or rerunning, or to `read` with `target: "run"`. The
+call answers as soon as the run finishes or stops at a step waiting for a
+person. If the time runs out first, it answers with the run as it stands;
+read it again with `wait` to keep following. Clients that support
+[MCP Events](#mcp-events) can subscribe to `run.finished` instead.
 
 Every replacement or deletion needs the `version` returned by the latest
 read, so a client never overwrites a change it has not seen. On a conflict,
@@ -147,9 +185,9 @@ Running the workflow requires run or edit access and appears in its run history.
 
 Use this flow:
 
-1. Preview with `change`, `type: "preview_api"`, and either `spec` (JSON or
-   YAML text) or `url`. Previewing does not save the connection or execute an
-   API operation.
+1. Preview with the `preview_api` tool and either `spec` (JSON or YAML text)
+   or `url`. Previewing does not save the connection or execute an API
+   operation.
 2. Save with `change`, `type: "upsert_api"`, an `id`, and an `api` definition.
    Provide `api.spec`, or omit it to fetch `api.sourceUrl` once. Set
    `api.auth.type` to `none`, `bearer`, `apiKey`, or `basic`. For authentication,
@@ -184,8 +222,8 @@ Revoke a key or connected app in Kitewell when it is no longer needed.
 
 ## Remote clients
 
-The listener defaults to loopback. ChatGPT and Claude reach it through
-Kitewell's relay, as described above. Any other remote client needs a
+The listener defaults to loopback. ChatGPT and Claude connect through
+Kitewell's relay instead, as described above. Any other remote client needs a
 reachable HTTPS endpoint and a secure network configuration that you operate. Keep the
 administrative interface on localhost. Do not publish an unprotected HTTP
 listener to the Internet.

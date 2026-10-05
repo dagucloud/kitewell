@@ -95,4 +95,5 @@ Everyone on the project reads its knowledge; editors and the assistant change
 it. Pages belong to the project: they [sync with Dagu Cloud](/docs/cloud-sync/)
 and travel in [project exports](/docs/sharing/), and they are not part of
 [releases](/docs/releases/). [MCP clients](/docs/mcp/) can read them with
-`read` and `target: "knowledge"`, but cannot change them.
+`read` and `target: "knowledge"`; with **Edit and run**, they can also create,
+replace, or delete them with `change`.
