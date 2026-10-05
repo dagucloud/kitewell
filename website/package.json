@@ -17,6 +17,8 @@
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/starlight": "0.42.2",
     "astro": "7.3.3",
+    "budoux": "^0.9.3",
+    "linkedom": "^0.18.13",
     "posthog-js": "^1.434.6"
   },
   "devDependencies": {

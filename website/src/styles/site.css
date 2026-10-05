@@ -57,13 +57,19 @@ h3 {
   line-height: 1.35;
   letter-spacing: -0.02em;
 }
-/* Japanese sets taller and untightened, and breaks lines between phrases. */
+/* Japanese sets taller and untightened. It breaks lines only between the
+   phrases the build marks, or anywhere when a phrase is wider than its box. */
 :lang(ja) :is(h1, h2) {
   letter-spacing: 0;
   line-height: 1.25;
 }
-:lang(ja) :is(h1, h2, h3, .lead) {
-  word-break: auto-phrase;
+.phrases {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+:lang(ja) :is(h1, h2, h3) {
+  text-wrap: balance;
 }
 .wrap {
   width: min(1160px, calc(100% - 64px));
@@ -688,6 +694,11 @@ code {
     gap: 12px;
     margin: 0;
   }
+  /* Japanese is set full width, so a headline needs a smaller size to keep
+     a phrase such as 1 プロジェクトなら on one line. */
+  :lang(ja) :is(.page > h1, .chores-hero h1) {
+    font-size: clamp(32px, 9vw, 44px);
+  }
   .header > .button {
     margin-left: auto;
   }
@@ -874,7 +885,6 @@ code {
 :lang(ja) .chore-line {
   letter-spacing: 0;
   line-height: 1.55;
-  word-break: auto-phrase;
 }
 .chore-meta {
   display: flex;
