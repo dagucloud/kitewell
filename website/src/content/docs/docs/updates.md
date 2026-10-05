@@ -2,48 +2,82 @@
 title: Updates
 ---
 
-Kitewell has two separate update flows: the application and its Dagu engine.
+Two things update, on their own schedules. The Kitewell app updates when you
+ask it to. The workflow engine underneath it updates by itself, at night, when
+nothing is running.
 
-## Update the application
+## Update the Kitewell app
 
-Choose **Check for Updates…**: on macOS in the application menu or the menu
-bar menu, on Windows in the tray menu. When an update is available,
-**Download and Install** downloads the matching installer and checks its
-SHA256 checksum before anything runs.
+1. Open the Kitewell menu: on a Mac, the Kitewell menu in the menu bar at the
+   top of the screen, or the application menu; on Windows, right-click the
+   Kitewell icon in the tray.
+2. Choose **Check for Updates…**. If you already have the newest version,
+   Kitewell says so and stops there.
+3. When there is a new version, Kitewell names it and asks. Choose **Download
+   and Install**.
 
-- On macOS, it then opens macOS Installer.
-- On Windows, it then runs the installer on its own: Kitewell asks about
-  unsaved changes and exits, and the installer replaces it, restarts its
-  service, and opens the new version.
+Kitewell downloads the installer for your system and checks its SHA256
+fingerprint before anything runs. Then:
 
-Save edits and let workflows finish before installing. Installation restarts
-Kitewell and its service; runs in progress keep going, but unsaved drafts are
-lost. Back up important workspace data first.
+- On a Mac, the macOS installer opens. Follow it.
+- On Windows, the installer runs on its own. Kitewell asks about unsaved
+  changes, closes, and the installer replaces the app and opens the new
+  version.
 
-Public builds read their update feed from
-`https://kitewell.app/updates/macos/latest.json` on macOS and
-`https://kitewell.app/updates/windows/latest.json` on Windows. Until the
-first public release for a system, its feed is not available. An unavailable
-feed is an update-check failure, not proof that the installed app is current.
+Save your edits and let running workflows finish first. Installing restarts
+Kitewell and its background service. Runs already in progress carry on, and
+the engine that comes back finds them, but unsaved drafts in the editor are
+lost.
 
 ## Update the workflow engine
 
-Dagu updates are managed separately in **Device settings → Updates**. New
-installations update the engine automatically at 03:00 local time; change the
-**Update hour** or turn off **Automatic engine updates** there. **Check for
-updates** and **Install update** update it by hand. Kitewell installs the
-latest stable Dagu release after checking its SHA256 checksum, keeps a copy of
-the engine's data during the update, and restores it if the update fails.
+Kitewell keeps a workflow engine of its own, called Dagu, and looks after it
+for you. Open **This device → Device settings** and find **Updates**.
 
-An engine update waits until no project has a run running, queued, or
-waiting; automatic updates try again every 15 minutes. Updating Dagu does not
-replace the Kitewell application.
+![The Updates section of Device settings, with automatic engine updates on and the update hour set to 03:00](../../../assets/docs/en/engine-updates.png)
 
-## Recover from a problem
+- **Automatic engine updates** is on from the start. Kitewell checks once a
+  day and installs a new engine when nothing is running.
+- **Update hour** is when it tries. It starts at 03:00, in this device's own
+  time.
+- **Check for updates** looks now. **Install update** appears when there is
+  one, and installs it.
 
-Report the app version, engine version, and operating system version with the error.
-The sidebar shows the app version, the top bar shows the app and engine
-versions, and **About Kitewell** shows the app version.
-Older published installers remain on the [GitHub releases page](https://github.com/dagucloud/kitewell/releases).
-Installing an older app does not itself restore older workspace data; use a
-suitable backup when recovery requires restoring data.
+An update waits until no project has a workflow running, queued, or waiting.
+If something is busy, Kitewell tries again every 15 minutes. Before it
+switches engines it keeps a copy of their data, and puts the copy back if the
+new engine does not start. Updating the engine does not change the Kitewell
+app, and updating the app does not change the engine.
+
+## If something goes wrong
+
+- The check fails. Check your network and the
+  [release status](/releases/). Until the first public release for your
+  system, there is no update feed to read, and a check that cannot reach one
+  says so rather than claiming you are up to date.
+- The fingerprint does not match, or the installer will not verify. Stop, and
+  [report it](/support/). Do not work around it.
+- You need to go back a version. Older installers stay on the
+  [GitHub releases page](https://github.com/dagucloud/kitewell/releases).
+  Installing an older app does not bring back older data; restore a
+  [backup](/docs/backups/) for that.
+
+When you report a problem, include the Kitewell version, the engine version,
+and your operating system version. The sidebar shows the Kitewell version at
+the bottom left. The pill in the top bar shows the Kitewell version and the
+engine version together. On a Mac, **About Kitewell** in the application menu
+shows the Kitewell version; on Windows, the top of the tray menu shows the app
+and service versions.
+
+## Details
+
+- Public builds read their update feed from
+  `https://kitewell.app/updates/macos/latest.json` on a Mac and
+  `https://kitewell.app/updates/windows/latest.json` on Windows.
+- Checking and downloading leave workflows running. Only installing restarts
+  anything.
+- On Windows, stopping the service for an update does not reach the runs under
+  it: each run has a process group of its own, outside the one that ends with
+  the service. Only **Quit Kitewell** cancels runs.
+- The engine Kitewell installs is the latest stable Dagu release, verified by
+  its SHA256 fingerprint before it is used.

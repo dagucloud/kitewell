@@ -2,136 +2,163 @@
 title: Share workflows with your team
 ---
 
-Build a workflow once and share its project with another device, teammate, or
-team in your organization. Each device can run its own copy with its own
-credentials. Teammates can also use MCP or REST clients to work with workflows
-on one shared host. To keep every copy the same as it changes, [sync the
-project with Dagu Cloud](/docs/cloud-sync/) instead.
+Build a routine once and hand the whole project to a colleague, or to your own
+second computer. They get the workflows, the names of the settings those
+workflows need, and nothing of yours that should stay put: no passwords, no
+run history, no mailbox sign-ins.
 
-## Send a project to another device
+To keep every copy the same as the workflows change, [sync the project with
+Dagu Cloud](/docs/cloud-sync/) instead. An export is a snapshot, and it stops
+being current the moment you edit something.
 
-1. Open the project selector and choose **Manage projects**.
-2. Choose **Export** beside the project. Kitewell downloads a `.tgz` project
-   archive.
-3. Share the file through your team's chosen channel.
-4. On the receiving device, open **Manage projects → Import project** and select
-   the archive. If that project name already exists, choose another name.
-5. Review the setup needs shown after import, open the project, and configure
-   that device's credentials and tools.
+## Send a project to another computer
 
-Import creates a new project; it does not replace an existing one. It counts
-against that device's project limit: one on Free, up to ten on Personal, and
-up to 15 on Team. A project with more workflows than the plan holds (10 on
-Free, 100 on Personal and Team) cannot be imported.
+1. Open the project selector at the top of the sidebar and choose **Manage**.
+2. In **Manage projects**, choose **Export** beside the project. Kitewell
+   downloads one file: `kitewell-project-harbor-supply-20261005T091500.tgz`,
+   with the project's name and the time in it.
+3. Send the file however your team sends files.
+4. On the receiving computer, open **Manage projects**, choose
+   **Import project**, and pick the file.
+5. Kitewell says "This device has to supply the rest" and lists what is
+   missing: each secret that needs a value, a mailbox to connect, a machine
+   whose host key nobody has approved yet, a custom command, and the
+   workflows that arrived paused. Choose **Open** and work down that list.
 
-## What travels with a project
+![Manage projects, with Export beside the project and Import project below](../../../assets/docs/en/project-sharing.png)
 
-The archive includes workflow definitions and schedules, named agents and
-models, imported OpenAPI specifications and API connection settings, server
-addresses and groups, queues, image registry definitions, batch sheets, secret
-names and descriptions, project workflow defaults, the project's
-[knowledge](/docs/knowledge/), and which release the project last took. API connections retain their secret references; the
-imported project lists each secret as **Value needed** until you set its value
-on the receiving device.
+Importing always makes a new project; it never replaces one you have. If a
+project of that name is already there, Kitewell asks for another name.
 
-The receiving device supplies its own:
+The new project counts against that computer's limit: one project on the free
+plan, up to ten on Kitewell Personal, and up to 15 on Team. A project with
+more workflows than the plan holds — 10 on the free plan, 100 on Personal and
+Team — cannot be imported at all. The file
+itself may be up to 16 MiB.
 
-- Managed secret values and registry passwords.
-- SSH private key paths and approved host keys.
-- Custom agent commands, installed tools, and agent sign-ins.
-- External scripts, input files, and Docker-mounted data.
+## What travels, and what does not
 
-Run history, logs, artifacts, releases, local edit history, project alert
-rules, failure-diagnosis settings, website sign-ins, device settings, and
-Kitewell client API keys are not part of a project export. The archive is unencrypted. Credentials entered directly
-into workflow commands, OpenAPI specifications, source URLs, or other project
-configuration are not removed automatically. Review those fields before
-sharing the archive.
+The file holds the project as a set of plain documents:
 
-## Choose where schedules run
+- workflow definitions, with their schedules;
+- named agents and models;
+- imported OpenAPI documents and their API connection settings;
+- server addresses and server groups, queues, and image registries;
+- batch sheets;
+- the names and descriptions of secrets, but never their values;
+- the project's workflow defaults and its
+  [knowledge](/docs/knowledge/);
+- which release the project last took.
 
-Imported workflows arrive paused. Run a manual check, then enable saved
-schedules only for the workflows this device should run.
+The receiving computer supplies the rest itself:
 
-If two devices enable the same schedule, both run it independently. For a team
-routine that should run once, choose one execution host and leave the other
-copies' schedules paused. That host must remain running and available at the
-scheduled time. See [Schedules and background operation](/docs/scheduling/).
+- secret values and registry passwords;
+- SSH private key paths and approved host keys;
+- custom agent commands, installed tools, and agent sign-ins;
+- mailbox connections;
+- external scripts, input files, and data mounted into Docker.
 
-## Keep a shared definition in version control
+Left out entirely: run history, logs, artifacts, releases, the local edit
+history, project alert rules, failure-diagnosis settings, website sign-ins,
+device settings, and this computer's API keys.
 
-Project definitions are ordinary JSON and YAML files. A team can review and
-version them in its own Git repository. Kitewell does not push, pull, or merge
-that repository for you.
+:::caution
+The file is not encrypted. Anything typed straight into a workflow command, an
+OpenAPI document, a server address, or another project setting travels as
+written. Read those fields before you send the file, and keep credentials in
+[secrets](/docs/secrets/) so they stay behind.
+:::
 
-Each project's portable files are under Kitewell's data folder
-(`~/Library/Application Support/Kitewell` on macOS, `%LOCALAPPDATA%\Kitewell`
-on Windows):
+## Decide which computer runs the schedules
+
+Imported workflows arrive paused, on purpose. Run one by hand first, check
+what it did, then turn on the schedules this computer should keep.
+
+Two computers that both enable the same schedule both run it, independently.
+For a routine that must happen once, pick one computer to run it and leave the
+other copies paused. That computer has to be on and awake at the time. See
+[Schedules and background operation](/docs/scheduling/).
+
+## Let a teammate drive the workflows on one computer
+
+Sometimes the work should stay on one machine and your colleagues just need to
+start it, watch it, or change it. Give each of them a key instead of a copy of
+the project.
+
+1. On that computer, open **This device → MCP**.
+2. Choose **Connect an AI agent** and make one key per person or per client,
+   with the **Permission** their role needs: **Read only** to look,
+   **Run workflows** to start work, **Edit and run** to change workflows.
+3. Limit each key to the projects that person needs, under
+   **Allowed projects**.
+
+They then use any MCP client, or plain HTTP requests, against that computer.
+The free plan holds one API key or connected app in total; Kitewell Personal
+and Team hold any number. Every run still happens as that computer's own user, so a key
+limits which projects a person reaches, not what a workflow may do once it
+runs. The optional sign-in on the app itself is separate; these keys do not
+create logins for it.
+
+A client on another computer needs an address it can reach over HTTPS, which
+you set up. See [MCP and API access](/docs/mcp/) for that and for the
+permissions in full.
+
+## Keep the definitions in version control
+
+A project's documents are ordinary JSON and YAML files, so a team can review
+and version them in its own Git repository. Kitewell does not push, pull, or
+merge that repository for you.
+
+The files sit under Kitewell's data folder, which is
+`~/Library/Application Support/Kitewell` on a Mac and
+`%LOCALAPPDATA%\Kitewell` on Windows.
 
 ```text
 data/workspace/project-<id>/
   project.json
   workflows/
   batch-sets/
+  knowledge/
   agents/  apis/  queues/  registries/  secrets/  server-groups/  servers/
   releases/
 ```
 
-`project.json` holds the project name, description, and workflow defaults;
-`workflows` holds its workflow files, `batch-sets` its batch sheets,
-`releases` its releases, and each other folder one JSON file per agent, API,
-queue, registry, secret name, server group, or server. Version the whole `project-<id>` folder. Use the project name inside `project.json` to identify
-the right directory. Preserve the existing file structure and document IDs
-when applying updates to that project.
+`project.json` holds the project's name, description, workflow defaults, and
+the release it last took. `workflows` holds one YAML file per workflow,
+`batch-sets` one file per batch sheet, `knowledge` one per knowledge page,
+`releases` one per release, and each remaining folder one JSON file per
+agent, API connection, queue, registry, secret name, server group, or server.
+Version the whole `project-<id>` folder; find the right one by the name inside
+its `project.json`. Keep the file layout and the document IDs as they are.
 
-Quit Kitewell before replacing files or applying changes from version control,
-resolve conflicts, then reopen it and review the project before running it.
-Quitting interrupts runs in progress, so wait for them to finish. Do not manage
-a [synced project](/docs/cloud-sync/) this way; its files follow Dagu Cloud.
+Quit Kitewell before you replace files or apply changes from the repository,
+resolve the conflicts, then open it again and look over the project before
+running anything. Quitting interrupts runs in progress, so wait for them to
+finish first. Do not manage a [synced project](/docs/cloud-sync/) this way:
+Kitewell owns those files and replaces them when a change arrives from Dagu
+Cloud.
 
-Share this project's portable files rather than the entire Kitewell data
-folder: device credentials, secrets, and execution data belong to each host.
-New recipients can use **Import project** to start from a reviewed export.
-
-A project export is a snapshot. Changes made after sharing do not automatically
-appear on other devices; distribute a new export, update the versioned files
-through your team's process, or [sync the project](/docs/cloud-sync/).
-
-## Work together on one host
-
-For workflows that should run on a single team machine, create a separate
-API key for each client under **This device → MCP**; the free plan holds one
-API key or connected app in total, Kitewell Personal and Team any number. Choose **Read only**,
-**Run workflows**, or **Edit and run** for each client's role. Teammates use
-compatible MCP or REST clients to inspect, run, or edit workflows on that host.
-
-Limit each key to the projects its client needs; a key cannot reach projects
-outside its list. Every workflow still runs as the host's user, so project
-limits are not an operating-system sandbox. The local graphical interface and
-its optional login are managed by the host's owner; these API keys do not
-create individual GUI accounts.
-
-Remote clients require a reachable HTTPS endpoint and your own secure network
-configuration. Kitewell does not supply a hosted execution machine. See
-[MCP and API access](/docs/mcp/) for connection and permission details.
+Share this one folder rather than the whole data folder. Device credentials,
+secret values, and run data belong to each computer. Someone new is better
+served by **Import project** and a reviewed export.
 
 ## Export a robot ledger
 
-Many teams keep a robot ledger: a row for each automation saying what it
-does, what it reaches, and who looks after it. On the **Workflows** page,
-**Export ledger** downloads one as an Excel workbook (.xlsx): a row for each
-workflow, with its columns in the order of the robot management items that
-FISC (the Center for Financial Industry Information Systems) lists.
+Many teams keep a robot ledger: one row per automation, saying what it does,
+what it reaches, and who looks after it. On the **Workflows** page,
+**Export ledger** downloads one as an Excel workbook, one row per workflow,
+with the columns in the order the Center for Financial Industry Information
+Systems (FISC) lists a robot's management items.
 
-Kitewell fills in what it knows from each workflow's definition and its
+Kitewell fills in what it can read from each workflow and its
 [knowledge](/docs/knowledge/), without asking a model:
+**Robot name** and **Robot ID**, **Run cycle** and **Status**,
+**Follow-on conditions** for the workflows it starts, **Business description**,
+**Input and output data** for the workbooks it opens, **Connected systems**
+for the sites, APIs, servers, mailboxes, and models it reaches, and
+**Documents**, which carries its knowledge pages in full.
 
-- its name and ID, its schedule, and whether it is on;
-- the workflows it starts, and its description;
-- the workbooks it opens, and the sites, APIs, servers, mailboxes, and models
-  it reaches;
-- its knowledge pages, in full.
-
-Owner, contractor, error handling, business importance, customer impact, and
-legal and regulatory impact are left empty for you to fill in. Column names
+Six columns are left empty for you to fill in: **Manager in charge**,
+**Contractor**, **Error handling policy**, **Business importance**,
+**Customer impact**, and **Legal and regulatory impact**. The column names
 follow the language Kitewell is shown in.

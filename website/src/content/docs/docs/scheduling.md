@@ -2,94 +2,168 @@
 title: Schedules and background operation
 ---
 
-## Choose a schedule
+Kitewell can start a workflow for you — every weekday at nine, once an hour,
+or the moment another service sends it a request — so nobody has to remember
+to. The work happens on this computer, while it is on and you are signed in.
 
-In the workflow editor, **Schedule** offers manual, daily, weekday, weekly,
-hourly, and custom schedules. Check the timezone, save your changes, and
-confirm **Enable saved schedules** is enabled.
+## What has to be true
 
-To start a workflow when another service sends a request instead, turn on its
-[webhook](/docs/webhooks/) in the same view.
+- **The computer is awake and you are signed in.** Kitewell does not wake a
+  sleeping computer, and a machine that is off, asleep, or logged out cannot
+  run anything at its scheduled time.
+- **Kitewell is running.** Closing the window is fine: it keeps running in the
+  menu bar on a Mac and in the notification area on Windows.
+
+## Set a schedule
+
+1. Open the workflow and choose **Schedule**.
+2. Make sure **Enable saved schedules** is ticked. Without it the workflow
+   runs only when you start it yourself.
+3. Under **Run**, choose how often: **Manually**, **Every day**, **Weekdays**,
+   **Every week**, **Every hour**, or **Custom schedule**.
+4. Set the time. A daily, weekday or weekly schedule asks for it in **At**; a
+   weekly one also asks **On** which day; an hourly one asks
+   **Minutes past the hour**; a custom one takes a **Cron expression** of five
+   fields — minute, hour, day, month, weekday.
+5. Open **Timezone** if the time belongs to a particular place, and type a
+   zone such as `Asia/Tokyo`. Left alone, the schedule follows this
+   computer's own clock, including its daylight saving changes.
+6. Choose **Save**. The schedule starts applying from then on.
+
+![The Schedule tab of a workflow, with the saved-schedule switch, the weekday schedule and its time](../../../assets/docs/en/scheduling-schedule-tab.png)
+
+**Next 5 scheduled events** below the form shows when the workflow would
+actually run, so you can check a schedule before trusting it. The project's
+**Overview** gathers the same thing for every workflow under **Coming up**.
+
+A workflow can have more than one schedule, and can be told to stop or restart
+at a time as well: **Additional schedules** holds those.
+
+To take one workflow out of the rota without changing it, use
+**Pause schedule** on the **Workflows** list; its status becomes **Paused**
+and **Resume schedule** brings it back. A project downloaded from a workspace
+arrives with its workflows paused, so nothing starts running on this computer
+until you say so.
 
 ## Keep Kitewell running
 
-On macOS:
+On a Mac, closing the window, or **Keep Running in Menu Bar** (⌘Q), hides the
+window and leaves the service and the project engines running.
+**Open Kitewell** brings the window back. **Quit Kitewell** stops everything;
+if runs are in progress it warns you first, and then interrupts them.
 
-- Closing the window or choosing **Keep Running in Menu Bar** (⌘Q) hides the
-  window while the service and project engines continue running.
-- **Open Kitewell** restores the interface.
-- **Quit Kitewell** stops the service and project engines. When runs are in
-  progress, it warns first and then interrupts them. Save drafts and let
-  active workflows finish first.
-- **Start at login** opens Kitewell in the menu bar when you sign in.
+On Windows, closing the window hides it and Kitewell stays in the notification
+area. Click the icon, or choose **Open Kitewell** in its menu, to bring the
+window back. **Quit Kitewell** behaves as it does on a Mac.
 
-On Windows:
+**Start at login** opens Kitewell when you sign in to the computer. Both menus
+also list the projects, so you can start and stop each one on its own.
+Switching projects in the window does not stop any other project's schedules.
 
-- Closing the window hides it while the service and project engines continue
-  running; Kitewell stays in the tray (the notification area).
-- Left-click the tray icon, or choose **Open Kitewell** in its menu, to
-  restore the interface.
-- **Quit Kitewell** stops the service and project engines. When runs are in
-  progress, it warns first and then interrupts them. Save drafts and let
-  active workflows finish first.
-- **Start at login** opens Kitewell in the tray when you sign in.
+These menu items are in English on both systems, whatever language the rest of
+Kitewell is set to.
 
-The menu bar menu and the tray menu list projects with individual Start and
-Stop controls. Switching projects in the interface does not stop other
-projects' schedules.
+## Sleep, and the runs that were missed
 
-## Sleep, logout, and missed runs
+A computer that goes to sleep stops running workflows. Two settings help:
 
-The computer must be awake and your user logged in. Kitewell does not wake a
-sleeping computer. A powered-off, sleeping, or logged-out machine cannot run work at the
-scheduled time. **Device settings → Sleep protection**, or **Keep awake while
-workflows run** in the menu bar menu on macOS or the tray menu on Windows,
-keeps the computer from idle sleep while work is running; it is off by default.
+- **Device settings → Sleep protection → Prevent idle sleep during active runs**
+  keeps the computer awake while work is actually running. It is off to begin
+  with. **Keep awake while workflows run** in the menu bar or
+  notification-area menu is the same switch. Neither wakes the computer for a
+  schedule that has not started, and neither stops sleep you ask for by
+  closing the lid.
+- Catch-up runs the starts that were missed once the computer is back. By
+  default Kitewell looks back 24 hours and runs every missed start.
 
-By default, schedules missed in the previous 24 hours run after the computer
-wakes. Change it for a project under **Project settings → Workflow defaults**,
-or for one workflow under **Schedule → Missed schedules**:
+Change catch-up for one workflow under **Schedule → Missed schedules**:
 
-- look back up to 30 days;
-- run every missed occurrence, only the latest, or skip while a run is active;
-- up to 1,000 missed starts per workflow are kept.
+- **Catch up missed schedules**: **Follow the project default**, **Off**, or
+  **Custom lookback**.
+- **Lookback window**: how far back to look, up to 30 days.
+- **Missed schedule policy**: **Run every missed occurrence**,
+  **Run only the latest missed occurrence**, or
+  **Skip while a run is active**.
 
-**Device settings → Workflow defaults** only sets the starting values for new
-projects. Verify the behaviour with your own schedule rather than assuming
-every missed run is replayed after the computer wakes.
+**Project settings → Workflow defaults** sets the same thing for a whole
+project, and **Device settings → Workflow defaults** sets the starting values
+for new projects only.
 
-With Kitewell Personal or Team, a [missed-schedule alert](/docs/alerts/) says how many
-scheduled runs did not start, and why.
+With Kitewell Personal or Team, a [missed-schedule alert](/docs/alerts/) tells you how many
+scheduled runs did not start and why — the computer was asleep, Kitewell was
+not running, and so on.
+
+## Start a workflow from another service
+
+A workflow can also start when another service sends it a request: GitHub
+when an issue opens, Stripe after a payment, a form when someone submits it,
+Zapier for the apps it connects. Turn on the workflow's **Webhook** in the
+same **Schedule** view, beside the schedule. [Start a workflow from a
+webhook](/docs/webhooks/) walks through it and says what a request carries.
 
 ## Queues
 
-Queues limit how many runs go at once. Every project has a **default** queue
-that runs 5 at a time; change it, or add queues, under **More → Queues**. A
-workflow chooses its queue in its settings, and a queue the project does not
-define admits one run at a time.
+Queues stop everything starting at once. Every project has a **default** queue
+that runs 5 at a time; change it, or add your own, under **More → Queues**
+with **Simultaneous runs**. A workflow picks its queue in its **Settings**.
 
-A queue paces manual starts, catch-up runs, retries, and
-[batch](/docs/batches/) rows: each waits for a free slot. A run its schedule
-starts on time is not held back. A batch sheet has a schedule of its own, set
-on the sheet, separate from its workflow's. **Runs & logs** shows how many runs each
-queue is running and how many are waiting, and lets you remove waiting runs.
+A queue paces manual starts, catch-up runs, retries, webhook runs and
+[batch](/docs/batches/) rows: each waits for a free slot. A run that its
+schedule starts on time is not held back. **Runs & logs** shows what each
+queue is running and what is waiting.
 
-## Run history
+## Before you leave it running alone
 
-Kitewell keeps run history for 30 days by default. Change it under **Device
-settings → Run history retention → Keep run history for**. Older runs are
-removed once a day, for every workflow. See [Runs and logs](/docs/runs/) to
-delete runs yourself.
+A scheduled run has nobody watching it, so check what each step needs first:
 
-## Task requirements
+- A command runs with the permissions of whoever is running Kitewell.
+- A Docker step needs Docker running.
+- An AI step needs its model or agent set up on this device.
+- A step on another machine needs that machine reachable and its host key
+  accepted.
+- A [website step](/docs/browser/) needs Chrome and a successful
+  **Check the browser**.
+- A run that needs a secret with no value on this device fails at the start.
 
-A command runs with the permissions of the user running Kitewell. Docker tasks need a running
-Docker daemon. AI tasks need their configured tool or provider. Remote tasks
-need a reachable server and accepted SSH host key. [Website
-steps](/docs/browser/) need Chrome, a successful **Check the browser**, and
-usually a hidden browser window. A run that needs a secret without a value on
-this device fails at start. Test those prerequisites before scheduling
-unattended work.
+Test each of those by hand before you leave the work to a schedule.
 
-Workflows imported or downloaded from elsewhere arrive paused; the
-**Overview** asks you to enable the ones this device should run.
+## If something goes wrong
+
+- **The time came and nothing ran.** Check the computer was awake and signed
+  in, that Kitewell was running, and that **Enable saved schedules** is ticked
+  and the workflow is not **Paused**.
+- **It ran at the wrong time.** Check **Timezone** on the schedule, and the
+  times under **Next 5 scheduled events**, which follow that zone and its
+  daylight saving changes.
+- **Several runs started at once after the computer woke.** That is catch-up.
+  Set **Missed schedule policy** to **Run only the latest missed occurrence**,
+  or turn catch-up **Off**.
+- **The webhook address never appears.** Kitewell is still asking its relay.
+  Check this device is signed in and online.
+
+More in [Troubleshooting](/docs/troubleshooting/).
+
+## Details
+
+- Run history is kept for 30 days to begin with, under
+  **Device settings → Run history retention**. See
+  [Runs and logs](/docs/runs/).
+- Catch-up looks back 24 hours by default, at most 30 days, and at most 1,000
+  missed starts are kept per workflow.
+- The default queue runs 5 at a time; a queue a project does not define admits
+  one run at a time.
+- A webhook address looks like `https://hooks.kitewell.app/…`. A request must
+  be a POST; the reply is `202` and says nothing about the run.
+- A step reads the request's body from `$WEBHOOK_PAYLOAD` and its headers from
+  `$WEBHOOK_HEADERS`, as environment variables. Authorization, cookie and
+  routing headers are stripped before the request reaches the run.
+- A webhook accepts about 60 requests a minute, a body up to 512 KiB, and
+  headers up to 16 KiB. The last 20 requests are kept in **Recent requests**.
+  Kitewell does not check a sender's signature.
+- On Windows, a request body over roughly 32,000 characters may not start a
+  run at all, because of a limit on how long a command line may be. Ask the
+  sending service for a smaller payload where you can.
+- The menu bar and notification-area items — **Keep Running in Menu Bar**,
+  **Open Kitewell**, **Quit Kitewell**, **Start at login**,
+  **Keep awake while workflows run** — are English on every system.
+  **Keep Running in Menu Bar** is a Mac item only.
