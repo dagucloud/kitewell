@@ -12,8 +12,8 @@ project stays on its device until you choose to sync it.
 
 Nothing reaches Dagu Cloud until you sync a project. Without an account,
 Kitewell never contacts Dagu Cloud. Signed in, a device only checks its plan
-and reports its Kitewell version; it sends no workflows, settings, run history,
-logs, or secrets. Syncing sends only the projects you choose, and never their
+and reports its Kitewell version and its own ID and name; it sends no
+workflows, settings, run history, logs, or secrets. Syncing sends only the projects you choose, and never their
 secret values.
 
 A synced project carries what a [project export](/docs/sharing/) carries:
