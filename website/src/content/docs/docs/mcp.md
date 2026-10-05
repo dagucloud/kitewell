@@ -14,7 +14,8 @@ available for scripts and other integrations.
 3. Use the endpoint and connection information shown in Kitewell. The default
    local MCP endpoint is `http://127.0.0.1:19742/mcp`.
 4. Configure the client to send the key as a Bearer credential. The client must
-   support custom Bearer credentials; OAuth sign-in is not included.
+   support custom Bearer credentials; OAuth sign-in is only for
+   [ChatGPT and Claude](#connect-chatgpt-or-claude).
 
 Each key reaches only the projects you allow: selected projects, or all
 current and future projects. A key limited to selected projects does not gain
@@ -23,8 +24,76 @@ selected `projectId` with project-specific MCP calls or REST requests. A key
 that reaches exactly one project can omit the ID; a key that reaches several
 must name one.
 
-The free plan issues one API key; Kitewell Pro issues any number. A key issued
-earlier keeps working if Pro lapses, and revoking a key makes room for another.
+The free plan holds one API key or connected app in total; Kitewell Pro holds
+any number. A key or app added earlier keeps working if Pro lapses, and
+revoking one makes room for another.
+
+## Connect ChatGPT or Claude
+
+ChatGPT and Claude, on the web, desktop, and mobile, reach Kitewell on your
+computer through `https://mcp.kitewell.app/mcp`. Your computer checks every
+call against the app's permission and projects, as it does for a key. This
+needs a Dagu Cloud account, with Kitewell on the computer
+[signed in](/docs/cloud-sync/#sign-in) to it.
+
+1. In Kitewell, open **This device → MCP** and choose **Connect ChatGPT** or
+   **Connect Claude**. This turns on remote access and shows the URL with the
+   steps for that app.
+2. Add Kitewell to the app as a custom connector with that URL, as described
+   below.
+3. The app opens Dagu Cloud (console.dagu.sh). Sign in with the account
+   Kitewell is signed in to.
+4. On the consent page, pick the computer, the permission (**Read only**,
+   **Run jobs**, or **Edit and run**), and the projects, then allow it.
+
+The app then appears under **Connected apps** in **This device → MCP**, with
+its permission, projects, and last use. Change its permission there, or
+revoke it; the change applies to its next call. Turning off **Remote access**
+closes the connection; connected apps stay listed and work again when it is
+back on.
+
+### Claude
+
+1. Open **Customize → Connectors**, choose **+ Add**, then **Add custom
+   connector**.
+2. Name it Kitewell, paste the URL, and choose **Continue**. Keep the
+   suggested sign-in settings and choose **Add**.
+3. Sign in and allow access.
+
+On Team and Enterprise plans, an owner first adds the connector under
+**Organization settings → Connectors**; members then choose **Connect** on it.
+Claude's Free plan allows one custom connector.
+
+### ChatGPT
+
+ChatGPT connects on the web, with a Plus, Pro, Business, Enterprise, or Edu
+plan.
+
+1. Open **Settings → Security and login** and turn on **Developer mode**.
+2. Open **Plugins**, choose **+**, paste the URL, and choose **OAuth**.
+3. Sign in and allow access.
+4. In a chat, pick Kitewell from the composer's **Developer mode** tool.
+
+### What the computer needs
+
+The computer must be on, awake, and running Kitewell. Otherwise the app still
+lists Kitewell's tools, but every call answers that Kitewell on that computer
+is not reachable. Open Kitewell on that computer and try again.
+
+## MCP Events
+
+ChatGPT can subscribe to events and receive a signed webhook when one happens:
+
+- `run.finished`: a run finished. It can name one `runId`, or the statuses to
+  report.
+- `run.needs_input`: a run waits at an approval, a human task, or a question.
+- `batch.finished`: a [batch](/docs/batches/) of a sheet's rows finished.
+- `schedule.missed`: a scheduled run was missed.
+
+Subscriptions appear under their app in **Connected apps**, with the last
+delivery, and **Remove** deletes one. Kitewell on your computer finds the
+events and sends them, so they arrive only while it is running. MCP Events are
+part of Kitewell Pro, like [alerts](/docs/alerts/).
 
 ## What a client can do
 
@@ -90,12 +159,13 @@ reading their values. It does not expose API catalog management or secret admini
 Start with the least access that supports the task. Read access inspects
 workflows and history. Run access can trigger work. Edit access can change
 workflow definitions, including commands that execute as the user running Kitewell.
-Revoke a key in Kitewell when it is no longer needed.
+Revoke a key or connected app in Kitewell when it is no longer needed.
 
 ## Remote clients
 
-The listener defaults to loopback. A remote client needs a reachable HTTPS
-endpoint and a secure network configuration that you operate. Keep the
+The listener defaults to loopback. ChatGPT and Claude reach it through
+Kitewell's relay, as described above. Any other remote client needs a
+reachable HTTPS endpoint and a secure network configuration that you operate. Keep the
 administrative interface on localhost. Do not publish an unprotected HTTP
 listener to the Internet.
 
