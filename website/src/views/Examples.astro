@@ -2,6 +2,7 @@
 import Site from "../layouts/Site.astro";
 import ChoreList from "../components/ChoreList.astro";
 import Clip from "../components/Clip.astro";
+import Planner from "../components/Planner.astro";
 import { chores } from "../lib/chores.mjs";
 interface Props {
   locale: "en" | "ja";
@@ -15,6 +16,7 @@ const text = {
     eyebrow: "Log in. Download. Copy. Paste. Send.",
     heading: "What do you still do by hand?",
     lead: "Describe the chore, or find it below. Each one runs on your own computer, with your apps and your sign-ins, and stops for your OK where it matters.",
+    planner: "Describe yours",
     everyone: "Chores you might recognize",
     code: "If you write code",
     honest: "Every chore here is backed by a workflow that uses only steps Kitewell has.",
@@ -26,6 +28,7 @@ const text = {
     eyebrow: "ログイン。ダウンロード。コピー。貼り付け。送信。",
     heading: "まだ、手でやっていますか。",
     lead: "作業を書くか、下から探してください。どれも、あなたのコンピューターで、あなたのアプリとサインインのまま動き、大事なところではあなたの OK を待ちます。",
+    planner: "あなたの作業を書く",
     everyone: "見覚えのある作業",
     code: "コードを書く人へ",
     honest: "ここにある作業はどれも、Kitewell にあるステップだけを使うワークフローに裏付けられています。",
@@ -45,6 +48,7 @@ const text = {
         <Clip locale={locale} name="busywork" label={text.eyebrow} />
       </figure>
     </div>
+    <Planner locale={locale} id="describe" heading={text.planner} />
 
     <section class="chore-group" aria-labelledby="group-everyone">
       <h2 id="group-everyone">{text.everyone}</h2>

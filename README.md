@@ -63,9 +63,11 @@ on x64. Linux support is planned. No installers have been published yet.
 
 ![Completed daily report workflow with the report visible in the selected step's output](website/public/images/workflow-run.jpg)
 
-Start from a complete [example](https://kitewell.app/examples/): an inbox
-digest, invoices from email into a ledger, a nightly dependency update with
-approval, a price watch, desktop-app entry, and more.
+See [the chores Kitewell takes over](https://kitewell.app/examples/): invoices
+from a supplier's portal into an accounting app with no API, an Excel order
+list placed row by row, a morning inbox digest, a nightly dependency update
+that waits for approval, and more. Or describe your own chore there and see,
+step by step, how Kitewell would run it.
 
 ## Pricing
 

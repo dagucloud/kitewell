@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes stay on your device.
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 
 Descarty, Inc. ("Descarty", "we") publishes Kitewell. This policy explains what
@@ -234,6 +234,12 @@ and stores an identifier in your browser to do so. It does not record your
 screen or keystrokes. Cloudflare may keep request logs for security and
 operations.
 
+On the Examples pages you can describe a chore to see a sketch of how
+Kitewell would run it. What you type is sent through the website to Anthropic,
+which drafts the sketch under its commercial terms. We do not store it, and it
+is not added to the visit statistics. Cloudflare may check that the request
+comes from a person.
+
 ## 9. Support
 
 Public GitHub issues are visible to anyone. Do not include secrets or private
@@ -251,7 +257,8 @@ provide it to third parties except with your consent or as required by law.
 ## 11. Services outside Japan
 
 PostHog, Inc., Cloudflare, Inc. (which hosts the website and Kitewell's
-relay), and GitHub, Inc. are companies in the United States and process
+relay), Anthropic, PBC (which drafts the chore sketches on the website), and
+GitHub, Inc. are companies in the United States and process
 information on servers there. Information on the personal information
 protection system of the United States is published by the
 [Personal Information Protection Commission of Japan](https://www.ppc.go.jp/).
