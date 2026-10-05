@@ -55,7 +55,7 @@ order_id,amount_usd
 1003,450.00
 ```
 
-Choose **Create a job**, name it **Daily sales report**, and open
+Choose **Create a workflow**, name it **Daily sales report**, and open
 **Tools → Edit YAML**. Replace the contents with this workflow.
 Change `working_dir` to the absolute path of your `daily-report` folder.
 

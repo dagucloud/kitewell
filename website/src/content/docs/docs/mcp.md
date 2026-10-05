@@ -9,7 +9,7 @@ available for scripts and other integrations.
 
 1. Open **This device → MCP**.
 2. Choose **Connect an AI agent**, name the client, and pick its permission
-   (**Read only**, **Run jobs**, or **Edit and run**), the projects it can
+   (**Read only**, **Run workflows**, or **Edit and run**), the projects it can
    reach, and an optional expiry.
 3. Use the endpoint and connection information shown in Kitewell. The default
    local MCP endpoint is `http://127.0.0.1:19742/mcp`.
@@ -38,8 +38,8 @@ needs a Dagu Cloud account, with Kitewell on the computer
 
 1. In Kitewell, open **This device → MCP** and choose **Connect ChatGPT** or
    **Connect Claude**.
-2. Choose what the app may do: the permission (**Read only**, **Run jobs**, or
-   **Edit and run**) and the projects. Then choose **Save and show the steps**.
+2. Choose what the app may do: the permission (**Read only**, **Run workflows**,
+   or **Edit and run**) and the projects. Then choose **Save and show the steps**.
    This turns on remote access and shows the URL with the steps for that app.
    Kitewell keeps the choice for the next time you connect the same app.
 3. Add Kitewell to the app as a custom connector with that URL, as described
@@ -129,7 +129,7 @@ read-only connection never sees a tool that writes:
 | Permission | Tools it lists |
 | --- | --- |
 | **Read only** | `read`, `show` |
-| **Run jobs** | `read`, `show`, `execute` |
+| **Run workflows** | `read`, `show`, `execute` |
 | **Edit and run** | `read`, `show`, `preview_api`, `change`, `execute` |
 
 A call its permission does not allow, such as one from a tool list the client
@@ -141,7 +141,7 @@ the permission.
   imported APIs, [batch sheets](/docs/batches/) with their values, and the
   project's [knowledge](/docs/knowledge/). A failed run carries its
   [failure diagnosis](/docs/ai/#failure-diagnosis) when there is one.
-  Previewing which steps a rerun can reuse (**Run jobs**) and checking a
+  Previewing which steps a rerun can reuse (**Run workflows**) and checking a
   workflow's YAML without saving it (**Edit and run**) are reads too. It
   changes nothing and reaches nothing outside your computer. Call it with
   `target: "reference"` for the usage guide.

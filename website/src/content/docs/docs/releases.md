@@ -10,8 +10,8 @@ settings. Several projects on one device need Kitewell Pro.
 
 ## Cut a release
 
-1. Open **Jobs** in the project you work in. The line above the list shows the
-   newest release and how many workflows changed since.
+1. Open **Workflows** in the project you work in. The line above the list shows
+   the newest release and how many workflows changed since.
 2. Choose **Release…**, **Compare** the changes, give the release a title,
    and add **Notes (optional)**.
 3. Kitewell creates the next number, such as **v13**: a frozen copy of the
@@ -57,8 +57,8 @@ on each of its devices from **Secrets** or the Overview.
 
 ## See what runs where
 
-A project that took a release shows its source and number above its jobs, such
-as **From Dev v13**, and each workflow shows the release it came from. This
+A project that took a release shows its source and number above its workflows,
+such as **From Dev v13**, and each workflow shows the release it came from. This
 works on every device that syncs the project. If someone edits a workflow there
 afterwards, it is marked **edited here**. The next release keeps that edit by
 default when the release did not change the same workflow; if it did, the

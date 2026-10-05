@@ -41,8 +41,8 @@ device.
 This example looks up an order on a shop's website and passes its status to
 the next step.
 
-1. Create a job and add **Automate a website** from the task picker. Give the
-   step an ID such as `order`, so later steps can read what it collects.
+1. Create a workflow and add **Automate a website** from the task picker. Give
+   the step an ID such as `order`, so later steps can read what it collects.
 2. Choose the **Model**, and set **Start page (optional)** to the page to begin
    on, such as `https://shop.example.com/orders`.
 3. Under **Values the browser types**, add `order`, set to the order number:

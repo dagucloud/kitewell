@@ -65,7 +65,7 @@ This example finds unread email in a support inbox, creates a ticket for
 each through an imported API, and marks each email read once its ticket
 exists.
 
-1. Create a job and add **Find emails** from the task picker. Choose the
+1. Create a workflow and add **Find emails** from the task picker. Choose the
    mailbox, keep **Folder** on Inbox and **Unread only** on, and give the step
    an ID such as `find`. Choose **Test** to see the matching emails.
 2. Turn on **For each email**. Kitewell adds a loop over what the step found,

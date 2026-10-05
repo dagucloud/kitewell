@@ -38,7 +38,7 @@ order_id,amount_usd
 1003,450.00
 ```
 
-**ジョブを作成** を選び、名前を **Daily sales report** にして、**ツール → YAML を編集** を開きます。内容を次のワークフローに置き換え、`working_dir` を `daily-report` フォルダーの絶対パスに変更します。
+**ワークフローを作成** を選び、名前を **Daily sales report** にして、**ツール → YAML を編集** を開きます。内容を次のワークフローに置き換え、`working_dir` を `daily-report` フォルダーの絶対パスに変更します。
 
 [ワークフローの YAML](/examples/daily-report.yaml) をダウンロードすることもできます。
 

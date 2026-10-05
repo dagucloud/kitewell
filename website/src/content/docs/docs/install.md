@@ -63,7 +63,7 @@ command-line AI agents, or other tools only when a workflow uses them.
 
 ## Update an existing installation
 
-Save edits and let active jobs finish before installing. Workspace data and
+Save edits and let active workflows finish before installing. Workspace data and
 the start-at-login preference are preserved, and runs already in progress
 keep going.
 

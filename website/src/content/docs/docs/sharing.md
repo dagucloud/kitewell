@@ -102,7 +102,7 @@ through your team's process, or [sync the project](/docs/cloud-sync/).
 For workflows that should run on a single team machine, create a separate
 API key for each client under **This device → MCP**; the free plan holds one
 API key or connected app in total, Kitewell Pro any number. Choose **Read only**,
-**Run jobs**, or **Edit and run** for each client's role. Teammates use
+**Run workflows**, or **Edit and run** for each client's role. Teammates use
 compatible MCP or REST clients to inspect, run, or edit workflows on that host.
 
 Limit each key to the projects its client needs; a key cannot reach projects
@@ -118,7 +118,7 @@ configuration. Kitewell does not supply a hosted execution machine. See
 ## Export a robot ledger
 
 Many teams keep a robot ledger: a row for each automation saying what it
-does, what it reaches, and who looks after it. On the **Jobs** page,
+does, what it reaches, and who looks after it. On the **Workflows** page,
 **Export ledger** downloads one as an Excel workbook (.xlsx): a row for each
 workflow, with its columns in the order of the robot management items that
 FISC (the Center for Financial Industry Information Systems) lists.

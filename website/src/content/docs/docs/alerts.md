@@ -39,8 +39,8 @@ Rules decide which events reach which channels:
    **Fails**, **Needs input**, **Misses a schedule**, and **Finishes a batch**
    to this device.
 2. **Project settings → Notifications** gives one project its own rules.
-3. The bell on a workflow, in its editor or the **Jobs** list, mutes it for an
-   hour, a day, a week, or until unmuted, gives it rules of its own, or sets
+3. The bell on a workflow, in its editor or the **Workflows** list, mutes it for
+   an hour, a day, a week, or until unmuted, gives it rules of its own, or sets
    when its runs count as long. These changes apply at once and do not change
    the workflow's definition.
 
@@ -76,7 +76,7 @@ are the alerts that later end.
 Alerts name the project, workflow, and failed step, with an exit code or time
 limit when that was the cause. They leave out step output and run parameters.
 Links open the run in Kitewell on the computer running it; missed-schedule
-alerts open the project's **Jobs** page, and batch alerts open the sheet.
+alerts open the project's **Workflows** page, and batch alerts open the sheet.
 
 Alerts are sent by the background service while the computer is awake. An
 alert that cannot be delivered is retried for up to a day. Kitewell does not

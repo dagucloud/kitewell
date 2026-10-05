@@ -45,8 +45,8 @@ what robotic process automation (RPA) tools do:
 This example opens a spreadsheet app, finds a client's latest invoice, and
 passes its number to the next step.
 
-1. Create a job and add **Automate a desktop app** from the task picker. Give
-   the step an ID such as `copy`.
+1. Create a workflow and add **Automate a desktop app** from the task picker.
+   Give the step an ID such as `copy`.
 2. Choose the **Model**.
 3. Under **Values the step types**, add `client`, set to the client's name:
    typed text, a workflow input, or a secret.

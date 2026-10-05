@@ -5,13 +5,13 @@ title: Your first workflow
 This guide creates a local command workflow. It does not contact an external
 service or require an AI account.
 
-## Create a job
+## Create a workflow
 
 1. Open Kitewell. On first launch, choose **Start on this device** to create
    your project; afterwards, choose the project in the sidebar. The first time
    you open a project, a short tour shows where things are; **?** in the top
    bar shows it again.
-2. Choose **Create a job** and enter **Morning check-in** as the workflow
+2. Choose **Create a workflow** and enter **Morning check-in** as the workflow
    name.
 3. A new workflow offers to describe it to the assistant or to start from an
    example. This guide builds it by hand: pick **Run a command or script** for

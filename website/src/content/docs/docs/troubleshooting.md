@@ -9,7 +9,7 @@ absolute executable paths, set a working folder, and provide required
 variables explicitly. Check whether the command needs an interactive prompt
 or a credential stored only in the shell session.
 
-## A scheduled job did not run
+## A scheduled workflow did not run
 
 Confirm the saved schedule is enabled, its timezone is correct, the project
 engine is running, and the computer was awake with your user logged in. Check

@@ -16,7 +16,7 @@ SHA256 checksum before anything runs.
   unsaved changes and exits, and the installer replaces it, restarts its
   service, and opens the new version.
 
-Save edits and let jobs finish before installing. Installation restarts
+Save edits and let workflows finish before installing. Installation restarts
 Kitewell and its service; runs in progress keep going, but unsaved drafts are
 lost. Back up important workspace data first.
 
