@@ -196,7 +196,7 @@ terms and privacy policy.
 
 You can give a workflow a webhook URL at `https://hooks.kitewell.app`, so that
 services you choose start it by sending a request. This requires a Dagu Cloud
-account and Kitewell Pro, and stays off until you turn it on for a workflow.
+account and Kitewell Personal or Team, and stays off until you turn it on for a workflow.
 
 **What the relay stores.** Each request reaches Kitewell's relay, the Cloudflare
 Worker described in section 5, with its body and headers. Cookies,

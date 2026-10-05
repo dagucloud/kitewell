@@ -140,7 +140,7 @@ MCP → Connected apps**; the change applies to its next call.
   MCP** to show **Online**, and choose **Try again**.
 - **The free plan holds one API key or connected app**: this computer
   already has one. Revoke it under **This device → MCP**, or subscribe to
-  Kitewell Pro, then connect again.
+  Kitewell Personal or Team, then connect again.
 
 ### ChatGPT only uses read tools
 

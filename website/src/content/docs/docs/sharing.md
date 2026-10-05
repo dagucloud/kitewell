@@ -20,9 +20,9 @@ project with Dagu Cloud](/docs/cloud-sync/) instead.
    that device's credentials and tools.
 
 Import creates a new project; it does not replace an existing one. It counts
-against that device's project limit: one on Free, up to ten on Pro. A project
-with more workflows than the plan holds (10 on Free, 100 on Pro) cannot be
-imported.
+against that device's project limit: one on Free, up to ten on Personal, and
+up to 30 on Team. A project with more workflows than the plan holds (10 on
+Free, 100 on Personal and Team) cannot be imported.
 
 ## What travels with a project
 
@@ -101,7 +101,7 @@ through your team's process, or [sync the project](/docs/cloud-sync/).
 
 For workflows that should run on a single team machine, create a separate
 API key for each client under **This device → MCP**; the free plan holds one
-API key or connected app in total, Kitewell Pro any number. Choose **Read only**,
+API key or connected app in total, Kitewell Personal and Team any number. Choose **Read only**,
 **Run workflows**, or **Edit and run** for each client's role. Teammates use
 compatible MCP or REST clients to inspect, run, or edit workflows on that host.
 

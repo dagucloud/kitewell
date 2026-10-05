@@ -86,7 +86,7 @@ ChatGPT や Claude を、`https://mcp.kitewell.app/mcp` を通じてお使いの
 
 ## 6. Webhook
 
-ワークフローに `https://hooks.kitewell.app` の Webhook の URL を設定し、お客様が選んだサービスからのリクエストでワークフローを開始できます。Dagu Cloud のアカウントと Kitewell Pro が必要で、ワークフローごとにオンにするまでは使われません。
+ワークフローに `https://hooks.kitewell.app` の Webhook の URL を設定し、お客様が選んだサービスからのリクエストでワークフローを開始できます。Dagu Cloud のアカウントと Kitewell Personal または Team が必要で、ワークフローごとにオンにするまでは使われません。
 
 **リレーが保存するもの**　各リクエストは、本文とヘッダーとともに、第 5 項で説明した Cloudflare Worker である Kitewell のリレーに届きます。Cookie、`Authorization`、Cloudflare が追加するヘッダーは取り除かれます。リレーは、端末が受け取るまでリクエストを保存し、受け取られた時点で削除します。端末が 7 日以内に受け取らなかったリクエストも削除します。Webhook ごとに保存するのは、URL の秘密の部分のハッシュだけです。端末のほかのデータと同じく、端末との最後の通信から 30 日後にすべて削除されます。
 

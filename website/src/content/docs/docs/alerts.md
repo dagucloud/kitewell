@@ -3,7 +3,8 @@ title: Alerts
 ---
 
 Alerts tell you when a workflow needs attention, so you do not have to keep
-Kitewell open to find out. They are part of Kitewell Pro. On the free plan,
+Kitewell open to find out. They are part of Kitewell Personal and Team. On the
+free plan,
 **Notifications** offers the upgrade instead.
 
 ## Add channels

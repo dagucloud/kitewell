@@ -44,10 +44,11 @@ logs. None of these reach Dagu Cloud either.
 
 A device syncs with one workspace, shown as **Workspace** in **Device
 settings**. Each person can connect up to three devices to a workspace;
-connecting a fourth disconnects their oldest. A free account syncs one
-project. Kitewell Pro syncs up to ten projects per team, each with up to 100
-workflows; syncing a project the plan has no room for is refused and says
-why. Synced projects count toward the workspace's plan, not the device's
+connecting a fourth disconnects their oldest. A Kitewell Team workspace holds
+up to 20 devices in all; once it has 20, connecting another is refused until
+one is disconnected. A free account syncs one project. Kitewell Personal syncs
+up to ten projects and Kitewell Team up to 30, each with up to 100 workflows;
+syncing a project the plan has no room for is refused and says why. Synced projects count toward the workspace's plan, not the device's
 project limit.
 
 ## Sync a project
@@ -73,7 +74,7 @@ If an upload is cut short, the project shows **Upload incomplete**; choose
 
 Kitewell takes changes made elsewhere when it starts, when you open the
 project, and when you open a workflow to edit it, asking Dagu Cloud at most
-once a minute. On Kitewell Pro, a device also checks on its own about every
+once a minute. On Personal and Team, a device also checks on its own about every
 five minutes, so a device that runs workflows unattended takes a new version
 without anyone opening it.
 
@@ -104,17 +105,17 @@ or applying releases, and declaring secrets.
 
 ## Work as a team
 
-A team shares synced projects under Kitewell Pro, which costs $25 per person
-per month for up to 10 people; a larger team takes
-[Enterprise](/pricing/#enterprise). The team's owner pays for every seat;
-members need no subscription of their own.
+A team shares synced projects under Kitewell Team, which costs $199 a month
+for the workspace and holds up to 10 people; a larger team takes
+[Enterprise](/pricing/#enterprise). The team's owner pays for the workspace;
+members need no subscription of their own. Kitewell Personal is for one person
+and cannot invite anyone.
 
 The owner manages the team on the **Kitewell** page in Dagu Cloud:
 
-- **Invite** a person by email. The invitation holds a seat until it is
-  accepted, revoked, or expires after seven days. The person signs in to Dagu
-  Cloud with that email address to accept it.
-- **Seats** sets how many people the subscription pays for.
+- **Invite** a person by email. The invitation counts toward the 10 people
+  until it is accepted, revoked, or expires after seven days. The person signs
+  in to Dagu Cloud with that email address to accept it.
 - **Synced projects** lists every project the team syncs, and gives each member
   a role on each project:
   - **Viewer** reads and downloads the project.

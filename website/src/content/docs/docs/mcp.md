@@ -24,8 +24,9 @@ selected `projectId` with project-specific MCP calls or REST requests. A key
 that reaches exactly one project can omit the ID; a key that reaches several
 must name one.
 
-The free plan holds one API key or connected app in total; Kitewell Pro holds
-any number. A key or app added earlier keeps working if Pro lapses, and
+The free plan holds one API key or connected app in total; Kitewell Personal
+and Team hold any number. A key or app added earlier keeps working if the paid
+plan lapses, and
 revoking one makes room for another.
 
 ## Connect ChatGPT or Claude
@@ -117,7 +118,7 @@ ChatGPT can subscribe to events and receive a signed webhook when one happens:
 Subscriptions appear under their app in **Connected apps**, with the last
 delivery, and **Remove** deletes one. Kitewell on your computer finds the
 events and sends them, so they arrive only while it is running. MCP Events are
-part of Kitewell Pro, like [alerts](/docs/alerts/).
+part of Kitewell Personal and Team, like [alerts](/docs/alerts/).
 
 ## What a client can do
 

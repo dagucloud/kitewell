@@ -58,7 +58,7 @@ or for one workflow under **Schedule → Missed schedules**:
 projects. Verify the behaviour with your own schedule rather than assuming
 every missed run is replayed after the computer wakes.
 
-With Kitewell Pro, a [missed-schedule alert](/docs/alerts/) says how many
+With Kitewell Personal or Team, a [missed-schedule alert](/docs/alerts/) says how many
 scheduled runs did not start, and why.
 
 ## Queues

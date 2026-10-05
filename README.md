@@ -70,10 +70,11 @@ approval, a price watch, desktop-app entry, and more.
 ## Pricing
 
 Free for one project with up to 10 workflows and one API key or connected app
-(ChatGPT or Claude), with no Kitewell account required for local use. Pro
-supports up to ten projects of 100 workflows each, any number of API keys and
-connected apps, alerts, MCP Events, and team sync for $25 per person per month
-(USD).
+(ChatGPT or Claude), with no Kitewell account required for local use.
+Personal, for one person, supports up to ten projects of 100 workflows each,
+any number of API keys and connected apps, alerts, MCP Events, and webhooks for
+$25 per month. Team adds up to 10 people, 30 projects, 20 devices, and team
+sync for $199 per month for the workspace (USD).
 These are planned launch prices; see
 [Pricing](https://kitewell.app/pricing/).
 

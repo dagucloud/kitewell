@@ -6,7 +6,7 @@ Run each environment as its own project, such as **Dev**, **Staging**, and
 **Prod**. Build and test in Dev, then cut a **release** and apply it to the next
 project. Each project keeps its own servers, models, API connections, queues,
 and secret values, so the same workflow runs against each environment's own
-settings. Several projects on one device need Kitewell Pro.
+settings. Several projects on one device need Kitewell Personal or Team.
 
 ## Cut a release
 

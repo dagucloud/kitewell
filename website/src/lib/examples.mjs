@@ -299,7 +299,7 @@ steps:
         ["Save the digest", "Written to reviews/<date>.md and shown in the run."],
       ],
       prompt: "Every weekday at 9:00, have my Claude Code agent list the open pull requests in this repo with gh, review each diff, and write a Markdown digest ordered by risk. Save it under reviews/ with today's date.",
-      note: "On Pro, add an alert so the digest reaches you by email or Slack when the run finishes.",
+      note: "On Personal or Team, add an alert so the digest reaches you by email or Slack when the run finishes.",
     },
     ja: {
       title: "オープンなプルリクエストの日次ダイジェスト",
@@ -311,7 +311,7 @@ steps:
         ["ダイジェストを保存する", "reviews/<日付>.md に書き込み、実行に表示します。"],
       ],
       prompt: "平日の 9:00 に、私の Claude Code エージェントに、このリポジトリのオープンなプルリクエストを gh で一覧し、各差分をレビューして、リスク順の Markdown ダイジェストを書かせてください。今日の日付で reviews/ に保存してください。",
-      note: "Pro では、実行が終わったときにメールや Slack でダイジェストを受け取るアラートを追加できます。",
+      note: "Personal または Team では、実行が終わったときにメールや Slack でダイジェストを受け取るアラートを追加できます。",
     },
   },
   {

@@ -45,6 +45,8 @@ Your remaining data is in `~/Library/Application Support/Kitewell` on macOS
 and `%LOCALAPPDATA%\Kitewell` on Windows. Keep it to reinstall later. If the
 device synced projects with [Dagu Cloud](/docs/cloud-sync/), they stay there,
 and the device keeps one of your three places in the workspace until a fourth
-device replaces it. If you want to remove it permanently, first copy any
+device replaces it. On Kitewell Team it also counts toward the workspace's 20
+devices; disconnect it on the **Kitewell** page in Dagu Cloud to free the
+place. If you want to remove it permanently, first copy any
 needed backups and external files, then remove that folder using Finder or
 File Explorer.

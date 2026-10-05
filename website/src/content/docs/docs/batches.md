@@ -270,7 +270,7 @@ compressed once the month is over and removed after a year.
 
 ## Alerts, the assistant, and MCP
 
-- With Kitewell Pro, the **Finishes a batch** [alert](/docs/alerts/) tells
+- With Kitewell Personal or Team, the **Finishes a batch** [alert](/docs/alerts/) tells
   you once every row of a launch has finished and its values were read: how
   many did not succeed and what changed by column, such as "Price: 9 dropped,
   3 rose", and, when the rows were refreshed first, how many are new, back in
