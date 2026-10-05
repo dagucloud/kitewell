@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://kitewell.app/#film">
     <img src="website/public/videos/kitewell-launch.webp" width="720"
-      alt="What if you only had to explain it once? Open the 84-second Kitewell film.">
+      alt="What if you never had to do them again? Open the 84-second Kitewell film.">
   </a>
 </p>
 

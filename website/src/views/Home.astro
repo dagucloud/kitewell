@@ -103,7 +103,7 @@ const text = {
         "Log in. Download. Copy. Paste. Send. Every week, the same clicks.",
         "A pointer races through one Monday: signing in to a supplier portal, downloading invoices, copying a total from a PDF, pasting it into an old desktop accounting app, and sending a summary. The camera pulls back on a whole year of the same weekdays until everything stops.",
       ],
-      ["What if you only had to explain it once?", "The question on a blank page."],
+      ["What if you never had to do them again?", "The question on a blank page."],
       [
         "Just tell Kitewell what you do, in plain words. It lays out every step, for you to check.",
         "The request goes to Kitewell's assistant: “Every weekday at 9, collect new invoices from the Harbor Supply portal, enter them in Ledger, and email me a summary.” It proposes a workflow with a preview of its steps. Applied, it opens in the editor: weekdays at 9:00, collect the new invoices from the website, enter them in Ledger with an approval, save them, and email a summary. Each website step is an instruction in plain words.",
@@ -121,8 +121,8 @@ const text = {
         "A sheet in Kitewell linked to orders.xlsx runs the reorder workflow once per row, each row turning to Succeeded with its receipt number. Then the workbook itself: the Receipt No, Run at, and Status columns fill in beside every order.",
       ],
       [
-        "It learns the clicks once. After that, it repeats them every weekday — without paying for AI each time.",
-        "A week of runs: on Monday a model learns the clicks in 4 minutes 12 seconds; Tuesday to Friday replay them without AI in under a minute.",
+        "It learns the clicks once, then repeats them every weekday — and relearns them if a page changes.",
+        "A week of runs: on Monday a model learns the clicks in 4 minutes 12 seconds, and the other days replay them in under a minute, except Thursday, when the portal's page changed and the model relearned three clicks.",
       ],
       [
         "Prefer code? It's plain YAML underneath. Run scripts, containers, and coding agents like Claude Code and Codex. Or build it all from your own agent, over MCP.",
@@ -238,7 +238,7 @@ const text = {
         "ログイン。ダウンロード。コピー。貼り付け。送信。毎週、同じクリックの繰り返し。",
         "ポインターが月曜の雑務を駆け抜けます。仕入れ先のポータルにログインし、請求書をダウンロードし、PDF の金額をコピーして古い会計アプリに貼り付け、まとめをメールで送信。カメラが引くと、同じ平日が 1 年分並び、すべてが止まります。",
       ],
-      ["説明は、一度だけでいいとしたら？", "白いページに問いが浮かびます。"],
+      ["もう二度と、やらなくていいとしたら？", "白いページに問いが浮かびます。"],
       [
         "いつもの作業を、ふだんの言葉で、Kitewell に伝えるだけ。すべての手順が並ぶので、ひと目で確かめられます。",
         "Kitewell のアシスタントに「平日の朝 9 時に、みなと資材のポータルから新しい請求書を集めて台帳に入力し、概要をメールで送って」と頼みます。アシスタントは手順のプレビュー付きでワークフローを提案し、適用するとエディターで開きます。平日 9:00 に、Web サイトから新しい請求書を集め、承認を挟んで台帳に入力し、保存し、概要をメールで送る。Web の各ステップは、ふだんの言葉で書かれた指示です。",
@@ -256,8 +256,8 @@ const text = {
         "発注一覧.xlsx にリンクした Kitewell のシートが、発注のワークフローを 1 行に 1 回ずつ実行し、各行が受付番号とともに「成功」に変わります。続いてブックそのものに、受付番号、実行日時、状態の列が注文ごとに書き込まれます。",
       ],
       [
-        "クリックを覚えるのは、一度だけ。あとは毎平日、AI の費用をかけずに繰り返します。",
-        "1 週間の実行。月曜はモデルが 4 分 12 秒でクリックを覚え、火曜から金曜は AI なしで 1 分足らずで再生します。",
+        "クリックを覚えるのは一度だけ。あとは毎平日繰り返し、画面が変わったら覚え直します。",
+        "1 週間の実行。月曜はモデルが 4 分 12 秒でクリックを覚え、ほかの日は 1 分足らずで再生します。ポータルの画面が変わった木曜だけ、モデルが 3 クリックを覚え直します。",
       ],
       [
         "コード派なら、中身は読める YAML。スクリプトも、コンテナーも、Claude Code や Codex も動かせます。MCP で、あなたのエージェントに組ませることも。",

@@ -6,8 +6,8 @@ Log in. Download. Copy. Paste. Send.
 00:00:07.000 --> 00:00:09.697
 Every week, the same clicks.
 
-00:00:11.350 --> 00:00:14.047
-What if you only had to explain it once?
+00:00:11.350 --> 00:00:13.834
+What if you never had to do them again?
 
 00:00:15.100 --> 00:00:18.117
 Just tell Kitewell what you do, in plain words.
@@ -33,11 +33,11 @@ Got a list in Excel?
 00:00:46.950 --> 00:00:50.871
 It runs for every row, and writes each result back beside it.
 
-00:00:50.950 --> 00:00:52.660
-It learns the clicks once.
+00:00:50.950 --> 00:00:54.330
+It learns the clicks once, then repeats them every weekday —
 
-00:00:52.710 --> 00:00:57.487
-After that, it repeats them every weekday — without paying for AI each time.
+00:00:54.430 --> 00:00:56.910
+and relearns them if a page changes.
 
 00:00:57.860 --> 00:01:00.810
 Prefer code? It's plain YAML underneath.
