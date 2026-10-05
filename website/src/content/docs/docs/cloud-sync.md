@@ -47,7 +47,7 @@ settings**. Each person can connect up to three devices to a workspace;
 connecting a fourth disconnects their oldest. A Kitewell Team workspace holds
 up to 20 devices in all; once it has 20, connecting another is refused until
 one is disconnected. A free account syncs one project. Kitewell Personal syncs
-up to ten projects and Kitewell Team up to 30, each with up to 100 workflows;
+up to ten projects and Kitewell Team up to 15, each with up to 100 workflows;
 syncing a project the plan has no room for is refused and says why. Synced projects count toward the workspace's plan, not the device's
 project limit.
 

@@ -21,7 +21,7 @@ project with Dagu Cloud](/docs/cloud-sync/) instead.
 
 Import creates a new project; it does not replace an existing one. It counts
 against that device's project limit: one on Free, up to ten on Personal, and
-up to 30 on Team. A project with more workflows than the plan holds (10 on
+up to 15 on Team. A project with more workflows than the plan holds (10 on
 Free, 100 on Personal and Team) cannot be imported.
 
 ## What travels with a project
