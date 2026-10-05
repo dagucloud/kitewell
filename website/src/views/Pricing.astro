@@ -28,27 +28,25 @@ const text = {
     per: "/ month · USD",
     personalFor: "For one person, including paid work.",
     personal: [
+      "Every feature in Free",
       "Up to ten projects, 100 workflows each",
       "Any number of API keys and connected apps",
       "Alerts by desktop notification, email, Slack, Microsoft Teams, PagerDuty, or webhook",
       "ChatGPT automations that start when a run finishes or needs you (MCP Events)",
       "Webhooks that start a workflow when GitHub, Stripe, a form, or Zapier sends a request",
       "Sync projects between up to 3 of your own devices through Dagu Cloud",
-      "Every feature in Free",
-      "Dagu Cloud account required for the subscription",
-      "Existing projects and workflows keep running if Personal lapses; alerts, MCP Events, and webhooks stop",
     ],
     teamFor: "For a team of up to 10 people.",
     team: [
-      "One flat price for the workspace, not per person",
+      "Every feature in Personal",
+      "Up to 10 people for one flat price, not per person",
       "Up to 30 projects, 100 workflows each",
       "Up to 20 devices in the workspace, 3 per person",
-      "A team that syncs its projects through Dagu Cloud, with a role for each person on each project; secret values stay on each device",
-      "Every feature in Personal",
-      "Dagu Cloud account required for the subscription",
-      "Existing projects and workflows keep running if Team lapses; alerts, MCP Events, and webhooks stop",
+      "Projects shared through Dagu Cloud, with a role for each person on each project",
+      "Secret values stay on each device",
     ],
-    purchase: "Purchase will be available with the public launch.",
+    paidNote:
+      "Personal and Team need a Dagu Cloud account. If a plan lapses, existing projects and workflows keep running; alerts, MCP Events, and webhooks stop. Purchase will be available with the public launch.",
     enterprise:
       "More than 10 people or 20 devices, invoice billing, or terms of your own? Email us and we'll set it up with you.",
     enterpriseLink: "How an enterprise PoC works",
@@ -78,27 +76,25 @@ const text = {
     per: "/ 月 · USD",
     personalFor: "1 人で使うプラン。仕事にも使えます。",
     personal: [
+      "Free のすべての機能",
       "最大 10 プロジェクト、各 100 ワークフロー",
       "API キーと接続済みのアプリは無制限",
       "デスクトップ通知、メール、Slack、Microsoft Teams、PagerDuty、Webhook によるアラート",
       "実行の終了や、対応が必要になったときに始まる ChatGPT の自動化（MCP Events）",
       "GitHub、Stripe、フォーム、Zapier からのリクエストでワークフローを開始する Webhook",
       "自分のデバイス最大 3 台の間で、Dagu Cloud を通じてプロジェクトを同期",
-      "Free のすべての機能",
-      "サブスクリプションには Dagu Cloud アカウントが必要",
-      "Personal が失効しても既存のプロジェクトとワークフローは動き続けます（アラート、MCP Events、Webhook は停止）",
     ],
     teamFor: "最大 10 人のチームで使うプラン。",
     team: [
-      "人数にかかわらず、ワークスペースごとの定額",
+      "Personal のすべての機能",
+      "最大 10 人まで、人数にかかわらず定額",
       "最大 30 プロジェクト、各 100 ワークフロー",
       "ワークスペースで最大 20 台のデバイス（1 人あたり 3 台まで）",
-      "Dagu Cloud を通じてチームでプロジェクトを同期。プロジェクトごとにメンバーのロールを設定でき、シークレットの値は各デバイスにとどまります",
-      "Personal のすべての機能",
-      "サブスクリプションには Dagu Cloud アカウントが必要",
-      "Team が失効しても既存のプロジェクトとワークフローは動き続けます（アラート、MCP Events、Webhook は停止）",
+      "Dagu Cloud を通じてチームでプロジェクトを共有し、プロジェクトごとにメンバーのロールを設定",
+      "シークレットの値は各デバイスにとどまります",
     ],
-    purchase: "購入は正式リリース時に開始します。",
+    paidNote:
+      "Personal と Team には Dagu Cloud アカウントが必要です。プランが失効しても、既存のプロジェクトとワークフローは動き続けます（アラート、MCP Events、Webhook は停止）。購入は正式リリース時に開始します。",
     enterprise:
       "11 人以上や 21 台以上のデバイスでの利用、請求書払い、個別の契約条件をご希望ですか？メールでご連絡ください。ご要望に合わせてご用意します。",
     enterpriseLink: "法人向け PoC の進め方",
@@ -136,7 +132,6 @@ const text = {
         <ul>
           {text.personal.map((item) => <li>{item}</li>)}
         </ul>
-        <p class="fine">{text.purchase}</p>
       </article>
       <article class="card featured">
         <h2>Team</h2>
@@ -147,19 +142,23 @@ const text = {
         <ul>
           {text.team.map((item) => <li>{item}</li>)}
         </ul>
-        <p class="fine">{text.purchase}</p>
       </article>
     </div>
-    <div class="notice" id="enterprise">
-      <h2>Enterprise</h2>
-      <p>{text.enterprise}</p>
-      <a
-        class="button"
-        href="mailto:company@descarty.com?subject=Kitewell%20Enterprise"
-      >
-        company@descarty.com
-      </a>
-      <a class="button secondary" href={descartyUrl(locale, "/enterprise/")}>{text.enterpriseLink}</a>
+    <p class="fine plans-note">{text.paidNote}</p>
+    <div class="notice enterprise" id="enterprise">
+      <div>
+        <h2>Enterprise</h2>
+        <p>{text.enterprise}</p>
+      </div>
+      <div class="actions">
+        <a
+          class="button"
+          href="mailto:company@descarty.com?subject=Kitewell%20Enterprise"
+        >
+          company@descarty.com
+        </a>
+        <a class="button secondary" href={descartyUrl(locale, "/enterprise/")}>{text.enterpriseLink}</a>
+      </div>
     </div>
     <div class="prose">
       <h2>{text.costs}</h2>
