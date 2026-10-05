@@ -4,7 +4,6 @@ import Artifact from "../components/Artifact.astro";
 import ChoreList from "../components/ChoreList.astro";
 import Clip from "../components/Clip.astro";
 import Moment from "../components/Moment.astro";
-import Planner from "../components/Planner.astro";
 import RunCard from "../components/RunCard.astro";
 import { localize } from "../lib/i18n.mjs";
 import { choreBySlug, needsFor } from "../lib/chores.mjs";
@@ -29,7 +28,6 @@ const text = {
     needs: "What it needs",
     awake: "Your computer needs to be on and awake when it runs. A run missed while it slept starts when it wakes, within 24 hours by default.",
     film: "Watch the whole film →",
-    planner: "Not quite your chore? Describe yours.",
     more: "More chores",
   },
   ja: {
@@ -44,7 +42,6 @@ const text = {
     needs: "必要なもの",
     awake: "実行の時刻には、コンピューターが起動していて、スリープしていない必要があります。スリープ中に逃した実行は、起きたときに始まります（既定では 24 時間以内のもの）。",
     film: "フィルム全編を見る →",
-    planner: "ぴったりの作業がない？ あなたの作業を書いてください。",
     more: "ほかの作業",
   },
 }[locale];
@@ -138,7 +135,6 @@ const good = chore.scheduled ? [...copy.good, text.awake] : copy.good;
       </p>
     )}
 
-    <Planner locale={locale} id="describe" heading={text.planner} />
 
     <section class="chore-group" aria-labelledby="more">
       <h2 id="more">{text.more}</h2>

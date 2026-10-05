@@ -66,8 +66,7 @@ on x64. Linux support is planned. No installers have been published yet.
 See [the chores Kitewell takes over](https://kitewell.app/examples/): invoices
 from a supplier's portal into an accounting app with no API, an Excel order
 list placed row by row, a morning inbox digest, a nightly dependency update
-that waits for approval, and more. Or describe your own chore there and see,
-step by step, how Kitewell would run it.
+that waits for approval, and more.
 
 ## Pricing
 

@@ -779,24 +779,6 @@ code {
 }
 
 /* Chores: the Examples pages */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-button.button {
-  font: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-button.button:disabled {
-  opacity: 0.6;
-  cursor: progress;
-}
 .kind-icon {
   width: 16px;
   height: 16px;
@@ -911,142 +893,6 @@ button.button:disabled {
   font-weight: 600;
 }
 
-/* Describe your chore */
-.planner {
-  max-width: 900px;
-  margin: 8px 0 0;
-  padding: 28px 30px 26px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow:
-    0 1px 0 rgba(24, 62, 53, 0.03),
-    0 22px 60px -38px rgba(24, 62, 53, 0.45);
-}
-.planner h2 {
-  font-size: 28px;
-  letter-spacing: -0.03em;
-}
-.planner-lead {
-  margin-top: 6px;
-  color: var(--muted);
-}
-.planner textarea {
-  display: block;
-  width: 100%;
-  min-height: 112px;
-  margin-top: 16px;
-  padding: 16px 18px;
-  font: inherit;
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--ink);
-  background: var(--paper);
-  border: 1px solid #cfd8cc;
-  border-radius: 10px;
-  resize: vertical;
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s,
-    background 0.2s;
-}
-.planner textarea::placeholder {
-  color: #87948b;
-}
-.planner textarea:focus {
-  outline: none;
-  background: #fff;
-  border-color: #77985e;
-  box-shadow: 0 0 0 4px #e8eedf;
-}
-.planner .cf-turnstile {
-  margin-top: 12px;
-}
-.planner-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 20px;
-  margin-top: 14px;
-}
-.planner-actions .fine {
-  max-width: 440px;
-}
-.planner-status {
-  min-height: 1.5em;
-  margin-top: 12px;
-  font-size: 14px;
-  color: var(--muted);
-}
-.planner-status:empty {
-  min-height: 0;
-  margin: 0;
-}
-.planner-status[data-state="working"]::before {
-  content: "";
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 10px;
-  border-radius: 50%;
-  background: #71905b;
-  animation: pulse 1s ease-in-out infinite;
-}
-.planner-status[data-state="error"] {
-  color: #9a3b1f;
-}
-.plan {
-  margin-top: 22px;
-  padding-top: 24px;
-  border-top: 1px dashed #cfd8cc;
-}
-.plan-fit {
-  display: inline-block;
-  padding: 5px 11px;
-  font-size: 11px;
-  font-weight: 650;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--green);
-  background: var(--soft);
-  border-radius: 999px;
-}
-.plan-fit:empty {
-  display: none;
-}
-.plan-fit[data-fit="partly"] {
-  color: #7a5310;
-  background: #f6eedb;
-}
-.plan-fit[data-fit="no"] {
-  color: #8a3b22;
-  background: #f6e6df;
-}
-.plan-title {
-  margin-top: 12px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 28px;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-}
-.plan-when {
-  margin-top: 2px;
-  font-size: 15px;
-  color: var(--muted);
-}
-.plan-note {
-  max-width: 680px;
-  margin-top: 10px;
-}
-.plan-steps {
-  margin: 16px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.plan-steps:empty {
-  display: none;
-}
-.plan-step,
 .run-step {
   display: grid;
   grid-template-columns: 34px minmax(0, 1fr) auto;
@@ -1054,9 +900,6 @@ button.button:disabled {
   align-items: start;
   padding: 14px 0;
   border-bottom: 1px solid var(--line);
-}
-.plan-step {
-  animation: rise 0.45s ease both;
 }
 .run-step:last-child {
   border-bottom: 0;
@@ -1081,66 +924,15 @@ button.button:disabled {
   font-size: 14px;
   color: var(--muted);
 }
-.plan-kind {
-  padding-top: 7px;
-  font-size: 12px;
-  color: var(--muted);
-  white-space: nowrap;
-}
-.run-step-text .plan-you {
-  margin-top: 6px;
-  color: #7a5310;
-}
-.plan-you b {
-  margin-right: 4px;
-  font-weight: 650;
-}
-.plan-tail {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px 32px;
-  margin-top: 26px;
-}
-.plan-moment,
-.plan-sentence,
-.plan-footer {
-  grid-column: 1 / -1;
-}
-.plan-tail h4 {
-  margin: 0 0 9px;
-  font-size: 11px;
-  font-weight: 650;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.plan-fact p,
-.plan-fact li {
-  font-size: 15px;
-}
-.plan-fact ul {
-  margin: 0;
-  padding-left: 18px;
-}
-.plan-sentence .said,
 .said blockquote {
   margin: 0;
   padding: 16px 20px;
-  font-size: 18px;
+  font-size: clamp(18px, 1.8vw, 21px);
   line-height: 1.55;
   color: var(--ink);
   background: #e9f0e0;
   border: 1px solid #d6e2cb;
   border-radius: 16px 16px 16px 4px;
-}
-.plan-footer {
-  padding-top: 16px;
-  font-size: 13px;
-  color: var(--muted);
-  border-top: 1px solid var(--line);
-}
-.plan > .button {
-  margin-top: 18px;
 }
 
 /* The notice a finished chore leaves */
@@ -1323,9 +1115,6 @@ button.button:disabled {
   text-transform: uppercase;
   color: var(--muted);
 }
-.said blockquote {
-  font-size: clamp(18px, 1.8vw, 21px);
-}
 .chore-film {
   margin: 0;
 }
@@ -1389,9 +1178,6 @@ button.button:disabled {
 }
 .chore-credit {
   margin-top: 30px;
-}
-.chore-page .planner {
-  margin-top: 88px;
 }
 
 /* What a chore leaves behind, with sample data */
@@ -1571,17 +1357,6 @@ button.button:disabled {
   background: #c0522e;
 }
 
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-}
-@keyframes pulse {
-  50% {
-    opacity: 0.3;
-  }
-}
 @keyframes settle {
   to {
     opacity: 1;
@@ -1605,8 +1380,7 @@ button.button:disabled {
   .chores-hero,
   .chore-section.with-film,
   .film-pair,
-  .chore-facts,
-  .plan-tail {
+  .chore-facts {
     grid-template-columns: minmax(0, 1fr);
   }
   .chore-section.with-film {
@@ -1632,14 +1406,9 @@ button.button:disabled {
   }
 }
 @media (max-width: 760px) {
-  .planner {
-    padding: 22px 18px 20px;
-  }
-  .plan-step,
   .run-step {
     grid-template-columns: 34px minmax(0, 1fr);
   }
-  .plan-kind,
   .run-step-state {
     grid-column: 2;
     padding-top: 0;
@@ -1657,10 +1426,8 @@ button.button:disabled {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .plan-step,
   .running .run-step-state,
-  .playing .motions span,
-  .planner-status[data-state="working"]::before {
+  .playing .motions span {
     animation: none;
   }
   .run-step-state {
