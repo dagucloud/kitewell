@@ -1,0 +1,98 @@
+---
+// What a chore leaves behind for the person, drawn with sample data: the
+// email that arrives, the rows that fill in, the approval that waits.
+interface Props {
+  locale: "en" | "ja";
+  artifact: any;
+}
+const { locale, artifact: a } = Astro.props;
+const text = {
+  en: { sample: "Sample data", to: "To", me: "you", subject: "Subject" },
+  ja: { sample: "サンプルのデータ", to: "宛先", me: "あなた", subject: "件名" },
+}[locale];
+---
+
+<figure class:list={["artifact", `artifact-${a.type}`]}>
+  {a.type === "mail" && (
+    <div class="artifact-sheet">
+      <dl class="mail-head">
+        <div><dt>{text.to}</dt><dd>{text.me}</dd></div>
+        <div><dt>{text.subject}</dt><dd>{a.subject}</dd></div>
+      </dl>
+      {a.sections.map(([heading, items]: [string, string[]]) => (
+        <section>
+          <h4>{heading}</h4>
+          <ul>{items.map((item) => <li>{item}</li>)}</ul>
+        </section>
+      ))}
+    </div>
+  )}
+
+  {a.type === "table" && (
+    <div class="artifact-sheet">
+      <p class="artifact-name">{a.name}</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>{a.columns.map((column: string) => <th scope="col">{column}</th>)}</tr>
+          </thead>
+          <tbody>
+            {a.rows.map((row: string[]) => (
+              <tr class:list={{ flagged: a.flag && row.includes(a.flag) }}>
+                {row.map((cell) => <td class:list={{ flag: cell === a.flag }}>{cell}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  {a.type === "week" && (
+    <ol class="week">
+      {a.days.map(([day, changed]: [string, boolean]) => (
+        <li class:list={{ changed }}>
+          <strong>{day}</strong>
+          <span>{changed ? a.changed : a.quiet}</span>
+        </li>
+      ))}
+    </ol>
+  )}
+
+  {a.type === "approval" && (
+    <div class="artifact-sheet">
+      <p class="artifact-name">{a.title}</p>
+      <ul class="approval-notes">{a.notes.map((note: string) => <li>{note}</li>)}</ul>
+      <p class="approval-prompt">{a.prompt}</p>
+      <p class="approval-actions" aria-hidden="true">
+        {a.actions.map((action: string, index: number) => (
+          <span class:list={{ primary: index === 0 }}>{action}</span>
+        ))}
+      </p>
+    </div>
+  )}
+
+  {a.type === "doc" && (
+    <div class="artifact-sheet">
+      <p class="artifact-name">{a.name}</p>
+      {a.blocks.map(([heading, lines]: [string, string[]]) => (
+        <section>
+          <h4>{heading}</h4>
+          {lines.map((line) => <p>{line}</p>)}
+        </section>
+      ))}
+    </div>
+  )}
+
+  {a.type === "servers" && (
+    <ol class="servers">
+      {a.hosts.map(([host, state, note]: [string, string, string]) => (
+        <li class={state}>
+          <strong>{host}</strong>
+          <span>{note}</span>
+        </li>
+      ))}
+    </ol>
+  )}
+  <figcaption>{text.sample}</figcaption>
+</figure>

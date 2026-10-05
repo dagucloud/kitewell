@@ -1,0 +1,20 @@
+type: chain
+target: kitewell-group-web
+steps:
+  - id: pull
+    name: Pull the release
+    run: git -C /srv/app pull --ff-only
+    approval:
+      prompt: The release is pulled on this machine. Restart the service?
+  - id: restart
+    name: Restart the service
+    run: sudo systemctl restart app
+  - id: check
+    name: Check it answers
+    run: |
+      for i in 1 2 3 4 5 6; do
+        curl -fsS http://127.0.0.1:8080/healthz && exit 0
+        sleep 5
+      done
+      echo "The service did not answer" >&2
+      exit 1

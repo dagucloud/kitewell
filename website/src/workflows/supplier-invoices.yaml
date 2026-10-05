@@ -1,0 +1,67 @@
+type: graph
+schedule: "0 9 * * 1-5"
+secrets:
+  - name: PORTAL_PASSWORD
+    ref: harbor-supply/password
+llm:
+  model: kitewell-agent-computer
+steps:
+  - id: collect
+    name: Collect new invoices
+    action: browser.run
+    with:
+      url: https://portal.harborsupply.example/billing/invoices
+      variables:
+        password: ${env.PORTAL_PASSWORD}
+      do:
+        - act: If a sign-in form is shown, type ops@example.com into the email field and %password% into the password field, then sign in
+        - expect: The invoice list is shown
+        - extract:
+            instruction: Every invoice issued since the last weekday, with its number, date, item, and amount
+            schema:
+              type: object
+              properties:
+                invoices:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      number: {type: string}
+                      date: {type: string}
+                      item: {type: string}
+                      amount: {type: string}
+      browser:
+        profile: harbor-supply
+  - id: enter
+    name: Enter them in Ledger
+    depends: [collect]
+    action: computer.run
+    with:
+      variables:
+        invoices: ${steps.collect.outputs.invoices}
+      do:
+        - launch: {command: open, args: [-a, Ledger]}
+        - act: For each invoice in %invoices%, add a new bill from Harbor Supply Co. with its number, date, and amount, but do not save
+        - expect: The new bills are listed with their amounts
+        - screenshot: before-save
+    approval:
+      prompt: Save these bills in Ledger? Check the before-save screenshot.
+  - id: save
+    name: Save them in Ledger
+    depends: [enter]
+    action: computer.run
+    with:
+      do:
+        - act: Save the new bills
+        - expect: The bill list shows the new bills as saved
+  - id: summary
+    name: Email me a summary
+    depends: [save]
+    action: mail.send
+    with:
+      mailbox: me@example.com
+      to: me@example.com
+      subject: Invoices entered in Ledger
+      message: |
+        Entered in Ledger today:
+        ${steps.collect.outputs.invoices}

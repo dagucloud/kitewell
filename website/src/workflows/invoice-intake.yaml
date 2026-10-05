@@ -1,0 +1,46 @@
+type: graph
+schedule: "*/30 * * * *"
+working_dir: /absolute/path/to/invoices
+steps:
+  - id: find
+    name: Find unread invoices
+    action: mail.search
+    with:
+      mailbox: billing@example.com
+      unread: true
+      subject: invoice
+      has_attachments: true
+      save_attachments: true
+      limit: 20
+  - id: each
+    name: Record each invoice
+    depends: [find]
+    foreach:
+      items: ${steps.find.outputs.messages}
+      as: email
+      key: ${foreach.email.id}
+      steps:
+        - id: read
+          name: Read the amount
+          action: chat.completion
+          with:
+            model: kitewell-agent-fast
+            system: Answer with one CSV line, "supplier,invoice_number,total,currency", and nothing else.
+            prompt: |
+              From: ${foreach.email.from_address}
+              Subject: ${foreach.email.subject}
+              ${foreach.email.text}
+          output: ROW
+        - id: record
+          name: Append it to the ledger
+          depends: [read]
+          run: printf '%s\n' "$ROW" >> invoices.csv
+        - id: file
+          name: File the email
+          depends: [record]
+          action: mail.organize
+          with:
+            mailbox: billing@example.com
+            emails: ${foreach.email.id}
+            mark: read
+            move: Invoices

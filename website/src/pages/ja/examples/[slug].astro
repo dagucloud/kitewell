@@ -1,11 +1,11 @@
 ---
 import Example from "../../../views/Example.astro";
-import { examples } from "../../../lib/examples.mjs";
+import { chores } from "../../../lib/chores.mjs";
 
 export function getStaticPaths() {
-  return examples.map((example) => ({ params: { slug: example.slug }, props: { example } }));
+  return chores.map((chore) => ({ params: { slug: chore.slug }, props: { chore } }));
 }
-const { example } = Astro.props;
+const { chore } = Astro.props;
 ---
 
-<Example locale="ja" example={example} />
+<Example locale="ja" chore={chore} />

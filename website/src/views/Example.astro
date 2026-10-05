@@ -1,96 +1,164 @@
 ---
 import Site from "../layouts/Site.astro";
+import Artifact from "../components/Artifact.astro";
+import ChoreList from "../components/ChoreList.astro";
+import Clip from "../components/Clip.astro";
+import Moment from "../components/Moment.astro";
+import RunCard from "../components/RunCard.astro";
 import { localize } from "../lib/i18n.mjs";
-import { labelsFor } from "../lib/examples.mjs";
-type Audience = "personal" | "ops" | "dev";
-type Copy = { title: string; summary: string; intro: string; prompt: string; note?: string; steps: string[][] };
+import { choreBySlug, needsFor } from "../lib/chores.mjs";
 interface Props {
   locale: "en" | "ja";
-  example: { slug: string; audience: string; yaml: string; en: Copy; ja: Copy; needs: string[]; docs: string[]; steps: string[] };
+  chore: any;
 }
-const { locale, example } = Astro.props;
-const copy: Copy = example[locale];
-const labels: { needs: string[]; docs: [string, string][] } = labelsFor(example, locale);
+const { locale, chore } = Astro.props;
+const copy = chore[locale];
+const film: Record<string, string> = chore.film ?? {};
+const related = chore.related.map(choreBySlug);
 const text = {
   en: {
-    eyebrow: "Example",
-    steps: "The steps",
+    back: "← All chores",
+    now: "How it goes now",
+    tell: "Tell Kitewell once",
+    you: "You",
+    tellNote: "That's the whole setup. Kitewell lays out every step for you to check, and nothing is saved until you apply it.",
+    run: "Then it runs on its own",
+    after: "What you get instead",
+    good: "Good to know",
     needs: "What it needs",
-    yaml: "The workflow",
-    yamlText:
-      "Create a workflow, open Tools → Edit YAML, and paste this. Then Tools → Check workflow, and Review & run.",
-    ask: "Or ask for it",
-    askText: "Open the assistant with ⌘J (Ctrl+J), or use Claude Code or Codex through MCP, and say:",
-    docs: "Read more",
-    back: "← All examples",
-    audiences: { personal: "For yourself", ops: "For the work of a team", dev: "For developers" },
+    awake: "Your computer needs to be on and awake when it runs. A run missed while it slept starts when it wakes, within 24 hours by default.",
+    film: "Watch the whole film →",
+    more: "More chores",
   },
   ja: {
-    eyebrow: "活用例",
-    steps: "ステップ",
+    back: "← すべての作業",
+    now: "いまのやり方",
+    tell: "Kitewell に一度だけ伝える",
+    you: "あなた",
+    tellNote: "準備はこれだけです。Kitewell がすべての手順を並べるので、確かめてから適用します。適用するまで何も保存されません。",
+    run: "あとは、ひとりでに動く",
+    after: "代わりに届くもの",
+    good: "知っておくこと",
     needs: "必要なもの",
-    yaml: "ワークフロー",
-    yamlText:
-      "ワークフローを作成し、ツール → YAML を編集 を開いて貼り付けます。次に ツール → ワークフローを確認、そして 確認して実行 です。",
-    ask: "または頼む",
-    askText: "⌘J（Ctrl+J）でアシスタントを開くか、MCP で Claude Code や Codex を使って、こう伝えます。",
-    docs: "関連ドキュメント",
-    back: "← 活用例の一覧",
-    audiences: { personal: "自分のために", ops: "チームの業務に", dev: "開発者に" },
+    awake: "実行の時刻には、コンピューターが起動していて、スリープしていない必要があります。スリープ中に逃した実行は、起きたときに始まります（既定では 24 時間以内のもの）。",
+    film: "フィルム全編を見る →",
+    more: "ほかの作業",
   },
 }[locale];
-const to = (path: string) => localize(path, locale);
+const good = chore.scheduled ? [...copy.good, text.awake] : copy.good;
 ---
 
-<Site title={copy.title} description={copy.summary}>
-  <section class="page wrap example-page" data-example={example.slug}>
-    <p class="eyebrow">
-      {text.eyebrow} · {text.audiences[example.audience as Audience]}
-    </p>
-    <h1>{copy.title}</h1>
-    <p class="lead">{copy.summary}</p>
-    <div class="prose">
-      <p>{copy.intro}</p>
-      <h2>{text.steps}</h2>
-      <ol class="example-steps">
-        {copy.steps.map(([name, detail]) => (
-          <li>
-            <strong>{name}</strong>
-            <span>{detail}</span>
-          </li>
-        ))}
-      </ol>
-      <h2>{text.needs}</h2>
-      <ul>
-        {labels.needs.map((need) => (
-          <li>{need}</li>
-        ))}
-      </ul>
-      <h2>{text.yaml}</h2>
-      <p>{text.yamlText}</p>
-      <pre class="example-yaml"><code>{example.yaml}</code></pre>
-      {copy.note && <p class="fine">{copy.note}</p>}
-      <h2>{text.ask}</h2>
-      <p>{text.askText}</p>
-      <blockquote class="example-prompt">{copy.prompt}</blockquote>
-      <h2>{text.docs}</h2>
-      <ul>
-        {labels.docs.map(([href, label]) => (
-          <li>
-            <a href={to(href)}>{label}</a>
-          </li>
-        ))}
-      </ul>
-      <p>
-        <a class="text-link" href={to("/examples/")}>{text.back}</a>
+<Site title={copy.chore} description={copy.sentence}>
+  <article class="wrap chore-page" data-example={chore.slug}>
+    <a class="text-link chore-back" href={localize("/examples/", locale)}>{text.back}</a>
+    <header class="chore-hero">
+      <p class="eyebrow">{copy.when}</p>
+      <h1>{copy.chore}</h1>
+    </header>
+
+    <section class:list={["chore-section", "chore-now", { "with-film": film.now }]} aria-labelledby="now">
+      <div>
+        <h2 id="now">{text.now}</h2>
+        <p class="motions">
+          {copy.motions.map((motion: string, index: number) => <span style={`--i: ${index}`}>{motion}</span>)}
+        </p>
+        <p class="tally">{copy.tally}</p>
+      </div>
+      {film.now && (
+        <figure class="chore-film">
+          <Clip locale={locale} name={film.now} label={copy.motions.join(" ")} />
+        </figure>
+      )}
+    </section>
+
+    <section class:list={["chore-section", "chore-tell", { "with-film": film.tell }]} aria-labelledby="tell">
+      <div>
+        <h2 id="tell">{text.tell}</h2>
+        <figure class="said">
+          <figcaption>{text.you}</figcaption>
+          <blockquote>{copy.sentence}</blockquote>
+        </figure>
+        <p class="chore-note">{text.tellNote}</p>
+      </div>
+      {film.tell && (
+        <figure class="chore-film">
+          <Clip locale={locale} name={film.tell} label={copy.sentence} />
+        </figure>
+      )}
+    </section>
+
+    <section class="chore-section chore-run" aria-labelledby="run">
+      <h2 id="run">{text.run}</h2>
+      {film.run && (
+        <div class="film-pair">
+          <figure class="chore-film">
+            <Clip locale={locale} name={film.run} label={copy.run} />
+            <figcaption>{copy.run}</figcaption>
+          </figure>
+          <figure class="chore-film">
+            <Clip locale={locale} name={film.ok} label={copy.ok} />
+            <figcaption>{copy.ok}</figcaption>
+          </figure>
+        </div>
+      )}
+      <RunCard locale={locale} title={copy.moment.title} steps={copy.steps} />
+    </section>
+
+    <section class="chore-section chore-after" aria-labelledby="after">
+      <h2 id="after">{text.after}</h2>
+      <div class="chore-stage">
+        <Moment moment={copy.moment} />
+        {film.after ? (
+          <figure class="chore-film">
+            <Clip locale={locale} name={film.after} label={copy.after} />
+            <figcaption>{copy.after}</figcaption>
+          </figure>
+        ) : (
+          <Artifact locale={locale} artifact={copy.artifact} />
+        )}
+      </div>
+    </section>
+
+    <section class="chore-section chore-facts" aria-label={text.good}>
+      <div>
+        <h2>{text.good}</h2>
+        <ul>{good.map((line: string) => <li>{line}</li>)}</ul>
+      </div>
+      <div>
+        <h2>{text.needs}</h2>
+        <ul>{needsFor(chore, locale).map((need: string) => <li>{need}</li>)}</ul>
+      </div>
+    </section>
+    {copy.film && (
+      <p class="fine chore-credit">
+        {copy.film} <a href={`${localize("/", locale)}#film`}>{text.film}</a>
       </p>
-    </div>
-  </section>
+    )}
+
+
+    <section class="chore-group" aria-labelledby="more">
+      <h2 id="more">{text.more}</h2>
+      <ChoreList locale={locale} chores={related} />
+    </section>
+  </article>
   <script>
     import posthog from "posthog-js";
     const page = document.querySelector<HTMLElement>("[data-example]");
     if (page && posthog.__loaded) {
       posthog.capture("example_viewed", { slug: page.dataset.example });
+    }
+    // The clicks of the chore light up one after another, once, when read.
+    const now = document.querySelector(".chore-now");
+    if (now) {
+      const seen = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting) return;
+          now.classList.add("playing");
+          seen.disconnect();
+        },
+        { threshold: 0.6 },
+      );
+      seen.observe(now);
     }
   </script>
 </Site>

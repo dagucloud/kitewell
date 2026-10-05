@@ -1,0 +1,34 @@
+---
+// Chores as the person would say them, each leading to its story.
+import KindIcon from "./KindIcon.astro";
+import { kinds } from "../lib/kinds.mjs";
+import { localize } from "../lib/i18n.mjs";
+interface Props {
+  locale: "en" | "ja";
+  chores: any[];
+}
+const { locale, chores } = Astro.props;
+const watch = { en: "Watch it run", ja: "動く様子を見る" }[locale];
+// The places a chore touches, in the order its run reaches them.
+const places = (chore: any) => [...new Set(chore[locale].steps.map(([kind]: string[]) => kind))].filter((kind) => kind !== "approval");
+---
+
+<ul class="chore-list">
+  {chores.map((chore) => (
+    <li>
+      <a href={localize(`/examples/${chore.slug}/`, locale)} data-chore={chore.slug}>
+        <span class="chore-when">{chore[locale].when}</span>
+        <span class="chore-line">{chore[locale].chore}</span>
+        <span class="chore-meta">
+          {places(chore).map((kind) => (
+            <span class="chore-place">
+              <KindIcon kind={kind as string} />
+              {kinds[kind as keyof typeof kinds][locale]}
+            </span>
+          ))}
+          {chore.film && <span class="chore-watch">▶ {watch}</span>}
+        </span>
+      </a>
+    </li>
+  ))}
+</ul>

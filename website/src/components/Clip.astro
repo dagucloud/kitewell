@@ -1,0 +1,49 @@
+---
+// A silent loop cut from the Kitewell film. It plays while it is on screen
+// and stays on its poster for people who prefer reduced motion.
+interface Props {
+  locale: "en" | "ja";
+  name: string;
+  label: string;
+}
+const { locale, name, label } = Astro.props;
+const base = `/videos/chores/${locale}/${name}`;
+---
+
+<video
+  class="clip"
+  data-clip
+  muted
+  loop
+  playsinline
+  preload="none"
+  poster={`${base}.webp`}
+  width="1280"
+  height="720"
+  aria-label={label}
+>
+  <source src={`${base}.mp4`} type="video/mp4" />
+</video>
+
+<script>
+  const motion = window.matchMedia("(prefers-reduced-motion: no-preference)");
+  const clips = document.querySelectorAll<HTMLVideoElement>("[data-clip]");
+  const seen = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const clip = entry.target as HTMLVideoElement;
+        if (entry.isIntersecting && motion.matches) {
+          clip.play().catch(() => {});
+        } else {
+          clip.pause();
+        }
+      }
+    },
+    { threshold: 0.5 },
+  );
+  for (const clip of clips) {
+    seen.observe(clip);
+    // Without motion, the poster stays and the controls let a person play it.
+    if (!motion.matches) clip.controls = true;
+  }
+</script>

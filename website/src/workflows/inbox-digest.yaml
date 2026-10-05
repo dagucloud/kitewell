@@ -1,0 +1,31 @@
+type: graph
+schedule: "0 8 * * 1-5"
+steps:
+  - id: find
+    name: Find yesterday's email
+    action: mail.search
+    with:
+      mailbox: me@example.com
+      unread: false
+      within: 24h
+      limit: 50
+  - id: digest
+    name: Write the digest
+    depends: [find]
+    action: chat.completion
+    with:
+      model: kitewell-agent-fast
+      system: You write short, plain digests of email. Group by topic, name who is waiting on a reply, and list anything due today first.
+      prompt: |
+        These emails arrived in the last 24 hours, as JSON:
+        ${steps.find.outputs.messages}
+    output: DIGEST
+  - id: send
+    name: Send it to me
+    depends: [digest]
+    action: mail.send
+    with:
+      mailbox: me@example.com
+      to: me@example.com
+      subject: Inbox digest
+      message: ${env.DIGEST}

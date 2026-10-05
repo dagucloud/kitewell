@@ -1,0 +1,28 @@
+type: graph
+params:
+  - ITEM: ""
+  - QTY: ""
+  - DELIVER_BY: ""
+steps:
+  - id: order
+    name: Place one order
+    action: browser.run
+    with:
+      url: https://portal.harborsupply.example/orders/new
+      variables:
+        item: ${params.ITEM}
+        qty: ${params.QTY}
+        deliver_by: ${params.DELIVER_BY}
+      do:
+        - act: Search for %item% and add %qty% of it to the order
+        - act: Set the delivery date to %deliver_by% and place the order
+        - expect: The page confirms the order was placed
+        - extract:
+            instruction: The receipt number shown on the confirmation
+            schema:
+              type: object
+              properties:
+                receipt: {type: string}
+        - screenshot: receipt
+      browser:
+        profile: harbor-supply

@@ -1,0 +1,39 @@
+type: graph
+schedule: "0 7 * * *"
+working_dir: /absolute/path/to/watch
+steps:
+  - id: look
+    name: Read the price
+    action: browser.run
+    with:
+      url: https://shop.example.com/products/desk
+      do:
+        - expect: The product page shows a price
+        - extract:
+            instruction: The current price, as a number without currency
+            schema:
+              type: object
+              properties:
+                price: {type: number}
+  - id: compare
+    name: Compare with yesterday
+    depends: [look]
+    run: |
+      new="${steps.look.outputs.price}"
+      old="$(cat last-price.txt 2>/dev/null || echo none)"
+      echo "$new" > last-price.txt
+      if [ "$old" != "$new" ]; then echo "changed"; else echo "same"; fi
+    output:
+      result: {from: stdout}
+  - id: tell
+    name: Email me the change
+    depends: [compare]
+    preconditions:
+      - condition: ${steps.compare.outputs.result}
+        expected: changed
+    action: mail.send
+    with:
+      mailbox: me@example.com
+      to: me@example.com
+      subject: Price changed
+      message: The desk is now ${steps.look.outputs.price}.

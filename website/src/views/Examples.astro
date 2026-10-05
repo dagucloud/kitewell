@@ -1,81 +1,59 @@
 ---
 import Site from "../layouts/Site.astro";
-import { localize } from "../lib/i18n.mjs";
-import { audiences, examples, labelsFor } from "../lib/examples.mjs";
+import ChoreList from "../components/ChoreList.astro";
+import Clip from "../components/Clip.astro";
+import { chores } from "../lib/chores.mjs";
 interface Props {
   locale: "en" | "ja";
 }
 const { locale } = Astro.props;
 const text = {
   en: {
-    title: "Examples",
+    title: "What do you still do by hand?",
     description:
-      "Complete Kitewell workflows to copy: email digests, invoice intake, dependency updates, price watching, desktop-app entry, and more.",
-    eyebrow: "Examples",
-    heading: "Workflows you can copy today.",
-    lead: "Each example is a complete workflow with the YAML to paste, what it needs on your computer, and the sentence to ask the assistant instead. Nothing here uses a step Kitewell lacks.",
-    groups: { personal: "For yourself", ops: "For the work of a team", dev: "For developers" },
-    needs: "Needs",
-    open: "Open the example →",
-    build: "Build it by asking",
-    buildText:
-      "Open the assistant with ⌘J (Ctrl+J), or connect Claude Code or Codex through MCP, and describe the workflow in a sentence. Each example shows the sentence to use. The assistant proposes the workflow; nothing is saved until you apply it.",
-    docs: "Read the docs →",
+      "Chores people do by hand on their computers, and how each one runs on its own with Kitewell: portals, old desktop apps, Excel, email, and code.",
+    eyebrow: "Log in. Download. Copy. Paste. Send.",
+    heading: "What do you still do by hand?",
+    lead: "Describe the chore, or find it below. Each one runs on your own computer, with your apps and your sign-ins, and stops for your OK where it matters.",
+    everyone: "Chores you might recognize",
+    code: "If you write code",
+    honest: "Every chore here is backed by a workflow that uses only steps Kitewell has.",
   },
   ja: {
-    title: "活用例",
+    title: "まだ、手でやっていますか。",
     description:
-      "そのまま写せる Kitewell のワークフロー集。メールのダイジェスト、請求書の取り込み、依存関係の更新、価格の監視、デスクトップアプリへの入力など。",
-    eyebrow: "活用例",
-    heading: "今日から写せるワークフロー。",
-    lead: "どの例も、貼り付けられる YAML、コンピューターに必要なもの、代わりにアシスタントに頼むための一文が揃った、完全なワークフローです。Kitewell にないステップは使っていません。",
-    groups: { personal: "自分のために", ops: "チームの業務に", dev: "開発者に" },
-    needs: "必要なもの",
-    open: "この例を開く →",
-    build: "頼んで作る",
-    buildText:
-      "⌘J（Ctrl+J）でアシスタントを開くか、MCP で Claude Code や Codex をつないで、ワークフローを一文で説明します。各例に使える文を載せています。アシスタントがワークフローを提案し、適用するまで何も保存されません。",
-    docs: "ドキュメントを読む →",
+      "コンピューターで手作業している仕事と、それが Kitewell でひとりでに動く様子。取引先のポータル、古いデスクトップアプリ、Excel、メール、そしてコード。",
+    eyebrow: "ログイン。ダウンロード。コピー。貼り付け。送信。",
+    heading: "まだ、手でやっていますか。",
+    lead: "作業を書くか、下から探してください。どれも、あなたのコンピューターで、あなたのアプリとサインインのまま動き、大事なところではあなたの OK を待ちます。",
+    everyone: "見覚えのある作業",
+    code: "コードを書く人へ",
+    honest: "ここにある作業はどれも、Kitewell にあるステップだけを使うワークフローに裏付けられています。",
   },
 }[locale];
-const to = (path: string) => localize(path, locale);
-const groups = audiences as ("personal" | "ops" | "dev")[];
 ---
 
 <Site title={text.title} description={text.description}>
-  <section class="page wrap">
-    <p class="eyebrow">{text.eyebrow}</p>
-    <h1>{text.heading}</h1>
-    <p class="lead">{text.lead}</p>
-    {groups.map((audience) => (
-      <section class="example-group" aria-labelledby={`group-${audience}`}>
-        <h2 id={`group-${audience}`}>{text.groups[audience]}</h2>
-        <div class="cards examples">
-          {examples
-            .filter((example) => example.audience === audience)
-            .map((example) => {
-              const copy = example[locale];
-              const labels: { needs: string[]; docs: [string, string][] } = labelsFor(example, locale);
-              return (
-                <article class="card">
-                  <h3>
-                    <a href={to(`/examples/${example.slug}/`)}>{copy.title}</a>
-                  </h3>
-                  <p>{copy.summary}</p>
-                  <p class="fine">
-                    {text.needs}: {labels.needs.join(" · ")}
-                  </p>
-                  <a class="text-link" href={to(`/examples/${example.slug}/`)}>{text.open}</a>
-                </article>
-              );
-            })}
-        </div>
-      </section>
-    ))}
-    <div class="notice">
-      <h2>{text.build}</h2>
-      <p>{text.buildText}</p>
-      <a class="button secondary" href={to("/docs/ai/")}>{text.docs}</a>
+  <section class="page wrap chores-page">
+    <div class="chores-hero">
+      <div>
+        <p class="eyebrow">{text.eyebrow}</p>
+        <h1>{text.heading}</h1>
+        <p class="lead">{text.lead}</p>
+      </div>
+      <figure class="chore-film">
+        <Clip locale={locale} name="busywork" label={text.eyebrow} />
+      </figure>
     </div>
+
+    <section class="chore-group" aria-labelledby="group-everyone">
+      <h2 id="group-everyone">{text.everyone}</h2>
+      <ChoreList locale={locale} chores={chores.filter((chore) => chore.group === "everyone")} />
+    </section>
+    <section class="chore-group" aria-labelledby="group-code">
+      <h2 id="group-code">{text.code}</h2>
+      <ChoreList locale={locale} chores={chores.filter((chore) => chore.group === "code")} />
+    </section>
+    <p class="fine chores-honest">{text.honest}</p>
   </section>
 </Site>

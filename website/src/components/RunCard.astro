@@ -1,0 +1,53 @@
+---
+// A chore's run as Kitewell shows it: each step in plain words, ticking off in
+// order once the card is on screen. A step that waits for the person says so.
+import KindIcon from "./KindIcon.astro";
+import { kinds } from "../lib/kinds.mjs";
+interface Props {
+  locale: "en" | "ja";
+  title: string;
+  steps: string[][];
+}
+const { locale, title, steps } = Astro.props;
+const text = {
+  en: { where: "Running on this computer", waits: "Waits for you", done: "Done" },
+  ja: { where: "このコンピューターで実行中", waits: "あなたを待つ", done: "完了" },
+}[locale];
+---
+
+<div class="run-card" data-run>
+  <p class="run-card-head">
+    <strong>{title}</strong>
+    <span>{text.where}</span>
+  </p>
+  <ol>
+    {steps.map(([kind, name, detail], index) => (
+      <li class:list={["run-step", { waits: kind === "approval" }]} style={`--step: ${index}`}>
+        <span class="run-step-kind" title={kinds[kind as keyof typeof kinds][locale]}>
+          <KindIcon kind={kind} />
+        </span>
+        <span class="run-step-text">
+          <strong>{name}</strong>
+          <span>{detail}</span>
+        </span>
+        <span class="run-step-state">{kind === "approval" ? text.waits : text.done}</span>
+      </li>
+    ))}
+  </ol>
+</div>
+
+<script>
+  const cards = document.querySelectorAll<HTMLElement>("[data-run]");
+  const seen = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("running");
+          seen.unobserve(entry.target);
+        }
+      }
+    },
+    { threshold: 0.4 },
+  );
+  for (const card of cards) seen.observe(card);
+</script>

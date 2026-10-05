@@ -1,0 +1,19 @@
+---
+// The notice a person gets when the chore has run: the moment that replaces
+// doing it by hand.
+interface Props {
+  moment: { time?: string; title: string; text: string };
+}
+const { moment } = Astro.props;
+---
+
+<div class="moment" role="img" aria-label={`Kitewell: ${moment.title}. ${moment.text}`}>
+  <img src="/favicon.svg" alt="" width="34" height="34" />
+  <div>
+    <p class="moment-head">
+      <strong>{moment.title}</strong>
+      {moment.time && <span>{moment.time}</span>}
+    </p>
+    <p>{moment.text}</p>
+  </div>
+</div>

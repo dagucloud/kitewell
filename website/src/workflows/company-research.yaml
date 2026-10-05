@@ -1,0 +1,33 @@
+type: graph
+params:
+  - COMPANY: ""
+  - WEBSITE: ""
+steps:
+  - id: visit
+    name: Read the website
+    action: browser.run
+    with:
+      url: ${params.WEBSITE}
+      do:
+        - act: If there is an About or Company page, open it
+        - extract:
+            instruction: What the company does, roughly how many people work there, and where its headquarters is
+            schema:
+              type: object
+              properties:
+                business: {type: string}
+                headcount: {type: string}
+                headquarters: {type: string}
+  - id: summarize
+    name: Write a two-line summary
+    depends: [visit]
+    action: chat.completion
+    with:
+      model: kitewell-agent-fast
+      prompt: |
+        Company: ${params.COMPANY}
+        Business: ${steps.visit.outputs.business}
+        Headcount: ${steps.visit.outputs.headcount}
+        Headquarters: ${steps.visit.outputs.headquarters}
+        Write two plain lines: what they do, and why they might need workflow automation.
+    output: SUMMARY

@@ -1,0 +1,21 @@
+type: graph
+schedule: "0 9 * * 1-5"
+working_dir: /absolute/path/to/repo
+steps:
+  - id: review
+    name: Review the open pull requests
+    action: harness.run
+    with:
+      provider: kitewell-agent-claude
+      prompt: |
+        List the open pull requests with gh. For each, read the diff and write
+        three lines: what it changes, what could break, and whether it is
+        ready to merge. Order them by risk. Write Markdown.
+    output: DIGEST
+  - id: save
+    name: Save the digest
+    depends: [review]
+    run: |
+      mkdir -p reviews
+      printenv DIGEST > "reviews/$(date +%F).md"
+      cat "reviews/$(date +%F).md"

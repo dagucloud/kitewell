@@ -1,0 +1,28 @@
+type: graph
+params:
+  - NAME: ""
+  - EMAIL: ""
+  - PLAN: ""
+secrets:
+  - name: PORTAL_PASSWORD
+    ref: portal/password
+steps:
+  - id: register
+    name: Register one customer
+    action: browser.run
+    with:
+      url: https://portal.example.com/customers/new
+      variables:
+        name: ${params.NAME}
+        email: ${params.EMAIL}
+        plan: ${params.PLAN}
+        password: ${env.PORTAL_PASSWORD}
+      do:
+        - act: If a sign-in form is shown, type ops@example.com as the user and %password% as the password, then sign in
+        - act: Type %name% into the customer name field
+        - act: Type %email% into the email field
+        - act: Choose %plan% from the plan list and press Save
+        - expect: The page confirms the customer was created
+        - screenshot: saved
+      browser:
+        profile: register

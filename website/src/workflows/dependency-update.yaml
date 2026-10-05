@@ -1,0 +1,23 @@
+type: graph
+schedule: "0 2 * * 1-5"
+working_dir: /absolute/path/to/repo
+steps:
+  - id: update
+    name: Update dependencies
+    action: harness.run
+    with:
+      provider: kitewell-agent-codex
+      prompt: |
+        Create a branch named deps/nightly from main. Update every dependency
+        to its latest compatible version, run the test suite, and fix what the
+        update broke. Commit with a message that lists the notable changes.
+        Do not push.
+    output: NOTES
+    approval:
+      prompt: Push the deps/nightly branch and open a pull request?
+  - id: push
+    name: Push and open the PR
+    depends: [update]
+    run: |
+      git push -u origin deps/nightly --force-with-lease
+      gh pr create --fill --base main --head deps/nightly
