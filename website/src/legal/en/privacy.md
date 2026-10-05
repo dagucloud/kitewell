@@ -169,9 +169,10 @@ each connection, Dagu Cloud stores:
   state of its refresh token.
 
 Your device reports its ID and name to Dagu Cloud while signed in (section 4).
-A grant is kept until it is revoked, or until its refresh token goes unused for
-90 days. A registered app that never received a grant is deleted after 30
-days.
+A grant ends when it is revoked or when its refresh token goes unused for 90
+days, and is deleted 7 days after it ends. A grant that was never completed is
+deleted a day after its authorization code expires. A registered app is deleted
+once it has no grants and hasn't been used for 180 days.
 
 **What stays on your device.** Kitewell keeps the list of connected apps and
 when each was last used.
