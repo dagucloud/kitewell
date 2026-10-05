@@ -14,7 +14,9 @@ so you know what leaves and when.
 | The AI provider you choose | What the task reads: a prompt and its context, run output, logs and artifacts you pass, the visible text and layout of a page (website steps), a screenshot of the whole screen (desktop steps), a sheet's rows (result columns a model reads; columns that copy a published value send nothing), a failed run's steps and workflow (failure diagnosis), the project's knowledge (the assistant: a summary of every page, and the pages about what you have open) | Only when a task, the assistant, diagnosis, or a sheet uses that model |
 | A command-line agent's provider | The prompt and whatever the agent reads in its working folder, under that tool's own terms | When an **Ask an AI agent** task runs |
 | Sites, servers, APIs, and mailboxes | What your steps send them | When those steps run |
-| Dagu Cloud (Descarty) | Which plan the workspace has and the Kitewell version, every six hours; a synced project's definitions, secret names and descriptions, sheets, and knowledge | Only after you sign in; project data only after you sync that project |
+| Dagu Cloud (Descarty) | Which plan the workspace has, the Kitewell version, and this computer's ID and name, every six hours; a synced project's definitions, secret names and descriptions, sheets, and knowledge | Only after you sign in; project data only after you sync that project |
+| ChatGPT or Claude, through Kitewell's relay | What the connected app reads through Kitewell's tools. The relay (mcp.kitewell.app, on Cloudflare) passes calls through without storing them and keeps only this computer's name, Kitewell version, last-seen time, and last tool listing | Only after you [connect the app](/docs/mcp/#connect-chatgpt-or-claude), while remote access is on |
+| The address ChatGPT gives for MCP Events | Each event it subscribed to: project, workflow, run ID, status, times, failed step names, and a waiting step's question or task text | When the event happens |
 | kitewell.app and GitHub | An update check; the installer you download | On the update schedule, and when you install |
 
 Kitewell itself sends nothing else. The app has no usage tracking, and
@@ -75,7 +77,8 @@ Values a website or desktop step types, such as a password, are written as
 - Alert channel credentials, such as a Slack webhook, are stored in a file only
   your user can read, not in the system keychain.
 - Remote access through MCP or REST reaches a Kitewell host only on this
-  computer's local address unless you put your own HTTPS in front of it; see
+  computer's local address, except for ChatGPT and Claude connected through
+  Kitewell's relay, or a client you put your own HTTPS in front of; see
   [MCP and API access](/docs/mcp/).
 
 ## Where the data folder is
