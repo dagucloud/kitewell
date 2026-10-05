@@ -690,14 +690,20 @@ code {
   .header nav {
     order: 3;
     width: 100%;
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 12px;
+    gap: 6px 10px;
     margin: 0;
   }
   /* Japanese is set full width, so a headline needs a smaller size to keep
      a phrase such as 1 プロジェクトなら on one line. */
   :lang(ja) :is(.page > h1, .chores-hero h1) {
     font-size: clamp(32px, 9vw, 44px);
+  }
+  /* A label never splits; on the narrowest screens the last one wraps. */
+  .header nav a {
+    font-size: 13px;
+    white-space: nowrap;
   }
   .header > .button {
     margin-left: auto;
