@@ -44,12 +44,14 @@ ChatGPT は Web 版からだけ、開発者モードで接続できます。
 - Plus と Pro では、ChatGPT が使えるのは Kitewell の `read` ツールだけです。実行の開始やワークフローの編集には、ChatGPT Business、Enterprise、Edu が必要です。
 - Business では、開発者モードを使えるのは管理者とオーナーだけです。Enterprise と Edu では、まず管理者が許可します。
 
-1. **Settings → Security and login** を開き、**Developer mode** をオンにします。Business、Enterprise、Edu では **Settings → Apps → Advanced settings** にあります。
-2. **Plugins** を開いて **+** を選びます。**Create custom MCP server** で名前を Kitewell とし、**Server URL** に URL を貼り付け、**Authentication** は **OAuth** のままにして、**I understand and want to continue** にチェックを入れ、**Create as a plugin** を選びます。
-3. サインインし、権限とプロジェクトを確認して、アクセスを許可します。
-4. 新しいチャットで、**+** のツールメニューから Kitewell を選ぶか、**@** を入力して Kitewell を選びます。
+プラグインに Kitewell のアイコンを付けるには、先に <a href="/kitewell-icon-256.png" download>Kitewell のアイコン（PNG）をダウンロード</a>してください。256 × 256 px で、ChatGPT の上限の 10 KB に収まります。
 
-Kitewell は **Plugins → Personal → Created by you** に表示されます。
+1. **プラグイン** を開き、**追加** を選んでから **カスタム MCP サーバーを作成** を選びます。見つからない場合は、先に **設定 → セキュリティとログイン**（Business、Enterprise、Edu では **設定 → アプリ → 詳細設定**）で **開発者モード** をオンにします。
+2. 名前を Kitewell とし、必要なら Kitewell のアイコンを追加して、**サーバーURL** に URL を貼り付けます。**OAuth** はそのままにし、**理解したうえで続けます** にチェックを入れて、**プラグインとして作成** を選びます。
+3. **Kitewell に進む** を選び、Dagu Cloud にサインインして、権限とプロジェクトを確認し、**Allow** を選びます。
+4. **チャットで試す** を選びます。どのチャットでも、**@** を入力して Kitewell を選ぶか、**+** のツールメニューから選ぶこともできます。
+
+Kitewell は **プラグイン → 個人用 → 自分で作成** に表示され、そのページには接続したアカウントが表示されます。
 
 ### コンピューターに必要なこと
 

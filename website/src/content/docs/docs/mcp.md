@@ -76,18 +76,24 @@ ChatGPT connects on the web only, through developer mode.
 - On Business, only admins and owners can use developer mode. On Enterprise and
   Edu, an admin first grants it.
 
-1. Open **Settings → Security and login** and turn on **Developer mode**. On
-   Business, Enterprise, and Edu it's under **Settings → Apps → Advanced
-   settings**.
-2. Open **Plugins** and choose **+**. In **Create custom MCP server**, name it
-   Kitewell, paste the URL under **Server URL**, keep **Authentication** set to
-   **OAuth**, tick **I understand and want to continue**, and choose **Create
-   as a plugin**.
-3. Sign in, check the permission and projects, and allow access.
-4. In a new chat, choose Kitewell from the **+** tools menu, or type **@** and
-   pick it.
+To give the plugin Kitewell's icon,
+<a href="/kitewell-icon-256.png" download>download the Kitewell icon (PNG)</a>
+first. It is 256 × 256 px, within ChatGPT's 10 KB limit.
 
-Kitewell then appears under **Plugins → Personal → Created by you**.
+1. Open **Plugins**, choose **Add**, then **Create custom MCP server**. If it
+   isn't there, first turn on **Developer mode** in **Settings → Security and
+   login**, or on Business, Enterprise, and Edu in **Settings → Apps →
+   Advanced settings**.
+2. Name it Kitewell, optionally add the Kitewell icon, paste the URL under
+   **Server URL**, keep **OAuth**, tick **I understand and want to continue**,
+   and choose **Create as a plugin**.
+3. Choose **Proceed to Kitewell**, sign in to Dagu Cloud, check the permission
+   and projects, and choose **Allow**.
+4. Choose **Try in chat**. In any chat, you can also type **@** and pick
+   Kitewell, or choose it from the **+** tools menu.
+
+Kitewell then appears under **Plugins → Personal → Created by you**, and its
+page shows the connected account.
 
 ### What the computer needs
 
