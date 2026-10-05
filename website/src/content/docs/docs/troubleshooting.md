@@ -112,6 +112,43 @@ A project that arrived from a teammate or from Dagu Cloud lists its
 mailboxes as not connected until you connect them here. See
 [Automate email](/docs/email/).
 
+## ChatGPT and Claude
+
+### "Kitewell on … is not reachable"
+
+The computer is asleep or off, or Kitewell is not running on it. Right after
+the computer goes to sleep, it can take up to about 45 seconds before
+ChatGPT or Claude says so. Open Kitewell on that computer, check that **This device → MCP**
+shows **Online**, and try again.
+
+### The browser says "This app is not registered with Dagu Cloud"
+
+Remove Kitewell from ChatGPT or Claude and add it again. See
+[Connect ChatGPT or Claude](/docs/mcp/#connect-chatgpt-or-claude).
+
+### A call is refused because the connection is read-only
+
+The refusal says what the connection's permission allows, such as "This
+connection is read-only" or "This connection can run jobs but not edit". To
+let the app do more, change its permission under **This device → MCP →
+Connected apps**; the change applies to its next call.
+
+### The consent page says the computer is offline or has no room
+
+- **"Open Kitewell on that computer to continue"**: the computer is asleep
+  or off, or Kitewell is not running. Open Kitewell, wait for **This device →
+  MCP** to show **Online**, and choose **Try again**.
+- **The free plan holds one API key or connected app**: this computer
+  already has one. Revoke it under **This device → MCP**, or subscribe to
+  Kitewell Pro, then connect again.
+
+### ChatGPT only uses read tools
+
+On ChatGPT Plus and Pro, ChatGPT can use only read-only tools, such as `read`
+and `show`, whatever permission you allowed. Starting runs and editing
+workflows need ChatGPT Business, Enterprise, or Edu. See
+[ChatGPT](/docs/mcp/#chatgpt).
+
 ## A run is missing from history
 
 Runs older than the run history retention are removed, and editors can delete
