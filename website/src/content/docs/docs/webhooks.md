@@ -20,10 +20,26 @@ Webhooks are part of Kitewell Pro, and need Kitewell
 3. Choose **Copy** and paste the URL into the service that sends requests.
 4. Choose **Send test request** to try the whole way: Kitewell sends a request
    to its own URL, and it comes back through the relay like any other. It
-   starts a run, as a real request would.
+   starts a run, as a real request would, and opens under **Recent requests**
+   to show what arrived.
 
 The **When this runs** card then shows **Webhook on**. Only people who can
 edit the workflow see its URL. API keys and connected apps cannot read it.
+
+## Let the assistant use the request
+
+You don't need to know how a request is laid out to use it:
+
+1. Have the real service send one request, such as by opening a test issue on
+   GitHub.
+2. Under **Recent requests**, choose **Details** beside it to see what it
+   carried.
+3. Choose **Build steps from this request**. The assistant opens on that
+   request. Finish the sentence with what you need, such as "the issue title
+   and who opened it, then post them to Slack", and send it.
+
+The assistant reads the request itself, proposes the steps, and saves nothing
+until you apply them.
 
 ## Read the request in a step
 
@@ -92,8 +108,15 @@ that, senders are asked to try again later.
 
 ## Recent requests
 
-The Webhook section lists the latest 20 requests: when each arrived, its size,
-and its result, with **View run →** or the reason it started nothing.
+The Webhook section lists the latest 20 requests: when each arrived, what it
+was about as the sender names it (such as GitHub's `issues · opened` or
+Stripe's `payment_intent.succeeded`), its size, and its result. The list
+updates while it is open.
+
+**Details** opens a request: its body, laid out so it is easy to read, and its
+headers, each with **Copy**, plus **Build steps from this request** and
+**View run →**. A request that started no run shows why instead, because its
+body is kept only with a run.
 
 | Result | Meaning |
 | --- | --- |
