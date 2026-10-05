@@ -41,12 +41,13 @@ public installers target macOS and Windows. Linux support is planned. Check
 7. [Set a schedule and understand background operation](/docs/scheduling/).
 8. [Share workflows with your team](/docs/sharing/).
 
-One project with up to 10 workflows and one API key is free, and needs no
-Kitewell account. Projects hold separate workflows, history, and secrets.
+One project with up to 10 workflows and one API key or connected app is free,
+and needs no Kitewell account. Projects hold separate workflows, history, and
+secrets.
 
 Pro is planned at $25 per person per month: ten projects of 100 workflows
-each, any number of API keys, [alerts](/docs/alerts/), and a team that syncs
-its projects.
+each, any number of API keys and connected apps, [alerts](/docs/alerts/), and
+a team that syncs its projects.
 
 ## What runs where
 

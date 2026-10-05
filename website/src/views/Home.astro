@@ -34,7 +34,7 @@ const text = {
     build: "Build it by asking",
     buildTitle: "Describe the workflow. Review the diff. Apply.",
     buildText:
-      "The assistant (⌘J) proposes a new or changed workflow as a card with a graph preview; nothing is saved until you apply it. Connect Claude Code or Codex through MCP and build, run, and fix workflows from that conversation instead.",
+      "The assistant (⌘J) proposes a new or changed workflow as a card with a graph preview; nothing is saved until you apply it. Connect Claude Code or Codex through MCP and build, run, and fix workflows from that conversation instead. From ChatGPT or Claude, on any device, even your phone, ask it to start a workflow, check why one failed, or approve the step waiting for you. The work still runs on your computer.",
     buildLinks: [
       ["The assistant →", "/docs/ai/#the-assistant"],
       ["MCP and API access →", "/docs/mcp/"],
@@ -80,6 +80,7 @@ const text = {
       ["AI models", "Anthropic, OpenAI, Gemini, OpenRouter, or a local server such as Ollama or vLLM. A workflow without AI sends nothing to any provider."],
       ["Runs, logs, and files", "On your computer, under the retention you set."],
       ["Dagu Cloud", "Only if you sign in and sync a project: its definitions, knowledge, and secret names, never values, runs, or logs."],
+      ["ChatGPT and Claude", "Only if you connect one: what it reads through Kitewell passes through Kitewell's relay, which stores none of it, on its way to OpenAI or Anthropic."],
     ],
     machineLink: "Everything that leaves, and when →",
     examplesEyebrow: "Examples",
@@ -169,7 +170,7 @@ const text = {
     build: "頼んで作る",
     buildTitle: "ワークフローを説明し、差分を確認し、適用する。",
     buildText:
-      "アシスタント（⌘J）は、新しいワークフローや変更をグラフ付きのカードで提案します。適用するまで何も保存されません。MCP で Claude Code や Codex をつなげば、その会話の中からワークフローを作り、動かし、直せます。",
+      "アシスタント（⌘J）は、新しいワークフローや変更をグラフ付きのカードで提案します。適用するまで何も保存されません。MCP で Claude Code や Codex をつなげば、その会話の中からワークフローを作り、動かし、直せます。ChatGPT や Claude をつなげば、スマートフォンを含むどの端末からでも、ワークフローの開始、失敗の原因の確認、あなたを待つステップの承認を頼めます。動くのは、変わらずあなたのコンピューターです。",
     buildLinks: [
       ["アシスタント →", "/docs/ai/#the-assistant"],
       ["MCP と API アクセス →", "/docs/mcp/"],
@@ -215,6 +216,7 @@ const text = {
       ["AI モデル", "Anthropic、OpenAI、Gemini、OpenRouter、または Ollama や vLLM のようなローカルサーバー。AI のないワークフローは、どのプロバイダーにも何も送りません。"],
       ["実行、ログ、ファイル", "あなたのコンピューターに、設定した保持期間だけ残ります。"],
       ["Dagu Cloud", "サインインしてプロジェクトを同期したときだけ、その定義、ナレッジ、シークレットの名前。値、実行、ログは送られません。"],
+      ["ChatGPT と Claude", "接続したときだけ、Kitewell を通じて読んだ内容が、Kitewell のリレーを経由して OpenAI や Anthropic に届きます。リレーはその内容を保存しません。"],
     ],
     machineLink: "外に出るものと、そのタイミングのすべて →",
     examplesEyebrow: "活用例",

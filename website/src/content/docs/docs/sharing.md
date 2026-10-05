@@ -100,8 +100,8 @@ through your team's process, or [sync the project](/docs/cloud-sync/).
 ## Work together on one host
 
 For workflows that should run on a single team machine, create a separate
-API key for each client under **This device → MCP**; the free plan issues one
-key, Kitewell Pro any number. Choose **Read only**,
+API key for each client under **This device → MCP**; the free plan holds one
+API key or connected app in total, Kitewell Pro any number. Choose **Read only**,
 **Run jobs**, or **Edit and run** for each client's role. Teammates use
 compatible MCP or REST clients to inspect, run, or edit workflows on that host.
 
