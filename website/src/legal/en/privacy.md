@@ -11,7 +11,9 @@ it goes, and what we receive.
 The short version: Kitewell runs on your device. Your workflows, run history,
 logs, credentials, and connected mailboxes stay there. We do not receive them.
 If you connect ChatGPT or Claude, what it reads through Kitewell's tools
-passes through our relay without being stored.
+passes through our relay without being stored. If you turn on a webhook,
+requests other services send to it wait at our relay until your device takes
+them, for at most 7 days.
 
 ## 1. Data that stays on your device
 
@@ -190,14 +192,41 @@ terms and privacy policy.
 **Stopping.** Turning off remote access in Kitewell, or revoking the app under
 **Connected apps**, stops its access.
 
-## 6. Updates and downloads
+## 6. Webhooks
+
+You can give a workflow a webhook URL at `https://hooks.kitewell.app`, so that
+services you choose start it by sending a request. This requires a Dagu Cloud
+account and Kitewell Pro, and stays off until you turn it on for a workflow.
+
+**What the relay stores.** Each request reaches Kitewell's relay, the Cloudflare
+Worker described in section 5, with its body and headers. Cookies,
+`Authorization`, and the headers Cloudflare adds are dropped. The relay stores
+the request until your device takes it, then deletes it, and deletes any
+request your device has not taken within 7 days. For each webhook it stores
+only a hash of the secret part of the URL. Like the rest of a device's data,
+everything is deleted 30 days after the relay last heard from the device.
+
+**On your device.** A request's body and headers become inputs of the run they
+start, and are kept with its run history for the retention you set. Kitewell
+also keeps each workflow's latest 20 requests: when each arrived, its size, and
+what became of it.
+
+**The sender.** The service that sends a request decides what it holds, under
+its own terms and privacy policy. A request can hold personal information, such
+as the name and email address in a GitHub issue or a Stripe payment.
+
+**Stopping.** When you turn off a workflow's webhook, your device tells the
+relay, which then refuses its URL and deletes the requests still waiting for
+it. A new URL replaces the old one the same way.
+
+## 7. Updates and downloads
 
 To check for updates, Kitewell requests the public version list from
 kitewell.app. Installers download from GitHub Releases, and engine updates come
 from their release service. Like any web request, these reveal your IP address
 to the service that receives them. They carry no workflow data.
 
-## 7. The kitewell.app website
+## 8. The kitewell.app website
 
 The website is hosted on Cloudflare Pages. We use PostHog to count visits: it
 records the pages viewed, the referring site, and the device and browser type,
@@ -205,21 +234,21 @@ and stores an identifier in your browser to do so. It does not record your
 screen or keystrokes. Cloudflare may keep request logs for security and
 operations.
 
-## 8. Support
+## 9. Support
 
 Public GitHub issues are visible to anyone. Do not include secrets or private
 workflow data. Security reports sent through GitHub's private reporting and
 emails to us are seen only by the Kitewell team.
 
-## 9. How we use the information we receive
+## 10. How we use the information we receive
 
 The information we receive, website visit statistics and the messages you send
 us, is used to run and improve Kitewell and its website, to answer your
-questions, and to handle security reports. What the relay stores (section 5)
-is used to run the connector. We do not sell personal information and do not
+questions, and to handle security reports. What the relay stores (sections 5
+and 6) is used to run the connector and to deliver webhooks. We do not sell personal information and do not
 provide it to third parties except with your consent or as required by law.
 
-## 10. Services outside Japan
+## 11. Services outside Japan
 
 PostHog, Inc., Cloudflare, Inc. (which hosts the website and Kitewell's
 relay), and GitHub, Inc. are companies in the United States and process
@@ -227,19 +256,19 @@ information on servers there. Information on the personal information
 protection system of the United States is published by the
 [Personal Information Protection Commission of Japan](https://www.ppc.go.jp/).
 
-## 11. Your requests
+## 12. Your requests
 
 To ask us to disclose, correct, delete, or stop using personal information we
 hold about you, contact us at the address below. We will confirm your identity
 and respond without undue delay, as required by law.
 
-## 12. Changes to this policy
+## 13. Changes to this policy
 
 We will post any change on this page and update the date above. If a change
 affects how Kitewell handles data from connected accounts, we will describe it
 in the release notes before it takes effect.
 
-## 13. Contact
+## 14. Contact
 
 Descarty, Inc.\
 Shibuya Dogenzaka Tokyu Bldg. 2F-C, 1-10-8 Dogenzaka, Shibuya-ku, Tokyo 150-0043, Japan\
