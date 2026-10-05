@@ -111,6 +111,11 @@ for the workspace and holds up to 10 people; a larger team takes
 members need no subscription of their own. Kitewell Personal is for one person
 and cannot invite anyone.
 
+To move between plans, open the **Kitewell** page in Dagu Cloud and choose
+**Switch to Kitewell Team** or **Switch to Kitewell Personal**. Stripe adjusts
+your next invoice for the change. Before moving to Personal, remove the other
+people and revoke their invitations.
+
 The owner manages the team on the **Kitewell** page in Dagu Cloud:
 
 - **Invite** a person by email. The invitation counts toward the 10 people
