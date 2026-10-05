@@ -55,15 +55,57 @@ to do what you ask in Kitewell: test the connection, list folders, and run the
 email steps in your workflows, which search, read, mark, move, and send email
 in that mailbox.
 
-**Where it is stored.** The access token is stored on your device as an
-encrypted project secret. Email your workflows read is stored on your device in
-run output and logs, under the run's retention. Tokens never enter workflow
-files, logs, backups, exports, or Dagu Cloud.
+**Where it is stored.** Your sign-in token, or the app password you enter, is
+stored only on your device, in two places: Kitewell's mailbox file and the
+workflow engine's secret store. Both are encrypted (see "How it is protected"
+below). Email your workflows read is stored on your device in run output and
+logs, under the run's retention. Tokens never enter workflow files, logs,
+backups, exports, or Dagu Cloud.
 
-**Where it goes.** Email content leaves your device only where your own
-workflows send it, for example to an AI provider or an email address you
-chose. Descarty does not receive, store, or have access to your email or to
-any data from your Google account.
+**Who receives it.** Descarty does not sell, share, transfer, or disclose data
+from your mailbox, including Google user data, to anyone. None of it is sent to
+Descarty to be stored, and no one at Descarty can read it. It leaves your
+device only in these cases, each at your direction:
+
+- **Destinations your workflows send it to.** A workflow step you write can
+  send email content to the destination you choose, such as an AI provider
+  (for example OpenAI or Anthropic), an API, or an email address. Each
+  destination handles it under its own terms and privacy policy.
+- **An AI app you connect (section 5).** If you turn on remote access and
+  connect ChatGPT or Claude, the app can read run output, which can contain
+  email your workflows read. It travels encrypted through Kitewell's relay at
+  mcp.kitewell.app, which runs on Cloudflare and does not store it, to OpenAI
+  or Anthropic.
+- **MCP Events (section 5).** An event for a step waiting for a person carries
+  its question or task text, which can quote email, to the HTTPS address the
+  subscribing app provided.
+
+Because Descarty holds no data from your mailbox, it has none to disclose,
+including in response to a legal request.
+
+**How it is protected.**
+
+- **Encryption in transit.** Kitewell reaches Gmail through the Gmail API over
+  HTTPS, and Microsoft and other mail servers over TLS or STARTTLS.
+  Connections to the relay use HTTPS.
+- **Encryption at rest.** Sign-in tokens and app passwords are encrypted with
+  AES-256-GCM. The keys never leave your device, and only your user account
+  on the device can read the files that hold the tokens and the keys. Email in
+  run output and logs is protected by the same file permissions; turn on your
+  operating system's disk encryption, such as FileVault or BitLocker, to
+  encrypt it at rest as well.
+- **Sign-in.** You sign in to Google or Microsoft in your own browser, so
+  Kitewell never sees your account password. The sign-in uses OAuth 2.0 with
+  PKCE and a one-time state value, and returns only to Kitewell at your
+  device's loopback address.
+- **Access control.** Remote access stays off until you turn it on. Each AI
+  app you connect needs your approval, and you can revoke it at any time.
+  Local MCP and REST clients need an API key limited to the projects you
+  choose.
+- **No credentials in output.** The workflow engine masks tokens and passwords
+  in logs and run output.
+- **Removal.** Disconnecting a mailbox deletes its token from your device (see
+  "Disconnecting" below).
 
 **What Kitewell does not do.** Kitewell does not use data from your mailbox for
 advertising, does not sell it, and does not use it to develop, improve, or train
