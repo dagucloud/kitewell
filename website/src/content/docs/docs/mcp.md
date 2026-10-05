@@ -69,13 +69,25 @@ Claude's Free plan allows one custom connector.
 
 ### ChatGPT
 
-ChatGPT connects on the web, with a Plus, Pro, Business, Enterprise, or Edu
-plan.
+ChatGPT connects on the web only, through developer mode.
 
-1. Open **Settings → Security and login** and turn on **Developer mode**.
-2. Open **Plugins**, choose **+**, paste the URL, and choose **OAuth**.
+- On Plus and Pro, ChatGPT can use Kitewell's `read` tool only. Starting runs
+  and editing workflows need ChatGPT Business, Enterprise, or Edu.
+- On Business, only admins and owners can use developer mode. On Enterprise and
+  Edu, an admin first grants it.
+
+1. Open **Settings → Security and login** and turn on **Developer mode**. On
+   Business, Enterprise, and Edu it's under **Settings → Apps → Advanced
+   settings**.
+2. Open **Plugins** and choose **+**. In **Create custom MCP server**, name it
+   Kitewell, paste the URL under **Server URL**, keep **Authentication** set to
+   **OAuth**, tick **I understand and want to continue**, and choose **Create
+   as a plugin**.
 3. Sign in, check the permission and projects, and allow access.
-4. In a chat, pick Kitewell from the composer's **Developer mode** tool.
+4. In a new chat, choose Kitewell from the **+** tools menu, or type **@** and
+   pick it.
+
+Kitewell then appears under **Plugins → Personal → Created by you**.
 
 ### What the computer needs
 

@@ -39,12 +39,17 @@ Team プランと Enterprise プランでは、先にオーナーが **組織設
 
 ### ChatGPT
 
-ChatGPT は Web 版から、Plus、Pro、Business、Enterprise、Edu のプランで接続できます。
+ChatGPT は Web 版からだけ、開発者モードで接続できます。
 
-1. **設定 → セキュリティとログイン** を開き、**開発者モード** をオンにします。
-2. **プラグイン** を開いて **+** を選び、URL を貼り付けて **OAuth** を選びます。
+- Plus と Pro では、ChatGPT が使えるのは Kitewell の `read` ツールだけです。実行の開始やワークフローの編集には、ChatGPT Business、Enterprise、Edu が必要です。
+- Business では、開発者モードを使えるのは管理者とオーナーだけです。Enterprise と Edu では、まず管理者が許可します。
+
+1. **Settings → Security and login** を開き、**Developer mode** をオンにします。Business、Enterprise、Edu では **Settings → Apps → Advanced settings** にあります。
+2. **Plugins** を開いて **+** を選びます。**Create custom MCP server** で名前を Kitewell とし、**Server URL** に URL を貼り付け、**Authentication** は **OAuth** のままにして、**I understand and want to continue** にチェックを入れ、**Create as a plugin** を選びます。
 3. サインインし、権限とプロジェクトを確認して、アクセスを許可します。
-4. チャットで、入力欄の **開発者モード** ツールから Kitewell を選びます。
+4. 新しいチャットで、**+** のツールメニューから Kitewell を選ぶか、**@** を入力して Kitewell を選びます。
+
+Kitewell は **Plugins → Personal → Created by you** に表示されます。
 
 ### コンピューターに必要なこと
 
