@@ -8,6 +8,9 @@ In the workflow editor, **Schedule** offers manual, daily, weekday, weekly,
 hourly, and custom schedules. Check the timezone, save your changes, and
 confirm **Enable saved schedules** is enabled.
 
+To start a workflow when another service sends a request instead, turn on its
+[webhook](/docs/webhooks/) in the same view.
+
 ## Keep Kitewell running
 
 On macOS:

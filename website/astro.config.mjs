@@ -53,6 +53,7 @@ export default defineConfig({
           label: "Connect and automate",
           translations: { ja: "連携と自動化" },
           items: [
+            { label: "Start from a webhook", translations: { ja: "Webhook で開始" }, slug: "docs/webhooks" },
             { label: "Import an API", translations: { ja: "API のインポート" }, slug: "docs/apis" },
             { label: "AI agents and models", translations: { ja: "AI エージェントとモデル" }, slug: "docs/ai" },
             { label: "Knowledge", translations: { ja: "ナレッジ" }, slug: "docs/knowledge" },

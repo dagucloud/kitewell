@@ -16,6 +16,8 @@ team does by hand, on a schedule, with every run on record.
   each run found.
 - **[Ask the assistant](/docs/ai/#the-assistant)** to draft and fix workflows,
   and have a failed run [diagnosed](/docs/ai/#failure-diagnosis).
+- **[Start a workflow from a webhook](/docs/webhooks/)** when GitHub, Stripe,
+  a form, or Zapier sends a request, with no port or tunnel to set up.
 - **[Import an OpenAPI spec](/docs/apis/)** and fill in request forms
   generated from it.
 - **[Share a project](/docs/sharing/)** with a teammate, or
@@ -46,8 +48,8 @@ and needs no Kitewell account. Projects hold separate workflows, history, and
 secrets.
 
 Pro is planned at $25 per person per month: ten projects of 100 workflows
-each, any number of API keys and connected apps, [alerts](/docs/alerts/), and
-a team that syncs its projects.
+each, any number of API keys and connected apps, [alerts](/docs/alerts/),
+[webhooks](/docs/webhooks/), and a team that syncs its projects.
 
 ## What runs where
 

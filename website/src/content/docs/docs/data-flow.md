@@ -16,6 +16,7 @@ so you know what leaves and when.
 | Sites, servers, APIs, and mailboxes | What your steps send them | When those steps run |
 | Dagu Cloud (Descarty) | Which plan the workspace has, the Kitewell version, and this computer's ID and name, every six hours; a synced project's definitions, secret names and descriptions, sheets, and knowledge | Only after you sign in; project data only after you sync that project |
 | ChatGPT or Claude, through Kitewell's relay | What the connected app reads through Kitewell's tools. The relay (mcp.kitewell.app, on Cloudflare) passes calls through without storing them and keeps only this computer's name, Kitewell version, last-seen time, and last tool listing | Only after you [connect the app](/docs/mcp/#connect-chatgpt-or-claude), while remote access is on |
+| Kitewell's relay, for webhooks | Nothing from your computer. Requests that services send to a workflow's webhook URL wait at the relay (hooks.kitewell.app, on Cloudflare) until your computer takes them, for at most 7 days; the relay keeps only a hash of each URL's secret part | Only after you [turn on a webhook](/docs/webhooks/) |
 | The address ChatGPT gives for MCP Events | Each event it subscribed to: project, workflow, run ID, status, times, failed step names, and a waiting step's question or task text | When the event happens |
 | kitewell.app and GitHub | An update check; the installer you download | On the update schedule, and when you install |
 
@@ -80,6 +81,8 @@ Values a website or desktop step types, such as a password, are written as
   computer's local address, except for ChatGPT and Claude connected through
   Kitewell's relay, or a client you put your own HTTPS in front of; see
   [MCP and API access](/docs/mcp/).
+- A workflow's webhook URL lets anyone who holds it start that workflow; see
+  [Start a workflow from a webhook](/docs/webhooks/#keep-the-url-private).
 
 ## Where the data folder is
 
