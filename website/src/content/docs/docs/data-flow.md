@@ -84,6 +84,13 @@ Values a website or desktop step types, such as a password, are written as
 - A workflow's webhook URL lets anyone who holds it start that workflow; see
   [Start a workflow from a webhook](/docs/webhooks/#keep-the-url-private).
 
+## For a security review
+
+Descarty's [security page](https://descarty.com/en/security/) summarizes this
+for IT and security reviews, and its
+[security overview](https://descarty.com/en/resources/) answers the questions
+security questionnaires usually ask.
+
 ## Where the data folder is
 
 - macOS: `~/Library/Application Support/Kitewell/`

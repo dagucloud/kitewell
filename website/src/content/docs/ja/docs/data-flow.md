@@ -48,6 +48,10 @@ Web サイトやデスクトップのステップが入力するパスワード�
 - MCP や REST によるリモートアクセスは、このコンピューターのローカルアドレスにしか届きません。例外は、Kitewell のリレーを通じて接続した ChatGPT と Claude と、自分で HTTPS を前に置いたクライアントです。[MCP と API アクセス](/ja/docs/mcp/)を参照してください。
 - ワークフローの Webhook の URL を持つ人は誰でも、そのワークフローを開始できます。[Webhook でワークフローを開始する](/ja/docs/webhooks/)を参照してください。
 
+## セキュリティ審査のために
+
+IT 部門やセキュリティ審査向けの要約は、Descarty の[セキュリティのページ](https://descarty.com/security/)にあります。セキュリティチェックシートでよく聞かれる質問への回答は、[Kitewell セキュリティ概要](https://descarty.com/resources/)にまとめています。
+
 ## データフォルダーの場所
 
 - macOS: `~/Library/Application Support/Kitewell/`
