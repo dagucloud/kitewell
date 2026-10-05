@@ -467,7 +467,28 @@ figure {
   letter-spacing: 0;
   color: var(--muted);
 }
-.card.pro {
+.cards.plans {
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 0;
+}
+/* Each plan card lays its name, summary, price, list, and action on shared
+   rows, so the prices line up however the summaries wrap. */
+.cards.plans .card {
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  justify-items: start;
+}
+@media (max-width: 960px) {
+  .cards.plans {
+    grid-template-columns: 1fr;
+    row-gap: 22px;
+  }
+  .cards.plans .card {
+    display: block;
+  }
+}
+.card.featured {
   background: #edf1e6;
 }
 .prose {
