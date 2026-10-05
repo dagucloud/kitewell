@@ -37,14 +37,17 @@ needs a Dagu Cloud account, with Kitewell on the computer
 [signed in](/docs/cloud-sync/#sign-in) to it.
 
 1. In Kitewell, open **This device → MCP** and choose **Connect ChatGPT** or
-   **Connect Claude**. This turns on remote access and shows the URL with the
-   steps for that app.
-2. Add Kitewell to the app as a custom connector with that URL, as described
+   **Connect Claude**.
+2. Choose what the app may do: the permission (**Read only**, **Run jobs**, or
+   **Edit and run**) and the projects. Then choose **Save and show the steps**.
+   This turns on remote access and shows the URL with the steps for that app.
+   Kitewell keeps the choice for the next time you connect the same app.
+3. Add Kitewell to the app as a custom connector with that URL, as described
    below.
-3. The app opens Dagu Cloud (console.dagu.sh). Sign in with the account
+4. The app opens Dagu Cloud (console.dagu.sh). Sign in with the account
    Kitewell is signed in to.
-4. On the consent page, pick the computer, the permission (**Read only**,
-   **Run jobs**, or **Edit and run**), and the projects, then allow it.
+5. The consent page opens with your choice filled in. Check the computer, the
+   permission, and the projects, change anything you like, then allow it.
 
 The app then appears under **Connected apps** in **This device → MCP**, with
 its permission, projects, and last use. Change its permission there, or
@@ -58,7 +61,7 @@ back on.
    connector**.
 2. Name it Kitewell, paste the URL, and choose **Continue**. Keep the
    suggested sign-in settings and choose **Add**.
-3. Sign in and allow access.
+3. Sign in, check the permission and projects, and allow access.
 
 On Team and Enterprise plans, an owner first adds the connector under
 **Organization settings → Connectors**; members then choose **Connect** on it.
@@ -71,7 +74,7 @@ plan.
 
 1. Open **Settings → Security and login** and turn on **Developer mode**.
 2. Open **Plugins**, choose **+**, paste the URL, and choose **OAuth**.
-3. Sign in and allow access.
+3. Sign in, check the permission and projects, and allow access.
 4. In a chat, pick Kitewell from the composer's **Developer mode** tool.
 
 ### What the computer needs
