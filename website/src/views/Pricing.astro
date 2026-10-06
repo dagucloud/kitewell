@@ -10,10 +10,12 @@ const text = {
   en: {
     title: "Pricing",
     description:
-      "Planned Kitewell launch pricing: one project with up to 10 workflows free; Kitewell Personal for one person at $25 a month, with up to ten projects of 100 workflows, alerts, and webhooks; Kitewell Team for up to 10 people at $199 a month, with up to 15 projects and team sync.",
+      "Planned Kitewell launch pricing: one project with up to 10 workflows on one computer free; Kitewell Personal at $20 a month for one person on one computer, with up to ten projects of 100 workflows, alerts, and webhooks; Kitewell Team at $29 a month per computer for up to 25 people and 15 projects.",
     eyebrow: "Planned launch pricing",
     heading: "One project, free.",
-    lead: "A project keeps its workflows, run history, and secrets separate. Every plan includes the same workflow tools. Personal adds room for more work and alerts when it needs you; Team adds the people you share it with.",
+    lead: "A project keeps its workflows, run history, and secrets separate. Every plan includes the same workflow tools. Personal adds room for more work and alerts when it needs you; Team adds the people you share it with, and you pay for each computer that runs Kitewell.",
+    freeName: "Free",
+    freePrice: "$0",
     freeFor: "For one project on one computer.",
     free: [
       "One project with up to 10 workflows",
@@ -25,8 +27,10 @@ const text = {
       "Optionally, sync the project with a free Dagu Cloud account",
     ],
     guide: "Read the getting started guide",
-    per: "/ month · USD",
-    personalFor: "For one person, including paid work.",
+    personalName: "Personal",
+    personalPrice: "$20",
+    personalPer: "/ month · USD",
+    personalFor: "For one person on one computer, including paid work.",
     personal: [
       "Every feature in Free",
       "Up to ten projects, 100 workflows each",
@@ -34,21 +38,35 @@ const text = {
       "Alerts by desktop notification, email, Slack, Microsoft Teams, PagerDuty, or webhook",
       "ChatGPT automations that start when a run finishes or needs you (MCP Events)",
       "Webhooks that start a workflow when GitHub, Stripe, a form, or Zapier sends a request",
-      "Sync projects between up to 3 of your own devices through Dagu Cloud",
+      "Projects kept in Dagu Cloud, to restore on a new computer",
     ],
-    teamFor: "For a team of up to 10 people.",
+    teamName: "Team",
+    teamPrice: "$29",
+    teamPer: "/ computer / month · USD",
+    teamFor: "For a team of up to 25 people.",
     team: [
       "Every feature in Personal",
-      "Up to 10 people for one flat price, not per person",
+      "As many computers as you need, $29 each",
+      "Up to 25 people, invitations included",
       "Up to 15 projects, 100 workflows each",
-      "Up to 20 devices in the workspace, 3 per person",
       "Projects shared through Dagu Cloud, with a role for each person on each project",
-      "Secret values stay on each device",
+      "Secret values stay on each computer",
     ],
     paidNote:
-      "Personal and Team need a Dagu Cloud account. If a plan lapses, existing projects and workflows keep running; alerts, MCP Events, and webhooks stop. Purchase will be available with the public launch.",
+      "Prices exclude tax. Personal and Team need a Dagu Cloud account. Connecting one computer more than your plan holds disconnects your own oldest one. If a plan lapses, existing projects and workflows keep running; alerts, MCP Events, and webhooks stop. Purchase will be available with the public launch.",
+    enterpriseName: "Enterprise",
     enterprise:
-      "More than 10 people or 20 devices, invoice billing, or terms of your own? Email us and we'll set it up with you.",
+      "For more than 25 people or 100 computers, or for any of the needs below. Enterprise is priced per computer at volume, plus an annual fee. Email us and we'll set it up with you.",
+    enterpriseFeatures: [
+      ["SSO and SCIM", "Sign in with SAML, and add or remove people automatically from your identity provider."],
+      ["Audit log export", "Every change and every run on every computer, exported and kept for the long term."],
+      ["Fleet management", "Each computer's status, version, and last connection, and what may run where."],
+      ["Roles and policies", "A role for each person on each project, and the sites and apps workflows may use."],
+      ["Closed-network sync", "Projects sync inside your own environment instead of through Dagu Cloud."],
+      ["Invoice billing", "An annual contract in Japanese yen, paid by invoice."],
+      ["SLA", "Response times agreed in the contract for when something goes wrong."],
+      ["Security reviews", "Answers for your security questionnaire and review."],
+    ],
     enterpriseLink: "How an enterprise PoC works",
     costs: "Costs outside Kitewell",
     costsText:
@@ -58,10 +76,12 @@ const text = {
   ja: {
     title: "料金",
     description:
-      "Kitewell の正式リリース時の予定価格です。1 プロジェクト・10 ワークフローまでは無料。Kitewell Personal は 1 人で月額 $25、最大 10 プロジェクト・各 100 ワークフロー、アラート、Webhook を利用できます。Kitewell Team は最大 10 人で月額 $199、最大 15 プロジェクトとチームでの同期を利用できます。",
+      "Kitewell の正式リリース時の予定価格です。コンピューター 1 台での 1 プロジェクト・10 ワークフローまでは無料。Kitewell Personal は 1 人・1 台で月額 $20、最大 10 プロジェクト・各 100 ワークフロー、アラート、Webhook を利用できます。Kitewell Team はコンピューター 1 台あたり月額 $29 で、最大 25 人・15 プロジェクトで使えます。",
     eyebrow: "正式リリース時の予定価格",
     heading: "1 プロジェクトなら無料。",
-    lead: "プロジェクトごとに、ワークフロー、実行履歴、シークレットが分かれます。どのプランでも同じワークフロー機能を使えます。Personal では扱える量が増え、対応が必要なときに知らせるアラートが加わります。Team では、一緒に使うメンバーが加わります。",
+    lead: "プロジェクトごとに、ワークフロー、実行履歴、シークレットが分かれます。どのプランでも同じワークフロー機能を使えます。Personal では扱える量が増え、対応が必要なときに知らせるアラートが加わります。Team では一緒に使うメンバーが加わり、料金は Kitewell を動かすコンピューターの台数で決まります。",
+    freeName: "Free",
+    freePrice: "$0",
     freeFor: "1 台のコンピューターで使うプラン。",
     free: [
       "1 プロジェクト、最大 10 ワークフロー",
@@ -73,8 +93,10 @@ const text = {
       "無料の Dagu Cloud アカウントでプロジェクトを同期することも可能",
     ],
     guide: "はじめかたガイドを読む",
-    per: "/ 月 · USD",
-    personalFor: "1 人で使うプラン。仕事にも使えます。",
+    personalName: "Personal",
+    personalPrice: "$20",
+    personalPer: "/ 月 · USD",
+    personalFor: "1 人が 1 台で使うプラン。仕事にも使えます。",
     personal: [
       "Free のすべての機能",
       "最大 10 プロジェクト、各 100 ワークフロー",
@@ -82,21 +104,35 @@ const text = {
       "デスクトップ通知、メール、Slack、Microsoft Teams、PagerDuty、Webhook によるアラート",
       "実行の終了や、対応が必要になったときに始まる ChatGPT の自動化（MCP Events）",
       "GitHub、Stripe、フォーム、Zapier からのリクエストでワークフローを開始する Webhook",
-      "自分のデバイス最大 3 台の間で、Dagu Cloud を通じてプロジェクトを同期",
+      "プロジェクトを Dagu Cloud に保管し、新しいコンピューターで復元",
     ],
-    teamFor: "最大 10 人のチームで使うプラン。",
+    teamName: "Team",
+    teamPrice: "$29",
+    teamPer: "/ 台 / 月 · USD",
+    teamFor: "最大 25 人のチームで使うプラン。",
     team: [
       "Personal のすべての機能",
-      "最大 10 人まで、人数にかかわらず定額",
+      "コンピューターは必要な台数だけ、1 台 $29",
+      "最大 25 人（招待中を含む）",
       "最大 15 プロジェクト、各 100 ワークフロー",
-      "ワークスペースで最大 20 台のデバイス（1 人あたり 3 台まで）",
       "Dagu Cloud を通じてチームでプロジェクトを共有し、プロジェクトごとにメンバーのロールを設定",
-      "シークレットの値は各デバイスにとどまります",
+      "シークレットの値は各コンピューターにとどまります",
     ],
     paidNote:
-      "Personal と Team には Dagu Cloud アカウントが必要です。プランが失効しても、既存のプロジェクトとワークフローは動き続けます（アラート、MCP Events、Webhook は停止）。購入は正式リリース時に開始します。",
+      "価格は税抜です。Personal と Team には Dagu Cloud アカウントが必要です。プランの台数を超えてコンピューターを接続すると、自分の最も古いコンピューターの接続が解除されます。プランが失効しても、既存のプロジェクトとワークフローは動き続けます（アラート、MCP Events、Webhook は停止）。購入は正式リリース時に開始します。",
+    enterpriseName: "Enterprise",
     enterprise:
-      "11 人以上や 21 台以上のデバイスでの利用、請求書払い、個別の契約条件をご希望ですか？メールでご連絡ください。ご要望に合わせてご用意します。",
+      "26 人以上や 101 台以上での利用、または次の機能が必要な場合は Enterprise をご利用ください。料金は、台数に応じたコンピューター単価と年額の基本料で決まります。メールでご連絡ください。ご要望に合わせてご用意します。",
+    enterpriseFeatures: [
+      ["SSO と SCIM", "SAML でサインインし、ID 管理サービスでのメンバーの追加・削除を自動で反映します。"],
+      ["監査ログの書き出し", "すべてのコンピューターの変更と実行を書き出し、長期間保管します。"],
+      ["コンピューターの管理", "各コンピューターの状態、バージョン、最終接続と、どのコンピューターで何を動かしてよいかを管理します。"],
+      ["ロールとポリシー", "プロジェクトごとのメンバーのロールと、ワークフローが使えるサイト・アプリを設定します。"],
+      ["閉域網での同期", "Dagu Cloud を使わず、貴社の環境内でプロジェクトを同期します。"],
+      ["請求書払い", "円建ての年間契約で、請求書でお支払いいただけます。"],
+      ["SLA", "障害時の対応時間を契約で定めます。"],
+      ["セキュリティ審査への対応", "セキュリティチェックシートへの回答や審査に対応します。"],
+    ],
     enterpriseLink: "法人向け PoC の進め方",
     costs: "Kitewell 以外の費用",
     costsText:
@@ -113,9 +149,9 @@ const text = {
     <p class="lead">{text.lead}</p>
     <div class="cards plans">
       <article class="card">
-        <h2>Free</h2>
+        <h2>{text.freeName}</h2>
         <p>{text.freeFor}</p>
-        <div class="price">$0</div>
+        <div class="price">{text.freePrice}</div>
         <ul>
           {text.free.map((item) => <li>{item}</li>)}
         </ul>
@@ -124,20 +160,20 @@ const text = {
         </a>
       </article>
       <article class="card">
-        <h2>Personal</h2>
+        <h2>{text.personalName}</h2>
         <p>{text.personalFor}</p>
         <div class="price">
-          $25 <span>{text.per}</span>
+          {text.personalPrice} <span>{text.personalPer}</span>
         </div>
         <ul>
           {text.personal.map((item) => <li>{item}</li>)}
         </ul>
       </article>
       <article class="card featured">
-        <h2>Team</h2>
+        <h2>{text.teamName}</h2>
         <p>{text.teamFor}</p>
         <div class="price">
-          $199 <span>{text.per}</span>
+          {text.teamPrice} <span>{text.teamPer}</span>
         </div>
         <ul>
           {text.team.map((item) => <li>{item}</li>)}
@@ -146,19 +182,31 @@ const text = {
     </div>
     <p class="fine plans-note">{text.paidNote}</p>
     <div class="notice enterprise" id="enterprise">
-      <div>
-        <h2>Enterprise</h2>
-        <p>{text.enterprise}</p>
+      <div class="enterprise-head">
+        <div>
+          <h2>{text.enterpriseName}</h2>
+          <p>{text.enterprise}</p>
+        </div>
+        <div class="actions">
+          <a
+            class="button"
+            href="mailto:company@descarty.com?subject=Kitewell%20Enterprise"
+          >
+            company@descarty.com
+          </a>
+          <a class="button secondary" href={descartyUrl(locale, "/enterprise/")}>{text.enterpriseLink}</a>
+        </div>
       </div>
-      <div class="actions">
-        <a
-          class="button"
-          href="mailto:company@descarty.com?subject=Kitewell%20Enterprise"
-        >
-          company@descarty.com
-        </a>
-        <a class="button secondary" href={descartyUrl(locale, "/enterprise/")}>{text.enterpriseLink}</a>
-      </div>
+      <ul class="enterprise-features">
+        {
+          text.enterpriseFeatures.map(([name, detail]) => (
+            <li>
+              <h3>{name}</h3>
+              <p>{detail}</p>
+            </li>
+          ))
+        }
+      </ul>
     </div>
     <div class="prose">
       <h2>{text.costs}</h2>

@@ -43,10 +43,11 @@ logs. None of these reach Dagu Cloud either.
    Kitewell shows, and connect the device.
 
 A device syncs with one workspace, shown as **Workspace** in **Device
-settings**. Each person can connect up to three devices to a workspace;
-connecting a fourth disconnects their oldest. A Kitewell Team workspace holds
-up to 20 devices in all; once it has 20, connecting another is refused until
-one is disconnected. A free account syncs one project. Kitewell Personal syncs
+settings**. A workspace holds as many computers as its plan: one on a free
+account and on Kitewell Personal, and the number bought on Kitewell Team.
+Connecting one more disconnects your own oldest computer in the workspace; if
+the others all belong to other people, it is refused until one is disconnected
+or the plan holds more. A free account syncs one project. Kitewell Personal syncs
 up to ten projects and Kitewell Team up to 15, each with up to 100 workflows;
 syncing a project the plan has no room for is refused and says why. Synced projects count toward the workspace's plan, not the device's
 project limit.
@@ -105,20 +106,21 @@ or applying releases, and declaring secrets.
 
 ## Work as a team
 
-A team shares synced projects under Kitewell Team, which costs $199 a month
-for the workspace and holds up to 10 people; a larger team takes
-[Enterprise](/pricing/#enterprise). The team's owner pays for the workspace;
-members need no subscription of their own. Kitewell Personal is for one person
-and cannot invite anyone.
+A team shares synced projects under Kitewell Team, which costs $29 a month for
+each computer the workspace connects and holds up to 25 people; a larger team
+takes [Enterprise](/pricing/#enterprise). The team's owner pays for the
+workspace; members need no subscription of their own. Kitewell Personal is for
+one person on one computer and cannot invite anyone.
 
 To move between plans, open the **Kitewell** page in Dagu Cloud and choose
-**Switch to Kitewell Team** or **Switch to Kitewell Personal**. Stripe adjusts
-your next invoice for the change. Before moving to Personal, remove the other
-people and revoke their invitations.
+**Switch to Kitewell Team** or **Switch to Kitewell Personal**. On Team, change
+the number of computers there too. Stripe adjusts your next invoice for either
+change. Before moving to Personal, remove the other people, revoke their
+invitations, and leave one computer connected.
 
 The owner manages the team on the **Kitewell** page in Dagu Cloud:
 
-- **Invite** a person by email. The invitation counts toward the 10 people
+- **Invite** a person by email. The invitation counts toward the 25 people
   until it is accepted, revoked, or expires after seven days. The person signs
   in to Dagu Cloud with that email address to accept it.
 - **Synced projects** lists every project the team syncs, and gives each member

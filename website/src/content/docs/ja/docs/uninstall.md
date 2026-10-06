@@ -35,6 +35,6 @@ rm -f "$HOME/Library/Application Support/Kitewell/native-token"
 - macOS：`~/Library/Application Support/Kitewell`
 - Windows：`%LOCALAPPDATA%\Kitewell`
 
-[Dagu Cloud](/ja/docs/cloud-sync/)とプロジェクトを同期していた場合、プロジェクトは Dagu Cloud に残ります。このデバイスは、4 台目のデバイスに置き換えられるまで、ワークスペースで使える 3 台分の枠の 1 つを使い続けます。Kitewell Team では、ワークスペース全体の 20 台の枠にも数えられます。枠を空けるには、Dagu Cloud の **Kitewell** ページでこのデバイスの接続を解除してください。
+[Dagu Cloud](/ja/docs/cloud-sync/)とプロジェクトを同期していた場合、プロジェクトは Dagu Cloud に残ります。このデバイスは、別のコンピューターを接続して置き換えるまで、ワークスペースのプランの台数に数えられたままです。枠を空けるには、Dagu Cloud の **Kitewell** ページでこのデバイスの接続を解除してください。
 
 完全に削除する場合は、先に必要なバックアップと外部ファイルをコピーしてから、Finder またはエクスプローラーでこのフォルダーを削除してください。

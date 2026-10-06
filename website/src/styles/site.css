@@ -504,13 +504,15 @@ figure {
   font-size: 13px;
 }
 /* On the pricing page, Enterprise spans the plan grid, with its actions
-   beside the text. */
+   beside the text and what it includes below. */
 .notice.enterprise {
+  max-width: none;
+}
+.enterprise-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px 32px;
-  max-width: none;
 }
 .notice.enterprise .actions {
   display: flex;
@@ -524,10 +526,31 @@ figure {
 .notice.enterprise .button + .button {
   margin-left: 0;
 }
+.enterprise-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 32px;
+  margin: 25px 0 0;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+.enterprise-features h3 {
+  font-size: 16px;
+}
+.notice.enterprise .enterprise-features p {
+  margin-top: 2px;
+  font-size: 15px;
+}
 @media (max-width: 960px) {
-  .notice.enterprise {
+  .enterprise-head {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+@media (max-width: 760px) {
+  .enterprise-features {
+    grid-template-columns: 1fr;
   }
 }
 .prose {

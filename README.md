@@ -72,10 +72,12 @@ that waits for approval, and more.
 
 Free for one project with up to 10 workflows and one API key or connected app
 (ChatGPT or Claude), with no Kitewell account required for local use.
-Personal, for one person, supports up to ten projects of 100 workflows each,
-any number of API keys and connected apps, alerts, MCP Events, and webhooks for
-$25 per month. Team adds up to 10 people, 15 projects, 20 devices, and team
-sync for $199 per month for the workspace (USD).
+Personal, for one person on one computer, supports up to ten projects of 100
+workflows each, any number of API keys and connected apps, alerts, MCP Events,
+and webhooks for $20 per month. Team adds up to 25 people, 15 projects, and
+team sync for $29 per month for each computer (USD, excluding tax).
+Enterprise is for more than 25 people or 100 computers, SSO, audit export,
+closed-network sync, invoice billing, or an SLA.
 These are planned launch prices; see
 [Pricing](https://kitewell.app/pricing/).
 
