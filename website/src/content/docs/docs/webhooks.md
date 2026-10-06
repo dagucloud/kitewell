@@ -122,7 +122,7 @@ body is kept only with a run.
 | --- | --- |
 | **Run started** | The request started a run. A request the relay sent twice starts one run. |
 | **Failed** | The run could not be queued, for example because the project's engine is stopped. Kitewell retries a busy or recovering engine for 10 minutes first. |
-| **Ignored** | The paid plan has lapsed. |
+| **Ignored** | The paid plan has ended, or the workflow is not in your plan. |
 
 ## Keep the URL private
 
@@ -160,8 +160,9 @@ On Windows, a body larger than about 30,000 characters may fail to start a
 run, and the request shows **Failed**. GitHub push and pull request events can
 be that large. A fix is on the way.
 
-If the paid plan lapses, the URL still accepts requests, but they start nothing
-and show **Ignored**. Signing up again needs no new URL.
+If the paid plan ends, or the workflow is no longer in your plan, the URL
+still accepts requests, but they start nothing and show **Ignored**. Signing up
+again needs no new URL.
 
 ## Where the request goes
 

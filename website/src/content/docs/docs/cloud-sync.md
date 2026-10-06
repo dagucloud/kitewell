@@ -141,6 +141,26 @@ run commands on your team's devices.
 A member connects a device the same way, choosing the team's workspace when
 Dagu Cloud asks.
 
+## When a plan ends
+
+When a paid plan ends, alerts, MCP Events, and webhooks stop. Everything else
+keeps running for 7 days, and a banner on every page says on which day the
+projects, workflows, and API keys or connected apps beyond the free plan stop.
+
+- **Choose what stays.** In the banner or **Device settings**, pick which
+  projects, workflows, and keys or apps stay active, up to the plan's limits.
+  If you choose nothing, the ones that ran or were used most recently stay.
+- **Not in plan.** Anything beyond the limits is marked **Not in plan**. It does
+  not run, by schedule or by hand, and cannot be edited, but you can still open
+  it, read its run history, export it, or delete it. Runs already under way
+  finish.
+- **Nothing is deleted.** Subscribe again and everything runs as before, with
+  its schedules.
+
+The same applies when you move to a plan with lower limits. A device that
+cannot reach Dagu Cloud keeps its last paid plan until that license expires,
+then has the same 7 days.
+
 ## Stop syncing
 
 **Stop syncing** in **Manage projects** keeps the project on this device and in

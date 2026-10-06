@@ -25,9 +25,10 @@ that reaches exactly one project can omit the ID; a key that reaches several
 must name one.
 
 The free plan holds one API key or connected app in total; Kitewell Personal
-and Team hold any number. A key or app added earlier keeps working if the paid
-plan lapses, and
-revoking one makes room for another.
+and Team hold any number. Revoking one makes room for another. When a paid
+plan ends, keys and apps beyond the free plan stop working 7 days later, and
+you choose which one stays; see
+[When a plan ends](/docs/cloud-sync/#when-a-plan-ends).
 
 ## Connect ChatGPT or Claude
 
