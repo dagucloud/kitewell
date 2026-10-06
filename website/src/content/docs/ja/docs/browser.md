@@ -121,33 +121,4 @@ Kitewell は Web サイトの操作を代わりに行えます。ページを開
 
 自動操作のブラウザーを拒否するサイトもあります。保存したサインインや、Cookie のバナーを過ぎた開始ページでよくあるケースは回避できますが、CAPTCHA は解けません。スケジュール実行には、コンピューターが起動している必要があります。
 
-同じワークフローを YAML で書くと次のとおりです。
-
-```yaml
-type: graph
-steps:
-  - id: order
-    name: Look up the order
-    action: browser.run
-    with:
-      url: https://shop.example.com/orders
-      variables:
-        order: "10042"
-      do:
-        - act: 注文番号の検索欄に %order% を入力する
-        - act: 「検索」ボタンをクリックする
-        - expect: 注文の詳細が表示されている
-        - extract:
-            instruction: 注文の状況と配達予定日
-            schema:
-              type: object
-              properties:
-                status:
-                  type: string
-                delivery:
-                  type: string
-  - id: report
-    name: Write down the status
-    depends: [order]
-    run: echo "${steps.order.outputs.status} ${steps.order.outputs.delivery}"
-```
+上の「最初の Web サイトのステップを作る」のワークフローは 2 つのステップです。開始ページ、`order` という値、2 つの **ページで操作する**、1 つの **次を確認する…**、状況と配達予定日を読み取る 1 つの **情報を集める** を持つ **Web サイトを自動操作** と、その 2 つの値を使う後のステップです。

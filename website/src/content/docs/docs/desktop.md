@@ -215,34 +215,11 @@ Desktop steps run on macOS and Windows only, on this computer's own screen.
 An app that blocks screen recording cannot be operated, and neither can one
 running as administrator on Windows while Kitewell is not.
 
-The same workflow in YAML, on a Mac:
+The workflow in [Build your first desktop step](#build-your-first-desktop-step)
+is two steps: **Automate a desktop app** with one value named `client`, an
+**Open an app** step that starts Numbers, a **Do a task** step that finds the
+newest row for that client, and a **Read from the screen** step that reads the
+invoice number and the total; then a later step that uses those two values.
 
-```yaml
-type: graph
-params:
-  - CLIENT: Acme
-steps:
-  - id: invoice
-    name: Find the latest invoice
-    action: computer.run
-    with:
-      variables:
-        client: ${params.CLIENT}
-      do:
-        - launch: {command: open, args: [-a, Numbers]}
-        - act: Open the invoice list and find the newest row for %client%
-        - extract:
-            instruction: The invoice number and the total in that row
-            schema:
-              type: object
-              properties:
-                number: {type: string}
-                total: {type: number}
-  - id: report
-    name: Write down the invoice
-    depends: [invoice]
-    run: echo "${steps.invoice.outputs.number}"
-```
-
-On Windows, `launch` takes the program instead, such as `launch: notepad.exe`,
-or `{command, args}` to pass arguments.
+On Windows, **Open an app** takes the program's name instead, such as
+`notepad.exe`, or the program and what to pass to it.

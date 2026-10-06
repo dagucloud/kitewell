@@ -51,22 +51,11 @@ Each request starts one run, and run history shows its trigger as
   list of values, such as `{"x-github-event":["issues"]}`. `Authorization`
   and cookies are left out.
 
-You don't declare either one as an input. To pick a field out of a JSON body,
-use a `jq.filter` step, which works the same on macOS and Windows:
-
-```yaml
-steps:
-  - id: issue
-    action: jq.filter
-    with:
-      data: ${env.WEBHOOK_PAYLOAD}
-      filter: .issue.title
-    output:
-      title: {from: stdout, decode: json}
-```
-
-Later steps read the title as `${steps.issue.outputs.title}`. An AI step can
-take the whole body in its prompt as text.
+You don't declare either one as an input. To pick one field out of a JSON
+body, such as the issue's title, ask the assistant with
+**Build steps from this request**: it adds a step that picks the field out,
+and later steps read it by name, such as `${steps.issue.outputs.title}`. An
+AI step can take the whole body in its prompt as text.
 
 The body is whatever the sender sent, so treat it as untrusted. A command
 reads it from its environment, as `"$WEBHOOK_PAYLOAD"` in a macOS shell or

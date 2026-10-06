@@ -178,36 +178,8 @@ forwarding, no drafts, and no trigger on a single email arriving; a schedule
 with **Unread only** does that job. A Microsoft 365 tenant with IMAP or
 Authenticated SMTP turned off cannot connect at all.
 
-The same workflow in YAML:
-
-```yaml
-type: graph
-steps:
-  - id: find
-    name: Find new requests
-    action: mail.search
-    with:
-      mailbox: support@example.com
-      unread: true
-  - id: each
-    name: Handle each request
-    depends: [find]
-    foreach:
-      items: ${steps.find.outputs.messages}
-      as: email
-      key: ${foreach.email.id}
-      max_concurrent: 1
-      steps:
-        - id: ticket
-          name: Create a ticket
-          action: api.request
-          # the connected "Create issue" operation, with the email's fields
-        - id: done
-          name: Mark it handled
-          depends: [ticket]
-          action: mail.organize
-          with:
-            mailbox: support@example.com
-            emails: ${foreach.email.id}
-            mark: read
-```
+The workflow in [Build your first email workflow](#build-your-first-email-workflow)
+is three steps: **Find emails** with **Unread only** on, a **For each item**
+loop over what it found with **Items at a time** set to 1, and inside the
+loop, **Use an API action** with the ticket system's "Create issue"
+operation followed by **Organize emails** marking the current email read.

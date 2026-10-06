@@ -238,66 +238,33 @@ If a spreadsheet step fails, see
 
 ## Details
 
-The same work written as a workflow. The write-back sits inside the loop and
-addresses one row by its row number, so a row that failed keeps its empty
-status and the next run picks it up again:
+The same job can be built as steps instead of a linked sheet, when the
+workbook is one part of a larger workflow:
 
-```yaml
-type: graph
-steps:
-  - id: orders
-    name: Read the invoices not done yet
-    action: xlsx.read
-    with:
-      path: ~/Documents/supplier-invoices.xlsx
-      sheet: Invoices
-      columns:
-        - {Invoice No: invoice}
-        - {Amount: amount}
-        - Status
-      types: {Amount: number}
-      where: {Status: ""}
-  - id: each
-    name: For each invoice
-    depends: [orders]
-    foreach:
-      items: ${steps.orders.outputs.rows}
-      as: row
-      key: ${foreach.row.invoice}
-      max_concurrent: 1
-      steps:
-        - id: register
-          name: Register it on the portal
-          run: echo "${foreach.row.invoice}"
-          output:
-            ticket: {from: stdout}
-        - id: mark
-          name: Write the receipt number back
-          depends: [register]
-          action: xlsx.update_rows
-          with:
-            path: ~/Documents/supplier-invoices.xlsx
-            sheet: Invoices
-            key: _row
-            rows: '[{"_row": ${foreach.row._row}, "ticket": "${steps.register.outputs.ticket}"}]'
-            set:
-              Status: {value: Done}
-              Receipt No: ticket
-            wait_for_unlock: 5m
-```
+1. **Read a spreadsheet** reads the Invoices sheet of
+   `supplier-invoices.xlsx`. Under **Only rows where…**, choose the Status
+   column and leave the value empty, so only the invoices not done yet are
+   read.
+2. **For each item** goes through those rows one at a time.
+3. Inside the loop, the step that registers the invoice on the portal: a
+   [website step](/docs/browser/) for a portal with no API, a
+   [desktop step](/docs/desktop/) for an application with neither, or a
+   command. It produces the receipt number.
+4. **Write results back**, still inside the loop, writes `Done` into Status
+   and the receipt number into Receipt No, in the row the invoice came from.
 
-A column a later step refers to needs a plain ASCII name without spaces, which
-is what the `{Invoice No: invoice}` items in `columns` give it. The editor
-offers one, and the review asks for it when a loop refers to a header that
-cannot be written in a reference. On a sheet, each row keeps the workbook's
-own header as its title.
+Because the write-back sits inside the loop, a row that failed keeps its
+empty Status and the next run picks it up again.
 
-Every writer takes `dry_run: true`, which reports changes without saving;
-`wait_for_unlock`, a duration such as `5m` to keep retrying while Excel has
-the file open; and `atomic`, on by default, which saves through a temporary
-file.
+A column a later step refers to needs a short name in plain letters, such as
+`invoice` for "Invoice No". **Name for later steps** beside each column in
+**Read a spreadsheet** takes it, the editor suggests one, and the review asks
+for it when a loop refers to a header that cannot be written in a reference.
+On a sheet, each row keeps the workbook's own header as its title.
 
-A portal with no API takes a [website step](/docs/browser/) in place of the
-command above, and an application with neither takes a
-[desktop step](/docs/desktop/). The spreadsheet steps around them stay off the
-screen either way.
+Every step that writes has three settings: **Dry run** reports the changes
+without saving; a wait of up to a few minutes, during which a workbook open in
+Excel is retried before the step fails; and, on by default, saving through a
+temporary file so a half-written workbook is never left behind.
+
+The spreadsheet steps stay off the screen whatever sits between them.

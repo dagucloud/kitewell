@@ -32,20 +32,7 @@ Webhook は Kitewell Personal と Team の機能で、Kitewell が Dagu Cloud �
 - `WEBHOOK_PAYLOAD`：送られてきた本文そのもの。
 - `WEBHOOK_HEADERS`：ヘッダーの JSON。小文字の名前ごとに値のリストを持ちます（例：`{"x-github-event":["issues"]}`）。`Authorization` と Cookie は含まれません。
 
-どちらも入力として宣言する必要はありません。JSON の本文から値を取り出すには、macOS と Windows で同じように動く `jq.filter` ステップを使います。
-
-```yaml
-steps:
-  - id: issue
-    action: jq.filter
-    with:
-      data: ${env.WEBHOOK_PAYLOAD}
-      filter: .issue.title
-    output:
-      title: {from: stdout, decode: json}
-```
-
-後のステップは、タイトルを `${steps.issue.outputs.title}` として読めます。AI のステップには、本文全体をプロンプトの文章として渡せます。
+どちらも入力として宣言する必要はありません。JSON の本文から課題のタイトルなどの値を取り出すには、**このリクエストからステップを作る** でアシスタントに頼みます。値を取り出すステップが追加され、後のステップはその値を `${steps.issue.outputs.title}` のような名前で読めます。AI のステップには、本文全体をプロンプトの文章として渡せます。
 
 本文は送り手が送ったものなので、信頼できない入力として扱ってください。コマンドでは、環境変数から読みます。macOS のシェルでは `"$WEBHOOK_PAYLOAD"`、Windows の PowerShell では `$env:WEBHOOK_PAYLOAD` です。`${env.WEBHOOK_PAYLOAD}` や、そこから取り出した値を、コマンドの文字列に直接書かないでください。引用符がコードとして解釈されてしまいます。[アシスタント](/ja/docs/ai/#the-assistant)はこれらの変数を知っているので、届くはずのリクエストを伝えてワークフローを作らせることもできます。
 

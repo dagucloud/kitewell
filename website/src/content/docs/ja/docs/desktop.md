@@ -110,33 +110,6 @@ Web サイトのステップは 1 回に 1 操作ですが、デスクトップ�
 
 デスクトップステップが動くのは macOS と Windows だけで、このコンピューター自身の画面を使います。画面収録を拒否するアプリは操作できません。Windows で管理者として実行中のアプリも、Kitewell が管理者でなければ操作できません。
 
-Mac での同じワークフローを YAML で書くと次のとおりです。
+上の「最初のデスクトップのステップを作る」のワークフローは 2 つのステップです。`client` という値、Numbers を起動する **アプリを開く**、その取引先の最新の行を探す **タスクを実行**、請求書番号と合計金額を読み取る **画面から読み取る** を持つ **デスクトップアプリを自動操作** と、その 2 つの値を使う後のステップです。
 
-```yaml
-type: graph
-params:
-  - CLIENT: Acme
-steps:
-  - id: invoice
-    name: Find the latest invoice
-    action: computer.run
-    with:
-      variables:
-        client: ${params.CLIENT}
-      do:
-        - launch: {command: open, args: [-a, Numbers]}
-        - act: 請求書の一覧を開き、%client% の最新の行を探す
-        - extract:
-            instruction: その行の請求書番号と合計金額
-            schema:
-              type: object
-              properties:
-                number: {type: string}
-                total: {type: number}
-  - id: report
-    name: Write down the invoice
-    depends: [invoice]
-    run: echo "${steps.invoice.outputs.number}"
-```
-
-Windows では `launch` にプログラムを書きます。`launch: notepad.exe` のように書くか、引数を渡すには `{command, args}` を使います。
+Windows では **アプリを開く** に `notepad.exe` のようなプログラム名か、プログラムとそれに渡す引数を書きます。

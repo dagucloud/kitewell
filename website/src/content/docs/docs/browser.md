@@ -232,33 +232,8 @@ Some sites refuse automated browsers. A saved sign-in and a start page past
 the cookie banner get around the usual cases; CAPTCHAs are not solved. The
 computer has to be awake for a scheduled run.
 
-The same workflow in YAML:
-
-```yaml
-type: graph
-steps:
-  - id: order
-    name: Look up the order
-    action: browser.run
-    with:
-      url: https://shop.example.com/orders
-      variables:
-        order: "10042"
-      do:
-        - act: Type %order% into the order search box
-        - act: Click the Search button
-        - expect: The order's details are shown
-        - extract:
-            instruction: The order's status and the expected delivery date
-            schema:
-              type: object
-              properties:
-                status:
-                  type: string
-                delivery:
-                  type: string
-  - id: report
-    name: Write down the status
-    depends: [order]
-    run: echo "${steps.order.outputs.status} ${steps.order.outputs.delivery}"
-```
+The workflow in [Build your first website step](#build-your-first-website-step)
+is two steps: **Automate a website** with a start page, one value named
+`order`, two **Do something on the page** steps, one **Make sure that…**
+check, and one **Collect information** step that reads the status and the
+delivery date; then a later step that uses those two values.

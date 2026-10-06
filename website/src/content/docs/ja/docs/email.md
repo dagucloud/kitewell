@@ -89,36 +89,4 @@ Gmail のブラウザーでのサインインが求めるのは、メールの�
 
 **メールを検索** の 1 回の実行で取得できるのは最大 50 件です。転送、下書き、メール 1 通ごとのトリガーはありません。**未読のみ** とスケジュールの組み合わせが同じ役目を果たします。IMAP または認証済み SMTP を無効にしている Microsoft 365 のテナントでは、そもそも接続できません。
 
-同じワークフローを YAML で書くと次のとおりです。
-
-```yaml
-type: graph
-steps:
-  - id: find
-    name: Find new requests
-    action: mail.search
-    with:
-      mailbox: support@example.com
-      unread: true
-  - id: each
-    name: Handle each request
-    depends: [find]
-    foreach:
-      items: ${steps.find.outputs.messages}
-      as: email
-      key: ${foreach.email.id}
-      max_concurrent: 1
-      steps:
-        - id: ticket
-          name: Create a ticket
-          action: api.request
-          # 接続した「課題を作成」の操作に、メールの各項目を渡します
-        - id: done
-          name: Mark it handled
-          depends: [ticket]
-          action: mail.organize
-          with:
-            mailbox: support@example.com
-            emails: ${foreach.email.id}
-            mark: read
-```
+上の「最初のメールのワークフローを作る」のワークフローは 3 つのステップです。**未読のみ** をオンにした **メールを検索**、見つかったメールを回す **同時に処理する項目数** が 1 の **各項目を処理** のループ、そしてループの中の、チケットシステムの「課題を作成」の操作を選んだ **API アクションを使う** と、現在のメールを既読にする **メールを整理** です。
