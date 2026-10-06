@@ -81,11 +81,11 @@ for (const lang of wanted) {
   const dataDir = option(`data-${lang}`);
   const out = path.join(root, "src", "assets", "docs", lang);
   fs.mkdirSync(out, { recursive: true });
-  // Light theme at a size that keeps the sidebar open and the pictures legible
-  // at the width the docs show them.
+  // Light theme at about the size the desktop app opens with, drawn at 2x so the
+  // picture stays sharp when the docs scale it down.
   const context = await browser.newContext({
-    viewport: { width: 1440, height: 900 },
-    deviceScaleFactor: 1,
+    viewport: { width: 1280, height: 800 },
+    deviceScaleFactor: 2,
     colorScheme: "light",
     locale: LANGS[lang].locale,
     timezoneId: LANGS[lang].timezoneId,
@@ -166,12 +166,37 @@ function helpers({ page, base, lang, dataDir, out }) {
     return false;
   };
   // snap writes the picture. A clip keeps part of the window; the default is
-  // the whole viewport.
+  // the window without the app's own navigation, so the part the page talks
+  // about fills the picture and its text stays readable at the docs' width.
   const snap = async (name, { clip } = {}) => {
     const file = path.join(out, `${name}.png`);
+    clip ??= await content();
     await page.screenshot({ path: file, clip, fullPage: false });
     snapped.add(name);
     console.log(`captured ${lang}/${name}`);
+  };
+  // content is the window to the right of the sidebar, cut below the last
+  // thing on screen, when the app is showing.
+  const content = async () => {
+    const { width, height } = page.viewportSize();
+    const edges = await page
+      .evaluate(({ height }) => {
+        const left = Math.round(document.querySelector(".sidebar")?.getBoundingClientRect().right || 0);
+        let bottom = 0;
+        for (const el of document.querySelectorAll("body *")) {
+          // Only what is drawn counts: leaves, not the containers around them,
+          // which may stretch to the window's bottom. Fixed and hidden elements
+          // have no offsetParent; the sidebar is cut off anyway.
+          if (el.children.length || !el.offsetParent || el.closest(".sidebar")) continue;
+          const r = el.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0 && r.top < height) bottom = Math.max(bottom, Math.min(r.bottom, height));
+        }
+        return { left, bottom: Math.ceil(bottom) };
+      }, { height })
+      .catch(() => ({ left: 0, bottom: 0 }));
+    if (!(edges.left > 0 && edges.left < width - 200)) return undefined;
+    const cut = Math.min(height, Math.max(edges.bottom + 24, 240));
+    return { x: edges.left, y: 0, width: width - edges.left, height: cut };
   };
   return { page, base, lang, dataDir, t, exact, api, go, until, snap, snapped };
 }

@@ -1,4 +1,7 @@
 :root {
+  /* A little wider than Starlight's default, so a picture of the app and a
+     table with four columns have room. */
+  --sl-content-width: 50rem;
   --sl-color-accent-low: #193d32;
   --sl-color-accent: #90ac74;
   --sl-color-accent-high: #c8dcc1;

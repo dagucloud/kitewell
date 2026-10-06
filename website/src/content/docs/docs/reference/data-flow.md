@@ -7,22 +7,22 @@ the long form of [What leaves your computer](/docs/data-flow/).
 
 ## Where data goes
 
-| When you use this | What is sent | To whom | How to stop it |
-| --- | --- | --- | --- |
-| A model step, the assistant, failure diagnosis, or a sheet column a model reads | The prompt and the material it reads: run output, logs and artifacts you pass, a page's visible text and layout, a screenshot of the whole screen, a sheet row's inputs and its run's results, a failed run's steps and definition, the project's knowledge | The model provider you chose under [Agents & models](/docs/ai/) | Add no model, or point the model at a server you run. A workflow with no AI step sends nothing |
-| A sheet column judged yes/no, by choice, or on a scale | The same material, plus each column's question and the meaning of each option | The decision model's provider: OpenRouter, TypeSafe, or an address you set | Choose a column that copies a published value instead; it needs no model |
-| An **Ask an AI agent** task | The prompt and whatever the agent reads in its working folder, under that tool's own terms | Whichever service that command-line tool signs in to | Use a different task |
-| [Importing an API](/docs/apis/) by its address, or asking the assistant to check a web page | A plain request for the document or the page, with no credentials | The address you gave | Upload the OpenAPI file instead of giving an address |
-| A website, command, file, API, Docker, or remote step | Whatever the step sends | The sites, servers, APIs, image registries, and computers your steps name | Remove the step |
-| An email step | The message, and the search you asked for | Your mailbox's own mail server, or the Gmail API for a Google mailbox. Signing in goes to Google or Microsoft | Disconnect the mailbox in **Mail accounts** |
-| [Alerts](/docs/alerts/) | The alert: what happened, how urgent, the project, the workflow, and a link back | Your mail server, a Slack or Teams address, PagerDuty, or a webhook of your own | Remove the channel |
-| Signing in to Dagu Cloud | Which plan the workspace has, the Kitewell version, and this computer's ID and name, every six hours | Dagu Cloud, run by Descarty | Sign out in **Device settings** |
-| [Syncing a project](/docs/cloud-sync/) | That project's workflows, its models, servers, API connections, queues and registries, secret names and descriptions, sheets, knowledge pages, releases, and — for a workflow that works a mailbox — which signed-in person's device runs it | Dagu Cloud | **Stop syncing** that project |
-| [ChatGPT or Claude connected to Kitewell](/docs/mcp/) | Whatever the app asks Kitewell's tools for: workflows, runs and their logs, artifacts, sheets, knowledge, and — with edit permission — the rows of an Excel file on this computer | The app, through Kitewell's relay at `mcp.kitewell.app` | Turn **Remote access** off, or **Revoke** the app |
-| An event an app or API key subscribed to | Each event: the project, workflow, run, how it ended, the times, failed step names, a waiting step's question, a sheet launch's counts, or why a schedule was missed | The address the subscriber gave | **Remove** the subscription |
-| A workflow's **Webhook** | Nothing goes out. Requests come in and wait at Kitewell's relay, with their headers and body, until this computer takes them | Kitewell's relay at `hooks.kitewell.app` holds them, for at most 7 days | **Turn off** that webhook |
-| Update checks | A request that says nothing about you or your work | GitHub for the workflow engine, and kitewell.app for the Kitewell app | Turn **Automatic engine updates** off. The app is checked only when you ask |
-| **Install WebView2** on Windows | A download request | Microsoft | The installer normally carries it, so this appears only if the runtime is missing |
+Each entry says what is sent, who receives it, and how to stop it.
+
+- **A model step, the assistant, failure diagnosis, or a sheet column a model reads.** Sends the prompt and what it reads — run output, logs, page text, screenshots, sheet rows, knowledge — to the model's provider, chosen under [Agents & models](/docs/ai/). Stop it by adding no model, or by using a server you run.
+- **A sheet column judged yes/no, by choice, or on a scale.** Sends the same material, plus each column's question and the meaning of each option. To the decision model's provider: OpenRouter, TypeSafe, or an address you set. Stop it by choosing a column that copies a published value instead; it needs no model.
+- **An Ask an AI agent task.** Sends the prompt and whatever the agent reads in its working folder, under that tool's own terms. To whichever service that command-line tool signs in to. Stop it by using a different task.
+- **[Importing an API](/docs/apis/) by its address, or asking the assistant to check a web page.** Sends a plain request for the document or the page, with no credentials. To the address you gave. Stop it by uploading the OpenAPI file instead.
+- **A website, command, file, API, Docker, or remote step.** Sends whatever the step sends. To the sites, servers, APIs, image registries, and computers your steps name. Stop it by removing the step.
+- **An email step.** Sends the message, and the search you asked for. To your mailbox's own mail server, or the Gmail API for a Google mailbox; signing in goes to Google or Microsoft. Stop it by disconnecting the mailbox in **Mail accounts**.
+- **[Alerts](/docs/alerts/).** Sends what happened, how urgent, the project, the workflow, and a link back. To your mail server, a Slack or Teams address, PagerDuty, or a webhook of your own. Stop it by removing the channel.
+- **Signing in to Dagu Cloud.** Sends which plan the workspace has, the Kitewell version, and this computer's ID and name, every six hours. To Dagu Cloud, run by Descarty. Stop it with **Sign out** in **Device settings**.
+- **[Syncing a project](/docs/cloud-sync/).** Sends that project's workflows, models, servers, API connections, queues and registries, secret names and descriptions, sheets, knowledge pages, releases, and — for a workflow that works a mailbox — which signed-in person's device runs it. To Dagu Cloud. Stop it with **Stop syncing** on that project.
+- **[ChatGPT or Claude connected to Kitewell](/docs/mcp/).** Sends whatever the app asks for: workflows, runs and logs, artifacts, sheets, knowledge, and — with edit permission — rows of an Excel file on this computer. To the app, through Kitewell's relay at `mcp.kitewell.app`. Stop it with **Remote access** off, or **Revoke** the app.
+- **An event an app or API key subscribed to.** Sends each event: the project, workflow, run, how it ended, the times, failed step names, a waiting step's question, a sheet launch's counts, or why a schedule was missed. To the address the subscriber gave. Stop it with **Remove** on the subscription.
+- **A workflow's Webhook.** Nothing goes out. Requests come in and wait at Kitewell's relay at `hooks.kitewell.app`, with their headers and body, for at most 7 days, until this computer takes them. Stop it with **Turn off** on that webhook.
+- **Update checks.** Sends a request that says nothing about you or your work. To GitHub for the workflow engine, and kitewell.app for the Kitewell app. Stop the engine's with **Automatic engine updates** off; the app is checked only when you ask.
+- **Install WebView2 on Windows.** Sends a download request to Microsoft. The installer normally carries the runtime, so this appears only if it is missing.
 
 Kitewell sends nothing else. There is no usage tracking, no crash reporting,
 and no analytics in the app, and Descarty never receives the data your runs
