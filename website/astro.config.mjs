@@ -5,6 +5,9 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://kitewell.app",
   trailingSlash: "always",
+  redirects: {
+    "/community": "https://join.slack.com/t/kitewell/shared_invite/zt-4c4b7g551-nkAwJqwfdeBhrtnMMm3vZg",
+  },
   integrations: [
     starlight({
       title: "Kitewell",
@@ -25,6 +28,7 @@ export default defineConfig({
           label: "GitHub",
           href: "https://github.com/dagucloud/kitewell",
         },
+        { icon: "slack", label: "Slack", href: "/community/" },
       ],
       sidebar: [
         {

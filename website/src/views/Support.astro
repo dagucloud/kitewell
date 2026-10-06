@@ -11,10 +11,11 @@ const text = {
     description: "Get help with Kitewell, report a bug, or privately report a security issue.",
     eyebrow: "A little help",
     heading: "Find your next step.",
-    lead: "Start with the guides. If something still isn't working, open an issue with the details needed to reproduce it.",
+    lead: "Start with the guides. If something still isn't working, ask in the Kitewell Slack community or open an issue with the details needed to reproduce it.",
     bugs: "Questions & bugs",
     bugsText:
       "Include your Kitewell version, operating system, processor, and the steps that led to the problem. Remove credentials and private data from logs.",
+    community: "Ask in Slack ↗",
     issue: "Open an issue ↗",
     security: "Security reports",
     securityText:
@@ -36,10 +37,11 @@ const text = {
       "Kitewell のヘルプ、不具合の報告、セキュリティ上の問題の非公開報告はこちら。",
     eyebrow: "お手伝いします",
     heading: "次の一歩を見つける。",
-    lead: "まずはガイドをご覧ください。それでも解決しない場合は、再現に必要な情報を添えて Issue を作成してください。",
+    lead: "まずはガイドをご覧ください。それでも解決しない場合は、Kitewell の Slack コミュニティで質問するか、再現に必要な情報を添えて Issue を作成してください。",
     bugs: "質問と不具合",
     bugsText:
       "Kitewell のバージョン、OS、プロセッサー、問題が起きるまでの手順を書いてください。ログから認証情報や個人的なデータは取り除いてください。",
+    community: "Slack で質問 ↗",
     issue: "Issue を作成 ↗",
     security: "セキュリティの報告",
     securityText:
@@ -67,8 +69,9 @@ const text = {
       <article class="card">
         <h2>{text.bugs}</h2>
         <p>{text.bugsText}</p>
+        <a class="button" href="/community/">{text.community}</a>
         <a
-          class="button"
+          class="button secondary"
           href="https://github.com/dagucloud/kitewell/issues/new/choose"
         >
           {text.issue}

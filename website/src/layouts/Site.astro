@@ -20,7 +20,7 @@ const text = {
     download: "Download Kitewell",
     status: "Release status",
     tagline: "AI automation on your own computer.",
-    footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms"],
+    footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community"],
     fine: "",
   },
   ja: {
@@ -33,7 +33,7 @@ const text = {
     download: "Kitewell をダウンロード",
     status: "リリース状況",
     tagline: "AI 自動化を、自分の PC で。",
-    footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約"],
+    footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ"],
     fine: "",
   },
 }[locale];
@@ -122,6 +122,7 @@ const links = ["/docs/", "/examples/", "/pricing/", "/releases/", "/support/"].m
         <a href="https://github.com/dagucloud/kitewell">GitHub</a>
         <a href="/third-party/">{text.footer[1]}</a>
         <a href={localize("/support/", locale)}>{text.footer[2]}</a>
+        <a href="/community/">{text.footer[6]}</a>
         <a href="mailto:company@descarty.com?subject=Kitewell">{text.footer[3]}</a>
         <a href={localize("/privacy/", locale)}>{text.footer[4]}</a>
         <a href={localize("/terms/", locale)}>{text.footer[5]}</a>

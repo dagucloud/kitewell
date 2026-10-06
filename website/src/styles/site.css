@@ -453,6 +453,9 @@ figure {
 .card .button {
   margin-top: 22px;
 }
+.card .button + .button {
+  margin-left: 10px;
+}
 .card ul {
   padding-left: 20px;
   color: var(--muted);
