@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes stay on your device.
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 
 Descarty, Inc. ("Descarty", "we") publishes Kitewell. This policy explains what
@@ -222,9 +222,11 @@ it. A new URL replaces the old one the same way.
 ## 7. Updates and downloads
 
 To check for updates, Kitewell requests the public version list from
-kitewell.app. Installers download from GitHub Releases, and engine updates come
-from their release service. Like any web request, these reveal your IP address
-to the service that receives them. They carry no workflow data.
+kitewell.app: about once a day while the app runs, and when you choose
+**Check for Updates…**. Installers download from GitHub Releases, and engine
+updates come from their release service. Like any web request, these reveal
+your IP address to the service that receives them. They carry no workflow
+data.
 
 ## 8. The kitewell.app website
 

@@ -2,19 +2,25 @@
 title: Updates
 ---
 
-Two things update, on their own schedules. The Kitewell app updates when you
-ask it to. The workflow engine underneath it updates by itself, at night, when
-nothing is running.
+Two things update, on their own schedules. The Kitewell app tells you when
+there is a new version and installs it when you say so. The workflow engine
+underneath it updates by itself, at night, when nothing is running.
 
 ## Update the Kitewell app
 
-1. Open the Kitewell menu: on a Mac, the Kitewell menu in the menu bar at the
-   top of the screen, or the application menu; on Windows, right-click the
-   Kitewell icon in the tray.
-2. Choose **Check for Updates…**. If you already have the newest version,
-   Kitewell says so and stops there.
+Kitewell looks for a new version once a day on its own. It never interrupts
+you: when one is out, you get one notification, and the Kitewell menu reads
+**Update to Kitewell x.y.z…** instead of **Check for Updates…**. Nothing is
+installed until you choose it.
+
+1. Click the notification, or open the Kitewell menu: on a Mac, the Kitewell
+   menu in the menu bar at the top of the screen, or the application menu; on
+   Windows, right-click the Kitewell icon in the tray.
+2. Choose **Update to Kitewell x.y.z…**, or **Check for Updates…** to look
+   right now. If you already have the newest version, Kitewell says so and
+   stops there.
 3. When there is a new version, Kitewell names it and asks. Choose **Download
-   and Install**.
+   and Install**, or **Later** to keep working; the menu keeps offering it.
 
 Kitewell downloads the installer for your system and checks its SHA256
 fingerprint before anything runs. Then:
@@ -76,6 +82,11 @@ and service versions.
   `https://kitewell.app/updates/windows/latest.json` on Windows.
 - Checking and downloading leave workflows running. Only installing restarts
   anything.
+- The daily look happens a minute after Kitewell opens and then every 24
+  hours while it runs. If it cannot reach the feed, it tries again an hour
+  later and says nothing; only **Check for Updates…** reports a failure.
+- The notification comes once per version, and only where Kitewell's
+  notifications are allowed. The menu names the new version either way.
 - On Windows, stopping the service for an update does not reach the runs under
   it: each run has a process group of its own, outside the one that ends with
   the service. Only **Quit Kitewell** cancels runs.
