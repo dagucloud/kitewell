@@ -76,6 +76,13 @@ export default defineConfig({
           ],
         },
         {
+          label: "Reference",
+          translations: { ja: "リファレンス" },
+          items: [
+            { label: "Excel", translations: { ja: "Excel" }, slug: "docs/reference/spreadsheets" },
+          ],
+        },
+        {
           label: "Website",
           translations: { ja: "ウェブサイト" },
           items: [

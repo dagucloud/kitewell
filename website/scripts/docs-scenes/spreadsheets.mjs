@@ -10,7 +10,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { crc32 } from "node:zlib";
 
-const WORDS = {
+export const WORDS = {
   en: {
     job: "Supplier invoices",
     jobNote: "Registers one supplier invoice on the portal and notes the receipt number.",
@@ -174,7 +174,7 @@ export const scenes = [
 // writeWorkbook writes the smallest .xlsx a reader accepts: inline strings,
 // one worksheet, stored entries. Numbers go in as numbers so the sheet's
 // amount column is a number, and everything else as text.
-function writeWorkbook(file, sheetName, rows) {
+export function writeWorkbook(file, sheetName, rows) {
   const esc = (value) => String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   const column = (n) => String.fromCharCode(65 + n);
   const body = rows

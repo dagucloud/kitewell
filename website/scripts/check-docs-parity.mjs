@@ -11,7 +11,14 @@ import path from "node:path";
 const docs = path.resolve("src", "content", "docs");
 const en = path.join(docs, "docs");
 const ja = path.join(docs, "ja", "docs");
-const pages = fs.readdirSync(en).filter((f) => f.endsWith(".md")).sort();
+// Pages are named by their path under docs/, so reference/x.md has its twin
+// at ja/docs/reference/x.md.
+const list = (dir, prefix = "") =>
+  fs
+    .readdirSync(dir, { withFileTypes: true })
+    .flatMap((e) => (e.isDirectory() ? list(path.join(dir, e.name), `${prefix}${e.name}/`) : e.name.endsWith(".md") ? [`${prefix}${e.name}`] : []))
+    .sort();
+const pages = list(en);
 let problems = 0;
 const problem = (text) => {
   problems++;
@@ -53,7 +60,7 @@ for (const f of extra) problem(`${f}: Japanese page with no English page`);
 // Pictures nobody shows are weight for nothing.
 const referenced = new Set();
 for (const [dir, lang] of [[en, "en"], [ja, "ja"]]) {
-  for (const page of fs.readdirSync(dir).filter((f) => f.endsWith(".md"))) {
+  for (const page of list(dir)) {
     for (const p of pictures(read(path.join(dir, page)))) referenced.add(`${lang}/${path.basename(p.src)}`);
   }
 }
