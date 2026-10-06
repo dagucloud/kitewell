@@ -27,3 +27,87 @@ h1 {
   letter-spacing: -0.035em;
   font-weight: 400;
 }
+
+/* The diagram on "What leaves your computer": this computer on the left,
+   each destination on the right, drawn as text so it reads in any language. */
+.kw-flow {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+@media (min-width: 72rem) {
+  .kw-flow {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: start;
+  }
+}
+.kw-flow-env {
+  padding: 1rem;
+  border: 2px dashed var(--sl-color-accent);
+  border-radius: 0.75rem;
+  background: var(--sl-color-accent-low);
+}
+.kw-flow-env-label {
+  margin: 0 0 0.75rem;
+  font-size: var(--sl-text-sm);
+  font-weight: 700;
+  color: var(--sl-color-accent-high);
+}
+.kw-flow-app {
+  padding: 1rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.5rem;
+  background: var(--sl-color-bg);
+}
+.kw-flow-app-name {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+.kw-flow-app ul {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--sl-text-sm);
+}
+.kw-flow-app li {
+  margin: 0;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.25rem;
+  background: var(--sl-color-gray-6);
+}
+.kw-flow-out {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.kw-flow-out > li {
+  margin: 0;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.5rem;
+  background: var(--sl-color-bg);
+}
+.kw-flow-dest {
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+}
+.kw-flow-out dl {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.2rem 0.75rem;
+  margin: 0;
+  font-size: var(--sl-text-sm);
+}
+.kw-flow-out dt,
+.kw-flow-out dd {
+  margin: 0;
+  align-self: start;
+}
+.kw-flow-out dt {
+  color: var(--sl-color-gray-3);
+  white-space: nowrap;
+}

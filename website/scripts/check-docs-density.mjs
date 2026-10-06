@@ -14,7 +14,7 @@ const LIMITS = { paragraphWords: 55, boldPerPage: 60, guideWords: 900 };
 // Pages the rewrite has not reached yet. Remove a page here once it is cut
 // down, and the limits apply to it from then on.
 const LEGACY = new Set([
-  "ai", "alerts", "apis", "backups", "batches", "browser", "cloud-sync", "data-flow", "desktop", "email",
+  "ai", "alerts", "apis", "backups", "batches", "browser", "cloud-sync", "desktop", "email",
   "getting-started", "index", "install", "knowledge", "mcp", "releases", "runs", "scheduling", "secrets",
   "sharing", "troubleshooting", "uninstall", "updates", "webhooks", "workflow-builder",
 ]);
