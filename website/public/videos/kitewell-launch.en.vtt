@@ -1,70 +1,70 @@
 WEBVTT
 
-00:00:00.450 --> 00:00:05.664
-Log in. Download. Copy. Paste. Send.
+00:00:00.450 --> 00:00:04.320
+A lot of the work people want automated lives on their computer.
 
-00:00:07.000 --> 00:00:09.697
-Every week, the same clicks.
+00:00:05.000 --> 00:00:10.449
+Behind a sign-in. In an app with no API. In an Excel file.
 
-00:00:11.000 --> 00:00:14.264
-Teach it once. From tomorrow, it's AI's job.
+00:00:11.000 --> 00:00:13.036
+Now those jobs are yours.
 
-00:00:15.100 --> 00:00:18.117
-Just tell Kitewell what you do, in plain words.
+00:00:15.100 --> 00:00:17.367
+Describe the job,
 
-00:00:22.300 --> 00:00:25.381
-It lays out every step, for you to check.
+00:00:17.367 --> 00:00:18.970
+and Kitewell lays out every step for you to check.
 
-00:00:29.100 --> 00:00:34.190
-Then it does the clicking — on websites, desktop apps, and email.
+00:00:21.600 --> 00:00:24.515
+Prefer code? It's plain YAML.
 
-00:00:34.240 --> 00:00:37.002
-Even the old app nothing else can talk to.
+00:00:24.515 --> 00:00:28.116
+Build it from Claude Code or Codex, over MCP.
 
-00:00:37.600 --> 00:00:40.350
-It stops for your OK where it matters.
+00:00:28.700 --> 00:00:32.272
+It runs on their computer, and their passwords stay there.
 
-00:00:40.400 --> 00:00:42.345
-And it keeps a record of every step.
+00:00:32.750 --> 00:00:36.855
+It does the clicking: websites, desktop apps, and email.
 
-00:00:45.550 --> 00:00:46.900
+00:00:37.600 --> 00:00:40.224
+It stops for their OK where it matters,
+
+00:00:40.224 --> 00:00:42.473
+and keeps a record of every step.
+
+00:00:45.550 --> 00:00:47.007
 Got a list in Excel?
 
-00:00:46.950 --> 00:00:50.871
+00:00:47.007 --> 00:00:50.871
 It runs for every row, and writes each result back beside it.
 
-00:00:50.950 --> 00:00:54.330
-It learns the clicks once, then repeats them every weekday —
+00:00:50.950 --> 00:00:54.803
+It learns the clicks once, replays them without the model,
 
-00:00:54.430 --> 00:00:56.910
-and relearns them if a page changes.
+00:00:54.803 --> 00:00:57.231
+and relearns when a page changes.
 
-00:00:57.860 --> 00:01:00.810
-Prefer code? It's plain YAML underneath.
+00:00:58.300 --> 00:01:02.661
+If a run fails, the alert names the step, in your Slack.
 
-00:01:00.860 --> 00:01:05.920
-Run scripts, containers, and coding agents like Claude Code and Codex.
+00:01:03.200 --> 00:01:06.942
+Fix it on your laptop, and the fix reaches their computer.
 
-00:01:05.970 --> 00:01:09.026
-Or build it all from your own agent, over MCP.
+00:01:08.400 --> 00:01:10.800
+What you teach goes into the project's notes,
 
-00:01:09.260 --> 00:01:10.967
-It all runs on your own computer.
+00:01:10.800 --> 00:01:12.377
+for whoever takes over.
 
-00:01:12.100 --> 00:01:14.810
-What you teach becomes the whole team's knowledge.
+00:01:15.300 --> 00:01:18.018
+You build it. Their computers do the work.
 
-00:01:15.230 --> 00:01:17.455
-The more you use it, the less you explain.
-
-00:01:18.260 --> 00:01:20.180
-Your passwords stay on your machine.
-
-00:01:21.060 --> 00:01:21.722
+00:01:21.060 --> 00:01:22.260
 Kitewell.
 
-00:01:22.410 --> 00:01:23.690
+00:01:22.410 --> 00:01:24.010
 It flies on its own.
 
-00:01:24.060 --> 00:01:24.956
+00:01:24.060 --> 00:01:25.306
 You hold the string.

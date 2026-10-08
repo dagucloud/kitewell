@@ -85,7 +85,7 @@ export const chores = [
         "Nothing is saved in Ledger until you say so.",
         "The website and desktop steps send what they see, page text and screenshots of the screen, to the model you choose. The portal password is a secret on this computer: Kitewell types it, and the model never sees it.",
       ],
-      film: "Kitewell's own screens with sample data. The supplier portal and Ledger are made up.",
+      film: "Kitewell's own screens with sample data. The client, its supplier portal, and Ledger are made up.",
     },
     ja: {
       when: "平日の朝",
@@ -119,7 +119,7 @@ export const chores = [
         "あなたが OK するまで、台帳には何も保存されません。",
         "Web サイトとデスクトップのステップは、見たもの（ページの文章と画面のスクリーンショット）を、あなたが選んだモデルに送ります。ポータルのパスワードはこのコンピューターのシークレットにあり、Kitewell が入力するので、モデルには見えません。",
       ],
-      film: "Kitewell の実際の画面と、サンプルのデータです。取引先のポータルと台帳アプリは架空のものです。",
+      film: "Kitewell の実際の画面と、サンプルのデータです。お客さまの会社、取引先のポータル、台帳アプリは架空のものです。",
     },
   },
   {

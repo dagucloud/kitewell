@@ -99,41 +99,49 @@ const text = {
     enterprise: "Larger team, or a rollout with support? Descarty ↗",
     filmLabel: "Kitewell film, 89 seconds, narrated",
     filmLink: "Watch the Kitewell film.",
-    filmCaption: ["89 seconds · Narrated · Captions", "Kitewell's own screens with sample data; the supplier portal and Ledger are made up"],
+    filmCaption: ["89 seconds · Narrated · Captions", "Kitewell's own screens with sample data; the client, its supplier portal, Ledger, and the team chat are made up"],
     transcript: "Read the film's narration",
     scenes: [
       [
-        "Log in. Download. Copy. Paste. Send. Every week, the same clicks.",
-        "A pointer races through one Monday: signing in to a supplier portal, downloading invoices, copying a total from a PDF, pasting it into an old desktop accounting app, and sending a summary. The camera pulls back on a whole year of the same weekdays until everything stops.",
+        "A lot of the work people want automated lives on their computer: behind a sign-in, in an app with no API, in an Excel file.",
+        "A client's own pointer races through one Monday's chores: signing in to a supplier portal, downloading invoices, copying a total from a PDF, pasting it into an old desktop accounting app, and sending a summary. The camera pulls back to the client's computer, where three labels name where that work lives: the portal behind a sign-in, an accounting app with no API, and an order list in Excel.",
       ],
-      ["Teach it once. From tomorrow, it's AI's job.", "The five chores line up above the promise, and each is checked off as AI's job is said."],
+      ["Now those jobs are yours.", "The three labels line up above the promise and are checked off as “yours” is said."],
       [
-        "Just tell Kitewell what you do, in plain words. It lays out every step, for you to check.",
-        "The request goes to Kitewell's assistant: “Every weekday at 9, collect new invoices from the Harbor Supply portal, enter them in Ledger, and email me a summary.” It proposes a workflow with a preview of its steps. Applied, it opens in the editor: weekdays at 9:00, collect the new invoices from the website, enter them in Ledger with an approval, save them, and email a summary. Each website step is an instruction in plain words.",
-      ],
-      [
-        "Then it does the clicking — on websites, desktop apps, and email. Even the old app nothing else can talk to.",
-        "The run starts. Kitewell's own pointer signs in to the portal and reads the new invoices, types them into Ledger, a desktop app from 2009 with no API, and drafts the summary, while the run checks off its steps.",
+        "Describe the job, and Kitewell lays out every step for you to check.",
+        "In Kitewell's chat window, the builder types: “Every weekday at 9, collect new invoices from the Harbor Supply portal, enter them in Ledger, and email me a summary.” Kitewell proposes the workflow as a card with its steps drawn as a graph and its next runs listed. Applied, the workflow draws itself in the editor.",
       ],
       [
-        "It stops for your OK where it matters. And it keeps a record of every step.",
-        "A notification says the run is waiting. In the run, the viewer approves saving the bills; the run finishes, and its record shows each step, how long it took, and who approved.",
+        "Prefer code? It's plain YAML. Build it from Claude Code or Codex, over MCP.",
+        "For developers: the workflow's YAML, its plain-language steps highlighted. Then a terminal where a coding agent, Claude Code or Codex, makes a change through Kitewell's MCP tools: it checks the draft, then saves it.",
+      ],
+      [
+        "It runs on their computer, and their passwords stay there.",
+        "On the client's computer, the project has arrived with its portal password named but not filled in. The client sets the value there, and Kitewell's page notes that values stay on each device.",
+      ],
+      [
+        "It does the clicking: websites, desktop apps, and email.",
+        "Kitewell's own pointer signs in to the portal and reads the new invoices, types them into Ledger, a desktop app with no API, and drafts the summary, while the run checks off its steps.",
+      ],
+      [
+        "It stops for their OK where it matters, and keeps a record of every step.",
+        "A notification says one step is waiting. The client approves saving the bills; the run finishes, and its record shows each step, how long it took, and who approved.",
       ],
       [
         "Got a list in Excel? It runs for every row, and writes each result back beside it.",
         "A sheet in Kitewell linked to orders.xlsx runs the reorder workflow once per row, each row turning to Succeeded with its receipt number. Then the workbook itself: the Receipt No, Run at, and Status columns fill in beside every order.",
       ],
       [
-        "It learns the clicks once, then repeats them every weekday — and relearns them if a page changes.",
-        "A week of runs: on Monday a model learns the clicks in 4 minutes 12 seconds, and the other days replay them in under a minute, except Thursday, when the portal's page changed and the model relearned three clicks.",
+        "It learns the clicks once, replays them without the model, and relearns when a page changes.",
+        "A week of runs: on Monday the model learns the clicks in 4 minutes 12 seconds, and the other days replay them without the model in under a minute, except Thursday, when the portal's page changed and the model relearned three clicks.",
       ],
       [
-        "Prefer code? It's plain YAML underneath. Run scripts, containers, and coding agents like Claude Code and Codex. Or build it all from your own agent, over MCP.",
-        "For developers: the workflow's YAML, its plain-language steps highlighted; steps that run a script, a container, Claude Code, and Codex; and a terminal where an agent changes the workflow through Kitewell's MCP tools, previewing the change before applying it.",
+        "If a run fails, the alert names the step, in your Slack. Fix it on your laptop, and the fix reaches their computer.",
+        "The next Monday's run fails, and Kitewell's alert arrives in the builder's team chat: the workflow, the step that failed, the project, and when it started. The builder changes the workflow on their own laptop, and the change reaches the client's computer through the client's own Dagu Cloud workspace. Notes on screen say alerts need Kitewell Personal or Team, and syncing across computers needs Kitewell Team.",
       ],
       [
-        "It all runs on your own computer. What you teach becomes the whole team's knowledge. The more you use it, the less you explain. Your passwords stay on your machine.",
-        "A laptop running Kitewell, then three: the workflow and the knowledge page you taught sync to your teammates. When a teammate asks for a new workflow, the assistant first reads that page. Each computer keeps its own passwords.",
+        "What you teach goes into the project's notes, for whoever takes over. You build it. Their computers do the work.",
+        "The knowledge page Kitewell's assistant wrote as the builder worked, linked to the workflow. The workflow and the page travel through the client's workspace to the computers of two of the client's people, where the work runs, and each computer keeps its own passwords.",
       ],
       [
         "Kitewell. It flies on its own. You hold the string.",
@@ -236,41 +244,49 @@ const text = {
     enterprise: "それより大きなチームや、支援付きの導入は Descarty へ ↗",
     filmLabel: "Kitewell 紹介映像（89 秒・ナレーション付き）",
     filmLink: "Kitewell の紹介映像を見る。",
-    filmCaption: ["89 秒 · ナレーション · 日本語字幕と英語字幕", "Kitewell の実際の画面とサンプルデータ。仕入れ先のポータルと会計アプリ「台帳」は架空のものです"],
+    filmCaption: ["89 秒 · ナレーション · 日本語字幕と英語字幕", "Kitewell の実際の画面とサンプルデータ。お客さまの会社、仕入れ先のポータル、会計アプリ「台帳」、チャットは架空のものです"],
     transcript: "ナレーションをテキストで読む",
     scenes: [
       [
-        "ログイン。ダウンロード。コピー。貼り付け。送信。毎週、同じクリックの繰り返し。",
-        "ポインターが月曜の雑務を駆け抜けます。仕入れ先のポータルにログインし、請求書をダウンロードし、PDF の金額をコピーして古い会計アプリに貼り付け、まとめをメールで送信。カメラが引くと、同じ平日が 1 年分並び、すべてが止まります。",
+        "自動化したい仕事の多くは、その人のパソコンの中にあります。ログインが必要なサイト。API のないアプリ。手元の Excel。",
+        "お客さま自身のポインターが月曜の雑務を駆け抜けます。仕入れ先のポータルにログインし、請求書をダウンロードし、PDF の金額をコピーして古い会計アプリに貼り付け、まとめをメールで送信。カメラが引くと、お客さまのパソコンの上で、その仕事がある場所に 3 つのラベルが付きます。ログインが必要なポータル、API のない会計アプリ、Excel の発注一覧。",
       ],
-      ["教えるのは一度。明日からは、AI の仕事。", "5 つの作業が言葉の上に並び、「AI の仕事」の声とともに 1 つずつチェックされます。"],
+      ["その仕事こそ、あなたの出番。", "3 つのラベルが言葉の上に並び、「あなたの出番」の声とともにチェックされます。"],
       [
-        "いつもの作業を、ふだんの言葉で、Kitewell に伝えるだけ。すべての手順が並ぶので、ひと目で確かめられます。",
-        "Kitewell のアシスタントに「平日の朝 9 時に、みなと資材のポータルから新しい請求書を集めて台帳に入力し、概要をメールで送って」と頼みます。アシスタントは手順のプレビュー付きでワークフローを提案し、適用するとエディターで開きます。平日 9:00 に、Web サイトから新しい請求書を集め、承認を挟んで台帳に入力し、保存し、概要をメールで送る。Web の各ステップは、ふだんの言葉で書かれた指示です。",
-      ],
-      [
-        "あとはクリックをおまかせ。Web サイトも、デスクトップアプリも、メールも。どこともつながらない古いアプリでも。",
-        "実行が始まります。Kitewell のポインターがポータルにログインして新しい請求書を読み取り、API のない 2009 年のデスクトップアプリ「台帳」に入力し、概要のメールを下書きします。実行のステップが順に完了していきます。",
+        "仕事の中身を伝えるだけ。Kitewell が、すべての手順を並べて見せます。",
+        "Kitewell のチャットウィンドウに「平日の朝9時に、みなと資材のポータルから新しい請求書を集めて台帳に入力し、概要をメールで送って」と入力します。Kitewell は、手順のグラフと次の実行予定を載せたカードでワークフローを提案し、適用するとエディターでワークフローが描かれます。",
       ],
       [
-        "大事なところでは、あなたの OK を待ちます。どのステップも、記録に残ります。",
-        "実行が承認を待っているという通知。実行画面で伝票の保存を承認すると実行が終わり、記録には各ステップとかかった時間、承認した人が残ります。",
+        "コード派なら、中身は YAML。Claude Code や Codex から、MCP で組めます。",
+        "開発者向けに、ふだんの言葉のステップを強調したワークフローの YAML。続いて、Claude Code や Codex といったコーディングエージェントが Kitewell の MCP ツールで下書きを検証し、保存するターミナルを映します。",
+      ],
+      [
+        "動くのは、相手のパソコン。パスワードも、そこに残ります。",
+        "お客さまのパソコンに届いたプロジェクトには、ポータルのパスワードが名前だけ入っていて、値は空です。お客さまがそのパソコンで値を設定し、Kitewell の画面には「値は各デバイスにとどまります」とあります。",
+      ],
+      [
+        "Web も、デスクトップアプリも、メールも、操作はおまかせ。",
+        "Kitewell のポインターがポータルにログインして新しい請求書を読み取り、API のないデスクトップアプリ「台帳」に入力し、概要のメールを下書きします。実行のステップが順に完了していきます。",
+      ],
+      [
+        "大事なところでは、相手の OK を待ちます。どのステップも、記録に残ります。",
+        "ステップが 1 つ待っているという通知。お客さまが伝票の保存を承認すると実行が終わり、記録には各ステップとかかった時間、承認した人が残ります。",
       ],
       [
         "Excel の一覧も、行ごとに実行して、結果を書き戻します。",
         "発注一覧.xlsx にリンクした Kitewell のシートが、発注のワークフローを 1 行に 1 回ずつ実行し、各行が受付番号とともに「成功」に変わります。続いてブックそのものに、受付番号、実行日時、状態の列が注文ごとに書き込まれます。",
       ],
       [
-        "クリックを覚えるのは一度だけ。あとは毎平日繰り返し、画面が変わったら覚え直します。",
-        "1 週間の実行。月曜はモデルが 4 分 12 秒でクリックを覚え、ほかの日は 1 分足らずで再生します。ポータルの画面が変わった木曜だけ、モデルが 3 クリックを覚え直します。",
+        "クリックを覚えるのは一度だけ。あとはモデルなしで再生し、画面が変わったら覚え直します。",
+        "1 週間の実行。月曜はモデルが 4 分 12 秒でクリックを覚え、ほかの日はモデルなしで 1 分足らずで再生します。ポータルの画面が変わった木曜だけ、モデルが 3 クリックを覚え直します。",
       ],
       [
-        "コード派なら、中身は読める YAML。スクリプトも、コンテナーも、Claude Code や Codex も動かせます。MCP で、あなたのエージェントに組ませることも。",
-        "開発者向けに、ふだんの言葉のステップを強調したワークフローの YAML、スクリプト・コンテナー・Claude Code・Codex を動かすステップ、そしてエージェントが Kitewell の MCP ツールで変更をプレビューしてから適用するターミナルを映します。",
+        "失敗したら、どのステップかを Slack に知らせます。あなたのパソコンで直せば、相手のパソコンに届きます。",
+        "翌週月曜の実行が失敗し、Kitewell のアラートがあなたのチームのチャットに届きます。ワークフロー、失敗したステップ、プロジェクト、開始時刻。あなたが自分のパソコンでワークフローを直すと、その変更がお客さま自身の Dagu Cloud ワークスペースを通って、お客さまのパソコンに届きます。画面の注記のとおり、アラートには Kitewell Personal か Team、パソコン間の同期には Kitewell Team が必要です。アラートの文面は英語です。",
       ],
       [
-        "すべて、あなたのパソコンで動きます。教えたことは、チーム全員のナレッジに。使うほど、話が早くなる。パスワードは、手元に残ります。",
-        "Kitewell が動くノートパソコンが 3 台に増え、ワークフローと、あなたが教えたナレッジのページが同期されます。チームの人が新しいワークフローを頼むと、アシスタントはまずそのページを読みます。パスワードはそれぞれのパソコンにとどまります。",
+        "教えたことは、プロジェクトのナレッジに。引き継ぐ人は、そこから始められます。作るのはあなた。働くのは、相手のパソコン。",
+        "作業しながら Kitewell のアシスタントが書いた、ワークフローに関連付いたナレッジのページ。ワークフローとそのページが、お客さまのワークスペースを通って、お客さまの 2 人のパソコンに届きます。仕事はそこで動き、パスワードはそれぞれのパソコンにとどまります。",
       ],
       [
         "Kitewell。ひとりでに、飛んでいく。糸は、あなたの手に。",
