@@ -76,8 +76,8 @@ Personal, for one person on one computer, supports up to ten projects of 100
 workflows each, any number of API keys and connected apps, alerts, MCP Events,
 and webhooks for $20 per month. Team adds up to 25 people, 15 projects, and
 team sync for $29 per month for each computer (USD, excluding tax).
-Enterprise is for more than 25 people or 100 computers, SSO, audit export,
-closed-network sync, invoice billing, or an SLA.
+Enterprise adds SSO, audit export, closed-network sync, invoice billing, and
+an SLA, for a team of any size, including one larger than 25 people.
 These are planned launch prices; see
 [Pricing](https://kitewell.app/pricing/).
 
