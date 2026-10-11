@@ -17,6 +17,7 @@ Each entry says what is sent, who receives it, and how to stop it.
 - **An email step.** Sends the message, and the search you asked for. To your mailbox's own mail server, or the Gmail API for a Google mailbox; signing in goes to Google or Microsoft. Stop it by disconnecting the mailbox in **Mail accounts**.
 - **[Alerts](/docs/alerts/).** Sends what happened, how urgent, the project, the workflow, and a link back. To your mail server, a Slack or Teams address, PagerDuty, or a webhook of your own. Stop it by removing the channel.
 - **Signing in to Dagu Cloud.** Sends which plan the workspace has, the Kitewell version, and this computer's ID and name, every six hours. To Dagu Cloud, run by Descarty. Stop it with **Sign out** in **Device settings**.
+- **The assistant's web search.** Sends the words of each search, and the language Kitewell is shown in. To Dagu Cloud, which passes them to Serper for Google results and keeps no query text, only the workspace, the device, and the credits the search used. Only on a computer signed in to Dagu Cloud. Stop it with **Sign out** in **Device settings**; the assistant then asks for addresses.
 - **[Syncing a project](/docs/cloud-sync/).** Sends that project's workflows, models, servers, API connections, queues and registries, secret names and descriptions, sheets, knowledge pages, releases, and — for a workflow that works a mailbox — which signed-in person's device runs it. To Dagu Cloud. Stop it with **Stop syncing** on that project.
 - **[ChatGPT or Claude connected to Kitewell](/docs/mcp/).** Sends whatever the app asks for: workflows, runs and logs, artifacts, sheets, knowledge, and — with edit permission — rows of an Excel file on this computer. To the app, through Kitewell's relay at `mcp.kitewell.app`. Stop it with **Remote access** off, or **Revoke** the app.
 - **An event an app or API key subscribed to.** Sends each event: the project, workflow, run, how it ended, the times, failed step names, a waiting step's question, a sheet launch's counts, or why a schedule was missed. To the address the subscriber gave. Stop it with **Remove** on the subscription.
@@ -122,6 +123,9 @@ Requests go to `console.dagu.sh` over HTTPS, with
 to Dagu Cloud's storage through a signed address it hands back. This
 computer's cloud credential is a file at the top of the data folder, next to
 its settings, and is never in a backup.
+
+A web search goes to `console.dagu.sh`, which sends it on to Serper at
+`google.serper.dev` and returns the titles, addresses, and snippets.
 
 ### The relay
 
