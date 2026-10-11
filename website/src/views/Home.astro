@@ -26,7 +26,7 @@ const text = {
     automateText: "Each of these is a step you add from the task picker. Mix them in one workflow, and start it by hand, on a schedule, or when GitHub, Stripe, or a form sends it a webhook.",
     kinds: [
       ["Websites", "Open pages, click, type, and collect information in your own Chrome, from instructions in plain words. Saved sign-ins stay on the device.", "/docs/browser/"],
-      ["Desktop apps", "A model reads the screen and uses the mouse and keyboard, on macOS or Windows, for the app that has no API.", "/docs/desktop/"],
+      ["Desktop apps", "A model reads the screen and works the app that has no API, on macOS or Windows. It learns the task once, then replays it by the app's own controls — no model, no tokens. The RPA job, authored by AI.", "/docs/desktop/"],
       ["Email", "Find, organize, and send email in Gmail, Microsoft 365, or any IMAP mailbox connected on this computer.", "/docs/email/"],
       ["Excel workbooks", "Read, check, and write the .xlsx files your office already has, without starting Excel or occupying the screen.", "/docs/spreadsheets/"],
       ["Scripts, containers, servers, and APIs", "Commands and scripts, Docker images, SSH to your servers, and operations from any OpenAPI spec.", "/docs/workflow-builder/"],
@@ -46,7 +46,7 @@ const text = {
     controlItems: [
       ["Approval gates and human tasks", "A run pauses where you put a gate and continues when you approve, with the decision recorded."],
       ["Test one step", "Run a single step with real inputs before saving the workflow."],
-      ["Replay", "Website and desktop actions that worked replay without the model on later runs: faster, and free."],
+      ["Replay without the model", "Website and desktop actions that worked replay by the app's own elements on later runs — no model, no tokens, the same every time. AI authors the steps; determinism runs them, the reliability RPA promises without the brittle recorded scripts."],
       ["Runs and logs", "Every run keeps each step's output, errors, screenshots, and files on your computer; retry from the failed step."],
     ],
     controlLink: "Runs and logs →",
@@ -171,7 +171,7 @@ const text = {
     automateText: "どれもタスクの選択肢から追加するステップです。1 つのワークフローに混ぜて使え、手動、スケジュール、または GitHub、Stripe、フォームから届く Webhook で開始できます。",
     kinds: [
       ["Web サイト", "自然な言葉の指示で、あなたの Chrome でページを開き、クリックし、入力し、情報を集めます。保存したサインインはデバイスに残ります。", "/docs/browser/"],
-      ["デスクトップアプリ", "API のないアプリのために、モデルが画面を読み、マウスとキーボードを使います。macOS と Windows に対応。", "/docs/desktop/"],
+      ["デスクトップアプリ", "API のないアプリを、モデルが画面を読んで操作します。macOS と Windows に対応。タスクを一度覚えれば、あとはアプリ自身のコントロールで再生します。モデルもトークンも不要。AI が組み立てる RPA です。", "/docs/desktop/"],
       ["メール", "このコンピューターで接続した Gmail、Microsoft 365、任意の IMAP メールボックスのメールを検索、整理、送信します。", "/docs/email/"],
       ["Excel のブック", "現場にある .xlsx ファイルを、Excel を起動せず、画面も使わずに読み、検査し、書き込みます。", "/docs/spreadsheets/"],
       ["スクリプト、コンテナー、サーバー、API", "コマンドとスクリプト、Docker イメージ、SSH でのサーバー操作、OpenAPI 仕様の操作。", "/docs/workflow-builder/"],
@@ -191,7 +191,7 @@ const text = {
     controlItems: [
       ["承認ゲートと人のタスク", "ゲートを置いた所で実行は止まり、承認すると続きます。判断は記録に残ります。"],
       ["ステップ単位のテスト", "ワークフローを保存する前に、実際の入力で 1 ステップだけ実行できます。"],
-      ["リプレイ", "うまくいった Web とデスクトップの操作は、以降の実行でモデルなしで再現されます。速く、無料です。"],
+      ["モデルなしで再生", "うまくいった Web とデスクトップの操作は、以降の実行でアプリ自身の要素を頼りに再生されます。モデルもトークンも使わず、毎回同じ結果です。AI が手順を組み立て、あとは決まりきった処理が動かす。もろい記録スクリプトなしに、RPA が約束する確実さを。"],
       ["実行とログ", "各ステップの出力、エラー、スクリーンショット、ファイルはすべてあなたのコンピューターに残り、失敗したステップからやり直せます。"],
     ],
     controlLink: "実行とログ →",

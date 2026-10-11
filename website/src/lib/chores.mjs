@@ -51,7 +51,7 @@ export const chores = [
     uses: ["browser", "desktop", "approval", "email"],
     needs: ["chrome", "computerModel", "desktop", "mailbox"],
     film: { now: "busywork", tell: "ask", run: "run", ok: "ok", after: "learn" },
-    related: ["excel-orders", "invoice-intake", "form-from-sheet"],
+    related: ["nightly-export", "excel-orders", "invoice-intake", "form-from-sheet"],
     en: {
       when: "Every weekday morning",
       chore: "Every morning I log in to our supplier's portal, download the new invoices, and type each one into an accounting app from 2009.",
@@ -80,7 +80,7 @@ export const chores = [
       ok: "Before anything is saved in Ledger, the run waits for you, with a screenshot of what it typed. Every step and every decision is recorded.",
       moment: { time: "9:04", title: "Weekday invoice run", text: "Waiting for you: save 3 bills in Ledger?" },
       after:
-        "The first run learns the clicks with AI. After that, the clicks replay without it, faster and free. When a page changes, it relearns only the clicks that broke.",
+        "The first run learns the clicks with AI. After that they replay by the app's own buttons and fields — no model, no tokens — even when a window has moved or the portal was restyled. When the portal or Ledger really changes, it relearns only the clicks that broke.",
       good: [
         "Nothing is saved in Ledger until you say so.",
         "The website and desktop steps send what they see, page text and screenshots of the screen, to the model you choose. The portal password is a secret on this computer: Kitewell types it, and the model never sees it.",
@@ -114,12 +114,92 @@ export const chores = [
       ok: "台帳に保存する前に、入力した画面のスクリーンショットを添えて、実行はあなたを待ちます。すべてのステップと判断が記録に残ります。",
       moment: { time: "9:04", title: "平日の請求書処理", text: "あなたの対応待ち：台帳に 3 件の伝票を保存しますか？" },
       after:
-        "最初の実行で、AI がクリックを覚えます。そこから先は覚えた操作を AI なしで繰り返すので、速く、費用もかかりません。画面が変わったときは、合わなくなったクリックだけを覚え直します。",
+        "最初の実行で、AI がクリックを覚えます。そこから先は、アプリ自身のボタンや入力欄を頼りに、モデルもトークンも使わずに再生します。ウィンドウが動いても、ポータルの見た目が変わっても大丈夫。ポータルや台帳が本当に変わったときだけ、合わなくなったクリックを覚え直します。",
       good: [
         "あなたが OK するまで、台帳には何も保存されません。",
         "Web サイトとデスクトップのステップは、見たもの（ページの文章と画面のスクリーンショット）を、あなたが選んだモデルに送ります。ポータルのパスワードはこのコンピューターのシークレットにあり、Kitewell が入力するので、モデルには見えません。",
       ],
       film: "Kitewell の実際の画面と、サンプルのデータです。お客さまの会社、取引先のポータル、台帳アプリは架空のものです。",
+    },
+  },
+  {
+    slug: "nightly-export",
+    group: "everyone",
+    scheduled: true,
+    uses: ["desktop"],
+    needs: ["computerModel", "desktop"],
+    related: ["supplier-invoices", "invoice-intake", "excel-orders"],
+    en: {
+      when: "Every weekday evening",
+      chore: "Every evening I open a reporting app from the 2000s and click the same six menus to export the day's sales to a CSV for head office.",
+      motions: [
+        "Open the reporting app.",
+        "Reports, then Daily sales.",
+        "Type today's date.",
+        "Export as CSV.",
+        "Find the shared folder.",
+        "Confirm, and wait.",
+        "Tomorrow, the same six clicks.",
+      ],
+      tally: "Every weekday, the same six clicks.",
+      sentence:
+        "Every weekday at 6pm, open Depot, export today's Daily sales as a CSV to the Exports folder, and make sure it confirms.",
+      steps: [
+        ["desktop", "Export today's report", "Opens Depot, clicks through to Daily sales for today, exports it to the Exports folder, and checks the app's own confirmation before it finishes."],
+      ],
+      moment: { time: "18:02", title: "Nightly sales export", text: "Exported today's Daily sales to Exports — 11 seconds, no AI." },
+      artifact: {
+        type: "week",
+        days: [
+          ["Mon", false],
+          ["Tue", false],
+          ["Wed", false],
+          ["Thu", true],
+          ["Fri", false],
+        ],
+        quiet: "Exported in 11s. No AI.",
+        changed: "Depot updated — AI relearned 2 clicks.",
+      },
+      good: [
+        "The first evening the model learns the six clicks. Every evening after replays them by the app's own menus and buttons, with no model and no tokens — the same export in about ten seconds. This is the RPA job: authored once by AI, then run by plain determinism.",
+        "When the app is updated and a button moves, it relearns only the clicks that broke and keeps going. Set it to use no AI at all, and a changed app stops the run with what moved instead of guessing.",
+      ],
+    },
+    ja: {
+      when: "平日の夕方",
+      chore: "毎晩、2000 年代の報告アプリを開き、同じ 6 つのメニューをクリックして、その日の売上を本社向けに CSV で書き出している。",
+      motions: [
+        "報告アプリを開く。",
+        "「レポート」から「日次売上」。",
+        "今日の日付を入力。",
+        "CSV で書き出す。",
+        "共有フォルダーを探す。",
+        "確定して、待つ。",
+        "明日もまた、同じ 6 クリック。",
+      ],
+      tally: "平日は毎日、同じ 6 クリック。",
+      sentence:
+        "平日の夕方 6 時に Depot を開き、今日の「日次売上」を Exports フォルダーに CSV で書き出して、完了の表示を確認して。",
+      steps: [
+        ["desktop", "今日のレポートを書き出す", "Depot を開き、今日の「日次売上」までたどって Exports フォルダーに書き出し、終える前にアプリ自身の完了表示を確かめます。"],
+      ],
+      moment: { time: "18:02", title: "夜間の売上書き出し", text: "今日の「日次売上」を Exports に書き出し ― 11 秒、AI なし。" },
+      artifact: {
+        type: "week",
+        days: [
+          ["月", false],
+          ["火", false],
+          ["水", false],
+          ["木", true],
+          ["金", false],
+        ],
+        quiet: "11 秒で書き出し。AI なし。",
+        changed: "Depot が更新 ― AI が 2 クリックを覚え直し。",
+      },
+      good: [
+        "最初の晩だけ、モデルが 6 つのクリックを覚えます。以降は毎晩、アプリ自身のメニューやボタンを頼りに、モデルもトークンも使わず、同じ書き出しを 10 秒ほどで再生します。これこそ RPA の仕事です。AI が一度組み立て、あとは決まりきった処理が動かします。",
+        "アプリが更新されてボタンが動いても、合わなくなったクリックだけを覚え直して続けます。AI をまったく使わない設定にすれば、変わったアプリでは勝手に補わず、何が動いたかを示して実行を止めます。",
+      ],
     },
   },
   {

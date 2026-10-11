@@ -7,6 +7,13 @@ the screen, then clicks and types. You describe the task in ordinary words —
 "Create an invoice for %client% and save it" — and a model works until it is
 done.
 
+This is the job desktop RPA tools do — driving an app that has no API —
+without their brittle part. Nothing is recorded by hand and there are no
+selectors to maintain: a model authors the task the first time, and from then
+on the same steps replay on their own, by the app's own controls, with no
+model and no tokens. The AI authors the task once; plain determinism runs it
+every day after.
+
 That reaches the accounting package or the ERP client that has no API and no
 web version:
 
@@ -102,6 +109,26 @@ and keystrokes one task may take. The default is 50, and
 **Most actions for this task (optional)** sets a different cap on one task. A
 task that needs more fails, so either split it or raise the cap.
 
+## How much AI decides
+
+A desktop step does not have to ask the model every time. **How much the model
+decides**, under **Desktop settings**, sets that for the whole step, and a
+single task can override it:
+
+- **Every run** asks the model for every action. It adapts to whatever the
+  screen shows, and it is the slowest and the only one that costs tokens every
+  time.
+- **Only when a replay no longer fits** (the default) repeats what worked last
+  time and asks the model only for the steps whose controls have moved or gone.
+- **Never** runs from the recording alone. Nothing is sent to a provider and no
+  model is called; a step that can no longer find what it recorded stops and
+  says what changed, rather than improvising.
+
+A task set to **Never** runs with no model configured at all, so it costs
+nothing and does the same thing every time. **Read from the screen** always
+needs a model, so set it to **Every run** or **Only when a replay no longer
+fits**.
+
 ## What a desktop step can do
 
 The steps inside run in order, on this computer's screen.
@@ -115,9 +142,13 @@ The steps inside run in order, on this computer's screen.
   under **Values to read**, each with a **Name**, a **Type**, and a
   **Description (optional)** that tells the model what it is. Later steps read
   each value as `${steps.<identifier>.outputs.<name>}`.
-- **Make sure that…** fails the step when the screen does not look right. The
-  model judges **The screen should show…** from a screenshot, and
-  **Keep checking for (optional)** gives the app time to get there.
+- **Make sure that…** fails the step when the screen does not look right.
+  **How to check** picks how. **In plain words (the model judges)** reads
+  **The screen should show…** and asks the model from a screenshot.
+  **Text is on the screen**, **An element is there**, and
+  **The window title contains** read the front window's own controls, with no
+  model and the same answer on every run. **Keep checking for (optional)**
+  gives the app time to get there.
 - **Wait** waits for **How long** you say.
 - **Take a screenshot** saves a PNG of the whole screen with the run's files,
   under the **Screenshot name** you give it.
@@ -168,14 +199,23 @@ you to stop using the mouse and keyboard, or for another desktop step. Beside
 them are the **Model** that was asked and **Model usage**, the tokens that
 went in and out.
 
-**Replayed without the model** says how many tasks ran from memory. A task
-that finished once is repeated the same way on later runs while the screen
-still looks the same, which is faster and costs nothing.
-**Decide again on every run** turns that off for one task, or for the whole
-step under **Desktop settings**, and
+**Replayed without the model** says how many actions ran from memory. An
+action that worked once is remembered by the app's own controls — the button,
+the field, the menu it used — and repeated the same way next time, with no
+model and no tokens. Because it finds each control by what it is, a replay
+survives a window that moved, a different screen or resolution, a new theme,
+and a title bar that now shows the open document. It waits a moment for each
+recorded control to appear before it acts, and works the control directly
+where it can rather than clicking a fixed point, so a slow app or a nudged
+window does not throw it off.
+
+When the app changes and a remembered control is gone, the model is asked
+again for just the steps that no longer fit — or, if you set the task to use
+no AI, the step stops and says what changed. **Read from the screen** and
+checks written in plain words ask the model every run.
 **Project settings → Storage → Replay cache** clears what a workflow
-remembers after an app changes. The cache stays on this computer and is not
-carried in backups.
+remembers after an app is redesigned. The cache stays on this computer and is
+not carried in backups.
 
 ## When the provider asks you to confirm
 
@@ -207,9 +247,10 @@ The rest is in [Troubleshooting](/docs/troubleshooting/#a-desktop-step-fails).
 Every action the model decides sends a screenshot of the whole screen, other
 open windows included, to the model's provider, and is billed by that
 provider. Close what should not be seen before a run, or use a computer
-nobody else works at. Values the step types and your secrets are never sent.
-Screenshots saved with the run stay on this computer, under the run's
-retention. See [What leaves your computer](/docs/data-flow/).
+nobody else works at. Actions that replay from memory and checks that read the
+window's elements send nothing, and neither do the values the step types or
+your secrets. Screenshots saved with the run stay on this computer, under the
+run's retention. See [What leaves your computer](/docs/data-flow/).
 
 Desktop steps run on macOS and Windows only, on this computer's own screen.
 An app that blocks screen recording cannot be operated, and neither can one

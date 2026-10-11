@@ -1,0 +1,13 @@
+type: graph
+schedule: "0 18 * * 1-5"
+llm:
+  model: kitewell-agent-computer
+steps:
+  - id: export
+    name: Export today's report
+    action: computer.run
+    with:
+      do:
+        - launch: {command: open, args: [-a, Depot]}
+        - act: Open the Reports menu, choose Daily sales, set the date to today, and export it as a CSV to the Exports folder
+        - expect: A message confirms the export finished
