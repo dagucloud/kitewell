@@ -76,17 +76,58 @@ expect.
    as form data (`payload=…`), which is not JSON.
 4. Under **Which events would you like to trigger this webhook?**, choose
    **Let me select individual events** and pick only the ones the workflow
-   needs. Every event GitHub sends starts a run.
+   needs. Every event GitHub sends starts a run, unless
+   [Only these events](#take-only-some-events) leaves it out.
+5. To have Kitewell check GitHub's signature, paste the secret Kitewell makes
+   into **Secret**. See [Check who sent the request](#check-who-sent-the-request).
 
 GitHub's **Recent Deliveries** tab shows each request with Kitewell's answer,
 `202` when the relay took it.
 
 ### Other services
 
-Any service that sends an HTTP `POST` works. In Stripe, add an endpoint with
-the URL and choose the events. In Zapier or Make, add a webhook action that
-posts to the URL. A form service usually has a webhook or "notify a URL"
-setting.
+Any service that sends an HTTP `POST` works. In Stripe, add an event
+destination with the URL and choose the events. In a Slack app, paste the URL
+under Event Subscriptions. In Zapier or Make, add a webhook action that posts
+to the URL. A form service usually has a webhook or "notify a URL" setting.
+
+## Check who sent the request
+
+Anyone who has the URL can send a request to it. To start runs only for
+requests the real sender signed, choose that sender under
+**Accept requests from**: GitHub, Stripe, Slack, or Standard Webhooks.
+**Anyone with the URL** turns the check off again.
+
+- GitHub: choose **Make a secret**. Kitewell shows the secret once; paste it
+  into the GitHub webhook's **Secret**. **New secret** replaces it, and
+  GitHub's requests are rejected until you paste the new one there.
+- Stripe: paste the event destination's signing secret, which starts with
+  `whsec_`, into **Signing secret**, and choose **Save**.
+- Slack: paste the Signing Secret from your Slack app's Basic Information into
+  **Signing secret**, and choose **Save**. Kitewell's relay answers Slack's
+  URL check even while this computer is away.
+- Standard Webhooks: paste the signing secret the sender shows, which starts
+  with `whsec_`, into **Signing secret**, and choose **Save**.
+
+A request without a valid signature starts no run and shows **Rejected**, with
+the reason. A Stripe, Slack, or Standard Webhooks signature must be made
+within five minutes of when the relay received the request, so a request that
+waited at the relay still passes. **Send test request** is signed too.
+
+## Take only some events
+
+**Only these events** names the events whose requests start runs, separated
+by commas, such as `issues.opened, invoice.paid`. A name also takes the events
+under it: `issues` takes `issues.opened` and every other `issues` event.
+**Seen lately:** offers the events of recent requests, one click each. Choose
+**Save**; left empty, every event starts a run.
+
+Kitewell names an event the way its sender does: GitHub's event and action
+joined with a dot, the `type` in the body for Stripe and Standard Webhooks
+senders, and for Slack, the type of the event its callback carries.
+
+A request about any other event, or one that names no event, starts no run
+and shows **Skipped**. So does GitHub's ping, which only checks the URL.
 
 ## When your computer is asleep or offline
 
@@ -98,7 +139,7 @@ that, senders are asked to try again later.
 ## Recent requests
 
 The Webhook section lists the latest 20 requests: when each arrived, what it
-was about as the sender names it (such as GitHub's `issues · opened` or
+was about as the sender names it (such as GitHub's `issues.opened` or
 Stripe's `payment_intent.succeeded`), its size, and its result. The list
 updates while it is open.
 
@@ -112,10 +153,13 @@ body is kept only with a run.
 | **Run started** | The request started a run. A request the relay sent twice starts one run. |
 | **Failed** | The run could not be queued, for example because the project's engine is stopped. Kitewell retries a busy or recovering engine for 10 minutes first. |
 | **Ignored** | The paid plan has ended, or the workflow is not in your plan. |
+| **Rejected** | The request had no valid signature from the sender chosen under **Accept requests from**. |
+| **Skipped** | The request is about an event the webhook does not take, or is GitHub's ping. |
 
 ## Keep the URL private
 
-Anyone who has the URL can start the workflow. Treat it like a password.
+Unless the webhook [checks who sent the request](#check-who-sent-the-request),
+anyone who has the URL can start the workflow. Treat it like a password.
 
 - **New URL** replaces it at once; the old URL answers `404`. Paste the new one
   wherever the old one was.

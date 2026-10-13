@@ -43,13 +43,37 @@ Webhook は Kitewell Personal と Team の機能で、Kitewell が Dagu Cloud �
 1. リポジトリまたは Organization の **Settings → Webhooks** を開き、**Add webhook** を選びます。
 2. **Payload URL** に URL を貼り付けます。
 3. **Content type** を `application/json` にします。GitHub の既定ではフォームデータ（`payload=…`）として送られ、JSON になりません。
-4. **Which events would you like to trigger this webhook?** で **Let me select individual events** を選び、ワークフローに必要なイベントだけを選びます。GitHub が送るイベントごとに実行が始まります。
+4. **Which events would you like to trigger this webhook?** で **Let me select individual events** を選び、ワークフローに必要なイベントだけを選びます。[次のイベントのみ](#take-only-some-events)で除外しない限り、GitHub が送るイベントごとに実行が始まります。
+5. Kitewell に GitHub の署名を確認させるには、Kitewell が作るシークレットを **Secret** に貼り付けます。[送り手を確かめる](#check-who-sent-the-request)を参照してください。
 
 GitHub の **Recent Deliveries** タブでは、リクエストごとに Kitewell の応答を確認できます。リレーが受け付けたときは `202` です。
 
 ### そのほかのサービス
 
-HTTP の `POST` を送れるサービスなら使えます。Stripe では、URL を指定してエンドポイントを追加し、イベントを選びます。Zapier や Make では、URL に POST する Webhook のアクションを追加します。フォームのサービスには、たいてい Webhook や「URL に通知」の設定があります。
+HTTP の `POST` を送れるサービスなら使えます。Stripe では、URL を指定してイベントの送信先を追加し、イベントを選びます。Slack アプリでは、Event Subscriptions に URL を貼り付けます。Zapier や Make では、URL に POST する Webhook のアクションを追加します。フォームのサービスには、たいてい Webhook や「URL に通知」の設定があります。
+
+<a id="check-who-sent-the-request"></a>
+
+## 送り手を確かめる
+
+URL を知っている人は誰でも、その URL にリクエストを送れます。本物の送り手が署名したリクエストだけで実行を始めるには、**受け付けるリクエストの送信元** でその送り手を選びます。GitHub、Stripe、Slack、Standard Webhooks から選べます。**URL を知っている人なら誰でも** を選ぶと、確認をやめます。
+
+- GitHub：**シークレットを作成** を選びます。Kitewell はシークレットを一度だけ表示するので、GitHub の Webhook の **Secret** に貼り付けます。**新しいシークレット** で置き換えると、新しいものを GitHub に貼り付けるまで、GitHub からのリクエストは却下されます。
+- Stripe：イベントの送信先の署名シークレット（`whsec_` で始まります）を **署名シークレット** に貼り付け、**保存** を選びます。
+- Slack：Slack アプリの Basic Information にある Signing Secret を **署名シークレット** に貼り付け、**保存** を選びます。このコンピューターがオフラインでも、Kitewell のリレーが Slack の URL 確認に応答します。
+- Standard Webhooks：送り手が表示する署名シークレット（`whsec_` で始まります）を **署名シークレット** に貼り付け、**保存** を選びます。
+
+有効な署名のないリクエストでは実行が始まらず、**却下** と理由が表示されます。Stripe、Slack、Standard Webhooks の署名は、リレーがリクエストを受け取った時刻の前後 5 分以内に作られている必要があります。そのため、リレーで待っていたリクエストも確認を通ります。**テストリクエストを送信** のリクエストにも署名が付きます。
+
+<a id="take-only-some-events"></a>
+
+## 受け取るイベントを絞る
+
+**次のイベントのみ** には、実行を始めるイベントを `issues.opened, invoice.paid` のようにカンマで区切って書きます。名前は、その下のイベントも含みます。`issues` と書くと、`issues.opened` など `issues` のすべてのイベントを受け付けます。**最近受信:** には最近のリクエストのイベントが並び、クリックで追加できます。**保存** を選びます。空欄なら、すべてのイベントで実行が始まります。
+
+イベントの名前は、送り手の名付け方に従います。GitHub ではイベントとアクションをドットでつないだもの、Stripe と Standard Webhooks の送り手では本文の `type`、Slack ではコールバックが運ぶイベントの種類です。
+
+それ以外のイベントのリクエストや、イベントを名乗らないリクエストでは実行が始まらず、**スキップ** と表示されます。URL を確かめるだけの GitHub の ping も同じです。
 
 ## コンピューターがスリープ中やオフラインのとき
 
@@ -57,7 +81,7 @@ HTTP の `POST` を送れるサービスなら使えます。Stripe では、URL
 
 ## 最近のリクエスト
 
-Webhook の欄には、最新 20 件のリクエストが表示されます。届いた日時、送り手が付けたイベント名（GitHub の `issues · opened` や Stripe の `payment_intent.succeeded` など）、サイズ、結果です。開いている間、一覧は自動で更新されます。
+Webhook の欄には、最新 20 件のリクエストが表示されます。届いた日時、送り手が付けたイベント名（GitHub の `issues.opened` や Stripe の `payment_intent.succeeded` など）、サイズ、結果です。開いている間、一覧は自動で更新されます。
 
 **詳細** を選ぶと、リクエストの本文が読みやすく整えて表示され、ヘッダーとともにそれぞれ **コピー** できます。**このリクエストからステップを作る** と **実行を見る →** もここにあります。実行が始まらなかったリクエストは、本文が実行とともにしか保存されないため、代わりにその理由が表示されます。
 
@@ -66,10 +90,12 @@ Webhook の欄には、最新 20 件のリクエストが表示されます。�
 | **実行を開始** | リクエストで実行が始まりました。リレーが同じリクエストを 2 回送っても、実行は 1 回です。 |
 | **失敗** | 実行をキューに入れられませんでした（プロジェクトのエンジンが停止しているときなど）。エンジンが処理中や復旧中のときは、Kitewell が 10 分間再試行してから失敗とします。 |
 | **無視** | 有料プランが終わっているか、ワークフローがプラン外です。 |
+| **却下** | **受け付けるリクエストの送信元** で選んだ送り手の有効な署名がありませんでした。 |
+| **スキップ** | Webhook が受け付けないイベントのリクエストか、GitHub の ping です。 |
 
 ## URL を秘密にする
 
-URL を知っている人は誰でもワークフローを開始できます。パスワードと同じように扱ってください。
+Webhook が[送り手を確かめる](#check-who-sent-the-request)設定になっていなければ、URL を知っている人は誰でもワークフローを開始できます。パスワードと同じように扱ってください。
 
 - **新しい URL** を選ぶとすぐに置き換わり、古い URL は `404` を返します。古い URL を貼った場所すべてに、新しい URL を貼り直してください。
 - **オフにする** も同じく URL を止めます。もう一度オンにすると、新しい URL になります。

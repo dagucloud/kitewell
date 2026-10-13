@@ -162,17 +162,47 @@ secrets again.
 A loop that runs its items at the same time cannot share one sign-in. Set the
 loop to one item at a time, or turn **Stay signed in between runs** off.
 
+## Sites that ask for a certificate
+
+Some sites, such as company or government portals, ask the browser for a
+client certificate before they open. Add the certificate to Kitewell once, and
+every website step and the assistant's browser on this computer present it to
+the sites you name, without the system asking for its password.
+
+1. Open **Device settings → Browser → Client certificates**.
+2. Choose **Add from a file…** for a `.pfx` or `.p12` file and enter its
+   **Password**. In the Kitewell app, **Add from this computer…** picks one
+   from the macOS keychain or the Windows certificate store instead; the
+   system may ask once to let Kitewell copy it.
+3. Under **Use it for**, choose **Only these sites** and list them under
+   **Sites, one per line**, such as `portal.example.com`, or `*.example.com`
+   for every site under it. **Every site that asks for a certificate** gives
+   it to any site that asks.
+4. Choose **Add certificate**, then **Check a site** to open one with it.
+
+A step needs no setting of its own. When a run fails because a site asked for
+a certificate, the failed run offers an administrator a way to add one for
+that site, or to use one already added, and then **Retry run**.
+
+Kitewell keeps the certificate on this computer under a password of its own,
+never yours, and leaves it out of backups. Adding or changing one restarts the
+project engines; runs in progress continue. Kitewell's chat warns a month and
+a week before a certificate expires, and when it does.
+
 ## What a run looks like
 
 Open the run under **Runs & logs**. **What the browser did** lists the steps
 in order with the screenshots they took, beside the **Model** that was asked
 and **Model usage**, the tokens that went in and out.
 
-**Replayed without the model** says how many actions ran from memory. An
-action that worked once is remembered and repeated the same way next time,
-which is faster and costs nothing. When the site changes and a remembered
-action no longer works, the model is asked again. **Decide again on every
-run**, on one step, turns that off, and
+**Ran without AI** says how many of the step's operations ran without asking
+the model: a replayed action, a check that reads the page itself, or an
+operation such as opening a page. An action that worked once is remembered
+and repeated the same way next time, and a replayed action sends nothing to
+the model.
+
+When the site changes and a remembered action no longer works, the model is
+asked again. **Decide again on every run**, on one step, turns that off, and
 **Project settings → Storage → Replay cache** clears what a workflow
 remembers after a site is redesigned. **Collect information** and checks
 written in plain words ask the model every run.

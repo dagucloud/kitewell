@@ -40,8 +40,11 @@ the others all belong to other people, it is refused until one is disconnected
 or the plan holds more.
 
 Signing in alone sends nothing. A signed-in computer checks its plan and
-reports its Kitewell version and its own name and ID. It sends no workflows,
-settings, run history, logs, or secrets.
+reports its Kitewell version and its own name and ID. Workflows and run
+status go only for a project you sync, and logs and secret values never go.
+Signing in also lets the computer use
+[Kitewell's included model](/docs/ai/#use-kitewells-included-model), whose
+requests go through Dagu Cloud.
 
 ## Sync a project
 
@@ -137,7 +140,29 @@ its own value, set on that computer; until it is,
 
 Each computer also keeps to itself its registry sign-ins, SSH keys and
 approved host keys, working directories, which workflows are enabled, its
-alerts, its run history, and its logs. None of that reaches Dagu Cloud.
+alerts, its run history, and its logs. None of that reaches Dagu Cloud, apart
+from each run's status, below.
+
+## Follow runs in Dagu Cloud
+
+A synced project reports how its runs go. Every two minutes, or sooner when
+the runs in progress change, each computer sends Dagu Cloud the workflow,
+status, and trigger of each run, when it was queued, started, and finished,
+and the names of the steps that failed. It adds its Kitewell version, its
+system, and when it started.
+
+Parameters, logs, outputs, and sheet values stay on the computer, and a
+project that is not synced is never reported. People in the workspace see the
+runs of the projects they can open, in Dagu Cloud.
+
+**Dagu Cloud account** in **Device settings** says which applies:
+**Run status is shared with Dagu Console**, or
+**Run status sharing is off for this workspace**.
+
+The workspace owner turns it off in Dagu Cloud under **Settings**, by
+unticking **Share Kitewell run status** and choosing **Save changes**. The
+computers then report only that they run, and runs that finish meanwhile are
+never sent.
 
 ## Work as a team
 

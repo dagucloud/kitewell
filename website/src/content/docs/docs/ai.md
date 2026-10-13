@@ -2,17 +2,19 @@
 title: AI agents and models
 ---
 
-Kitewell does not come with an AI account. You bring your own — an API key
-from a provider, or a coding tool already installed on this computer — and
-tell the project about it once. From then on the assistant can build your
-workflows with you, a failed run can explain itself, a sheet can read a value
-out of each run, and a workflow can ask a model a question in the middle of
-its work.
+Kitewell's AI features need a model: one you add with a provider's API key,
+a coding tool already installed on this computer, or Kitewell's included
+model on a computer signed in to Dagu Cloud.
+
+With one, Kitewell builds and fixes workflows with you in its chat, a failed
+run can explain itself, a sheet can read a value out of each run, and a
+workflow can ask a model a question in the middle of its work.
 
 ## What you need
 
 - A provider's API key, for anything that calls a model over the internet. If
   the project already has one, **Agents & models** in the sidebar lists it.
+  [Kitewell's included model](#use-kitewells-included-model) needs none.
 - For a command-line coding agent, the tool installed on this computer and
   signed in there. Kitewell starts it; it never signs in for you.
 - The **Agents & models** page is for administrators and editors. What the
@@ -55,11 +57,41 @@ The page holds three kinds of entry, chosen with **Kind**:
 An entry can fall back to another when it fails: its card then reads "Falls
 back to" and names them. Each attempt is a fresh request, billed again.
 
+## Use Kitewell's included model
+
+On a computer signed in to [Dagu Cloud](/docs/cloud-sync/#sign-in),
+**Agents & models** lists **Kitewell (included)**. It needs no API key: each
+request goes through Dagu Cloud to OpenRouter and is paid from the
+workspace's Dagu Cloud credits.
+
+- Choose it as the **Model** of an **Ask a model** or **Automate a website**
+  task, a sheet's result column, or failure diagnosis. In a workflow's YAML it
+  is `kitewell-agent-included`.
+- **Automate a desktop app** can use it on Kitewell Personal and Team, not on
+  the free plan. **Make an AI decision** cannot use it.
+- Kitewell's chat answers with it until an administrator sets up a model
+  under **Device settings → Kitewell's AI model**.
+
+A free account gets 100 credits, once. Kitewell Personal and Team get 500
+credits a month for each computer the plan pays for, shared by the workspace
+and renewed on the first of each month (UTC). The assistant's web searches
+spend the same credits.
+
+An administrator sees what is left under **Dagu Cloud account** in
+**Device settings**. When the credits run out, the included model is refused
+until they are renewed, or on the free plan until you subscribe. A model of
+your own keeps working.
+
+Dagu Cloud asks OpenRouter to route these requests only to providers that
+neither store nor train on them. It keeps no prompt text, only the workspace,
+the device, the model, and the credits used.
+
 ## Use a coding agent on this computer
 
-Install the tool and sign in to it first. Kitewell knows Aider, Amp, Claude
-Code, Cline, Codex, Cursor, DeepSeek, Droid, Gemini, GitHub Copilot, Goose,
-Kiro, OpenCode, Pi, and Qwen, and runs anything else as a **Custom command**.
+Install the tool and sign in to it first. Kitewell knows 15 tools — Aider,
+Amp, Claude Code, Cline, Codex, Cursor, DeepSeek, Droid, Gemini, GitHub
+Copilot, Goose, Kiro, OpenCode, Pi, and Qwen — and runs anything else as a
+**Custom command**.
 Tools it finds on this computer that no agent uses yet appear under **Found on
 this device**, one click from their own entry.
 
@@ -74,6 +106,20 @@ this device**, one click from their own entry.
    write **Prompt · describe the task**. Under **Agent settings and context**,
    set the **Project folder** it works in.
 
+Kitewell runs the tool with the sign-in it already has on this computer. For
+tools that take one, such as Claude Code, Codex, and GitHub Copilot,
+**Reasoning effort** on the agent sets how much the tool reasons, and a step
+can override it.
+
+**If it fails** on the agent lists up to three other CLI agents, tried in
+order when this one's tool exits with an error, such as a rate limit, a
+missing sign-in, or a crash. A weak answer is not a failure. Each attempt runs
+the prompt from the start, so the work is paid for again.
+
+When a reviewer sends an agent step's work back, the agent runs again with the
+reviewer's feedback added to its prompt. See
+[Stop and ask a person](/docs/workflow-builder/#stop-and-ask-a-person).
+
 A coding agent is a program running on this computer as you, with whatever
 access you gave the tool itself. It can read and change files and run
 commands. **Bypass permission prompts** on the agent turns off the tool's own
@@ -85,53 +131,83 @@ which cannot run anything.
 
 ## The assistant
 
-The assistant builds and fixes workflows with you. Open it with **Assistant**
-on any project page, or press ⌘J on a Mac, Ctrl+J on Windows. It is for
-administrators and editors, and it uses one of the project's API models. If
-the project has none, an administrator can connect one from the panel itself.
+Kitewell has one chat for this computer, across every project. Ask it to
+build or fix a workflow, run something, or find out why a run failed. Open it
+with **Ask Kitewell** at the top of the Kitewell window, or press ⌘J on a Mac,
+Ctrl+J on Windows. It is for administrators and editors.
 
-Nothing it proposes is saved until you apply it.
+The chat opens docked on the right of the Kitewell window.
+**Open in its own window** moves it out, **Keep in front** keeps that window
+above the others, and **Dock in the Kitewell window** brings it back. On a
+Mac, **Open Chat** in the menu bar menu shows it; on Windows, a click on the
+tray icon shows or hides it.
+
+It answers with **Kitewell's AI model**, set once in **Device settings** for
+every project. Until an administrator sets one, a computer signed in to Dagu
+Cloud uses [Kitewell's included model](#use-kitewells-included-model);
+otherwise an administrator can set one up from the chat itself.
+
+Work that takes more than a quick answer goes into a thread, tied to the
+workflow or run it is about. Kitewell starts one when a request turns into
+work, and **Reply in a thread** starts one from any message.
+**Back to the main conversation** returns, **Mark done** closes a thread, and
+**Reopen** opens it again. Several threads can work at once.
+
+You can keep typing while Kitewell works: it reads a new message at its next
+step, and **Cut in now** stops the work to answer that message first. When
+the Kitewell window is open, the chat knows what it shows, so "this workflow"
+means the one in the editor, unsaved edits included.
+
+Nothing Kitewell proposes is saved, and nothing it does runs, until you press
+the button on its card.
 
 ![The assistant's card proposing a new workflow, with Edit in editor, Reject, and Apply](../../../assets/docs/en/assistant-proposal.png)
 
-It proposes a new or changed workflow as a card with the change in it, and
-**Preview graph** opens a picture of it. Choose **Apply**, or
-**Edit in editor**, or **Reject**, which asks why. A new workflow that names a schedule
-is saved paused unless you tick **Turn on its schedule**. After applying,
-**Run now** opens the run form and **Open** opens the workflow. A change to an
-existing workflow can be undone with **Undo**; a workflow it just created
-cannot.
-
-The rest of what it can do:
-
-- It proposes rows and columns for a [sheet](/docs/batches/), shown in the
-  open sheet until you decide. Applying can also start the runs it touched,
-  and then it cannot be undone.
-- It can run a draft as a trial to see whether the thing works. The first time
-  in a conversation it asks, with **Allow trial runs**. A trial really runs
-  commands, browser steps, reads and model calls, with the project's secrets.
-  Anything that would send or change something elsewhere — a POST, an email, a
-  command on another machine — goes only as far as reporting what it would
-  have sent. It cannot delete a workflow or start a real run.
-- It can put up to six short questions to you as one small form, which you
-  answer with **Send answers** or pass with **Skip**.
-- It can read a public web page you point it to. Addresses on this device or
-  its own network are refused.
-- It can ask for a secret by name. You type the value into its card, it is
-  saved to the project's secret store, and the assistant never sees it. Only
-  an administrator can add one this way, and only an administrator's assistant
-  can list secret names — never values.
+- A new or changed workflow comes as a card with its diagram and **Details**.
+  Choose **Apply**, or **Reject**, which asks why. A schedule is offered on,
+  with its next runs; untick **Turn on its schedule** to save it paused. After
+  applying, **Open** opens the workflow and **Run now** runs it, and a change
+  to an existing workflow can be undone with **Undo**.
+- It proposes rows and columns for a [sheet](/docs/batches/) as a card.
+  Applying can also start the runs it touched, and then it cannot be undone.
+- It can run a workflow, approve, reject, or send back a waiting step, stop a
+  run, and pause or resume a schedule. Each is a card with the workflow's
+  diagram that acts only when you press its button, such as **Run** or
+  **Approve**; **Not now** declines.
+- It can run a draft for real to see whether it works. The first time in a
+  thread it asks, with **Allow trial runs**. A trial runs commands, browser
+  steps, reads, and model calls with the project's secrets. Anything that
+  would send or change something elsewhere — a POST, an email, a command on
+  another machine — only reports what it would have sent.
+- After you choose **Allow**, it can work a site in its own browser to learn
+  how a workflow should use it; you watch in the chat and can **Take over** at
+  any time. It can read a public web page, though not an address on this
+  device or its own network, and on a computer signed in to Dagu Cloud it can
+  search the web.
+- It can put up to six short questions to you as one card, answered with
+  **Send answers** or passed with **Skip**. It can ask for a secret by name:
+  you type the value into its card and choose **Save**, and the assistant
+  never sees it. Only an administrator can add one this way, or list secret
+  names.
 - It reads the project's [knowledge](/docs/knowledge/) every message and
-  writes down what it learns as you work. Once the conversation has read a web
-  page or a run's output, it
+  writes down what it learns as you work. When you say how you want it to
+  work, it remembers that at once, with **Undo**. Once the conversation has
+  read a web page or a run's output, it
   [asks first](/docs/knowledge/#what-the-assistant-does).
 
-On a failed run, **Ask the assistant** asks it to find out why and propose a
-fix.
+Kitewell also posts cards of its own, on every plan. A run waiting for you
+gets one, with **Approve**, **Reject**, or an answer right on the card. What
+the notification settings send to this device gets one too: a failing
+workflow, with **Retry**; a schedule that did not start, with **Run now**; and
+a line for a run that succeeded, was cancelled, or is running long, or a sheet
+that finished. Each also shows as a notification unless the chat is in front.
 
-Conversations stay on this device. **Device settings → Assistant** sets
-**Conversations kept per project**, 100 by default; when a new conversation
-starts, the least recently used beyond that number are deleted.
+**Ask Kitewell** on a failed run asks it to find out why and propose a fix.
+
+The conversation stays on this computer and is left out of backups.
+**Delete** removes one message and **Delete thread** a whole thread;
+**Delete the conversation**, under **Device settings → Kitewell's AI model**,
+removes everything. Workflows and other changes Kitewell saved stay.
 
 <a id="failure-diagnosis"></a>
 
@@ -168,11 +244,14 @@ lives on your computer does not mean every task stays on it.
   when the run starts.
 - After running, **Runs & logs** shows the prompt the run recorded and what
   came back.
-- The assistant sends the project name, your workflows and the editor's
-  current draft, the knowledge pages, the workbook you have open, and what a
-  tool it used returned. Secret values are never sent.
-- When the assistant's model is an OpenRouter model on OpenRouter's own
-  address, its requests ask OpenRouter to route them only to providers that
-  neither store nor train on what they receive.
+- The chat sends the recent conversation, what the Kitewell window shows,
+  including the workflow open in the editor, the project's workflows, models
+  and knowledge, and what each tool it used returned. Secret values are never
+  sent.
+- When the chat's model is an OpenRouter model on OpenRouter's own address,
+  its requests ask OpenRouter to route them only to providers that neither
+  store nor train on what they receive.
+- Kitewell's included model sends each request to Dagu Cloud, which passes it
+  to OpenRouter.
 
 See [What leaves your computer](/docs/data-flow/) for the whole picture.

@@ -9,7 +9,8 @@ the long form of [What leaves your computer](/docs/data-flow/).
 
 Each entry says what is sent, who receives it, and how to stop it.
 
-- **A model step, the assistant, failure diagnosis, or a sheet column a model reads.** Sends the prompt and what it reads — run output, logs, page text, screenshots, sheet rows, knowledge — to the model's provider, chosen under [Agents & models](/docs/ai/). Stop it by adding no model, or by using a server you run.
+- **A model step, the assistant, failure diagnosis, or a sheet column a model reads.** Sends the prompt and what it reads — run output, logs, page text, screenshots, sheet rows, knowledge — to the model's provider, chosen under [Agents & models](/docs/ai/). Stop it by choosing a model on a server you run.
+- **Kitewell's included model.** Sends the same material. To Dagu Cloud, which passes it to OpenRouter and keeps no prompt text, only the workspace, the device, the model, and the credits used. Only on a computer signed in to Dagu Cloud. Stop it by choosing a model of your own.
 - **A sheet column judged yes/no, by choice, or on a scale.** Sends the same material, plus each column's question and the meaning of each option. To the decision model's provider: OpenRouter, TypeSafe, or an address you set. Stop it by choosing a column that copies a published value instead; it needs no model.
 - **An Ask an AI agent task.** Sends the prompt and whatever the agent reads in its working folder, under that tool's own terms. To whichever service that command-line tool signs in to. Stop it by using a different task.
 - **[Importing an API](/docs/apis/) by its address, or asking the assistant to check a web page.** Sends a plain request for the document or the page, with no credentials. To the address you gave. Stop it by uploading the OpenAPI file instead.
@@ -17,8 +18,9 @@ Each entry says what is sent, who receives it, and how to stop it.
 - **An email step.** Sends the message, and the search you asked for. To your mailbox's own mail server, or the Gmail API for a Google mailbox; signing in goes to Google or Microsoft. Stop it by disconnecting the mailbox in **Mail accounts**.
 - **[Alerts](/docs/alerts/).** Sends what happened, how urgent, the project, the workflow, and a link back. To your mail server, a Slack or Teams address, PagerDuty, or a webhook of your own. Stop it by removing the channel.
 - **Signing in to Dagu Cloud.** Sends which plan the workspace has, the Kitewell version, and this computer's ID and name, every six hours. To Dagu Cloud, run by Descarty. Stop it with **Sign out** in **Device settings**.
-- **The assistant's web search.** Sends the words of each search, and the language Kitewell is shown in. To Dagu Cloud, which passes them to Serper for Google results and keeps no query text, only the workspace, the device, and the credits the search used. Only on a computer signed in to Dagu Cloud. Stop it with **Sign out** in **Device settings**; the assistant then asks for addresses.
+- **The assistant's web search.** Sends the words of each search and the language Kitewell is shown in. To Dagu Cloud, which passes them to Serper and keeps no query text, only the workspace, the device, and the credits used. Stop it with **Sign out** in **Device settings**; the assistant then asks for addresses.
 - **[Syncing a project](/docs/cloud-sync/).** Sends that project's workflows, models, servers, API connections, queues and registries, secret names and descriptions, sheets, knowledge pages, releases, and — for a workflow that works a mailbox — which signed-in person's device runs it. To Dagu Cloud. Stop it with **Stop syncing** on that project.
+- **[A synced project's runs](/docs/cloud-sync/#follow-runs-in-dagu-cloud).** Sends each run's workflow, status, trigger, times, and failed step names, with this computer's Kitewell version and system, every two minutes. To Dagu Cloud; never parameters, logs, outputs, or sheet values. Stop it with **Stop syncing**; turning run status off in Dagu Cloud leaves only that the computer runs.
 - **[ChatGPT or Claude connected to Kitewell](/docs/mcp/).** Sends whatever the app asks for: workflows, runs and logs, artifacts, sheets, knowledge, and — with edit permission — rows of an Excel file on this computer. To the app, through Kitewell's relay at `mcp.kitewell.app`. Stop it with **Remote access** off, or **Revoke** the app.
 - **An event an app or API key subscribed to.** Sends each event: the project, workflow, run, how it ended, the times, failed step names, a waiting step's question, a sheet launch's counts, or why a schedule was missed. To the address the subscriber gave. Stop it with **Remove** on the subscription.
 - **A workflow's Webhook.** Nothing goes out. Requests come in and wait at Kitewell's relay at `hooks.kitewell.app`, with their headers and body, for at most 7 days, until this computer takes them. Stop it with **Turn off** on that webhook.
@@ -26,8 +28,9 @@ Each entry says what is sent, who receives it, and how to stop it.
 - **Install WebView2 on Windows.** Sends a download request to Microsoft. The installer normally carries the runtime, so this appears only if it is missing.
 
 Kitewell sends nothing else. There is no usage tracking, no crash reporting,
-and no analytics in the app, and Descarty never receives the data your runs
-work on.
+and no analytics in the app. Descarty receives the data your runs work on
+only in the requests you send through Kitewell's included model or the
+assistant's web search.
 
 ## What never leaves your computer
 
@@ -35,22 +38,22 @@ work on.
 | --- | --- |
 | Secret values | Encrypted in each project's engine, masked in logs, never read back, exported, backed up, or synced. A synced project carries a secret's name and description; each computer holds its own value. See [Secrets](/docs/secrets/) |
 | Sign-ins | Mailbox connections, saved website sign-ins, SSH keys and host trust, and image registry passwords. All encrypted or kept in a file only your user can read, and all left out of backups |
-| Runs, logs, and artifacts | The data folder, for 30 days by default, per project. See [Runs and logs](/docs/runs/). A synced project syncs definitions, never runs |
-| Assistant conversations and failure diagnoses | The data folder, per project |
+| Run logs and artifacts | The data folder, for 30 days by default, per project. See [Runs and logs](/docs/runs/). A synced project reports each run's status and failed step names, never its parameters, logs, artifacts, or sheet values |
+| The assistant's conversation and failure diagnoses | The data folder: one conversation for this computer, left out of backups, and diagnoses per project |
 | Excel workbooks | Read and written in place on the computer that holds the file. A sheet linked to one carries the file's name and which computer has it, never a cell. Its path, which row each result goes back to, and the copies kept for Undo stay on that computer. See [Automate Excel](/docs/spreadsheets/) |
 | Workflow definitions and knowledge | The data folder, until you export, share, or sync them |
 
 Two things to know about these. A snapshot you [download](/docs/backups/)
-carries run output, assistant conversations, and the Excel copies kept for
-Undo, so treat a downloaded snapshot as the sensitive file it is.
+carries run output and the Excel copies kept for Undo, so treat a downloaded
+snapshot as the sensitive file it is.
 
 A workbook's cells do leave the computer if you ask a model or a connected app
 to read them; [Know the boundaries](#know-the-boundaries) says when.
 
 ## Choose where AI runs
 
-Every AI feature names a model you added under [Agents & models](/docs/ai/).
-Kitewell ships no model and no key of its own.
+Every AI feature names a model you added under [Agents & models](/docs/ai/),
+or Kitewell's included model.
 
 - The providers are Anthropic, OpenAI, Google Gemini, OpenRouter, Z.ai,
   OpenCode Zen, or any OpenAI-compatible server you run, such as Ollama or
@@ -62,6 +65,11 @@ Kitewell ships no model and no key of its own.
   failure diagnosis, and a sheet's result columns — ask OpenRouter to route
   only to providers that neither store nor train on what they receive. A model
   step inside a workflow is sent by the engine and does not ask for that.
+- [Kitewell's included model](/docs/ai/#use-kitewells-included-model) needs
+  no key on a computer signed in to Dagu Cloud, and is paid from the
+  workspace's credits. Dagu Cloud asks OpenRouter to route every request it
+  passes on only to providers that neither store nor train on it. A desktop
+  step can use it only on Kitewell Personal and Team.
 
 A value a website or desktop step types, such as a password, is written as
 `%name%`. Only the name reaches the model.
@@ -76,9 +84,9 @@ A value a website or desktop step types, such as a password, is written as
 - Email is untrusted input. Text from an email that reaches a command, or an
   agent that runs commands, can steer it. **Review & run** warns you when a
   workflow does that.
-- A webhook request is untrusted input too, and anyone with the URL can start
-  that workflow. Kitewell does not yet check a sender's signature. See
-  [Start a workflow from a webhook](/docs/webhooks/#keep-the-url-private).
+- A webhook request is untrusted input too. Unless the webhook checks its
+  sender's signature, anyone with the URL can start that workflow. See
+  [Start a workflow from a webhook](/docs/webhooks/#check-who-sent-the-request).
 - Asking the assistant or a connected app to read an Excel file sends its
   cells on: a column list and ten sample rows when you build a sheet from a
   file, and the rows themselves when you ask for them by name.
@@ -126,6 +134,14 @@ its settings, and is never in a backup.
 
 A web search goes to `console.dagu.sh`, which sends it on to Serper at
 `google.serper.dev` and returns the titles, addresses, and snippets.
+
+A request to Kitewell's included model goes to `console.dagu.sh` with a run
+token that lasts a week and is renewed daily, never the computer's own
+credential, and Dagu Cloud sends it on to `openrouter.ai`.
+
+A synced project's run status goes to `console.dagu.sh` every two minutes,
+or sooner when the runs in progress change. A report that does not arrive is
+sent again.
 
 ### The relay
 

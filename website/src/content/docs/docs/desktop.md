@@ -8,11 +8,11 @@ the screen, then clicks and types. You describe the task in ordinary words —
 done.
 
 This is the job desktop RPA tools do — driving an app that has no API —
-without their brittle part. Nothing is recorded by hand and there are no
-selectors to maintain: a model authors the task the first time, and from then
-on the same steps replay on their own, by the app's own controls, with no
-model and no tokens. The AI authors the task once; plain determinism runs it
-every day after.
+with nothing recorded by hand and no selectors to maintain. A model works out
+the task the first time, and later runs replay what it did without the model
+while the app still matches: by the app's own elements on Windows, and by
+matching the screen on macOS. When the app no longer matches, the model is
+asked again for what changed.
 
 That reaches the accounting package or the ERP client that has no API and no
 web version:
@@ -32,7 +32,9 @@ A model that can operate a computer, such as Gemini 3.6 Flash, Claude
 Sonnet 5, or GPT-5.4. [Add one](/docs/ai/) under **Agents & models**, then
 pick it in the step's **Model**, or set one for the whole workflow in
 **Settings → Execution & retries → Default model for browser and desktop steps**.
-Another vision model that can call tools still works.
+Another vision model that can call tools still works. On Kitewell Personal
+and Team, [Kitewell's included model](/docs/ai/#use-kitewells-included-model)
+works too; on the free plan a desktop step needs a model of your own.
 **How the model uses the desktop**, under **Desktop settings**, is normally
 **Automatic**; **Plain tools, for any vision model** makes a model without a
 computer-use tool work through plain click-and-type tools — more slowly, and
@@ -111,23 +113,29 @@ task that needs more fails, so either split it or raise the cap.
 
 ## How much AI decides
 
-A desktop step does not have to ask the model every time. **How much the model
-decides**, under **Desktop settings**, sets that for the whole step, and a
-single task can override it:
+A desktop step does not have to ask the model every time.
+**How much AI decides**, under **Desktop settings**, sets that for the whole
+step, and a single task can set its own:
 
-- **Every run** asks the model for every action. It adapts to whatever the
-  screen shows, and it is the slowest and the only one that costs tokens every
-  time.
-- **Only when a replay no longer fits** (the default) repeats what worked last
-  time and asks the model only for the steps whose controls have moved or gone.
-- **Never** runs from the recording alone. Nothing is sent to a provider and no
-  model is called; a step that can no longer find what it recorded stops and
-  says what changed, rather than improvising.
+- **Replay; AI fixes what changed** (the default) records a task that worked
+  and replays it on later runs. When a screen no longer matches the
+  recording, the model takes over from there and the recording is repaired.
+- **AI decides every run** asks the model for every action. It adapts to
+  whatever the screen shows, and sends a screenshot for each action, every
+  run.
+- **Replay only, no AI** runs from the recording alone. Nothing is sent to a
+  provider and no model is called; a step that can no longer find what it
+  recorded stops and says what changed, rather than improvising.
 
-A task set to **Never** runs with no model configured at all, so it costs
-nothing and does the same thing every time. **Read from the screen** always
-needs a model, so set it to **Every run** or **Only when a replay no longer
-fits**.
+A recording stays on the computer that made it. On Windows,
+**Pin these steps** on the run that learned a task writes it into the step,
+so every Windows computer can replay it.
+
+A step that uses **Replay only, no AI** throughout, with no check written as
+a sentence, needs no model at all. **Read from the screen** needs the model
+the first time; on Windows, later runs read the same elements again without
+it where they can. On macOS it asks the model every run, so do not set it to
+**Replay only, no AI** there.
 
 ## What a desktop step can do
 
@@ -143,12 +151,12 @@ The steps inside run in order, on this computer's screen.
   **Description (optional)** that tells the model what it is. Later steps read
   each value as `${steps.<identifier>.outputs.<name>}`.
 - **Make sure that…** fails the step when the screen does not look right.
-  **How to check** picks how. **In plain words (the model judges)** reads
+  **How to check** picks how. **AI judges a sentence** reads
   **The screen should show…** and asks the model from a screenshot.
   **Text is on the screen**, **An element is there**, and
-  **The window title contains** read the front window's own controls, with no
-  model and the same answer on every run. **Keep checking for (optional)**
-  gives the app time to get there.
+  **The window title contains** read the front window's elements with no
+  model; they need Windows. **Keep checking for (optional)** gives the app
+  time to get there.
 - **Wait** waits for **How long** you say.
 - **Take a screenshot** saves a PNG of the whole screen with the run's files,
   under the **Screenshot name** you give it.
@@ -178,7 +186,7 @@ for the first. That holds inside a **For each item** loop and inside a
 together.
 
 Before a step clicks or types, it waits until nobody has used the mouse or
-keyboard for fifteen seconds, and it pauses the moment you use them again, so
+keyboard for five seconds, and it pauses the moment you use them again, so
 it never takes the input out from under you.
 **Wait until nobody has used the mouse or keyboard for**, under
 **Desktop settings**, changes that wait; `0` turns it off on a computer
@@ -199,20 +207,25 @@ you to stop using the mouse and keyboard, or for another desktop step. Beside
 them are the **Model** that was asked and **Model usage**, the tokens that
 went in and out.
 
-**Replayed without the model** says how many actions ran from memory. An
-action that worked once is remembered by the app's own controls — the button,
-the field, the menu it used — and repeated the same way next time, with no
-model and no tokens. Because it finds each control by what it is, a replay
-survives a window that moved, a different screen or resolution, a new theme,
-and a title bar that now shows the open document. It waits a moment for each
-recorded control to appear before it acts, and works the control directly
-where it can rather than clicking a fixed point, so a slow app or a nudged
-window does not throw it off.
+**Ran without AI** says how many of the step's operations ran without asking
+the model: a replayed task, a check that reads the window itself, or an
+operation such as opening an app. A replayed action sends nothing to the
+model.
 
-When the app changes and a remembered control is gone, the model is asked
-again for just the steps that no longer fit — or, if you set the task to use
-no AI, the step stops and says what changed. **Read from the screen** and
-checks written in plain words ask the model every run.
+How a task replays depends on the system:
+
+- On Windows, an action that landed on a button, field, or menu replays on
+  that element wherever it is now, so a moved window or a changed title does
+  not stop it. Anything else replays from the screen, as on macOS.
+- On macOS, a replay works from the screen itself: it needs the same screen
+  size, and each screen to look as it did when the task was recorded.
+
+Before a replay counts as a miss, it waits for a recorded element to appear,
+or for the screen to match, for as long as **Wait for elements up to** under
+**Desktop settings** says: 10 seconds unless set.
+
+When a replay misses, the model takes over from there — or, under
+**Replay only, no AI**, the step stops and says what changed.
 **Project settings → Storage → Replay cache** clears what a workflow
 remembers after an app is redesigned. The cache stays on this computer and is
 not carried in backups.
