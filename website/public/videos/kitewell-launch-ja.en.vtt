@@ -1,61 +1,52 @@
 WEBVTT
 
-00:00:00.350 --> 00:00:04.476
-A lot of the work people want automated lives on their computer.
+00:00:00.300 --> 00:00:04.213
+The clicking, typing, and copying you still do by hand.
 
-00:00:05.000 --> 00:00:09.431
-Behind a sign-in. In an app with no API.
+00:00:05.600 --> 00:00:14.200
+RPA promised to take it off you. But every robot was built by hand, and fixed by hand whenever a screen changed.
 
-00:00:09.431 --> 00:00:10.897
-In an Excel file.
+00:00:14.250 --> 00:00:16.606
+Now AI builds it.
 
-00:00:11.000 --> 00:00:13.569
-Now those jobs are yours.
-
-00:00:15.100 --> 00:00:21.253
+00:00:17.000 --> 00:00:20.486
 Describe the job, and Kitewell lays out every step for you to check.
 
-00:00:21.750 --> 00:00:23.866
-Prefer code?
+00:00:21.500 --> 00:00:25.200
+Or build it from Claude Code or Codex, over MCP.
 
-00:00:23.866 --> 00:00:26.077
-It's plain YAML.
+00:00:26.350 --> 00:00:29.832
+On the first run, AI learns the job in your browser.
 
-00:00:26.077 --> 00:00:27.711
-Build it from Claude Code or Codex, over MCP.
+00:00:29.832 --> 00:00:32.800
+Then your computer runs it, every day.
 
-00:00:28.450 --> 00:00:33.003
-It runs on their computer, and their passwords stay there.
+00:00:32.850 --> 00:00:37.550
+When a site changes, AI finds the new way, and keeps it.
 
-00:00:33.100 --> 00:00:37.397
-It does the clicking: websites, desktop apps, and email.
+00:00:37.600 --> 00:00:40.950
+It stops for your OK where it matters.
 
-00:00:37.850 --> 00:00:44.302
-It stops for their OK where it matters, and keeps a record of every step.
+00:00:41.000 --> 00:00:44.900
+Got a list in Excel? It runs every row and writes the results back.
 
-00:00:45.550 --> 00:00:50.295
-Got a list in Excel? It runs for every row, and writes each result back beside it.
+00:00:44.950 --> 00:00:51.914
+Coding agents too. Claude Code writes the fix, Codex reviews it, and nothing ships until you approve.
 
-00:00:50.750 --> 00:00:57.330
-It learns the clicks once, replays them without the model, and relearns when a page changes.
+00:00:52.200 --> 00:00:55.800
+It runs on your computer, and your passwords stay there.
 
-00:00:58.300 --> 00:01:02.021
-If a run fails, the alert names the step, in your Slack.
+00:00:55.850 --> 00:00:59.900
+Run it on every computer, and watch them all from the cloud.
 
-00:01:02.600 --> 00:01:06.556
-Fix it on your laptop, and the fix reaches their computer.
+00:00:59.950 --> 00:01:04.034
+If a run fails, or a computer goes quiet, you hear about it.
 
-00:01:08.300 --> 00:01:13.770
-What you teach goes into the project's notes, for whoever takes over.
-
-00:01:15.300 --> 00:01:19.170
-You build it. Their computers do the work.
-
-00:01:21.060 --> 00:01:22.250
+00:01:10.110 --> 00:01:11.310
 Kitewell.
 
-00:01:22.300 --> 00:01:24.100
+00:01:11.400 --> 00:01:13.300
 It flies on its own.
 
-00:01:24.150 --> 00:01:26.036
+00:01:13.350 --> 00:01:15.236
 You hold the string.

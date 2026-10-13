@@ -1,70 +1,70 @@
 WEBVTT
 
-00:00:00.450 --> 00:00:04.320
-A lot of the work people want automated lives on their computer.
+00:00:00.300 --> 00:00:04.512
+The clicking, typing, and copying you still do by hand.
 
-00:00:05.000 --> 00:00:10.449
-Behind a sign-in. In an app with no API. In an Excel file.
+00:00:06.000 --> 00:00:08.764
+RPA promised to take it off you.
 
-00:00:11.000 --> 00:00:13.036
-Now those jobs are yours.
+00:00:08.764 --> 00:00:11.017
+But every robot was built by hand,
 
-00:00:15.100 --> 00:00:17.367
+00:00:11.017 --> 00:00:14.180
+and fixed by hand whenever a screen changed.
+
+00:00:14.250 --> 00:00:16.456
+Now AI builds it.
+
+00:00:17.000 --> 00:00:19.267
 Describe the job,
 
-00:00:17.367 --> 00:00:18.970
+00:00:19.267 --> 00:00:20.870
 and Kitewell lays out every step for you to check.
 
-00:00:21.600 --> 00:00:24.515
-Prefer code? It's plain YAML.
+00:00:21.600 --> 00:00:25.172
+Or build it from Claude Code or Codex, over MCP.
 
-00:00:24.515 --> 00:00:28.116
-Build it from Claude Code or Codex, over MCP.
+00:00:26.450 --> 00:00:29.897
+On the first run, AI learns the job in your browser.
 
-00:00:28.700 --> 00:00:32.272
-It runs on their computer, and their passwords stay there.
+00:00:29.897 --> 00:00:32.112
+Then your computer runs it, every day.
 
-00:00:32.750 --> 00:00:36.855
-It does the clicking: websites, desktop apps, and email.
+00:00:32.400 --> 00:00:36.676
+When a site changes, AI finds the new way, and keeps it.
 
-00:00:37.600 --> 00:00:40.224
-It stops for their OK where it matters,
+00:00:37.550 --> 00:00:40.375
+It stops for your OK where it matters.
 
-00:00:40.224 --> 00:00:42.473
-and keeps a record of every step.
-
-00:00:45.550 --> 00:00:47.007
+00:00:40.950 --> 00:00:42.333
 Got a list in Excel?
 
-00:00:47.007 --> 00:00:50.871
-It runs for every row, and writes each result back beside it.
+00:00:42.333 --> 00:00:44.900
+It runs every row and writes the results back.
 
-00:00:50.950 --> 00:00:54.803
-It learns the clicks once, replays them without the model,
+00:00:44.950 --> 00:00:46.314
+Coding agents too.
 
-00:00:54.803 --> 00:00:57.231
-and relearns when a page changes.
+00:00:46.314 --> 00:00:49.876
+Claude Code writes the fix, Codex reviews it,
 
-00:00:58.300 --> 00:01:02.661
-If a run fails, the alert names the step, in your Slack.
+00:00:49.876 --> 00:00:52.150
+and nothing ships until you approve.
 
-00:01:03.200 --> 00:01:06.942
-Fix it on your laptop, and the fix reaches their computer.
+00:00:52.200 --> 00:00:55.708
+It runs on your computer, and your passwords stay there.
 
-00:01:08.400 --> 00:01:10.800
-What you teach goes into the project's notes,
+00:00:55.850 --> 00:00:59.443
+Run it on every computer, and watch them all from the cloud.
 
-00:01:10.800 --> 00:01:12.377
-for whoever takes over.
+00:00:59.600 --> 00:01:03.726
+If a run fails, or a computer goes quiet, you hear about it.
 
-00:01:15.300 --> 00:01:18.018
-You build it. Their computers do the work.
-
-00:01:21.060 --> 00:01:22.260
+00:01:10.110 --> 00:01:11.310
 Kitewell.
 
-00:01:22.410 --> 00:01:24.010
+00:01:11.460 --> 00:01:13.060
 It flies on its own.
 
-00:01:24.060 --> 00:01:25.306
+00:01:13.110 --> 00:01:14.356
 You hold the string.
