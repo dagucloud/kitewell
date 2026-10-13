@@ -1,13 +1,19 @@
 ---
-// A silent loop cut from the Kitewell film. It plays while it is on screen
-// and stays on its poster for people who prefer reduced motion.
+// A silent loop: a beat cut from the Kitewell film, or a real recording
+// from public/videos/proof. It plays while it is on screen and stays on its
+// poster for people who prefer reduced motion or save data.
 interface Props {
   locale: "en" | "ja";
-  name: string;
   label: string;
+  // name is a beat of the film; src is any other video's path without its
+  // extension. width and height are the video's size.
+  name?: string;
+  src?: string;
+  width?: number;
+  height?: number;
 }
-const { locale, name, label } = Astro.props;
-const base = `/videos/chores/${locale}/${name}`;
+const { locale, name, label, src, width = 1280, height = 720 } = Astro.props;
+const base = src ?? `/videos/chores/${locale}/${name}`;
 ---
 
 <video
@@ -18,8 +24,8 @@ const base = `/videos/chores/${locale}/${name}`;
   playsinline
   preload="none"
   poster={`${base}.webp`}
-  width="1280"
-  height="720"
+  width={width}
+  height={height}
   aria-label={label}
 >
   <source src={`${base}.mp4`} type="video/mp4" />
@@ -27,12 +33,14 @@ const base = `/videos/chores/${locale}/${name}`;
 
 <script>
   const motion = window.matchMedia("(prefers-reduced-motion: no-preference)");
+  const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
+  const play = motion.matches && !saveData;
   const clips = document.querySelectorAll<HTMLVideoElement>("[data-clip]");
   const seen = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         const clip = entry.target as HTMLVideoElement;
-        if (entry.isIntersecting && motion.matches) {
+        if (entry.isIntersecting && play) {
           clip.play().catch(() => {});
         } else {
           clip.pause();
@@ -43,7 +51,7 @@ const base = `/videos/chores/${locale}/${name}`;
   );
   for (const clip of clips) {
     seen.observe(clip);
-    // Without motion, the poster stays and the controls let a person play it.
-    if (!motion.matches) clip.controls = true;
+    // Without autoplay, the poster stays and the controls let a person play it.
+    if (!play) clip.controls = true;
   }
 </script>

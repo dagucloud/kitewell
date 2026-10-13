@@ -8,6 +8,7 @@ import { descartyUrl } from "../lib/descarty.mjs";
 import { localize } from "../lib/i18n.mjs";
 import { choreBySlug } from "../lib/chores.mjs";
 import { film } from "../lib/film.mjs";
+import { proofs } from "../lib/proof.mjs";
 import "../styles/home.css";
 import runEn from "../assets/docs/en/runs-run-view.png";
 import runJa from "../assets/docs/ja/runs-run-view.png";
@@ -32,8 +33,12 @@ const text = {
     watch: `Watch the film (${cut.seconds} s)`,
     setup: "Read the setup guide →",
     platform: "macOS 13+ · Windows 10+ · Free for one project",
-    heroClip: "Kitewell's assistant proposes a workflow as a card with its steps drawn as a graph, and the workflow draws itself in the editor once applied.",
-    heroNote: "Kitewell's own screens, from the film",
+    proofTabs: ["Websites", "Coding agents"],
+    proof: [
+      "Real recording, sped up: Kitewell's chat is asked to add a supplier portal's new invoices to an Excel file every weekday. The AI opens the stand-in portal in a browser shown in the chat, has the person type the password into a card, signs in, tries its draft, and proposes the workflow. Once it is applied and run, the run waits with the invoices it found until a reply lets it add them to the workbook.",
+      "Real recording, sped up: Kitewell's chat is asked to have Claude Code fix a demo repository's failing tests every night and Codex review the change. The assistant proposes the workflow with its schedule and runs it; Claude Code fixes the test, Codex reviews it, and the run waits with their summary until a reply lets it commit the fix to a new local branch.",
+    ],
+    proofNote: "Real recordings of Kitewell's chat window, unedited and sped up evenly: one request in plain words, then everything the AI and the app did. A stand-in supplier portal and a demo repository.",
     transcript: "Read the film's narration",
     how: "How it works",
     steps: [
@@ -182,8 +187,12 @@ const text = {
     watch: `映像を見る（${cut.seconds} 秒）`,
     setup: "セットアップガイドを読む →",
     platform: "macOS 13 以降 · Windows 10 以降 · 1 プロジェクトまで無料",
-    heroClip: "Kitewell のアシスタントが、手順をグラフで描いたカードでワークフローを提案し、適用するとエディターにワークフローが描かれます。",
-    heroNote: "Kitewell の実際の画面（紹介映像より）",
+    proofTabs: ["Web サイト", "コーディングエージェント"],
+    proof: [
+      "実際の録画（早送り）。Kitewell のチャットで、仕入れ先ポータルの新しい請求書を平日ごとに Excel に追加するよう頼みます。AI はチャットに映るブラウザーで代役のポータルを開き、パスワードはカードであなたが入力します。AI はログインして下書きを試し、ワークフローを提案します。適用して実行すると、見つけた請求書を見せて待ち、返信で進めるとブックに追加します。",
+      "実際の録画（早送り）。Kitewell のチャットで、デモ用リポジトリの失敗しているテストを毎晩 Claude Code に直させ、その変更を Codex にレビューさせるよう頼みます。アシスタントがスケジュール付きのワークフローを提案して実行し、Claude Code がテストを直し、Codex がレビューします。実行は 2 つの要約を見せて待ち、返信で進めると、修正がローカルの新しいブランチにコミットされます。",
+    ],
+    proofNote: "Kitewell のチャット画面の実際の録画です。編集はせず、一定の速さで早送りしています。ふだんの言葉で 1 回頼んだあと、AI とアプリが行ったことのすべてです。仕入れ先ポータルは代役、リポジトリはデモ用です。",
     transcript: "ナレーションをテキストで読む",
     how: "しくみ",
     steps: [
@@ -356,10 +365,19 @@ const lines = (value: string) => value.replace("\n", "<br>");
       </div>
       <p class="fine">{text.platform}</p>
       <figure class="intro-media">
-        <div class="frame">
-          <Clip locale={locale} name="ask" label={text.heroClip} />
+        <div class="tabs" role="tablist" hidden data-tabs>
+          {text.proofTabs.map((label, i) => (
+            <button type="button" role="tab" id={`proof-tab-${i}`} aria-controls={`proof-panel-${i}`} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1} data-track={`hero-proof-${proofs[i]}`}>
+              {label}
+            </button>
+          ))}
         </div>
-        <figcaption>{text.heroNote}</figcaption>
+        {proofs.map((name, i) => (
+          <div class="tab-panel frame" id={`proof-panel-${i}`} role="tabpanel" aria-labelledby={`proof-tab-${i}`}>
+            <Clip locale={locale} src={`/videos/proof/${name}-${locale}`} width={1920} height={1200} label={text.proof[i]} />
+          </div>
+        ))}
+        <figcaption>{text.proofNote}</figcaption>
       </figure>
     </section>
 
