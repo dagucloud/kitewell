@@ -167,10 +167,6 @@ h3 {
 :lang(ja) .eyebrow {
   letter-spacing: 0.06em;
 }
-.home h2 {
-  font-size: clamp(32px, 3.5vw, 44px);
-  letter-spacing: -0.035em;
-}
 .hero {
   padding: 54px 0 36px;
 }
@@ -209,162 +205,9 @@ h3 {
 figure {
   margin: 0;
 }
-.promo {
-  padding-block: 24px 54px;
-  scroll-margin-top: 24px;
-}
-.promo video {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 11px;
-  background: var(--code-bg);
-  /* The poster is the page's own cream, so the frame needs an edge. */
-  box-shadow:
-    0 0 0 1px var(--line),
-    0 24px 60px rgb(24 62 53 / 12%);
-}
-.promo-film figcaption {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 5px 20px;
-  padding-block: 12px;
-  font-size: 12px;
-  color: var(--muted);
-}
-.promo-transcript summary {
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  padding-block: 10px;
-}
-.promo-transcript p {
-  margin-top: 16px;
-  font-size: 14px;
-  color: var(--muted);
-}
-.promo-transcript strong {
-  color: var(--ink);
-}
-.product-preview {
-  padding: 15px 15px 0;
-  background: var(--soft);
-  border: 1px solid var(--line);
-  border-radius: 11px;
-}
-.product-preview > a {
-  display: block;
-  border-radius: 5px;
-}
-.product-preview img {
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--line);
-  border-radius: 5px;
-}
-.product-preview figcaption {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 5px 20px;
-  padding-block: 12px;
-  font-size: 12px;
-  color: var(--muted);
-}
 .section {
   padding-block: 62px;
   border-bottom: 1px solid var(--line);
-}
-.report-example {
-  display: grid;
-  grid-template-columns: minmax(270px, 0.8fr) minmax(0, 1.5fr);
-  align-items: center;
-  gap: 48px;
-  scroll-margin-top: 24px;
-}
-.example-copy .eyebrow {
-  margin-bottom: 16px;
-}
-.example-copy > p:not(.eyebrow) {
-  margin-top: 18px;
-  color: var(--muted);
-  font-size: 15px;
-}
-.example-steps {
-  padding-left: 23px;
-  margin-block: 25px;
-  font-size: 14px;
-}
-.example-steps li {
-  padding-left: 5px;
-  margin-block: 13px;
-}
-.example-steps li::marker {
-  color: var(--muted);
-}
-.example-steps strong,
-.example-steps span {
-  display: block;
-}
-.example-steps span {
-  color: var(--muted);
-}
-.run-preview {
-  padding: 9px 9px 0;
-}
-.operations {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-}
-.operations p {
-  color: var(--muted);
-  margin-block: 18px;
-}
-.connections {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 48px;
-  padding-block: 30px;
-  border-bottom: 1px solid var(--line);
-  font-size: 14px;
-  color: var(--muted);
-}
-.connections p {
-  max-width: 710px;
-}
-.connections strong {
-  color: var(--ink);
-}
-.connections > div {
-  flex-shrink: 0;
-}
-.connections a {
-  display: block;
-  margin-block: 5px;
-}
-.closing {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 45px;
-  padding-block: 55px 65px;
-}
-.closing .eyebrow {
-  margin-bottom: 16px;
-}
-.closing > div:first-child > p:last-child {
-  max-width: 550px;
-  margin-top: 18px;
-  color: var(--muted);
-}
-.availability {
-  flex-shrink: 0;
-}
-.availability .fine {
-  margin-top: 12px;
 }
 .footer {
   border-top: 1px solid var(--line);
@@ -641,18 +484,6 @@ code {
   margin-top: 10px;
   color: var(--muted);
 }
-/* Home: what it automates, split sections, facts */
-.section-lead {
-  max-width: 660px;
-  margin-top: 18px;
-  color: var(--muted);
-}
-.kinds {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 34px;
-}
 .kind {
   display: block;
   padding: 24px;
@@ -676,22 +507,6 @@ code {
   margin-top: 10px;
   font-size: 14px;
   color: var(--muted);
-}
-.split {
-  display: grid;
-  grid-template-columns: minmax(270px, 0.9fr) minmax(0, 1.3fr);
-  align-items: center;
-  gap: 48px;
-}
-.split .product-preview {
-  padding-bottom: 15px;
-}
-.split .shot-tall {
-  max-width: 460px;
-  justify-self: center;
-}
-.split .example-steps {
-  padding-left: 23px;
 }
 .facts {
   display: grid;
@@ -757,54 +572,14 @@ code {
   .actions {
     gap: 18px;
   }
-  .product-preview {
-    padding: 7px 7px 0;
-    border-radius: 7px;
-  }
-  .product-preview figcaption {
-    font-size: 11px;
-    padding: 9px 3px;
-  }
-  .cards,
-  .report-example,
-  .operations {
+  .cards {
     grid-template-columns: 1fr;
   }
-  .report-example,
-  .operations {
-    gap: 30px;
-  }
-  .kinds,
-  .split,
   .facts {
     grid-template-columns: 1fr;
   }
-  .split {
-    gap: 26px;
-  }
-  .split .product-preview {
-    order: 1;
-  }
   .section {
     padding-block: 42px;
-  }
-  .promo {
-    padding-block: 16px 36px;
-  }
-  .connections,
-  .closing {
-    align-items: start;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .connections > div {
-    display: flex;
-    gap: 22px;
-    flex-wrap: wrap;
-  }
-  .closing {
-    padding-block: 40px;
-    gap: 28px;
   }
   .footer {
     grid-template-columns: 1fr;
