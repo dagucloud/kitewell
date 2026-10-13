@@ -23,7 +23,7 @@
 Kitewell automates websites, desktop apps, email, scripts, and coding agents
 on your own Mac or PC. Build a workflow on a canvas or by asking the
 assistant, schedule it, put an approval where it matters, and read the log of
-every step. Your credentials and data stay on your machine.
+every step. Your sign-ins and secret values stay on your computer.
 
 **First installers coming soon.** They will support macOS 13+ on
 Apple Silicon and Intel, and Windows 10 (version 1809) or later and Windows 11
@@ -34,12 +34,12 @@ on x64. Linux support is planned. No installers have been published yet.
 ## What you can do
 
 - **Automate websites.** Open pages, click, type, and collect information in
-  your own Chrome from instructions in plain words; sign-ins stay on the
-  device.
+  Chrome, or Edge on Windows, from instructions in plain words. Kitewell uses
+  a browser profile of its own, and sign-ins saved there stay on the device.
 - **Automate desktop apps.** On macOS or Windows, a model reads the screen and
   uses the mouse and keyboard for the app that has no API.
-- **Automate email.** Find, organize, and send email in Gmail, Microsoft 365,
-  or any IMAP mailbox connected on your computer.
+- **Automate email.** Find, organize, and send email in Microsoft 365, Gmail
+  with an app password, or any IMAP mailbox connected on your computer.
 - **Use your tools.** Run commands and scripts, Docker images, coding agents
   such as Codex, Claude Code, and Gemini, remote servers over SSH, AI
   decisions that choose the next path, and operations from any OpenAPI spec.
@@ -50,7 +50,8 @@ on x64. Linux support is planned. No installers have been published yet.
   while the workflows keep running on your computer. You choose each app's
   permission and projects, and can revoke it at any time.
 - **Keep control.** Approval gates and human tasks, a test for one step, and
-  replay of website and desktop actions that worked.
+  replay of website and desktop actions that worked; when a screen changes,
+  AI finds the new way and the run shows what it fixed.
 - **Schedule runs.** Run on demand, daily, on weekdays, or on a custom
   schedule. Kitewell keeps working from the menu bar on macOS or the tray on
   Windows.
@@ -72,6 +73,8 @@ that waits for approval, and more.
 
 Free for one project with up to 10 workflows and one API key or connected app
 (ChatGPT or Claude), with no Kitewell account required for local use.
+Signed in to Dagu Cloud, plans include credits for Kitewell's included model:
+100 once on Free, and 500 a month for each computer on Personal and Team.
 Personal, for one person on one computer, supports up to ten projects of 100
 workflows each, any number of API keys and connected apps, alerts, MCP Events,
 and webhooks for $20 per month. Team adds up to 25 people, 15 projects, and

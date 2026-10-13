@@ -80,7 +80,7 @@ export const chores = [
       ok: "Before anything is saved in Ledger, the run waits for you, with a screenshot of what it typed. Every step and every decision is recorded.",
       moment: { time: "9:04", title: "Weekday invoice run", text: "Waiting for you: save 3 bills in Ledger?" },
       after:
-        "The first run learns the clicks with AI. After that they replay by the app's own buttons and fields — no model, no tokens — even when a window has moved or the portal was restyled. When the portal or Ledger really changes, it relearns only the clicks that broke.",
+        "The first run learns the clicks with AI, and later runs replay them. When the portal or Ledger changes, AI finds the new way for the clicks that broke and keeps it, and the run shows what it fixed.",
       good: [
         "Nothing is saved in Ledger until you say so.",
         "The website and desktop steps send what they see, page text and screenshots of the screen, to the model you choose. The portal password is a secret on this computer: Kitewell types it, and the model never sees it.",
@@ -114,7 +114,7 @@ export const chores = [
       ok: "台帳に保存する前に、入力した画面のスクリーンショットを添えて、実行はあなたを待ちます。すべてのステップと判断が記録に残ります。",
       moment: { time: "9:04", title: "平日の請求書処理", text: "あなたの対応待ち：台帳に 3 件の伝票を保存しますか？" },
       after:
-        "最初の実行で、AI がクリックを覚えます。そこから先は、アプリ自身のボタンや入力欄を頼りに、モデルもトークンも使わずに再生します。ウィンドウが動いても、ポータルの見た目が変わっても大丈夫。ポータルや台帳が本当に変わったときだけ、合わなくなったクリックを覚え直します。",
+        "最初の実行で、AI がクリックを覚え、以降の実行はそれを再生します。ポータルや台帳が変わったときは、合わなくなったクリックだけ AI が新しい手順を見つけて覚え直し、何を直したかは実行の記録に残ります。",
       good: [
         "あなたが OK するまで、台帳には何も保存されません。",
         "Web サイトとデスクトップのステップは、見たもの（ページの文章と画面のスクリーンショット）を、あなたが選んだモデルに送ります。ポータルのパスワードはこのコンピューターのシークレットにあり、Kitewell が入力するので、モデルには見えません。",
@@ -147,7 +147,7 @@ export const chores = [
       steps: [
         ["desktop", "Export today's report", "Opens Depot, clicks through to Daily sales for today, exports it to the Exports folder, and checks the app's own confirmation before it finishes."],
       ],
-      moment: { time: "18:02", title: "Nightly sales export", text: "Exported today's Daily sales to Exports — 11 seconds, no AI." },
+      moment: { time: "18:02", title: "Nightly sales export", text: "Exported today's Daily sales to Exports, replayed as recorded." },
       artifact: {
         type: "week",
         days: [
@@ -157,11 +157,11 @@ export const chores = [
           ["Thu", true],
           ["Fri", false],
         ],
-        quiet: "Exported in 11s. No AI.",
+        quiet: "Exported, replayed as recorded.",
         changed: "Depot updated — AI relearned 2 clicks.",
       },
       good: [
-        "The first evening the model learns the six clicks. Every evening after replays them by the app's own menus and buttons, with no model and no tokens — the same export in about ten seconds. This is the RPA job: authored once by AI, then run by plain determinism.",
+        "The first evening the model learns the six clicks. Every evening after, the recording replays them: on Windows by the app's own menus and buttons, on macOS from the screen. This is the RPA job: authored once by AI, then run as recorded.",
         "When the app is updated and a button moves, it relearns only the clicks that broke and keeps going. Set it to use no AI at all, and a changed app stops the run with what moved instead of guessing.",
       ],
     },
@@ -183,7 +183,7 @@ export const chores = [
       steps: [
         ["desktop", "今日のレポートを書き出す", "Depot を開き、今日の「日次売上」までたどって Exports フォルダーに書き出し、終える前にアプリ自身の完了表示を確かめます。"],
       ],
-      moment: { time: "18:02", title: "夜間の売上書き出し", text: "今日の「日次売上」を Exports に書き出し ― 11 秒、AI なし。" },
+      moment: { time: "18:02", title: "夜間の売上書き出し", text: "今日の「日次売上」を Exports に書き出し。記録どおりに再生。" },
       artifact: {
         type: "week",
         days: [
@@ -193,11 +193,11 @@ export const chores = [
           ["木", true],
           ["金", false],
         ],
-        quiet: "11 秒で書き出し。AI なし。",
+        quiet: "書き出し完了。記録どおりに再生。",
         changed: "Depot が更新 ― AI が 2 クリックを覚え直し。",
       },
       good: [
-        "最初の晩だけ、モデルが 6 つのクリックを覚えます。以降は毎晩、アプリ自身のメニューやボタンを頼りに、モデルもトークンも使わず、同じ書き出しを 10 秒ほどで再生します。これこそ RPA の仕事です。AI が一度組み立て、あとは決まりきった処理が動かします。",
+        "最初の晩だけ、モデルが 6 つのクリックを覚えます。以降は毎晩、その記録を再生します。Windows ではアプリ自身のメニューやボタンを、macOS では画面を頼りにします。これこそ RPA の仕事です。AI が一度組み立て、あとは記録どおりに動きます。",
         "アプリが更新されてボタンが動いても、合わなくなったクリックだけを覚え直して続けます。AI をまったく使わない設定にすれば、変わったアプリでは勝手に補わず、何が動いたかを示して実行を止めます。",
       ],
     },
