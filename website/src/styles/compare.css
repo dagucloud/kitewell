@@ -1,0 +1,233 @@
+/* The comparison page: a table that sums up each category, then one block
+   per category with its sourced facts beside what that means for Kitewell. */
+.compare-checked {
+  margin-top: -16px;
+  font-size: 13px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.compare-block {
+  padding-top: 88px;
+}
+.compare-block > h2 {
+  font-size: clamp(28px, 3.2vw, 40px);
+}
+.compare-intro {
+  max-width: 44em;
+  margin-top: 16px;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+/* The table scrolls inside its own box on a narrow screen, with the
+   category column held in place. */
+.compare-hint {
+  display: none;
+}
+.compare-scroll {
+  margin-top: 28px;
+}
+.compare-scroll:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+.glance {
+  width: 100%;
+  min-width: 1040px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.glance th,
+.glance td {
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.glance thead th {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom-color: var(--ink);
+}
+:lang(ja) .glance thead th {
+  letter-spacing: 0.02em;
+}
+.glance thead th:first-child,
+.glance tbody th {
+  position: sticky;
+  left: 0;
+  background: var(--bg);
+  box-shadow: inset -1px 0 0 var(--line);
+}
+.glance th:first-child {
+  width: 172px;
+}
+.glance tbody th {
+  font-weight: 650;
+}
+.glance tbody th a {
+  text-decoration-color: var(--line-strong);
+}
+.glance tr.own th,
+.glance tr.own td {
+  background: var(--sunk);
+}
+/* Japanese sets full width, so its longest words (コーディングエージェント)
+   need a little more room per column to stay whole. */
+:lang(ja) .glance {
+  font-size: 14px;
+}
+:lang(ja) .glance th,
+:lang(ja) .glance td {
+  padding-inline: 14px;
+}
+:lang(ja) .glance th:first-child {
+  width: 200px;
+}
+.compare-legend {
+  max-width: 64em;
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+.compare-facts {
+  display: grid;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.category-facts {
+  max-width: 52em;
+  margin-top: 32px;
+}
+.compare-facts li {
+  padding-left: 16px;
+  border-left: 2px solid var(--line);
+}
+.fact-source {
+  margin-top: 4px;
+  font-size: 12.5px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.product {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.product h3 {
+  font-size: clamp(21px, 2vw, 25px);
+  font-weight: var(--display-weight);
+  letter-spacing: -0.02em;
+}
+.product-body {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 48px;
+  align-items: start;
+  margin-top: 20px;
+}
+.product-take {
+  display: grid;
+  gap: 16px;
+}
+.product-take > div {
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+/* Sentence case keeps each product's name as its maker writes it. */
+.product-take h4 {
+  margin: 0 0 6px;
+  font-size: 13.5px;
+  font-weight: 650;
+  color: var(--muted);
+}
+.product-take p {
+  font-size: 15.5px;
+}
+
+.shortfalls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 56px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.shortfalls li {
+  padding-block: 20px;
+  border-top: 1px solid var(--line);
+}
+.shortfalls strong {
+  display: block;
+  font-size: 17px;
+}
+.shortfalls span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+}
+.shortfalls .text-link {
+  margin-top: 8px;
+}
+
+.compare-method p {
+  max-width: 44em;
+  margin-top: 16px;
+  color: var(--muted);
+}
+.compare-method h2 + p {
+  margin-top: 20px;
+}
+
+@media (max-width: 860px) {
+  .compare-block {
+    padding-top: 64px;
+  }
+  .product-body {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .shortfalls {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .compare-hint {
+    display: block;
+    margin-top: 12px;
+  }
+  .compare-scroll {
+    margin-top: 16px;
+  }
+  .glance {
+    min-width: 880px;
+    font-size: 14px;
+  }
+  .glance th,
+  .glance td {
+    padding: 12px;
+  }
+  .glance th:first-child {
+    width: 112px;
+  }
+  :lang(ja) .glance {
+    min-width: 1040px;
+    font-size: 13px;
+  }
+  :lang(ja) .glance th,
+  :lang(ja) .glance td {
+    padding-inline: 10px;
+  }
+  :lang(ja) .glance th:first-child {
+    width: 140px;
+  }
+}

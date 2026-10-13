@@ -1,0 +1,29 @@
+---
+// One fact about another product, with the page it comes from and the day
+// that page was checked.
+interface Props {
+  locale: "en" | "ja";
+  fact: {
+    en: string;
+    ja: string;
+    source: string;
+    via: string | { en: string; ja: string };
+    checked: string;
+  };
+}
+const { locale, fact } = Astro.props;
+const text = {
+  en: { source: "Source: ", checked: "checked" },
+  ja: { source: "出典：", checked: "確認日" },
+}[locale];
+const via = typeof fact.via === "string" ? fact.via : fact.via[locale];
+---
+
+<li>
+  <p>{fact[locale]}</p>
+  <p class="fact-source">
+    {text.source}<a href={fact.source}>{via}<span aria-hidden="true"> ↗</span></a> · {text.checked}{" "}<time
+      datetime={fact.checked}>{fact.checked}</time
+    >
+  </p>
+</li>

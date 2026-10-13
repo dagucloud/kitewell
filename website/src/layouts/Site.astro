@@ -20,7 +20,7 @@ const text = {
     download: "Download Kitewell",
     status: "Release status",
     tagline: "AI automation on your own computer.",
-    footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community"],
+    footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community", "Compare"],
     fine: "",
   },
   ja: {
@@ -33,7 +33,7 @@ const text = {
     download: "Kitewell をダウンロード",
     status: "リリース状況",
     tagline: "AI 自動化を、自分の PC で。",
-    footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ"],
+    footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ", "比較"],
     fine: "",
   },
 }[locale];
@@ -119,6 +119,7 @@ const links = ["/docs/", "/examples/", "/pricing/", "/releases/", "/support/"].m
       </div>
       <div class="footer-links">
         <a href={localize("/docs/", locale)}>{text.footer[0]}</a>
+        <a href={localize("/compare/", locale)}>{text.footer[7]}</a>
         <a href="https://github.com/dagucloud/kitewell">GitHub</a>
         <a href="/third-party/">{text.footer[1]}</a>
         <a href={localize("/support/", locale)}>{text.footer[2]}</a>

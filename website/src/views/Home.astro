@@ -76,6 +76,7 @@ const text = {
       ["One tool per kind of system", "Websites, desktop apps, Excel, and email in one workflow"],
       ["Hard to see what a robot did", "Every step, screenshot, and approval in the run record"],
     ],
+    others: "How Kitewell compares →",
     automate: "Beyond the browser",
     automateTitle: "Desktop apps, Excel, and email, too.",
     tiles: [
@@ -225,6 +226,7 @@ const text = {
       ["システムの種類ごとに、別のツール", "Web サイト、デスクトップアプリ、Excel、メールを 1 つのワークフローに"],
       ["ロボットが何をしたか、見えにくい", "すべてのステップ、スクリーンショット、承認が実行の記録に"],
     ],
+    others: "Kitewell と、ほかの選択肢 →",
     automate: "ブラウザーの外も",
     automateTitle: "デスクトップアプリも、Excel も、メールも。",
     tiles: [
@@ -481,6 +483,7 @@ const lines = (value: string) => value.replace("\n", "<br>");
           </tbody>
         </table>
       </div>
+      <a class="text-link" href={to("/compare/")}>{text.others}</a>
     </section>
 
     <section class="block wrap" id="automate" aria-labelledby="automate-title">
@@ -663,7 +666,10 @@ const lines = (value: string) => value.replace("\n", "<br>");
         <p class="eyebrow">{text.pricing}</p>
         <h2 id="pricing-title">{text.pricingTitle}</h2>
         <p class="block-lead">{text.pricingText}</p>
-        <a class="text-link" href={to("/pricing/")}>{text.compare}</a>
+        <div class="links">
+          <a class="text-link" href={to("/pricing/")}>{text.compare}</a>
+          <a class="text-link" href={to("/compare/")}>{text.others}</a>
+        </div>
       </div>
       <div class="finale-action">
         <a class="button" href={to("/download/")} data-track="closing-download">

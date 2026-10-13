@@ -1,0 +1,169 @@
+---
+import Site from "../layouts/Site.astro";
+import Fact from "../components/Fact.astro";
+import { localize } from "../lib/i18n.mjs";
+import { categories, checked, columns, glance, shortfalls } from "../lib/compare.mjs";
+import "../styles/compare.css";
+interface Props {
+  locale: "en" | "ja";
+}
+type Text = string | { en: string; ja: string };
+const { locale } = Astro.props;
+const text = {
+  en: {
+    title: "How Kitewell compares",
+    description:
+      "How Kitewell compares with desktop RPA suites, Japanese RPA, AI agents that operate a computer, browser-agent developer tools, and app connectors. Every fact about another product links to its source, with the date it was checked.",
+    eyebrow: "Comparison",
+    heading: "How Kitewell compares",
+    lead: "RPA suites, AI agents, browser-automation libraries, and app connectors each solve part of this well. Here is what each does, where Kitewell differs, and when another is the better choice. Facts about other products come from their own pages, checked on the date shown.",
+    checkedBefore: "Checked as of ",
+    checkedAfter: "",
+    glance: "At a glance",
+    category: "Category",
+    region: "Comparison table",
+    scroll: "Scroll the table sideways to see every column.",
+    legend:
+      "Each row sums up the facts in its section below, where every fact links to its source. A dash means the sources checked for this page do not cover it, not that the product lacks it.",
+    differs: "Where Kitewell differs",
+    instead: (name: string) => `Choose ${name} instead when…`,
+    short: "Where Kitewell falls short",
+    shortLead: "Where another tool may serve you better, or where Kitewell has limits today.",
+    more: "Details →",
+    method: "How these facts were checked",
+    methodText: [
+      "Each fact about another product links to the page it comes from, usually the vendor's own documentation, pricing, or announcement, and shows the date that page was opened to confirm it. Figures from news reports and surveys name who published them. Products change quickly, so check the linked page before you decide.",
+      "What this page says about Kitewell follows its documentation and the app as released. Product names are trademarks of their respective owners.",
+    ],
+    corrections: ["Something out of date or wrong? Write to ", " and it will be corrected."],
+  },
+  ja: {
+    title: "Kitewell と、ほかの選択肢",
+    description:
+      "Kitewell と、デスクトップ RPA、国産 RPA、コンピューターを操作する AI エージェント、ブラウザー操作 AI の開発者向けツール、アプリ連携サービスとの比較。ほかの製品についての事実には、すべて出典と確認日を付けています。",
+    eyebrow: "比較",
+    heading: "Kitewell と、ほかの選択肢",
+    lead: "RPA 製品、AI エージェント、ブラウザー自動化のライブラリ、アプリ連携サービスは、それぞれこの仕事の一部をうまくこなします。ここでは、それぞれが何をするか、Kitewell はどこが違うか、ほかを選ぶほうがよいのはどんなときかをまとめました。ほかの製品についての事実は各社のページから取り、表示の日付に確認したものです。",
+    checkedBefore: "",
+    checkedAfter: " 時点で確認",
+    glance: "ひと目で比べる",
+    category: "種類",
+    region: "比較表",
+    scroll: "表は横にスクロールできます。",
+    legend:
+      "各行は下の節にある事実をまとめたもので、出典はそれぞれの事実に付けています。「—」は、このページで確認した出典に記載がないことを示し、その製品に機能がないという意味ではありません。",
+    differs: "Kitewell の違い",
+    instead: (name: string) => `${name} を選ぶほうがよいとき`,
+    short: "Kitewell の弱いところ",
+    shortLead: "ほかのツールのほうが合う場合や、いまの Kitewell の限界です。",
+    more: "詳しく →",
+    method: "事実の確かめ方",
+    methodText: [
+      "ほかの製品についての事実には、それぞれ出典のページへのリンクと、そのページを開いて確かめた日付を付けています。出典は、できるかぎり各社のドキュメント、料金、発表のページです。報道や調査の数字は、発表元を明記しています。製品はすぐに変わるため、決める前にリンク先をご確認ください。",
+      "Kitewell についての記述は、ドキュメントと公開中のアプリにもとづいています。記載の製品名は、各社の商標または登録商標です。",
+    ],
+    corrections: ["古い情報や誤りを見つけたら、", " までお知らせください。訂正します。"],
+  },
+}[locale];
+const say = (value: Text) => (typeof value === "string" ? value : value[locale]);
+const byId = new Map(categories.map((category) => [category.id, category]));
+// Kitewell's own row has a name; every other row names a category below.
+const rows = glance.map((row) => {
+  const category = row.category ? byId.get(row.category) : undefined;
+  return {
+    name: category ? say(category.name) : say(row.name!),
+    href: category ? `#${category.id}` : undefined,
+    cells: row.cells.map(say),
+  };
+});
+const mail = "company@descarty.com";
+---
+
+<Site title={text.title} description={text.description}>
+  <article class="page wrap compare">
+    <p class="eyebrow">{text.eyebrow}</p>
+    <h1>{text.heading}</h1>
+    <p class="lead">{text.lead}</p>
+    <p class="compare-checked">
+      {text.checkedBefore}<time datetime={checked}>{checked}</time>{text.checkedAfter}
+    </p>
+
+    <section class="compare-block" aria-labelledby="glance">
+      <h2 id="glance">{text.glance}</h2>
+      <p class="fine compare-hint">{text.scroll}</p>
+      <div class="table-scroll compare-scroll" role="region" aria-label={text.region} tabindex="0">
+        <table class="glance">
+          <thead>
+            <tr>
+              <th scope="col">{text.category}</th>
+              {columns[locale].map((column) => <th scope="col">{column}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr class:list={{ own: !row.href }}>
+                <th scope="row">{row.href ? <a href={row.href}>{row.name}</a> : row.name}</th>
+                {row.cells.map((cell) => <td>{cell}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="fine compare-legend">{text.legend}</p>
+    </section>
+
+    {categories.map((category) => (
+      <section class="compare-block" id={category.id} aria-labelledby={`${category.id}-title`}>
+        <h2 id={`${category.id}-title`}>{say(category.name)}</h2>
+        <p class="compare-intro">{say(category.intro)}</p>
+        {category.facts && (
+          <ul class="compare-facts category-facts">
+            {category.facts.map((fact) => <Fact locale={locale} fact={fact} />)}
+          </ul>
+        )}
+        {category.products.map((product) => (
+          <div class="product" id={product.id}>
+            <h3>{say(product.name)}</h3>
+            <div class="product-body">
+              <ul class="compare-facts">
+                {product.facts.map((fact) => <Fact locale={locale} fact={fact} />)}
+              </ul>
+              <div class="product-take">
+                <div>
+                  <h4>{text.differs}</h4>
+                  <p>{say(product.differs)}</p>
+                </div>
+                <div>
+                  <h4>{text.instead(say(product.name))}</h4>
+                  <p>{say(product.instead)}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+    ))}
+
+    <section class="compare-block" id="shortfalls" aria-labelledby="shortfalls-title">
+      <h2 id="shortfalls-title">{text.short}</h2>
+      <p class="compare-intro">{text.shortLead}</p>
+      <ul class="shortfalls">
+        {shortfalls.map((item) => (
+          <li>
+            <strong>{say(item.title)}</strong>
+            <span>{say(item.text)}</span>
+            <a class="text-link" href={localize(item.href, locale)}>{text.more}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="compare-block compare-method" id="method" aria-labelledby="method-title">
+      <h2 id="method-title">{text.method}</h2>
+      {text.methodText.map((paragraph) => <p>{paragraph}</p>)}
+      <p>
+        {text.corrections[0]}<a href={`mailto:${mail}?subject=Kitewell%20comparison`}>{mail}</a>{text.corrections[1]}
+      </p>
+    </section>
+  </article>
+</Site>
