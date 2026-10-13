@@ -323,7 +323,7 @@ const text = {
 }[locale];
 const to = (path: string) => localize(path, locale);
 const everyday = ["supplier-invoices", "excel-orders", "invoice-intake", "inbox-digest"].map(choreBySlug);
-const coding = ["dependency-update", "pr-review", "deploy-check", "daily-report"].map(choreBySlug);
+const coding = ["fix-failing-tests", "review-every-pr", "triage-issues", "dependency-update"].map(choreBySlug);
 const shots = {
   run: locale === "ja" ? runJa : runEn,
 };

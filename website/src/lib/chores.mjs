@@ -368,7 +368,7 @@ export const chores = [
     scheduled: true,
     uses: ["email", "foreach", "model", "command"],
     needs: ["mailbox", "model"],
-    related: ["inbox-digest", "supplier-invoices", "excel-orders"],
+    related: ["pdf-invoices-to-excel", "inbox-digest", "supplier-invoices", "excel-orders"],
     en: {
       title: "Automate invoice data entry from email with AI",
       when: "Every few days",
@@ -408,6 +408,7 @@ export const chores = [
       good: [
         "An email is filed only after its line is recorded. One that fails stays unread and is tried again on the next run, by itself.",
         "The model reads each invoice email to find the supplier and total. Attachments are saved with the run, on this computer.",
+        "It reads the email's text. When the total is only in the attached PDF, use the PDF invoices example, which reads each PDF from the screen.",
       ],
     },
     ja: {
@@ -449,6 +450,7 @@ export const chores = [
       good: [
         "メールを整理するのは、行を記録したあとだけです。失敗したメールは未読のまま残り、次の実行でそのメールだけがやり直されます。",
         "モデルは、仕入れ先と合計を見つけるために請求書のメールを読みます。添付ファイルは実行と一緒に、このコンピューターに保存されます。",
+        "読むのはメールの本文です。合計が添付の PDF にしかないときは、PDF を画面から読む「PDF の請求書」の例を使ってください。",
       ],
     },
   },
