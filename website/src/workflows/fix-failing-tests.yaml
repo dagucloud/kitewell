@@ -1,0 +1,40 @@
+type: graph
+schedule: "0 2 * * 1-5"
+# Replace this with a clone of your repository that nobody works in, and
+# make test with the command that runs your tests.
+working_dir: /absolute/path/to/repo
+steps:
+  - id: test
+    name: Run the tests
+    run: |
+      git switch main >&2
+      git pull --ff-only >&2
+      if make test >&2; then echo passed; else echo failed; fi
+    output:
+      result: {from: stdout}
+  - id: fix
+    name: Fix what failed
+    depends: [test]
+    preconditions:
+      - condition: ${steps.test.outputs.result}
+        expected: failed
+    action: harness.run
+    with:
+      provider: kitewell-agent-claude
+      fallback:
+        - provider: kitewell-agent-codex
+      prompt: |
+        The test suite on main fails. Create or reset a branch named
+        fix/nightly-tests from main, run make test, and find the cause. Fix
+        the code; change a test only when the test itself is wrong, and say
+        so. Run the tests until they pass, then commit. Do not push. End with
+        what failed, why, and what you changed.
+    output: NOTES
+    approval:
+      prompt: Push fix/nightly-tests and open a pull request?
+  - id: push
+    name: Push and open the PR
+    depends: [fix]
+    run: |
+      git push -u origin fix/nightly-tests --force-with-lease
+      gh pr create --fill --base main --head fix/nightly-tests

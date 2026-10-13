@@ -1,0 +1,28 @@
+type: graph
+llm:
+  model: kitewell-agent-computer
+params:
+  - CUSTOMER: ""
+  - ITEM: ""
+  - QTY: ""
+steps:
+  - id: enter
+    name: Enter one order
+    action: computer.run
+    with:
+      variables:
+        customer: ${params.CUSTOMER}
+        item: ${params.ITEM}
+        qty: ${params.QTY}
+      do:
+        - launch: {command: open, args: [-a, Depot]}
+        - act: Open a new sales order, choose %customer% as the customer, add %qty% of %item%, and save the order
+        - expect: The order is saved and shows its order number
+        - extract:
+            instruction: The order number Depot shows for the order just saved
+            schema:
+              type: object
+              properties:
+                order_no: {type: string}
+              required: [order_no]
+        - screenshot: saved

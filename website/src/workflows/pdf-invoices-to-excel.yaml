@@ -1,0 +1,74 @@
+type: graph
+# The folder that holds New, Done, and Invoices.xlsx.
+working_dir: ~/Documents/Invoices
+llm:
+  model: kitewell-agent-computer
+steps:
+  - id: list
+    name: Find the new PDFs
+    action: file.list
+    with:
+      path: New
+      pattern: "*.pdf"
+    output:
+      pdfs: {from: stdout, decode: json, select: .entries}
+  - id: each
+    name: Record each invoice
+    depends: [list]
+    foreach:
+      items: ${steps.list.outputs.pdfs}
+      as: pdf
+      key: ${foreach.pdf.path}
+      max_concurrent: 1
+      steps:
+        - id: read
+          name: Read the PDF
+          action: computer.run
+          with:
+            do:
+              - launch: {command: open, args: ["New/${foreach.pdf.path}"]}
+              - wait: 2s
+              - extract:
+                  instruction: From the invoice on the screen, the supplier's name, the invoice number, the invoice date as YYYY-MM-DD, and the total due as a number without the currency sign
+                  schema:
+                    type: object
+                    properties:
+                      supplier: {type: string}
+                      number: {type: string}
+                      date: {type: string}
+                      total: {type: number}
+                    required: [supplier, number, date, total]
+              - screenshot: invoice
+              - act: Close the window showing the PDF
+        - id: row
+          name: Make the row
+          depends: [read]
+          action: jq.filter
+          with:
+            data: {}
+            args:
+              supplier: ${steps.read.outputs.supplier}
+              number: ${steps.read.outputs.number}
+              date: ${steps.read.outputs.date}
+              total: ${steps.read.outputs.total}
+              file: ${foreach.pdf.path}
+            filter: '[{Supplier: $supplier, "Invoice No": $number, Date: $date, Total: ($total | tonumber), File: $file}]'
+            raw: true
+          output:
+            rows: {from: stdout, decode: json}
+        - id: add
+          name: Add it to Invoices.xlsx
+          depends: [row]
+          action: xlsx.append
+          with:
+            path: ~/Documents/Invoices/Invoices.xlsx
+            sheet: Invoices
+            rows: ${steps.row.outputs.rows}
+            wait_for_unlock: 5m
+        - id: done
+          name: Move the PDF to Done
+          depends: [add]
+          action: file.move
+          with:
+            source: New/${foreach.pdf.path}
+            destination: Done/${foreach.pdf.path}

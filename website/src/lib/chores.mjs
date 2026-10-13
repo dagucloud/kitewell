@@ -41,6 +41,10 @@ const needs = {
     en: "The servers registered as a group: one machine at a time, stop on failure",
     ja: "グループとして登録したサーバー（1 台ずつ、失敗したら停止）",
   },
+  webhook: {
+    en: "Kitewell Personal or Team, signed in to Dagu Cloud, for the GitHub webhook",
+    ja: "GitHub の Webhook 用に、Dagu Cloud にサインインした Kitewell Personal または Team",
+  },
 };
 
 export const chores = [
@@ -53,6 +57,7 @@ export const chores = [
     film: { now: "busywork", tell: "ask", run: "run", ok: "ok", after: "learn" },
     related: ["nightly-export", "excel-orders", "invoice-intake", "form-from-sheet"],
     en: {
+      title: "Automate supplier invoice downloads with AI",
       when: "Every weekday morning",
       chore: "Every morning I log in to our supplier's portal, download the new invoices, and type each one into an accounting app from 2009.",
       motions: [
@@ -88,6 +93,7 @@ export const chores = [
       film: "Kitewell's own screens with sample data. The client, its supplier portal, and Ledger are made up.",
     },
     ja: {
+      title: "仕入れ先ポータルの請求書ダウンロードを AI で自動化",
       when: "平日の朝",
       chore: "毎朝、取引先のポータルにログインして新しい請求書をダウンロードし、2009 年製の会計アプリに 1 件ずつ打ち込んでいる。",
       motions: [
@@ -130,6 +136,7 @@ export const chores = [
     needs: ["computerModel", "desktop"],
     related: ["supplier-invoices", "invoice-intake", "excel-orders"],
     en: {
+      title: "Automate a daily CSV export from an old desktop app with AI",
       when: "Every weekday evening",
       chore: "Every evening I open a reporting app from the 2000s and click the same six menus to export the day's sales to a CSV for head office.",
       motions: [
@@ -166,6 +173,7 @@ export const chores = [
       ],
     },
     ja: {
+      title: "古いデスクトップアプリからの日次 CSV 出力を AI で自動化",
       when: "平日の夕方",
       chore: "毎晩、2000 年代の報告アプリを開き、同じ 6 つのメニューをクリックして、その日の売上を本社向けに CSV で書き出している。",
       motions: [
@@ -210,6 +218,7 @@ export const chores = [
     needs: ["mailbox", "model"],
     related: ["invoice-intake", "price-watch", "supplier-invoices"],
     en: {
+      title: "Automate a daily email digest with AI",
       when: "Every morning",
       chore: "Every morning I read through fifty emails to find the five that actually need me.",
       motions: [
@@ -245,6 +254,7 @@ export const chores = [
       ],
     },
     ja: {
+      title: "毎朝のメールのダイジェストを AI で自動化",
       when: "毎朝",
       chore: "毎朝、50 通のメールに目を通して、本当に自分が対応すべき 5 通を探している。",
       motions: [
@@ -289,6 +299,7 @@ export const chores = [
     film: { after: "sheet" },
     related: ["form-from-sheet", "supplier-invoices", "company-research"],
     en: {
+      title: "Automate website orders from an Excel list with AI",
       when: "Whenever new orders come in",
       chore: "I go down an order list in Excel, place each order on a supplier's website, and type the receipt number back into the sheet.",
       motions: [
@@ -320,6 +331,7 @@ export const chores = [
       film: "Kitewell's own screens with sample data.",
     },
     ja: {
+      title: "Excel の一覧から Web サイトへの発注を AI で自動化",
       when: "受注が入るたびに",
       chore: "Excel の発注一覧を上から順に見て、取引先のサイトで 1 件ずつ発注し、受付番号をシートに打ち戻している。",
       motions: [
@@ -358,6 +370,7 @@ export const chores = [
     needs: ["mailbox", "model"],
     related: ["inbox-digest", "supplier-invoices", "excel-orders"],
     en: {
+      title: "Automate invoice data entry from email with AI",
       when: "Every few days",
       chore: "Every few days I open each emailed invoice, copy the supplier and the total into a spreadsheet, and file the email away.",
       motions: [
@@ -398,6 +411,7 @@ export const chores = [
       ],
     },
     ja: {
+      title: "メールで届く請求書の転記を AI で自動化",
       when: "数日おきに",
       chore: "数日おきに、メールで届いた請求書を 1 通ずつ開き、仕入れ先と金額を表に書き写して、メールを片付けている。",
       motions: [
@@ -446,6 +460,7 @@ export const chores = [
     needs: ["chrome", "browserModel"],
     related: ["excel-orders", "company-research", "supplier-invoices"],
     en: {
+      title: "Automate filling a web form from a spreadsheet with AI",
       when: "Whenever the list grows",
       chore: "I type each row of a spreadsheet into the same web form, one customer at a time.",
       motions: [
@@ -485,6 +500,7 @@ export const chores = [
       ],
     },
     ja: {
+      title: "スプレッドシートから Web フォームへの入力を AI で自動化",
       when: "一覧が増えるたびに",
       chore: "スプレッドシートの行を 1 件ずつ、同じ Web フォームに打ち込んでいる。",
       motions: [
@@ -532,6 +548,7 @@ export const chores = [
     needs: ["chrome", "browserModel"],
     related: ["form-from-sheet", "price-watch", "excel-orders"],
     en: {
+      title: "Automate company research from a list of websites with AI",
       when: "Every new list",
       chore: "I open each company's website from a list and write down what they do, how big they are, and where they're based.",
       motions: [
@@ -570,6 +587,7 @@ export const chores = [
       ],
     },
     ja: {
+      title: "企業リストの Web サイト調査を AI で自動化",
       when: "リストが届くたびに",
       chore: "リストにある会社の Web サイトを 1 社ずつ開いて、事業内容と規模と所在地を書き出している。",
       motions: [
@@ -616,6 +634,7 @@ export const chores = [
     needs: ["chrome", "browserModel", "mailbox"],
     related: ["inbox-digest", "company-research", "supplier-invoices"],
     en: {
+      title: "Automate a price drop alert for a product page with AI",
       when: "Every morning",
       chore: "I check the same product page every morning to see whether the price has dropped.",
       motions: ["Open the bookmark.", "Scroll to the price.", "Same as yesterday.", "Close the tab.", "Tomorrow: again."],
@@ -648,6 +667,7 @@ export const chores = [
       ],
     },
     ja: {
+      title: "商品ページの値下がりチェックを AI で自動化",
       when: "毎朝",
       chore: "毎朝、同じ商品ページを開いて、値下がりしていないか確かめている。",
       motions: ["ブックマークを開く。", "価格までスクロール。", "昨日と同じ。", "タブを閉じる。", "明日もまた。"],
@@ -681,6 +701,276 @@ export const chores = [
     },
   },
   {
+    slug: "pdf-invoices-to-excel",
+    group: "everyone",
+    scheduled: false,
+    uses: ["file", "desktop", "jq", "excel"],
+    needs: ["computerModel", "desktop", "workbook"],
+    related: ["invoice-intake", "desktop-data-entry", "supplier-invoices"],
+    en: {
+      title: "Automate PDF invoice data entry into Excel with AI",
+      when: "Whenever PDFs pile up",
+      chore: "Every week I open each PDF invoice our suppliers send and type the supplier, number, date, and total into an Excel sheet.",
+      motions: [
+        "Open the folder.",
+        "Open the next PDF.",
+        "Find the invoice number.",
+        "Copy it.",
+        "Switch to Excel.",
+        "Paste.",
+        "Back for the date, then the total.",
+        "Drag the PDF to Done.",
+        "Next PDF.",
+      ],
+      tally: "Every PDF, one field at a time.",
+      sentence:
+        "Read every PDF in my Invoices/New folder, add its supplier, invoice number, date, and total as a row in Invoices.xlsx, and move the PDF to Invoices/Done.",
+      steps: [
+        ["desktop", "Read each PDF", "Opens each new PDF on the screen, and a model reads the supplier, invoice number, date, and total."],
+        ["excel", "Add it to the workbook", "One row per invoice, under the last row of Invoices.xlsx. Excel never opens."],
+        ["script", "Move it to Done", "Only after its row is written, so a PDF that failed stays in New for the next run."],
+      ],
+      moment: { title: "PDF invoices", text: "12 PDFs read. 12 rows added to Invoices.xlsx." },
+      artifact: {
+        type: "table",
+        name: "Invoices.xlsx",
+        columns: ["Supplier", "Invoice No", "Date", "Total", "File"],
+        rows: [
+          ["Harbor Supply Co.", "HS-20418", "2026-10-01", "1240.00", "HS-20418.pdf"],
+          ["Bright Paper Ltd", "BP-3391", "2026-10-02", "86.40", "BP-3391.pdf"],
+          ["Northwind Freight", "NF-77812", "2026-10-05", "412.75", "northwind-oct.pdf"],
+        ],
+      },
+      good: [
+        "A PDF moves to Done only after its row is in the workbook. One that fails stays in New, and the next run tries it again.",
+        "Each PDF is opened on this computer's screen, and a screenshot of the whole screen goes to the model you choose for every invoice. Close anything private before it runs.",
+        "Kitewell writes the workbook itself, not through Excel. If the file is open in Excel, the step waits up to five minutes for you to close it.",
+      ],
+    },
+    ja: {
+      title: "PDF の請求書から Excel への転記を AI で自動化",
+      when: "PDF がたまったら",
+      chore: "毎週、取引先から届く PDF の請求書を 1 枚ずつ開き、仕入れ先、番号、日付、合計を Excel に打ち込んでいる。",
+      motions: [
+        "フォルダーを開く。",
+        "次の PDF を開く。",
+        "請求書番号を探す。",
+        "コピー。",
+        "Excel に切り替え。",
+        "貼り付け。",
+        "戻って日付、次に合計。",
+        "PDF を Done へドラッグ。",
+        "次の PDF。",
+      ],
+      tally: "PDF の枚数だけ、1 項目ずつ。",
+      sentence:
+        "Invoices/New フォルダーの PDF をすべて読み、仕入れ先、請求書番号、日付、合計を Invoices.xlsx に 1 行ずつ追加して、読んだ PDF は Invoices/Done に移して。",
+      steps: [
+        ["desktop", "PDF を 1 枚ずつ読む", "新しい PDF を画面に開き、モデルが仕入れ先、請求書番号、日付、合計を読み取ります。"],
+        ["excel", "ブックに追加する", "請求書 1 件を 1 行として、Invoices.xlsx の最後の行の下に追加します。Excel は起動しません。"],
+        ["script", "Done に移す", "行を書き込んでから移すので、失敗した PDF は New に残り、次の実行で読み直されます。"],
+      ],
+      moment: { title: "PDF の請求書", text: "PDF 12 枚を読み、Invoices.xlsx に 12 行を追加しました。" },
+      artifact: {
+        type: "table",
+        name: "Invoices.xlsx",
+        columns: ["Supplier", "Invoice No", "Date", "Total", "File"],
+        rows: [
+          ["みなと資材", "MS-20418", "2026-10-01", "124000", "MS-20418.pdf"],
+          ["あおば紙工", "AP-3391", "2026-10-02", "8640", "AP-3391.pdf"],
+          ["北浜運輸", "KU-77812", "2026-10-05", "41275", "kitahama-10.pdf"],
+        ],
+      },
+      good: [
+        "PDF を Done に移すのは、その行をブックに書き込んだあとだけです。失敗した PDF は New に残り、次の実行で読み直されます。",
+        "PDF はこのコンピューターの画面に開かれ、請求書ごとに画面全体のスクリーンショットが、あなたが選んだモデルに送られます。見られたくないものは、実行の前に閉じてください。",
+        "ブックは Excel を通さず、Kitewell が直接書き込みます。ファイルを Excel で開いていれば、閉じるまで最大 5 分待ちます。",
+      ],
+    },
+  },
+  {
+    slug: "desktop-data-entry",
+    group: "everyone",
+    scheduled: false,
+    uses: ["desktop"],
+    needs: ["computerModel", "desktop", "workbook"],
+    related: ["supplier-invoices", "nightly-export", "excel-orders"],
+    en: {
+      title: "Automate data entry from Excel into a desktop app with no API",
+      when: "Every month-end",
+      chore: "Every month-end I type eighty rows of an Excel sheet into our sales system from 2005, because it has no import and no API.",
+      motions: [
+        "Read the next row.",
+        "Switch to Depot.",
+        "New order.",
+        "Type the customer.",
+        "Tab. The item.",
+        "Tab. The quantity.",
+        "Save.",
+        "Copy the order number.",
+        "Back to Excel. Paste it. Next row.",
+      ],
+      tally: "Eighty rows, one field at a time.",
+      sentence: "For each row of month-end.xlsx, enter the order in Depot and write the order number Depot gives it back beside the row.",
+      steps: [
+        ["excel", "Read the rows to run", "From the workbook you link. Before anything runs, you see which rows will run, and why any other row won't."],
+        ["desktop", "Enter one order", "For each row: opens Depot, enters the customer, item, and quantity, saves, and reads the order number Depot shows."],
+        ["excel", "Write the order number back", "Each order number goes into the workbook beside its row, with the row's status."],
+      ],
+      moment: { title: "month-end.xlsx", text: "79 orders entered. 1 row failed and is marked in the workbook." },
+      artifact: {
+        type: "table",
+        name: "month-end.xlsx",
+        columns: ["Customer", "Item", "Qty", "Order No", "Status"],
+        rows: [
+          ["Alder & Co.", "A4 paper", "5", "SO-11842", "Done"],
+          ["Brightline Labs", "Toner T-20", "2", "SO-11843", "Done"],
+          ["Cobalt Freight", "Label rolls", "10", "", "Failed"],
+          ["Dunmore Clinic", "A4 paper", "3", "SO-11844", "Done"],
+        ],
+        flag: "Failed",
+      },
+      good: [
+        "The model works out the first order. Later rows replay what worked with their own values: on Windows by Depot's own fields and buttons, on macOS from the screen. Where a screen no longer matches, the model takes over from there.",
+        "Try a few rows first. Each row is its own run with screenshots, and a row that failed can run again on its own.",
+        "Desktop steps use this computer's screen, unlocked, one row at a time. They wait until nobody has touched the mouse or keyboard for five seconds, and pause when you do.",
+      ],
+    },
+    ja: {
+      title: "Excel から API のないデスクトップアプリへの入力を AI で自動化",
+      when: "毎月末",
+      chore: "毎月末、Excel の 80 行を、2005 年製の販売管理システムに 1 行ずつ打ち込んでいる。取り込み機能も API もないから。",
+      motions: [
+        "次の行を読む。",
+        "Depot に切り替え。",
+        "新規受注。",
+        "顧客を入力。",
+        "Tab。品目。",
+        "Tab。数量。",
+        "保存。",
+        "受注番号をコピー。",
+        "Excel に戻って貼り付け。次の行。",
+      ],
+      tally: "80 行を、1 項目ずつ。",
+      sentence: "月末受注.xlsx の行ごとに、Depot に受注を入力して、Depot が付けた受注番号をその行の横に書き戻して。",
+      steps: [
+        ["excel", "実行する行を読む", "リンクしたブックから読みます。実行の前に、どの行を実行するか、ほかの行はなぜ実行しないかが分かります。"],
+        ["desktop", "受注を 1 件入力する", "行ごとに、Depot を開いて顧客、品目、数量を入力して保存し、Depot が表示した受注番号を読み取ります。"],
+        ["excel", "受注番号を書き戻す", "受注番号が、その行の状態と一緒に、ブックの元の行の横に書き込まれます。"],
+      ],
+      moment: { title: "月末受注.xlsx", text: "79 件を入力しました。失敗した 1 行は、ブックに印が付いています。" },
+      artifact: {
+        type: "table",
+        name: "月末受注.xlsx",
+        columns: ["顧客", "品目", "数量", "受注番号", "状態"],
+        rows: [
+          ["青葉家具", "A4 用紙", "5", "SO-11842", "済"],
+          ["明光ラボ", "トナー T-20", "2", "SO-11843", "済"],
+          ["コバルト物流", "ラベルロール", "10", "", "失敗"],
+          ["堂島クリニック", "A4 用紙", "3", "SO-11844", "済"],
+        ],
+        flag: "失敗",
+      },
+      good: [
+        "最初の受注は、モデルが手順を見つけます。以降の行は、うまくいった操作をその行の値で再生します。Windows では Depot 自身の入力欄やボタンを、macOS では画面を頼りにします。画面が合わなくなったところからは、モデルが引き継ぎます。",
+        "まず数行だけ試してください。各行がスクリーンショット付きの 1 回の実行で、失敗した行だけをやり直せます。",
+        "デスクトップのステップは、ロックされていないこのコンピューターの画面を使い、1 行ずつ進みます。マウスとキーボードが 5 秒間使われていないのを待ってから操作し、あなたが触れると止まります。",
+      ],
+    },
+  },
+  {
+    slug: "competitor-prices",
+    group: "everyone",
+    scheduled: false,
+    uses: ["browser"],
+    needs: ["chrome", "browserModel"],
+    related: ["price-watch", "company-research", "excel-orders"],
+    en: {
+      title: "Automate competitor price monitoring with AI",
+      when: "Every morning",
+      chore: "Every morning I open our competitors' pages for forty products and copy each price into a spreadsheet.",
+      motions: [
+        "Open the sheet.",
+        "Copy the first link.",
+        "Open it.",
+        "Close the cookie banner.",
+        "Find the price.",
+        "In stock?",
+        "Back to the sheet. Type both in.",
+        "Next link.",
+        "Product 2 of 40.",
+      ],
+      tally: "Forty pages, every morning.",
+      sentence:
+        "Build a workflow with inputs PRODUCT and URL that opens the URL in the browser and reads the price and whether it can be ordered now. I will run it every morning at 7:00 over a sheet of our competitors' product pages.",
+      steps: [
+        ["website", "Read the price", "Opens the product page and reads its price as a number, and whether it can be ordered now."],
+        ["excel", "Once for every row, every morning", "A batch sheet runs each product page at 7:00 and copies the price into its row."],
+        ["excel", "Mark what changed", "A price that moved since the last run gets an arrow and what it was."],
+      ],
+      moment: { time: "7:00", title: "Competitor prices", text: "Price: 3 dropped, 1 rose." },
+      artifact: {
+        type: "table",
+        name: "Competitor prices",
+        columns: ["PRODUCT", "Price", "In stock"],
+        rows: [
+          ["Ergo chair C2", "179.00 ↓ from 189.00", "Yes"],
+          ["Desk lamp L1", "42.00", "Yes"],
+          ["Standing desk S3", "540.00", "No"],
+          ["Monitor arm M1", "64.50 ↑ from 59.00", "Yes"],
+        ],
+      },
+      good: [
+        "The sheet copies the price the website step read, rather than having a model read it again, so each morning compares the same number.",
+        "On Personal or Team, one alert after the morning run says what changed by column, such as “Price: 3 dropped, 1 rose”. Nothing comes when nothing changed.",
+        "The sheet runs on this computer while it is awake and Kitewell is running. A morning missed while it slept runs once when it is back, unless the next run is nearer.",
+        "Check each site's terms first: some sites do not allow automated visits.",
+      ],
+    },
+    ja: {
+      title: "競合サイトの価格調査を AI で自動化",
+      when: "毎朝",
+      chore: "毎朝、40 商品ぶんの競合サイトのページを開いて、価格を 1 つずつスプレッドシートに書き写している。",
+      motions: [
+        "シートを開く。",
+        "最初のリンクをコピー。",
+        "開く。",
+        "Cookie のバナーを閉じる。",
+        "価格を探す。",
+        "在庫はある？",
+        "シートに戻って両方を入力。",
+        "次のリンク。",
+        "40 商品中、2 つ目。",
+      ],
+      tally: "毎朝、40 ページ。",
+      sentence:
+        "PRODUCT と URL を入力に持つワークフローを作ってください。ブラウザーで URL を開き、価格と、いま注文できるかどうかを読み取ります。競合の商品ページのシートで、毎朝 7:00 に実行します。",
+      steps: [
+        ["website", "価格を読み取る", "商品ページを開き、価格を数値で、いま注文できるかどうかと一緒に読み取ります。"],
+        ["excel", "毎朝、行の数だけ繰り返す", "バッチシートが毎朝 7:00 に商品ページごとに実行し、価格をその行に写します。"],
+        ["excel", "変わったところに印を付ける", "前回の実行から動いた価格には、矢印と前の値が付きます。"],
+      ],
+      moment: { time: "7:00", title: "競合の価格", text: "価格：3 件値下がり、1 件値上がり。" },
+      artifact: {
+        type: "table",
+        name: "競合の価格",
+        columns: ["PRODUCT", "価格", "在庫"],
+        rows: [
+          ["チェア C2", "17,900 ↓ 前回 18,900", "あり"],
+          ["デスクライト L1", "4,200", "あり"],
+          ["昇降デスク S3", "54,000", "なし"],
+          ["モニターアーム M1", "6,450 ↑ 前回 5,900", "あり"],
+        ],
+      },
+      good: [
+        "シートは、Web サイトのステップが読み取った価格をそのまま写します。モデルに読み直させないので、毎朝同じ数値を比べられます。",
+        "Personal または Team では、朝の実行のあとに、何が変わったかを列ごとにまとめたアラートが 1 件届きます（アラートの文面は英語です）。何も変わらなければ届きません。",
+        "シートは、このコンピューターが起動していて Kitewell が動いている間に実行されます。スリープ中に逃した朝の実行は、次の実行のほうが近くない限り、起きたときに 1 回だけ実行されます。",
+        "先にそれぞれのサイトの利用規約を確認してください。自動アクセスを許可していないサイトもあります。",
+      ],
+    },
+  },
+  {
     slug: "dependency-update",
     group: "code",
     scheduled: true,
@@ -688,6 +978,7 @@ export const chores = [
     needs: ["agent", "git"],
     related: ["pr-review", "deploy-check", "daily-report"],
     en: {
+      title: "Automate dependency updates with Codex on a schedule",
       when: "Every Monday",
       chore: "Every Monday I update our dependencies, run the tests, and lose the morning fixing whatever broke.",
       motions: [
@@ -722,6 +1013,7 @@ export const chores = [
       ],
     },
     ja: {
+      title: "依存関係の更新を Codex で定期的に自動化",
       when: "毎週月曜",
       chore: "毎週月曜に依存関係を上げてテストを回し、壊れたところを直して午前が終わる。",
       motions: [
@@ -764,6 +1056,7 @@ export const chores = [
     needs: ["agent", "git"],
     related: ["dependency-update", "deploy-check", "daily-report"],
     en: {
+      title: "Automate a daily pull request digest with Claude Code",
       when: "Every morning",
       chore: "Every morning I open each pull request just to work out which one could break something.",
       motions: ["Open the PR list.", "Open one.", "Scroll the diff.", "What does this touch?", "Open the next.", "Lose track of the first.", "Start over."],
@@ -789,6 +1082,7 @@ export const chores = [
       ],
     },
     ja: {
+      title: "毎朝のプルリクエストのダイジェストを Claude Code で自動化",
       when: "毎朝",
       chore: "毎朝、どれが何かを壊しそうか知るためだけに、プルリクエストを 1 つずつ開いている。",
       motions: ["PR の一覧を開く。", "1 つ開く。", "差分をスクロール。", "これは何に触る？", "次を開く。", "最初のを忘れる。", "やり直し。"],
@@ -822,6 +1116,7 @@ export const chores = [
     needs: ["servers"],
     related: ["dependency-update", "pr-review", "daily-report"],
     en: {
+      title: "Automate SSH rollouts with health checks and approval",
       when: "Every release",
       chore: "I SSH into each server, pull the release, restart the service, and curl the health check, one machine at a time.",
       motions: ["ssh web-1.", "git pull.", "sudo systemctl restart app.", "curl /healthz.", "Wait. Again.", "exit.", "ssh web-2."],
@@ -850,6 +1145,7 @@ export const chores = [
       ],
     },
     ja: {
+      title: "SSH でのロールアウトとヘルスチェックを承認付きで自動化",
       when: "リリースのたびに",
       chore: "サーバーに 1 台ずつ SSH して、リリースを取得し、サービスを再起動して、ヘルスチェックを curl している。",
       motions: ["ssh web-1。", "git pull。", "sudo systemctl restart app。", "curl /healthz。", "待つ。もう一度。", "exit。", "ssh web-2。"],
@@ -886,6 +1182,7 @@ export const chores = [
     needs: ["python"],
     related: ["pr-review", "dependency-update", "inbox-digest"],
     en: {
+      title: "Automate a daily sales report from a CSV with Python",
       when: "Every morning",
       chore: "Every morning I total yesterday's orders from a CSV export and write up the same little report.",
       motions: ["Open the export.", "Sum the column.", "Count the orders.", "Work out the average.", "Paste it into the report.", "Save.", "Same again tomorrow."],
@@ -909,6 +1206,7 @@ export const chores = [
       ],
     },
     ja: {
+      title: "CSV からの日次売上レポートを Python で自動化",
       when: "毎朝",
       chore: "毎朝、前日の注文の CSV を集計して、いつもと同じ短いレポートを書いている。",
       motions: ["エクスポートを開く。", "列を合計。", "件数を数える。", "平均を出す。", "レポートに貼る。", "保存。", "明日も同じ。"],
@@ -929,6 +1227,280 @@ export const chores = [
       good: [
         "AI もネットワークも使いません。すべてこのコンピューターで動き、必要なのは Python 3 だけです。",
         "「ワークフローを組み立てる」の手順で、サンプルデータを使ってこのワークフローを 1 ステップずつ作れます。",
+      ],
+    },
+  },
+  {
+    slug: "fix-failing-tests",
+    group: "code",
+    scheduled: true,
+    uses: ["command", "agent", "approval"],
+    needs: ["agent", "git"],
+    related: ["dependency-update", "review-every-pr", "pr-review"],
+    en: {
+      title: "Fix failing tests overnight with Claude Code on a schedule",
+      when: "Every weekday at 2:00",
+      chore: "Some mornings the tests on main are red, and my first hour goes to finding out why and fixing it.",
+      motions: [
+        "Open CI.",
+        "Red.",
+        "Scroll the log.",
+        "Which test?",
+        "Run it locally.",
+        "Find the commit that broke it.",
+        "Fix.",
+        "Run everything again.",
+        "Push. Open the PR.",
+      ],
+      tally: "Every red morning, before the real work.",
+      sentence:
+        "Every weekday at 2:00, pull main and run the tests. If they fail, have my Claude Code agent fix the cause on a branch named fix/nightly-tests and commit, with Codex taking over if Claude Code fails. Wait for my approval, then push the branch and open a PR.",
+      steps: [
+        ["script", "Run the tests", "Pulls main and runs the suite. On a green night the run ends here, and nothing waits for you."],
+        ["agent", "Fix what failed", "Claude Code finds the cause, fixes it on a branch, runs the tests until they pass, and commits. If it hits its usage limit or fails, Codex starts the task over in its place."],
+        ["approval", "Wait for your OK", "Nothing is pushed until you approve. Send it back with a note, and the agent works on it again with your note."],
+        ["script", "Push and open the PR", "git push --force-with-lease, then gh pr create."],
+      ],
+      moment: { time: "7:30", title: "Nightly test fix", text: "Waiting for you: push fix/nightly-tests and open a pull request?" },
+      artifact: {
+        type: "approval",
+        title: "Fix what failed",
+        notes: [
+          "2 tests failed on main after #512 was merged.",
+          "Cause: totals were rounded before tax instead of after.",
+          "Fixed the rounding in totals.ts. No test was changed.",
+          "All 318 tests pass.",
+        ],
+        prompt: "Push fix/nightly-tests and open a pull request?",
+        actions: ["Approve", "Send back", "Reject"],
+      },
+      good: [
+        "To change code and run your tests with nobody watching, each agent needs those permissions: allow them in the tool's own settings for the repository, or turn on Bypass permission prompts on its entry in Agents & models. Either way, nothing is pushed until you approve.",
+        "Each agent works with the sign-in it already has. When Codex takes over, it starts the task from the beginning, so that work is paid for again.",
+      ],
+    },
+    ja: {
+      title: "失敗したテストの修正を Claude Code で夜のうちに自動化",
+      when: "平日の 2:00",
+      chore: "朝、main のテストが赤いと、原因を調べて直すだけで最初の 1 時間が終わる。",
+      motions: [
+        "CI を開く。",
+        "赤。",
+        "ログをスクロール。",
+        "どのテスト？",
+        "手元で動かす。",
+        "壊したコミットを探す。",
+        "直す。",
+        "全部もう一度回す。",
+        "プッシュ。PR を開く。",
+      ],
+      tally: "赤い朝のたびに、本来の仕事の前に。",
+      sentence:
+        "平日の 2:00 に main を取得してテストを実行し、失敗したら、私の Claude Code エージェントに fix/nightly-tests ブランチで原因を直してコミットさせてください。Claude Code が失敗したら Codex に代わらせてください。私の承認を待ってから、ブランチをプッシュして PR を開いてください。",
+      steps: [
+        ["script", "テストを実行する", "main を取得してテストを実行します。すべて通った夜はここで終わり、あなたを待つものはありません。"],
+        ["agent", "失敗を直す", "Claude Code が原因を見つけ、ブランチで直し、テストが通るまで実行してコミットします。利用上限や失敗で止まったら、Codex が代わりに最初からやり直します。"],
+        ["approval", "あなたの OK を待つ", "承認するまで何もプッシュされません。メモを添えて差し戻すと、エージェントがそのメモを受けてやり直します。"],
+        ["script", "プッシュして PR を開く", "git push --force-with-lease のあと、gh pr create。"],
+      ],
+      moment: { time: "7:30", title: "夜間のテスト修正", text: "あなたの対応待ち：fix/nightly-tests をプッシュして PR を開きますか？" },
+      artifact: {
+        type: "approval",
+        title: "失敗を直す",
+        notes: [
+          "#512 のマージ後、main で 2 件のテストが失敗。",
+          "原因：合計を、税の計算の後ではなく前に丸めていた。",
+          "totals.ts の丸めを修正。テストは変更していません。",
+          "318 件のテストがすべて成功。",
+        ],
+        prompt: "fix/nightly-tests ブランチをプッシュして、プルリクエストを開きますか？",
+        actions: ["承認", "差し戻す", "却下"],
+      },
+      good: [
+        "見ている人のいない時間にコードを変えてテストを実行するには、それぞれのエージェントにその権限が要ります。リポジトリに対するツール自身の設定で許可するか、「エージェントとモデル」でそのエージェントの「権限の確認をスキップ」をオンにします。どちらでも、承認するまで何もプッシュされません。",
+        "各エージェントは、すでにあるサインインを使います。Codex が引き継ぐときは作業を最初からやり直すので、その分の利用料がまたかかります。",
+      ],
+    },
+  },
+  {
+    slug: "review-every-pr",
+    group: "code",
+    scheduled: false,
+    uses: ["jq", "agent", "approval", "command"],
+    needs: ["agent", "git", "webhook"],
+    related: ["pr-review", "triage-issues", "fix-failing-tests"],
+    en: {
+      title: "Automate pull request reviews with Codex and Claude Code",
+      when: "Every new pull request",
+      chore: "Every pull request waits for my first pass, and most of what I flag, a careful second reader would have caught.",
+      motions: [
+        "New pull request.",
+        "Open it.",
+        "Read the description.",
+        "Scroll the diff.",
+        "Missing test.",
+        "Comment.",
+        "Unchecked error.",
+        "Comment.",
+        "Back to what I was doing.",
+      ],
+      tally: "Every pull request, before anyone else looks.",
+      sentence:
+        "When a pull request is opened in my repo, have my Codex agent review it, have my Claude Code agent check that review against the code, and post the checked review on the pull request once I approve.",
+      steps: [
+        ["agent", "Review the pull request", "Codex reads it with gh and lists bugs, missing tests, and risky changes, each with its file and line."],
+        ["agent", "Check the review", "Claude Code checks each finding against the diff, drops the wrong ones, and adds what was missed."],
+        ["approval", "Wait for your OK", "Read the checked review, then approve, send it back with a note, or reject."],
+        ["script", "Post it on the pull request", "gh pr review --comment, as your own GitHub account."],
+      ],
+      moment: { title: "Review of #482", text: "Waiting for you: post the checked review on the pull request?" },
+      artifact: {
+        type: "approval",
+        title: "Check the review",
+        notes: [
+          "#482 Move sessions to the new store",
+          "Confirmed: logout.ts still reads the old session key, line 41.",
+          "Confirmed: no test covers an expired session.",
+          "Dropped: a missing null check Codex flagged; the caller already checks.",
+        ],
+        prompt: "Post the checked review on the pull request?",
+        actions: ["Approve", "Send back", "Reject"],
+      },
+      good: [
+        "GitHub starts each run through Kitewell's relay, with no port open on your computer. Set the webhook to take only pull_request.opened, and have Kitewell check GitHub's signature.",
+        "Both agents run gh to read the pull request, which takes network access and permission to run commands: allow it in each tool's own settings, or turn on Bypass permission prompts on its entry in Agents & models. They read code someone else wrote, so use this where you know who opens pull requests.",
+        "On Windows, a pull request event larger than about 30,000 characters may not start a run yet.",
+      ],
+    },
+    ja: {
+      title: "プルリクエストのレビューを Codex と Claude Code で自動化",
+      when: "プルリクエストが開くたびに",
+      chore: "どのプルリクエストも私の最初の確認待ちで、指摘することの大半は、注意深い 2 人目が読めば気づくことだ。",
+      motions: [
+        "新しいプルリクエスト。",
+        "開く。",
+        "説明を読む。",
+        "差分をスクロール。",
+        "テストがない。",
+        "コメント。",
+        "エラーを確かめていない。",
+        "コメント。",
+        "元の作業に戻る。",
+      ],
+      tally: "どのプルリクエストも、ほかの誰かが見る前に。",
+      sentence:
+        "リポジトリでプルリクエストが開いたら、私の Codex エージェントにレビューさせ、私の Claude Code エージェントにそのレビューをコードと照らし合わせて確かめさせて、私が承認したら、確かめたレビューをプルリクエストに投稿してください。",
+      steps: [
+        ["agent", "プルリクエストをレビューする", "Codex が gh で読み、バグ、足りないテスト、危うい変更を、ファイルと行を添えて挙げます。"],
+        ["agent", "レビューを確かめる", "Claude Code が指摘を 1 つずつ差分と照らし合わせ、誤りを外し、見落としを加えます。"],
+        ["approval", "あなたの OK を待つ", "確かめたレビューを読んで、承認、ひとこと添えて差し戻し、または却下します。"],
+        ["script", "プルリクエストに投稿する", "gh pr review --comment で、あなた自身の GitHub アカウントから投稿します。"],
+      ],
+      moment: { title: "#482 のレビュー", text: "あなたの対応待ち：確かめたレビューをプルリクエストに投稿しますか？" },
+      artifact: {
+        type: "approval",
+        title: "レビューを確かめる",
+        notes: [
+          "#482 セッションを新しいストアへ移す",
+          "確認済み：logout.ts の 41 行目が、まだ古いセッションキーを読んでいる。",
+          "確認済み：期限切れのセッションを試すテストがない。",
+          "除外：Codex が挙げた null チェック漏れ。呼び出し側ですでに確かめている。",
+        ],
+        prompt: "確かめたレビューをプルリクエストに投稿しますか？",
+        actions: ["承認", "差し戻す", "却下"],
+      },
+      good: [
+        "GitHub は Kitewell のリレーを通じて実行を始めるので、このコンピューターのポートは開きません。Webhook は pull_request.opened だけを受け取るように設定し、GitHub の署名を Kitewell に確かめさせてください。",
+        "どちらのエージェントも gh でプルリクエストを読むので、ネットワークとコマンド実行の許可が要ります。ツール自身の設定で許可するか、「エージェントとモデル」でそのエージェントの「権限の確認をスキップ」をオンにします。ほかの人が書いたコードを読むので、誰がプルリクエストを開くか分かっているリポジトリで使ってください。",
+        "Windows では、30,000 文字ほどを超えるプルリクエストのイベントで、まだ実行が始まらないことがあります。",
+      ],
+    },
+  },
+  {
+    slug: "triage-issues",
+    group: "code",
+    scheduled: false,
+    uses: ["jq", "model", "command"],
+    needs: ["model", "git", "webhook"],
+    related: ["review-every-pr", "pr-review", "fix-failing-tests"],
+    en: {
+      title: "Automate GitHub issue triage with AI",
+      when: "Every new issue",
+      chore: "Every new issue arrives without a label, and half the bug reports don't say how to reproduce the problem.",
+      motions: [
+        "New issue.",
+        "Read it.",
+        "Bug or question?",
+        "Add a label.",
+        "No steps to reproduce.",
+        "Type the same request again.",
+        "Post.",
+        "Next issue.",
+      ],
+      tally: "Every issue, the same two minutes.",
+      sentence:
+        "When an issue is opened in my repo, have a model label it bug, enhancement, question, or documentation, and if it's a bug without steps to reproduce, post our standard request for them.",
+      steps: [
+        ["ai", "Read the new issue", "A model reads the issue and answers from a fixed list: bug, enhancement, question, or documentation, and whether a bug report lacks steps to reproduce."],
+        ["script", "Label it", "gh adds that label to the issue."],
+        ["script", "Ask for steps to reproduce", "Only for a bug report without them: posts your standard request, word for word."],
+      ],
+      moment: { title: "Issue #1207", text: "Labeled bug. Asked for steps to reproduce." },
+      artifact: {
+        type: "table",
+        name: "Issues",
+        columns: ["#", "Title", "Label", "Asked for steps"],
+        rows: [
+          ["1207", "Export button does nothing", "bug", "Yes"],
+          ["1206", "Dark mode for reports", "enhancement", "No"],
+          ["1205", "How do I change the time zone?", "question", "No"],
+          ["1204", "Typo in the install guide", "documentation", "No"],
+        ],
+      },
+      good: [
+        "Anyone who opens an issue writes its text, so a model reads it, not a coding agent: a model cannot run anything, and its answer must be one of your labels.",
+        "The request for steps to reproduce is your own text, posted as written, never words the model chose.",
+        "GitHub starts each run through Kitewell's relay, with no port open on your computer. Set the webhook to take only issues.opened, and have Kitewell check GitHub's signature.",
+      ],
+    },
+    ja: {
+      title: "GitHub の Issue の仕分けを AI で自動化",
+      when: "Issue が開くたびに",
+      chore: "新しい Issue はどれもラベルなしで届き、バグ報告の半分には再現手順が書かれていない。",
+      motions: [
+        "新しい Issue。",
+        "読む。",
+        "バグ？ 質問？",
+        "ラベルを付ける。",
+        "再現手順がない。",
+        "いつもの依頼をまた打つ。",
+        "投稿。",
+        "次の Issue。",
+      ],
+      tally: "Issue のたびに、同じ 2 分。",
+      sentence:
+        "リポジトリで Issue が開いたら、モデルに bug、enhancement、question、documentation のどれかのラベルを付けさせ、再現手順のないバグ報告なら、いつもの再現手順の依頼を投稿してください。",
+      steps: [
+        ["ai", "新しい Issue を読む", "モデルが Issue を読み、bug、enhancement、question、documentation の決まった選択肢から 1 つと、バグ報告に再現手順がないかどうかを答えます。"],
+        ["script", "ラベルを付ける", "gh がそのラベルを Issue に付けます。"],
+        ["script", "再現手順を頼む", "再現手順のないバグ報告のときだけ、あなたの決まった依頼文を、そのまま投稿します。"],
+      ],
+      moment: { title: "Issue #1207", text: "bug のラベルを付け、再現手順を依頼しました。" },
+      artifact: {
+        type: "table",
+        name: "Issue",
+        columns: ["#", "タイトル", "ラベル", "手順の依頼"],
+        rows: [
+          ["1207", "エクスポートボタンが反応しない", "bug", "済"],
+          ["1206", "レポートにもダークモードを", "enhancement", "なし"],
+          ["1205", "タイムゾーンの変え方は？", "question", "なし"],
+          ["1204", "インストールガイドの誤字", "documentation", "なし"],
+        ],
+      },
+      good: [
+        "Issue の文章は、開いた人なら誰でも書けます。だから読むのはコーディングエージェントではなくモデルです。モデルは何も実行できず、答えはあなたのラベルのどれかに限られます。",
+        "再現手順の依頼は、あなた自身の文章をそのまま投稿します。モデルが選んだ言葉ではありません。",
+        "GitHub は Kitewell のリレーを通じて実行を始めるので、このコンピューターのポートは開きません。Webhook は issues.opened だけを受け取るように設定し、GitHub の署名を Kitewell に確かめさせてください。",
       ],
     },
   },

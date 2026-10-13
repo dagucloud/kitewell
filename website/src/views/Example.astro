@@ -46,9 +46,13 @@ const text = {
   },
 }[locale];
 const good = chore.scheduled ? [...copy.good, text.awake] : copy.good;
+// Search finds a chore by the job it automates; the page itself opens on the
+// chore in the person's own words.
+const title = copy.title ?? copy.chore;
+const description = copy.title ? `${copy.title}${locale === "ja" ? "。" : ". "}${copy.chore}` : copy.sentence;
 ---
 
-<Site title={copy.chore} description={copy.sentence}>
+<Site title={title} description={description}>
   <article class="wrap chore-page" data-example={chore.slug}>
     <a class="text-link chore-back" href={localize("/examples/", locale)}>{text.back}</a>
     <header class="chore-hero">

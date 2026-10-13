@@ -20,8 +20,14 @@ const actions = {
   human: "human.task",
   subworkflow: "dag.run",
   router: "router.route",
+  jq: "jq.filter",
 };
-const kindOf = (action) => Object.keys(actions).find((kind) => actions[kind] === action) ?? (action.startsWith("mail.") ? "email" : null);
+// Families of actions that share a prefix, such as mail.search and mail.send.
+const families = { "mail.": "email", "xlsx.": "excel", "file.": "file" };
+const kindOf = (action) =>
+  Object.keys(actions).find((kind) => actions[kind] === action) ??
+  Object.entries(families).find(([prefix]) => action.startsWith(prefix))?.[1] ??
+  null;
 const workflow = (slug) => yaml.load(readFileSync(`src/workflows/${slug}.yaml`, "utf8"));
 
 test("every chore is told in full in both languages", () => {
@@ -38,6 +44,8 @@ test("every chore is told in full in both languages", () => {
       for (const field of ["when", "chore", "tally", "sentence"]) {
         assert.ok(copy[field]?.trim(), `${where}: ${field}`);
       }
+      // A search title, when a chore has one, is given in both languages.
+      if (chore.en.title || chore.ja.title) assert.ok(copy.title?.trim(), `${where}: title`);
       assert.ok(copy.motions.length >= 3, `${where}: motions`);
       assert.ok(copy.moment.title && copy.moment.text, `${where}: moment`);
       assert.ok(copy.good.length > 0, `${where}: good to know`);

@@ -1,0 +1,21 @@
+type: graph
+llm:
+  model: kitewell-agent-fast
+params:
+  - PRODUCT: ""
+  - URL: ""
+steps:
+  - id: look
+    name: Read the price
+    action: browser.run
+    with:
+      url: ${params.URL}
+      do:
+        - extract:
+            instruction: The current price of ${params.PRODUCT} on this page, as a number without the currency sign, and whether it can be ordered now
+            schema:
+              type: object
+              properties:
+                price: {type: number}
+                in_stock: {type: boolean}
+              required: [price, in_stock]

@@ -1,0 +1,47 @@
+type: graph
+# Replace this with a clone of the repository the webhook watches.
+working_dir: /absolute/path/to/repo
+steps:
+  - id: pr
+    name: Read the pull request number
+    action: jq.filter
+    with:
+      data: ${env.WEBHOOK_PAYLOAD}
+      filter: .pull_request.number
+    output:
+      number: {from: stdout}
+  - id: review
+    name: Review the pull request
+    depends: [pr]
+    action: harness.run
+    with:
+      provider: kitewell-agent-codex
+      prompt: |
+        Review pull request #${steps.pr.outputs.number} in this repository.
+        Read it with gh pr view and gh pr diff. List each bug, missing test,
+        and risky change with its file and line, most serious first. Change
+        no files.
+    output: REVIEW
+  - id: check
+    name: Check the review
+    depends: [review]
+    action: harness.run
+    with:
+      provider: kitewell-agent-claude
+      prompt: |
+        Another agent reviewed pull request #${steps.pr.outputs.number}.
+        Check each of its findings against the diff (gh pr diff), drop the
+        ones that are wrong, and add anything serious it missed. Write the
+        final review in Markdown, most serious first. Change no files.
+
+        The review to check:
+        ${env.REVIEW}
+    output: FINAL
+    approval:
+      prompt: Post the checked review on the pull request?
+  - id: post
+    name: Post the review
+    depends: [check]
+    env:
+      - PR: ${steps.pr.outputs.number}
+    run: printenv FINAL | gh pr review "$PR" --comment --body-file -
