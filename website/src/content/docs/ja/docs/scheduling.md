@@ -92,6 +92,6 @@ Kitewell Personal と Team では、[スケジュールの取りこぼしのア�
 - 既定のキューは同時に 5 件まで実行します。プロジェクトで定義されていないキューは、同時に 1 件ずつ実行します。
 - Webhook のアドレスは `https://hooks.kitewell.app/…` という形です。リクエストは POST である必要があり、応答は `202` で、実行については何も返しません。
 - ステップは、リクエストの本文を `$WEBHOOK_PAYLOAD`、ヘッダーを `$WEBHOOK_HEADERS` という環境変数から読み取ります。認証、Cookie、経路に関するヘッダーは、リクエストが実行に届く前に取り除かれます。
-- Webhook が受け付けるのは、1 分あたり約 60 リクエスト、本文は 512 KiB まで、ヘッダーは 16 KiB までです。**最近のリクエスト** には直近 20 件が残ります。Kitewell は送信元の署名を検証しません。
+- Webhook が受け付けるのは、1 分あたり約 60 リクエスト、本文は 512 KiB まで、ヘッダーは 16 KiB までです。**最近のリクエスト** には直近 20 件が残ります。送信元の署名は Webhook ごとに検証できます。[送り手を確かめる](/ja/docs/webhooks/#送り手を確かめる)を参照してください。
 - Windows では、本文がおよそ 32,000 文字を超えると、コマンドラインの長さの制限により実行が始まらないことがあります。可能であれば、送信側のサービスで本文を小さくしてください。
 - メニューバーと通知領域の項目（**Keep Running in Menu Bar**、**Open Kitewell**、**Quit Kitewell**、**Start at login**、**Keep awake while workflows run**）は、どの OS でも英語です。**Keep Running in Menu Bar** は Mac だけの項目です。

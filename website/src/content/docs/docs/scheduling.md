@@ -159,7 +159,8 @@ More in [Troubleshooting](/docs/troubleshooting/).
   routing headers are stripped before the request reaches the run.
 - A webhook accepts about 60 requests a minute, a body up to 512 KiB, and
   headers up to 16 KiB. The last 20 requests are kept in **Recent requests**.
-  Kitewell does not check a sender's signature.
+  A webhook can check the sender's signature; see
+  [Check who sent the request](/docs/webhooks/#check-who-sent-the-request).
 - On Windows, a request body over roughly 32,000 characters may not start a
   run at all, because of a limit on how long a command line may be. Ask the
   sending service for a smaller payload where you can.
