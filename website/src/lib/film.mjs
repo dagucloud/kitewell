@@ -4,14 +4,14 @@
 export const film = {
   en: {
     name: "kitewell-launch",
-    seconds: 78,
+    seconds: 74,
     tracks: [
       ["captions", "en", "English"],
       ["subtitles", "ja", "日本語"],
     ],
-    label: "Kitewell film, 78 seconds, narrated",
+    label: "Kitewell film, 74 seconds, narrated",
     link: "Watch the Kitewell film.",
-    caption: ["78 seconds · Narrated · Captions", "Kitewell's own screens and real runs against a stand-in supplier portal; the company, its portal, Ledger, the team chat, and the email are made up"],
+    caption: ["74 seconds · Narrated · Captions", "Kitewell's own screens and real runs against a stand-in supplier portal; the company, its portal, Ledger, the team chat, and the email are made up"],
     transcript: "Read the film's narration",
     scenes: [
       [
@@ -70,14 +70,14 @@ export const film = {
   },
   ja: {
     name: "kitewell-launch-ja",
-    seconds: 78,
+    seconds: 74,
     tracks: [
       ["captions", "ja", "日本語"],
       ["subtitles", "en", "English"],
     ],
-    label: "Kitewell 紹介映像（78 秒・ナレーション付き）",
+    label: "Kitewell 紹介映像（74 秒・ナレーション付き）",
     link: "Kitewell の紹介映像を見る。",
-    caption: ["78 秒 · ナレーション · 日本語字幕と英語字幕", "Kitewell の実際の画面と、代役の仕入れ先ポータルでの実際の実行。会社、ポータル、会計アプリ「台帳」、チャット、メールは架空のものです"],
+    caption: ["74 秒 · ナレーション · 日本語字幕と英語字幕", "Kitewell の実際の画面と、代役の仕入れ先ポータルでの実際の実行。会社、ポータル、会計アプリ「台帳」、チャット、メールは架空のものです"],
     transcript: "ナレーションをテキストで読む",
     scenes: [
       [
