@@ -142,10 +142,10 @@ const good = chore.scheduled ? [...copy.good, text.awake] : copy.good;
     </section>
   </article>
   <script>
-    import posthog from "posthog-js";
+    import { track } from "../lib/analytics";
     const page = document.querySelector<HTMLElement>("[data-example]");
-    if (page && posthog.__loaded) {
-      posthog.capture("example_viewed", { slug: page.dataset.example });
+    if (page?.dataset.example) {
+      track("example_viewed", { slug: page.dataset.example });
     }
     // The clicks of the chore light up one after another, once, when read.
     const now = document.querySelector(".chore-now");
