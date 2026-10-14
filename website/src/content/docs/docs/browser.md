@@ -3,13 +3,14 @@ title: Automate a website
 ---
 
 Kitewell can work a website for you: open pages, sign in, click and type,
-read what a page shows, and pass what it found to the next step. You write
+upload files, read what a page shows, and pass what it found to the next step. You write
 what to do in ordinary words, and a model works out how to do it on each
 page. There is nothing to record and no selectors to write.
 
 Work it takes off your hands:
 
 - Download this month's invoices from a supplier portal.
+- Upload the receipts an email brought into your accounting software.
 - Look up the status of every order in a spreadsheet.
 - Copy figures from a web dashboard into a daily report.
 - Fill in the same web form for each row of a list.
@@ -109,6 +110,8 @@ The steps inside run in order, in one browser.
 - **Do something on the page** does one thing, written under
   **What to do, in plain words**. `%name%` types one of the values the browser
   types, or an answer you gave earlier.
+- **Upload files** gives files on this computer to the page. See
+  [Upload files](#upload-files).
 - **Collect information** reads **What to look for** and fills in the values
   under **What to collect**. Each value has a **Name**, a **Type** — **Text**,
   **Number**, **Yes or no**, **List**, or **List of items** — and a
@@ -145,6 +148,38 @@ For anything sensitive, choose a secret as the value. It stays out of the
 instructions, out of the model, and out of the logs. An instruction that
 spells out a secret's value fails rather than send it, and **Review & run**
 says so before you run.
+
+## Upload files
+
+**Upload files** puts files from this computer into a page's file field, the
+way you would by choosing them in a file picker, such as receipts into an
+accounting tool's file box or a signed form into a portal.
+
+- **Files to upload · one per line** takes full paths, such as
+  `~/Documents/invoice.pdf`; patterns, such as `~/Downloads/*.pdf`; or a
+  result of an earlier step that lists files. An email step that finds
+  messages with **Save attachments into the run's files** turned on lists
+  their attachments, so
+  writing `${steps.<identifier>.outputs.messages}` uploads what the emails
+  brought.
+- **Where to upload (optional)** names the file field, or the button or drop
+  area that opens the file picker, in plain words: `The receipt drop area`.
+  The model finds it once, and later runs reuse what it found. Leave it empty
+  when the page has only one file field; then no model is asked at all.
+- **Find it again on every run** asks the model each time instead, for a page
+  whose upload area moves around.
+
+The file picker never opens on screen, and the model never sees the files,
+their names, or where they are. A site that takes one file at a time fails
+the step when given several; upload them in separate steps, or run the step
+once per file. Each file can be up to 50 MB. Sites send what they were given
+in the background, so follow the upload with a **Make sure that…** check for
+what the site shows when it is done, such as **Page contains the text**
+`Uploaded`, with **Keep checking for (optional)** set to a minute.
+
+When the assistant builds an upload, it tries it in its own browser first and
+asks you before any file goes to a site, naming the site and each file. The
+same goes for a trial of a workflow that uploads.
 
 ## Sign in once and stay signed in
 
@@ -234,6 +269,9 @@ bot check explains most failures. Then:
 
 - The step says nothing on the page matches the instruction. Reword it to name
   what is on the page, or split it in two.
+- An upload says no file picker opened. Name the file field itself in
+  **Where to upload (optional)**, or the button that opens the picker; when
+  the upload sits behind a menu or a dialog, open it in a step before.
 - The browser will not start. Run **Check the browser**, and if no browser was
   found, set **Device settings → Browser → Browser executable**.
 - A site the step needs will not load. If you filled in
@@ -255,7 +293,8 @@ refused.
 What reaches the model is the visible text and layout of the page, once for
 each action it decides, billed by the provider you chose. Replayed actions
 and checks that read the page directly send nothing, and neither do the
-values the browser types or your secrets. See
+values the browser types, the files it uploads, or your secrets. Uploaded
+files go to the site, as they would if you chose them yourself. See
 [What leaves your computer](/docs/data-flow/).
 
 Some sites refuse automated browsers. A saved sign-in and a start page past
