@@ -42,7 +42,8 @@ on x64. Linux support is planned. No installers have been published yet.
   with an app password, or any IMAP mailbox connected on your computer.
 - **Use your tools.** Run commands and scripts, Docker images, coding agents
   such as Codex, Claude Code, and Gemini, remote servers over SSH, AI
-  decisions that choose the next path, and operations from any OpenAPI spec.
+  decisions that choose the next path, and operations from any OpenAPI spec,
+  including services you sign in to with OAuth 2.0.
 - **Build by asking.** The assistant proposes workflows as a diff you apply,
   or connect Claude Code or Codex through MCP.
 - **Use it from ChatGPT and Claude.** Connect them on the web, desktop, or
