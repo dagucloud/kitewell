@@ -6,26 +6,39 @@
   :root {
     --bg: #ffffff; --sunk: #f4f5f4; --ink: #0c0f0e; --muted: #5a615e;
     --line: #e4e6e5; --line-strong: #cfd3d1; --accent: #173d33; --tint: #eef3ec;
+    --bad-ink: #a3401f; --bad-bg: #fbefe9;
     --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { width: 1280px; height: 640px; background: var(--bg); overflow: hidden; }
-  body { font-family: var(--sans); color: var(--ink); padding: 56px 80px 0; -webkit-font-smoothing: antialiased; }
+  html, body { width: 1280px; height: 640px; overflow: hidden; }
+  body { background: var(--sunk); font-family: var(--sans); color: var(--ink); padding: 54px 80px 0; -webkit-font-smoothing: antialiased; }
   .top { display: flex; align-items: center; justify-content: space-between; }
-  .brand { display: flex; align-items: center; gap: 16px; font-size: 34px; font-weight: 750; letter-spacing: -0.5px; }
-  .brand svg { width: 56px; height: 56px; display: block; }
-  .site { font-size: 24px; font-weight: 600; color: var(--muted); }
-  h1 { margin-top: 44px; font-size: 76px; line-height: 1.04; font-weight: 800; letter-spacing: -2.8px; }
-  .sub { margin-top: 20px; font-size: 27px; line-height: 1.35; color: var(--muted); }
-  .record { margin-top: 32px; display: flex; align-items: stretch; gap: 0; }
-  .step { flex: 1; border: 1px solid var(--line-strong); border-radius: 10px; padding: 16px 18px 16px; background: var(--bg); }
-  .step + .link { width: 22px; align-self: center; height: 2px; background: var(--line-strong); }
-  .what { font-size: 21px; font-weight: 650; letter-spacing: -0.2px; white-space: nowrap; }
-  .pill { display: inline-block; margin-top: 10px; font-size: 16px; font-weight: 650; padding: 4px 10px; border-radius: 999px; background: var(--sunk); color: var(--muted); }
-  .step.fixed { border: 2px solid var(--accent); background: var(--tint); padding: 15px 17px; }
-  .step.fixed .pill { background: var(--accent); color: #ffffff; }
-  .caption { margin-top: 14px; font-size: 20px; color: var(--muted); }
-  .caption strong { color: var(--ink); font-weight: 650; }
+  .brand { display: flex; align-items: center; gap: 14px; font-size: 30px; font-weight: 750; letter-spacing: -0.5px; }
+  .brand svg { width: 48px; height: 48px; display: block; }
+  .site { font-size: 22px; font-weight: 600; color: var(--muted); }
+  h1 { margin-top: 36px; font-size: 82px; line-height: 1.03; font-weight: 800; letter-spacing: -3.2px; }
+  .pair { margin-top: 46px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 32px; row-gap: 12px; }
+  .label { font-size: 21px; font-weight: 700; color: var(--muted); letter-spacing: 0.1px; }
+  .label.ours { color: var(--accent); }
+  .panel { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 14px 30px -22px rgba(0,0,0,.35); }
+  .row { display: grid; grid-template-columns: 30px 80px minmax(0, 1fr); align-items: center; padding: 16px 22px; border-top: 1px solid var(--line); font-size: 22px; }
+  .row:first-child { border-top: 0; }
+  .n { font-family: var(--mono); font-size: 16px; color: var(--muted); }
+  .verb { font-weight: 650; }
+  .arg { font-family: var(--mono); font-size: 19px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row.bad { background: var(--bad-bg); }
+  .row.bad .arg { color: var(--bad-ink); }
+  .error { padding: 16px 22px; border-top: 1px solid #f1d9cf; background: var(--bad-bg); color: var(--bad-ink); font-weight: 700; font-size: 21px; }
+  .op { padding: 17px 22px; border-top: 1px solid var(--line); }
+  .op:first-child { border-top: 0; }
+  .op.fixed { background: var(--tint); }
+  .head { display: flex; align-items: center; gap: 12px; font-size: 22px; }
+  .head .kind { font-weight: 650; color: var(--muted); width: 104px; flex: none; }
+  .head .what { font-weight: 700; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .status { flex: none; font-size: 17px; font-weight: 700; padding: 5px 13px; border-radius: 999px; background: var(--sunk); color: var(--muted); }
+  .op.fixed .status { background: var(--accent); color: #ffffff; }
+  .detail { margin: 8px 0 0 116px; font-family: var(--mono); font-size: 15px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 </style>
 </head>
 <body>
@@ -36,19 +49,24 @@
     </div>
     <div class="site">kitewell.app</div>
   </div>
-  <h1>AI builds the automation.<br>Your computer runs it.</h1>
-  <p class="sub">Browser automation built and maintained by AI, plus desktop apps, Excel,<br>email, and coding agents like Claude Code and Codex, on your Mac or PC.</p>
-  <div class="record" aria-label="What the browser did">
-    <div class="step"><div class="what">Open page</div><span class="pill">Completed</span></div>
-    <div class="link"></div>
-    <div class="step"><div class="what">Type email</div><span class="pill">Replayed</span></div>
-    <div class="link"></div>
-    <div class="step"><div class="what">Type password</div><span class="pill">Replayed</span></div>
-    <div class="link"></div>
-    <div class="step fixed"><div class="what">Click Sign in</div><span class="pill">Recovered by AI</span></div>
-    <div class="link"></div>
-    <div class="step"><div class="what">Collect invoices</div><span class="pill">Completed</span></div>
+  <h1>The site changed.<br>The automation fixed itself.</h1>
+  <div class="pair">
+      <div class="label">A script written by hand</div>
+      <div class="label ours">Kitewell, on the same changed page</div>
+      <div class="panel">
+        <div class="row"><span class="n">3</span><span class="verb">Type</span><span class="arg">#password "••••••" ✓</span></div>
+        <div class="row bad"><span class="n">4</span><span class="verb">Click</span><span class="arg">x 550, y 524 button#sign-in</span></div>
+        <div class="error">Element not found: button#sign-in</div>
+      </div>
+      <div class="panel">
+        <div class="op fixed">
+          <div class="head"><span class="kind">Do</span><span class="what">Click Sign in</span><span class="status">Recovered by AI</span></div>
+          <div class="detail">4.2 s · xpath=/html[1]/body[1]/main[1]/div[1]/form[1]/div[4]/button[1]</div>
+        </div>
+        <div class="op">
+          <div class="head"><span class="kind">Make sure</span><span class="what">text "Invoices"</span><span class="status">Completed</span></div>
+        </div>
+      </div>
   </div>
-  <p class="caption"><strong>From a real run:</strong> the portal moved its Sign in button, so AI found the new one and kept it.</p>
 </body>
 </html>
