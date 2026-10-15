@@ -31,7 +31,7 @@ Importing always makes a new project; it never replaces one you have. If a
 project of that name is already there, Kitewell asks for another name.
 
 The new project counts against that computer's limit: one project on the free
-plan, up to ten on Kitewell Personal, and up to 15 on Team. A project with
+plan, up to five on Kitewell Personal, and up to 15 on Team. A project with
 more workflows than the plan holds — 10 on the free plan, 100 on Personal and
 Team — cannot be imported at all. The file
 itself may be up to 16 MiB.

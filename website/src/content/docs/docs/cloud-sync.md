@@ -65,7 +65,7 @@ in a [secret](/docs/secrets/) instead.
 If an upload is cut short, the project shows **Upload incomplete** and offers
 **Resume upload**. Saves wait until the upload finishes.
 
-A free account syncs one project. Kitewell Personal syncs up to ten projects
+A free account syncs one project. Kitewell Personal syncs up to five projects
 and Kitewell Team up to 15, each with up to 100 workflows. A workspace holds
 as many computers as its plan: one on a free account and on Kitewell
 Personal, and the number bought on Kitewell Team. Connecting one more
