@@ -18,7 +18,7 @@ until you sync it, and nothing reaches Dagu Cloud before you do.
   to 25 people, quoted by the number of computers the workspace connects; email
   company@descarty.com for a quote, and a larger team takes
   [Enterprise](/pricing/#enterprise). The team's owner pays for the workspace
-  and members need no subscription of their own. Kitewell Personal, planned at
+  and members need no subscription of their own. Kitewell Personal, at
   $20 a month, is for one person's own work on one computer and cannot invite
   anyone. See [Pricing](/pricing/).
 

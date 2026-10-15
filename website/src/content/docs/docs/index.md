@@ -53,7 +53,7 @@ One project, up to 10 workflows in it, and one API key or connected app are
 free, and need no Kitewell account. Each project holds its own workflows,
 history, and secrets.
 
-Kitewell Personal is planned at $20 a month for one person on one computer:
+Kitewell Personal is $20 a month for one person on one computer:
 ten projects of 100 workflows each, any number of API keys and connected apps,
 [alerts](/docs/alerts/), and [webhooks](/docs/webhooks/). Kitewell Team is
 for organizations of up to 25 people, quoted by the number of computers: 15
