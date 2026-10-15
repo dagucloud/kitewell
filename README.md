@@ -375,10 +375,9 @@ Kitewell runs on macOS 13 or later, on Apple silicon and Intel, and on Windows
 10 version 1809 or later and Windows 11, on x64. Website automation uses
 Chrome, or Edge on Windows.
 
-Installers are published on the [download page](https://kitewell.app/download/)
-and [GitHub Releases](https://github.com/dagucloud/kitewell/releases); the
-first release is not out yet. Then follow
-[Your first workflow](https://kitewell.app/docs/getting-started/).
+Download the installer from the [download page](https://kitewell.app/download/)
+or [GitHub Releases](https://github.com/dagucloud/kitewell/releases), then
+follow [Your first workflow](https://kitewell.app/docs/getting-started/).
 
 ## Documentation
 

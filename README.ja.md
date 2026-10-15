@@ -177,7 +177,7 @@ Kitewell のチャット画面の実際の録画です。編集はせず、一�
 
 Kitewell は、macOS 13 以降（Apple シリコンと Intel）と、Windows 10 バージョン 1809 以降および Windows 11（x64）で動きます。Web サイトの自動化には Chrome を使います。Windows では Edge も使えます。
 
-インストーラーは[ダウンロードのページ](https://kitewell.app/ja/download/)と [GitHub Releases](https://github.com/dagucloud/kitewell/releases) で公開します。最初のリリースはまだ公開していません。インストールしたら、[最初のワークフロー](https://kitewell.app/ja/docs/getting-started/)に進んでください。
+インストーラーは[ダウンロードのページ](https://kitewell.app/ja/download/)または [GitHub Releases](https://github.com/dagucloud/kitewell/releases) から入手できます。インストールしたら、[最初のワークフロー](https://kitewell.app/ja/docs/getting-started/)に進んでください。
 
 ## ドキュメント
 
