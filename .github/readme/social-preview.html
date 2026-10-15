@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root {
+    --bg: #ffffff; --sunk: #f4f5f4; --ink: #0c0f0e; --muted: #5a615e;
+    --line: #e4e6e5; --line-strong: #cfd3d1; --accent: #173d33; --tint: #eef3ec;
+    --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 640px; background: var(--bg); overflow: hidden; }
+  body { font-family: var(--sans); color: var(--ink); padding: 56px 80px 0; -webkit-font-smoothing: antialiased; }
+  .top { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 16px; font-size: 34px; font-weight: 750; letter-spacing: -0.5px; }
+  .brand svg { width: 56px; height: 56px; display: block; }
+  .site { font-size: 24px; font-weight: 600; color: var(--muted); }
+  h1 { margin-top: 44px; font-size: 76px; line-height: 1.04; font-weight: 800; letter-spacing: -2.8px; }
+  .sub { margin-top: 20px; font-size: 27px; line-height: 1.35; color: var(--muted); }
+  .record { margin-top: 32px; display: flex; align-items: stretch; gap: 0; }
+  .step { flex: 1; border: 1px solid var(--line-strong); border-radius: 10px; padding: 16px 18px 16px; background: var(--bg); }
+  .step + .link { width: 22px; align-self: center; height: 2px; background: var(--line-strong); }
+  .what { font-size: 21px; font-weight: 650; letter-spacing: -0.2px; white-space: nowrap; }
+  .pill { display: inline-block; margin-top: 10px; font-size: 16px; font-weight: 650; padding: 4px 10px; border-radius: 999px; background: var(--sunk); color: var(--muted); }
+  .step.fixed { border: 2px solid var(--accent); background: var(--tint); padding: 15px 17px; }
+  .step.fixed .pill { background: var(--accent); color: #ffffff; }
+  .caption { margin-top: 14px; font-size: 20px; color: var(--muted); }
+  .caption strong { color: var(--ink); font-weight: 650; }
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#173d33"/><g transform="translate(10 10) scale(.6875)" fill="#ffffff"><path d="M41.5 4.5C42.7 3.7 44.1 4.9 43.6 6.3L24.1 58.4C23.7 59.7 22 59.9 21.3 58.8L5.3 32.8C4.2 31.1 4.6 28.9 6.3 27.8Z"/><path d="M47.1 10.1C47.6 8.8 49.1 8.7 49.7 10L60.3 33C61.1 34.7 60.6 36.7 59.1 37.8L31 59C29.8 59.9 28.4 58.8 28.9 57.4Z"/></g></svg>
+      Kitewell
+    </div>
+    <div class="site">kitewell.app</div>
+  </div>
+  <h1>AI builds the automation.<br>Your computer runs it.</h1>
+  <p class="sub">Browser automation built and maintained by AI, plus desktop apps, Excel,<br>email, and coding agents like Claude Code and Codex, on your Mac or PC.</p>
+  <div class="record" aria-label="What the browser did">
+    <div class="step"><div class="what">Open page</div><span class="pill">Completed</span></div>
+    <div class="link"></div>
+    <div class="step"><div class="what">Type email</div><span class="pill">Replayed</span></div>
+    <div class="link"></div>
+    <div class="step"><div class="what">Type password</div><span class="pill">Replayed</span></div>
+    <div class="link"></div>
+    <div class="step fixed"><div class="what">Click Sign in</div><span class="pill">Recovered by AI</span></div>
+    <div class="link"></div>
+    <div class="step"><div class="what">Collect invoices</div><span class="pill">Completed</span></div>
+  </div>
+  <p class="caption"><strong>From a real run:</strong> the portal moved its Sign in button, so AI found the new one and kept it.</p>
+</body>
+</html>

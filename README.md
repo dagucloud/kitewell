@@ -448,4 +448,14 @@ The website uses Astro for marketing pages and Starlight for documentation.
 Docs are Markdown under `website/src/content/docs/docs/`; the nested `docs`
 segment preserves the public `/docs/` route. Published Markdown notes live in
 `releases/`. The build checks internal links, including documentation anchors.
-The README's animated loops live in `.github/readme/`.
+The README's animated loops and the repository's social preview card live in
+`.github/readme/`. The card renders from `social-preview.html` at 1280×640:
+
+```sh
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+  --hide-scrollbars --window-size=1280,640 --force-device-scale-factor=1 \
+  --screenshot=.github/readme/social-preview.png \
+  "file://$PWD/.github/readme/social-preview.html"
+```
+
+Upload it under the repository's Settings → General → Social preview.
