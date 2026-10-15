@@ -678,8 +678,8 @@ export const shortfalls = [
   {
     title: { en: "New, from a small company", ja: "新しい製品で、つくっているのは小さな会社" },
     text: {
-      en: "Kitewell is made by Descarty, Inc., and paid plans open with the public launch. Workflows are plain YAML on the open-source Dagu engine, and a project can be exported any time.",
-      ja: "Kitewell は Descarty, Inc. の製品で、有料プランは正式リリースから購入できます。ワークフローはオープンソースの Dagu エンジンで動く素の YAML で、プロジェクトはいつでもエクスポートできます。",
+      en: "Kitewell is made by Descarty, Inc. Workflows are plain YAML on the open-source Dagu engine, and a project can be exported any time.",
+      ja: "Kitewell は Descarty, Inc. の製品です。ワークフローはオープンソースの Dagu エンジンで動く素の YAML で、プロジェクトはいつでもエクスポートできます。",
     },
     href: "/docs/sharing/",
   },
