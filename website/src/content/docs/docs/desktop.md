@@ -252,6 +252,10 @@ Look at the step's screenshots first. Then:
 - Someone used the mouse or keyboard for the whole time limit, so the step
   never got the screen. Run it when the computer is free, or give the step a
   longer time limit.
+- The browser asks you to choose a certificate. A desktop step works the
+  browser on your screen, which the client certificates added to Kitewell do
+  not reach. Automate the site with a
+  [website step](/docs/browser/#sites-that-ask-for-a-certificate) instead.
 
 The rest is in [Troubleshooting](/docs/troubleshooting/#a-desktop-step-fails).
 

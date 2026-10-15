@@ -219,6 +219,11 @@ A step needs no setting of its own. When a run fails because a site asked for
 a certificate, the failed run offers an administrator a way to add one for
 that site, or to use one already added, and then **Retry run**.
 
+Only website steps and the assistant's browser present it. A
+[desktop step](/docs/desktop/) works the browser on your screen, which asks
+you to choose a certificate itself and waits for an answer, so automate such a
+site with a website step.
+
 Kitewell keeps the certificate on this computer under a password of its own,
 never yours, and leaves it out of backups. Adding or changing one restarts the
 project engines; runs in progress continue. Kitewell's chat warns a month and
