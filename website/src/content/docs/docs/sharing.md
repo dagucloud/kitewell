@@ -94,7 +94,8 @@ the project.
 
 They then use any MCP client, or plain HTTP requests, against that computer.
 The free plan holds one API key or connected app in total; Kitewell Personal
-and Team hold any number. Every run still happens as that computer's own user, so a key
+and Team hold any number. When an organization's people share a computer this
+way, it takes Kitewell Team; see [pricing](/pricing/). Every run still happens as that computer's own user, so a key
 limits which projects a person reaches, not what a workflow may do once it
 runs. The optional sign-in on the app itself is separate; these keys do not
 create logins for it.

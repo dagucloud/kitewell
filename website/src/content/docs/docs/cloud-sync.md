@@ -14,12 +14,13 @@ until you sync it, and nothing reaches Dagu Cloud before you do.
 ## What you need
 
 - A Dagu Cloud account. It is free, and a free account syncs one project.
-- To share with other people, Kitewell Team. Its planned price is $29 a
-  month for each computer the workspace connects, for up to 25 people; a
-  larger team takes [Enterprise](/pricing/#enterprise). The team's owner pays
-  for the workspace and members need no subscription of their own. Kitewell
-  Personal, planned at $20 a month, is for one person on one computer and
-  cannot invite anyone. See [Pricing](/pricing/).
+- To share with other people, Kitewell Team. It is an annual contract for up
+  to 25 people, quoted by the number of computers the workspace connects; email
+  company@descarty.com for a quote, and a larger team takes
+  [Enterprise](/pricing/#enterprise). The team's owner pays for the workspace
+  and members need no subscription of their own. Kitewell Personal, planned at
+  $20 a month, is for one person's own work on one computer and cannot invite
+  anyone. See [Pricing](/pricing/).
 
 ## Sign in
 
@@ -74,11 +75,9 @@ holds more. Syncing a project the plan has no room for is refused, and says
 why. Synced projects count against the workspace's plan, not the computer's
 own project limit.
 
-To move between plans, open the **Kitewell** page in Dagu Cloud and choose
-**Switch to Kitewell Team** or **Switch to Kitewell Personal**. On Team, change
-the number of computers there too. Stripe adjusts your next invoice for either
-change. Before moving to Personal, remove the other people, revoke their
-invitations, and leave one computer connected.
+To move from Personal to Team, or to change the computers on Team, email
+company@descarty.com. To move back to Personal, remove the other people,
+revoke their invitations, and leave one computer connected first.
 
 ## Work on the project from another computer
 

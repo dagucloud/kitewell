@@ -179,7 +179,7 @@ The change applies to the app's next call.
   to show **Online**, then choose **Try again**.
 - No room: the free plan holds one API key or connected app together, and
   this computer already has one. Revoke it under **This device → MCP**, or
-  subscribe to Kitewell Personal or Team, then connect again.
+  move to Kitewell Personal or Team, then connect again.
 
 ### The app connects, but only reads
 

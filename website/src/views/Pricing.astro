@@ -10,13 +10,13 @@ const text = {
   en: {
     title: "Pricing",
     description:
-      "Planned Kitewell launch pricing: one project with up to 10 workflows on one computer free; Kitewell Personal at $20 a month for one person on one computer, with up to ten projects of 100 workflows, alerts, and webhooks; Kitewell Team at $29 a month per computer for up to 25 people and 15 projects.",
+      "Planned Kitewell launch pricing: one project with up to 10 workflows on one computer free; Kitewell Personal at $20 a month for one person on one computer, with up to ten projects of 100 workflows, alerts, and webhooks; Kitewell Team for organizations, quoted per computer, for up to 25 people and 15 projects.",
     eyebrow: "Planned launch pricing",
     heading: "One project, free.",
-    lead: "A project keeps its workflows, run history, and secrets separate. Every plan includes the same workflow tools. Personal adds room for more work and alerts when it needs you; Team adds the people you share it with, and you pay for each computer that runs Kitewell.",
+    lead: "A project keeps its workflows, run history, and secrets separate. Every plan includes the same workflow tools. Personal adds room for more work and alerts when it needs you; Team adds the people you share it with, quoted by the computers that run Kitewell.",
     freeName: "Free",
     freePrice: "$0",
-    freeFor: "For one project on one computer.",
+    freeFor: "For one person's own work: one project on one computer.",
     free: [
       "One project with up to 10 workflows",
       "Visual workflows and YAML",
@@ -31,7 +31,7 @@ const text = {
     personalPrice: "$20",
     personalPer: "/ month · USD",
     personalTax: "",
-    personalFor: "For one person on one computer, including paid work.",
+    personalFor: "For one person's own work on one computer, including paid work.",
     personal: [
       "Every feature in Free",
       "Up to ten projects, 100 workflows each",
@@ -42,30 +42,31 @@ const text = {
       "Projects kept in Dagu Cloud, to restore on a new computer",
     ],
     teamName: "Team",
-    teamPrice: "$29",
-    teamPer: "/ computer / month · USD",
-    teamTax: "",
-    teamFor: "For a team of up to 25 people.",
+    teamPrice: "Quote",
+    teamPer: "",
+    teamTax: "Annual contract, priced per computer",
+    teamFor: "For an organization of up to 25 people.",
     team: [
       "Every feature in Personal",
-      "As many computers as you need, $29 each",
+      "Priced by the computers that run Kitewell, 1 to 100",
       "Up to 25 people, invitations included",
       "Up to 15 projects, 100 workflows each",
       "Projects shared through Dagu Cloud, with a role for each person on each project",
       "Secret values stay on each computer",
+      "Paid by invoice, in yen in Japan",
     ],
+    teamAction: "Ask for a quote",
     paidNote:
-      "Prices exclude tax. In Japan, plans are billed in yen: ¥3,000 a month for Personal and ¥4,400 a month per computer for Team, plus consumption tax. Personal and Team need a Dagu Cloud account. Connecting one computer more than your plan holds disconnects your own oldest one. When a plan ends, alerts, MCP Events, and webhooks stop, and 7 days later projects, workflows, and API keys beyond the free plan stop running; you choose which stay. Nothing is deleted, and everything starts again when you subscribe. Purchase will be available with the public launch.",
+      "Prices exclude tax. In Japan, Personal is billed in yen: ¥3,000 a month, plus consumption tax. Free and Personal are for one person's own work; an organization that runs Kitewell for shared work, on several people's computers or on a computer set aside for it, needs Team. Personal and Team need a Dagu Cloud account. Connecting one computer more than your plan holds disconnects your own oldest one. When a plan ends, alerts, MCP Events, and webhooks stop, and 7 days later projects, workflows, and API keys beyond the free plan stop running; you choose which stay. Nothing is deleted, and everything starts again when you subscribe. Purchase will be available with the public launch.",
     enterpriseName: "Enterprise",
     enterprise:
-      "For a company that needs the features below, at any size; talk to us even if you start with one department and a few computers. Enterprise is priced per computer at volume, plus an annual fee, and the features below are arranged with you under the contract. Email us and we'll set it up with you.",
+      "For more than 25 people or 100 computers, or for a company that needs the features below. Like Team, it is an annual contract, priced per computer at volume plus an annual fee, and the features below are arranged with you under the contract. Email us and we'll set it up with you.",
     enterpriseFeatures: [
       ["SSO and SCIM", "Sign in with SAML, and add or remove people automatically from your identity provider."],
       ["Audit log export", "Every change and every run on every computer, exported and kept for the long term."],
       ["Fleet management", "Each computer's status, version, and last connection, and what may run where."],
       ["Roles and policies", "A role for each person on each project, and the sites and apps workflows may use."],
       ["Closed-network sync", "Projects sync inside your own environment instead of through Dagu Cloud."],
-      ["Invoice billing", "An annual contract in Japanese yen, paid by invoice."],
       ["SLA", "Response times agreed in the contract for when something goes wrong."],
       ["Security reviews", "Answers for your security questionnaire and review."],
     ],
@@ -79,13 +80,13 @@ const text = {
   ja: {
     title: "料金",
     description:
-      "Kitewell の正式リリース時の予定価格です。コンピューター 1 台での 1 プロジェクト・10 ワークフローまでは無料。Kitewell Personal は 1 人・1 台で月額 3,000 円（税込 3,300 円）、最大 10 プロジェクト・各 100 ワークフロー、アラート、Webhook を利用できます。Kitewell Team はコンピューター 1 台あたり月額 4,400 円（税込 4,840 円）で、最大 25 人・15 プロジェクトで使えます。",
+      "Kitewell の正式リリース時の予定価格です。コンピューター 1 台での 1 プロジェクト・10 ワークフローまでは無料。Kitewell Personal は 1 人・1 台で月額 3,000 円（税込 3,300 円）、最大 10 プロジェクト・各 100 ワークフロー、アラート、Webhook を利用できます。Kitewell Team は法人向けに台数に応じてお見積りし、最大 25 人・15 プロジェクトで使えます。",
     eyebrow: "正式リリース時の予定価格",
     heading: "1 プロジェクトなら無料。",
-    lead: "プロジェクトごとに、ワークフロー、実行履歴、シークレットが分かれます。どのプランでも同じワークフロー機能を使えます。Personal では扱える量が増え、対応が必要なときに知らせるアラートが加わります。Team では一緒に使うメンバーが加わり、料金は Kitewell を動かすコンピューターの台数で決まります。",
+    lead: "プロジェクトごとに、ワークフロー、実行履歴、シークレットが分かれます。どのプランでも同じワークフロー機能を使えます。Personal では扱える量が増え、対応が必要なときに知らせるアラートが加わります。Team では一緒に使うメンバーが加わり、料金は Kitewell を動かすコンピューターの台数に応じてお見積りします。",
     freeName: "Free",
     freePrice: "¥0",
-    freeFor: "1 台のコンピューターで使うプラン。",
+    freeFor: "1 人が自分の仕事に、1 台で使うプラン。",
     free: [
       "1 プロジェクト、最大 10 ワークフロー",
       "ビジュアルエディタと YAML",
@@ -100,7 +101,7 @@ const text = {
     personalPrice: "¥3,000",
     personalPer: "/ 月",
     personalTax: "税込 ¥3,300 / 月",
-    personalFor: "1 人が 1 台で使うプラン。仕事にも使えます。",
+    personalFor: "1 人が自分の仕事に、1 台で使うプラン。有償の仕事にも使えます。",
     personal: [
       "Free のすべての機能",
       "最大 10 プロジェクト、各 100 ワークフロー",
@@ -111,30 +112,31 @@ const text = {
       "プロジェクトを Dagu Cloud に保管し、新しいコンピューターで復元",
     ],
     teamName: "Team",
-    teamPrice: "¥4,400",
-    teamPer: "/ 台 / 月",
-    teamTax: "税込 ¥4,840 / 台 / 月",
-    teamFor: "最大 25 人のチームで使うプラン。",
+    teamPrice: "お見積り",
+    teamPer: "",
+    teamTax: "年間契約・台数に応じた料金",
+    teamFor: "最大 25 人の組織で使うプラン。",
     team: [
       "Personal のすべての機能",
-      "コンピューターは必要な台数だけ、1 台 4,400 円（税込 4,840 円）",
+      "料金は Kitewell を動かすコンピューターの台数（1〜100 台）で決まります",
       "最大 25 人（招待中を含む）",
       "最大 15 プロジェクト、各 100 ワークフロー",
       "Dagu Cloud を通じてチームでプロジェクトを共有し、プロジェクトごとにメンバーのロールを設定",
       "シークレットの値は各コンピューターにとどまります",
+      "円建ての請求書でお支払いいただけます",
     ],
+    teamAction: "見積りを依頼する",
     paidNote:
-      "価格は税抜で、括弧内は消費税 10% を含む税込価格です。日本国外からのお申し込みは米ドルでの決済となり、Personal は月額 20 ドル、Team は 1 台あたり月額 29 ドル（いずれも税抜）です。Personal と Team には Dagu Cloud アカウントが必要です。プランの台数を超えてコンピューターを接続すると、自分の最も古いコンピューターの接続が解除されます。プランが終わると、アラート、MCP Events、Webhook が止まり、その 7 日後に無料プランを超える分のプロジェクト、ワークフロー、API キーが止まります。どれを残すかは選べます。データは削除されず、再び契約すればすべて元どおりに動きます。購入は正式リリース時に開始します。",
+      "価格は税抜で、括弧内は消費税 10% を含む税込価格です。日本国外からのお申し込みは米ドルでの決済となり、Personal は月額 20 ドル（税抜）です。Free と Personal は、1 人が自分の仕事に使うためのプランです。組織の共有の仕事に使う場合、つまり複数の人のコンピューターや、そのために用意したコンピューターで動かす場合は Team が必要です。Personal と Team には Dagu Cloud アカウントが必要です。プランの台数を超えてコンピューターを接続すると、自分の最も古いコンピューターの接続が解除されます。プランが終わると、アラート、MCP Events、Webhook が止まり、その 7 日後に無料プランを超える分のプロジェクト、ワークフロー、API キーが止まります。どれを残すかは選べます。データは削除されず、再び契約すればすべて元どおりに動きます。購入は正式リリース時に開始します。",
     enterpriseName: "Enterprise",
     enterprise:
-      "次の機能が必要な会社のためのプランです。1 部署・数台からでもご相談ください。料金は、台数に応じたコンピューター単価と年額の基本料で決まります。次の機能は、Enterprise 契約のもとで個別にご用意します。メールでご連絡ください。",
+      "25 人・100 台を超える場合や、次の機能が必要な会社のためのプランです。Team と同じく年間契約で、料金は台数に応じたコンピューター単価と年額の基本料で決まります。次の機能は、Enterprise 契約のもとで個別にご用意します。メールでご連絡ください。",
     enterpriseFeatures: [
       ["SSO と SCIM", "SAML でサインインし、ID 管理サービスでのメンバーの追加・削除を自動で反映します。"],
       ["監査ログの書き出し", "すべてのコンピューターの変更と実行を書き出し、長期間保管します。"],
       ["コンピューターの管理", "各コンピューターの状態、バージョン、最終接続と、どのコンピューターで何を動かしてよいかを管理します。"],
       ["ロールとポリシー", "プロジェクトごとのメンバーのロールと、ワークフローが使えるサイト・アプリを設定します。"],
       ["閉域網での同期", "Dagu Cloud を使わず、貴社の環境内でプロジェクトを同期します。"],
-      ["請求書払い", "円建ての年間契約で、請求書でお支払いいただけます。"],
       ["SLA", "障害時の対応時間を契約で定めます。"],
       ["セキュリティ審査への対応", "セキュリティチェックシートへの回答や審査に対応します。"],
     ],
@@ -180,12 +182,13 @@ const text = {
         <h2>{text.teamName}</h2>
         <p>{text.teamFor}</p>
         <div class="price">
-          {text.teamPrice} <span>{text.teamPer}</span>
+          {text.teamPrice} {text.teamPer && <span>{text.teamPer}</span>}
           {text.teamTax && <span class="price-tax">{text.teamTax}</span>}
         </div>
         <ul>
           {text.team.map((item) => <li>{item}</li>)}
         </ul>
+        <a class="button" href="mailto:company@descarty.com?subject=Kitewell%20Team">{text.teamAction}</a>
       </article>
     </div>
     <p class="fine plans-note">{text.paidNote}</p>

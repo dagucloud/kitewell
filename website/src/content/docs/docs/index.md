@@ -56,8 +56,8 @@ history, and secrets.
 Kitewell Personal is planned at $20 a month for one person on one computer:
 ten projects of 100 workflows each, any number of API keys and connected apps,
 [alerts](/docs/alerts/), and [webhooks](/docs/webhooks/). Kitewell Team is
-planned at $29 a month for each computer, for up to 25 people: 15 projects and
-a team that syncs them. See [pricing](/pricing/).
+for organizations of up to 25 people, quoted by the number of computers: 15
+projects and a team that syncs them. See [pricing](/pricing/).
 
 ## What runs where
 

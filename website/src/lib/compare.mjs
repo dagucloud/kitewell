@@ -467,8 +467,8 @@ export const categories = [
           ),
         ],
         differs: {
-          en: "Kitewell works desktop apps as well as websites, on your own computer. Team is priced per computer ($29 a month) rather than per user, and one project is free.",
-          ja: "Kitewell は Web サイトに加えてデスクトップアプリも、あなたのコンピューターで操作します。Team の料金はユーザー単位ではなくコンピューター 1 台単位（月額 4,400 円）で、1 プロジェクトなら無料です。",
+          en: "Kitewell works desktop apps as well as websites, on your own computer. Team is priced per computer rather than per user, and one project is free.",
+          ja: "Kitewell は Web サイトに加えてデスクトップアプリも、あなたのコンピューターで操作します。Team の料金はユーザー単位ではなくコンピューターの台数単位で、1 プロジェクトなら無料です。",
         },
         instead: {
           en: "Your work happens in the browser, you buy through Microsoft Marketplace, and you want an agent from a large Japanese vendor that learns from a veteran's demonstration.",

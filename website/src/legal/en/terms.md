@@ -1,7 +1,7 @@
 ---
 title: Terms of Use
 description: The terms for using the Kitewell application and the kitewell.app website.
-updated: 2026-10-06
+updated: 2026-10-15
 ---
 
 These terms apply to the Kitewell application and the kitewell.app website,
@@ -59,7 +59,10 @@ are logged in, and the engine is running.
 The Free plan needs no account. Paid plans are purchased and managed in Dagu
 Cloud and are subject to the
 [Dagu Terms of Service](https://dagu.sh/terms). Current prices and limits are
-shown on the [pricing page](/pricing/). If a paid plan ends, projects,
+shown on the [pricing page](/pricing/). The Free and Personal plans are for one
+person's own work. An organization that runs Kitewell for shared work, on
+several people's computers or on a computer set aside for it, needs the Team
+plan, which Descarty provides under a separate contract. If a paid plan ends, projects,
 workflows, API keys, and connected apps beyond your current plan stop running 7
 days later. You choose which stay within the plan, nothing is deleted, and they
 run again when you subscribe. Charges from AI providers and other services your workflows
