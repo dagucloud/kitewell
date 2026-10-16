@@ -60,7 +60,7 @@ export const film = {
       ],
       [
         "Run it on every computer, and watch them all from the cloud. If a run fails, or a computer goes quiet, you hear about it.",
-        "The two computers report their runs to Dagu Console, whose real computers page takes the frame. Kitewell's alert for a failed run arrives in the team chat, and Dagu Console's email says a computer stopped reporting. Notes say alerts need Kitewell Personal or Team, and stopped-reporting alerts are turned on per computer.",
+        "The two computers report their runs to Dagu Console, whose real computers page takes the frame. Kitewell's alert for a failed run arrives in the team chat, and Dagu Console's email says a computer stopped reporting. Notes say Kitewell's alerts need Personal or Team, and Dagu Console's stopped-reporting alerts are turned on per computer.",
       ],
       [
         "Kitewell. It flies on its own. You hold the string.",
@@ -126,7 +126,7 @@ export const film = {
       ],
       [
         "どのパソコンで動かしても、クラウドからまとめて見守れます。失敗したときも、パソコンが止まったときも、知らせが届きます。",
-        "2 台のパソコンが実行を Dagu Console に報告し、実際のコンピューター一覧の画面が映ります。失敗した実行についての Kitewell のアラートがチャットに届き、Dagu Console からはパソコンのレポートが停止したというメールが届きます。アラートは Kitewell Personal と Team で使え、レポート停止アラートはコンピューターごとにオンにすると注記されます。",
+        "2 台のパソコンが実行を Dagu Console に報告し、実際のコンピューター一覧の画面が映ります。失敗した実行についての Kitewell のアラートがチャットに届き、Dagu Console からはパソコンのレポートが停止したというメールが届きます。Kitewell のアラートは Personal と Team で使え、Dagu Console のレポート停止アラートはコンピューターごとにオンにすると注記されます。",
       ],
       [
         "Kitewell。ひとりでに、飛んでいく。糸は、あなたの手に。",

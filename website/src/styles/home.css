@@ -146,6 +146,12 @@
 .pair.wide-media {
   grid-template-columns: 7fr 5fr;
 }
+/* The run stays in view while the notes beside it, taller than it, scroll
+   past. */
+.pair.wide-media > .frame {
+  position: sticky;
+  top: 32px;
+}
 /* Grid children may shrink below their content, so a wide table scrolls
    inside its own box instead of widening the page. */
 .pair > *,
@@ -447,6 +453,9 @@
   .finale {
     grid-template-columns: 1fr;
     gap: 36px;
+  }
+  .pair.wide-media > .frame {
+    position: static;
   }
   .how-steps {
     grid-template-columns: 1fr;

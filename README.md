@@ -15,7 +15,7 @@
   Describe the job, and AI builds the automation in a browser you can watch,
   then fixes it when the site changes. Desktop apps, Excel, email, and coding
   agents like Claude Code run the same way: on a schedule or a webhook, with
-  your OK where it matters.
+  your OK where it matters. Follow it from your phone, wherever you are.
 </p>
 
 <p align="center">
@@ -274,17 +274,24 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
 - **[From anywhere.](https://kitewell.app/docs/mcp/)** From ChatGPT or Claude
   on your phone, from Claude Code or Codex over MCP, or with a REST call.
 
-## Approve from your phone. Know why a run failed.
+## Approve and follow runs from your phone. Know why one failed.
 
 ![A finished invoice run in Kitewell, with each step's status and the selected step's output](website/src/assets/docs/en/runs-run-view.png)
 
 - **Approve or send back.** Any step can wait for your OK. Approve it, or send
   it back with a note, from the run, a notification, or ChatGPT and Claude on
   your phone.
+- **[Runs in your browser.](https://kitewell.app/docs/console/)** Dagu Console
+  shows each run of a synced project and the computer it ran on. Open it on
+  your phone. Free with a Dagu Cloud account.
+- **Alerts.** Slack, Microsoft Teams, PagerDuty, email, or a desktop
+  notification when a run fails, waits for you, or misses its schedule. With
+  Personal and Team.
+- **When a computer goes quiet.** Dagu Console emails you when a computer
+  stops reporting for 10 minutes: asleep, offline, or Kitewell quit. Turn it
+  on for computers meant to stay on.
 - **Failure diagnosis.** AI reads a failed run and says whether to try again,
   step in, or change the workflow.
-- **Alerts.** Slack, Microsoft Teams, PagerDuty, or email name the step that
-  failed.
 - **Run record.** Every step's output, screenshots, and decisions. Retry from
   the step that failed.
 - **Test first.** Run one step with real inputs before you save, and try a
@@ -296,8 +303,10 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
 
 ## Run it on every computer. Watch them all from one place.
 
-- **Dagu Console.** Every computer's runs in one place, one alert per workflow
-  across computers, and an alert when a computer stops reporting.
+- **[Every computer, one view.](https://kitewell.app/docs/console/)** Dagu
+  Console lists each computer's status, Kitewell version, and today's runs.
+  One alert per workflow, however many computers run it, closed by the next
+  success on any of them.
 - **[Sync and roles.](https://kitewell.app/docs/cloud-sync/)** Share projects
   with Viewer, Editor, and Admin roles. Each computer keeps its own sign-ins
   and secret values.
@@ -355,7 +364,8 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
 | Computers | 1 | 1 | 1 to 100 |
 | Projects | 1, with up to 10 workflows | Up to 5, with 100 workflows each | Up to 15, with 100 workflows each |
 | API keys and connected apps | 1 | Any number | Any number |
-| Alerts, webhooks, MCP Events | | Included | Included |
+| Runs and alerts in Dagu Console | Included | Included | Included |
+| Kitewell's alerts, webhooks, MCP Events | | Included | Included |
 | Shared projects with roles | | | Included |
 | Included model credits | 100 once, signed in | 500 a month | 500 a month per computer |
 
