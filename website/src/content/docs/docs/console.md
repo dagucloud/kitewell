@@ -16,8 +16,9 @@ logs, outputs, or secret values.
   Personal each hold one computer.
 
 Sign in to Dagu Console with the account your computers use. The workspace
-owner sees every synced project. Anyone else in the workspace sees the runs of
-the projects they have a role on, and the list of computers.
+owner sees every synced project and every computer. Anyone else in the
+workspace sees the runs of the projects they have a role on, their own
+computers, and the computers that ran those projects.
 
 ## Follow runs
 
@@ -65,8 +66,8 @@ Emails go out when an alert opens and when it resolves:
   admins.
 - **Add a recipient** adds a **Member** or an **Outside address** with
   **Kitewell** ticked. Both hear about computers that stop reporting and about
-  failed workflows: a member for the projects they can open, an outside
-  address for every project once it is verified.
+  failed workflows: a member for the projects they can open and the computers
+  they can see, an outside address for every project once it is verified.
 
 ### Kitewell's alerts and Dagu Console's
 

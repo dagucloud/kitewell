@@ -154,8 +154,8 @@ values, or secret values.
 
 The workspace owner sees the runs of every synced project in Dagu Console.
 Other members of the workspace see the runs of the projects they have a role
-on, and every member sees the workspace's devices with their names, users, and
-Kitewell versions. Dagu Cloud keeps each run for 14 days, daily totals for 13
+on, and the devices that are theirs or ran those projects, with their names,
+users, and Kitewell versions. Dagu Cloud keeps each run for 14 days, daily totals for 13
 months, and alerts for 90 days after they resolve, and deletes what a device
 reported once it has not reported for 30 days. The workspace owner can turn
 this reporting off in Dagu Console, under Settings, with "Share Kitewell run
