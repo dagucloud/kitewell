@@ -88,7 +88,7 @@ Web 検索は `console.dagu.sh` に届き、そこから Serper（`google.serper
 
 Kitewell の付属モデルへのリクエストは、コンピューター自身の資格情報ではなく、有効期間 1 週間で毎日更新される実行トークンを添えて `console.dagu.sh` に届き、Dagu Cloud がそれを `openrouter.ai` に送ります。
 
-同期したプロジェクトの実行ステータスは、2 分ごとに、また進行中の実行が変わったときはそれより早く `console.dagu.sh` に届きます。届かなかった報告は、もう一度送られます。
+同期したプロジェクトの実行ステータスは、2 分ごとに、また進行中の実行が変わったときはそれより早く `console.dagu.sh` に届きます。届かなかった報告は、もう一度送られます。[Dagu Console](/ja/docs/console/#what-dagu-console-keeps) は、各実行を 14 日間、日次の集計を 13 か月、アラートを解決してから 90 日間保持します。
 
 ### リレー
 

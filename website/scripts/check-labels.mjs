@@ -24,6 +24,20 @@ const { messages, languages } = await import(pathToFileURL(catalogFile).href);
 const ja = languages.indexOf("ja");
 const english = new Set(Object.keys(messages));
 const japanese = new Set(Object.values(messages).map((row) => row[ja]).filter(Boolean));
+// Pages about Dagu Console name its controls, spelled as the console's own
+// catalogs spell them: an English label mapped to its translations. They are
+// read from DAGU_CLOUD_SOURCE or the sibling checkout, when present.
+const cloud = process.env.DAGU_CLOUD_SOURCE ?? path.resolve("..", "..", "cloud");
+const consoleCatalogs = path.join(cloud, "internal", "platform", "i18n", "catalogs");
+if (fs.existsSync(consoleCatalogs)) {
+  for (const name of fs.readdirSync(consoleCatalogs).filter((n) => n.endsWith(".json"))) {
+    const catalog = JSON.parse(fs.readFileSync(path.join(consoleCatalogs, name), "utf8"));
+    for (const [label, translations] of Object.entries(catalog)) {
+      english.add(label);
+      if (translations?.ja) japanese.add(translations.ja);
+    }
+  }
+}
 // A label may carry a placeholder the page fills in — "Run {count} rows" is
 // shown as "Run 6 rows" — so a key with one matches any value in its place.
 const fold = (s) => s.replace(/…$/, "").trim();

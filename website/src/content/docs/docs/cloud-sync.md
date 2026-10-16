@@ -163,6 +163,9 @@ unticking **Share Kitewell run status** and choosing **Save changes**. The
 computers then report only that they run, and runs that finish meanwhile are
 never sent.
 
+[Dagu Console](/docs/console/) describes what the console shows and the alerts
+it sends.
+
 ## Work as a team
 
 The workspace owner manages the team on the **Kitewell** page in Dagu Cloud:

@@ -13,6 +13,10 @@ offers the upgrade instead, and nothing is sent: not an email, not a message,
 not even a notification on this computer. Nothing is held back for later
 either, so alerts start from the moment the plan is in place.
 
+These alerts come from the computer. On every plan, the free one included,
+[Dagu Console](/docs/console/#alerts-from-dagu-console) can also email you
+when a synced project's workflow fails or a computer stops reporting.
+
 ![The Notifications page on a device without the plan, offering the upgrade](../../../assets/docs/en/alerts-notifications.png)
 
 A channel saved under an earlier plan stays listed under **Saved channels**,
@@ -124,10 +128,11 @@ is set to.
 
 The background service sends them while the computer is awake and Kitewell is
 running. An alert that cannot be delivered is retried, further apart each
-time, for up to a day. Kitewell does not watch your computer from somewhere
-else: while it is asleep or off nothing is sent, and the schedules it missed
-are reported once it wakes. A run that finished more than a day ago is not
-announced when Kitewell finds it late.
+time, for up to a day. While the computer is asleep or off it sends nothing,
+and the schedules it missed are reported once it wakes. A run that finished
+more than a day ago is not announced when Kitewell finds it late. To hear when
+a computer meant to stay on goes quiet, turn on its
+[stopped-reporting alert in Dagu Console](/docs/console/#alerts-from-dagu-console).
 
 ## Alerts, not event handlers
 

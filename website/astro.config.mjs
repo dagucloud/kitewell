@@ -64,6 +64,7 @@ export default defineConfig({
             { label: "MCP and API access", translations: { ja: "MCP と API アクセス" }, slug: "docs/mcp" },
             { label: "Share workflows with your team", translations: { ja: "チームでワークフローを共有" }, slug: "docs/sharing" },
             { label: "Sync with Dagu Cloud", translations: { ja: "Dagu Cloud と同期" }, slug: "docs/cloud-sync" },
+            { label: "Dagu Console", translations: { ja: "Dagu Console" }, slug: "docs/console" },
             { label: "Releases and staged projects", translations: { ja: "リリースと段階的なプロジェクト" }, slug: "docs/releases" },
             { label: "Secrets", translations: { ja: "シークレット" }, slug: "docs/secrets" },
           ],

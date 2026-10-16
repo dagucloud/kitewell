@@ -141,7 +141,9 @@ credential, and Dagu Cloud sends it on to `openrouter.ai`.
 
 A synced project's run status goes to `console.dagu.sh` every two minutes,
 or sooner when the runs in progress change. A report that does not arrive is
-sent again.
+sent again. [Dagu Console](/docs/console/#what-dagu-console-keeps) keeps each
+run for 14 days, daily totals for 13 months, and alerts for 90 days after they
+resolve.
 
 ### The relay
 
