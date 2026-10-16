@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes stay on your device.
-updated: 2026-10-06
+updated: 2026-10-16
 ---
 
 Descarty, Inc. ("Descarty", "we") publishes Kitewell. This policy explains what
@@ -10,6 +10,8 @@ it goes, and what we receive.
 
 The short version: Kitewell runs on your device. Your workflows, run history,
 logs, credentials, and connected mailboxes stay there. We do not receive them.
+If you sync a project, its definitions and the status of its runs go to Dagu
+Cloud, which we run (section 4).
 If you connect ChatGPT or Claude, what it reads through Kitewell's tools
 passes through our relay without being stored. If you turn on a webhook,
 requests other services send to it wait at our relay until your device takes
@@ -20,7 +22,8 @@ them, for at most 7 days.
 Kitewell stores workflow definitions, run records, logs, output files,
 settings, and backups on the device where it runs. Saved secrets are encrypted
 on that device. We do not receive this data, and Kitewell does not send it to
-us. An AI app you connect reaches it only as described in section 5.
+us, except the definitions and run status of a project you sync (section 4).
+An AI app you connect reaches it only as described in section 5.
 
 Workflows can read and change the files that the account running Kitewell can
 reach. Run output can contain personal information or credentials; review logs
@@ -141,6 +144,22 @@ Dagu Cloud: workflows and schedules, agents and models, API connections,
 servers, queues, secret names and descriptions, saved batch inputs, and project
 defaults. Secret values are never sent. Text typed directly into workflow YAML,
 batch inputs, or API addresses travels as written.
+
+While a project is synced, each device that runs it also reports the status of
+its runs to Dagu Cloud, about every two minutes: each run's workflow, status,
+trigger, the times it was queued, started, and finished, and the names of the
+steps that failed, with the device's Kitewell version, operating system, and
+when Kitewell started. It never reports parameters, logs, outputs, sheet
+values, or secret values.
+
+The workspace owner sees the runs of every synced project in Dagu Console.
+Other members of the workspace see the runs of the projects they have a role
+on, and every member sees the workspace's devices with their names, users, and
+Kitewell versions. Dagu Cloud keeps each run for 14 days, daily totals for 13
+months, and alerts for 90 days after they resolve, and deletes what a device
+reported once it has not reported for 30 days. The workspace owner can turn
+this reporting off in Dagu Console, under Settings, with "Share Kitewell run
+status"; devices then report only that they are running.
 
 Dagu Cloud handles accounts, subscriptions, payments, team invitations, and
 synced projects under the [Dagu Privacy Policy](https://dagu.sh/privacy).
