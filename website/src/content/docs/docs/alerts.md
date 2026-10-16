@@ -158,8 +158,8 @@ sent that way would answer to no rule, no mute, and no delivery record.
 
 ## Details
 
-- Alerts need Kitewell Personal or Team. Reading what is set up, and removing a channel,
-  work on any plan.
+- These alerts need Kitewell Personal or Team; Dagu Console's work on every
+  plan. Reading what is set up, and removing a channel, work on any plan.
 - A device may hold up to 50 channels.
 - An undelivered alert is retried after a minute, then two, four, eight,
   sixteen and thirty, and is given up after a day. A reply that says the
