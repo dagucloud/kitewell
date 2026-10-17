@@ -112,9 +112,10 @@ refused: its run starts and fails.
 
 ## What this protects, and what it does not
 
-Secrets are encrypted on disk by the project's engine, and the key that
-deciphers them stays on this device. While a run lasts, every step in it
-receives the secrets its workflow binds.
+Secrets are encrypted on disk by the project's engine. The key that deciphers
+them is a file beside them that your user account can read, so anyone who can
+copy Kitewell's data folder can read the secrets too. While a run lasts, every
+step in it receives the secrets its workflow binds.
 
 It is not a sandbox. Anyone who can edit and run this project's workflows can
 write a step that reads its secrets, and a step runs with the permissions of
