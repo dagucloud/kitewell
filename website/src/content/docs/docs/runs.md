@@ -23,13 +23,15 @@ The newest runs are at the top. Narrow the list when there are too many:
   widens the period to **All time**.
 
 Along the top of the list, **All runs**, **Running / queued**, **Waiting**,
-**Failed**, **Succeeded** and **Cancelled** switch between kinds of result.
+**Failed**, **Missed**, **Succeeded** and **Cancelled** switch between kinds
+of result. A **Missed** row is not a run: it marks a scheduled time that went
+by without one, and says why. See [Schedules](/docs/scheduling/#sleep-and-the-runs-that-were-missed).
 Above it, **This page**, **In progress**, **Failed runs** and **Success rate**
 count what this page of runs holds.
 
 Each row says which workflow ran, how it ended, what started it, when, and how
-long it took. What started it is one of manual, scheduled, catch-up, retry,
-API, webhook, or sub-workflow.
+long it took. What started it is one of manual, scheduled, schedule test,
+catch-up, retry, API, webhook, or sub-workflow.
 
 Three more things live on this page:
 

@@ -46,7 +46,10 @@ service. They do not touch your workflows or backups.
 1. Open **Settings → Apps → Installed apps**, find **Kitewell**, and choose
    **Uninstall**.
 2. The uninstaller asks the running Kitewell to leave, stops its background
-   service, and removes the app from your user account. Your data stays.
+   service, and removes the app from your user account. With
+   **Run when nobody is signed in** on, it also removes the Kitewell sign-in
+   service and its programs under `C:\Program Files\Kitewell`, behind one
+   administrator prompt. Your data stays.
 3. If Kitewell still appears under **Settings → Apps → Startup** afterwards,
    turn it off there.
 
@@ -55,7 +58,8 @@ service. They do not touch your workflows or backups.
 What is left behind sits in one folder:
 
 - On a Mac: `~/Library/Application Support/Kitewell`
-- On Windows: `%LOCALAPPDATA%\Kitewell`
+- On Windows: `%LOCALAPPDATA%\Kitewell`, or `C:\ProgramData\Kitewell` once
+  **Run when nobody is signed in** was turned on, which moves the data there.
 
 It holds your projects, their run history, their secrets, your backups, and
 the logs. Keep it if you might reinstall.

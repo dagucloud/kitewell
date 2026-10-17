@@ -51,10 +51,12 @@ then **Ready** or **Needs attention**.
   Kitewell's background service, which is what actually drives the screen.
   Allow them, and **Open System Settings** takes you to the right pane if you
   dismissed a dialog.
-- On Windows the row is **Signed-in session**: Kitewell has to run in your
-  signed-in session rather than as a Windows service. A desktop step also
-  cannot click or type into an app that runs as administrator unless Kitewell
-  does too.
+- On Windows the row is **Signed-in session**: desktop steps run while you
+  are signed in, on your screen. With **Run when nobody is signed in** on,
+  the engine runs in the background too, but a desktop step still waits for
+  you; its workflow says **Runs only while you're signed in**. A desktop step
+  also cannot click or type into an app that runs as administrator unless
+  Kitewell does too.
 
 An unlocked screen with you signed in. Desktop steps use the screen you see,
 so a locked or sleeping computer cannot run them — including on a schedule.

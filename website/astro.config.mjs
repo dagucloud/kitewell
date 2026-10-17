@@ -85,6 +85,7 @@ export default defineConfig({
           translations: { ja: "リファレンス" },
           items: [
             { label: "Excel", translations: { ja: "Excel" }, slug: "docs/reference/spreadsheets" },
+            { label: "Schedules", translations: { ja: "スケジュール" }, slug: "docs/reference/scheduling" },
             { label: "What leaves your computer", translations: { ja: "コンピューターの外に出るもの" }, slug: "docs/reference/data-flow" },
           ],
         },

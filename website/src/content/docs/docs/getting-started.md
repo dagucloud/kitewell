@@ -68,10 +68,11 @@ select. The line your command printed is there.
    when you save.
 4. Choose **Save**.
 
-Kitewell runs the workflow at that time every day, as long as the computer is
-awake, you are signed in, and Kitewell is running. Closing the window is fine;
-it keeps going in the menu bar or the tray. Read
-[Scheduling](/docs/scheduling/) before you rely on unattended runs.
+Kitewell runs the workflow at that time every day. Under the form, a line
+says whether it will: **Will run**, or what stands in the way and the button
+that fixes it. Closing the window is fine; it keeps going in the menu bar or
+the tray. Read [Scheduling](/docs/scheduling/) before you rely on unattended
+runs.
 
 ## If something goes wrong
 

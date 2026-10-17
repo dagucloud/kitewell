@@ -15,7 +15,7 @@ const LIMITS = { paragraphWords: 55, boldPerPage: 60, guideWords: 900 };
 // down, and the limits apply to it from then on.
 const LEGACY = new Set([
   "ai", "alerts", "apis", "backups", "batches", "browser", "cloud-sync", "desktop", "email",
-  "getting-started", "index", "install", "knowledge", "mcp", "releases", "runs", "scheduling", "secrets",
+  "getting-started", "index", "install", "knowledge", "mcp", "releases", "runs", "secrets",
   "sharing", "troubleshooting", "uninstall", "updates", "webhooks", "workflow-builder",
 ]);
 

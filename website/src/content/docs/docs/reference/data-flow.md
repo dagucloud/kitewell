@@ -37,7 +37,7 @@ assistant's web search.
 | What | Where it lives |
 | --- | --- |
 | Secret values | Encrypted in each project's engine, masked in logs, never read back, exported, backed up, or synced. A synced project carries a secret's name and description; each computer holds its own value. See [Secrets](/docs/secrets/) |
-| Sign-ins | Mailbox connections, saved website sign-ins, SSH keys and host trust, and image registry passwords. All encrypted or kept in a file only your user can read, and all left out of backups |
+| Sign-ins | Mailbox connections, saved website sign-ins, SSH keys and host trust, and image registry passwords. All encrypted or kept in a file only your user can read, and all left out of backups. The keys that seal them are sealed under a device key the operating system holds |
 | Run logs and artifacts | The data folder, for 30 days by default, per project. See [Runs and logs](/docs/runs/). A synced project reports each run's status and failed step names, never its parameters, logs, artifacts, or sheet values |
 | The assistant's conversation and failure diagnoses | The data folder: one conversation for this computer, left out of backups, and diagnoses per project |
 | Excel workbooks | Read and written in place on the computer that holds the file. A sheet linked to one carries the file's name and which computer has it, never a cell. Its path, which row each result goes back to, and the copies kept for Undo stay on that computer. See [Automate Excel](/docs/spreadsheets/) |
@@ -94,8 +94,9 @@ A value a website or desktop step types, such as a password, is written as
   sign-ins out, but hold definitions, sheets, knowledge, run output, and
   settings as written. Encrypt them yourself before moving them to shared
   storage.
-- Alert channel credentials, such as a Slack address, are stored in a file
-  only your user can read, not in the system keychain.
+- Alert channel credentials, such as a Slack address, are kept in the
+  device's credentials file, sealed under the device key, not in the system
+  keychain.
 - Remote access over MCP or REST reaches Kitewell only on this computer's
   local address. The exceptions are ChatGPT and Claude through Kitewell's
   relay, and a client you put your own HTTPS in front of. See
@@ -181,7 +182,14 @@ On Windows, **Install WebView2** fetches Microsoft's own bootstrapper from
 
 ### Encryption at rest
 
-Secrets use the engine's AES-256-GCM registry, with its key on this device.
-Mailbox passwords and refresh tokens are sealed with AES-256-GCM under a
-per-device key in `mail.key`, which no backup carries. The data and backup
-folders can be read only by your user account.
+Secrets use the engine's AES-256-GCM registry. Mailbox passwords and
+refresh tokens are sealed with AES-256-GCM under a per-device mail key.
+
+The engine's key, the mail key, and the credentials file are each sealed
+under one device key: on Windows a DPAPI blob in machine scope, which only
+that PC opens; on a Mac a file only your user can read. See
+[Secrets](/docs/secrets/).
+
+None of these is in a backup, and a data folder copied to another machine
+opens none of them. The data and backup folders can be read only by your
+user account.

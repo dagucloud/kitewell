@@ -113,9 +113,10 @@ refused: its run starts and fails.
 ## What this protects, and what it does not
 
 Secrets are encrypted on disk by the project's engine. The key that deciphers
-them is a file beside them that your user account can read, so anyone who can
-copy Kitewell's data folder can read the secrets too. While a run lasts, every
-step in it receives the secrets its workflow binds.
+them is itself sealed under a device key that the operating system holds: on
+Windows, a key only this PC can open, so a copy of the data folder reads as
+nothing elsewhere. While a run lasts, every step in it receives the secrets
+its workflow binds.
 
 It is not a sandbox. Anyone who can edit and run this project's workflows can
 write a step that reads its secrets, and a step runs with the permissions of
@@ -162,8 +163,15 @@ in shared storage.
 - Values are single-line only, because the engine's log masker works a line at
   a time.
 - The store is Dagu's AES-256-GCM secret registry under
-  `engines/<project>/data/secrets`, and its key is
-  `engines/<project>/data/auth/encryption_key`. Neither is in a backup.
+  `engines/<project>/data/secrets`. Its key is kept sealed in
+  `engines/<project>/key.sealed` under the device key, `device.key`, which
+  Windows seals for this PC alone; on a Mac the device key is a file only
+  your user can read. None of them is in a backup.
+- A device key is renewed once a year, and everything sealed under it is
+  resealed; **Device settings → Stored secrets** shows when, and offers
+  **Make a new key now**. If the key is ever lost, as after a Windows
+  reinstall, the same section says so and every stored value asks to be
+  entered again. Workflows and their data are untouched.
 - The engine reads a run's secrets when the run starts and gives them to its
   steps as environment variables. Kitewell reads a value itself only to use it
   for you: a model's key for the assistant or a sheet, an API's client secret

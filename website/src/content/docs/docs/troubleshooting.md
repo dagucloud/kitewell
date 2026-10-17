@@ -34,22 +34,24 @@ only exists inside your terminal session.
 
 ## A scheduled workflow did not run
 
-Check, in this order:
+Open **Runs & logs** first. A **Missed** row at the scheduled time names
+the reason: the device was asleep, Kitewell wasn't running, the project
+engine wasn't running, or no run started.
 
-1. The workflow's **Schedule** is saved with **Enable saved schedules**
-   ticked.
-2. Its timezone is the one you meant.
-3. The project's engine is running. **Overview** says so, and offers to start
-   it.
-4. The computer was awake and you were signed in at that time.
+Then open **Workflows**. The line under the workflow's next start says what
+its schedule comes to now, **Will run**, **Runs only while you're signed in**
+or **Won't run**, with the reason and a button that fixes it. The banner at
+the top of the page says the same for the whole project.
 
-**Overview** also names the other things that stop scheduled work: a workflow
-the engine will not accept, which leaves every other workflow running;
-workflows that arrived from a teammate paused; and secrets that still need a
-value on this device.
+If neither says anything, check that the workflow's **Schedule** is saved
+with **Enable saved schedules** ticked and its timezone is the one you meant.
 
-A start the computer slept through is only made up later if the workflow asks
-for it. See its **Schedule → Missed schedules**.
+On a Mac, the computer has to be awake and you signed in at that time. On
+Windows, scheduled work runs with nobody signed in once the sign-in service
+is on; see [Schedules](/docs/scheduling/#run-with-nobody-signed-in-windows).
+
+A start that was missed is only made up later if the workflow asks for it.
+See its **Schedule → Missed schedules**.
 
 ## A website step fails
 

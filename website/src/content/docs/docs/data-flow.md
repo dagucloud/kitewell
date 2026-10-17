@@ -36,7 +36,8 @@ you.
   each computer holds its own value.
 - **Sign-ins.** Mailbox connections, saved website sign-ins, and SSH keys are
   encrypted or kept in a file only your user can read, and left out of
-  backups.
+  backups. Their keys are sealed under a device key the operating system
+  holds.
 - **Run logs and output.** Kept in the data folder for 30 days by default. A
   synced project reports each run's status and failed step names, never its
   parameters, logs, output, or sheet values.

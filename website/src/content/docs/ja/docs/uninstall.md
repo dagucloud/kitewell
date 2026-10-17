@@ -30,7 +30,7 @@ rm -f "$HOME/Library/Application Support/Kitewell/native-token"
 ## Windows の場合
 
 1. **設定 → アプリ → インストールされているアプリ** を開き、**Kitewell** を探して **アンインストール** を選びます。
-2. アンインストーラーは実行中の Kitewell に終了を求め、バックグラウンドサービスを停止し、ユーザーアカウントからアプリを削除します。データは残ります。
+2. アンインストーラーは実行中の Kitewell に終了を求め、バックグラウンドサービスを停止し、ユーザーアカウントからアプリを削除します。**誰もサインインしていないときに実行** がオンの場合は、管理者の確認 1 回で、サインインサービス「Kitewell sign-in」と `C:\Program Files\Kitewell` のプログラムも削除します。データは残ります。
 3. そのあとも **設定 → アプリ → スタートアップ** に Kitewell が残っている場合は、そこでオフにしてください。
 
 ## 残るデータ
@@ -38,7 +38,7 @@ rm -f "$HOME/Library/Application Support/Kitewell/native-token"
 残るものは 1 つのフォルダーにまとまっています。
 
 - Mac：`~/Library/Application Support/Kitewell`
-- Windows：`%LOCALAPPDATA%\Kitewell`
+- Windows：`%LOCALAPPDATA%\Kitewell`。**誰もサインインしていないときに実行** をオンにしたことがある場合は、データがそこへ移されているため `C:\ProgramData\Kitewell`
 
 この中に、プロジェクト、実行履歴、シークレット、バックアップ、ログが入っています。入れ直す可能性があるなら、残しておいてください。
 

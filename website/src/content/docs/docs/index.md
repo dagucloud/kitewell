@@ -75,8 +75,10 @@ Mac and in the tray on Windows, and your schedules keep firing.
 **Quit Kitewell** in that menu is what stops the service and the workflow
 engines.
 
-Your computer has to be awake and you have to be signed in for scheduled work
-to run. Kitewell does not provide a machine in the cloud. AI providers, remote
+On a Mac, your computer has to be awake and you have to be signed in for
+scheduled work to run. On Windows, scheduled work runs with nobody signed in
+once the sign-in service the installer offers is on, and the PC wakes for
+it. Kitewell does not provide a machine in the cloud. AI providers, remote
 servers, containers, and outside services have their own requirements and
 costs.
 
