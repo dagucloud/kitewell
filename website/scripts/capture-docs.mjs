@@ -134,7 +134,7 @@ function helpers({ page, base, lang, dataDir, out }) {
   // project the service holds. The page must be the app's for the call to
   // have an origin, so a context that has not opened it yet does so first.
   const api = async (route, init = {}) => {
-    if (!page.url().startsWith(base)) await page.goto(base, { waitUntil: "networkidle" });
+    if (!page.url().startsWith(base)) await page.goto(base, { waitUntil: "load" });
     return page.evaluate(
       async ({ route, init }) => {
         const pid = (await (await fetch("/gui/api/projects")).json()).projects[0]?.id;
@@ -150,10 +150,11 @@ function helpers({ page, base, lang, dataDir, out }) {
   };
   // go opens a page of the app by its hash and lets it settle. The app is
   // loaded afresh each time: a change of hash alone keeps whatever dialog the
-  // last scene left open.
+  // last scene left open. The assistant's stream stays open for as long as
+  // the page does, so the network never goes idle; settling stands in.
   const go = async (hash = "", settle = 1200) => {
     await page.goto("about:blank");
-    await page.goto(`${base}/${hash}`, { waitUntil: "networkidle" });
+    await page.goto(`${base}/${hash}`, { waitUntil: "load" });
     await page.waitForTimeout(settle);
   };
   // until waits for a check to pass, polling gently.

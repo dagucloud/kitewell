@@ -152,7 +152,8 @@ export const words = (lang) => WORDS[lang];
 
 export async function seed({ page, base, lang, dataDir, t, api, until }) {
   const w = WORDS[lang];
-  await page.goto(base, { waitUntil: "networkidle" });
+  await page.goto(base, { waitUntil: "load" });
+  await page.waitForTimeout(2000);
   // A fresh service shows the choice to start without an account; a seeded
   // one opens its project.
   const start = page.getByRole("button", { name: await t("Start on this device") });
