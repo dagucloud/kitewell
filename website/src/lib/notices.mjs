@@ -14,8 +14,9 @@ const daguRelease = new RegExp(
 // What each library notice file covers, in the order the page lists them.
 export const libraryLabels = new Map([
   ["GO-LICENSES.txt", "Go standard library and dependencies"],
-  ["MCP-LICENSES.txt", "MCP viewer dependencies"],
+  ["DAGU-GO-LICENSES.txt", "Go libraries in the bundled Dagu engine"],
   ["DAG-EDITOR-LICENSES.txt", "Workflow editor dependencies"],
+  ["KNOWLEDGE-EDITOR-LICENSES.txt", "Knowledge editor dependencies"],
   ["MARKDOWN-LICENSES.txt", "Markdown viewer dependencies"],
   ["WINDOWS-LICENSES.txt", "Windows app runtime and libraries"],
 ]);
