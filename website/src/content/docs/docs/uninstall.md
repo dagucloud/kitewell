@@ -45,8 +45,8 @@ service. They do not touch your workflows or backups.
 
 1. Open **Settings → Apps → Installed apps**, find **Kitewell**, and choose
    **Uninstall**.
-2. The uninstaller asks the running Kitewell to leave, stops its background
-   service, and removes the app from your user account. With
+2. The uninstaller ends the running Kitewell and its background service,
+   and removes the app from your user account. With
    **Run when nobody is signed in** on, it also removes the Kitewell sign-in
    service and its programs under `C:\Program Files\Kitewell`, behind one
    administrator prompt. Your data stays.

@@ -42,14 +42,12 @@ another timezone.
 
 ## Run with nobody signed in (Windows)
 
-The Windows installer offers **Run scheduled work when nobody is signed
-in**, ticked. Leave it ticked, and one administrator prompt sets up a small
-Windows service, Kitewell sign-in, that starts the engine when the PC starts
-and runs your schedules as you, signed in or not. No password is needed.
-
-Turn it on or off later under **Device settings → Run when nobody is signed
-in**. The card there shows the run account, the sign-in, the engine, the
-next scheduled run, and sleep.
+Turn on **Device settings → Run when nobody is signed in**. One
+administrator prompt, with no password, sets up a small Windows service,
+Kitewell sign-in, that starts the engine when the PC starts and runs your
+schedules as you, signed in or not. The card there shows the run account,
+the sign-in, the engine, the next scheduled run, and sleep, and turns the
+service off again.
 
 Two kinds of step still need you at the PC: a desktop step, and a website
 step that shows its browser window. Their workflows say **Runs only while
