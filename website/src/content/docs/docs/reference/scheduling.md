@@ -84,15 +84,14 @@ What it does not do:
 - Change where your files go: runs still happen as you, with your folders
   and settings.
 
-The installer offers the service ticked on a first install and on an upgrade
-of a PC that never had it. A declined prompt or a setup that stopped is
-recorded; the Device card says so and offers the feature again, and the next
-installer leaves the box unticked.
+Setup.exe installs Kitewell for your account with no administrator prompt,
+so it does not set the service up. Turn it on from **Device settings → Run
+when nobody is signed in** once the app opens. A declined prompt or a setup
+that stopped is recorded; the Device card says so and offers the feature
+again.
 
-A silent install never shows the prompt unless `/TASKS="startup,unattended"`
-asks for it; `/MERGETASKS="!unattended"` keeps it off. With the service on,
-the installer offers to bring the service's copy of the programs up to the
-new version instead.
+After an update, a signed Kitewell brings the service's copy of the programs
+up to the new version by itself, with no prompt.
 
 The service's programs live in `C:\Program Files\Kitewell` and its data in
 `C:\ProgramData\Kitewell`, moved there once from your own data folder.

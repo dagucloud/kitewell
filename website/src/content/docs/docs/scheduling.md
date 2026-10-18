@@ -45,9 +45,10 @@ another timezone.
 Turn on **Device settings → Run when nobody is signed in**. One
 administrator prompt, with no password, sets up a small Windows service,
 Kitewell sign-in, that starts the engine when the PC starts and runs your
-schedules as you, signed in or not. The card there shows the run account,
-the sign-in, the engine, the next scheduled run, and sleep, and turns the
-service off again.
+schedules as you, signed in or not.
+
+The card there shows the run account, the sign-in, the engine, the next
+scheduled run, and sleep, and turns the service off again.
 
 Two kinds of step still need you at the PC: a desktop step, and a website
 step that shows its browser window. Their workflows say **Runs only while
