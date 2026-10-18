@@ -2,16 +2,15 @@ Kitewell includes Dagu, the workflow engine by the Dagu contributors.
 Dagu is distributed under the GNU General Public License, version 3.
 The full license is included in DAGU-LICENSE.txt.
 
-Pinned engine release: Dagu 2.18.1
-Upstream source: https://github.com/dagucloud/dagu/tree/v2.18.1
-Release: https://github.com/dagucloud/dagu/releases/tag/v2.18.1
+Pinned engine release: Dagu 2.20.1
+Upstream source: https://github.com/dagucloud/dagu/tree/v2.20.1
+Release: https://github.com/dagucloud/dagu/releases/tag/v2.20.1
+
+Go notices, for the standard library and every module Dagu links, are
+included in DAGU-GO-LICENSES.txt.
 
 Kitewell's interface and background manager are separate executables that
 communicate with Dagu through its command-line and HTTP interfaces.
-
-The MCP DAG viewer bundles the official MCP Apps SDK and its dependencies.
-Their license notices are included in MCP-LICENSES.txt.
-Source: https://github.com/modelcontextprotocol/ext-apps
 
 Go notices, for the standard library and every module the background service
 links, including the MCP Go SDK and YAML parser, are included in
@@ -23,6 +22,14 @@ Their notices are included in DAG-EDITOR-LICENSES.txt.
 The artifact viewer bundles a Markdown parser and an HTML sanitizer so that
 reports written by workflows render without reaching the network.
 Their notices are included in MARKDOWN-LICENSES.txt.
+
+Knowledge pages bundle a rich-text editor, its Markdown parser, and the menus
+around it, so pages are edited as formatted text without reaching the network.
+Their notices are included in KNOWLEDGE-EDITOR-LICENSES.txt.
+
+The Mac app installs its updates with Sparkle 2.10.0, by the Sparkle Project,
+which includes bsdiff, sais-lite, and an Ed25519 implementation. Their notices
+are included in SPARKLE-LICENSE.txt.
 
 The Windows app runs on the .NET runtime with WPF and Windows Forms, shows its
 window through the Microsoft WebView2 SDK, and sends notifications through the

@@ -1,0 +1,15 @@
+{
+  "version": "0.18.0",
+  "published": "2026-10-18T05:26:09Z",
+  "rollout": {
+    "start": "2026-10-18T05:26:09Z",
+    "hours": 48,
+    "paused": false
+  },
+  "downloads": {
+    "windows-amd64": {
+      "url": "https://github.com/dagucloud/kitewell/releases/download/v0.18.0/Kitewell-0.18.0-win-x64-Setup.exe",
+      "sha256": "0caad37163f466db39bac898c631bf140433c6884be9dc1eb64fb6dc49580a6b"
+    }
+  }
+}
