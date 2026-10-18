@@ -314,6 +314,12 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
   Dev to Staging to Prod, with a diff and rollback.
 - **Robot ledger.** Export a ledger of every workflow for audits, one row
   each.
+- **Shared computers (Enterprise).** Computers your organization owns, such
+  as a VM in your own Azure or AWS, run workflows day and night with nobody
+  signed in. Nothing stops when a laptop sleeps or its owner moves on.
+- **Build from a browser (Enterprise).** Sign in with your company account,
+  then build and try workflows on the computer they run on while you watch
+  its browser. Approve fixes from your phone, with no remote desktop.
 
 ## RPA was the right idea. Building it by hand was the problem.
 
@@ -372,8 +378,9 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
 Prices exclude tax. Free needs no account; Personal and Team need a Dagu Cloud
 account. An organization that runs Kitewell for shared work, on several
 people's computers or on a computer set aside for it, needs Team. For more than
-25 people or 100 computers, SSO, audit-log export, closed-network sync, or an
-SLA, Enterprise is arranged under a contract. Email
+25 people or 100 computers, shared computers, the workspace in the browser, SSO,
+audit-log export, closed-network sync, or an SLA, Enterprise is arranged under
+a contract. Email
 [company@descarty.com](mailto:company@descarty.com) for a Team or Enterprise
 quote. AI provider usage is separate.
 
