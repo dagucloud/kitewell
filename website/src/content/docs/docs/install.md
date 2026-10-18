@@ -38,7 +38,7 @@ Then [build your first workflow](/docs/getting-started/).
 ## Install on Windows
 
 1. Open the [download page](/download/) and download
-   `Kitewell-<version>-amd64-setup.exe`.
+   `Kitewell-<version>-win-x64-Setup.exe`.
 2. Open the file you downloaded. Windows may show a SmartScreen notice,
    because Kitewell is a new publisher. Check that the file's SHA256 matches
    the one shown beside the download, then choose **More info** and

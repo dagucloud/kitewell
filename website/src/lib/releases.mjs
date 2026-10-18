@@ -15,8 +15,8 @@ const systems = {
   },
   windows: {
     architectures: ["windows-amd64"],
-    asset: (version, architecture) =>
-      `Kitewell-${version}-${architecture.slice("windows-".length)}-setup.exe`,
+    // The installer carries the runtime the release builds for, win-x64.
+    asset: (version) => `Kitewell-${version}-win-x64-Setup.exe`,
   },
 };
 

@@ -24,7 +24,7 @@ Kitewell は初回起動時に **Start at login** をオンにするので、Mac
 
 ## Windows にインストールする
 
-1. [ダウンロードページ](/ja/download/)を開き、`Kitewell-<version>-amd64-setup.exe` をダウンロードします。
+1. [ダウンロードページ](/ja/download/)を開き、`Kitewell-<version>-win-x64-Setup.exe` をダウンロードします。
 2. ダウンロードしたファイルを開きます。Kitewell は新しい発行元のため、Windows が SmartScreen の警告を表示することがあります。ファイルの SHA256 がダウンロードの横に表示された値と一致することを確認してから、**詳細情報** → **実行** を選びます。
 3. インストーラーの指示に従います。**Start Kitewell when you sign in** と **Run scheduled work when nobody is signed in** の 2 つが、最初からチェックが入った状態で提案されます。PC を再起動したあとも、サインインする前でも、スケジュールが動き続けるように、どちらもチェックを入れたままにしてください。
 

@@ -31,7 +31,7 @@ function windowsFixture() {
     version: "0.16.0",
     downloads: {
       "windows-amd64": {
-        url: "https://github.com/dagucloud/kitewell/releases/download/v0.16.0/Kitewell-0.16.0-amd64-setup.exe",
+        url: "https://github.com/dagucloud/kitewell/releases/download/v0.16.0/Kitewell-0.16.0-win-x64-Setup.exe",
         sha256: "b".repeat(64),
       },
     },
@@ -131,7 +131,7 @@ test("the Windows manifest exposes the versioned installer for x64", () => {
   assert.equal(release.version, "0.16.0");
   assert.equal(
     release.downloads["windows-amd64"].url,
-    "https://github.com/dagucloud/kitewell/releases/download/v0.16.0/Kitewell-0.16.0-amd64-setup.exe",
+    "https://github.com/dagucloud/kitewell/releases/download/v0.16.0/Kitewell-0.16.0-win-x64-Setup.exe",
   );
   assert.equal(release.downloads["windows-amd64"].sha256, "b".repeat(64));
 });
@@ -168,12 +168,12 @@ test("a Windows installer cannot be advertised with a wrong version, name, hash,
     (value) => {
       value.downloads["windows-amd64"].sha256 = "b".repeat(63);
     },
-    edit(() => "https://example.com/Kitewell-0.16.0-amd64-setup.exe"),
+    edit(() => "https://example.com/Kitewell-0.16.0-win-x64-Setup.exe"),
     edit((url) => url.replace("https:", "http:")),
     edit((url) => url.replace("/v0.16.0/", "/v0.15.0/")),
-    edit((url) => url.replace("-amd64-setup.exe", "-amd64.exe")),
-    edit((url) => url.replace("-amd64-setup.exe", "-arm64-setup.exe")),
-    edit((url) => url.replace("-setup.exe", ".pkg")),
+    edit((url) => url.replace("-win-x64-Setup.exe", "-win-x64.exe")),
+    edit((url) => url.replace("-win-x64-Setup.exe", "-win-arm64-Setup.exe")),
+    edit((url) => url.replace("-Setup.exe", ".pkg")),
     edit((url) => `${url}?token=private`),
     edit((url) => `${url}#fragment`),
     edit((url) => url.replace("https://", "https://user:secret@")),
