@@ -3,6 +3,18 @@
     <channel>
         <title>Kitewell</title>
         <item>
+            <title>0.18.2</title>
+            <pubDate>Sun, 18 Oct 2026 13:46:06 +0000</pubDate>
+            <sparkle:version>0.18.2</sparkle:version>
+            <sparkle:shortVersionString>0.18.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.18.2/Kitewell-0.18.2-arm64.tar.xz" length="58276920" type="application/octet-stream" sparkle:edSignature="DyGXwnC20b2aE6FYGpRcgQHO9IAh8dnpQiHFkdafbYAK/x8vtlc+7aQEr27dylqtF/N1cOsaPNaVa/Yg3uatBQ==" />
+            <sparkle:deltas>
+                <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.18.2/Kitewell-0.18.2-arm64-from-0.18.1.delta" sparkle:deltaFrom="0.18.1" length="1319210" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ra3z11WwJ2kfCmMVpRcDSh0JIP/MHCGXRo86Fud6mCpHN6q1jsymul9SJFwVH2gk4se2IeW3RVm9Euib8vhgDw==" />
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.18.1</title>
             <pubDate>Sun, 18 Oct 2026 06:12:56 +0000</pubDate>
             <sparkle:version>0.18.1</sparkle:version>
