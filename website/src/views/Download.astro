@@ -10,13 +10,17 @@ const { locale } = Astro.props;
 // only when its manifest exists.
 const { macos, windows } = await readReleases();
 const release = macos ?? windows;
+// The heading names a version only when every published system is on it;
+// each platform lists its own version.
+const versions = new Set([macos, windows].filter(Boolean).map(({ version }) => version));
+const version = versions.size === 1 ? [...versions][0] : null;
 const text = {
   en: {
     title: release ? "Download Kitewell" : "Release availability",
     description:
       "Check Kitewell release availability for macOS and Windows, system requirements, and installation instructions.",
     eyebrow: "Downloads",
-    heading: release ? `Download Kitewell ${release.version}` : "Coming soon",
+    heading: release ? (version ? `Download Kitewell ${version}` : "Download Kitewell") : "Coming soon",
     lead: release
       ? "Kitewell is ready to download. Check the supported platforms and system requirements below."
       : "There are no public installers yet. Kitewell runs on macOS and Windows; Linux support is planned.",
@@ -73,7 +77,7 @@ const text = {
     description:
       "macOS と Windows 向け Kitewell の提供状況、動作環境、インストール方法を確認できます。",
     eyebrow: "ダウンロード",
-    heading: release ? `Kitewell ${release.version} をダウンロード` : "近日公開",
+    heading: release ? (version ? `Kitewell ${version} をダウンロード` : "Kitewell をダウンロード") : "近日公開",
     lead: release
       ? "Kitewell をダウンロードできます。対応プラットフォームと動作環境は以下をご確認ください。"
       : "公開中のインストーラーはまだありません。Kitewell は macOS と Windows で動作し、Linux にも対応予定です。",
