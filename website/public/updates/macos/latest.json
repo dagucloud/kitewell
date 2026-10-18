@@ -1,0 +1,19 @@
+{
+  "version": "0.18.1",
+  "published": "2026-10-18T06:12:56Z",
+  "rollout": {
+    "start": "2026-10-18T06:12:56Z",
+    "hours": 48,
+    "paused": false
+  },
+  "downloads": {
+    "darwin-arm64": {
+      "url": "https://github.com/dagucloud/kitewell/releases/download/v0.18.1/Kitewell-0.18.1-arm64.pkg",
+      "sha256": "3c3e245ff20b838a1e6564330ffb203d2a713df466959258dcfb9c6f97891264"
+    },
+    "darwin-amd64": {
+      "url": "https://github.com/dagucloud/kitewell/releases/download/v0.18.1/Kitewell-0.18.1-amd64.pkg",
+      "sha256": "12ccdda9fcb0e8023524336a38e8c508ee7f3063f2a4695c6d73adeb4ffc7ae4"
+    }
+  }
+}

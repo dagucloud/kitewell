@@ -1,10 +1,10 @@
 Runtime and libraries included in the Kitewell Windows app.
 
-The Windows installer also carries Microsoft's Edge WebView2 Evergreen
-Bootstrapper, as Microsoft signed it, and runs it only when the WebView2
-Runtime is missing. The bootstrapper downloads and installs the Runtime from
-Microsoft under Microsoft's license terms; Kitewell does not ship the
-Runtime's files.
+When the WebView2 Runtime is missing, the app offers to download Microsoft's
+Edge WebView2 Evergreen Bootstrapper, verifies Microsoft's signature on it,
+and runs it. The bootstrapper downloads and installs the Runtime from
+Microsoft under Microsoft's license terms; Kitewell ships neither the
+bootstrapper nor the Runtime's files.
 
 --- Microsoft.NETCore.App 10.0 ---
 
