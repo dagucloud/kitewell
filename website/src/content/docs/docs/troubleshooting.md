@@ -203,15 +203,13 @@ Windows says the installer's signature is *invalid*, stop and
 
 ## Kitewell was installed but did not start
 
-On Windows, the installer opens Kitewell at the end. If Kitewell exits
-immediately — no window, nothing on screen — the installer says so in a
-message box, and writes the same line to
-`%LOCALAPPDATA%\Kitewell\logs\shell.log`.
+On Windows, Setup.exe opens Kitewell at the end. If nothing appears, no
+window and no message, and `%LOCALAPPDATA%\Kitewell\logs\shell.log` gains no
+line either, Kitewell was stopped before any of its own code ran.
 
 Windows application control is the usual reason. Smart App Control, which a
 clean Windows 11 installation turns on, refuses to load an unsigned build of
-Kitewell, and the app is stopped before any of its own code runs. Two places
-confirm it:
+Kitewell. Two places confirm it:
 
 - **Settings → Privacy & security → Windows Security → App & browser control
   → Smart App Control** says whether it is on.
@@ -223,10 +221,9 @@ compiled yourself is not signed, and will not run on such a PC.
 
 ## Kitewell asks to install WebView2
 
-Kitewell's window is built on the Microsoft Edge WebView2 runtime. The Windows
-installer sets it up when it is missing. If Kitewell opens without it anyway,
-choose **Install WebView2** in the window. It downloads the runtime from
-Microsoft and takes about a minute.
+Kitewell's window is built on the Microsoft Edge WebView2 runtime. When it is
+missing, Kitewell offers **Install WebView2** as it opens. It downloads the
+runtime from Microsoft and takes about a minute.
 
 ## Kitewell cannot start its background service
 

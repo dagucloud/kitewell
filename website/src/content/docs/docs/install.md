@@ -43,22 +43,18 @@ Then [build your first workflow](/docs/getting-started/).
    because Kitewell is a new publisher. Check that the file's SHA256 matches
    the one shown beside the download, then choose **More info** and
    **Run anyway**.
-3. Follow the installer. It offers two things, both ticked already:
-   **Start Kitewell when you sign in**, and
-   **Run scheduled work when nobody is signed in**. Leave both ticked so
-   your schedules keep running after you restart the PC, and even before
-   you sign in.
-
-   ![The Windows installer offering to start Kitewell when you sign in](../../../assets/docs/en/windows-installer-start-at-login.png)
-
-4. Near the end, Windows asks once for administrator approval. That sets up
-   the small Kitewell sign-in service that runs your schedules; no password
-   is needed. Declining is fine: Kitewell still installs, and Device settings
-   offers the service again later.
-5. At the end, leave **Open Kitewell** ticked and finish. Kitewell opens.
-6. Choose **Start on this device**. Kitewell makes your first project and
+3. Kitewell installs itself for your user account, with nothing to answer and
+   no administrator password, and opens when it is done.
+4. Choose **Start on this device**. Kitewell makes your first project and
    opens it. Choose **Sign in with Dagu Cloud** instead if you already have an
    account and want to [sync your projects](/docs/cloud-sync/).
+
+Kitewell turns on **Start at login** the first time it runs, so your schedules
+keep running after you restart the PC. Turn it off in the tray menu whenever
+you like. To keep schedules running before anyone signs in, open **Device
+settings** and turn on **Run when nobody is signed in**; Windows asks once
+for administrator approval, with no password, to set up the small Kitewell
+sign-in service.
 
 Closing the window does not stop Kitewell. It keeps running in the tray, the
 small group of icons beside the clock. Left-click the Kitewell icon there to
@@ -72,9 +68,7 @@ Then [build your first workflow](/docs/getting-started/).
   file's SHA256 with the one on the [download page](/download/), then choose
   **More info** and **Run anyway**. If Windows says the signature is
   *invalid*, stop and [report it](/support/) rather than running it.
-- Kitewell is installed but does not open. The installer says so in a
-  message, and writes the same line to
-  `%LOCALAPPDATA%\Kitewell\logs\shell.log`. Windows Smart App Control refuses
+- Kitewell is installed but does not open. Windows Smart App Control refuses
   to load an unsigned build of Kitewell, and a build downloaded from the
   release page is signed. See
   [Troubleshooting](/docs/troubleshooting/#kitewell-was-installed-but-did-not-start).
@@ -94,37 +88,28 @@ going.
   and restarts the background service. Unsaved drafts in the editor are lost.
   If the app will not close, choose **Quit Kitewell** from the menu bar and
   run the installer again.
-- On Windows, run the new setup file. It asks the running Kitewell to
-  leave; if the editor holds unsaved changes, Kitewell asks whether to discard
-  them, and waits for your answer. It then replaces the app and opens the new
-  version. If the installer says Kitewell is still running, choose
-  **Quit Kitewell** from the tray menu and run it again. With the sign-in
-  service on, the installer offers to bring the service up to the new
-  version too, behind one administrator prompt; a signed Kitewell does the
-  same by itself when it next opens. With the sign-in
-  service on, the installer offers to bring the service up to the new
-  version too, behind one administrator prompt; a signed Kitewell does the
-  same by itself when it next opens.
+- On Windows, run the new Setup.exe. It closes the running Kitewell,
+  replaces it, and opens the new version; unsaved drafts in the editor are
+  lost, so save first. With the sign-in service on, Kitewell brings the
+  service up to the new version by itself when it next opens.
 
 Kitewell can also fetch the new version itself. See [Updates](/docs/updates/).
 
 ## Details
 
-- Windows installs the app per user, under `%LOCALAPPDATA%\Programs\Kitewell`,
+- Windows installs the app per user, under `%LOCALAPPDATA%\Kitewell.App`,
   with no administrator prompt. Your data lives separately, under
   `%LOCALAPPDATA%\Kitewell`. The sign-in service is the one thing that needs
   the prompt: it copies the programs to `C:\Program Files\Kitewell` and moves
   the data to `C:\ProgramData\Kitewell`, once. See
   [Schedules](/docs/scheduling/#run-with-nobody-signed-in-windows).
-- A silent install (`/VERYSILENT`) never shows the administrator prompt
-  unless you ask for the service with `/TASKS="startup,unattended"`;
-  `/MERGETASKS="!unattended"` keeps it off.
-- The Windows installer runs Microsoft's WebView2 installer when that runtime
-  is missing. Kitewell's window is built on it.
-- **Start Kitewell when you sign in** and the tray's **Start at login** write
-  the same Windows setting, so an upgrade starts out matching whatever you
-  last chose in the tray rather than whatever you chose during the last
-  install.
+- A silent install (`Setup.exe --silent`) shows nothing and never asks for
+  the administrator prompt; the sign-in service is set up only from Device
+  settings.
+- Kitewell's window is built on the Microsoft Edge WebView2 runtime. When it
+  is missing, Kitewell offers to install it as it opens.
+- **Start at login** is turned on by a fresh install and left as you last
+  set it in the tray across updates.
 - On a Mac, the `.pkg` needs an administrator password because it installs
   into Applications. Copying `Kitewell.app` into your own `~/Applications`
   folder instead works without one.

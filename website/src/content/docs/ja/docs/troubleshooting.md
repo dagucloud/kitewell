@@ -142,9 +142,9 @@ Windows は、あまり見慣れていない発行元のインストーラーに
 
 ## インストールは終わったのに Kitewell が起動しない
 
-Windows では、インストーラーが最後に Kitewell を開きます。Kitewell がすぐ終了してしまう場合、つまりウィンドウも何も出ない場合は、インストーラーがメッセージボックスでそう伝え、同じ内容を `%LOCALAPPDATA%\Kitewell\logs\shell.log` にも書きます。
+Windows では、Setup.exe が最後に Kitewell を開きます。ウィンドウもメッセージも何も出ず、`%LOCALAPPDATA%\Kitewell\logs\shell.log` にも 1 行も増えない場合、Kitewell は自身のコードが動く前に止められています。
 
-原因はたいてい Windows のアプリケーション制御です。クリーンインストールした Windows 11 でオンになっているスマート アプリ コントロールは、署名のない Kitewell のビルドを読み込まず、アプリ自身のコードが動く前に止めます。次の 2 か所で確認できます。
+原因はたいてい Windows のアプリケーション制御です。クリーンインストールした Windows 11 でオンになっているスマート アプリ コントロールは、署名のない Kitewell のビルドを読み込みません。次の 2 か所で確認できます。
 
 - **設定 → プライバシーとセキュリティ → Windows セキュリティ → アプリとブラウザー制御 → スマート アプリ コントロール** で、オンかどうかがわかります。
 - **イベント ビューアー → Windows ログ → Application** に、`Kitewell.dll` に対する .NET Runtime 1026 の `FileLoadException` が残ります。
@@ -155,7 +155,7 @@ Windows では、インストーラーが最後に Kitewell を開きます。Ki
 
 ## Kitewell が WebView2 のインストールを求める
 
-Kitewell のウィンドウは Microsoft Edge WebView2 ランタイムの上に作られています。Windows のインストーラーは、未インストールのときにこれを導入します。それでも WebView2 がない状態で Kitewell が開いた場合は、ウィンドウの **Install WebView2** を選んでください。Microsoft からダウンロードされ、1 分ほどで終わります。
+Kitewell のウィンドウは Microsoft Edge WebView2 ランタイムの上に作られています。ランタイムがない場合、Kitewell は起動時にウィンドウで **Install WebView2** を案内します。Microsoft からダウンロードされ、1 分ほどで終わります。
 
 ## Kitewell がバックグラウンドサービスを起動できない
 
