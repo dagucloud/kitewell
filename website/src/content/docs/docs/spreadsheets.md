@@ -58,10 +58,14 @@ and 済 for Done.
 
 ## If the file is open in Excel
 
-Nothing fails. The sheet says the results are ready and will be written when
-the file is closed in Excel, and writes them the moment you close it.
-**Save results to a copy now** writes `supplier-invoices (results).xlsx`
+On Windows, nothing fails. The sheet says the results are ready and will be
+written when the file is closed in Excel, and writes them the moment you close
+it. **Save results to a copy now** writes `supplier-invoices (results).xlsx`
 beside the file instead.
+
+On a Mac, Excel does not lock the file, so Kitewell cannot tell it is open and
+writes the results anyway. Close the workbook in Excel before the rows finish:
+saving it from Excel afterwards can replace the results.
 
 ## Every morning
 
@@ -79,7 +83,8 @@ computer that holds the file; another computer cannot run it.
   before every write and follows each row by its key. A row that moved is left
   out and named; the rest are written.
 - **A result went in and should not have.** **Undo** puts the file back.
-  Kitewell keeps a copy from before each of the last ten writes.
+  Kitewell keeps a copy from before each of the last ten writes. In this
+  release, the next write puts the same results in again.
 - **The workbook changed on disk.** The sheet offers
   **Read the workbook again**, which brings new and changed rows in and marks
   rows the workbook no longer has as **No longer listed**.

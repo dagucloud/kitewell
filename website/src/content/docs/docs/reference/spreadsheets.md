@@ -25,6 +25,10 @@ header merged across two rows, subtotals in the middle, notes underneath,
 full-width digits, Japanese era dates, postal codes with leading zeros:
 Kitewell works out where the table is and what each column holds.
 
+In this release, a linked sheet passes full-width digits and era dates written
+as text to the workflow as text. Spreadsheet steps read them as numbers and
+dates.
+
 When you link a workbook, each row of the preview offers
 **Use row 3 as column names**, and **No column names** is there for a bare
 list. Rows above the names, blank rows, and total rows are left out, each
@@ -54,7 +58,8 @@ If Excel was closed without saving and left its lock file behind,
 
 **Undo** refuses if you have edited the workbook since the write, rather than
 discard your edits, and leaves the current file beside itself as
-`supplier-invoices (before undo).xlsx`.
+`supplier-invoices (before undo).xlsx`. In this release, the next write puts
+the undone results in again.
 
 **Read the workbook again** reports what it found — "1 new · 1 updated · 1 no
 longer in the sheet". If the header row has lost the key column or a column an
