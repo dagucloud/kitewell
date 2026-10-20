@@ -13,6 +13,8 @@ export default defineConfig({
       title: "Kitewell",
       description: "Run workflows and AI agents on your own machine.",
       favicon: "/favicon.svg",
+      // Language detection, as on the rest of the site (public/lang.js).
+      head: [{ tag: "script", attrs: { src: "/lang.js" } }],
       disable404Route: true,
       customCss: ["./src/styles/docs.css"],
       components: { Footer: "./src/components/DocsFooter.astro" },
