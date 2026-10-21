@@ -13,25 +13,25 @@ const locale = localeOf(Astro.url.pathname);
 const text = {
   en: {
     description:
-      "Kitewell automates websites, desktop apps, email, scripts, and coding agents on your own computer, with schedules, approvals, and a log of every run.",
+      "Describe a computer chore once and Kitewell's AI does it every day: it works websites and desktop apps on your own computer, repeats the clicks that worked, and fixes just the click a changed screen breaks.",
     skip: "Skip to content",
     home: "Kitewell home",
     nav: "Main navigation",
     links: ["Examples", "Coding agents", "Pricing", "Docs"],
-    tagline: "AI builds the automation. Your computer runs it.",
-    social: "AI builds the automation. Your computer runs it. Kitewell: browser automation built and maintained by AI, plus desktop apps, Excel, email, and coding agents.",
+    tagline: "Describe a computer chore once. AI does it every day.",
+    social: "Describe a computer chore once. AI does it every day. Kitewell repeats the clicks that worked, on your Mac or PC, and fixes just the click a changed screen breaks.",
     footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community", "Compare", "Releases"],
     fine: "",
   },
   ja: {
     description:
-      "Kitewell は、Web サイト、デスクトップアプリ、メール、スクリプト、コーディングエージェントを、自分のコンピューターで自動化します。スケジュール、承認、すべての実行の記録付き。",
+      "パソコン作業を一度伝えれば、Kitewell の AI が毎日やってくれます。自分のパソコンで Web サイトやデスクトップアプリを操作し、うまくいった操作をくり返し、画面が変わったら、その操作だけを直します。",
     skip: "本文へスキップ",
     home: "Kitewell ホーム",
     nav: "メインナビゲーション",
     links: ["活用例", "エージェント", "料金", "ドキュメント"],
-    tagline: "自動化は AI がつくる。動かすのは、あなたのパソコン。",
-    social: "自動化は AI がつくる。動かすのは、あなたのパソコン。Kitewell：AI がつくり保守するブラウザーの自動化と、デスクトップアプリ、Excel、メール、コーディングエージェント。",
+    tagline: "パソコン作業を一度伝えれば、AI が毎日やってくれる。",
+    social: "パソコン作業を一度伝えれば、AI が毎日やってくれる。Kitewell は、うまくいった操作を Mac や PC でくり返し、画面が変わったら、その操作だけを直します。",
     footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ", "比較", "リリース"],
     fine: "",
   },
@@ -93,6 +93,7 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
     <meta property="og:image:alt" content={text.social} />
     <meta name="twitter:card" content="summary_large_image" />
     {isHome && <script type="application/ld+json" set:html={JSON.stringify(site)} />}
+    <slot name="head" />
   </head>
   <body>
     <a class="skip" href="#main">

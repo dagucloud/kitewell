@@ -49,6 +49,96 @@ const needs = {
 
 export const chores = [
   {
+    slug: "portal-invoices",
+    group: "everyone",
+    scheduled: true,
+    uses: ["browser", "jq", "excel"],
+    needs: ["chrome", "browserModel", "workbook"],
+    related: ["supplier-invoices", "excel-orders", "form-from-sheet"],
+    en: {
+      title: "Automate copying invoices from a supplier portal into Excel with AI",
+      when: "Every weekday morning",
+      chore: "Every morning I sign in to our supplier's portal and copy the new invoices into a spreadsheet.",
+      motions: [
+        "Open the portal.",
+        "Type the email.",
+        "Type the password.",
+        "Sign in.",
+        "Open Billing.",
+        "Find the new ones.",
+        "Copy the number. Switch. Paste.",
+        "Copy the amount. Switch. Paste.",
+      ],
+      tally: "Ten minutes every weekday, for a few rows.",
+      sentence:
+        "Every weekday at 9 AM, sign in to our supplier's portal at https://portal.harborsupply.example as ops@example.com and add any new invoices to my sheet ~/Documents/invoices.xlsx.",
+      request: "Every weekday at 9:00, sign in to [the supplier portal's address] as [your sign-in email] and add any new invoices to my sheet [the workbook's path].",
+      steps: [
+        ["website", "Collect new invoices", "Signs in, opens the invoices, and reads the ones issued since the last weekday. The clicks repeat what worked; reading the invoices asks AI."],
+        ["script", "Make the rows", "Turns each invoice into a row: its number, date, and amount."],
+        ["excel", "Add them to invoices.xlsx", "Adds the rows under the ones already there, and waits while the file is open."],
+      ],
+      moment: { title: "Supplier invoices · 9:00", text: "1 new invoice added to invoices.xlsx." },
+      artifact: {
+        type: "table",
+        name: "invoices.xlsx · Invoices",
+        columns: ["Invoice", "Date", "Amount"],
+        rows: [
+          ["HS-20418", "2026-10-02", "1,240.00"],
+          ["HS-20422", "2026-10-02", "2,318.50"],
+          ["HS-20431", "2026-10-03", "624.00"],
+          ["HS-20437", "2026-10-06", "486.00"],
+        ],
+      },
+      good: [
+        "The clicks AI works out in the chat are kept, so every run after repeats them. Reading the new invoices asks AI each time.",
+        "When the portal changes its sign-in, AI finds the new way for that one click, keeps it, and the run shows what it fixed.",
+        "The password is a secret on this computer, typed for you; the model only ever sees its name.",
+      ],
+    },
+    ja: {
+      title: "仕入先ポータルの請求書を Excel に写す作業を AI で自動化",
+      when: "平日の朝",
+      chore: "毎朝、仕入先ポータルにログインして、新しい請求書をスプレッドシートに写している。",
+      motions: [
+        "ポータルを開く。",
+        "メールアドレスを入力。",
+        "パスワードを入力。",
+        "ログイン。",
+        "「ご請求」を開く。",
+        "新しいものを探す。",
+        "番号をコピー。切り替え。貼り付け。",
+        "金額をコピー。切り替え。貼り付け。",
+      ],
+      tally: "数行のために、平日は毎日 10 分。",
+      sentence:
+        "平日の朝9時に、仕入先ポータル https://portal.minato-shizai.example に ops@example.com でログインして、新しい請求書を ~/Documents/請求書.xlsx のシートに追加して。",
+      request: "平日の朝9時に、[仕入先ポータルのアドレス] に [ログインに使うメールアドレス] でログインして、新しい請求書を [ブックの場所] のシートに追加して。",
+      steps: [
+        ["website", "新しい請求書を集める", "ログインして請求書を開き、前の平日以降に発行されたものを読み取ります。クリックはうまくいった操作をくり返し、請求書の読み取りは AI が行います。"],
+        ["script", "行をつくる", "請求書ごとに、番号、発行日、金額の行にします。"],
+        ["excel", "請求書.xlsx に追加する", "いまある行の下に追加します。ファイルが開いている間は待ちます。"],
+      ],
+      moment: { title: "仕入先の請求書 · 9:00", text: "新しい請求書 1 件を請求書.xlsx に追加しました。" },
+      artifact: {
+        type: "table",
+        name: "請求書.xlsx · 請求書",
+        columns: ["請求書番号", "発行日", "金額"],
+        rows: [
+          ["MS-20418", "2026-10-02", "124,000"],
+          ["MS-20422", "2026-10-02", "231,850"],
+          ["MS-20431", "2026-10-03", "62,400"],
+          ["MS-20437", "2026-10-06", "48,600"],
+        ],
+      },
+      good: [
+        "AI がチャットで見つけたクリックは記録され、以降の実行はそれをくり返します。新しい請求書の読み取りは、毎回 AI が行います。",
+        "ポータルのログイン画面が変わると、AI がそのクリックだけ新しい手順を見つけて覚え直し、何を直したかを実行の記録に残します。",
+        "パスワードはこのパソコンのシークレットから入力されます。モデルに見えるのは名前だけです。",
+      ],
+    },
+  },
+  {
     slug: "supplier-invoices",
     group: "everyone",
     scheduled: true,

@@ -12,8 +12,12 @@ interface Props {
   src?: string;
   width?: number;
   height?: number;
+  // phone says the video has a smaller cut, SRC-720.mp4, for phones.
+  phone?: boolean;
+  // describedby names an element that says what the video shows.
+  describedby?: string;
 }
-const { locale, name, label, src, width = 1280, height = 720 } = Astro.props;
+const { locale, name, label, src, width = 1280, height = 720, phone = false, describedby } = Astro.props;
 const base = src ?? `/videos/chores/${locale}/${name}`;
 const text = {
   en: { pause: "Pause the video", play: "Play the video" },
@@ -33,7 +37,9 @@ const text = {
     width={width}
     height={height}
     aria-label={label}
+    aria-describedby={describedby}
   >
+    {phone && <source src={`${base}-720.mp4`} type="video/mp4" media="(max-width: 640px)" />}
     <source src={`${base}.mp4`} type="video/mp4" />
   </video>
   <button type="button" class="clip-toggle" data-clip-toggle data-pause={text.pause} data-play={text.play} aria-label={text.pause} hidden>

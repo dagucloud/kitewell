@@ -293,6 +293,15 @@ figure {
 .skip:focus {
   top: 8px;
 }
+/* Read by screen readers, not drawn. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 .page {
   padding-block: 65px 90px;
   min-height: 60vh;

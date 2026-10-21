@@ -1,0 +1,54 @@
+type: graph
+schedule: "0 9 * * 1-5"
+secrets:
+  - name: PORTAL_PASSWORD
+    ref: harbor-supply/password
+steps:
+  - id: collect
+    name: Collect new invoices
+    action: browser.run
+    with:
+      url: https://portal.harborsupply.example/billing/invoices
+      variables:
+        password: ${env.PORTAL_PASSWORD}
+      do:
+        - act: Type ops@example.com into the email field
+        - act: Type %password% into the password field
+        - act: Click Sign in
+        - expect: {text: Invoices}
+        - extract:
+            instruction: Every invoice issued since the last weekday, with its number, issue date, and amount
+            schema:
+              type: object
+              properties:
+                invoices:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      number: {type: string}
+                      date: {type: string}
+                      amount: {type: number}
+      browser:
+        profile: harbor-supply
+  - id: rows
+    name: Make the rows
+    depends: [collect]
+    action: jq.filter
+    with:
+      data: {}
+      args:
+        invoices: ${steps.collect.outputs.invoices}
+      filter: '$invoices | fromjson | map({Invoice: .number, Date: .date, Amount: .amount})'
+      raw: true
+    output:
+      rows: {from: stdout, decode: json}
+  - id: add
+    name: Add them to invoices.xlsx
+    depends: [rows]
+    action: xlsx.append
+    with:
+      path: ~/Documents/invoices.xlsx
+      sheet: Invoices
+      rows: ${steps.rows.outputs.rows}
+      wait_for_unlock: 5m

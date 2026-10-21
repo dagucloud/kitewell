@@ -8,508 +8,255 @@ import { readReleases } from "../lib/releases.mjs";
 import { descartyUrl } from "../lib/descarty.mjs";
 import { localize } from "../lib/i18n.mjs";
 import { choreBySlug } from "../lib/chores.mjs";
-import { film } from "../lib/film.mjs";
-import { proofs } from "../lib/proof.mjs";
+import { hero, stills } from "../lib/hero.mjs";
+import { daguStars } from "../lib/proof.mjs";
 import "../styles/home.css";
-import runEn from "../assets/docs/en/runs-run-view.png";
-import runJa from "../assets/docs/ja/runs-run-view.png";
 interface Props {
   locale: "en" | "ja";
 }
 const { locale } = Astro.props;
-// A release published for either system is enough to offer the download.
-const { macos, windows } = await readReleases();
-const release = macos ?? windows;
-const cut = film[locale];
+const { macos } = await readReleases();
+// The figures beside the loop are the captured runs' own
+// (src/data/hero-runs.json); none is typed here.
+const run = hero[locale];
+const ai = (r: { withoutAI: { count: number; total: number } }) => r.withoutAI.total - r.withoutAI.count;
+const stars = daguStars.toLocaleString(locale === "ja" ? "ja-JP" : "en-US");
 const text = {
   en: {
-    title: "AI builds the automation. Your computer runs it.",
+    title: "AI browser and desktop automation that repeats, for Mac and Windows",
     description:
-      "Kitewell's AI builds browser automation and fixes it when a site changes. It also runs desktop apps, Excel, email, and coding agents like Claude Code and Codex on your Mac or PC, on a schedule or a webhook, and you follow the runs from your phone. Free for one project.",
-    eyebrow: "AI + RPA",
-    version: release ? `Version ${release.version}` : "",
-    heading: "AI builds the automation.\nYour computer runs it.",
-    lead: "Describe the job, and AI builds the automation in a browser you can watch, then fixes it when the site changes. Desktop apps, Excel, email, and coding agents like Claude Code run the same way: on a schedule or a webhook, with your OK where it matters. Follow it from your phone, wherever you are.",
-    watch: `Watch the film (${cut.seconds} s)`,
-    setup: "Read the setup guide →",
-    platform: "Public beta for macOS 13+ and Windows 10+. Free for one project.",
-    proofTabs: ["Websites", "Coding agents"],
-    proof: [
-      "Real recording, sped up: Kitewell's chat is asked to add a supplier portal's new invoices to an Excel file every weekday. The AI opens the stand-in portal in a browser shown in the chat, has the person type the password into a card, signs in, tries its draft, and proposes the workflow. Once it is applied and run, the run waits with the invoices it found until a reply lets it add them to the workbook.",
-      "Real recording, sped up: Kitewell's chat is asked to have Claude Code fix a demo repository's failing tests every night and Codex review the change. The assistant proposes the workflow with its schedule and runs it; Claude Code fixes the test, Codex reviews it, and the run waits with their summary until a reply lets it commit the fix to a new local branch.",
+      "Describe a computer chore once and AI does it every day. Kitewell's AI does it once while you watch, then repeats the same clicks on your schedule; when a site changes, AI fixes just the step that broke. Free for up to 10 workflows on Mac and Windows.",
+    eyebrow: "Repeatable computer use · Mac and Windows",
+    heading: "Describe a computer chore once.\nAI does it every day.",
+    lead: "Type the chore in plain words. Kitewell's AI does it once in a browser or desktop app while you watch, then Kitewell repeats the same clicks on your schedule. When a site changes, AI fixes just the step that broke.",
+    offer: "Free for up to 10 workflows · Mac and Windows · AI included with a free sign-in",
+    trust: `From the makers of Dagu, the open-source workflow engine with ${stars}+ GitHub stars`,
+    notarized: "Signed and notarized by Apple",
+    passwords: "Passwords stay on your computer, never shown to the AI",
+    loop: "Kitewell building a weekday invoice chore in its chat, then the runs after it: the next run repeats every click, the supplier's sign-in page changes and AI fixes just that click, and the new invoice lands in the spreadsheet.",
+    caption: "Real runs, sped up. The run records and the sheet show exactly what those runs recorded. Harbor Supply is a sample portal made for this demo.",
+    unedited: "Watch an unedited recording",
+    uneditedLabel: "The unedited recording of Kitewell's chat building the invoice workflow and its first run, sped up evenly.",
+    transcript: [
+      "The first time, AI does the job while you watch: it signs in to the supplier's portal in the chat's browser and reads the invoices.",
+      "Check it, then say go: the proposed workflow, weekdays at 9:00, is applied.",
+      "Every weekday at 9:00, it repeats what worked: the next run replays every click.",
+      "The site changed, and AI fixed just that click: the sign-in button moved, and only that click went back to AI.",
+      "Today's new invoice is in your sheet.",
     ],
-    proofNote: "Real recordings of Kitewell's chat window, unedited and sped up evenly: one request in plain words, then everything the AI and the app did. A stand-in supplier portal and a demo repository.",
-    transcript: "Read the film's narration",
-    how: "How it works",
-    steps: [
-      ["AI builds it", "Describe the job in plain words. The assistant lays out every step for you to check, works the site in a browser you can watch, and tries the draft without sending anything out. Nothing runs until you apply it."],
-      ["Your computer runs it", "On a schedule, from a webhook, or from your phone. It stops for your OK wherever you put a gate."],
-      ["AI maintains it", "When a site or app changes, AI finds the new way, keeps it, and the run shows what it fixed. When a run fails, AI tells you why."],
-    ],
-    browser: "Browser automation",
-    browserTitle: "Built by AI. Maintained by AI.",
-    browserText:
-      "Tell Kitewell the job in plain words. AI signs in, clicks, types, and collects in a browser you can watch and take over, and writes the steps from what worked. Later runs repeat them, and when the site changes, AI finds the new way and keeps it.",
-    browserItems: [
-      ["Behind any sign-in", "Sign-ins stay in Kitewell's own browser profile on the computer. Sites that ask for a client certificate work too."],
-      ["Passwords stay out of the model", "A password is named in the step and typed from the computer's secrets; the model sees only the name."],
-      ["It shows what it fixed", "Each run marks the steps it repeated and the ones AI fixed, with screenshots."],
-    ],
-    browserLink: "How website automation works →",
-    record: {
-      title: "Collect new invoices",
-      kind: "Website",
-      facts: [["Start page", "127.0.0.1:4320/billing/invoices"], ["Browser steps", "5"], ["Ran without AI", "3 of 6 operations"]],
-      ops: [
-        ["Open page", "127.0.0.1:4320/billing/invoices", ["Completed"]],
-        ["Do", "Type ops@example.com into the email field", ["Replayed"]],
-        ["Do", "Type %password% into the password field", ["Replayed"]],
-        ["Do", "Click Sign in", ["Recovered"]],
-        ["Make sure", "text \"Invoices\"", ["Completed"]],
-        ["Collect", "Every invoice issued since the last weekday", ["Completed"]],
-      ],
-      label: "What the browser did",
-      caption: "From a real run against a stand-in supplier portal on this computer, as Kitewell shows it. The portal had moved its sign-in button, so AI found the new one and kept it; the next run replayed it.",
-    },
-    rpa: "AI + RPA",
-    rpaTitle: "RPA was the right idea. Building it by hand was the problem.",
-    rpaHead: ["Hand-built RPA", "Kitewell"],
-    rpaRows: [
-      ["A specialist records and scripts every click", "AI builds it from your words"],
-      ["A changed screen means someone repairs the robot", "AI finds the new way and keeps it"],
-      ["A robot PC and a license per robot", "The computer you have, free for one project"],
-      ["One tool per kind of system", "Websites, desktop apps, Excel, and email in one workflow"],
-      ["Hard to see what a robot did", "Every step, screenshot, and approval in the run record"],
-    ],
-    others: "How Kitewell compares →",
-    automate: "Beyond the browser",
-    automateTitle: "Desktop apps, Excel, and email, too.",
-    tiles: [
-      ["Desktop apps with no API", "A model reads the screen and works the app. Later runs replay on Windows by the app's own buttons and fields, and on macOS from the screen.", "/docs/desktop/"],
-      ["Excel, row by row", "Runs once per row of the workbook you already have and writes each result back beside it. Title rows, merged headers, and subtotals included.", "/docs/spreadsheets/"],
-      ["Email", "Find, read, file, and send mail in Microsoft 365, Gmail with an app password, or any IMAP mailbox.", "/docs/email/"],
-      ["Scripts, servers, and APIs", "Commands, Docker, SSH rollouts a few machines at a time, and any OpenAPI, with decision steps that choose the next path.", "/docs/workflow-builder/"],
-    ],
-    agents: "Coding agents",
-    agentsTitle: "Claude Code, Codex, and 13 more, on your schedule.",
-    agentsText: "Put the coding agents you already use to work while you're away, on the sign-in you already have. Each vendor's terms apply.",
-    agentNames: ["Claude Code", "Codex", "Cursor", "Gemini", "GitHub Copilot", "Aider", "Amp", "Cline", "DeepSeek", "Droid", "Goose", "Kiro", "OpenCode", "Pi", "Qwen"],
-    agentMore: "Any other CLI, as a custom command",
-    agentItems: [
-      ["Chain them", "One writes, another reviews. Run them side by side, or once per repository from a sheet."],
-      ["Keep going at the limit", "When an agent hits its usage limit or fails, the next one you listed takes over."],
-      ["Nothing ships unchecked", "A gate holds the push until you approve. Send back re-runs the agent with your notes."],
-      ["Started by GitHub", "An issue or pull request can start the run through a webhook, with no open ports."],
-    ],
-    agentsLink: "Coding agents in Kitewell →",
-    chain: {
-      title: "Morning fix for a failing build",
-      steps: [
-        ["Agent · Claude Code", "Draft a fix on a branch", "If it fails: Codex, then Gemini"],
-        ["Agent · Codex", "Review the change and list what to correct", ""],
-        ["Approval", "Wait for you before pushing", ""],
-        ["Command", "Push the branch and open a pull request", ""],
-      ],
-      caption: "A sample workflow: one agent writes, another reviews, and nothing is pushed until you approve.",
-    },
-    triggers: "Triggers",
-    triggersTitle: "It starts on its own.",
-    triggerItems: [
-      ["Schedules", "Daily, on weekdays, or any schedule, in your time zone. Starts a sleeping computer missed are caught up when it wakes.", "", "/docs/scheduling/"],
-      ["Webhooks", "GitHub, Stripe, Slack, or any service starts a workflow on your computer through Kitewell's relay. Signatures are checked, no port is opened, and a request waits up to 7 days.", "Personal and Team", "/docs/webhooks/"],
-      ["From anywhere", "From ChatGPT or Claude on your phone, from Claude Code or Codex over MCP, or with a REST call.", "", "/docs/mcp/"],
-    ],
-    control: "Control",
-    controlTitle: "Approve and follow runs from your phone. Know why one failed.",
-    controlItems: [
-      ["Approve or send back", "Any step can wait for your OK. Approve it, or send it back with a note, from the run, a notification, or ChatGPT and Claude on your phone."],
-      ["Runs in your browser", "Dagu Console shows each run of a synced project and the computer it ran on. Open it on your phone. Free with a Dagu Cloud account."],
-      ["Alerts", "Slack, Microsoft Teams, PagerDuty, email, or a desktop notification when a run fails, waits for you, or misses its schedule. With Personal and Team."],
-      ["When a computer goes quiet", "Dagu Console emails you when a computer stops reporting for 10 minutes: asleep, offline, or Kitewell quit. Turn it on for computers meant to stay on."],
-      ["Failure diagnosis", "AI reads a failed run and says whether to try again, step in, or change the workflow."],
-      ["Run record", "Every step's output, screenshots, and decisions. Retry from the step that failed."],
-      ["Test first", "Run one step with real inputs before you save, and try a draft without sending anything out."],
-      ["Notes that stay", "The assistant keeps what it learns in knowledge pages, for you and whoever takes over."],
-    ],
-    controlNote: "ChatGPT Plus and Pro can read runs but not approve them.",
-    controlAlt: "A finished invoice run in Kitewell, with each step's status and the selected step's output",
-    controlLinks: [["Runs and logs →", "/docs/runs/"], ["Dagu Console →", "/docs/console/"]],
-    team: "Teams and fleets",
-    teamTitle: "Run it on every computer. Watch them all from one place.",
-    teamItems: [
-      ["Every computer, one view", "Dagu Console lists each computer's status, Kitewell version, and today's runs. One alert per workflow, however many computers run it, closed by the next success on any of them."],
-      ["Sync and roles", "Share projects with Viewer, Editor, and Admin roles. Each computer keeps its own sign-ins and secret values."],
-      ["Releases", "Promote workflows from Dev to Staging to Prod, with a diff and rollback."],
-      ["Robot ledger", "Export a ledger of every workflow for audits, one row each."],
-      ["Shared computers (Enterprise)", "Computers your organization owns, such as a VM in your own Azure or AWS, run workflows day and night with nobody signed in. Nothing stops when a laptop sleeps or its owner moves on."],
-      ["Build from a browser (Enterprise)", "Sign in with your company account, then build and try workflows on the computer they run on while you watch its browser. Approve fixes from your phone, with no remote desktop."],
-    ],
-    teamPrice: "Kitewell Team, for organizations of up to 25 people, is quoted per computer.",
-    fleet: {
-      title: "Kitewell computers",
-      head: ["Computer", "Status", "Kitewell version", "OS/arch", "In progress", "Failed today (UTC)"],
-      rows: [
-        ["Front desk PC", "Reporting", "0.17.3", "windows/amd64", "1", "0"],
-        ["Accounting PC", "Reporting", "0.17.3", "windows/amd64", "0", "1"],
-        ["Build Mac", "Reporting", "0.17.3", "darwin/arm64", "2", "0"],
-        ["Warehouse laptop", "Not reporting", "0.17.3", "windows/amd64", "0", "0"],
-      ],
-      caption: "A sample of the Kitewell computers table in Dagu Console, with some of its columns.",
-    },
-    teamLinks: [["Dagu Console →", "/docs/console/"], ["Sync with Dagu Cloud →", "/docs/cloud-sync/"], ["Project sharing →", "/docs/sharing/"], ["Releases →", "/docs/releases/"]],
-    enterprise: "Larger team, shared computers, or a rollout with support? Descarty ↗",
-    own: "On your computer",
-    ownTitle: "Your computer, your keys, your files.",
-    ownRows: [
-      ["Secret values", "Encrypted on the computer. Never synced, exported, or backed up."],
-      ["Your choice of AI", "Anthropic, OpenAI, Gemini, OpenRouter, Kitewell's included model, or a local model that keeps everything inside your network."],
-      ["No lock-in", "Workflows are plain YAML on the open-source Dagu engine. Export a project any time."],
-      ["Quiet in the background", "Runs from the menu bar or tray, with nightly backups, edit history, and engine updates that roll back if they fail."],
-      ["What leaves, exactly", "A synced project sends run status and the names of failed steps, never logs, output, or secret values."],
-      ["Six languages", "The app speaks English, Japanese, Chinese, Korean, French, and German."],
-    ],
-    ownLink: "Everything that leaves, and when →",
     examples: "Examples",
     examplesTitle: "What do you still do by hand?",
-    exampleTabs: ["Everyday work", "Coding"],
     examplesLink: "All examples →",
+    learns: "How it works",
+    learnsTitle: "Learns once. Repeats every day.",
+    learnsLead:
+      "An AI agent works the job out again on every run. A recorded macro repeats exactly, until a screen changes. Kitewell keeps what worked and asks AI only about what changed.",
+    beats: [
+      ["The first time, AI works it out", `First run with nothing recorded: ${run.cold.seconds} s`, `AI decided ${ai(run.cold)} of ${run.cold.withoutAI.total} operations`],
+      ["Every run after, it repeats them", `Next run: ${run.replayed.seconds} s`, `${run.replayed.withoutAI.count} of ${run.replayed.withoutAI.total} operations without AI`],
+      ["A site changes: AI fixes that click", `Fixed by AI: ${run.recovered.fixed}`, `${run.recovered.withoutAI.count} of ${run.recovered.withoutAI.total} operations without AI`],
+    ],
+    beatAlt: [
+      "Kitewell's chat with its browser signed in to the supplier portal",
+      "A run's browser step with each click marked Replayed",
+      "A run's browser step with the sign-in click marked Recovered",
+    ],
+    reading: "Reading what's on a page, such as the new invoices, asks AI on every run.",
+    measured: "Real runs on this computer against a sample portal, with DeepSeek V4 Flash, the model behind Kitewell's included AI.",
+    compare: "How Kitewell compares →",
+    where: "Beyond the browser",
+    whereTitle: "Works where your chores are.",
+    tiles: [
+      ["Websites", "Behind a sign-in, with passwords kept on your computer.", "/docs/browser/"],
+      ["Desktop apps", "Apps with no API, with your own AI key or the included AI on a paid plan.", "/docs/desktop/"],
+      ["Excel", "Once per row of the workbook you already have, each result written back beside it.", "/docs/spreadsheets/"],
+      ["Email", "Find, read, file, and send mail in Microsoft 365, Gmail, or any IMAP mailbox.", "/docs/email/"],
+      ["On schedule, with your OK", "Weekdays at 9, on a webhook, or on request. Approve a step from your phone.", "/docs/scheduling/"],
+      ["Coding agents", "Claude Code, Codex, and 13 more, on your schedule and behind your approval.", "/coding-agents/"],
+    ],
+    safe: "Safe to hand over",
+    safeTitle: "Your computer, your sign-ins, your say.",
+    safeRows: [
+      ["Runs on your computer", "Sign-ins stay in Kitewell's own browser profile on your Mac or PC. The page text a step reads goes to the AI provider you choose."],
+      ["Passwords stay out of the model", "A step names a password, and Kitewell types it from the computer's secrets. The model only ever sees the name."],
+      ["Nothing goes out until you say", "A draft is tried without sending anything, and a step can wait for your OK before it adds, sends, or pushes."],
+      ["Every run on record", "Each run shows what it repeated, what AI fixed, and screenshots of the page."],
+    ],
+    safeLink: "What leaves your computer, and when →",
     pricing: "Pricing",
-    pricingTitle: "Free for one project.",
-    pricingText: "One project with up to 10 workflows is free. Personal adds room, alerts, and webhooks for $20 a month; Team adds people, quoted per computer for organizations (USD, excluding tax).",
-    compare: "Compare plans →",
+    pricingTitle: "Free for up to 10 workflows.",
+    pricingText:
+      "Sign in for 100 free AI credits with no API key, or use your own key. Personal adds alerts, webhooks, and more projects for $20 a month (USD, excluding tax).",
+    plans: "Compare plans →",
+    enterprise: "Larger rollouts with support: Descarty ↗",
   },
   ja: {
-    title: "自動化は AI がつくる。動かすのは、あなたのパソコン。",
+    title: "くり返せる AI のブラウザー・デスクトップ自動化（Mac / Windows）",
     description:
-      "Kitewell の AI がブラウザーの自動化をつくり、サイトが変わったら直します。デスクトップアプリ、Excel、メール、Claude Code や Codex などのコーディングエージェントも、あなたの Mac や PC で、スケジュールや Webhook で動かします。実行はスマホからも見守れます。1 プロジェクトまで無料。",
-    eyebrow: "AI × RPA",
-    version: release ? `バージョン ${release.version}` : "",
-    heading: "自動化は AI がつくる。\n動かすのは、あなたのパソコン。",
-    lead: "やってほしい仕事を伝えれば、AI が目の前のブラウザーで自動化をつくり、サイトが変わったら直します。デスクトップアプリ、Excel、メール、Claude Code などのコーディングエージェントも同じように、スケジュールや Webhook で、大事なところはあなたの OK を待って動きます。外出先からも、スマホで見守れます。",
-    watch: `映像を見る（${cut.seconds} 秒）`,
-    setup: "セットアップガイドを読む →",
-    platform: "macOS 13 以降と Windows 10 以降のパブリックベータ。1 プロジェクトまで無料。",
-    proofTabs: ["Web サイト", "コーディングエージェント"],
-    proof: [
-      "実際の録画（早送り）。Kitewell のチャットで、仕入れ先ポータルの新しい請求書を平日ごとに Excel に追加するよう頼みます。AI はチャットに映るブラウザーで代役のポータルを開き、パスワードはカードであなたが入力します。AI はログインして下書きを試し、ワークフローを提案します。適用して実行すると、見つけた請求書を見せて待ち、返信で進めるとブックに追加します。",
-      "実際の録画（早送り）。Kitewell のチャットで、デモ用リポジトリの失敗しているテストを毎晩 Claude Code に直させ、その変更を Codex にレビューさせるよう頼みます。アシスタントがスケジュール付きのワークフローを提案して実行し、Claude Code がテストを直し、Codex がレビューします。実行は 2 つの要約を見せて待ち、返信で進めると、修正がローカルの新しいブランチにコミットされます。",
+      "パソコン作業を一度伝えれば、AI が毎日やってくれる。Kitewell の AI が目の前で一度やってみせ、そのあとは同じ操作を決まった時間にくり返します。サイトが変わったら、AI が変わった手順だけを直します。Mac と Windows で 10 ワークフローまで無料。",
+    eyebrow: "くり返せる AI のパソコン操作 · Mac と Windows",
+    heading: "パソコン作業を一度伝えれば、\nAI が毎日やってくれる。",
+    lead: "やってほしい作業を、ふだんの言葉で入力するだけ。Kitewell の AI がブラウザーやアプリで目の前で一度やってみせ、そのあとは同じ操作を決まった時間にくり返します。サイトが変わったら、AI が変わった手順だけを直します。",
+    offer: "10 ワークフローまで無料 · Mac と Windows · 無料のサインインで AI 付き",
+    trust: `オープンソースのワークフローエンジン Dagu（GitHub スター ${stars} 以上）の開発元から`,
+    notarized: "Apple の署名と公証済み",
+    passwords: "パスワードはパソコンに残り、AI には見せません",
+    loop: "Kitewell がチャットで平日の請求書の作業をつくり、その後の実行を見せる映像。次の実行はすべてのクリックをくり返し、仕入先のログイン画面が変わると AI がそのクリックだけを直し、新しい請求書がシートに入ります。",
+    caption: "実際の実行を早送りしています。実行の記録とシートは、その実行が記録した内容そのままです。みなと資材は、この映像のためのサンプルのポータルです。",
+    unedited: "編集なしの録画を見る",
+    uneditedLabel: "Kitewell のチャットが請求書のワークフローをつくり、最初に実行するまでの編集なしの録画。一定の速さで早送りしています。",
+    transcript: [
+      "最初の一回は、AI が目の前で作業します。チャットのブラウザーで仕入先のポータルにログインし、請求書を読み取ります。",
+      "確かめて、OK するだけ。提案された平日 9:00 のワークフローを適用します。",
+      "平日の 9:00 に、うまくいった操作をくり返します。次の実行はすべてのクリックを再生します。",
+      "サイトが変わっても、AI がその操作だけを直します。ログインボタンが動き、そのクリックだけを AI が見つけ直しました。",
+      "今日の新しい請求書が、シートに入りました。",
     ],
-    proofNote: "Kitewell のチャット画面の実際の録画です。編集はせず、一定の速さで早送りしています。ふだんの言葉で 1 回頼んだあと、AI とアプリが行ったことのすべてです。仕入れ先ポータルは代役、リポジトリはデモ用です。",
-    transcript: "ナレーションをテキストで読む",
-    how: "しくみ",
-    steps: [
-      ["AI がつくる", "やってほしい仕事を、ふだんの言葉で伝えるだけ。アシスタントが手順を並べて見せ、目の前のブラウザーでサイトを操作し、外部に何も送らずに試します。適用するまで、何も動きません。"],
-      ["パソコンが動かす", "スケジュールで、Webhook で、スマホから。指定した所では、あなたの OK を待ちます。"],
-      ["AI が保守する", "サイトやアプリが変われば、AI が新しい手順を見つけて覚え直し、何を直したかを実行の記録に残します。失敗したときは、理由を AI が伝えます。"],
-    ],
-    browser: "ブラウザーの自動化",
-    browserTitle: "AI がつくり、AI が保守する。",
-    browserText:
-      "やってほしい仕事を、ふだんの言葉で伝えるだけ。AI が、見守ったり代わったりできるブラウザーでログインし、クリックし、入力し、情報を集め、うまくいった操作から手順を書きます。以降の実行はそれを繰り返し、サイトが変われば、AI が新しい手順を見つけて覚え直します。",
-    browserItems: [
-      ["ログインが必要なサイトも", "サインインは、コンピューター上の Kitewell 専用のブラウザープロファイルに残ります。電子証明書が必要なサイトにも対応します。"],
-      ["パスワードはモデルに見せない", "パスワードはステップに名前で書き、コンピューターのシークレットから入力します。モデルに見えるのは名前だけです。"],
-      ["何を直したかが見える", "実行ごとに、繰り返したステップと AI が直したステップを、スクリーンショット付きで記録します。"],
-    ],
-    browserLink: "Web サイトの自動化のしくみ →",
-    record: {
-      title: "新しい請求書を集める",
-      kind: "Web サイト",
-      facts: [["開始ページ", "127.0.0.1:4322/billing/invoices"], ["ブラウザーステップ", "5"], ["AI なしで実行", "6 件中 3 件の操作"]],
-      ops: [
-        ["ページを開く", "127.0.0.1:4322/billing/invoices", ["完了"]],
-        ["操作", "メールアドレス欄に ops@example.com と入力する", ["再生"]],
-        ["操作", "パスワード欄に %password% と入力する", ["再生"]],
-        ["操作", "ログインをクリックする", ["復旧"]],
-        ["確認", "text \"請求書\"", ["完了"]],
-        ["収集", "前営業日以降に発行された請求書すべて", ["完了"]],
-      ],
-      label: "ブラウザーが行ったこと",
-      caption: "このコンピューター上の代役の仕入れ先ポータルに対する、実際の実行の記録です。表示は Kitewell の画面のとおり。ポータルのログインボタンが動いたため、AI が新しいボタンを見つけて覚え直し、次の実行はそれを再生しました。",
-    },
-    rpa: "AI × RPA",
-    rpaTitle: "RPA の考え方は正しかった。問題は、手でつくることだった。",
-    rpaHead: ["手でつくる RPA", "Kitewell"],
-    rpaRows: [
-      ["専門の担当者が、クリックを一つずつ記録して組む", "あなたの言葉から、AI が組む"],
-      ["画面が変わるたびに、誰かがロボットを直す", "AI が新しい手順を見つけて、覚え直す"],
-      ["ロボット用の PC と、ロボットごとのライセンス", "いまあるパソコンで。1 プロジェクトまで無料"],
-      ["システムの種類ごとに、別のツール", "Web サイト、デスクトップアプリ、Excel、メールを 1 つのワークフローに"],
-      ["ロボットが何をしたか、見えにくい", "すべてのステップ、スクリーンショット、承認が実行の記録に"],
-    ],
-    others: "Kitewell と、ほかの選択肢 →",
-    automate: "ブラウザーの外も",
-    automateTitle: "デスクトップアプリも、Excel も、メールも。",
-    tiles: [
-      ["API のないデスクトップアプリ", "モデルが画面を読んでアプリを操作します。以降の実行は、Windows ではアプリ自身のボタンや入力欄を、macOS では画面を頼りに再生します。", "/docs/desktop/"],
-      ["Excel を 1 行ずつ", "いまのブックのまま 1 行ごとに実行し、結果を同じ行に書き戻します。タイトル行、結合ヘッダー、小計もそのまま。", "/docs/spreadsheets/"],
-      ["メール", "Microsoft 365、アプリパスワードを使う Gmail、任意の IMAP のメールを、検索、整理、送信します。", "/docs/email/"],
-      ["スクリプト、サーバー、API", "コマンド、Docker、数台ずつ進める SSH のロールアウト、OpenAPI の取り込み。次の道を選ぶ判定ステップも。", "/docs/workflow-builder/"],
-    ],
-    agents: "コーディングエージェント",
-    agentsTitle: "Claude Code、Codex ほか 15 種類を、あなたのスケジュールで。",
-    agentsText: "いつも使っているコーディングエージェントを、いまのサインインのまま、あなたがいない間も働かせます。各社の利用規約に従ってお使いください。",
-    agentNames: ["Claude Code", "Codex", "Cursor", "Gemini", "GitHub Copilot", "Aider", "Amp", "Cline", "DeepSeek", "Droid", "Goose", "Kiro", "OpenCode", "Pi", "Qwen"],
-    agentMore: "ほかの CLI も、カスタムコマンドで",
-    agentItems: [
-      ["つなげる", "1 つが書き、もう 1 つがレビュー。並べて動かすことも、シートからリポジトリごとに動かすこともできます。"],
-      ["上限でも止まらない", "エージェントが利用上限に達したり失敗したりしたら、次に挙げたエージェントが引き継ぎます。"],
-      ["確認なしには出さない", "承認するまでプッシュを止めます。「差し戻し」なら、メモを添えてエージェントがやり直します。"],
-      ["GitHub から始まる", "Issue やプルリクエストの Webhook で実行が始まります。ポート開放は不要です。"],
-    ],
-    agentsLink: "Kitewell のコーディングエージェント →",
-    chain: {
-      title: "失敗したビルドを朝までに直す",
-      steps: [
-        ["エージェント · Claude Code", "ブランチに修正をつくる", "失敗したら：Codex、次に Gemini"],
-        ["エージェント · Codex", "変更をレビューし、直す点を挙げる", ""],
-        ["承認", "プッシュの前にあなたを待つ", ""],
-        ["コマンド", "ブランチをプッシュしてプルリクエストを開く", ""],
-      ],
-      caption: "サンプルのワークフロー。1 つのエージェントが書き、もう 1 つがレビューし、あなたが承認するまで何もプッシュしません。",
-    },
-    triggers: "きっかけ",
-    triggersTitle: "勝手に始まる。",
-    triggerItems: [
-      ["スケジュール", "毎日、平日、どんな間隔でも、あなたのタイムゾーンで。パソコンが眠っていて逃した開始は、起きたときに追いかけます。", "", "/docs/scheduling/"],
-      ["Webhook", "GitHub、Stripe、Slack などのサービスが、Kitewell のリレーを通じてあなたのパソコンのワークフローを始めます。署名を確認し、ポートは開かず、リクエストは最大 7 日間待ちます。", "Personal と Team", "/docs/webhooks/"],
-      ["どこからでも", "スマホの ChatGPT や Claude から、MCP で Claude Code や Codex から、または REST で。", "", "/docs/mcp/"],
-    ],
-    control: "手綱を握る",
-    controlTitle: "スマホから承認も確認も。失敗の理由もわかる。",
-    controlItems: [
-      ["承認と差し戻し", "どのステップでも OK を待てます。実行の画面、通知、スマホの ChatGPT や Claude から、承認やメモ付きの差し戻しができます。"],
-      ["ブラウザーで実行を確認", "同期したプロジェクトの実行と、それを動かしたパソコンを Dagu Console で確認できます。スマホからも開けます。無料の Dagu Cloud アカウントで使えます。"],
-      ["アラート", "実行の失敗、あなたの対応待ち、スケジュールの取りこぼしを、Slack、Microsoft Teams、PagerDuty、メール、デスクトップ通知で知らせます。Personal と Team で使えます。"],
-      ["パソコンが止まったら", "パソコンからの報告が 10 分途絶えると、Dagu Console がメールで知らせます。スリープ、オフライン、Kitewell の終了も見逃しません。動かし続けるパソコンでオンにします。"],
-      ["失敗の診断", "AI が失敗した実行を読み、やり直すか、対応するか、ワークフローを変えるかを伝えます。"],
-      ["実行の記録", "各ステップの出力、スクリーンショット、判断。失敗したステップからやり直せます。"],
-      ["先に試す", "保存の前に実際の入力で 1 ステップを試し、外部に何も送らずに下書きを試せます。"],
-      ["残るメモ", "アシスタントが覚えたことをナレッジのページに残します。あなたにも、引き継ぐ人にも。"],
-    ],
-    controlNote: "ChatGPT Plus と Pro では、実行を読めますが承認はできません。",
-    controlAlt: "Kitewell で完了した請求書の実行。各ステップの状態と、選んだステップの出力",
-    controlLinks: [["実行とログ →", "/docs/runs/"], ["Dagu Console →", "/docs/console/"]],
-    team: "チームと台数",
-    teamTitle: "どのパソコンで動かしても、ひとつの画面で見守る。",
-    teamItems: [
-      ["すべてのパソコンを一覧で", "Dagu Console に、各パソコンの状態、Kitewell のバージョン、今日の実行が並びます。アラートはワークフローごとに 1 件。何台で動かしても増えず、どのパソコンでも次に成功すれば閉じます。"],
-      ["同期とロール", "閲覧・編集・管理のロールでプロジェクトを共有。サインインとシークレットの値は、それぞれのパソコンに残ります。"],
-      ["リリース", "Dev から Staging、本番へ。差分を確かめて反映し、ロールバックもできます。"],
-      ["ロボット管理台帳", "すべてのワークフローを 1 行ずつ、FISC の項目順で台帳に書き出せます。"],
-      ["共有のコンピューター（Enterprise）", "自社の Azure や AWS の VM など、組織が持つコンピューターが、誰もサインインしていなくても昼夜ワークフローを動かします。ノート PC のスリープや担当者の異動で止まりません。"],
-      ["ブラウザーから作る（Enterprise）", "会社のアカウントでサインインし、ワークフローが動くコンピューターの上で、そのブラウザーを見ながら作って試せます。修正の承認はスマホから。リモートデスクトップは要りません。"],
-    ],
-    teamPrice: "Kitewell Team は 25 人までの組織向けで、料金は台数に応じてお見積りします。",
-    fleet: {
-      title: "Kitewell コンピューター",
-      head: ["コンピューター", "状態", "Kitewell のバージョン", "OS/アーキテクチャ", "実行中", "本日の失敗 (UTC)"],
-      rows: [
-        ["受付の PC", "レポート中", "0.17.3", "windows/amd64", "1", "0"],
-        ["経理の PC", "レポート中", "0.17.3", "windows/amd64", "0", "1"],
-        ["ビルド用の Mac", "レポート中", "0.17.3", "darwin/arm64", "2", "0"],
-        ["倉庫のノート PC", "レポート停止", "0.17.3", "windows/amd64", "0", "0"],
-      ],
-      caption: "Dagu Console の「Kitewell コンピューター」の表のサンプル。列の一部を表示しています。",
-    },
-    teamLinks: [["Dagu Console →", "/docs/console/"], ["Dagu Cloud と同期 →", "/docs/cloud-sync/"], ["プロジェクトの共有 →", "/docs/sharing/"], ["リリース →", "/docs/releases/"]],
-    enterprise: "それより大きなチーム、共有のコンピューター、支援付きの導入は Descarty へ ↗",
-    own: "あなたのパソコンで",
-    ownTitle: "あなたのパソコン、あなたの鍵、あなたのファイル。",
-    ownRows: [
-      ["シークレットの値", "パソコン内で暗号化。同期、エクスポート、バックアップには入りません。"],
-      ["AI は自由に", "Anthropic、OpenAI、Gemini、OpenRouter、Kitewell の付属モデル、または社内のネットワークから何も出さないローカルモデル。"],
-      ["囲い込みなし", "ワークフローはオープンソースの Dagu エンジンで動く素の YAML。いつでもエクスポートできます。"],
-      ["裏で静かに", "メニューバーやタスクトレイから動きます。毎晩のバックアップと編集履歴、失敗したら戻るエンジン更新。"],
-      ["外に出るものは正確に", "同期したプロジェクトが送るのは、実行の状態と失敗したステップの名前だけ。ログ、出力、シークレットの値は送りません。"],
-      ["6 つの言語", "アプリは日本語、英語、中国語、韓国語、フランス語、ドイツ語に対応しています。"],
-    ],
-    ownLink: "外に出るものと、そのタイミングのすべて →",
     examples: "活用例",
     examplesTitle: "まだ、手でやっていますか。",
-    exampleTabs: ["業務", "コーディング"],
     examplesLink: "すべての活用例 →",
+    learns: "しくみ",
+    learnsTitle: "一度覚えて、毎日くり返す。",
+    learnsLead:
+      "AI エージェントは、実行のたびに作業を一から考え直します。記録したマクロは、画面が変わるまで同じことをくり返します。Kitewell は、うまくいった操作を覚え、変わったところだけを AI に任せます。",
+    beats: [
+      ["最初は、AI が考える", `記録のない最初の実行：${run.cold.seconds} 秒`, `${run.cold.withoutAI.total} 件中 ${ai(run.cold)} 件の操作を AI が判断`],
+      ["次からは、その操作をくり返す", `次の実行：${run.replayed.seconds} 秒`, `${run.replayed.withoutAI.total} 件中 ${run.replayed.withoutAI.count} 件の操作を AI なしで実行`],
+      ["サイトが変わったら、その操作だけ AI が直す", `AI が直した操作：${run.recovered.fixed}`, `${run.recovered.withoutAI.total} 件中 ${run.recovered.withoutAI.count} 件の操作を AI なしで実行`],
+    ],
+    beatAlt: [
+      "仕入先ポータルにログインした Kitewell のチャットのブラウザー",
+      "各クリックが「再生」と記録された実行のブラウザーステップ",
+      "ログインのクリックが「復旧」と記録された実行のブラウザーステップ",
+    ],
+    reading: "新しい請求書のように、ページの内容を読み取る操作は、毎回 AI が行います。",
+    measured: "サンプルのポータルに対する、このパソコンでの実際の実行です。モデルは Kitewell の付属 AI と同じ DeepSeek V4 Flash。",
+    compare: "Kitewell と、ほかの選択肢 →",
+    where: "ブラウザーの外も",
+    whereTitle: "作業のある場所で動く。",
+    tiles: [
+      ["Web サイト", "ログインが必要なサイトも。パスワードはパソコンに残ります。", "/docs/browser/"],
+      ["デスクトップアプリ", "API のないアプリも。自分の AI キー、または有料プランの付属 AI で。", "/docs/desktop/"],
+      ["Excel", "いまのブックの 1 行ごとに実行し、結果を同じ行に書き戻します。", "/docs/spreadsheets/"],
+      ["メール", "Microsoft 365、Gmail、任意の IMAP のメールを検索、整理、送信します。", "/docs/email/"],
+      ["スケジュールと承認", "平日 9 時に、Webhook で、頼んだときに。承認はスマホから。", "/docs/scheduling/"],
+      ["コーディングエージェント", "Claude Code、Codex ほか 13 種類を、あなたのスケジュールと承認で。", "/coding-agents/"],
+    ],
+    safe: "安心して任せる",
+    safeTitle: "あなたのパソコン、あなたのログイン、あなたの判断。",
+    safeRows: [
+      ["あなたのパソコンで動く", "ログインは、Mac や PC 上の Kitewell 専用のブラウザープロファイルに残ります。ステップが読み取るページの文字は、選んだ AI の提供元に送られます。"],
+      ["パスワードはモデルに見せない", "ステップにはパスワードの名前だけを書き、Kitewell がパソコンのシークレットから入力します。モデルに見えるのは名前だけです。"],
+      ["OK するまで、外には出さない", "下書きは外部に何も送らずに試せます。追加、送信、プッシュの前に、あなたの OK を待つこともできます。"],
+      ["すべての実行を記録", "実行ごとに、くり返した操作、AI が直した操作、ページのスクリーンショットが残ります。"],
+    ],
+    safeLink: "外に出るものと、そのタイミング →",
     pricing: "料金",
-    pricingTitle: "1 プロジェクトなら無料。",
-    pricingText: "10 ワークフローまでの 1 プロジェクトは無料。Personal は月額 3,000 円で枠、アラート、Webhook を、Team は組織向けに台数に応じたお見積りでメンバーを追加します（税別）。",
-    compare: "プランを比べる →",
+    pricingTitle: "10 ワークフローまで無料。",
+    pricingText:
+      "サインインすれば、API キーなしで 100 クレジットの AI を無料で使えます。自分のキーも使えます。Personal は月額 3,000 円（税別）で、アラート、Webhook、プロジェクトを追加します。",
+    plans: "プランを比べる →",
+    enterprise: "支援付きの大規模な導入は Descarty へ ↗",
   },
 }[locale];
 const to = (path: string) => localize(path, locale);
-const everyday = ["supplier-invoices", "excel-orders", "invoice-intake", "inbox-digest"].map(choreBySlug);
-const coding = ["fix-failing-tests", "review-every-pr", "triage-issues", "dependency-update"].map(choreBySlug);
-const shots = {
-  run: locale === "ja" ? runJa : runEn,
-};
-const strong = new Set(["Recovered", "復旧"]);
+const chores = ["portal-invoices", "excel-orders", "form-from-sheet", "price-watch", "desktop-data-entry", "inbox-digest"].map(choreBySlug);
+const video = `/videos/hero/${run.video}`;
 const lines = (value: string) => value.replace("\n", "<br>");
+// Search engines learn what the app is, what it costs, and what the loop shows.
+const app = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Kitewell",
+  operatingSystem: "macOS 13 or later, Windows 10 or later",
+  applicationCategory: "BusinessApplication",
+  description: text.description,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+};
+const loop = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: text.heading.replace("\n", " "),
+  description: text.loop,
+  thumbnailUrl: new URL(`${video}.webp`, Astro.site).href,
+  contentUrl: new URL(`${video}.mp4`, Astro.site).href,
+  uploadDate: run.capturedAt,
+  duration: "PT18S",
+};
 ---
 
 <Site title={text.title} description={text.description}>
+  <Fragment slot="head">
+    <link rel="preload" as="image" href={`${video}.webp`} fetchpriority="high" />
+    <script type="application/ld+json" set:html={JSON.stringify(app)} />
+    <script type="application/ld+json" set:html={JSON.stringify(loop)} />
+  </Fragment>
   <div class="home">
-    <section class="intro wrap" aria-labelledby="hero-title">
-      <p class="eyebrow">{text.eyebrow}{text.version && ` · ${text.version}`}</p>
-      <h1 id="hero-title" set:html={lines(text.heading)} />
-      <p class="intro-lead">{text.lead}</p>
-      <div class="intro-actions">
-        {release ? (
-          <>
-            <DownloadButton locale={locale} place="hero" />
-            <a class="text-link" href="#film">{text.watch}</a>
-          </>
-        ) : (
-          <>
-            <a class="button" href="#film">
-              {text.watch} <span aria-hidden="true">▶</span>
-            </a>
-            <a class="text-link" href={to("/docs/getting-started/")}>{text.setup}</a>
-          </>
-        )}
+    <section class="intro split wrap" aria-labelledby="hero-title">
+      <div class="intro-head">
+        <p class="eyebrow">{text.eyebrow}</p>
+        <h1 id="hero-title" set:html={lines(text.heading)} />
+        <p class="intro-lead">{text.lead}</p>
       </div>
-      <p class="fine">{text.platform}</p>
-      <figure class="intro-media">
-        <div class="tabs" role="tablist" hidden data-tabs>
-          {text.proofTabs.map((label, i) => (
-            <button type="button" role="tab" id={`proof-tab-${i}`} aria-controls={`proof-panel-${i}`} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1}>
-              {label}
-            </button>
-          ))}
+      <div class="intro-cta">
+        <div class="intro-actions">
+          <DownloadButton locale={locale} place="hero" />
         </div>
-        {proofs.map((name, i) => (
-          <div class="tab-panel frame" id={`proof-panel-${i}`} role="tabpanel" aria-labelledby={`proof-tab-${i}`}>
-            <Clip locale={locale} src={`/videos/proof/${name}-${locale}`} width={1920} height={1200} label={text.proof[i]} />
+        <p class="intro-offer">{text.offer}</p>
+        <p class="fine intro-trust">
+          <span>{text.passwords}</span>
+          {macos && <span>{text.notarized}</span>}
+          <a href="https://github.com/dagucloud/dagu">{text.trust}</a>
+        </p>
+      </div>
+      <figure class="intro-media" id="film">
+        <div class="frame square">
+          <Clip locale={locale} src={video} phone width={1080} height={1080} label={text.loop} describedby="loop-transcript" />
+        </div>
+        <figcaption>{text.caption}</figcaption>
+        <ol class="visually-hidden" id="loop-transcript">
+          {text.transcript.map((line) => <li>{line}</li>)}
+        </ol>
+        <details class="unedited">
+          <summary>{text.unedited}</summary>
+          <div class="frame">
+            <Clip locale={locale} src={`/videos/proof/websites-${locale}`} width={1920} height={1200} label={text.uneditedLabel} />
           </div>
-        ))}
-        <figcaption>{text.proofNote}</figcaption>
+        </details>
       </figure>
     </section>
 
-    <section class="film-block wrap" id="film" aria-label={cut.label}>
-      <figure>
-        <div class="frame">
-          <video
-            controls
-            playsinline
-            preload="metadata"
-            poster={`/videos/${cut.name}.webp`}
-            width="1920"
-            height="1080"
-            aria-label={cut.label}
-            aria-describedby="film-caption"
-            data-film
-          >
-            <source src={`/videos/${cut.name}.mp4`} type="video/mp4" />
-            {cut.tracks.map(([kind, lang, label]) => (
-              <track kind={kind} src={`/videos/${cut.name}.${lang}.vtt`} srclang={lang} label={label} />
-            ))}
-            <p><a href={`/videos/${cut.name}.mp4`}>{cut.link}</a></p>
-          </video>
-        </div>
-        <figcaption id="film-caption">
-          <span>{cut.caption[0]}</span>
-          <span>{cut.caption[1]}</span>
-        </figcaption>
-      </figure>
-      <details class="film-transcript">
-        <summary>{text.transcript}</summary>
-        <div>
-          {cut.scenes.map(([caption, scene]) => (
-            <p>
-              <strong>{caption}</strong> {scene}
-            </p>
-          ))}
-        </div>
-      </details>
+    <section class="block wrap" id="examples" aria-labelledby="examples-title">
+      <p class="eyebrow">{text.examples}</p>
+      <h2 id="examples-title" class="block-title">{text.examplesTitle}</h2>
+      <ChoreList locale={locale} chores={chores} />
+      <a class="text-link" href={to("/examples/")}>{text.examplesLink}</a>
     </section>
 
     <section class="block wrap" id="how" aria-labelledby="how-title">
-      <h2 class="eyebrow" id="how-title">{text.how}</h2>
-      <ol class="how-steps">
-        {text.steps.map(([name, detail]) => (
+      <p class="eyebrow">{text.learns}</p>
+      <h2 id="how-title" class="block-title">{text.learnsTitle}</h2>
+      <p class="block-lead">{text.learnsLead}</p>
+      <ol class="beats">
+        {text.beats.map(([title, first, second], i) => (
           <li>
-            <h3>{name}</h3>
-            <p>{detail}</p>
+            <div class="frame">
+              <Image src={stills[locale][i]} alt={text.beatAlt[i]} widths={[480, 960]} sizes="(max-width: 860px) 100vw, 380px" />
+            </div>
+            <h3>{title}</h3>
+            <p>{first}</p>
+            <p>{second}</p>
           </li>
         ))}
       </ol>
-    </section>
-
-    <section class="block wrap" id="browser" aria-labelledby="browser-title">
-      <div class="pair">
-        <div>
-          <p class="eyebrow">{text.browser}</p>
-          <h2 id="browser-title">{text.browserTitle}</h2>
-          <p class="block-lead">{text.browserText}</p>
-          <ul class="points">
-            {text.browserItems.map(([name, detail]) => (
-              <li>
-                <strong>{name}</strong>
-                <span>{detail}</span>
-              </li>
-            ))}
-          </ul>
-          <a class="text-link" href={to("/docs/browser/")}>{text.browserLink}</a>
-        </div>
-        <figure class="record-figure">
-          <div class="record">
-            <div class="record-head">
-              <strong>{text.record.title}</strong>
-              <span>{text.record.kind}</span>
-            </div>
-            <dl class="record-facts">
-              {text.record.facts.map(([name, value]) => (
-                <div>
-                  <dt>{name}</dt>
-                  <dd>{value}</dd>
-                </div>
-              ))}
-            </dl>
-            <p class="record-label">{text.record.label}</p>
-            <ol class="record-ops">
-              {text.record.ops.map(([kind, subject, badges]) => (
-                <li>
-                  <span class="record-op"><span>{kind}</span>{subject}</span>
-                  <span class="record-badges">
-                    {(badges as string[]).map((badge) => (
-                      <span class:list={["badge", { strong: strong.has(badge) }]}>{badge}</span>
-                    ))}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </div>
-          <figcaption>{text.record.caption}</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="block wrap" id="rpa" aria-labelledby="rpa-title">
-      <p class="eyebrow">{text.rpa}</p>
-      <h2 id="rpa-title" class="block-title">{text.rpaTitle}</h2>
-      <div class="table-scroll">
-        <table class="versus">
-          <thead>
-            <tr>
-              <th scope="col">{text.rpaHead[0]}</th>
-              <th scope="col">{text.rpaHead[1]}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {text.rpaRows.map(([before, after]) => (
-              <tr>
-                <td>{before}</td>
-                <td>{after}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <a class="text-link" href={to("/compare/")}>{text.others}</a>
+      <p class="beats-note">{text.reading}</p>
+      <p class="fine">{text.measured}</p>
+      <a class="text-link" href={to("/compare/")}>{text.compare}</a>
     </section>
 
     <section class="block wrap" id="automate" aria-labelledby="automate-title">
-      <p class="eyebrow">{text.automate}</p>
-      <h2 id="automate-title" class="block-title">{text.automateTitle}</h2>
+      <p class="eyebrow">{text.where}</p>
+      <h2 id="automate-title" class="block-title">{text.whereTitle}</h2>
       <div class="tiles">
         {text.tiles.map(([name, detail, href]) => (
           <a class="tile" href={to(href)}>
@@ -520,170 +267,18 @@ const lines = (value: string) => value.replace("\n", "<br>");
       </div>
     </section>
 
-    <section class="block wrap" id="agents" aria-labelledby="agents-title">
-      <div class="pair">
-        <div>
-          <p class="eyebrow">{text.agents}</p>
-          <h2 id="agents-title">{text.agentsTitle}</h2>
-          <p class="block-lead">{text.agentsText}</p>
-          <ul class="points">
-            {text.agentItems.map(([name, detail]) => (
-              <li>
-                <strong>{name}</strong>
-                <span>{detail}</span>
-              </li>
-            ))}
-          </ul>
-          <a class="text-link" href={to("/docs/ai/")}>{text.agentsLink}</a>
-        </div>
-        <div class="agents-proof">
-          <ul class="agent-grid">
-            {text.agentNames.map((name) => <li>{name}</li>)}
-            <li class="agent-more">{text.agentMore}</li>
-          </ul>
-          <figure class="record-figure">
-            <div class="record">
-              <div class="record-head">
-                <strong>{text.chain.title}</strong>
-              </div>
-              <ol class="chain">
-                {text.chain.steps.map(([kind, name, note]) => (
-                  <li>
-                    <span class="chain-kind">{kind}</span>
-                    <span class="chain-name">{name}</span>
-                    {note && <span class="chain-note">{note}</span>}
-                  </li>
-                ))}
-              </ol>
-            </div>
-            <figcaption>{text.chain.caption}</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="block wrap" id="triggers" aria-labelledby="triggers-title">
-      <p class="eyebrow">{text.triggers}</p>
-      <h2 id="triggers-title" class="block-title">{text.triggersTitle}</h2>
-      <div class="trio">
-        {text.triggerItems.map(([name, detail, plan, href]) => (
-          <div>
-            <h3><a href={to(href)}>{name}</a></h3>
-            <p>{detail}</p>
-            {plan && <span class="plan-tag">{plan}</span>}
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section class="block wrap" id="control" aria-labelledby="control-title">
-      <p class="eyebrow">{text.control}</p>
-      <h2 id="control-title" class="block-title">{text.controlTitle}</h2>
-      <div class="pair wide-media">
-        <figure class="frame">
-          <Image src={shots.run} alt={text.controlAlt} widths={[720, 1440]} sizes="(max-width: 860px) 100vw, 640px" />
-        </figure>
-        <div>
-          <div class="grid-two">
-            {text.controlItems.map(([name, detail]) => (
-              <div>
-                <h3>{name}</h3>
-                <p>{detail}</p>
-              </div>
-            ))}
-          </div>
-          <p class="fine">{text.controlNote}</p>
-          <div class="links">
-            {text.controlLinks.map(([label, href]) => (
-              <a class="text-link" href={to(href)}>{label}</a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block wrap" id="team" aria-labelledby="team-title">
-      <p class="eyebrow">{text.team}</p>
-      <h2 id="team-title" class="block-title">{text.teamTitle}</h2>
-      <div class="pair">
-        <div>
-          <ul class="points">
-            {text.teamItems.map(([name, detail]) => (
-              <li>
-                <strong>{name}</strong>
-                <span>{detail}</span>
-              </li>
-            ))}
-          </ul>
-          <p class="fine">{text.teamPrice}</p>
-          <div class="links">
-            {text.teamLinks.map(([label, href]) => (
-              <a class="text-link" href={to(href)}>{label}</a>
-            ))}
-            <a class="text-link" href={descartyUrl(locale, "/enterprise/")}>{text.enterprise}</a>
-          </div>
-        </div>
-        <figure class="record-figure">
-          <div class="record">
-            <div class="record-head">
-              <strong>{text.fleet.title}</strong>
-              <span>Dagu Console</span>
-            </div>
-            <div class="table-scroll">
-              <table class="fleet">
-                <thead>
-                  <tr>
-                    {text.fleet.head.map((name, i) => <th scope="col" class:list={{ num: i >= 4 }}>{name}</th>)}
-                  </tr>
-                </thead>
-                <tbody>
-                  {text.fleet.rows.map((row) => (
-                    <tr>
-                      {row.map((cell, i) =>
-                        i === 0 ? <th scope="row">{cell}</th> : <td class:list={{ num: i >= 4 }}>{cell}</td>,
-                      )}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <figcaption>{text.fleet.caption}</figcaption>
-        </figure>
-      </div>
-    </section>
-
     <section class="block wrap" id="own" aria-labelledby="own-title">
-      <p class="eyebrow">{text.own}</p>
-      <h2 id="own-title" class="block-title">{text.ownTitle}</h2>
+      <p class="eyebrow">{text.safe}</p>
+      <h2 id="own-title" class="block-title">{text.safeTitle}</h2>
       <dl class="own-facts">
-        {text.ownRows.map(([name, detail]) => (
+        {text.safeRows.map(([name, detail]) => (
           <div>
             <dt>{name}</dt>
             <dd>{detail}</dd>
           </div>
         ))}
       </dl>
-      <a class="text-link" href={to("/docs/data-flow/")}>{text.ownLink}</a>
-    </section>
-
-    <section class="block wrap" id="examples" aria-labelledby="examples-title">
-      <p class="eyebrow">{text.examples}</p>
-      <h2 id="examples-title" class="block-title">{text.examplesTitle}</h2>
-      <div class="tabs" role="tablist" hidden data-tabs>
-        {text.exampleTabs.map((label, i) => (
-          <button type="button" role="tab" id={`examples-tab-${i}`} aria-controls={`examples-panel-${i}`} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1}>
-            {label}
-          </button>
-        ))}
-      </div>
-      <div class="tab-panel" id="examples-panel-0" role="tabpanel" aria-labelledby="examples-tab-0">
-        <ChoreList locale={locale} chores={everyday} />
-      </div>
-      <div class="tab-panel" id="examples-panel-1" role="tabpanel" aria-labelledby="examples-tab-1">
-        <ChoreList locale={locale} chores={coding} />
-      </div>
-      <a class="text-link" href={to("/examples/")}>{text.examplesLink}</a>
+      <a class="text-link" href={to("/docs/data-flow/")}>{text.safeLink}</a>
     </section>
 
     <section class="finale wrap" aria-labelledby="pricing-title">
@@ -692,43 +287,14 @@ const lines = (value: string) => value.replace("\n", "<br>");
         <h2 id="pricing-title">{text.pricingTitle}</h2>
         <p class="block-lead">{text.pricingText}</p>
         <div class="links">
-          <a class="text-link" href={to("/pricing/")}>{text.compare}</a>
-          <a class="text-link" href={to("/compare/")}>{text.others}</a>
+          <a class="text-link" href={to("/pricing/")}>{text.plans}</a>
+          <a class="text-link" href={descartyUrl(locale, "/enterprise/")}>{text.enterprise}</a>
         </div>
       </div>
       <div class="finale-action">
         <DownloadButton locale={locale} place="closing" />
-        <p class="fine">{text.platform}</p>
+        <p class="fine">{text.offer}</p>
       </div>
     </section>
   </div>
 </Site>
-
-<script>
-  // Tabs show one example list at a time; without the script both lists
-  // stay visible, one after the other.
-  for (const list of document.querySelectorAll<HTMLElement>("[data-tabs]")) {
-    const tabs = [...list.querySelectorAll<HTMLButtonElement>("[role=tab]")];
-    const select = (chosen: HTMLButtonElement) => {
-      for (const tab of tabs) {
-        const on = tab === chosen;
-        tab.setAttribute("aria-selected", String(on));
-        tab.tabIndex = on ? 0 : -1;
-        document.getElementById(tab.getAttribute("aria-controls")!)!.hidden = !on;
-      }
-    };
-    list.hidden = false;
-    select(tabs[0]);
-    list.addEventListener("click", (event) => {
-      const tab = (event.target as HTMLElement).closest<HTMLButtonElement>("[role=tab]");
-      if (tab) select(tab);
-    });
-    list.addEventListener("keydown", (event) => {
-      const index = tabs.indexOf(document.activeElement as HTMLButtonElement);
-      if (index < 0 || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
-      const next = tabs[(index + (event.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
-      select(next);
-      next.focus();
-    });
-  }
-</script>

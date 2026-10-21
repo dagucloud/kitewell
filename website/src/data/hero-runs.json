@@ -1,0 +1,84 @@
+{
+  "en": {
+    "video": "hero-20261021-en",
+    "capturedAt": "2026-10-21T08:45:03.475Z",
+    "kitewell": "f7cc3af9",
+    "dagu": "2.21.0",
+    "model": "deepseek/deepseek-v4-flash",
+    "cold": {
+      "seconds": 20,
+      "withoutAI": {
+        "count": 1,
+        "total": 5
+      },
+      "tokens": 7000
+    },
+    "replayed": {
+      "seconds": 10,
+      "withoutAI": {
+        "count": 4,
+        "total": 5
+      },
+      "tokens": 1918
+    },
+    "recovered": {
+      "seconds": 15,
+      "withoutAI": {
+        "count": 3,
+        "total": 5
+      },
+      "tokens": 3797,
+      "fixed": "Click the \"Sign in\" button"
+    },
+    "kept": {
+      "seconds": 23,
+      "withoutAI": {
+        "count": 4,
+        "total": 5
+      },
+      "tokens": 2058
+    },
+    "invoice": "HS-20437"
+  },
+  "ja": {
+    "video": "hero-20261021-ja",
+    "capturedAt": "2026-10-21T10:01:18.733Z",
+    "kitewell": "4edd6614",
+    "dagu": "2.21.0",
+    "model": "deepseek/deepseek-v4-flash",
+    "cold": {
+      "seconds": 23,
+      "withoutAI": {
+        "count": 2,
+        "total": 6
+      },
+      "tokens": 7167
+    },
+    "replayed": {
+      "seconds": 11,
+      "withoutAI": {
+        "count": 5,
+        "total": 6
+      },
+      "tokens": 2003
+    },
+    "recovered": {
+      "seconds": 18,
+      "withoutAI": {
+        "count": 4,
+        "total": 6
+      },
+      "tokens": 3791,
+      "fixed": "Click the \"ログイン\" button"
+    },
+    "kept": {
+      "seconds": 10,
+      "withoutAI": {
+        "count": 5,
+        "total": 6
+      },
+      "tokens": 2121
+    },
+    "invoice": "MS-20437"
+  }
+}

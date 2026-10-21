@@ -41,6 +41,12 @@ for (const file of htmlFiles) {
     }
   }
 }
+// Links from outside the site, such as the README and launch posts, point
+// to the home pages' loop.
+for (const [page, anchor] of [["index.html", "film"], ["ja/index.html", "film"]]) {
+  const html = await readFile(path.join(root, page), "utf8");
+  if (!html.includes(`id="${anchor}"`)) failures.push(`/${page.replace(/index\.html$/, "")}#${anchor}, linked from outside the site`);
+}
 if (failures.length)
   throw new Error(
     "Broken internal links:\n" + [...new Set(failures)].join("\n"),
