@@ -9,14 +9,14 @@
   </a>
 </p>
 
-<h1 align="center">自動化は AI がつくる。<br>動かすのは、あなたのパソコン。</h1>
+<h1 align="center">パソコン作業を一度伝えれば、<br>AI が毎日やってくれる。</h1>
 
 <p align="center">
-  やってほしい仕事を伝えれば、AI が目の前のブラウザーで自動化をつくり、サイトが変わったら直します。デスクトップアプリ、Excel、メール、Claude Code などのコーディングエージェントも同じように、スケジュールや Webhook で、大事なところはあなたの OK を待って動きます。外出先からも、スマホで見守れます。
+  Kitewell の AI が目の前でブラウザーやアプリを操作し、うまくいった操作を覚えて決まった時間にくり返します。サイトが変わったら、その操作だけを直して記録に残します。
 </p>
 
 <p align="center">
-  <a href="https://kitewell.app/ja/#film"><strong>▶ 映像を見る（74 秒）</strong></a> ·
+  <a href="https://kitewell.app/ja/#film"><strong>▶ 動く様子を見る（18 秒）</strong></a> ·
   <a href="https://kitewell.app/ja/download/">ダウンロード</a> ·
   <a href="https://kitewell.app/ja/docs/getting-started/">はじめかた</a> ·
   <a href="https://kitewell.app/ja/docs/">ドキュメント</a> ·
@@ -41,7 +41,7 @@ Kitewell のチャット画面の実際の録画です。編集はせず、一�
       <p><strong>Web サイト。</strong>仕入れ先ポータルの新しい請求書を平日ごとに Excel に追加するよう頼むと、AI はチャットに映るブラウザーで代役のポータルを開き、パスワードはカードであなたが入力します。AI はログインして下書きを試し、ワークフローを提案します。実行は、見つけた請求書を見せて、あなたの返信を待ちます。</p>
     </td>
     <td width="50%" valign="top">
-      <a href="https://kitewell.app/ja/"><img src="website/public/videos/proof/agents-ja.webp" alt="Kitewell のチャットが、Claude Code が失敗したテストを直し Codex がレビューする毎晩のワークフローを提案している。実際の録画、2 倍速。"></a>
+      <a href="https://kitewell.app/ja/coding-agents/"><img src="website/public/videos/proof/agents-ja.webp" alt="Kitewell のチャットが、Claude Code が失敗したテストを直し Codex がレビューする毎晩のワークフローを提案している。実際の録画、2 倍速。"></a>
       <p><strong>コーディングエージェント。</strong>デモ用リポジトリの失敗しているテストを毎晩 Claude Code に直させ、その変更を Codex にレビューさせるよう頼むと、アシスタントがスケジュール付きのワークフローを提案して実行します。実行は 2 つの要約を見せて待ち、返信で進めると、修正がローカルの新しいブランチにコミットされます。</p>
     </td>
   </tr>
