@@ -3,6 +3,7 @@ import Site from "../layouts/Site.astro";
 import Artifact from "../components/Artifact.astro";
 import ChoreList from "../components/ChoreList.astro";
 import Clip from "../components/Clip.astro";
+import DownloadButton from "../components/DownloadButton.astro";
 import Moment from "../components/Moment.astro";
 import RunCard from "../components/RunCard.astro";
 import { localize } from "../lib/i18n.mjs";
@@ -22,12 +23,14 @@ const text = {
     tell: "Tell Kitewell once",
     you: "You",
     tellNote: "That's the whole setup. Kitewell lays out every step for you to check, and nothing is saved until you apply it.",
+    yours: "For your own version, copy this and fill in the blanks:",
+    copy: "Copy this request",
+    copied: "Copied",
     run: "Then it runs on its own",
     after: "What you get instead",
     good: "Good to know",
     needs: "What it needs",
     awake: "Your computer needs to be on and awake when it runs. A run missed while it slept starts when it wakes, within 24 hours by default.",
-    film: "Watch the whole film →",
     more: "More chores",
   },
   ja: {
@@ -36,12 +39,14 @@ const text = {
     tell: "Kitewell に一度だけ伝える",
     you: "あなた",
     tellNote: "準備はこれだけです。Kitewell がすべての手順を並べるので、確かめてから適用します。適用するまで何も保存されません。",
+    yours: "ご自身の作業なら、これをコピーして [ ] の中を書き換えてください。",
+    copy: "この依頼をコピー",
+    copied: "コピーしました",
     run: "あとは、ひとりでに動く",
     after: "代わりに届くもの",
     good: "知っておくこと",
     needs: "必要なもの",
     awake: "実行の時刻には、コンピューターが起動していて、スリープしていない必要があります。スリープ中に逃した実行は、起きたときに始まります（既定では 24 時間以内のもの）。",
-    film: "フィルム全編を見る →",
     more: "ほかの作業",
   },
 }[locale];
@@ -83,6 +88,14 @@ const description = copy.title ? `${copy.title}${locale === "ja" ? "。" : ". "}
           <blockquote>{copy.sentence}</blockquote>
         </figure>
         <p class="chore-note">{text.tellNote}</p>
+        <div class="request">
+          <p class="request-label">{text.yours}</p>
+          <p class="request-text" data-request>{copy.request}</p>
+          <button type="button" class="button secondary small" data-copy-request={chore.slug} data-copied={text.copied}>
+            {text.copy}
+          </button>
+        </div>
+        <DownloadButton locale={locale} place="example" />
       </div>
       {film.tell && (
         <figure class="chore-film">
@@ -135,7 +148,7 @@ const description = copy.title ? `${copy.title}${locale === "ja" ? "。" : ". "}
     </section>
     {copy.film && (
       <p class="fine chore-credit">
-        {copy.film} <a href={`${localize("/", locale)}#film`}>{text.film}</a>
+        {copy.film}
       </p>
     )}
 
@@ -151,6 +164,23 @@ const description = copy.title ? `${copy.title}${locale === "ja" ? "。" : ". "}
     if (page?.dataset.example) {
       track("example_viewed", { slug: page.dataset.example });
     }
+    // The request is copied for the person's own chat, blanks and all.
+    const copyRequest = document.querySelector<HTMLButtonElement>("[data-copy-request]");
+    copyRequest?.addEventListener("click", async () => {
+      const request = document.querySelector<HTMLElement>("[data-request]")!;
+      try {
+        // Japanese text binds some spaces as no-break ones; a chat wants plain spaces.
+        await navigator.clipboard.writeText(request.textContent!.replaceAll("\u00a0", " "));
+      } catch {
+        // Without the clipboard, the request is selected for the person to copy.
+        getSelection()?.selectAllChildren(request);
+        return;
+      }
+      const label = copyRequest.textContent;
+      copyRequest.textContent = copyRequest.dataset.copied!;
+      setTimeout(() => (copyRequest.textContent = label), 2000);
+      track("request_copied", { slug: copyRequest.dataset.copyRequest! });
+    });
     // The clicks of the chore light up one after another, once, when read.
     const now = document.querySelector(".chore-now");
     if (now) {

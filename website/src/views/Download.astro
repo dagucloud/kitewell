@@ -401,7 +401,8 @@ const downloadOf = (name: string) => picks.find((pick) => pick.name === name)?.d
     button.addEventListener("click", async () => {
       const request = button.parentElement!.querySelector(".sample-text")!;
       try {
-        await navigator.clipboard.writeText(request.textContent!);
+        // Japanese text binds some spaces as no-break ones; a chat wants plain spaces.
+        await navigator.clipboard.writeText(request.textContent!.replaceAll("\u00a0", " "));
       } catch {
         // Without the clipboard, the request is selected for the person to copy.
         getSelection()?.selectAllChildren(request);

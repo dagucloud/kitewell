@@ -124,3 +124,59 @@ test("every workflow file tells a chore", () => {
     assert.ok(choreBySlug(file.replace(/\.yaml$/, "")), `${file} has no chore`);
   }
 });
+
+// A request is pasted into a person's own chat, where the assistant can look
+// things up on the web, so it names nothing an example made up: the
+// companies, apps, folders, and addresses each example invents. Those names
+// are read from the examples' own copy; what a person must fill in is a
+// [placeholder].
+const realNames = new Set([
+  ...["AI", "API", "CI", "CSV", "Claude", "Claude Code", "Code", "Codex", "Excel", "GitHub", "Issue", "Kitewell"],
+  ...["Markdown", "OK", "PDF", "PR", "Python", "SSH", "URL", "Web", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+]);
+const placeholders = /\[[^\]]+\]/g;
+// Capitalized names inside a sentence, not at its start.
+const latinNames = (text) =>
+  [...text.matchAll(/(?<![.!?:]\s|^)\b[A-Z][A-Za-z0-9]+(?: [A-Z][A-Za-z0-9]+)*/gm)].map(([name]) => name);
+// Addresses, files, and folders written out.
+const specifics = (text) => text.match(/\S+@\S+|https?:\/\/\S+|\b[\w-]+\.(?:com|app|net|org|io|xlsx|csv|md|pdf)\b|\w+\/\w+/g) ?? [];
+// A Japanese example names its world before the site or portal it runs on,
+// or, in kanji or katakana, right before the word for an app.
+const japaneseNames = (text) => [
+  ...[...text.matchAll(/(?<=^|[、。\s「])([ぁ-んァ-ヶ一-龠ー]+?)の(?:ポータル|サイト)/gm)].map(([, name]) => name),
+  ...[...text.matchAll(/(?<=^|[、。\s「])([ァ-ヶ一-龠ー]+)アプリ/gm)].map(([, name]) => name),
+];
+
+// names says whether a text uses a name as a word of its own, not as part
+// of a longer one: 報告 in バグ報告 is not the 報告 app.
+const names = (text, name) =>
+  new RegExp(`(?<![\\wァ-ヶ一-龠ー])${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\w])`).test(text);
+
+test("each chore's request names nothing its example made up", () => {
+  const madeUp = { en: new Set(), ja: new Set() };
+  for (const chore of chores) {
+    const copy = (locale) => [chore[locale].chore, chore[locale].sentence, ...chore[locale].motions, ...chore[locale].steps.flat()].join("\n");
+    for (const name of latinNames(copy("en"))) if (!realNames.has(name)) madeUp.en.add(name);
+    for (const name of japaneseNames(copy("ja"))) madeUp.ja.add(name);
+  }
+  // The examples' world, read back as a check that the reading works.
+  for (const name of ["Harbor Supply", "Ledger", "Depot"]) assert.ok(madeUp.en.has(name), name);
+  for (const name of ["みなと資材", "台帳"]) assert.ok(madeUp.ja.has(name), name);
+  for (const chore of chores) {
+    for (const locale of ["en", "ja"]) {
+      const request = chore[locale].request;
+      assert.ok(request, `${chore.slug} ${locale}: request`);
+      const plain = request.replace(placeholders, "");
+      assert.deepEqual(specifics(request), [], `${chore.slug} ${locale}: written-out address or file`);
+      assert.deepEqual(latinNames(plain).filter((name) => !realNames.has(name)), [], `${chore.slug} ${locale}: unknown name`);
+      for (const name of [...madeUp.en, ...madeUp.ja]) {
+        assert.ok(!names(request, name), `${chore.slug} ${locale}: names ${name}`);
+      }
+    }
+    assert.equal(
+      chore.en.request.match(placeholders)?.length ?? 0,
+      chore.ja.request.match(placeholders)?.length ?? 0,
+      `${chore.slug}: both languages leave the same blanks`,
+    );
+  }
+});

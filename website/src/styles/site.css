@@ -1125,6 +1125,23 @@ code {
   margin-top: 16px;
   color: var(--muted);
 }
+/* The chore's request, written for anyone's own version of it */
+.request {
+  max-width: 680px;
+  margin-block: 22px 20px;
+  padding: 16px 18px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+}
+.request-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+.request .request-text {
+  margin-block: 6px 12px;
+  font-size: 15px;
+  color: var(--ink);
+}
 .said {
   max-width: 680px;
   margin: 0;

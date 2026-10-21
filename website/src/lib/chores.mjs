@@ -8,12 +8,12 @@ export const groups = ["everyone", "code"];
 const needs = {
   chrome: { en: "Google Chrome (or Edge on Windows)", ja: "Google Chrome（Windows では Edge も可）" },
   browserModel: {
-    en: "An Anthropic, OpenAI, or Gemini model that can use a browser",
-    ja: "ブラウザーを操作できる Anthropic、OpenAI、Gemini のモデル",
+    en: "Kitewell's included AI, with a free Dagu Cloud sign-in, or your own Anthropic, OpenAI, or Gemini model that can use a browser",
+    ja: "Kitewell の付属 AI（無料の Dagu Cloud サインインで使えます）、またはブラウザーを操作できるご自身の Anthropic、OpenAI、Gemini のモデル",
   },
   computerModel: {
-    en: "An Anthropic, OpenAI, or Gemini model that can use a computer",
-    ja: "コンピューターを操作できる Anthropic、OpenAI、Gemini のモデル",
+    en: "A model that can use a computer: your own Anthropic, OpenAI, or Gemini model, or Kitewell's included AI on Personal or Team",
+    ja: "コンピューターを操作できるモデル：ご自身の Anthropic、OpenAI、Gemini のモデル、または Personal か Team での Kitewell の付属 AI",
   },
   desktop: {
     en: "Screen Recording and Accessibility allowed on macOS, or Kitewell running in your session on Windows",
@@ -24,8 +24,8 @@ const needs = {
     ja: "接続したメールボックス（Gmail、Microsoft 365、iCloud、または IMAP）",
   },
   model: {
-    en: "An API model: Anthropic, OpenAI, Gemini, or a local server",
-    ja: "API モデル（Anthropic、OpenAI、Gemini、またはローカルサーバー）",
+    en: "Kitewell's included AI, with a free Dagu Cloud sign-in, or your own model: Anthropic, OpenAI, Gemini, or a local server",
+    ja: "Kitewell の付属 AI（無料の Dagu Cloud サインインで使えます）、またはご自身のモデル（Anthropic、OpenAI、Gemini、またはローカルサーバー）",
   },
   workbook: {
     en: "The workbook as .xlsx (not .xls or Google Sheets)",
@@ -74,6 +74,7 @@ export const chores = [
       tally: "Every weekday, for every invoice.",
       sentence:
         "Every weekday at 9, collect new invoices from the Harbor Supply portal, enter them in Ledger, and email me a summary.",
+      request: "Make a workflow that signs in to my supplier's website every weekday at 9, collects the new invoices, enters each one in [the accounting app], and emails me a summary. The website is [the website's address]",
       steps: [
         ["website", "Collect new invoices", "Signs in to the portal and collects every invoice since the last weekday."],
         ["desktop", "Enter them in Ledger", "Opens Ledger, adds each bill without saving, and takes a screenshot."],
@@ -85,7 +86,7 @@ export const chores = [
       ok: "Before anything is saved in Ledger, the run waits for you, with a screenshot of what it typed. Every step and every decision is recorded.",
       moment: { time: "9:04", title: "Weekday invoice run", text: "Waiting for you: save 3 bills in Ledger?" },
       after:
-        "The first run learns the clicks with AI, and later runs replay them. When the portal or Ledger changes, AI finds the new way for the clicks that broke and keeps it, and the run shows what it fixed.",
+        "On the portal, the clicks AI made while it tried the job in the chat stay with the workflow, so runs replay them; in Ledger, the first run learns the clicks with AI and later runs replay them. When the portal or Ledger changes, AI finds the new way for the clicks that broke and keeps it, and the run shows what it fixed.",
       good: [
         "Nothing is saved in Ledger until you say so.",
         "The website and desktop steps send what they see, page text and screenshots of the screen, to the model you choose. The portal password is a secret on this computer: Kitewell types it, and the model never sees it.",
@@ -109,6 +110,7 @@ export const chores = [
       ],
       tally: "平日は毎日、請求書の数だけ。",
       sentence: "平日の朝9時に、みなと資材のポータルから新しい請求書を集めて台帳に入力し、概要をメールで送って。",
+      request: "平日の朝 9 時に仕入先のウェブサイトにサインインして新しい請求書を集め、1 件ずつ [会計アプリ] に入力して、概要をメールで送るワークフローを作って。ウェブサイトは [ウェブサイトのアドレス]",
       steps: [
         ["website", "新しい請求書を集める", "ポータルにサインインし、前の平日以降の請求書をすべて集めます。"],
         ["desktop", "台帳に入力する", "台帳アプリを開いて伝票を 1 件ずつ入力し、保存せずにスクリーンショットを撮ります。"],
@@ -120,7 +122,7 @@ export const chores = [
       ok: "台帳に保存する前に、入力した画面のスクリーンショットを添えて、実行はあなたを待ちます。すべてのステップと判断が記録に残ります。",
       moment: { time: "9:04", title: "平日の請求書処理", text: "あなたの対応待ち：台帳に 3 件の伝票を保存しますか？" },
       after:
-        "最初の実行で、AI がクリックを覚え、以降の実行はそれを再生します。ポータルや台帳が変わったときは、合わなくなったクリックだけ AI が新しい手順を見つけて覚え直し、何を直したかは実行の記録に残ります。",
+        "ポータルでは、チャットで試したときに AI が行ったクリックをワークフローが覚えているので、実行はそれを再生します。台帳では、最初の実行で AI がクリックを覚え、以降の実行はそれを再生します。ポータルや台帳が変わったときは、合わなくなったクリックだけ AI が新しい手順を見つけて覚え直し、何を直したかは実行の記録に残ります。",
       good: [
         "あなたが OK するまで、台帳には何も保存されません。",
         "Web サイトとデスクトップのステップは、見たもの（ページの文章と画面のスクリーンショット）を、あなたが選んだモデルに送ります。ポータルのパスワードはこのコンピューターのシークレットにあり、Kitewell が入力するので、モデルには見えません。",
@@ -151,6 +153,7 @@ export const chores = [
       tally: "Every weekday, the same six clicks.",
       sentence:
         "Every weekday at 6pm, open Depot, export today's Daily sales as a CSV to the Exports folder, and make sure it confirms.",
+      request: "Make a workflow that opens [the reporting app] every weekday at 6pm, exports today's sales as a CSV to [a folder], and checks that the export finished.",
       steps: [
         ["desktop", "Export today's report", "Opens Depot, clicks through to Daily sales for today, exports it to the Exports folder, and checks the app's own confirmation before it finishes."],
       ],
@@ -188,6 +191,7 @@ export const chores = [
       tally: "平日は毎日、同じ 6 クリック。",
       sentence:
         "平日の夕方 6 時に Depot を開き、今日の「日次売上」を Exports フォルダーに CSV で書き出して、完了の表示を確認して。",
+      request: "平日の夕方 6 時に [レポートのアプリ] を開いて、今日の売上を CSV で [フォルダー] に書き出し、書き出しが終わったことを確かめるワークフローを作って。",
       steps: [
         ["desktop", "今日のレポートを書き出す", "Depot を開き、今日の「日次売上」までたどって Exports フォルダーに書き出し、終える前にアプリ自身の完了表示を確かめます。"],
       ],
@@ -233,6 +237,7 @@ export const chores = [
       tally: "Every morning, before the real work starts.",
       sentence:
         "Every weekday at 8:00, find the email that arrived in my mailbox in the last 24 hours, write a digest grouped by topic with anything due today first, and email it to me.",
+      request: "Make a workflow that every weekday at 8:00 finds the email that arrived in my mailbox in the last 24 hours, writes a digest grouped by topic with anything due today first, and emails it to me.",
       steps: [
         ["email", "Find yesterday's email", "Everything that arrived in the last 24 hours, up to 50 emails. Nothing is marked read."],
         ["ai", "Write the digest", "A model groups it by topic, names who is waiting on you, and puts anything due today first."],
@@ -269,6 +274,7 @@ export const chores = [
       tally: "毎朝、本当の仕事を始める前に。",
       sentence:
         "平日の 8:00 に、私のメールボックスに直近 24 時間で届いたメールを探して、話題ごとにまとめ、今日が期限のものを先頭にしたダイジェストを書き、私にメールしてください。",
+      request: "平日の 8:00 に、私のメールボックスに直近 24 時間で届いたメールを探して話題ごとにまとめ、今日が期限のものを先頭にしたダイジェストを私にメールするワークフローを作って。",
       steps: [
         ["email", "前日のメールを探す", "直近 24 時間に届いたメールを、最大 50 通。既読にはしません。"],
         ["ai", "ダイジェストを書く", "モデルが話題ごとにまとめ、返事を待っている相手を挙げ、今日が期限のものを先頭に置きます。"],
@@ -316,6 +322,7 @@ export const chores = [
       tally: "Row by row, down the whole list.",
       sentence:
         "For each row of orders.xlsx, place the order on the Harbor Supply site and write the receipt number back beside the row.",
+      request: "Make a workflow that goes through each row of [my order list], places the order on [the supplier's website], and writes the receipt number back beside the row.",
       steps: [
         ["excel", "Read the rows to run", "Before anything runs, you see which rows will run, and why any other row won't."],
         ["website", "Place the order", "For each row: find the item, add the quantity, set the delivery date, place the order, and read the receipt number."],
@@ -347,6 +354,7 @@ export const chores = [
       ],
       tally: "1 行ずつ、一覧の最後まで。",
       sentence: "発注一覧.xlsx の行ごとに、みなと資材のサイトで発注して、受付番号をその行の横に書き戻して。",
+      request: "[発注一覧のブック] の行ごとに [仕入先のウェブサイト] で発注して、受付番号をその行の横に書き戻すワークフローを作って。",
       steps: [
         ["excel", "実行する行を読む", "実行の前に、どの行を実行するか、ほかの行はなぜ実行しないかが分かります。"],
         ["website", "発注する", "行ごとに、品物を探し、数量と納期を入れて発注し、受付番号を読み取ります。"],
@@ -388,6 +396,7 @@ export const chores = [
       tally: "Every invoice, every few days.",
       sentence:
         "Every 30 minutes, find unread email in billing@example.com with an invoice attached, extract the supplier, invoice number, total, and currency with a model, append them as a CSV line to invoices.csv, then mark each email read and move it to Invoices.",
+      request: "Make a workflow that every 30 minutes finds unread email in [my billing mailbox] with an invoice attached, reads the supplier, invoice number, total, and currency, adds them as a line to [a CSV file], then marks each email read and moves it to [a folder].",
       steps: [
         ["email", "Find unread invoices", "Unread email with an attachment and “invoice” in the subject, up to 20 a run."],
         ["ai", "Read the amount", "For each email, a model answers with one line: supplier, invoice number, total, currency."],
@@ -430,6 +439,7 @@ export const chores = [
       tally: "数日おきに、届いた請求書の数だけ。",
       sentence:
         "30 分ごとに、billing@example.com の請求書が添付された未読メールを探し、仕入れ先、請求書番号、合計、通貨をモデルで読み取って invoices.csv に CSV の 1 行として追加し、各メールを既読にして Invoices へ移動してください。",
+      request: "30 分ごとに [請求書用のメールボックス] で請求書が添付された未読メールを探し、仕入先、請求書番号、合計、通貨を読み取って [CSV ファイル] に 1 行ずつ追加し、各メールを既読にして [フォルダー] へ移すワークフローを作って。",
       steps: [
         ["email", "未読の請求書を探す", "添付ファイルがあり、件名に「invoice」を含む未読メールを、1 回につき最大 20 通。"],
         ["ai", "金額を読み取る", "メールごとに、モデルが仕入れ先、請求書番号、合計、通貨を 1 行で答えます。"],
@@ -479,6 +489,7 @@ export const chores = [
       tally: "One customer at a time, all afternoon.",
       sentence:
         "Build a workflow with inputs NAME, EMAIL, and PLAN that opens https://portal.example.com/customers/new in the browser, signs in with the portal/password secret if needed, fills in the form, saves, and screenshots the confirmation. I will run it over a sheet.",
+      request: "Make a workflow with an input for each column of my sheet that opens [the form's address], signs in if needed, fills in the form, saves, and takes a screenshot of the confirmation. I will run it over the sheet.",
       steps: [
         ["website", "Register one customer", "Signs in if needed, fills in the form from the row, saves, checks it worked, and takes a screenshot."],
         ["excel", "Once for every row", "Paste the spreadsheet into a batch sheet: each row is one run, with progress and failures kept."],
@@ -519,6 +530,7 @@ export const chores = [
       tally: "1 件ずつ、午後いっぱい。",
       sentence:
         "NAME、EMAIL、PLAN を入力に持つワークフローを作ってください。ブラウザーで https://portal.example.com/customers/new を開き、必要なら portal/password のシークレットでサインインし、フォームを埋めて保存し、確認画面のスクリーンショットを撮ります。シートで実行します。",
+      request: "シートの列ごとに入力を持ち、[フォームのアドレス] を開いて、必要ならサインインし、フォームを埋めて保存し、確認画面のスクリーンショットを撮るワークフローを作って。シートで実行します。",
       steps: [
         ["website", "顧客を 1 件登録する", "必要ならサインインし、行の値でフォームを埋めて保存し、うまくいったか確かめて、スクリーンショットを撮ります。"],
         ["excel", "行の数だけ繰り返す", "スプレッドシートをバッチシートに貼り付けると、各行が 1 回の実行になり、進み具合と失敗が残ります。"],
@@ -566,6 +578,7 @@ export const chores = [
       tally: "Two hundred companies, one tab at a time.",
       sentence:
         "Build a workflow with inputs COMPANY and WEBSITE that opens the website in the browser, finds the About page, collects what the company does, its headcount, and its headquarters, and writes a two-line summary. I will run it over a sheet of 200 companies.",
+      request: "Make a workflow with inputs for a company's name and website that opens the website, finds the page about the company, collects what it does, its headcount, and its headquarters, and writes a two-line summary. I will run it over [my sheet of companies].",
       steps: [
         ["website", "Read the website", "Opens the site, finds the About page, and collects what they do, their size, and where they are."],
         ["ai", "Write a two-line summary", "A model turns the facts into two plain lines."],
@@ -605,6 +618,7 @@ export const chores = [
       tally: "200 社を、タブ 1 枚ずつ。",
       sentence:
         "COMPANY と WEBSITE を入力に持つワークフローを作ってください。ブラウザーで Web サイトを開き、会社概要のページを探して、事業内容、人数、本社所在地を集め、2 行の要約を書きます。200 社のシートで実行します。",
+      request: "会社名と Web サイトを入力に持ち、Web サイトを開いて会社概要のページを探し、事業内容、人数、本社所在地を集めて 2 行の要約を書くワークフローを作って。[会社一覧のシート] で実行します。",
       steps: [
         ["website", "Web サイトを読む", "サイトを開き、会社概要のページを探して、事業内容、規模、所在地を集めます。"],
         ["ai", "2 行の要約を書く", "モデルが事実を 2 行の平文にします。"],
@@ -643,6 +657,7 @@ export const chores = [
       tally: "Every morning, for weeks.",
       sentence:
         "Every morning at 7:00, open https://shop.example.com/products/desk in the browser, read the price, compare it with the last run, and email me only if it changed.",
+      request: "Make a workflow that every morning at 7:00 opens [the product page's address], reads the price, compares it with the last run, and emails me only if it changed.",
       steps: [
         ["website", "Read the price", "Opens the page, makes sure a price is shown, and reads it as a number."],
         ["script", "Compare with yesterday", "Keeps the last price in your folder and notes whether it moved."],
@@ -676,6 +691,7 @@ export const chores = [
       tally: "毎朝、何週間も。",
       sentence:
         "毎朝 7:00 に、ブラウザーで https://shop.example.com/products/desk を開いて価格を読み取り、前回の実行と比べて、変わったときだけ私にメールしてください。",
+      request: "毎朝 7:00 に [商品ページのアドレス] を開いて価格を読み取り、前回の実行と比べて、変わったときだけ私にメールするワークフローを作って。",
       steps: [
         ["website", "価格を読み取る", "ページを開き、価格が表示されていることを確かめ、数値として読み取ります。"],
         ["script", "前日と比べる", "前回の価格をフォルダーに残し、動いたかどうかを記録します。"],
@@ -727,6 +743,7 @@ export const chores = [
       tally: "Every PDF, one field at a time.",
       sentence:
         "Read every PDF in my Invoices/New folder, add its supplier, invoice number, date, and total as a row in Invoices.xlsx, and move the PDF to Invoices/Done.",
+      request: "Make a workflow that reads every PDF in [the folder of new invoices], adds its supplier, invoice number, date, and total as a row in [my invoices workbook], and moves the PDF to [a folder for done ones].",
       steps: [
         ["desktop", "Read each PDF", "Opens each new PDF on the screen, and a model reads the supplier, invoice number, date, and total."],
         ["excel", "Add it to the workbook", "One row per invoice, under the last row of Invoices.xlsx. Excel never opens."],
@@ -767,6 +784,7 @@ export const chores = [
       tally: "PDF の枚数だけ、1 項目ずつ。",
       sentence:
         "Invoices/New フォルダーの PDF をすべて読み、仕入れ先、請求書番号、日付、合計を Invoices.xlsx に 1 行ずつ追加して、読んだ PDF は Invoices/Done に移して。",
+      request: "[新しい請求書のフォルダー] の PDF をすべて読み、仕入先、請求書番号、日付、合計を [請求書のブック] に 1 行ずつ追加して、読んだ PDF を [処理済みのフォルダー] に移すワークフローを作って。",
       steps: [
         ["desktop", "PDF を 1 枚ずつ読む", "新しい PDF を画面に開き、モデルが仕入れ先、請求書番号、日付、合計を読み取ります。"],
         ["excel", "ブックに追加する", "請求書 1 件を 1 行として、Invoices.xlsx の最後の行の下に追加します。Excel は起動しません。"],
@@ -814,6 +832,7 @@ export const chores = [
       ],
       tally: "Eighty rows, one field at a time.",
       sentence: "For each row of month-end.xlsx, enter the order in Depot and write the order number Depot gives it back beside the row.",
+      request: "Make a workflow that goes through each row of [my month-end workbook], enters the order in [the sales app], and writes the order number it gives back beside the row.",
       steps: [
         ["excel", "Read the rows to run", "From the workbook you link. Before anything runs, you see which rows will run, and why any other row won't."],
         ["desktop", "Enter one order", "For each row: opens Depot, enters the customer, item, and quantity, saves, and reads the order number Depot shows."],
@@ -855,6 +874,7 @@ export const chores = [
       ],
       tally: "80 行を、1 項目ずつ。",
       sentence: "月末受注.xlsx の行ごとに、Depot に受注を入力して、Depot が付けた受注番号をその行の横に書き戻して。",
+      request: "[月末の受注のブック] の行ごとに [販売管理のアプリ] に受注を入力し、付いた受注番号をその行の横に書き戻すワークフローを作って。",
       steps: [
         ["excel", "実行する行を読む", "リンクしたブックから読みます。実行の前に、どの行を実行するか、ほかの行はなぜ実行しないかが分かります。"],
         ["desktop", "受注を 1 件入力する", "行ごとに、Depot を開いて顧客、品目、数量を入力して保存し、Depot が表示した受注番号を読み取ります。"],
@@ -905,6 +925,7 @@ export const chores = [
       tally: "Forty pages, every morning.",
       sentence:
         "Build a workflow with inputs PRODUCT and URL that opens the URL in the browser and reads the price and whether it can be ordered now. I will run it every morning at 7:00 over a sheet of our competitors' product pages.",
+      request: "Make a workflow with inputs for a product and its page's address that opens the page and reads the price and whether it can be ordered now. I will run it every morning at 7:00 over [my sheet of competitors' product pages].",
       steps: [
         ["website", "Read the price", "Opens the product page and reads its price as a number, and whether it can be ordered now."],
         ["excel", "Once for every row, every morning", "A batch sheet runs each product page at 7:00 and copies the price into its row."],
@@ -947,6 +968,7 @@ export const chores = [
       tally: "毎朝、40 ページ。",
       sentence:
         "PRODUCT と URL を入力に持つワークフローを作ってください。ブラウザーで URL を開き、価格と、いま注文できるかどうかを読み取ります。競合の商品ページのシートで、毎朝 7:00 に実行します。",
+      request: "商品とそのページのアドレスを入力に持ち、ページを開いて価格と、いま注文できるかどうかを読み取るワークフローを作って。[競合の商品ページのシート] で毎朝 7:00 に実行します。",
       steps: [
         ["website", "価格を読み取る", "商品ページを開き、価格を数値で、いま注文できるかどうかと一緒に読み取ります。"],
         ["excel", "毎朝、行の数だけ繰り返す", "バッチシートが毎朝 7:00 に商品ページごとに実行し、価格をその行に写します。"],
@@ -996,6 +1018,7 @@ export const chores = [
       tally: "Every Monday morning.",
       sentence:
         "Every weekday at 2:00, have my Codex agent update the dependencies in my repo on a branch named deps/nightly, run the tests, and commit. Wait for my approval, then push the branch and open a PR.",
+      request: "Make a workflow that every weekday at 2:00 has my Codex agent update the dependencies of [my repository] on a new branch, run the tests, and commit. Wait for my approval, then push the branch and open a pull request.",
       steps: [
         ["agent", "Update dependencies", "Codex branches, updates, runs the tests, fixes what broke, and commits. Its notes are saved."],
         ["approval", "Wait for your OK", "Nothing is pushed until you approve, in Kitewell or from your phone through Claude."],
@@ -1031,6 +1054,7 @@ export const chores = [
       tally: "毎週月曜の午前中。",
       sentence:
         "平日の 2:00 に、私の Codex エージェントに、リポジトリの依存関係を deps/nightly ブランチで更新し、テストを実行してコミットさせてください。私の承認を待ってから、ブランチをプッシュして PR を開いてください。",
+      request: "平日の 2:00 に、私の Codex エージェントに [リポジトリ] の依存関係を新しいブランチで更新させ、テストを実行してコミットさせるワークフローを作って。私の承認を待ってから、ブランチをプッシュしてプルリクエストを開いて。",
       steps: [
         ["agent", "依存関係を更新する", "Codex がブランチを作り、更新し、テストし、壊れたところを直してコミットします。メモは保存されます。"],
         ["approval", "あなたの OK を待つ", "承認するまで何もプッシュされません。承認は Kitewell で、またはスマホの Claude から。"],
@@ -1065,6 +1089,7 @@ export const chores = [
       tally: "Every morning, before review even starts.",
       sentence:
         "Every weekday at 9:00, have my Claude Code agent list the open pull requests in this repo with gh, review each diff, and write a Markdown digest ordered by risk. Save it under reviews/ with today's date.",
+      request: "Make a workflow that every weekday at 9:00 has my Claude Code agent list the open pull requests in [my repository], review each diff, and write a digest ordered by risk to [a folder] with today's date.",
       steps: [
         ["agent", "Review the open pull requests", "Lists them with gh, reads each diff, and writes three lines per PR, riskiest first."],
         ["script", "Save the digest", "Written to reviews/<date>.md and shown in the run."],
@@ -1091,6 +1116,7 @@ export const chores = [
       tally: "毎朝、レビューを始める前に。",
       sentence:
         "平日の 9:00 に、私の Claude Code エージェントに、このリポジトリのオープンなプルリクエストを gh で一覧し、各差分をレビューして、リスク順の Markdown ダイジェストを書かせてください。今日の日付で reviews/ に保存してください。",
+      request: "平日の 9:00 に、私の Claude Code エージェントに [リポジトリ] のオープンなプルリクエストを一覧させ、各差分をレビューして、リスク順のダイジェストを今日の日付で [フォルダー] に書かせるワークフローを作って。",
       steps: [
         ["agent", "オープンな PR をレビューする", "gh で一覧を取り、差分を読み、PR ごとに 3 行をリスクの高い順に書きます。"],
         ["script", "ダイジェストを保存する", "reviews/<日付>.md に書き込み、実行に表示します。"],
@@ -1125,6 +1151,7 @@ export const chores = [
       tally: "Every release, every machine.",
       sentence:
         "Build a chain workflow aimed at my web server group that pulls /srv/app with git, waits for my approval, restarts the app service, and checks http://127.0.0.1:8080/healthz on each machine before moving to the next.",
+      request: "Make a workflow for [my server group] that, one machine at a time, pulls [the app's folder] with git, waits for my approval, restarts [the app's service], and checks [the health check address] before moving to the next.",
       steps: [
         ["server", "Pull the release", "A fast-forward pull on the machine."],
         ["approval", "Wait for your OK", "The restart waits for your approval, machine by machine."],
@@ -1154,6 +1181,7 @@ export const chores = [
       tally: "リリースのたびに、台数分。",
       sentence:
         "Web サーバーグループに向けた chain のワークフローを作ってください。/srv/app を git で取得し、私の承認を待ち、app サービスを再起動して、各マシンで http://127.0.0.1:8080/healthz を確かめてから次のマシンに進みます。",
+      request: "[サーバーグループ] に向けて、1 台ずつ [アプリのフォルダー] を git で取得し、私の承認を待ち、[アプリのサービス] を再起動して、[ヘルスチェックのアドレス] を確かめてから次のマシンに進むワークフローを作って。",
       steps: [
         ["server", "リリースを取得する", "マシン上で fast-forward の pull を行います。"],
         ["approval", "あなたの OK を待つ", "再起動は、マシンごとにあなたの承認を待ちます。"],
@@ -1191,6 +1219,7 @@ export const chores = [
       tally: "Every morning, the same numbers in the same places.",
       sentence:
         "Build a workflow that reads orders.csv in my daily-report folder, totals the amount_usd column with Python, and writes a Markdown report to report.md every morning at 8:00.",
+      request: "Make a workflow that every morning at 8:00 reads [my orders CSV], totals [the amount column] with Python, and writes a short report to [a file].",
       steps: [
         ["script", "Read orders", "Reads the CSV and passes it on."],
         ["script", "Build the report", "A few lines of Python total the orders and write Markdown."],
@@ -1215,6 +1244,7 @@ export const chores = [
       tally: "毎朝、同じ数字を同じ場所に。",
       sentence:
         "daily-report フォルダーの orders.csv を読み、amount_usd 列を Python で集計して、毎朝 8:00 に Markdown のレポートを report.md に書くワークフローを作ってください。",
+      request: "毎朝 8:00 に [注文の CSV] を読み、[金額の列] を Python で集計して、短いレポートを [ファイル] に書くワークフローを作って。",
       steps: [
         ["script", "注文を読む", "CSV を読み、次へ渡します。"],
         ["script", "レポートを作る", "数行の Python が注文を集計し、Markdown を書きます。"],
@@ -1257,6 +1287,7 @@ export const chores = [
       tally: "Every red morning, before the real work.",
       sentence:
         "Every weekday at 2:00, pull main and run the tests. If they fail, have my Claude Code agent fix the cause on a branch named fix/nightly-tests and commit, with Codex taking over if Claude Code fails. Wait for my approval, then push the branch and open a PR.",
+      request: "Make a workflow that every weekday at 2:00 pulls main in [my repository] and runs the tests. If they fail, have my Claude Code agent fix the cause on a new branch and commit, with Codex taking over if Claude Code fails. Wait for my approval, then push the branch and open a pull request.",
       steps: [
         ["script", "Run the tests", "Pulls main and runs the suite. On a green night the run ends here, and nothing waits for you."],
         ["agent", "Fix what failed", "Claude Code finds the cause, fixes it on a branch, runs the tests until they pass, and commits. If it hits its usage limit or fails, Codex starts the task over in its place."],
@@ -1299,6 +1330,7 @@ export const chores = [
       tally: "赤い朝のたびに、本来の仕事の前に。",
       sentence:
         "平日の 2:00 に main を取得してテストを実行し、失敗したら、私の Claude Code エージェントに fix/nightly-tests ブランチで原因を直してコミットさせてください。Claude Code が失敗したら Codex に代わらせてください。私の承認を待ってから、ブランチをプッシュして PR を開いてください。",
+      request: "平日の 2:00 に [リポジトリ] の main を取得してテストを実行し、失敗したら、私の Claude Code エージェントに新しいブランチで原因を直してコミットさせるワークフローを作って。Claude Code が失敗したら Codex に代わらせて。私の承認を待ってから、ブランチをプッシュしてプルリクエストを開いて。",
       steps: [
         ["script", "テストを実行する", "main を取得してテストを実行します。すべて通った夜はここで終わり、あなたを待つものはありません。"],
         ["agent", "失敗を直す", "Claude Code が原因を見つけ、ブランチで直し、テストが通るまで実行してコミットします。利用上限や失敗で止まったら、Codex が代わりに最初からやり直します。"],
@@ -1349,6 +1381,7 @@ export const chores = [
       tally: "Every pull request, before anyone else looks.",
       sentence:
         "When a pull request is opened in my repo, have my Codex agent review it, have my Claude Code agent check that review against the code, and post the checked review on the pull request once I approve.",
+      request: "Make a workflow that, when a pull request is opened in [my repository], has my Codex agent review it, has my Claude Code agent check that review against the code, and posts the checked review on the pull request once I approve.",
       steps: [
         ["agent", "Review the pull request", "Codex reads it with gh and lists bugs, missing tests, and risky changes, each with its file and line."],
         ["agent", "Check the review", "Claude Code checks each finding against the diff, drops the wrong ones, and adds what was missed."],
@@ -1392,6 +1425,7 @@ export const chores = [
       tally: "どのプルリクエストも、ほかの誰かが見る前に。",
       sentence:
         "リポジトリでプルリクエストが開いたら、私の Codex エージェントにレビューさせ、私の Claude Code エージェントにそのレビューをコードと照らし合わせて確かめさせて、私が承認したら、確かめたレビューをプルリクエストに投稿してください。",
+      request: "[リポジトリ] でプルリクエストが開いたら、私の Codex エージェントにレビューさせ、私の Claude Code エージェントにそのレビューをコードと照らし合わせて確かめさせて、私が承認したら確かめたレビューをプルリクエストに投稿するワークフローを作って。",
       steps: [
         ["agent", "プルリクエストをレビューする", "Codex が gh で読み、バグ、足りないテスト、危うい変更を、ファイルと行を添えて挙げます。"],
         ["agent", "レビューを確かめる", "Claude Code が指摘を 1 つずつ差分と照らし合わせ、誤りを外し、見落としを加えます。"],
@@ -1442,6 +1476,7 @@ export const chores = [
       tally: "Every issue, the same two minutes.",
       sentence:
         "When an issue is opened in my repo, have a model label it bug, enhancement, question, or documentation, and if it's a bug without steps to reproduce, post our standard request for them.",
+      request: "Make a workflow that, when an issue is opened in [my repository], has a model label it bug, enhancement, question, or documentation, and if it's a bug without steps to reproduce, posts [my standard request for them].",
       steps: [
         ["ai", "Read the new issue", "A model reads the issue and answers from a fixed list: bug, enhancement, question, or documentation, and whether a bug report lacks steps to reproduce."],
         ["script", "Label it", "gh adds that label to the issue."],
@@ -1482,6 +1517,7 @@ export const chores = [
       tally: "Issue のたびに、同じ 2 分。",
       sentence:
         "リポジトリで Issue が開いたら、モデルに bug、enhancement、question、documentation のどれかのラベルを付けさせ、再現手順のないバグ報告なら、いつもの再現手順の依頼を投稿してください。",
+      request: "[リポジトリ] で Issue が開いたら、モデルに bug、enhancement、question、documentation のどれかのラベルを付けさせ、再現手順のないバグ報告なら [いつもの再現手順の依頼] を投稿するワークフローを作って。",
       steps: [
         ["ai", "新しい Issue を読む", "モデルが Issue を読み、bug、enhancement、question、documentation の決まった選択肢から 1 つと、バグ報告に再現手順がないかどうかを答えます。"],
         ["script", "ラベルを付ける", "gh がそのラベルを Issue に付けます。"],
