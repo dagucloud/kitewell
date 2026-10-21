@@ -1157,6 +1157,44 @@ code {
 .chore-film {
   margin: 0;
 }
+.clip-box {
+  position: relative;
+}
+/* Pauses a loop that plays by itself. */
+.clip-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  opacity: 0.85;
+}
+.clip-toggle:hover {
+  opacity: 1;
+}
+.clip-toggle[hidden] {
+  display: none;
+}
+.clip-toggle svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+.clip-toggle .clip-play,
+.clip-toggle.paused .clip-pause {
+  display: none;
+}
+.clip-toggle.paused .clip-play {
+  display: block;
+}
 .clip {
   width: 100%;
   height: auto;

@@ -1,7 +1,8 @@
 ---
 // A silent loop: a beat cut from the Kitewell film, or a real recording
 // from public/videos/proof. It plays while it is on screen and stays on its
-// poster for people who prefer reduced motion or save data.
+// poster for people who prefer reduced motion or save data. A loop that
+// plays by itself has a button to pause it.
 interface Props {
   locale: "en" | "ja";
   label: string;
@@ -14,34 +15,51 @@ interface Props {
 }
 const { locale, name, label, src, width = 1280, height = 720 } = Astro.props;
 const base = src ?? `/videos/chores/${locale}/${name}`;
+const text = {
+  en: { pause: "Pause the video", play: "Play the video" },
+  ja: { pause: "動画を一時停止", play: "動画を再生" },
+}[locale];
 ---
 
-<video
-  class="clip"
-  data-clip
-  muted
-  loop
-  playsinline
-  preload="none"
-  poster={`${base}.webp`}
-  width={width}
-  height={height}
-  aria-label={label}
->
-  <source src={`${base}.mp4`} type="video/mp4" />
-</video>
+<div class="clip-box">
+  <video
+    class="clip"
+    data-clip
+    muted
+    loop
+    playsinline
+    preload="none"
+    poster={`${base}.webp`}
+    width={width}
+    height={height}
+    aria-label={label}
+  >
+    <source src={`${base}.mp4`} type="video/mp4" />
+  </video>
+  <button type="button" class="clip-toggle" data-clip-toggle data-pause={text.pause} data-play={text.play} aria-label={text.pause} hidden>
+    <svg class="clip-pause" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx="0.6" /><rect x="7.4" y="1.5" width="2.6" height="9" rx="0.6" /></svg>
+    <svg class="clip-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6v8.8a.6.6 0 0 0 .9.5l7-4.4a.6.6 0 0 0 0-1L3.9 1.1a.6.6 0 0 0-.9.5z" /></svg>
+  </button>
+</div>
 
 <script>
   const motion = window.matchMedia("(prefers-reduced-motion: no-preference)");
   const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
   const play = motion.matches && !saveData;
   const clips = document.querySelectorAll<HTMLVideoElement>("[data-clip]");
+  // Without autoplay, or where the browser refuses it, the poster stays and
+  // the video's own controls let a person play it.
+  const manual = (clip: HTMLVideoElement) => {
+    clip.controls = true;
+    clip.parentElement!.querySelector<HTMLElement>("[data-clip-toggle]")!.hidden = true;
+  };
   const seen = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         const clip = entry.target as HTMLVideoElement;
-        if (entry.isIntersecting && play) {
-          clip.play().catch(() => {});
+        // A loop the person paused stays paused when it comes back on screen.
+        if (entry.isIntersecting && play && !clip.dataset.paused) {
+          clip.play().catch(() => manual(clip));
         } else {
           clip.pause();
         }
@@ -51,7 +69,23 @@ const base = src ?? `/videos/chores/${locale}/${name}`;
   );
   for (const clip of clips) {
     seen.observe(clip);
-    // Without autoplay, the poster stays and the controls let a person play it.
-    if (!play) clip.controls = true;
+    if (!play) {
+      manual(clip);
+      continue;
+    }
+    const toggle = clip.parentElement!.querySelector<HTMLButtonElement>("[data-clip-toggle]")!;
+    toggle.hidden = false;
+    toggle.addEventListener("click", () => {
+      const pausing = !clip.dataset.paused;
+      if (pausing) {
+        clip.dataset.paused = "true";
+        clip.pause();
+      } else {
+        delete clip.dataset.paused;
+        clip.play().catch(() => manual(clip));
+      }
+      toggle.setAttribute("aria-label", pausing ? toggle.dataset.play! : toggle.dataset.pause!);
+      toggle.classList.toggle("paused", pausing);
+    });
   }
 </script>
