@@ -122,7 +122,7 @@ const links = ["/docs/", "/examples/", "/pricing/", "/releases/", "/support/"].m
           </a>
         )}
       </nav>
-      <a class="button small" href={localize("/download/", locale)}>
+      <a class="button small" href={`${localize("/download/", locale)}?from=header`}>
         {release ? text.download : text.status}
         <span aria-hidden="true">↗</span>
       </a>

@@ -35,7 +35,7 @@ export function start(): Promise<PostHog | null> {
             disable_session_recording: true,
             disable_surveys: true,
             loaded(started) {
-              started.register({ product: "kitewell", surface: "website" });
+              started.register({ product: "kitewell", surface: "website", locale: document.documentElement.lang });
             },
           });
           return posthog;

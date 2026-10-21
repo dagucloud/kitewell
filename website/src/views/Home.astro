@@ -357,17 +357,17 @@ const lines = (value: string) => value.replace("\n", "<br>");
       <div class="intro-actions">
         {release ? (
           <>
-            <a class="button" href={to("/download/")} data-track="hero-download">
+            <a class="button" href={`${to("/download/")}?from=hero`}>
               {text.download} <span aria-hidden="true">↗</span>
             </a>
-            <a class="text-link" href="#film" data-track="hero-film">{text.watch}</a>
+            <a class="text-link" href="#film">{text.watch}</a>
           </>
         ) : (
           <>
-            <a class="button" href="#film" data-track="hero-film">
+            <a class="button" href="#film">
               {text.watch} <span aria-hidden="true">▶</span>
             </a>
-            <a class="text-link" href={to("/docs/getting-started/")} data-track="hero-setup">{text.setup}</a>
+            <a class="text-link" href={to("/docs/getting-started/")}>{text.setup}</a>
           </>
         )}
       </div>
@@ -375,7 +375,7 @@ const lines = (value: string) => value.replace("\n", "<br>");
       <figure class="intro-media">
         <div class="tabs" role="tablist" hidden data-tabs>
           {text.proofTabs.map((label, i) => (
-            <button type="button" role="tab" id={`proof-tab-${i}`} aria-controls={`proof-panel-${i}`} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1} data-track={`hero-proof-${proofs[i]}`}>
+            <button type="button" role="tab" id={`proof-tab-${i}`} aria-controls={`proof-panel-${i}`} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1}>
               {label}
             </button>
           ))}
@@ -702,7 +702,7 @@ const lines = (value: string) => value.replace("\n", "<br>");
         </div>
       </div>
       <div class="finale-action">
-        <a class="button" href={to("/download/")} data-track="closing-download">
+        <a class="button" href={`${to("/download/")}?from=closing`}>
           {release ? text.download : text.status}
           <span aria-hidden="true">↗</span>
         </a>

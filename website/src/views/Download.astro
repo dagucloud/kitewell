@@ -154,7 +154,7 @@ const platforms = [
                 <article class="card">
                   <h3>{title}</h3>
                   <p>{description}</p>
-                  <a class="button" href={published.downloads[arch].url}>
+                  <a class="button" href={published.downloads[arch].url} data-download={arch}>
                     {platform.button}
                   </a>
                   <p class="checksum">
@@ -214,3 +214,17 @@ const platforms = [
     </div>
   </section>
 </Site>
+
+<script>
+  import { track } from "../lib/analytics";
+
+  // A download counts where it starts: the installer a person chose here,
+  // and the link that brought them to this page.
+  const from = new URLSearchParams(location.search).get("from")?.match(/^[a-z-]{1,24}$/)?.[0] ?? "direct";
+  for (const button of document.querySelectorAll<HTMLAnchorElement>("[data-download]")) {
+    button.addEventListener("click", () => {
+      const [system, arch] = button.dataset.download!.split("-");
+      track("download_started", { os: system === "darwin" ? "mac" : "windows", arch, from });
+    });
+  }
+</script>
