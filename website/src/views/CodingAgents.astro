@@ -1,0 +1,206 @@
+---
+import Site from "../layouts/Site.astro";
+import ChoreList from "../components/ChoreList.astro";
+import Clip from "../components/Clip.astro";
+import DownloadButton from "../components/DownloadButton.astro";
+import { localize } from "../lib/i18n.mjs";
+import { choreBySlug } from "../lib/chores.mjs";
+import "../styles/home.css";
+interface Props {
+  locale: "en" | "ja";
+}
+const { locale } = Astro.props;
+const text = {
+  en: {
+    title: "Run Claude Code, Codex, and 13 more on a schedule, with approvals",
+    description:
+      "Kitewell runs Claude Code, Codex, Gemini, GitHub Copilot, and 11 more coding agents on your Mac or PC, on a schedule or a GitHub webhook: one writes, another reviews, and nothing is pushed until you approve.",
+    eyebrow: "Coding agents",
+    heading: "Claude Code, Codex, and 13 more, on your schedule.",
+    lead: "Put the coding agents you already use to work while you're away, on the sign-in you already have. Kitewell starts the agent you installed; each vendor's terms apply.",
+    platform: "Public beta for macOS 13+ and Windows 10+. Free for up to 10 workflows.",
+    proof: "Real recording, sped up: Kitewell's chat is asked to have Claude Code fix a demo repository's failing tests every night and Codex review the change. The assistant proposes the workflow with its schedule and runs it; Claude Code fixes the test, Codex reviews it, and the run waits with their summary until a reply lets it commit the fix to a new local branch.",
+    proofNote: "A real recording of Kitewell's chat window, unedited and sped up evenly: one request in plain words, then everything the AI and the app did, on a demo repository.",
+    agentNames: ["Claude Code", "Codex", "Cursor", "Gemini", "GitHub Copilot", "Aider", "Amp", "Cline", "DeepSeek", "Droid", "Goose", "Kiro", "OpenCode", "Pi", "Qwen"],
+    agentMore: "Any other CLI, as a custom command",
+    how: "How they work together",
+    howTitle: "One writes, another reviews, and you approve.",
+    agentItems: [
+      ["Chain them", "One writes, another reviews. Run them side by side, or once per repository from a sheet."],
+      ["Keep going at the limit", "When an agent hits its usage limit or fails, the next one you listed takes over."],
+      ["Nothing ships unchecked", "A gate holds the push until you approve. Send back re-runs the agent with your notes."],
+      ["Started by GitHub", "An issue or pull request can start the run through a webhook, with no open ports."],
+    ],
+    agentsLink: "Coding agents in Kitewell →",
+    chain: {
+      title: "Morning fix for a failing build",
+      steps: [
+        ["Agent · Claude Code", "Draft a fix on a branch", "If it fails: Codex, then Gemini"],
+        ["Agent · Codex", "Review the change and list what to correct", ""],
+        ["Approval", "Wait for you before pushing", ""],
+        ["Command", "Push the branch and open a pull request", ""],
+      ],
+      caption: "A sample workflow: one agent writes, another reviews, and nothing is pushed until you approve.",
+    },
+    triggers: "Triggers",
+    triggersTitle: "It starts on its own.",
+    triggerItems: [
+      ["Schedules", "Daily, on weekdays, or any schedule, in your time zone. Starts a sleeping computer missed are caught up when it wakes.", "", "/docs/scheduling/"],
+      ["Webhooks", "GitHub, Stripe, Slack, or any service starts a workflow on your computer through Kitewell's relay. Signatures are checked, no port is opened, and a request waits up to 7 days.", "Personal and Team", "/docs/webhooks/"],
+      ["From anywhere", "From ChatGPT or Claude on your phone, from Claude Code or Codex over MCP, or with a REST call.", "", "/docs/mcp/"],
+    ],
+    examples: "Examples",
+    examplesTitle: "What do you still do by hand?",
+    examplesLink: "All examples →",
+    pricing: "Pricing",
+    pricingTitle: "Free for up to 10 workflows.",
+    pricingText: "One project with up to 10 workflows is free. Personal adds room, alerts, and webhooks for $20 a month; Team adds people, quoted per computer for organizations (USD, excluding tax). The agents run on their own sign-ins and plans.",
+    compare: "Compare plans →",
+  },
+  ja: {
+    title: "Claude Code や Codex など 15 種類のエージェントを、スケジュールと承認付きで",
+    description:
+      "Kitewell は、Claude Code、Codex、Gemini、GitHub Copilot など 15 種類のコーディングエージェントを、あなたの Mac や PC で、スケジュールや GitHub の Webhook で動かします。1 つが書き、もう 1 つがレビューし、承認するまで何もプッシュしません。",
+    eyebrow: "コーディングエージェント",
+    heading: "Claude Code、Codex ほか 15 種類を、あなたのスケジュールで。",
+    lead: "いつも使っているコーディングエージェントを、いまのサインインのまま、あなたがいない間も働かせます。Kitewell はインストール済みのエージェントを起動します。各社の利用規約に従ってお使いください。",
+    platform: "macOS 13 以降と Windows 10 以降のパブリックベータ。10 ワークフローまで無料。",
+    proof: "実際の録画（早送り）。Kitewell のチャットで、デモ用リポジトリの失敗しているテストを毎晩 Claude Code に直させ、その変更を Codex にレビューさせるよう頼みます。アシスタントがスケジュール付きのワークフローを提案して実行し、Claude Code がテストを直し、Codex がレビューします。実行は 2 つの要約を見せて待ち、返信で進めると、修正がローカルの新しいブランチにコミットされます。",
+    proofNote: "Kitewell のチャット画面の実際の録画です。編集はせず、一定の速さで早送りしています。ふだんの言葉で 1 回頼んだあと、AI とアプリが行ったことのすべてです。リポジトリはデモ用です。",
+    agentNames: ["Claude Code", "Codex", "Cursor", "Gemini", "GitHub Copilot", "Aider", "Amp", "Cline", "DeepSeek", "Droid", "Goose", "Kiro", "OpenCode", "Pi", "Qwen"],
+    agentMore: "ほかの CLI も、カスタムコマンドで",
+    how: "組み合わせ方",
+    howTitle: "1 つが書き、もう 1 つがレビューし、あなたが承認する。",
+    agentItems: [
+      ["つなげる", "1 つが書き、もう 1 つがレビュー。並べて動かすことも、シートからリポジトリごとに動かすこともできます。"],
+      ["上限でも止まらない", "エージェントが利用上限に達したり失敗したりしたら、次に挙げたエージェントが引き継ぎます。"],
+      ["確認なしには出さない", "承認するまでプッシュを止めます。「差し戻し」なら、メモを添えてエージェントがやり直します。"],
+      ["GitHub から始まる", "Issue やプルリクエストの Webhook で実行が始まります。ポート開放は不要です。"],
+    ],
+    agentsLink: "Kitewell のコーディングエージェント →",
+    chain: {
+      title: "失敗したビルドを朝までに直す",
+      steps: [
+        ["エージェント · Claude Code", "ブランチに修正をつくる", "失敗したら：Codex、次に Gemini"],
+        ["エージェント · Codex", "変更をレビューし、直す点を挙げる", ""],
+        ["承認", "プッシュの前にあなたを待つ", ""],
+        ["コマンド", "ブランチをプッシュしてプルリクエストを開く", ""],
+      ],
+      caption: "サンプルのワークフロー。1 つのエージェントが書き、もう 1 つがレビューし、あなたが承認するまで何もプッシュしません。",
+    },
+    triggers: "きっかけ",
+    triggersTitle: "勝手に始まる。",
+    triggerItems: [
+      ["スケジュール", "毎日、平日、どんな間隔でも、あなたのタイムゾーンで。パソコンが眠っていて逃した開始は、起きたときに追いかけます。", "", "/docs/scheduling/"],
+      ["Webhook", "GitHub、Stripe、Slack などのサービスが、Kitewell のリレーを通じてあなたのパソコンのワークフローを始めます。署名を確認し、ポートは開かず、リクエストは最大 7 日間待ちます。", "Personal と Team", "/docs/webhooks/"],
+      ["どこからでも", "スマホの ChatGPT や Claude から、MCP で Claude Code や Codex から、または REST で。", "", "/docs/mcp/"],
+    ],
+    examples: "活用例",
+    examplesTitle: "まだ、手でやっていますか。",
+    examplesLink: "すべての活用例 →",
+    pricing: "料金",
+    pricingTitle: "10 ワークフローまで無料。",
+    pricingText: "10 ワークフローまでの 1 プロジェクトは無料。Personal は月額 3,000 円で枠、アラート、Webhook を、Team は組織向けに台数に応じたお見積りでメンバーを追加します（税別）。エージェントは、それぞれのサインインと契約で動きます。",
+    compare: "プランを比べる →",
+  },
+}[locale];
+const to = (path: string) => localize(path, locale);
+const coding = ["fix-failing-tests", "review-every-pr", "triage-issues", "dependency-update"].map(choreBySlug);
+---
+
+<Site title={text.title} description={text.description}>
+  <div class="home">
+    <section class="intro wrap" aria-labelledby="agents-title">
+      <p class="eyebrow">{text.eyebrow}</p>
+      <h1 id="agents-title">{text.heading}</h1>
+      <p class="intro-lead">{text.lead}</p>
+      <div class="intro-actions">
+        <DownloadButton locale={locale} place="coding" />
+      </div>
+      <p class="fine">{text.platform}</p>
+      <figure class="intro-media">
+        <div class="frame">
+          <Clip locale={locale} src={`/videos/proof/agents-${locale}`} width={1920} height={1200} label={text.proof} />
+        </div>
+        <figcaption>{text.proofNote}</figcaption>
+      </figure>
+    </section>
+
+    <section class="block wrap" id="together" aria-labelledby="together-title">
+      <div class="pair">
+        <div>
+          <p class="eyebrow">{text.how}</p>
+          <h2 id="together-title">{text.howTitle}</h2>
+          <ul class="points">
+            {text.agentItems.map(([name, detail]) => (
+              <li>
+                <strong>{name}</strong>
+                <span>{detail}</span>
+              </li>
+            ))}
+          </ul>
+          <a class="text-link" href={to("/docs/ai/")}>{text.agentsLink}</a>
+        </div>
+        <div class="agents-proof">
+          <ul class="agent-grid">
+            {text.agentNames.map((name) => <li>{name}</li>)}
+            <li class="agent-more">{text.agentMore}</li>
+          </ul>
+          <figure class="record-figure">
+            <div class="record">
+              <div class="record-head">
+                <strong>{text.chain.title}</strong>
+              </div>
+              <ol class="chain">
+                {text.chain.steps.map(([kind, name, note]) => (
+                  <li>
+                    <span class="chain-kind">{kind}</span>
+                    <span class="chain-name">{name}</span>
+                    {note && <span class="chain-note">{note}</span>}
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <figcaption>{text.chain.caption}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="block wrap" id="triggers" aria-labelledby="triggers-title">
+      <p class="eyebrow">{text.triggers}</p>
+      <h2 id="triggers-title" class="block-title">{text.triggersTitle}</h2>
+      <div class="trio">
+        {text.triggerItems.map(([name, detail, plan, href]) => (
+          <div>
+            <h3><a href={to(href)}>{name}</a></h3>
+            <p>{detail}</p>
+            {plan && <span class="plan-tag">{plan}</span>}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="block wrap" id="examples" aria-labelledby="examples-title">
+      <p class="eyebrow">{text.examples}</p>
+      <h2 id="examples-title" class="block-title">{text.examplesTitle}</h2>
+      <ChoreList locale={locale} chores={coding} />
+      <a class="text-link" href={to("/examples/")}>{text.examplesLink}</a>
+    </section>
+
+    <section class="finale wrap" aria-labelledby="pricing-title">
+      <div>
+        <p class="eyebrow">{text.pricing}</p>
+        <h2 id="pricing-title">{text.pricingTitle}</h2>
+        <p class="block-lead">{text.pricingText}</p>
+        <div class="links">
+          <a class="text-link" href={to("/pricing/")}>{text.compare}</a>
+        </div>
+      </div>
+      <div class="finale-action">
+        <DownloadButton locale={locale} place="coding-closing" />
+        <p class="fine">{text.platform}</p>
+      </div>
+    </section>
+  </div>
+</Site>

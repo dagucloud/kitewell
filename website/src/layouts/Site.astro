@@ -17,10 +17,10 @@ const text = {
     skip: "Skip to content",
     home: "Kitewell home",
     nav: "Main navigation",
-    links: ["Docs", "Examples", "Pricing", "Releases", "Support"],
+    links: ["Examples", "Coding agents", "Pricing", "Docs"],
     tagline: "AI builds the automation. Your computer runs it.",
     social: "AI builds the automation. Your computer runs it. Kitewell: browser automation built and maintained by AI, plus desktop apps, Excel, email, and coding agents.",
-    footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community", "Compare"],
+    footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community", "Compare", "Releases"],
     fine: "",
   },
   ja: {
@@ -29,10 +29,10 @@ const text = {
     skip: "本文へスキップ",
     home: "Kitewell ホーム",
     nav: "メインナビゲーション",
-    links: ["ドキュメント", "活用例", "料金", "リリース", "サポート"],
+    links: ["活用例", "エージェント", "料金", "ドキュメント"],
     tagline: "自動化は AI がつくる。動かすのは、あなたのパソコン。",
     social: "自動化は AI がつくる。動かすのは、あなたのパソコン。Kitewell：AI がつくり保守するブラウザーの自動化と、デスクトップアプリ、Excel、メール、コーディングエージェント。",
-    footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ", "比較"],
+    footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ", "比較", "リリース"],
     fine: "",
   },
 }[locale];
@@ -57,7 +57,7 @@ const pages = counterparts(Astro.url.pathname);
 // The switch offers the other language, named in that language.
 const other = locale === "ja" ? "en" : "ja";
 const otherLabel = other === "ja" ? "日本語" : "English";
-const links = ["/docs/", "/examples/", "/pricing/", "/releases/", "/support/"].map((href, i) => [
+const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href, i) => [
   localize(href, locale),
   text.links[i],
 ]);
@@ -135,6 +135,7 @@ const links = ["/docs/", "/examples/", "/pricing/", "/releases/", "/support/"].m
       </div>
       <div class="footer-links">
         <a href={localize("/docs/", locale)}>{text.footer[0]}</a>
+        <a href={localize("/releases/", locale)}>{text.footer[8]}</a>
         <a href={localize("/compare/", locale)}>{text.footer[7]}</a>
         <a href="https://github.com/dagucloud/kitewell">GitHub</a>
         <a href="/third-party/">{text.footer[1]}</a>

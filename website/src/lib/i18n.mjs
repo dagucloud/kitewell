@@ -1,7 +1,7 @@
 // The site is in English at the root and in Japanese under /ja/. Every
 // documentation page and the pages below have a Japanese version; any other
 // page is English only, whichever language links to it.
-const translatedPages = ["/", "/pricing/", "/compare/", "/download/", "/releases/", "/support/", "/privacy/", "/terms/"];
+const translatedPages = ["/", "/coding-agents/", "/pricing/", "/compare/", "/download/", "/releases/", "/support/", "/privacy/", "/terms/"];
 // Every page under these paths has a Japanese version too.
 const translatedSections = ["/docs/", "/examples/"];
 
