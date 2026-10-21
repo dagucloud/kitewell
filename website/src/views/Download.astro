@@ -1,6 +1,8 @@
 ---
 import Site from "../layouts/Site.astro";
+import DownloadButton from "../components/DownloadButton.astro";
 import { readReleases } from "../lib/releases.mjs";
+import { pickDownload } from "../lib/platform.mjs";
 import { localize } from "../lib/i18n.mjs";
 interface Props {
   locale: "en" | "ja";
@@ -8,33 +10,74 @@ interface Props {
 const { locale } = Astro.props;
 // Each system is published from its own feed; a platform offers downloads
 // only when its manifest exists.
-const { macos, windows } = await readReleases();
+const releases = await readReleases();
+const { macos, windows } = releases;
 const release = macos ?? windows;
-// The heading names a version only when every published system is on it;
-// each platform lists its own version.
-const versions = new Set([macos, windows].filter(Boolean).map(({ version }) => version));
-const version = versions.size === 1 ? [...versions][0] : null;
 const text = {
   en: {
     title: release ? "Download Kitewell" : "Release availability",
     description:
-      "Check Kitewell release availability for macOS and Windows, system requirements, and installation instructions.",
-    eyebrow: "Downloads",
-    heading: release ? (version ? `Download Kitewell ${version}` : "Download Kitewell") : "Coming soon",
+      "Download Kitewell for Mac or Windows, free for up to 10 workflows, and go from the installer to your first chore in three steps.",
+    eyebrow: "Download",
+    heading: release ? "Download Kitewell" : "Coming soon",
     lead: release
-      ? "Kitewell is in public beta: features, limits, and screens may change. Check the supported platforms and system requirements below."
+      ? "Free for up to 10 workflows on Mac and Windows. Kitewell is in public beta, so features and screens may still change."
       : "There are no public installers yet. Kitewell runs on macOS and Windows; Linux support is planned.",
-    platforms: [
-      `macOS (${macos ? "public beta" : "coming soon"})`,
-      `Windows (${windows ? "public beta" : "coming soon"})`,
-      "Linux (planned)",
+    version: (version: string) => `Version ${version}`,
+    picks: {
+      "mac-arm64": ["Kitewell for Mac", "For Macs with Apple silicon (M-series chips) · macOS 13 or later", "Download for Mac"],
+      "mac-amd64": ["Kitewell for Mac", "For Macs with Intel processors · macOS 13 or later", "Download for Mac"],
+      "windows-amd64": ["Kitewell for Windows", "For 64-bit PCs (x64) · Windows 10 version 1809 or later, or Windows 11", "Download for Windows"],
+    },
+    otherChip: {
+      "mac-arm64": "Intel Mac? Download the Intel version",
+      "mac-amd64": "Apple silicon Mac? Download that version",
+    },
+    starting: "Your download is starting.",
+    again: "Didn't start? Download again",
+    notes: {
+      "windows-arm64": "Kitewell's Windows installer is built for x64 PCs. PCs with Arm processors aren't supported yet.",
+      mobile: "Kitewell runs on Mac and Windows computers. Send yourself the link and download it there.",
+      "desktop-other": "Kitewell runs on Mac and Windows. Linux support is planned.",
+    },
+    next: "Next steps",
+    steps: [
+      {
+        title: "Open the installer",
+        lines: [
+          ["mac", "On a Mac, open the .pkg you downloaded and follow it. It asks for an administrator password."],
+          ["windows", "On Windows, run the Setup file. If your browser says it isn't commonly downloaded, choose Keep. If Windows SmartScreen appears, choose More info, then Run anyway. To check the file first, compare its SHA256 with the one under All downloads."],
+        ],
+      },
+      {
+        title: "Open Kitewell and sign in for its AI",
+        lines: [
+          ["", "Choose <strong>Sign in to use Kitewell's AI</strong>. Your browser opens Dagu Cloud with a code to match. There's no API key to find, and 100 free credits to start. To use your own AI key instead, choose <strong>Start on this device</strong>."],
+        ],
+      },
+      {
+        title: "Tell it a chore",
+        lines: [
+          ["", "In the chat, under <strong>What do you keep doing by hand?</strong>, describe a chore in your own words, or copy one of these and finish it:"],
+        ],
+      },
     ],
+    samples: [
+      ["web-page-summary", "A web page each morning, no sign-in", "Make a workflow that opens a web page every weekday morning and writes me a short summary of what is new on it. The page is [the page's address]"],
+      ["supplier-invoices", "Invoices from a supplier's website", "Make a workflow that signs in to my supplier's website, downloads the new invoices, and adds each one to an Excel file. The website is [the website's address]"],
+    ],
+    copy: "Copy",
+    copied: "Copied",
+    after: "The AI works it out in a browser you can watch, then shows you the workflow. Nothing is saved until you apply it.",
+    guide: "Read the first-workflow guide →",
+    all: "All downloads",
+    linux: "Linux support is planned.",
     macos: {
       name: "macOS",
       soon: "The macOS installer is coming soon.",
       button: "Download .pkg",
       architectures: [
-        ["darwin-arm64", "Apple Silicon", "For Macs with Apple M-series chips."],
+        ["darwin-arm64", "Apple silicon", "For Macs with Apple M-series chips."],
         ["darwin-amd64", "Intel", "For Macs with Intel processors."],
       ],
     },
@@ -66,7 +109,6 @@ const text = {
       "Windows 10 version 1809 or later, or Windows 11, 64-bit (x64).",
       "The installer sets Kitewell up for your user account. No administrator password is needed.",
       "Microsoft Edge WebView2 is required. Kitewell offers to install it when it opens without it.",
-      "Windows may show a SmartScreen notice because Kitewell is a new publisher. Check that the downloaded file's SHA256 matches the one listed with the download, then choose More info → Run anyway.",
       "Python, Docker, AI command-line agents, and other tools are needed only for workflows that use them.",
       "When updating, save edits and let running workflows finish. Installation restarts Kitewell; runs in progress keep going.",
     ],
@@ -75,23 +117,67 @@ const text = {
   ja: {
     title: release ? "Kitewell をダウンロード" : "リリースの提供状況",
     description:
-      "macOS と Windows 向け Kitewell の提供状況、動作環境、インストール方法を確認できます。",
+      "Mac と Windows 向けの Kitewell をダウンロード。10 ワークフローまで無料で、インストールから最初の作業まで 3 つの手順です。",
     eyebrow: "ダウンロード",
-    heading: release ? (version ? `Kitewell ${version} をダウンロード` : "Kitewell をダウンロード") : "近日公開",
+    heading: release ? "Kitewell をダウンロード" : "近日公開",
     lead: release
-      ? "Kitewell はパブリックベータです。機能、制限、画面は変わることがあります。対応プラットフォームと動作環境は以下をご確認ください。"
+      ? "Mac と Windows で、10 ワークフローまで無料。Kitewell はパブリックベータのため、機能や画面は変わることがあります。"
       : "公開中のインストーラーはまだありません。Kitewell は macOS と Windows で動作し、Linux にも対応予定です。",
-    platforms: [
-      `macOS（${macos ? "パブリックベータ" : "近日公開"}）`,
-      `Windows（${windows ? "パブリックベータ" : "近日公開"}）`,
-      "Linux（対応予定）",
+    version: (version: string) => `バージョン ${version}`,
+    picks: {
+      "mac-arm64": ["Mac 版 Kitewell", "Apple シリコン（M シリーズチップ）搭載の Mac 向け · macOS 13 以降", "Mac 版をダウンロード"],
+      "mac-amd64": ["Mac 版 Kitewell", "Intel プロセッサー搭載の Mac 向け · macOS 13 以降", "Mac 版をダウンロード"],
+      "windows-amd64": ["Windows 版 Kitewell", "64 ビット（x64）の PC 向け · Windows 10 バージョン 1809 以降、または Windows 11", "Windows 版をダウンロード"],
+    },
+    otherChip: {
+      "mac-arm64": "Intel の Mac なら、Intel 版をダウンロード",
+      "mac-amd64": "Apple シリコンの Mac なら、そちらの版をダウンロード",
+    },
+    starting: "ダウンロードを開始しています。",
+    again: "始まらない場合は、もう一度ダウンロード",
+    notes: {
+      "windows-arm64": "Windows 版のインストーラーは x64 の PC 向けです。Arm プロセッサーの PC にはまだ対応していません。",
+      mobile: "Kitewell は Mac と Windows のパソコンで動きます。リンクを自分に送って、パソコンでダウンロードしてください。",
+      "desktop-other": "Kitewell は Mac と Windows で動きます。Linux には対応予定です。",
+    },
+    next: "このあとの手順",
+    steps: [
+      {
+        title: "インストーラーを開く",
+        lines: [
+          ["mac", "Mac では、ダウンロードした .pkg を開いて案内に沿って進めます。管理者パスワードが必要です。"],
+          ["windows", "Windows では、Setup ファイルを実行します。ブラウザーが「一般的にダウンロードされていません」と表示したら「保持する」を選びます。SmartScreen が表示されたら「詳細情報」→「実行」を選びます。先にファイルを確かめるなら、「すべてのダウンロード」にある SHA256 と照らし合わせてください。"],
+        ],
+      },
+      {
+        title: "Kitewell を開いて、AI のためにサインインする",
+        lines: [
+          ["", "<strong>サインインして Kitewell の AI を使う</strong> を選びます。ブラウザーで Dagu Cloud が開くので、表示されたコードを照合します。API キーは不要で、100 クレジットまで無料です。ご自身の AI キーを使うなら <strong>このデバイスで始める</strong> を選びます。"],
+        ],
+      },
+      {
+        title: "作業を伝える",
+        lines: [
+          ["", "チャットの <strong>いつも手作業でしていることは何ですか？</strong> の下で、ふだんの言葉で作業を伝えるか、次の例をコピーして続きを書きます。"],
+        ],
+      },
     ],
+    samples: [
+      ["web-page-summary", "毎朝の Web ページ（サインイン不要）", "平日の毎朝 Web ページを開いて、新しく載ったことを短く要約するワークフローを作って。ページは [ページのアドレス]"],
+      ["supplier-invoices", "仕入先サイトの請求書", "仕入先のウェブサイトにサインインして新しい請求書をダウンロードし、1 件ずつ Excel ファイルに追加するワークフローを作って。ウェブサイトは [ウェブサイトのアドレス]"],
+    ],
+    copy: "コピー",
+    copied: "コピーしました",
+    after: "AI が見守れるブラウザーで試してから、ワークフローを見せます。適用するまで、何も保存されません。",
+    guide: "最初のワークフローのガイドを読む →",
+    all: "すべてのダウンロード",
+    linux: "Linux には対応予定です。",
     macos: {
       name: "macOS",
       soon: "macOS 向けインストーラーは近日公開です。",
       button: ".pkg をダウンロード",
       architectures: [
-        ["darwin-arm64", "Apple Silicon", "Apple M シリーズチップ搭載の Mac 向け。"],
+        ["darwin-arm64", "Apple シリコン", "Apple M シリーズチップ搭載の Mac 向け。"],
         ["darwin-amd64", "Intel", "Intel プロセッサー搭載の Mac 向け。"],
       ],
     },
@@ -123,7 +209,6 @@ const text = {
       "Windows 10 バージョン 1809 以降、または Windows 11（64 ビット、x64）。",
       "インストーラーは、お使いのユーザーアカウントに Kitewell をインストールします。管理者パスワードは不要です。",
       "Microsoft Edge WebView2 が必要です。未インストールの場合は、Kitewell の起動時にインストールを案内します。",
-      "Kitewell は新しい発行元のため、Windows が SmartScreen の警告を表示することがあります。ダウンロードしたファイルの SHA256 がダウンロードに添えた値と一致することを確認してから、「詳細情報」→「実行」を選んでください。",
       "Python、Docker、AI のコマンドラインエージェントなどのツールは、それを使うワークフローでのみ必要です。",
       "アップデートの際は、編集内容を保存し、実行中のワークフローが終わるのを待ってください。インストールすると Kitewell が再起動します。実行中の処理はそのまま続きます。",
     ],
@@ -134,42 +219,116 @@ const platforms = [
   [text.macos, macos],
   [text.windows, windows],
 ] as const;
+// The installer offered first, for each computer a visitor may be on. The
+// page shows the one that fits; without scripts, only the full list shows.
+const picks = (["mac-arm64", "mac-amd64", "windows-amd64"] as const)
+  .map((name) => {
+    const [os, arch] = name.split("-");
+    return { name, download: pickDownload(releases, { os, arch }) };
+  })
+  .filter(({ download }) => download);
+const otherChip = { "mac-arm64": "mac-amd64", "mac-amd64": "mac-arm64" } as const;
+const downloadOf = (name: string) => picks.find((pick) => pick.name === name)?.download;
 ---
 
 <Site title={text.title} description={text.description}>
-  <section class="page wrap">
+  <section class="page wrap download-page">
     <p class="eyebrow">{text.eyebrow}</p>
     <h1>{text.heading}</h1>
     <p class="lead">{text.lead}</p>
-    <div class="platforms">
-      {text.platforms.map((platform) => <span>{platform}</span>)}
-    </div>
+    {release && (
+      <div class="picked">
+        {picks.map(({ name, download }) => {
+          const [title, detail, button] = text.picks[name];
+          const other = name in otherChip ? downloadOf(otherChip[name as keyof typeof otherChip]) : undefined;
+          return (
+            <article class="card pick-card" data-pick={name}>
+              <h2>{title}</h2>
+              <p>{detail} · {text.version(download!.version)}</p>
+              <a class="button" href={download!.url} data-download={download!.key}>
+                {button}
+              </a>
+              <p class="pick-started" role="status" data-started hidden>
+                {text.starting}{" "}
+                <a href={download!.url} data-download={download!.key} data-again>{text.again}</a>
+              </p>
+              {other && (
+                <p class="pick-other">
+                  <a href={other.url} data-download={other.key}>{text.otherChip[name as keyof typeof otherChip]}</a>
+                </p>
+              )}
+            </article>
+          );
+        })}
+        {Object.entries(text.notes).map(([name, note]) => (
+          <div class="notice pick-note" data-note={name}>
+            <p>{note}</p>
+            {name === "mobile" && <DownloadButton locale={locale} place="download" />}
+          </div>
+        ))}
+      </div>
+    )}
+    {release && (
+      <section class="next-steps" aria-labelledby="next-steps">
+        <h2 id="next-steps">{text.next}</h2>
+        <ol>
+          {text.steps.map(({ title, lines }, i) => (
+            <li>
+              <h3>{title}</h3>
+              {lines.map(([system, line]) => <p class:list={{ [`for-system-${system}`]: system }} set:html={line} />)}
+              {i === text.steps.length - 1 && (
+                <>
+                  <ul class="samples">
+                    {text.samples.map(([slug, label, request]) => (
+                      <li>
+                        <span class="sample-label">{label}</span>
+                        <p class="sample-text">{request}</p>
+                        <button type="button" class="button secondary small" data-copy={slug} data-copied={text.copied}>
+                          {text.copy}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                  <p>{text.after}</p>
+                  <a class="text-link" href={localize("/docs/getting-started/", locale)}>{text.guide}</a>
+                </>
+              )}
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
     {release ? (
-      platforms.map(([platform, published]) => (
-        <section class="platform">
-          <h2>{platform.name}{published ? ` · ${published.version}` : ""}</h2>
-          {published ? (
-            <div class="cards">
-              {platform.architectures.map(([arch, title, description]) => (
-                <article class="card">
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                  <a class="button" href={published.downloads[arch].url} data-download={arch}>
-                    {platform.button}
-                  </a>
-                  <p class="checksum">
-                    SHA256
-                    <br />
-                    <code>{published.downloads[arch].sha256}</code>
-                  </p>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <p class="soon">{platform.soon}</p>
-          )}
-        </section>
-      ))
+      <section class="all-downloads" aria-labelledby="all-downloads">
+        <h2 id="all-downloads">{text.all}</h2>
+        {platforms.map(([platform, published]) => (
+          <section class="platform">
+            <h3>{platform.name}{published ? ` · ${published.version}` : ""}</h3>
+            {published ? (
+              <ul class="installers">
+                {platform.architectures.map(([arch, title, description]) => (
+                  <li>
+                    <div>
+                      <strong>{title}</strong>
+                      <span>{description}</span>
+                    </div>
+                    <a class="button secondary small" href={published.downloads[arch].url} data-download={arch}>
+                      {platform.button}
+                    </a>
+                    <details class="checksum">
+                      <summary>SHA256</summary>
+                      <code>{published.downloads[arch].sha256}</code>
+                    </details>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="soon">{platform.soon}</p>
+            )}
+          </section>
+        ))}
+        <p class="fine">{text.linux}</p>
+      </section>
     ) : (
       <div class="notice">
         <h2>{text.preview}</h2>
@@ -200,14 +359,20 @@ const platforms = [
       <ul>
         {text.beforeItems.map((item) => <li>{item}</li>)}
       </ul>
-      <h2>{text.installingMac}</h2>
-      <ul>
-        {text.requirementsMac.map((item) => <li>{item}</li>)}
-      </ul>
-      <h2>{text.installingWindows}</h2>
-      <ul>
-        {text.requirementsWindows.map((item) => <li>{item}</li>)}
-      </ul>
+      <div class="install-columns">
+        <div>
+          <h2>{text.installingMac}</h2>
+          <ul>
+            {text.requirementsMac.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h2>{text.installingWindows}</h2>
+          <ul>
+            {text.requirementsWindows.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
       <p>
         <a href={localize("/docs/install/", locale)}>{text.install}</a>
       </p>
@@ -217,14 +382,60 @@ const platforms = [
 
 <script>
   import { track } from "../lib/analytics";
+  import { detectPlatform } from "../lib/platform.mjs";
 
   // A download counts where it starts: the installer a person chose here,
   // and the link that brought them to this page.
-  const from = new URLSearchParams(location.search).get("from")?.match(/^[a-z-]{1,24}$/)?.[0] ?? "direct";
+  const params = new URLSearchParams(location.search);
+  const from = params.get("from")?.match(/^[a-z-]{1,24}$/)?.[0] ?? "direct";
+  const started = (key: string, again = false) => {
+    const [system, arch] = key.split("-");
+    track("download_started", { os: system === "darwin" ? "mac" : "windows", arch, from, ...(again ? { again } : {}) });
+  };
   for (const button of document.querySelectorAll<HTMLAnchorElement>("[data-download]")) {
-    button.addEventListener("click", () => {
-      const [system, arch] = button.dataset.download!.split("-");
-      track("download_started", { os: system === "darwin" ? "mac" : "windows", arch, from });
+    button.addEventListener("click", () => started(button.dataset.download!, "again" in button.dataset));
+  }
+
+  for (const button of document.querySelectorAll<HTMLButtonElement>("[data-copy]")) {
+    const label = button.textContent;
+    button.addEventListener("click", async () => {
+      const request = button.parentElement!.querySelector(".sample-text")!;
+      try {
+        await navigator.clipboard.writeText(request.textContent!);
+      } catch {
+        // Without the clipboard, the request is selected for the person to copy.
+        getSelection()?.selectAllChildren(request);
+        return;
+      }
+      button.textContent = button.dataset.copied!;
+      setTimeout(() => (button.textContent = label), 2000);
+      track("request_copied", { slug: button.dataset.copy! });
     });
+  }
+
+  // The chip decides between a Mac's two installers; only Chromium browsers
+  // say which it is, so any other Mac keeps the Apple silicon one, with the
+  // Intel one a link away.
+  type Hints = { platform?: string; getHighEntropyValues?: (hints: string[]) => Promise<{ architecture?: string }> };
+  const hints = (navigator as Navigator & { userAgentData?: Hints }).userAgentData;
+  const architecture = await hints?.getHighEntropyValues?.(["architecture"]).then((values) => values.architecture ?? "", () => "");
+  const platform = detectPlatform({
+    userAgent: navigator.userAgent,
+    uaPlatform: hints?.platform ?? "",
+    maxTouchPoints: navigator.maxTouchPoints,
+    architecture: architecture ?? "",
+  });
+  if (platform.arch) document.documentElement.dataset.arch = platform.arch;
+
+  // A button elsewhere on the site asks for this computer's installer with
+  // ?get=; it starts at once, and a refresh does not start it again.
+  const card = document.querySelector<HTMLElement>(`[data-pick="${platform.os}-${platform.arch}"]`);
+  if (params.get("get") === platform.os && card) {
+    const link = card.querySelector<HTMLAnchorElement>("a[data-download]")!;
+    started(link.dataset.download!);
+    card.querySelector<HTMLElement>("[data-started]")!.hidden = false;
+    params.delete("get");
+    history.replaceState(null, "", location.pathname + (params.size ? `?${params}` : "") + location.hash);
+    location.assign(link.href);
   }
 </script>

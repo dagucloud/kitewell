@@ -156,6 +156,52 @@ h3 {
 .button.secondary:hover {
   background: var(--sunk);
 }
+/* The download button shows the label for the visitor's system, which the
+   head marks on <html data-os> before the page draws. */
+.download-cta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+.download-cta :is(.for-mac, .for-windows, .for-mobile, .for-other) {
+  display: none;
+}
+:root[data-os="mac"] .download-cta:has(.for-mac) .for-any,
+:root[data-os="windows"] .download-cta:has(.for-windows) .for-any {
+  display: none;
+}
+:root[data-os="mac"] .download-cta .for-mac,
+:root[data-os="windows"] .download-cta .for-windows {
+  display: inline;
+}
+:root[data-os="mobile"] .download-cta:has(.for-mobile) [data-download-link],
+:root[data-os="desktop-other"] .download-cta:has(.for-other) [data-download-link] {
+  display: none;
+}
+:root[data-os="mobile"] .download-cta .for-mobile {
+  display: inline-flex;
+  font: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+:root[data-os="mobile"] .download-cta .for-mobile.small {
+  font-size: 14px;
+}
+:root[data-os="desktop-other"] .download-cta .for-other {
+  display: inline;
+  font-size: 15px;
+}
+.download-note:empty {
+  display: none;
+}
+.download-note {
+  flex-basis: 100%;
+  font-size: 13px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
 .eyebrow {
   font-size: 12px;
   text-transform: uppercase;
@@ -437,12 +483,6 @@ figure {
   border-radius: 7px;
   background: var(--soft);
 }
-.checksum {
-  font-size: 11px;
-  overflow-wrap: anywhere;
-  margin-top: 15px;
-  color: var(--muted);
-}
 .release {
   border-bottom: 1px solid var(--line);
   padding: 30px 0;
@@ -461,28 +501,184 @@ code {
   padding: 2px 5px;
   border-radius: 3px;
 }
-.platforms {
-  display: flex;
-  gap: 28px;
-  margin-top: 28px;
-  font-size: 13px;
-  color: var(--muted);
+/* The download page offers the installer that fits the visitor's computer
+   first. The head marks the system on <html data-os>, and the page's
+   script adds the chip as data-arch where the browser says which it is. */
+.picked {
+  max-width: 850px;
+  margin-bottom: 56px;
 }
-.platform {
-  margin-top: 40px;
+.pick-card,
+.pick-note {
+  display: none;
 }
-.platform h2 {
+:root[data-os="mac"]:not([data-arch="amd64"]) .pick-card[data-pick="mac-arm64"],
+:root[data-os="mac"][data-arch="amd64"] .pick-card[data-pick="mac-amd64"],
+:root[data-os="windows"]:not([data-arch="arm64"]) .pick-card[data-pick="windows-amd64"],
+:root[data-os="windows"][data-arch="arm64"] .pick-note[data-note="windows-arm64"],
+:root[data-os="mobile"] .pick-note[data-note="mobile"],
+:root[data-os="desktop-other"] .pick-note[data-note="desktop-other"] {
+  display: block;
+}
+.pick-card h2 {
   font-size: 32px;
 }
-.platform .cards {
-  margin-block: 18px 0;
+.pick-started {
+  margin-top: 16px;
+  color: var(--ink);
 }
-.platform .card h3 {
-  font-size: 28px;
+.pick-started a,
+.pick-other a {
+  font-weight: 600;
+}
+.pick-card .pick-other {
+  margin-top: 16px;
+  font-size: 14px;
+}
+.pick-note {
+  margin-block: 0;
+}
+.pick-note .download-cta {
+  margin-top: 16px;
+}
+.next-steps {
+  max-width: 850px;
+}
+.next-steps h2,
+.all-downloads h2 {
+  font-size: 32px;
+}
+.next-steps ol {
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  gap: 28px;
+  margin-top: 24px;
+  padding: 0;
+}
+.next-steps ol > li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  column-gap: 14px;
+}
+.next-steps ol > li::before {
+  content: counter(step);
+  grid-row: span 9;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  display: grid;
+  place-items: center;
+  font-weight: 650;
+  font-size: 15px;
+}
+.next-steps ol > li > * {
+  grid-column: 2;
+}
+.next-steps h3 {
+  font-size: 20px;
+  line-height: 36px;
+}
+.next-steps p {
+  margin-top: 8px;
+  color: var(--muted);
+}
+.next-steps strong {
+  color: var(--ink);
+}
+/* On a known system, the installer step speaks only to that one. */
+:root[data-os="mac"] .next-steps .for-system-windows,
+:root[data-os="windows"] .next-steps .for-system-mac {
+  display: none;
+}
+.next-steps .text-link {
+  margin-top: 14px;
+}
+.samples {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 0;
+}
+.samples li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 6px 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--sunk);
+}
+.sample-label {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.samples .sample-text {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+}
+.all-downloads {
+  max-width: 850px;
+  margin-top: 64px;
+}
+.platform {
+  margin-top: 26px;
+}
+.platform h3 {
+  font-size: 20px;
 }
 .platform .soon {
   margin-top: 10px;
   color: var(--muted);
+}
+.installers {
+  list-style: none;
+  margin-top: 10px;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.installers li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px 20px;
+  padding-block: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.installers strong {
+  display: block;
+}
+.installers span {
+  font-size: 14px;
+  color: var(--muted);
+}
+.checksum {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  color: var(--muted);
+}
+.checksum summary {
+  cursor: pointer;
+  width: max-content;
+}
+.checksum code {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.install-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
 }
 .kind {
   display: block;
@@ -557,7 +753,7 @@ code {
     font-size: 13px;
     white-space: nowrap;
   }
-  .header > .button {
+  .header > .download-cta {
     margin-left: auto;
   }
   .hero {
@@ -590,9 +786,17 @@ code {
   .page {
     padding-top: 45px;
   }
-  .platforms {
-    flex-wrap: wrap;
-    gap: 12px;
+  .install-columns {
+    grid-template-columns: 1fr;
+  }
+  .samples li {
+    grid-template-columns: 1fr;
+  }
+  .installers li {
+    grid-template-columns: 1fr;
+  }
+  .installers .button {
+    justify-self: start;
   }
   .card {
     padding: 25px;

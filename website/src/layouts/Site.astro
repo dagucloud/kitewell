@@ -1,9 +1,10 @@
 ---
 import "../styles/site.css";
 import Analytics from "../components/Analytics.astro";
-import { readReleases } from "../lib/releases.mjs";
+import DownloadButton from "../components/DownloadButton.astro";
 import { descartyUrl } from "../lib/descarty.mjs";
 import { counterparts, localeOf, localize } from "../lib/i18n.mjs";
+import { detectPlatform } from "../lib/platform.mjs";
 interface Props {
   title: string;
   description?: string;
@@ -17,8 +18,6 @@ const text = {
     home: "Kitewell home",
     nav: "Main navigation",
     links: ["Docs", "Examples", "Pricing", "Releases", "Support"],
-    download: "Download Kitewell",
-    status: "Release status",
     tagline: "AI builds the automation. Your computer runs it.",
     social: "AI builds the automation. Your computer runs it. Kitewell: browser automation built and maintained by AI, plus desktop apps, Excel, email, and coding agents.",
     footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community", "Compare"],
@@ -31,8 +30,6 @@ const text = {
     home: "Kitewell ホーム",
     nav: "メインナビゲーション",
     links: ["ドキュメント", "活用例", "料金", "リリース", "サポート"],
-    download: "Kitewell をダウンロード",
-    status: "リリース状況",
     tagline: "自動化は AI がつくる。動かすのは、あなたのパソコン。",
     social: "自動化は AI がつくる。動かすのは、あなたのパソコン。Kitewell：AI がつくり保守するブラウザーの自動化と、デスクトップアプリ、Excel、メール、コーディングエージェント。",
     footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ", "比較"],
@@ -40,9 +37,6 @@ const text = {
   },
 }[locale];
 const { title, description = text.description } = Astro.props;
-// A release published for either system is enough to offer the download.
-const { macos, windows } = await readReleases();
-const release = macos ?? windows;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 // Each language has its own card for link previews.
 const socialImage = new URL(locale === "ja" ? "/social-ja.png" : "/social.png", Astro.site);
@@ -56,6 +50,9 @@ const site = {
   inLanguage: locale,
   publisher: { "@type": "Organization", name: "Descarty, Inc." },
 };
+// The visitor's system, marked on <html data-os> before the page draws, so
+// every download button shows the right label from the start.
+const platformScript = `document.documentElement.dataset.os = (${detectPlatform})({ userAgent: navigator.userAgent, uaPlatform: navigator.userAgentData ? navigator.userAgentData.platform : "", maxTouchPoints: navigator.maxTouchPoints }).os;`;
 const pages = counterparts(Astro.url.pathname);
 // The switch offers the other language, named in that language.
 const other = locale === "ja" ? "en" : "ja";
@@ -82,6 +79,7 @@ const links = ["/docs/", "/examples/", "/pricing/", "/releases/", "/support/"].m
       </>
     )}
     <script is:inline src="/lang.js"></script>
+    <script is:inline set:html={platformScript} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Kitewell" />
@@ -122,10 +120,7 @@ const links = ["/docs/", "/examples/", "/pricing/", "/releases/", "/support/"].m
           </a>
         )}
       </nav>
-      <a class="button small" href={`${localize("/download/", locale)}?from=header`}>
-        {release ? text.download : text.status}
-        <span aria-hidden="true">↗</span>
-      </a>
+      <DownloadButton locale={locale} place="header" small />
     </header>
     <main id="main">
       <slot />

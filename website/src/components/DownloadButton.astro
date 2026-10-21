@@ -1,0 +1,117 @@
+---
+// The download button. Without scripts it is a plain link to the download
+// page. The site's head marks the visitor's system on <html data-os> before
+// the page draws, so the label already fits: the installer for a Mac or a
+// Windows PC, a way to send the link to a computer on a phone or tablet,
+// and on any other desktop, that Kitewell needs a Mac or a Windows PC.
+import { localize } from "../lib/i18n.mjs";
+import { readReleases } from "../lib/releases.mjs";
+interface Props {
+  locale: "en" | "ja";
+  // place names where the button is, for the download page's statistics.
+  place: string;
+  // small is the header's size, with shorter labels.
+  small?: boolean;
+}
+const { locale, place, small = false } = Astro.props;
+const { macos, windows } = await readReleases();
+const text = {
+  en: {
+    any: "Download Kitewell",
+    status: "Release status",
+    mac: "Download for Mac",
+    windows: "Download for Windows",
+    share: small ? "Send link" : "Send to my computer",
+    other: "Kitewell runs on Mac and Windows.",
+    shareText: "Download Kitewell on a Mac or a Windows PC.",
+    copied: "Link copied. Open it on your computer.",
+  },
+  ja: {
+    any: "Kitewell をダウンロード",
+    status: "リリース状況",
+    mac: "Mac 版をダウンロード",
+    windows: "Windows 版をダウンロード",
+    share: small ? "リンクを送る" : "パソコンに送る",
+    other: "Kitewell は Mac と Windows で動きます。",
+    shareText: "Kitewell を Mac か Windows のパソコンにダウンロード。",
+    copied: "リンクをコピーしました。パソコンで開いてください。",
+  },
+}[locale];
+const page = localize("/download/", locale);
+const link = (get?: string) => `${page}?${get ? `get=${get}&` : ""}from=${place}`;
+const share = new URL(`${page}?from=share`, "https://kitewell.app").href;
+---
+
+<span
+  class:list={["download-cta", { small }]}
+  data-download-cta
+  data-share-url={share}
+  data-share-text={text.shareText}
+  data-copied={text.copied}
+>
+  <a class:list={["button", { small }]} href={link()} data-download-link>
+    {macos || windows ? (
+      <>
+        <span class="for-any">{text.any}</span>
+        {macos && <span class="for-mac">{text.mac}</span>}
+        {windows && <span class="for-windows">{text.windows}</span>}
+      </>
+    ) : (
+      text.status
+    )}
+  </a>
+  {(macos || windows) && (
+    <>
+      <button type="button" class:list={["button", "for-mobile", { small }]} data-share>
+        {text.share}
+      </button>
+      {!small && (
+        <span class="for-other">
+          {text.other}{" "}
+          {macos && <a href={link("mac")}>Mac</a>}
+          {macos && windows && " · "}
+          {windows && <a href={link("windows")}>Windows</a>}
+        </span>
+      )}
+      <span class="download-note" role="status" data-share-note></span>
+    </>
+  )}
+</span>
+
+<script>
+  import { track } from "../lib/analytics";
+
+  const os = document.documentElement.dataset.os;
+  for (const cta of document.querySelectorAll<HTMLElement>("[data-download-cta]")) {
+    // The installer for this computer starts as soon as the download page
+    // opens; any other visitor goes to the page as it is.
+    const link = cta.querySelector<HTMLAnchorElement>("[data-download-link]")!;
+    if ((os === "mac" || os === "windows") && cta.querySelector(`.for-${os}`)) {
+      const url = new URL(link.href);
+      url.searchParams.set("get", os);
+      link.href = url.pathname + url.search;
+    }
+    const note = cta.querySelector<HTMLElement>("[data-share-note]");
+    cta.querySelector("[data-share]")?.addEventListener("click", async () => {
+      const url = cta.dataset.shareUrl!;
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: "Kitewell", text: cta.dataset.shareText, url });
+          track("link_shared", { method: "share" });
+          return;
+        } catch (error) {
+          // Closing the share sheet is not a failure; copying is offered
+          // only when the browser could not share at all.
+          if ((error as Error).name === "AbortError") return;
+        }
+      }
+      try {
+        await navigator.clipboard.writeText(url);
+        note!.textContent = cta.dataset.copied!;
+        track("link_shared", { method: "copy" });
+      } catch {
+        note!.textContent = url;
+      }
+    });
+  }
+</script>
