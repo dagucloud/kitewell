@@ -83,6 +83,15 @@ const text = {
       ["Every run on record", "Each run shows what it repeated, what AI fixed, and screenshots of the page."],
     ],
     safeLink: "What leaves your computer, and when →",
+    company: "For your company",
+    companyTitle: "Start on your computer. Run it where your company needs.",
+    companyRows: [
+      ["Your cloud or closed network", "The same workflows run on a VM in your company's Azure, AWS, or Google Cloud, or on servers in a closed network, with nobody signed in."],
+      ["Your company's AI", "Use your Azure OpenAI, Amazon Bedrock, Google Vertex AI, or an in-house model, chosen step by step."],
+      ["Part of your systems", "Your systems start a workflow by webhook or REST API, and the result goes back to them. People step in only to approve."],
+      ["Built into your product", "Build Kitewell into your own product and offer it under your brand."],
+    ],
+    companyLink: "Deployment options at Descarty ↗",
     pricing: "Pricing",
     pricingTitle: "Free for up to 10 workflows.",
     pricingText:
@@ -151,6 +160,15 @@ const text = {
       ["すべての実行を記録", "実行ごとに、くり返した操作、AI が直した操作、ページのスクリーンショットが残ります。"],
     ],
     safeLink: "外に出るものと、そのタイミング →",
+    company: "会社で使うなら",
+    companyTitle: "あなたのパソコンから、会社の環境まで。",
+    companyRows: [
+      ["会社のクラウドや閉域網で", "同じワークフローを、会社の Azure、AWS、Google Cloud の VM や、閉域網のサーバーで、誰もサインインせずに動かせます。"],
+      ["会社の AI で", "会社の Azure OpenAI、Amazon Bedrock、Google Vertex AI、社内のモデルを、ステップごとに選べます。"],
+      ["システムの一部として", "会社のシステムから Webhook や REST API でワークフローを動かし、結果をシステムに返します。人が関わるのは承認だけです。"],
+      ["製品に組み込んで", "Kitewell を自社の製品に組み込み、自社のブランドで提供できます。"],
+    ],
+    companyLink: "導入形態を見る（Descarty）↗",
     pricing: "料金",
     pricingTitle: "10 ワークフローまで無料。",
     pricingText:
@@ -279,6 +297,20 @@ const loop = {
         ))}
       </dl>
       <a class="text-link" href={to("/docs/data-flow/")}>{text.safeLink}</a>
+    </section>
+
+    <section class="block wrap" id="company" aria-labelledby="company-title">
+      <p class="eyebrow">{text.company}</p>
+      <h2 id="company-title" class="block-title">{text.companyTitle}</h2>
+      <dl class="own-facts">
+        {text.companyRows.map(([name, detail]) => (
+          <div>
+            <dt>{name}</dt>
+            <dd>{detail}</dd>
+          </div>
+        ))}
+      </dl>
+      <a class="text-link" href={descartyUrl(locale, "/deployment/")}>{text.companyLink}</a>
     </section>
 
     <section class="finale wrap" aria-labelledby="pricing-title">

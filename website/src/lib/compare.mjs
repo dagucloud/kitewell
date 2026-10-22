@@ -700,10 +700,10 @@ export const shortfalls = [
     href: "/docs/desktop/",
   },
   {
-    title: { en: "The computer has to be on and awake", ja: "コンピューターが起きている必要がある" },
+    title: { en: "A Mac has to be awake and signed in", ja: "Mac は起きていてサインインしている必要がある" },
     text: {
-      en: "Kitewell runs while the computer is awake and you are signed in. It does not wake a sleeping computer; scheduled starts it missed run when the computer is back.",
-      ja: "Kitewell が動くのは、コンピューターが起きていて、サインインしているあいだです。眠っているコンピューターを起こすことはなく、逃したスケジュールはコンピューターが戻ったときに実行します。",
+      en: "On Windows, Kitewell runs with nobody signed in and wakes the computer for scheduled runs. A Mac runs schedules while it is awake with someone signed in, and runs the starts it missed when it is back.",
+      ja: "Windows では、誰もサインインしていなくても動き、スケジュールに合わせてコンピューターを起こします。Mac は、起きていて誰かがサインインしているあいだにスケジュールを実行し、逃した分は戻ったときに実行します。",
     },
     href: "/docs/scheduling/",
   },
