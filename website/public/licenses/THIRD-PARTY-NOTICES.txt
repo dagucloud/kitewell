@@ -2,9 +2,9 @@ Kitewell includes Dagu, the workflow engine by the Dagu contributors.
 Dagu is distributed under the GNU General Public License, version 3.
 The full license is included in DAGU-LICENSE.txt.
 
-Pinned engine release: Dagu 2.21.0
-Upstream source: https://github.com/dagucloud/dagu/tree/v2.21.0
-Release: https://github.com/dagucloud/dagu/releases/tag/v2.21.0
+Pinned engine release: Dagu 2.22.0
+Upstream source: https://github.com/dagucloud/dagu/tree/v2.22.0
+Release: https://github.com/dagucloud/dagu/releases/tag/v2.22.0
 
 Go notices, for the standard library and every module Dagu links, are
 included in DAGU-GO-LICENSES.txt.
