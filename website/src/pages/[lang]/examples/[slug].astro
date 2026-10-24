@@ -1,0 +1,14 @@
+---
+import Example from "../../../views/Example.astro";
+import { chores } from "../../../lib/chores.mjs";
+import { translations } from "../../../lib/i18n.mjs";
+
+export function getStaticPaths() {
+  return translations().flatMap(({ params, props }) =>
+    chores.map((chore) => ({ params: { ...params, slug: chore.slug }, props: { ...props, chore } })),
+  );
+}
+const { locale, chore } = Astro.props;
+---
+
+<Example locale={locale} chore={chore} />

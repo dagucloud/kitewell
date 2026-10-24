@@ -2,8 +2,9 @@
 // Lists every bold phrase in the docs that is not a label the app shows.
 // A bold phrase stands for something the reader clicks or types into, so it
 // must be spelled as the app spells it: in English, a key of the app's
-// catalog; in Japanese, that key's Japanese column. The catalog is read from
-// the app's source, named by KITEWELL_SOURCE or the sibling checkout.
+// catalog; in any other language, that key's column for the language. The
+// catalog is read from the app's source, named by KITEWELL_SOURCE or the
+// sibling checkout.
 //
 //   node scripts/check-labels.mjs [--all]
 //
@@ -13,6 +14,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { languages as tags, locales } from "../src/lib/i18n.mjs";
 
 const source = process.env.KITEWELL_SOURCE ?? path.resolve("..", "..", "kitewell-source");
 const catalogFile = path.join(source, "i18n", "messages.mjs");
@@ -21,9 +23,11 @@ if (!fs.existsSync(catalogFile)) {
   process.exit(2);
 }
 const { messages, languages } = await import(pathToFileURL(catalogFile).href);
-const ja = languages.indexOf("ja");
-const english = new Set(Object.keys(messages));
-const japanese = new Set(Object.values(messages).map((row) => row[ja]).filter(Boolean));
+const labels = { en: new Set(Object.keys(messages)) };
+for (const lang of locales.filter((l) => l !== "en")) {
+  const column = languages.indexOf(lang);
+  labels[lang] = new Set(Object.values(messages).map((row) => row[column]).filter(Boolean));
+}
 // Pages about Dagu Console name its controls, spelled as the console's own
 // catalogs spell them: an English label mapped to its translations. They are
 // read from DAGU_CLOUD_SOURCE or the sibling checkout, when present.
@@ -33,8 +37,13 @@ if (fs.existsSync(consoleCatalogs)) {
   for (const name of fs.readdirSync(consoleCatalogs).filter((n) => n.endsWith(".json"))) {
     const catalog = JSON.parse(fs.readFileSync(path.join(consoleCatalogs, name), "utf8"));
     for (const [label, translations] of Object.entries(catalog)) {
-      english.add(label);
-      if (translations?.ja) japanese.add(translations.ja);
+      labels.en.add(label);
+      for (const lang of locales.filter((l) => l !== "en")) {
+        // The console names a language by its tag, or by its code alone.
+        const translated = translations?.[tags[lang].lang] ?? translations?.[lang];
+        // A language the console is not written in shows its English labels.
+        labels[lang].add(translated ?? label);
+      }
     }
   }
 }
@@ -51,8 +60,7 @@ const matcher = (labels) => {
     .map((l) => new RegExp(`^${fold(l).split(/\{[a-z]+\}/).map(escape).join(".+")}$`));
   return (phrase) => exact.has(phrase) || patterns.some((p) => p.test(phrase));
 };
-const knownEnglish = matcher(english);
-const knownJapanese = matcher(japanese);
+const known = Object.fromEntries(Object.entries(labels).map(([lang, set]) => [lang, matcher(set)]));
 
 const all = process.argv.includes("--all");
 const docs = path.resolve("src", "content", "docs");
@@ -67,8 +75,7 @@ const files = [];
 
 let missing = 0;
 for (const file of files.sort()) {
-  const lang = file.includes(`${path.sep}ja${path.sep}`) ? "ja" : "en";
-  const known = lang === "ja" ? knownJapanese : knownEnglish;
+  const lang = locales.find((l) => file.includes(`${path.sep}docs${path.sep}${l}${path.sep}`)) ?? "en";
   const text = fs.readFileSync(file, "utf8").replace(/^---[\s\S]*?---/, "");
   const found = new Map();
   for (const [, phrase] of text.matchAll(/\*\*([^*\n]+?)\*\*/g)) {
@@ -78,10 +85,10 @@ for (const file of files.sort()) {
       if (/[.。]$/.test(p) && p.length > 30) continue; // a sentence
       if (!/[\p{L}]/u.test(p)) continue; // no letters at all
     }
-    if (!known(fold(p))) {
+    if (!known[lang](fold(p))) {
       // "Tools → Check workflow" names two controls; each must exist on its own.
       const parts = p.split(/\s*(?:→|>)\s*/).map(fold);
-      if (parts.length > 1 && parts.every((part) => known(part))) continue;
+      if (parts.length > 1 && parts.every((part) => known[lang](part))) continue;
       found.set(p, (found.get(p) ?? 0) + 1);
     }
   }

@@ -2,9 +2,9 @@
 // Chores as the person would say them, each leading to its story.
 import KindIcon from "./KindIcon.astro";
 import { kinds } from "../lib/kinds.mjs";
-import { localize } from "../lib/i18n.mjs";
+import { localize, type Locale } from "../lib/i18n.mjs";
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
   chores: any[];
 }
 const { locale, chores } = Astro.props;

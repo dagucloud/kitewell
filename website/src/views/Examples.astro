@@ -3,8 +3,9 @@ import Site from "../layouts/Site.astro";
 import ChoreList from "../components/ChoreList.astro";
 import Clip from "../components/Clip.astro";
 import { chores } from "../lib/chores.mjs";
+import type { Locale } from "../lib/i18n.mjs";
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
 }
 const { locale } = Astro.props;
 const text = {

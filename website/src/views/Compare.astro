@@ -1,11 +1,11 @@
 ---
 import Site from "../layouts/Site.astro";
 import Fact from "../components/Fact.astro";
-import { localize } from "../lib/i18n.mjs";
+import { localize, type Locale } from "../lib/i18n.mjs";
 import { categories, checked, columns, glance, shortfalls } from "../lib/compare.mjs";
 import "../styles/compare.css";
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
 }
 type Text = string | { en: string; ja: string };
 const { locale } = Astro.props;

@@ -54,7 +54,7 @@
   color: var(--muted);
   border-bottom-color: var(--ink);
 }
-:lang(ja) .glance thead th {
+:is(:lang(ja), :lang(zh), :lang(ko)) .glance thead th {
   letter-spacing: 0.02em;
 }
 .glance thead th:first-child,
@@ -77,16 +77,16 @@
 .glance tr.own td {
   background: var(--sunk);
 }
-/* Japanese sets full width, so its longest words (コーディングエージェント)
-   need a little more room per column to stay whole. */
-:lang(ja) .glance {
+/* Chinese, Japanese, and Korean set full width, so their longest words
+   (コーディングエージェント) need a little more room per column to stay whole. */
+:is(:lang(ja), :lang(zh), :lang(ko)) .glance {
   font-size: 14px;
 }
-:lang(ja) .glance th,
-:lang(ja) .glance td {
+:is(:lang(ja), :lang(zh), :lang(ko)) .glance th,
+:is(:lang(ja), :lang(zh), :lang(ko)) .glance td {
   padding-inline: 14px;
 }
-:lang(ja) .glance th:first-child {
+:is(:lang(ja), :lang(zh), :lang(ko)) .glance th:first-child {
   width: 200px;
 }
 .compare-legend {
@@ -219,15 +219,15 @@
   .glance th:first-child {
     width: 112px;
   }
-  :lang(ja) .glance {
+  :is(:lang(ja), :lang(zh), :lang(ko)) .glance {
     min-width: 1040px;
     font-size: 13px;
   }
-  :lang(ja) .glance th,
-  :lang(ja) .glance td {
+  :is(:lang(ja), :lang(zh), :lang(ko)) .glance th,
+  :is(:lang(ja), :lang(zh), :lang(ko)) .glance td {
     padding-inline: 10px;
   }
-  :lang(ja) .glance th:first-child {
+  :is(:lang(ja), :lang(zh), :lang(ko)) .glance th:first-child {
     width: 140px;
   }
 }

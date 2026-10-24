@@ -3,8 +3,9 @@
 // order once the card is on screen. A step that waits for the person says so.
 import KindIcon from "./KindIcon.astro";
 import { kinds } from "../lib/kinds.mjs";
+import type { Locale } from "../lib/i18n.mjs";
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
   title: string;
   steps: string[][];
 }

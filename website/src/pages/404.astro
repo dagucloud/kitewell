@@ -1,5 +1,8 @@
 ---
 import Site from "../layouts/Site.astro";
+import { languages, locales, localize } from "../lib/i18n.mjs";
+// The address's first folder names its language, for the script below.
+const homes = Object.fromEntries(locales.map((locale) => [locale, localize("/", locale)]));
 ---
 
 <Site title="Page not found" description="Find your way back to Kitewell.">
@@ -7,7 +10,6 @@ import Site from "../layouts/Site.astro";
     <p class="eyebrow">404</p>
     <h1>Page not found.</h1>
     <p class="lead">This page does not exist or has moved. Taking you to the home page.</p>
-    <p lang="ja">ページが見つかりません。移動したか、存在しないページです。ホームへ移動します。</p>
     <p>
       <a class="button" href="/">
         Go home
@@ -16,14 +18,18 @@ import Site from "../layouts/Site.astro";
     <p>
       <a href="/docs/">Explore the documentation →</a>
     </p>
-    <p lang="ja">
-      <a href="/ja/">日本語のホームへ →</a>
-    </p>
+    <ul class="links">
+      {locales.filter((locale) => locale !== "en").map((locale) => (
+        <li lang={languages[locale].lang}>
+          <a href={homes[locale]}>{languages[locale].label} →</a>
+        </li>
+      ))}
+    </ul>
     <noscript><meta http-equiv="refresh" content="0; url=/" /></noscript>
-    <script is:inline>
+    <script is:inline define:vars={{ homes }}>
       // A missing address, as a link some site has mangled, sends the reader
       // home in their language; replace() keeps it out of the history.
-      location.replace(location.pathname.startsWith("/ja/") ? "/ja/" : "/");
+      location.replace(homes[location.pathname.split("/")[1]] ?? "/");
     </script>
   </section>
 </Site>

@@ -61,21 +61,31 @@ h3 {
   line-height: 1.35;
   letter-spacing: -0.01em;
 }
-/* Japanese sets taller and untightened. It breaks lines only between the
-   phrases the build marks, or anywhere when a phrase is wider than its box. */
-:lang(ja) :is(h1, h2) {
+/* Chinese, Japanese, and Korean set taller and untightened. Where the build
+   marks phrases, lines break only between them, or anywhere when a phrase is
+   wider than its box. */
+:is(:lang(ja), :lang(zh), :lang(ko)) :is(h1, h2) {
   letter-spacing: -0.01em;
   line-height: 1.25;
 }
-:lang(ja) body {
+:is(:lang(ja), :lang(zh), :lang(ko)) body {
   line-height: 1.75;
+}
+/* Korean wraps between its spaced words, as it is read; German splits its
+   long compounds at syllables rather than run out of a heading's box. */
+:lang(ko) body {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+:lang(de) :is(h1, h2, h3) {
+  hyphens: auto;
 }
 .phrases {
   word-break: keep-all;
   overflow-wrap: anywhere;
   text-wrap: pretty;
 }
-:lang(ja) :is(h1, h2, h3) {
+:is(:lang(ja), :lang(zh), :lang(ko)) :is(h1, h2, h3) {
   text-wrap: balance;
 }
 .wrap {
@@ -121,6 +131,62 @@ h3 {
 }
 .header nav a[aria-current] {
   text-decoration: underline;
+}
+/* The language menu: the language of the page, opening onto every one the
+   page is written in, each named in itself. */
+.languages {
+  position: relative;
+  font-size: 14px;
+}
+.languages summary {
+  list-style: none;
+  cursor: pointer;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.languages summary::-webkit-details-marker {
+  display: none;
+}
+.languages summary::after {
+  content: "";
+  display: inline-block;
+  width: 0.38em;
+  height: 0.38em;
+  margin-left: 0.5em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-0.22em) rotate(45deg);
+}
+.languages summary:hover,
+.languages[open] summary {
+  color: var(--ink);
+}
+.languages ul {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 10;
+  min-width: 10.5em;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+}
+.header nav .languages a {
+  display: block;
+  padding: 7px 10px;
+  border-radius: var(--radius-small);
+  color: var(--ink);
+  white-space: nowrap;
+}
+.header nav .languages a:hover {
+  background: var(--sunk);
+}
+.header nav .languages a[aria-current] {
+  font-weight: 650;
+  text-decoration: none;
 }
 .button {
   display: inline-flex;
@@ -210,7 +276,7 @@ h3 {
   color: var(--muted);
   margin-bottom: 18px;
 }
-:lang(ja) .eyebrow {
+:is(:lang(ja), :lang(zh), :lang(ko)) .eyebrow {
   letter-spacing: 0.06em;
 }
 .hero {
@@ -752,15 +818,18 @@ code {
     gap: 6px 10px;
     margin: 0;
   }
-  /* Japanese is set full width, so a headline needs a smaller size to keep
-     a phrase such as 1 プロジェクトなら on one line. */
-  :lang(ja) :is(.page > h1, .chores-hero h1) {
+  /* Chinese, Japanese, and Korean are set full width, so a headline needs a
+     smaller size to keep a phrase such as 1 プロジェクトなら on one line. */
+  :is(:lang(ja), :lang(zh), :lang(ko)) :is(.page > h1, .chores-hero h1) {
     font-size: clamp(32px, 9vw, 44px);
   }
   /* A label never splits; on the narrowest screens the last one wraps. */
   .header nav a {
     font-size: 13px;
     white-space: nowrap;
+  }
+  .languages {
+    font-size: 13px;
   }
   .header > .download-cta {
     margin-left: auto;
@@ -913,7 +982,7 @@ code {
   line-height: 1.4;
   letter-spacing: -0.015em;
 }
-:lang(ja) .chore-line {
+:is(:lang(ja), :lang(zh), :lang(ko)) .chore-line {
   letter-spacing: 0;
   line-height: 1.55;
 }
@@ -1082,7 +1151,7 @@ code {
   font-size: clamp(30px, 3.6vw, 48px);
   line-height: 1.15;
 }
-:lang(ja) .chore-hero h1 {
+:is(:lang(ja), :lang(zh), :lang(ko)) .chore-hero h1 {
   font-size: clamp(26px, 3vw, 40px);
   line-height: 1.4;
 }
@@ -1107,11 +1176,11 @@ code {
   line-height: 1.45;
   letter-spacing: -0.015em;
 }
-:lang(ja) .motions {
+:is(:lang(ja), :lang(zh), :lang(ko)) .motions {
   letter-spacing: 0;
   line-height: 1.7;
 }
-:lang(ja) .motions span + span::before {
+:is(:lang(ja), :lang(zh)) .motions span + span::before {
   content: none;
 }
 .motions span {

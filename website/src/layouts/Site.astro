@@ -3,7 +3,7 @@ import "../styles/site.css";
 import Analytics from "../components/Analytics.astro";
 import DownloadButton from "../components/DownloadButton.astro";
 import { descartyUrl } from "../lib/descarty.mjs";
-import { counterparts, localeOf, localize } from "../lib/i18n.mjs";
+import { counterparts, languages, localeOf, locales, localize } from "../lib/i18n.mjs";
 import { detectPlatform } from "../lib/platform.mjs";
 interface Props {
   title: string;
@@ -17,6 +17,7 @@ const text = {
     skip: "Skip to content",
     home: "Kitewell home",
     nav: "Main navigation",
+    language: "Language",
     links: ["Examples", "Coding agents", "Pricing", "Docs"],
     tagline: "Describe a computer chore once. AI does it every day.",
     social: "Describe a computer chore once. AI does it every day. Kitewell repeats the clicks that worked, on your Mac or PC, and fixes just the click a changed screen breaks.",
@@ -29,6 +30,7 @@ const text = {
     skip: "本文へスキップ",
     home: "Kitewell ホーム",
     nav: "メインナビゲーション",
+    language: "言語",
     links: ["活用例", "エージェント", "料金", "ドキュメント"],
     tagline: "パソコン作業を一度伝えれば、AI が毎日やってくれる。",
     social: "パソコン作業を一度伝えれば、AI が毎日やってくれる。Kitewell は、うまくいった操作を Mac や PC でくり返し、画面が変わったら、その操作だけを直します。",
@@ -39,24 +41,21 @@ const text = {
 const { title, description = text.description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 // Each language has its own card for link previews.
-const socialImage = new URL(locale === "ja" ? "/social-ja.png" : "/social.png", Astro.site);
+const socialImage = new URL(locale === "en" ? "/social.png" : `/social-${locale}.png`, Astro.site);
 // The home page tells search engines the site's name.
-const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "/ja/";
+const isHome = Astro.url.pathname === localize("/", locale);
 const site = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Kitewell",
-  url: new URL(locale === "ja" ? "/ja/" : "/", Astro.site).href,
-  inLanguage: locale,
+  url: new URL(localize("/", locale), Astro.site).href,
+  inLanguage: languages[locale].lang,
   publisher: { "@type": "Organization", name: "Descarty, Inc." },
 };
 // The visitor's system, marked on <html data-os> before the page draws, so
 // every download button shows the right label from the start.
 const platformScript = `document.documentElement.dataset.os = (${detectPlatform})({ userAgent: navigator.userAgent, uaPlatform: navigator.userAgentData ? navigator.userAgentData.platform : "", maxTouchPoints: navigator.maxTouchPoints }).os;`;
 const pages = counterparts(Astro.url.pathname);
-// The switch offers the other language, named in that language.
-const other = locale === "ja" ? "en" : "ja";
-const otherLabel = other === "ja" ? "日本語" : "English";
 const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href, i) => [
   localize(href, locale),
   text.links[i],
@@ -64,7 +63,7 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
 ---
 
 <!doctype html>
-<html lang={locale}>
+<html lang={languages[locale].lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,8 +72,7 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
     <link rel="canonical" href={canonical} />
     {pages && (
       <>
-        <link rel="alternate" hreflang="en" href={new URL(pages.en, Astro.site)} />
-        <link rel="alternate" hreflang="ja" href={new URL(pages.ja, Astro.site)} />
+        {locales.map((l) => <link rel="alternate" hreflang={languages[l].lang} href={new URL(pages[l], Astro.site)} />)}
         <link rel="alternate" hreflang="x-default" href={new URL(pages.en, Astro.site)} />
       </>
     )}
@@ -83,7 +81,7 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Kitewell" />
-    <meta property="og:locale" content={locale === "ja" ? "ja_JP" : "en_US"} />
+    <meta property="og:locale" content={languages[locale].og} />
     <meta property="og:title" content={`${title} — Kitewell`} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -116,13 +114,38 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
           </a>
         ))}
         {pages && (
-          <a href={pages[other]} lang={other} hreflang={other}>
-            {otherLabel}
-          </a>
+          <details class="languages">
+            <summary>
+              <span class="visually-hidden">{text.language}: </span>
+              {languages[locale].label}
+            </summary>
+            <ul>
+              {locales.map((l) => (
+                <li>
+                  <a href={pages[l]} lang={languages[l].lang} hreflang={languages[l].lang} aria-current={l === locale ? "true" : undefined}>
+                    {languages[l].label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
         )}
       </nav>
       <DownloadButton locale={locale} place="header" small />
     </header>
+    <script is:inline>
+      // The language menu closes on a click elsewhere or on Escape.
+      document.addEventListener("click", (event) => {
+        for (const menu of document.querySelectorAll("details.languages[open]")) if (!menu.contains(event.target)) menu.open = false;
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        for (const menu of document.querySelectorAll("details.languages[open]")) {
+          menu.open = false;
+          menu.querySelector("summary").focus();
+        }
+      });
+    </script>
     <main id="main">
       <slot />
     </main>

@@ -1,8 +1,9 @@
 ---
+import type { Locale } from "../lib/i18n.mjs";
 // One fact about another product, with the page it comes from and the day
 // that page was checked.
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
   fact: {
     en: string;
     ja: string;

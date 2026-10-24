@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
+import { languages, locales } from "./src/lib/i18n.mjs";
 
 export default defineConfig({
   site: "https://kitewell.app",
@@ -20,10 +21,7 @@ export default defineConfig({
       components: { Footer: "./src/components/DocsFooter.astro" },
       routeMiddleware: "./src/routeData.ts",
       defaultLocale: "root",
-      locales: {
-        root: { label: "English", lang: "en" },
-        ja: { label: "日本語", lang: "ja" },
-      },
+      locales: Object.fromEntries(locales.map((l) => [l === "en" ? "root" : l, { label: languages[l].label, lang: languages[l].lang }])),
       social: [
         {
           icon: "github",
@@ -103,7 +101,7 @@ export default defineConfig({
       ],
     }),
     sitemap({
-      i18n: { defaultLocale: "en", locales: { en: "en", ja: "ja" } },
+      i18n: { defaultLocale: "en", locales: Object.fromEntries(locales.map((l) => [l, languages[l].lang])) },
     }),
   ],
 });

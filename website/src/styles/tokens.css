@@ -37,3 +37,12 @@
   --green: var(--accent);
   --soft: var(--sunk);
 }
+/* A Han character takes the shape of the language it is written in, so
+   Chinese and Korean pages name their own system fonts before Japanese ones. */
+:root:lang(zh) {
+  --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+:root:lang(ko) {
+  --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+}
+

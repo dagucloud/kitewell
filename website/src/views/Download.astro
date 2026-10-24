@@ -3,9 +3,9 @@ import Site from "../layouts/Site.astro";
 import DownloadButton from "../components/DownloadButton.astro";
 import { readReleases } from "../lib/releases.mjs";
 import { pickDownload } from "../lib/platform.mjs";
-import { localize } from "../lib/i18n.mjs";
+import { localize, type Locale } from "../lib/i18n.mjs";
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
 }
 const { locale } = Astro.props;
 // Each system is published from its own feed; a platform offers downloads
@@ -90,6 +90,7 @@ const text = {
       ],
     },
     preview: "See how Kitewell works",
+    previewText: ["Read the ", "getting started guide", " or explore the ", "workflow editor", ". Installers will appear here and on ", " when the first release is published."],
     before: "Before you start",
     beforeItems: [
       "Website steps drive Google Chrome, or Microsoft Edge on Windows. Install one first.",
@@ -190,6 +191,7 @@ const text = {
       ],
     },
     preview: "Kitewell の使い方を見る",
+    previewText: ["", "はじめかたガイド", "を読むか、", "ワークフローエディタ", "をご覧ください。リリースを公開すると、インストーラーがこのページと ", " に掲載されます。"],
     before: "始める前に",
     beforeItems: [
       "Web サイトのステップは Google Chrome（Windows では Microsoft Edge も可）を操作します。先にインストールしてください。",
@@ -332,26 +334,15 @@ const downloadOf = (name: string) => picks.find((pick) => pick.name === name)?.d
     ) : (
       <div class="notice">
         <h2>{text.preview}</h2>
-        {locale === "ja" ? (
-          <p>
-            <a href={localize("/docs/getting-started/", locale)}>はじめかたガイド</a>
-            を読むか、
-            <a href={localize("/docs/workflow-builder/", locale)}>ワークフローエディタ</a>
-            をご覧ください。リリースを公開すると、インストーラーがこのページと{" "}
-            <a href="https://github.com/dagucloud/kitewell/releases">GitHub Releases</a>{" "}
-            に掲載されます。
-          </p>
-        ) : (
-          <p>
-            Read the <a href="/docs/getting-started/">getting started guide</a>
-            {" "}or explore the <a href="/docs/workflow-builder/">workflow editor</a>.
-            Installers will appear here and on{" "}
-            <a href="https://github.com/dagucloud/kitewell/releases">
-              GitHub Releases
-            </a>{" "}
-            when the first release is published.
-          </p>
-        )}
+        <p>
+          {text.previewText[0]}
+          <a href={localize("/docs/getting-started/", locale)}>{text.previewText[1]}</a>
+          {text.previewText[2]}
+          <a href={localize("/docs/workflow-builder/", locale)}>{text.previewText[3]}</a>
+          {text.previewText[4]}
+          <a href="https://github.com/dagucloud/kitewell/releases">GitHub Releases</a>
+          {text.previewText[5]}
+        </p>
       </div>
     )}
     <div class="prose">

@@ -1,10 +1,10 @@
 ---
 import Site from "../layouts/Site.astro";
 import { releaseNotes } from "../lib/releases.mjs";
-import { localize } from "../lib/i18n.mjs";
+import { localize, type Locale } from "../lib/i18n.mjs";
 import { createMarkdownProcessor } from "@astrojs/markdown-remark";
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
 }
 const { locale } = Astro.props;
 const processor = await createMarkdownProcessor();

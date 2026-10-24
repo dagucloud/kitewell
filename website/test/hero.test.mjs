@@ -1,12 +1,13 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
+import { recorded } from "../src/lib/i18n.mjs";
 
 const figures = JSON.parse(readFileSync(new URL("../src/data/hero-runs.json", import.meta.url), "utf8"));
 const file = (path) => new URL(`..${path}`, import.meta.url);
 
 test("each language's loop has its cuts, poster, and stills", () => {
-  for (const locale of ["en", "ja"]) {
+  for (const locale of recorded) {
     const { video } = figures[locale];
     for (const name of [`${video}.mp4`, `${video}-720.mp4`, `${video}.webp`]) {
       assert.ok(existsSync(file(`/public/videos/hero/${name}`)), name);
@@ -20,7 +21,7 @@ test("each language's loop has its cuts, poster, and stills", () => {
 // The page quotes these figures beside the loop; each comes from a captured
 // run, and a capture that lost one would leave a sentence with a hole.
 test("each language has every figure the page quotes", () => {
-  for (const locale of ["en", "ja"]) {
+  for (const locale of recorded) {
     const run = figures[locale];
     assert.ok(Date.parse(run.capturedAt), `${locale} capturedAt`);
     for (const name of ["cold", "replayed", "recovered"]) {

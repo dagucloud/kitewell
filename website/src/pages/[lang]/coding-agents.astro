@@ -1,0 +1,9 @@
+---
+import CodingAgents from "../../views/CodingAgents.astro";
+import { translations } from "../../lib/i18n.mjs";
+
+export const getStaticPaths = translations;
+const { locale } = Astro.props;
+---
+
+<CodingAgents locale={locale} />

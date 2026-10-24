@@ -1,7 +1,8 @@
 ---
 import Site from "../layouts/Site.astro";
+import { languages, type Locale } from "../lib/i18n.mjs";
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
   document: "privacy" | "terms";
 }
 const { locale, document } = Astro.props;
@@ -11,7 +12,7 @@ const documents = import.meta.glob<{
 }>("../legal/*/*.md", { eager: true });
 const { frontmatter, Content } = documents[`../legal/${locale}/${document}.md`];
 const updatedLabel = { en: "Last updated", ja: "最終更新日" }[locale];
-const updated = new Intl.DateTimeFormat(locale === "ja" ? "ja-JP" : "en-US", {
+const updated = new Intl.DateTimeFormat(languages[locale].format, {
   dateStyle: "long",
   timeZone: "UTC",
 }).format(new Date(frontmatter.updated));

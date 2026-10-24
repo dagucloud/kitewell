@@ -4,6 +4,7 @@ import test from "node:test";
 import yaml from "js-yaml";
 import { choreBySlug, chores, groups, needsFor } from "../src/lib/chores.mjs";
 import { kindNames } from "../src/lib/kinds.mjs";
+import { locales, recorded } from "../src/lib/i18n.mjs";
 
 // The YAML action each step kind stands for, when it is an action step.
 const actions = {
@@ -30,7 +31,7 @@ const kindOf = (action) =>
   null;
 const workflow = (slug) => yaml.load(readFileSync(`src/workflows/${slug}.yaml`, "utf8"));
 
-test("every chore is told in full in both languages", () => {
+test("every chore is told in full in every language", () => {
   const slugs = new Set();
   for (const chore of chores) {
     assert.match(chore.slug, /^[a-z0-9-]+$/, chore.slug);
@@ -38,14 +39,14 @@ test("every chore is told in full in both languages", () => {
     slugs.add(chore.slug);
     assert.ok(groups.includes(chore.group), `${chore.slug}: group`);
     const film = chore.film ?? {};
-    for (const locale of ["en", "ja"]) {
+    for (const locale of locales) {
       const copy = chore[locale];
       const where = `${chore.slug} ${locale}`;
       for (const field of ["when", "chore", "tally", "sentence"]) {
         assert.ok(copy[field]?.trim(), `${where}: ${field}`);
       }
-      // A search title, when a chore has one, is given in both languages.
-      if (chore.en.title || chore.ja.title) assert.ok(copy.title?.trim(), `${where}: title`);
+      // A search title, when a chore has one, is given in every language.
+      if (chore.en.title) assert.ok(copy.title?.trim(), `${where}: title`);
       assert.ok(copy.motions.length >= 3, `${where}: motions`);
       assert.ok(copy.moment.title && copy.moment.text, `${where}: moment`);
       assert.ok(copy.good.length > 0, `${where}: good to know`);
@@ -59,9 +60,9 @@ test("every chore is told in full in both languages", () => {
       if (film.after) assert.ok(copy.after, `${where}: film caption after`);
       if (chore.film) assert.ok(copy.film, `${where}: film credit`);
       assert.equal(needsFor(chore, locale).length, chore.needs.length, `${where}: needs`);
+      assert.equal(copy.steps.length, chore.en.steps.length, `${where}: step count`);
+      assert.equal(copy.motions.length, chore.en.motions.length, `${where}: motion count`);
     }
-    assert.equal(chore.en.steps.length, chore.ja.steps.length, `${chore.slug}: step counts differ`);
-    assert.equal(chore.en.motions.length, chore.ja.motions.length, `${chore.slug}: motion counts differ`);
   }
 });
 
@@ -75,10 +76,10 @@ test("related chores exist and lead elsewhere", () => {
   }
 });
 
-test("every film clip a chore plays is published in both languages", () => {
+test("every film clip a chore plays is published in each recorded language", () => {
   for (const chore of chores) {
     for (const clip of Object.values(chore.film ?? {})) {
-      for (const locale of ["en", "ja"]) {
+      for (const locale of recorded) {
         for (const extension of ["mp4", "webp"]) {
           const file = `public/videos/chores/${locale}/${clip}.${extension}`;
           assert.ok(existsSync(file), `${chore.slug}: ${file}`);
@@ -163,20 +164,23 @@ test("each chore's request names nothing its example made up", () => {
   for (const name of ["Harbor Supply", "Ledger", "Depot"]) assert.ok(madeUp.en.has(name), name);
   for (const name of ["みなと資材", "台帳"]) assert.ok(madeUp.ja.has(name), name);
   for (const chore of chores) {
-    for (const locale of ["en", "ja"]) {
+    for (const locale of locales) {
       const request = chore[locale].request;
       assert.ok(request, `${chore.slug} ${locale}: request`);
       const plain = request.replace(placeholders, "");
       assert.deepEqual(specifics(request), [], `${chore.slug} ${locale}: written-out address or file`);
-      assert.deepEqual(latinNames(plain).filter((name) => !realNames.has(name)), [], `${chore.slug} ${locale}: unknown name`);
+      // German capitalizes every noun, so a capital there is no sign of a name.
+      if (locale !== "de") {
+        assert.deepEqual(latinNames(plain).filter((name) => !realNames.has(name)), [], `${chore.slug} ${locale}: unknown name`);
+      }
       for (const name of [...madeUp.en, ...madeUp.ja]) {
         assert.ok(!names(request, name), `${chore.slug} ${locale}: names ${name}`);
       }
+      assert.equal(
+        request.match(placeholders)?.length ?? 0,
+        chore.en.request.match(placeholders)?.length ?? 0,
+        `${chore.slug} ${locale}: leaves the blanks English does`,
+      );
     }
-    assert.equal(
-      chore.en.request.match(placeholders)?.length ?? 0,
-      chore.ja.request.match(placeholders)?.length ?? 0,
-      `${chore.slug}: both languages leave the same blanks`,
-    );
   }
 });

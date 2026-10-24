@@ -1,10 +1,11 @@
 ---
+import { recording, type Locale } from "../lib/i18n.mjs";
 // A silent loop: a beat cut from the Kitewell film, or a real recording
 // from public/videos/proof. It plays while it is on screen and stays on its
 // poster for people who prefer reduced motion or save data. A loop that
 // plays by itself has a button to pause it.
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
   label: string;
   // name is a beat of the film; src is any other video's path without its
   // extension. width and height are the video's size.
@@ -18,7 +19,7 @@ interface Props {
   describedby?: string;
 }
 const { locale, name, label, src, width = 1280, height = 720, phone = false, describedby } = Astro.props;
-const base = src ?? `/videos/chores/${locale}/${name}`;
+const base = src ?? `/videos/chores/${recording(locale)}/${name}`;
 const text = {
   en: { pause: "Pause the video", play: "Play the video" },
   ja: { pause: "動画を一時停止", play: "動画を再生" },

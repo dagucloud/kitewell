@@ -1,0 +1,9 @@
+---
+import Examples from "../../../views/Examples.astro";
+import { translations } from "../../../lib/i18n.mjs";
+
+export const getStaticPaths = translations;
+const { locale } = Astro.props;
+---
+
+<Examples locale={locale} />

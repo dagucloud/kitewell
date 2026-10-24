@@ -3,11 +3,11 @@ import Site from "../layouts/Site.astro";
 import ChoreList from "../components/ChoreList.astro";
 import Clip from "../components/Clip.astro";
 import DownloadButton from "../components/DownloadButton.astro";
-import { localize } from "../lib/i18n.mjs";
+import { localize, recording, type Locale } from "../lib/i18n.mjs";
 import { choreBySlug } from "../lib/chores.mjs";
 import "../styles/home.css";
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
 }
 const { locale } = Astro.props;
 const text = {
@@ -120,7 +120,7 @@ const coding = ["fix-failing-tests", "review-every-pr", "triage-issues", "depend
       <p class="fine">{text.platform}</p>
       <figure class="intro-media">
         <div class="frame">
-          <Clip locale={locale} src={`/videos/proof/agents-${locale}`} width={1920} height={1200} label={text.proof} />
+          <Clip locale={locale} src={`/videos/proof/agents-${recording(locale)}`} width={1920} height={1200} label={text.proof} />
         </div>
         <figcaption>{text.proofNote}</figcaption>
       </figure>

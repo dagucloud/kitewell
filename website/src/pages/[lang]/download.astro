@@ -1,0 +1,9 @@
+---
+import Download from "../../views/Download.astro";
+import { translations } from "../../lib/i18n.mjs";
+
+export const getStaticPaths = translations;
+const { locale } = Astro.props;
+---
+
+<Download locale={locale} />

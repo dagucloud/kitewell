@@ -1,9 +1,9 @@
 ---
 import Site from "../layouts/Site.astro";
 import { descartyUrl } from "../lib/descarty.mjs";
-import { localize } from "../lib/i18n.mjs";
+import { localize, type Locale } from "../lib/i18n.mjs";
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
 }
 const { locale } = Astro.props;
 const text = {

@@ -1,0 +1,9 @@
+---
+import Home from "../../views/Home.astro";
+import { translations } from "../../lib/i18n.mjs";
+
+export const getStaticPaths = translations;
+const { locale } = Astro.props;
+---
+
+<Home locale={locale} />

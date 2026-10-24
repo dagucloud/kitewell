@@ -1,8 +1,9 @@
 ---
+import type { Locale } from "../lib/i18n.mjs";
 // What a chore leaves behind for the person, drawn with sample data: the
 // email that arrives, the rows that fill in, the approval that waits.
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
   artifact: any;
 }
 const { locale, artifact: a } = Astro.props;

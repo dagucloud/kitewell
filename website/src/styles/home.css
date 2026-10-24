@@ -7,7 +7,7 @@
 .home .intro h1 {
   font-size: clamp(40px, 6.4vw, 84px);
 }
-:lang(ja) .home .intro h1 {
+:is(:lang(ja), :lang(zh), :lang(ko)) .home .intro h1 {
   font-size: clamp(32px, 4.8vw, 60px);
 }
 .intro-lead {
@@ -17,7 +17,7 @@
   line-height: 1.55;
   color: var(--muted);
 }
-:lang(ja) .intro-lead {
+:is(:lang(ja), :lang(zh), :lang(ko)) .intro-lead {
   line-height: 1.85;
 }
 .intro-actions {
@@ -65,7 +65,7 @@
 .home .intro.split h1 {
   font-size: clamp(36px, 4.4vw, 58px);
 }
-:lang(ja) .home .intro.split h1 {
+:is(:lang(ja), :lang(zh), :lang(ko)) .home .intro.split h1 {
   font-size: clamp(30px, 3.4vw, 46px);
 }
 .intro.split .intro-lead {
@@ -131,7 +131,7 @@
   max-width: 22ch;
   margin-bottom: 44px;
 }
-:lang(ja) .block-title {
+:is(:lang(ja), :lang(zh), :lang(ko)) .block-title {
   max-width: 26em;
 }
 .block-lead {

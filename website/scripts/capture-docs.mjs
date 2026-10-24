@@ -35,8 +35,12 @@ const option = (name) => {
 const LANGS = {
   en: { locale: "en-US", timezoneId: "America/Los_Angeles" },
   ja: { locale: "ja-JP", timezoneId: "Asia/Tokyo" },
+  zh: { locale: "zh-CN", timezoneId: "Asia/Shanghai" },
+  ko: { locale: "ko-KR", timezoneId: "Asia/Seoul" },
+  fr: { locale: "fr-FR", timezoneId: "Europe/Paris" },
+  de: { locale: "de-DE", timezoneId: "Europe/Berlin" },
 };
-const wanted = (option("lang") ?? "en,ja").split(",");
+const wanted = (option("lang") ?? Object.keys(LANGS).join(",")).split(",");
 const only = option("only")?.split(",");
 const seeds = option("seeds")?.split(",");
 const here = path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1"));

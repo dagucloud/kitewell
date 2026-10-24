@@ -6,21 +6,21 @@ import Clip from "../components/Clip.astro";
 import DownloadButton from "../components/DownloadButton.astro";
 import { readReleases } from "../lib/releases.mjs";
 import { descartyUrl } from "../lib/descarty.mjs";
-import { localize } from "../lib/i18n.mjs";
+import { languages, localize, recording, type Locale } from "../lib/i18n.mjs";
 import { choreBySlug } from "../lib/chores.mjs";
 import { hero, stills } from "../lib/hero.mjs";
 import { daguStars } from "../lib/proof.mjs";
 import "../styles/home.css";
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
 }
 const { locale } = Astro.props;
 const { macos } = await readReleases();
 // The figures beside the loop are the captured runs' own
 // (src/data/hero-runs.json); none is typed here.
-const run = hero[locale];
+const run = hero[recording(locale)];
 const ai = (r: { withoutAI: { count: number; total: number } }) => r.withoutAI.total - r.withoutAI.count;
-const stars = daguStars.toLocaleString(locale === "ja" ? "ja-JP" : "en-US");
+const stars = daguStars.toLocaleString(languages[locale].format);
 const text = {
   en: {
     title: "AI browser and desktop automation that repeats, for Mac and Windows",
@@ -238,7 +238,7 @@ const loop = {
         <details class="unedited">
           <summary>{text.unedited}</summary>
           <div class="frame">
-            <Clip locale={locale} src={`/videos/proof/websites-${locale}`} width={1920} height={1200} label={text.uneditedLabel} />
+            <Clip locale={locale} src={`/videos/proof/websites-${recording(locale)}`} width={1920} height={1200} label={text.uneditedLabel} />
           </div>
         </details>
       </figure>
@@ -259,7 +259,7 @@ const loop = {
         {text.beats.map(([title, first, second], i) => (
           <li>
             <div class="frame">
-              <Image src={stills[locale][i]} alt={text.beatAlt[i]} widths={[480, 960]} sizes="(max-width: 860px) 100vw, 380px" />
+              <Image src={stills[recording(locale)][i]} alt={text.beatAlt[i]} widths={[480, 960]} sizes="(max-width: 860px) 100vw, 380px" />
             </div>
             <h3>{title}</h3>
             <p>{first}</p>

@@ -4,10 +4,10 @@
 // the page draws, so the label already fits: the installer for a Mac or a
 // Windows PC, a way to send the link to a computer on a phone or tablet,
 // and on any other desktop, that Kitewell needs a Mac or a Windows PC.
-import { localize } from "../lib/i18n.mjs";
+import { localize, type Locale } from "../lib/i18n.mjs";
 import { readReleases } from "../lib/releases.mjs";
 interface Props {
-  locale: "en" | "ja";
+  locale: Locale;
   // place names where the button is, for the download page's statistics.
   place: string;
   // small is the header's size, with shorter labels.
