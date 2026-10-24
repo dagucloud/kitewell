@@ -33,7 +33,7 @@ Each row says which workflow ran, how it ended, what started it, when, and how
 long it took. What started it is one of manual, scheduled, schedule test,
 catch-up, retry, API, webhook, or sub-workflow.
 
-Three more things live on this page:
+Four more things live on this page:
 
 - **Queues** shows how many runs each queue is running and how many are
   waiting, and lets you take a waiting run out.

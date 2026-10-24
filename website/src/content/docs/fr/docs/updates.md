@@ -25,8 +25,7 @@ est activé, Kitewell :
    de la zone de notification disparaît quelques secondes puis revient, et une
    fenêtre qui était ouverte se rouvre sur la même page.
 
-Ensuite, une notification indique **Kitewell updated to x.y.z** avec
-**What's new**, qui ouvre les notes de version sur kitewell.app.
+Ensuite, une notification indique **Kitewell a été mis à jour vers la version x.y.z** ; un clic dessus ouvre les notes de version sur kitewell.app.
 
 Une nouvelle version arrive sur les appareils en deux jours : tous les
 ordinateurs ne la voient donc pas le même jour. **Rechercher les mises à jour…** dans le
@@ -48,7 +47,7 @@ s’exécuter sur le moteur avec lequel ils ont démarré, et Kitewell, une fois
 redémarré, les retrouve.
 
 Pendant qu’une mise à jour attend, le menu Kitewell affiche
-**Restart to Update to Kitewell x.y.z**, qui l’installe immédiatement. Kitewell
+**Redémarrer pour mettre à jour vers Kitewell x.y.z**, qui l’installe immédiatement. Kitewell
 vous interroge sur les modifications non enregistrées et nomme tout ce que le
 redémarrage interromprait, avec **Redémarrer maintenant** et **Une fois inactif**. Si une mise à
 jour attend depuis sept jours, une notification indique
@@ -60,7 +59,7 @@ abandonnées pour une mise à jour.
 ## Avec les mises à jour automatiques désactivées
 
 Kitewell vérifie quand même. Quand une nouvelle version est disponible, vous
-recevez une notification, et le menu affiche **Update to Kitewell x.y.z…**.
+recevez une notification, et le menu affiche **Mettre à jour vers Kitewell x.y.z…**.
 Choisissez-le pour télécharger la version, dont la progression s’affiche dans
 le menu ; Kitewell propose ensuite **Redémarrer pour mettre à jour** ou **Plus tard**. Rien ne
 s’installe tant que vous ne l’avez pas choisi.
@@ -82,7 +81,7 @@ Kitewell ne se remplace sans mot de passe que si votre utilisateur macOS est
 propriétaire de l’app et peut écrire dans le dossier Applications. Sur un
 compte standard (non administrateur), ou si Kitewell a été installé par un
 autre utilisateur ou par la gestion des appareils, rien ne se télécharge en
-arrière-plan. Le menu affiche **Update to Kitewell x.y.z…**, avec une
+arrière-plan. Le menu affiche **Mettre à jour vers Kitewell x.y.z…**, avec une
 notification ; le choisir télécharge la mise à jour et affiche la demande
 d’autorisation administrateur de macOS. Kitewell n’affiche jamais cette
 demande sans que vous l’ayez sollicitée.
@@ -95,7 +94,7 @@ demande sans que vous l’ayez sollicitée.
 - Une installation échoue. La version installée reste en place et Kitewell la
   redémarre ; le prochain moment sûr fait une nouvelle tentative. Après trois
   échecs d’installation d’une même version, Kitewell cesse de l’essayer et
-  affiche **Kitewell couldn't update. Download the installer** avec un lien
+  affiche **Kitewell n’a pas pu se mettre à jour** avec un lien
   vers la [page de téléchargement](/fr/download/).
 - La vérification échoue. Vérifiez votre réseau et
   l’[état des versions](/fr/releases/). Tant que la première version publique

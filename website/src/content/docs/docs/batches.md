@@ -99,7 +99,7 @@ The sheet saves as you edit, and says **Saved**.
 
 The run button starts the obvious group of rows and says which. With nothing
 run yet it reads **Run 6 not run yet**; once some have failed,
-**Run 2 failed again**; in the end, run them all again. The chevron beside it
+**Run 2 failed or stopped again**; in the end, run them all again. The chevron beside it
 opens **More ways to run**, where you pick the group yourself. Rows marked
 **No longer listed** are left out of every group except a selection.
 

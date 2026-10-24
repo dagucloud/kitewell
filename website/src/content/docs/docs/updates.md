@@ -21,8 +21,8 @@ Device settings → Updates**. With it on, Kitewell:
    bar or the tray disappears for a few seconds and comes back, and a window
    that was open opens again on the same page.
 
-Afterwards, one notification says **Kitewell updated to x.y.z** with
-**What's new**, which opens the release notes on kitewell.app.
+Afterwards, one notification says **Kitewell updated to x.y.z**; clicking it
+opens the release notes on kitewell.app.
 
 A new version reaches devices over two days, so not every computer sees it on
 the same day. **Check for Updates…** in the Kitewell menu, the menu bar menu

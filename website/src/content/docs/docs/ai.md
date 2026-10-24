@@ -206,7 +206,8 @@ that finished. Each also shows as a notification unless the chat is in front.
 
 The conversation stays on this computer and is left out of backups.
 **Delete** removes one message and **Delete thread** a whole thread;
-**Delete the conversation**, under **Device settings → Kitewell's AI model**,
+**Delete every project's conversation**, under
+**Device settings → Kitewell's AI model**,
 removes everything. Workflows and other changes Kitewell saved stay.
 
 <a id="failure-diagnosis"></a>
