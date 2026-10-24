@@ -62,6 +62,7 @@ export function legalTranslations() {
   return pathsFor(locales.filter((locale) => locale !== "en" && legalLocales.includes(locale)));
 }
 
+/** @param {Locale[]} versions */
 function pathsFor(versions) {
   return versions.map((locale) => ({ params: { lang: locale }, props: { locale } }));
 }
