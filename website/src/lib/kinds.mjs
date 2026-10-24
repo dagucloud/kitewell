@@ -2,17 +2,17 @@
 // They name what a step works on, in the visitor's words, not the YAML action.
 
 export const kinds = {
-  website: { en: "Website", ja: "Web サイト" },
-  desktop: { en: "Desktop app", ja: "デスクトップアプリ" },
-  email: { en: "Email", ja: "メール" },
-  excel: { en: "Excel", ja: "Excel" },
-  ai: { en: "AI", ja: "AI" },
-  agent: { en: "Coding agent", ja: "コーディングエージェント" },
-  script: { en: "Script", ja: "スクリプト" },
-  server: { en: "Server", ja: "サーバー" },
-  api: { en: "API", ja: "API" },
-  approval: { en: "Your OK", ja: "あなたの OK" },
-  person: { en: "You", ja: "あなた" },
+  website: { en: "Website", ja: "Web サイト", zh: "网站", ko: "웹사이트", fr: "Site web", de: "Website" },
+  desktop: { en: "Desktop app", ja: "デスクトップアプリ", zh: "桌面应用", ko: "데스크톱 앱", fr: "App de bureau", de: "Desktop-App" },
+  email: { en: "Email", ja: "メール", zh: "电子邮件", ko: "이메일", fr: "E-mail", de: "E-Mail" },
+  excel: { en: "Excel", ja: "Excel", zh: "Excel", ko: "Excel", fr: "Excel", de: "Excel" },
+  ai: { en: "AI", ja: "AI", zh: "AI", ko: "AI", fr: "IA", de: "KI" },
+  agent: { en: "Coding agent", ja: "コーディングエージェント", zh: "编码智能体", ko: "코딩 에이전트", fr: "Agent de code", de: "Coding-Agent" },
+  script: { en: "Script", ja: "スクリプト", zh: "脚本", ko: "스크립트", fr: "Script", de: "Skript" },
+  server: { en: "Server", ja: "サーバー", zh: "服务器", ko: "서버", fr: "Serveur", de: "Server" },
+  api: { en: "API", ja: "API", zh: "API", ko: "API", fr: "API", de: "API" },
+  approval: { en: "Your OK", ja: "あなたの OK", zh: "你的批准", ko: "내 승인", fr: "Votre accord", de: "Ihr OK" },
+  person: { en: "You", ja: "あなた", zh: "你", ko: "나", fr: "Vous", de: "Sie" },
 };
 
 export const kindNames = Object.keys(kinds);

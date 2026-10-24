@@ -8,7 +8,7 @@ interface Props {
   chores: any[];
 }
 const { locale, chores } = Astro.props;
-const watch = { en: "Watch it run", ja: "動く様子を見る" }[locale];
+const watch = { en: "Watch it run", ja: "動く様子を見る", zh: "观看运行过程", ko: "실행 모습 보기", fr: "Regarder l’exécution", de: "Ablauf ansehen" }[locale];
 // The places a chore touches, in the order its run reaches them.
 const places = (chore: any) => [...new Set(chore[locale].steps.map(([kind]: string[]) => kind))].filter((kind) => kind !== "approval");
 ---

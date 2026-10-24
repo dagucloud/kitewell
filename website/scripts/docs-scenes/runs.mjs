@@ -18,6 +18,20 @@ const FAILING = {
     scan: "バックアップ用フォルダーを見る",
     verify: "前夜のコピーを確認する",
   },
+  zh: { name: "文件夹检查（runs 文档）", description: "检查昨晚的备份是否已保存。", scan: "查看备份文件夹", verify: "检查昨晚的副本" },
+  ko: { name: "폴더 확인(runs 문서)", description: "어젯밤 백업이 저장되었는지 확인합니다.", scan: "백업 폴더 살펴보기", verify: "어젯밤 사본 확인하기" },
+  fr: {
+    name: "Contrôle du dossier (doc runs)",
+    description: "Vérifie que la sauvegarde de la nuit dernière est bien arrivée.",
+    scan: "Consulter le dossier de sauvegarde",
+    verify: "Vérifier la copie de la nuit dernière",
+  },
+  de: {
+    name: "Ordnerprüfung (Ausführungs-Doku)",
+    description: "Prüft, ob das Backup der letzten Nacht angekommen ist.",
+    scan: "Im Backup-Ordner nachsehen",
+    verify: "Kopie der letzten Nacht prüfen",
+  },
 };
 
 const spec = (f) => `type: graph

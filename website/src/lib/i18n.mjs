@@ -22,20 +22,25 @@ export const recorded = /** @type {const} */ (["en", "ja"]);
 const translatedPages = ["/", "/coding-agents/", "/pricing/", "/compare/", "/download/", "/releases/", "/support/", "/privacy/", "/terms/"];
 // Every page under these paths is translated too.
 const translatedSections = ["/docs/", "/examples/"];
+// The terms and the privacy policy are published in Japanese and English
+// only; every other language links to the English ones.
+const legalPages = ["/privacy/", "/terms/"];
+const legalLocales = ["en", "ja"];
 
 /** @returns {Locale} */
 export function localeOf(pathname) {
   return locales.find((locale) => locale !== "en" && (pathname === `/${locale}` || pathname.startsWith(`/${locale}/`))) ?? "en";
 }
 
-function translated(path) {
+function translated(path, locale) {
   const page = path.split("#")[0];
+  if (legalPages.includes(page)) return legalLocales.includes(locale);
   return translatedSections.some((section) => page.startsWith(section)) || translatedPages.includes(page);
 }
 
 // localize returns the link to an English path in the given language.
 export function localize(path, locale) {
-  return locale !== "en" && translated(path) ? `/${locale}${path}` : path;
+  return locale !== "en" && translated(path, locale) ? `/${locale}${path}` : path;
 }
 
 // counterparts returns the page in each language, or nothing for a page
@@ -43,12 +48,16 @@ export function localize(path, locale) {
 export function counterparts(pathname) {
   const locale = localeOf(pathname);
   const english = locale === "en" ? pathname : pathname.slice(locale.length + 1) || "/";
-  return translated(english) ? Object.fromEntries(locales.map((l) => [l, localize(english, l)])) : null;
+  const versions = locales.filter((l) => translated(english, l));
+  return versions.length > 1 ? Object.fromEntries(versions.map((l) => [l, localize(english, l)])) : null;
 }
 
-// translations is the static paths of a page's versions under /LANG/.
-export function translations() {
-  return locales.filter((locale) => locale !== "en").map((locale) => ({ params: { lang: locale }, props: { locale } }));
+// translations is the static paths of a page's versions under /LANG/; a
+// legal page has fewer.
+export function translations(legal = false) {
+  return locales
+    .filter((locale) => locale !== "en" && (!legal || legalLocales.includes(locale)))
+    .map((locale) => ({ params: { lang: locale }, props: { locale } }));
 }
 
 // recording is the language of the videos and stills a page in locale shows.

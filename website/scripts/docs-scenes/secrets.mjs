@@ -33,8 +33,15 @@ export const scenes = [
 // describe writes the description in the page's own language, from the demo
 // project's words: the token a workflow uses to reach the ledger.
 async function describe(page) {
-  return page.evaluate(() =>
-    window.KitewellI18n.language() === "ja" ? "台帳の API トークン" : "Ledger API token",
+  return page.evaluate(
+    () =>
+      ({
+        ja: "台帳の API トークン",
+        zh: "Ledger 的 API 令牌",
+        ko: "Ledger API 토큰",
+        fr: "Jeton d’API Ledger",
+        de: "API-Token für Ledger",
+      })[window.KitewellI18n.language()] ?? "Ledger API token",
   );
 }
 

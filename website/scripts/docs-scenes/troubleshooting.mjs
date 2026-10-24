@@ -5,6 +5,10 @@
 const words = {
   en: { failed: "Nightly backup check" },
   ja: { failed: "夜間バックアップ確認" },
+  zh: { failed: "夜间备份检查" },
+  ko: { failed: "야간 백업 확인" },
+  fr: { failed: "Contrôle de la sauvegarde nocturne" },
+  de: { failed: "Nächtliche Backup-Prüfung" },
 };
 
 export const scenes = [

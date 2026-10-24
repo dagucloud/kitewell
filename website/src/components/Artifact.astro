@@ -10,6 +10,10 @@ const { locale, artifact: a } = Astro.props;
 const text = {
   en: { sample: "Sample data", to: "To", me: "you", subject: "Subject" },
   ja: { sample: "サンプルのデータ", to: "宛先", me: "あなた", subject: "件名" },
+  zh: { sample: "示例数据", to: "收件人", me: "你", subject: "主题" },
+  ko: { sample: "샘플 데이터", to: "받는 사람", me: "나", subject: "제목" },
+  fr: { sample: "Données d’exemple", to: "À", me: "vous", subject: "Objet" },
+  de: { sample: "Beispieldaten", to: "An", me: "Sie", subject: "Betreff" },
 }[locale];
 ---
 

@@ -7,7 +7,7 @@ import "../styles/compare.css";
 interface Props {
   locale: Locale;
 }
-type Text = string | { en: string; ja: string };
+type Text = string | Record<Locale, string>;
 const { locale } = Astro.props;
 const text = {
   en: {
@@ -63,6 +63,114 @@ const text = {
       "Kitewell についての記述は、ドキュメントと公開中のアプリにもとづいています。記載の製品名は、各社の商標または登録商標です。",
     ],
     corrections: ["古い情報や誤りを見つけたら、", " までお知らせください。訂正します。"],
+  },
+  zh: {
+    title: "Kitewell 与其他方案对比",
+    description:
+      "Kitewell 与桌面 RPA 套件、日本本土 RPA、操作电脑的 AI 智能体、浏览器智能体开发者工具以及应用连接服务的对比。关于其他产品的每一条事实都附有来源链接和核实日期。",
+    eyebrow: "对比",
+    heading: "Kitewell 与其他方案对比",
+    lead: "RPA 套件、AI 智能体、浏览器自动化库和应用连接服务，各自都能把这件事的一部分做好。下面说明它们各自做什么、Kitewell 有何不同，以及什么情况下其他方案更合适。关于其他产品的事实均取自这些产品自己的页面，并在所示日期核实。",
+    checkedBefore: "核实日期：",
+    checkedAfter: "",
+    glance: "一览对比",
+    category: "类别",
+    region: "对比表",
+    scroll: "左右滚动表格可查看所有列。",
+    legend:
+      "每一行概括了下方对应章节中的事实，那里的每条事实都附有来源链接。“—”表示本页核实过的来源未涉及该项，并不表示该产品缺少这项功能。",
+    differs: "Kitewell 的不同之处",
+    instead: (name: string) => `什么情况下选择 ${name} 更合适`,
+    short: "Kitewell 的不足",
+    shortLead: "其他工具可能更适合你的地方，以及 Kitewell 目前的局限。",
+    more: "详情 →",
+    method: "这些事实如何核实",
+    methodText: [
+      "关于其他产品的每条事实都链接到其出处页面（通常是厂商自己的文档、定价或公告），并标明为核实而打开该页面的日期。来自新闻报道和调查的数据会注明发布方。产品变化很快，请在做决定前查看链接的页面。",
+      "本页关于 Kitewell 的内容以其文档和已发布的应用为准。文中产品名称均为其各自所有者的商标。",
+    ],
+    corrections: ["发现信息过时或有误？请发邮件至 ", "，我们会予以更正。"],
+  },
+  ko: {
+    title: "Kitewell과 다른 선택지 비교",
+    description:
+      "데스크톱 RPA 제품군, 일본 RPA, 컴퓨터를 조작하는 AI 에이전트, 브라우저 에이전트 개발자 도구, 앱 연결 서비스와 Kitewell을 비교합니다. 다른 제품에 관한 모든 사실에는 출처 링크와 확인한 날짜가 붙어 있습니다.",
+    eyebrow: "비교",
+    heading: "Kitewell과 다른 선택지 비교",
+    lead: "RPA 제품군, AI 에이전트, 브라우저 자동화 라이브러리, 앱 연결 서비스는 각각 이 일의 일부를 잘 해냅니다. 각 도구가 무엇을 하는지, Kitewell은 어디가 다른지, 어떤 경우에 다른 도구가 더 나은지 정리했습니다. 다른 제품에 관한 사실은 각 제품의 자체 페이지에서 가져왔으며, 표시된 날짜에 확인했습니다.",
+    checkedBefore: "",
+    checkedAfter: " 기준으로 확인",
+    glance: "한눈에 비교",
+    category: "유형",
+    region: "비교표",
+    scroll: "표를 옆으로 스크롤하면 모든 열을 볼 수 있습니다.",
+    legend:
+      "각 행은 아래 해당 섹션의 사실을 요약한 것이며, 그 섹션의 모든 사실에 출처 링크가 있습니다. 대시(—)는 이 페이지에서 확인한 출처에 해당 내용이 없다는 뜻이며, 그 제품에 기능이 없다는 뜻은 아닙니다.",
+    differs: "Kitewell의 다른 점",
+    instead: (name: string) => `${name} 쪽이 더 나은 경우`,
+    short: "Kitewell의 부족한 점",
+    shortLead: "다른 도구가 더 잘 맞을 수 있는 경우와, 지금 Kitewell이 가진 한계입니다.",
+    more: "자세히 →",
+    method: "사실 확인 방법",
+    methodText: [
+      "다른 제품에 관한 각 사실은 출처 페이지로 연결되며, 출처는 대개 업체의 자체 문서, 요금, 발표 페이지입니다. 확인을 위해 그 페이지를 연 날짜도 함께 표시합니다. 뉴스 보도와 조사에서 가져온 수치는 발표한 곳을 밝힙니다. 제품은 빠르게 바뀌므로 결정하기 전에 링크된 페이지를 확인하세요.",
+      "이 페이지에서 Kitewell에 관해 설명한 내용은 문서와 출시된 앱을 따릅니다. 제품명은 각 소유자의 상표입니다.",
+    ],
+    corrections: ["오래되었거나 잘못된 정보가 있다면 ", "으로 알려 주세요. 바로잡겠습니다."],
+  },
+  fr: {
+    title: "Kitewell face aux autres solutions",
+    description:
+      "Comparaison de Kitewell avec les suites RPA de bureau, les RPA japonaises, les agents IA qui pilotent un ordinateur, les outils de développement d’agents de navigateur et les connecteurs d’applications. Chaque fait concernant un autre produit renvoie à sa source, avec sa date de vérification.",
+    eyebrow: "Comparatif",
+    heading: "Kitewell face aux autres solutions",
+    lead: "Suites RPA, agents IA, bibliothèques d’automatisation de navigateur et connecteurs d’applications : chacun résout bien une partie du problème. Voici ce que fait chacun, en quoi Kitewell diffère, et quand une autre solution est le meilleur choix. Les faits concernant les autres produits proviennent de leurs propres pages, vérifiées à la date indiquée.",
+    checkedBefore: "Vérifié à la date du ",
+    checkedAfter: "",
+    glance: "En un coup d’œil",
+    category: "Catégorie",
+    region: "Tableau comparatif",
+    scroll: "Faites défiler le tableau horizontalement pour voir toutes les colonnes.",
+    legend:
+      "Chaque ligne résume les faits de la section correspondante plus bas, où chaque fait renvoie à sa source. Un tiret signifie que les sources vérifiées pour cette page n’en parlent pas, et non que le produit en est dépourvu.",
+    differs: "En quoi Kitewell diffère",
+    instead: (name: string) => `Quand préférer ${name}`,
+    short: "Les limites de Kitewell",
+    shortLead: "Là où un autre outil peut mieux vous convenir, ou là où Kitewell a aujourd’hui des limites.",
+    more: "Détails →",
+    method: "Comment ces faits ont été vérifiés",
+    methodText: [
+      "Chaque fait concernant un autre produit renvoie à la page dont il est tiré, le plus souvent la documentation, la page de tarifs ou l’annonce de l’éditeur lui-même, et indique la date à laquelle cette page a été consultée pour le confirmer. Les chiffres issus d’articles de presse et d’enquêtes citent qui les a publiés. Les produits évoluent vite : consultez la page liée avant de décider.",
+      "Ce que cette page dit de Kitewell suit sa documentation et l’application telle qu’elle est publiée. Les noms de produits sont des marques de leurs propriétaires respectifs.",
+    ],
+    corrections: ["Une information obsolète ou erronée ? Écrivez à ", " et elle sera corrigée."],
+  },
+  de: {
+    title: "Kitewell im Vergleich",
+    description:
+      "Kitewell im Vergleich mit Desktop-RPA-Suiten, RPA aus Japan, KI-Agenten, die einen Computer bedienen, Entwicklertools für Browser-Agenten und App-Konnektoren. Jede Angabe zu einem anderen Produkt verlinkt ihre Quelle, mit dem Datum der Prüfung.",
+    eyebrow: "Vergleich",
+    heading: "Kitewell im Vergleich",
+    lead: "RPA-Suiten, KI-Agenten, Bibliotheken für Browser-Automatisierung und App-Konnektoren lösen jeweils einen Teil dieser Aufgabe gut. Hier lesen Sie, was jedes Werkzeug tut, wo sich Kitewell unterscheidet und wann ein anderes die bessere Wahl ist. Angaben zu anderen Produkten stammen von deren eigenen Seiten und wurden am angegebenen Datum geprüft.",
+    checkedBefore: "Stand: ",
+    checkedAfter: "",
+    glance: "Auf einen Blick",
+    category: "Kategorie",
+    region: "Vergleichstabelle",
+    scroll: "Scrollen Sie die Tabelle seitwärts, um alle Spalten zu sehen.",
+    legend:
+      "Jede Zeile fasst die Angaben aus dem zugehörigen Abschnitt weiter unten zusammen; dort verweist jede Angabe auf ihre Quelle. Ein Strich bedeutet, dass die für diese Seite geprüften Quellen den Punkt nicht abdecken, nicht dass er dem Produkt fehlt.",
+    differs: "Wo sich Kitewell unterscheidet",
+    instead: (name: string) => `Wann Sie besser ${name} wählen`,
+    short: "Wo Kitewell an Grenzen stößt",
+    shortLead: "Wo ein anderes Werkzeug Ihnen besser dienen kann oder wo Kitewell heute Grenzen hat.",
+    more: "Details →",
+    method: "Wie diese Angaben geprüft wurden",
+    methodText: [
+      "Jede Angabe zu einem anderen Produkt verlinkt die Seite, aus der sie stammt, meist die Dokumentation, Preisseite oder Ankündigung des Anbieters selbst, und nennt das Datum, an dem diese Seite zur Bestätigung geöffnet wurde. Bei Zahlen aus Presseberichten und Umfragen ist angegeben, wer sie veröffentlicht hat. Produkte ändern sich schnell; prüfen Sie daher die verlinkte Seite, bevor Sie entscheiden.",
+      "Was diese Seite über Kitewell sagt, folgt der Dokumentation und der veröffentlichten App. Produktnamen sind Marken ihrer jeweiligen Inhaber.",
+    ],
+    corrections: ["Ist etwas veraltet oder falsch? Schreiben Sie an ", ", dann wird es korrigiert."],
   },
 }[locale];
 const say = (value: Text) => (typeof value === "string" ? value : value[locale]);

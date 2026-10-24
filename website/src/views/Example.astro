@@ -51,6 +51,74 @@ const text = {
     more: "ほかの作業",
     stop: "。",
   },
+  zh: {
+    back: "← 全部任务",
+    now: "现在的做法",
+    tell: "对 Kitewell 说一次",
+    you: "你",
+    tellNote: "设置就这么多。Kitewell 会列出每一步供你检查，在你应用之前不会保存任何内容。",
+    yours: "想做你自己的版本，就复制下面这段话，填好空白处：",
+    copy: "复制此请求",
+    copied: "已复制",
+    run: "之后它会自动运行",
+    after: "取而代之的是",
+    good: "须知",
+    needs: "所需条件",
+    awake: "运行时，你的电脑需要开机且未进入睡眠。睡眠期间错过的运行会在电脑唤醒时开始，默认限 24 小时以内。",
+    more: "更多任务",
+    stop: "。",
+  },
+  ko: {
+    back: "← 모든 업무",
+    now: "지금은 이렇게 합니다",
+    tell: "Kitewell에 한 번만 말하기",
+    you: "나",
+    tellNote: "설정은 이것으로 끝입니다. Kitewell이 모든 단계를 펼쳐 보여 주니 확인하세요. 적용하기 전에는 아무것도 저장되지 않습니다.",
+    yours: "내 업무에 맞게 쓰려면 이 문장을 복사해 빈칸을 채우세요.",
+    copy: "이 요청 복사",
+    copied: "복사됨",
+    run: "그다음은 저절로 실행됩니다",
+    after: "대신 받게 되는 것",
+    good: "알아 두면 좋은 점",
+    needs: "필요한 것",
+    awake: "실행될 때 컴퓨터가 켜져 있고 절전 상태가 아니어야 합니다. 절전 중에 놓친 실행은 컴퓨터가 깨어나면 시작되며, 기본값은 24시간 이내입니다.",
+    more: "다른 업무",
+    stop: ". ",
+  },
+  fr: {
+    back: "← Toutes les tâches",
+    now: "Comment ça se passe aujourd’hui",
+    tell: "Dites-le une fois à Kitewell",
+    you: "Vous",
+    tellNote: "C’est toute la configuration. Kitewell détaille chaque étape pour que vous la vérifiiez, et rien n’est enregistré tant que vous ne l’appliquez pas.",
+    yours: "Pour votre propre version, copiez ce texte et complétez les blancs :",
+    copy: "Copier cette demande",
+    copied: "Copié",
+    run: "Ensuite, la tâche s’exécute toute seule",
+    after: "Ce que vous obtenez à la place",
+    good: "Bon à savoir",
+    needs: "Ce qu’il faut",
+    awake: "Votre ordinateur doit être allumé et sorti de veille au moment de l’exécution. Une exécution manquée pendant la veille démarre au réveil, dans un délai de 24 heures par défaut.",
+    more: "Autres tâches",
+    stop: ". ",
+  },
+  de: {
+    back: "← Alle Aufgaben",
+    now: "So läuft es heute",
+    tell: "Sagen Sie es Kitewell einmal",
+    you: "Sie",
+    tellNote: "Das ist die ganze Einrichtung. Kitewell legt jeden Schritt zur Prüfung vor, und nichts wird gespeichert, bevor Sie es übernehmen.",
+    yours: "Für Ihre eigene Version kopieren Sie diesen Text und füllen die Lücken aus:",
+    copy: "Diese Anfrage kopieren",
+    copied: "Kopiert",
+    run: "Dann läuft es von selbst",
+    after: "Was Sie stattdessen bekommen",
+    good: "Gut zu wissen",
+    needs: "Was es braucht",
+    awake: "Ihr Computer muss eingeschaltet und wach sein, wenn die Ausführung ansteht. Eine im Ruhezustand verpasste Ausführung startet beim Aufwachen, standardmäßig innerhalb von 24 Stunden.",
+    more: "Weitere Aufgaben",
+    stop: ". ",
+  },
 }[locale];
 const good = chore.scheduled ? [...copy.good, text.awake] : copy.good;
 // Search finds a chore by the job it automates; the page itself opens on the
@@ -171,7 +239,8 @@ const description = copy.title ? `${copy.title}${text.stop}${copy.chore}` : copy
     copyRequest?.addEventListener("click", async () => {
       const request = document.querySelector<HTMLElement>("[data-request]")!;
       try {
-        // Japanese text binds some spaces as no-break ones; a chat wants plain spaces.
+        // Japanese and French text bind some spaces as no-break ones; a chat
+        // wants plain spaces.
         await navigator.clipboard.writeText(request.textContent!.replaceAll("\u00a0", " "));
       } catch {
         // Without the clipboard, the request is selected for the person to copy.

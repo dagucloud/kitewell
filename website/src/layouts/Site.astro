@@ -37,6 +37,58 @@ const text = {
     footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ", "比較", "リリース"],
     fine: "",
   },
+  zh: {
+    description:
+      "电脑上的重复工作只需描述一次，Kitewell 的 AI 就会每天替你完成：它在你自己的电脑上操作网站和桌面应用，重复行之有效的点击；界面变化导致某次点击失效时，只修复那一次点击。",
+    skip: "跳到正文",
+    home: "Kitewell 首页",
+    nav: "主导航",
+    language: "语言",
+    links: ["示例", "编码智能体", "价格", "文档"],
+    tagline: "电脑上的重复工作，只需描述一次。AI 每天替你完成。",
+    social: "电脑上的重复工作，只需描述一次。AI 每天替你完成。Kitewell 在你的 Mac 或 PC 上重复行之有效的点击；界面变化导致某次点击失效时，只修复那一次点击。",
+    footer: ["文档", "第三方声明", "支持", "联系我们", "隐私政策", "使用条款", "社区", "对比", "版本发布"],
+    fine: "",
+  },
+  ko: {
+    description:
+      "컴퓨터 반복 업무를 한 번만 설명하면 Kitewell의 AI가 매일 처리합니다. 내 컴퓨터에서 웹사이트와 데스크톱 앱을 조작하고, 잘된 클릭을 반복하며, 화면이 바뀌어 막힌 클릭만 고칩니다.",
+    skip: "본문으로 건너뛰기",
+    home: "Kitewell 홈",
+    nav: "주 메뉴",
+    language: "언어",
+    links: ["예시", "코딩 에이전트", "요금", "문서"],
+    tagline: "컴퓨터 반복 업무, 한 번만 설명하세요. AI가 매일 처리합니다.",
+    social: "컴퓨터 반복 업무, 한 번만 설명하세요. AI가 매일 처리합니다. Kitewell은 Mac이나 PC에서 잘된 클릭을 반복하고, 화면이 바뀌어 막힌 클릭만 고칩니다.",
+    footer: ["문서", "제3자 고지", "지원", "문의", "개인정보 처리방침", "이용약관", "커뮤니티", "비교", "릴리스"],
+    fine: "",
+  },
+  fr: {
+    description:
+      "Décrivez une tâche sur ordinateur une seule fois, l’IA de Kitewell s’en charge chaque jour : elle utilise sites web et applications de bureau sur votre propre ordinateur, répète les clics qui ont fonctionné, et ne corrige que le clic qu’un écran modifié empêche d’aboutir.",
+    skip: "Aller au contenu",
+    home: "Accueil Kitewell",
+    nav: "Navigation principale",
+    language: "Langue",
+    links: ["Exemples", "Agents de code", "Tarifs", "Documentation"],
+    tagline: "Décrivez une tâche sur ordinateur, une seule fois. L’IA s’en charge chaque jour.",
+    social: "Décrivez une tâche sur ordinateur, une seule fois. L’IA s’en charge chaque jour. Kitewell répète les clics qui ont fonctionné, sur votre Mac ou votre PC, et ne corrige que le clic qu’un écran modifié empêche d’aboutir.",
+    footer: ["Documentation", "Mentions de tiers", "Assistance", "Contact", "Confidentialité", "Conditions", "Communauté", "Comparatif", "Versions"],
+    fine: "",
+  },
+  de: {
+    description:
+      "Beschreiben Sie eine Computeraufgabe nur einmal, und die KI von Kitewell erledigt sie jeden Tag. Kitewell bedient Websites und Desktop-Apps auf Ihrem eigenen Computer, wiederholt die Klicks, die funktioniert haben, und behebt nur den Klick, der nach einer Änderung am Bildschirm nicht mehr passt.",
+    skip: "Zum Inhalt springen",
+    home: "Kitewell-Startseite",
+    nav: "Hauptnavigation",
+    language: "Sprache",
+    links: ["Beispiele", "Coding-Agenten", "Preise", "Dokumentation"],
+    tagline: "Beschreiben Sie eine Computeraufgabe nur einmal. Die KI erledigt sie jeden Tag.",
+    social: "Beschreiben Sie eine Computeraufgabe nur einmal. Die KI erledigt sie jeden Tag. Kitewell wiederholt auf Ihrem Mac oder PC die Klicks, die funktioniert haben, und behebt nur den Klick, der nach einer Änderung am Bildschirm nicht mehr passt.",
+    footer: ["Dokumentation", "Hinweise zu Drittanbietern", "Support", "Kontakt", "Datenschutz", "Nutzungsbedingungen", "Community", "Vergleich", "Versionen"],
+    fine: "",
+  },
 }[locale];
 const { title, description = text.description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -56,6 +108,7 @@ const site = {
 // every download button shows the right label from the start.
 const platformScript = `document.documentElement.dataset.os = (${detectPlatform})({ userAgent: navigator.userAgent, uaPlatform: navigator.userAgentData ? navigator.userAgentData.platform : "", maxTouchPoints: navigator.maxTouchPoints }).os;`;
 const pages = counterparts(Astro.url.pathname);
+const versions = locales.filter((l) => pages?.[l]);
 const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href, i) => [
   localize(href, locale),
   text.links[i],
@@ -72,7 +125,7 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
     <link rel="canonical" href={canonical} />
     {pages && (
       <>
-        {locales.map((l) => <link rel="alternate" hreflang={languages[l].lang} href={new URL(pages[l], Astro.site)} />)}
+        {versions.map((l) => <link rel="alternate" hreflang={languages[l].lang} href={new URL(pages[l], Astro.site)} />)}
         <link rel="alternate" hreflang="x-default" href={new URL(pages.en, Astro.site)} />
       </>
     )}
@@ -120,7 +173,7 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
               {languages[locale].label}
             </summary>
             <ul>
-              {locales.map((l) => (
+              {versions.map((l) => (
                 <li>
                   <a href={pages[l]} lang={languages[l].lang} hreflang={languages[l].lang} aria-current={l === locale ? "true" : undefined}>
                     {languages[l].label}

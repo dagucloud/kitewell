@@ -13,6 +13,10 @@ const { locale, title, steps } = Astro.props;
 const text = {
   en: { where: "Running on this computer", waits: "Waits for you", done: "Done" },
   ja: { where: "このコンピューターで実行中", waits: "あなたを待つ", done: "完了" },
+  zh: { where: "正在这台电脑上运行", waits: "等待你处理", done: "完成" },
+  ko: { where: "이 컴퓨터에서 실행 중", waits: "확인 대기", done: "완료" },
+  fr: { where: "En cours sur cet ordinateur", waits: "En attente de vous", done: "Terminé" },
+  de: { where: "Läuft auf diesem Computer", waits: "Wartet auf Sie", done: "Fertig" },
 }[locale];
 ---
 

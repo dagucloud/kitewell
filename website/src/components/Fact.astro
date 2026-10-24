@@ -4,11 +4,9 @@ import type { Locale } from "../lib/i18n.mjs";
 // that page was checked.
 interface Props {
   locale: Locale;
-  fact: {
-    en: string;
-    ja: string;
+  fact: Record<Locale, string> & {
     source: string;
-    via: string | { en: string; ja: string };
+    via: string | Record<Locale, string>;
     checked: string;
   };
 }
@@ -16,6 +14,10 @@ const { locale, fact } = Astro.props;
 const text = {
   en: { source: "Source: ", checked: "checked" },
   ja: { source: "出典：", checked: "確認日" },
+  zh: { source: "来源：", checked: "核实于" },
+  ko: { source: "출처: ", checked: "확인일" },
+  fr: { source: "Source : ", checked: "vérifié le" },
+  de: { source: "Quelle: ", checked: "geprüft am" },
 }[locale];
 const via = typeof fact.via === "string" ? fact.via : fact.via[locale];
 ---

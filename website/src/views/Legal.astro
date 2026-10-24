@@ -11,7 +11,7 @@ const documents = import.meta.glob<{
   Content: astroHTML.JSX.Element;
 }>("../legal/*/*.md", { eager: true });
 const { frontmatter, Content } = documents[`../legal/${locale}/${document}.md`];
-const updatedLabel = { en: "Last updated", ja: "最終更新日" }[locale];
+const updatedLabel = { en: "Last updated", ja: "最終更新日", zh: "最后更新", ko: "최종 업데이트", fr: "Dernière mise à jour", de: "Zuletzt aktualisiert" }[locale];
 const updated = new Intl.DateTimeFormat(languages[locale].format, {
   dateStyle: "long",
   timeZone: "UTC",

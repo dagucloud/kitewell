@@ -21,6 +21,42 @@ const WORDS = {
     mark: "処理済みにする",
     note: "このステップを、メールごとに必要な作業に置き換えてください",
   },
+  zh: {
+    job: "客服请求受理（email 文档）",
+    description: "查找未读的请求，并逐一标记为已处理。",
+    find: "查找新请求",
+    each: "逐一处理请求",
+    handle: "转为工单",
+    mark: "标记为已处理",
+    note: "请将此步骤替换为每封邮件所需的处理",
+  },
+  ko: {
+    job: "문의 접수(email 문서)",
+    description: "읽지 않은 문의를 찾아 하나씩 처리 완료로 표시합니다.",
+    find: "새 문의 찾기",
+    each: "문의를 하나씩 처리하기",
+    handle: "티켓으로 만들기",
+    mark: "처리 완료로 표시하기",
+    note: "이 단계를 각 메일에 필요한 작업으로 바꾸세요",
+  },
+  fr: {
+    job: "Réception des demandes (doc email)",
+    description: "Trouve les demandes non lues et marque chacune comme traitée.",
+    find: "Trouver les nouvelles demandes",
+    each: "Traiter chaque demande",
+    handle: "En faire un ticket",
+    mark: "La marquer comme traitée",
+    note: "Remplacez cette étape par le travail que demande chaque e-mail",
+  },
+  de: {
+    job: "Support-Eingang (E-Mail-Doku)",
+    description: "Sucht ungelesene Anfragen und markiert jede als erledigt.",
+    find: "Neue Anfragen suchen",
+    each: "Jede Anfrage bearbeiten",
+    handle: "Als Ticket anlegen",
+    mark: "Als erledigt markieren",
+    note: "Ersetzen Sie diesen Schritt durch die Arbeit, die jede E-Mail braucht",
+  },
 };
 
 const MAILBOX = "me@example.com";

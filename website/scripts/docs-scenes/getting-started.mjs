@@ -6,6 +6,10 @@
 const words = {
   en: { workflow: "Morning check-in" },
   ja: { workflow: "朝のチェック" },
+  zh: { workflow: "早间检查" },
+  ko: { workflow: "아침 점검" },
+  fr: { workflow: "Point du matin" },
+  de: { workflow: "Morgen-Check" },
 };
 
 export const scenes = [

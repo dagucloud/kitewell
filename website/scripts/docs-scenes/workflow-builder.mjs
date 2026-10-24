@@ -23,6 +23,42 @@ const EXTRA = {
     wrote: "連絡文を作成しました",
     sent: "チームに連絡を送りました",
   },
+  zh: {
+    name: "每周小结（builder 文档）",
+    description: "发给团队的简短通知，标题注明对应的周。",
+    title: "对应的周",
+    hint: "显示在通知的开头。",
+    week: "10 月 5 日当周",
+    wrote: "已写好通知",
+    sent: "已将通知发送给团队",
+  },
+  ko: {
+    name: "주간 요약(builder 문서)",
+    description: "제목에 해당 주를 넣어 팀에 보내는 짧은 공지입니다.",
+    title: "대상 주간",
+    hint: "공지 맨 위에 표시됩니다.",
+    week: "10월 5일 주간",
+    wrote: "공지를 작성했습니다",
+    sent: "팀에 공지를 보냈습니다",
+  },
+  fr: {
+    name: "Résumé hebdomadaire (doc builder)",
+    description: "Un court message à mon équipe, avec la semaine dans le titre.",
+    title: "Semaine concernée",
+    hint: "Affichée en tête du message.",
+    week: "semaine du 5 octobre",
+    wrote: "Message rédigé",
+    sent: "Message envoyé à mon équipe",
+  },
+  de: {
+    name: "Wochenzusammenfassung (Editor-Doku)",
+    description: "Eine kurze Notiz an das Team, mit der Woche im Titel.",
+    title: "Betreffende Woche",
+    hint: "Wird oben in der Notiz angezeigt.",
+    week: "Woche vom 5. Oktober",
+    wrote: "Notiz geschrieben",
+    sent: "Notiz an das Team gesendet",
+  },
 };
 
 const spec = (e) => `type: graph

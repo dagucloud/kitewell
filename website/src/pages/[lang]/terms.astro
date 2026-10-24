@@ -2,7 +2,7 @@
 import Legal from "../../views/Legal.astro";
 import { translations } from "../../lib/i18n.mjs";
 
-export const getStaticPaths = translations;
+export const getStaticPaths = () => translations(true);
 const { locale } = Astro.props;
 ---
 
