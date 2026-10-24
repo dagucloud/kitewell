@@ -65,6 +65,11 @@
 .home .intro.split h1 {
   font-size: clamp(36px, 4.4vw, 58px);
 }
+/* French and German run longer than English, so their headline sets a
+   size smaller to keep to four lines. */
+:is(:lang(fr), :lang(de)) .home .intro.split h1 {
+  font-size: clamp(32px, 3.7vw, 50px);
+}
 :is(:lang(ja), :lang(zh), :lang(ko)) .home .intro.split h1 {
   font-size: clamp(30px, 3.4vw, 46px);
 }

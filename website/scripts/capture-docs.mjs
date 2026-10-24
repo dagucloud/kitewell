@@ -184,6 +184,19 @@ function helpers({ page, base, lang, dataDir, out }) {
   // thing on screen, when the app is showing.
   const content = async () => {
     const { width, height } = page.viewportSize();
+    // An open dialog is the picture, whole, with a margin of the page
+    // around it; the sidebar's edge would cut through it.
+    const dialog = await page
+      .evaluate(() => {
+        const box = document.querySelector("dialog[open]")?.getBoundingClientRect();
+        return box && box.width > 0 ? { x: box.left, y: box.top, right: box.right, bottom: box.bottom } : null;
+      })
+      .catch(() => null);
+    if (dialog) {
+      const x = Math.max(0, Math.floor(dialog.x - 16));
+      const y = Math.max(0, Math.floor(dialog.y - 16));
+      return { x, y, width: Math.min(width, Math.ceil(dialog.right + 16)) - x, height: Math.min(height, Math.ceil(dialog.bottom + 16)) - y };
+    }
     const edges = await page
       .evaluate(({ height }) => {
         const left = Math.round(document.querySelector(".sidebar")?.getBoundingClientRect().right || 0);

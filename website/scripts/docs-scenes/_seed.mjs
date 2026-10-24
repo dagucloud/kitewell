@@ -283,20 +283,32 @@ export async function seed({ page, base, lang, dataDir, t, api, until }) {
   // the data folder, since connecting one for real asks a live server. The
   // password is sealed under the device's mail key, as the app seals every
   // mailbox credential; a record it cannot open is refused, not listed.
+  // The service keeps its own mail key sealed, and takes up a key left in the
+  // clear when it has none sealed; so the key the mailbox is sealed under here
+  // replaces any it sealed before. Once it has taken the key up, the record
+  // already opens and is left alone.
   if (dataDir) {
-    const seal = mailSealer(dataDir);
     const file = path.join(dataDir, "device", project.id, "mail.json");
-    if (!fs.existsSync(file)) {
-      fs.mkdirSync(path.dirname(file), { recursive: true });
-      fs.writeFileSync(
-        file,
-        JSON.stringify({ [w.mailbox]: { provider: "imap", imap: { host: "imap.example.com", port: 993, security: "tls" }, smtp: { host: "smtp.example.com", port: 465, security: "tls" }, password: seal.seal("demo"), state: "connected", connectedAt: new Date().toISOString() } }),
-        { mode: 0o600 },
-      );
-    } else {
-      seal.repair(file);
+    if (!fs.existsSync(file) || fs.existsSync(path.join(dataDir, "mail.key"))) {
+      const seal = mailSealer(dataDir);
+      if (!fs.existsSync(file)) {
+        fs.mkdirSync(path.dirname(file), { recursive: true });
+        fs.writeFileSync(
+          file,
+          JSON.stringify({ [w.mailbox]: { provider: "imap", imap: { host: "imap.example.com", port: 993, security: "tls" }, smtp: { host: "smtp.example.com", port: 465, security: "tls" }, password: seal.seal("demo"), state: "connected", connectedAt: new Date().toISOString() } }),
+          { mode: 0o600 },
+        );
+      } else {
+        seal.repair(file);
+      }
+      fs.rmSync(path.join(dataDir, "mail.key.sealed"), { force: true });
     }
   }
+  // The service words its own notices in the language the chat last named,
+  // and a fresh one has heard none. The project's engine runs the seeded
+  // runs; a fresh service leaves it stopped.
+  await api("/assistant/presence", { method: "POST", body: JSON.stringify({ visible: false, focused: false, language: lang }) });
+  await api(`/projects/${project.id}/engine/start`, { method: "POST" });
   const jobs = (await api("/jobs")).body ?? [];
   const byName = (name) => jobs.find((j) => j.name === name);
   const s = specs(w);

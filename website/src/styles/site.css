@@ -79,6 +79,7 @@ h3 {
 }
 :lang(de) :is(h1, h2, h3) {
   hyphens: auto;
+  hyphenate-limit-chars: 10 4 4;
 }
 .phrases {
   word-break: keep-all;
@@ -805,7 +806,10 @@ code {
   .wrap {
     width: calc(100% - 36px);
   }
+  /* The navigation takes a row of its own, and a second in languages
+     whose labels run long, so the header grows with it. */
   .header {
+    height: auto;
     gap: 15px;
     flex-wrap: wrap;
     padding-block: 19px;

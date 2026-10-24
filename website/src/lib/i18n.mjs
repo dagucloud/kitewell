@@ -4,7 +4,7 @@
 // whichever language links to it.
 
 /** @typedef {(typeof locales)[number]} Locale */
-export const locales = /** @type {const} */ (["en", "ja"]);
+export const locales = /** @type {const} */ (["en", "ja", "zh", "ko", "fr", "de"]);
 // How each language names itself, tags its pages, and writes dates and
 // numbers, as the app does.
 export const languages = {
@@ -52,12 +52,18 @@ export function counterparts(pathname) {
   return versions.length > 1 ? Object.fromEntries(versions.map((l) => [l, localize(english, l)])) : null;
 }
 
-// translations is the static paths of a page's versions under /LANG/; a
-// legal page has fewer.
-export function translations(legal = false) {
-  return locales
-    .filter((locale) => locale !== "en" && (!legal || legalLocales.includes(locale)))
-    .map((locale) => ({ params: { lang: locale }, props: { locale } }));
+// translations is the static paths of a page's versions under /LANG/.
+export function translations() {
+  return pathsFor(locales.filter((locale) => locale !== "en"));
+}
+
+// legalTranslations is the same for the terms and the privacy policy.
+export function legalTranslations() {
+  return pathsFor(locales.filter((locale) => locale !== "en" && legalLocales.includes(locale)));
+}
+
+function pathsFor(versions) {
+  return versions.map((locale) => ({ params: { lang: locale }, props: { locale } }));
 }
 
 // recording is the language of the videos and stills a page in locale shows.
