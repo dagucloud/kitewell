@@ -106,7 +106,7 @@ Webhook のトークンはハッシュだけが保存されます。リレー自
 
 エンジンの確認は `api.github.com` から `dagucloud/dagu` の最新リリースを読み、ダウンロードはそのリポジトリの GitHub のリリースファイルから行われます。
 
-Kitewell アプリはビルド時に指定された HTTPS のアドレスからマニフェストを読み、インストーラーを実行する前に SHA-256 を検証します。Windows の **Install WebView2** は、Microsoft 自身のブートストラッパーを `go.microsoft.com` から取得し、Microsoft の署名を確認してから実行します。
+Kitewell アプリはビルド時に指定された HTTPS のアドレスからマニフェストを読み、インストーラーを実行する前に SHA-256 を検証します。Windows の **WebView2 をインストール** は、Microsoft 自身のブートストラッパーを `go.microsoft.com` から取得し、Microsoft の署名を確認してから実行します。
 
 ### 保存時の暗号化
 

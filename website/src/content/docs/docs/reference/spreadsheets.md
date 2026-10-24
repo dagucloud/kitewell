@@ -50,11 +50,13 @@ are added. **Run at** is written as `2026-10-01 09:30`.
 
 The words follow the language of the workbook's own headers: a sheet whose
 headers are in Japanese gets 状態, エラー, 実行日時 and 済 / 一部失敗 / 失敗 /
-中止 / 却下.
+中止 / 却下, and Chinese and Korean headers get the same words in Chinese and
+Korean. Headers in kanji alone count as Chinese only when you read Kitewell in
+Chinese. Any other headers get the English words.
 
 If Excel was closed without saving and left its lock file behind,
-**It isn't open** clears it. A Japanese file name gets `(結果)` rather than
-`(results)` on a copy.
+**It isn't open** clears it. A copy is named in the language of the file's
+name the same way: `(結果)`, `(结果)`, or `(결과)` rather than `(results)`.
 
 **Undo** refuses if you have edited the workbook since the write, rather than
 discard your edits, and leaves the current file beside itself as

@@ -15,7 +15,7 @@ or from the tray menu on Windows. That stops every project engine with it.
 
 ## On a Mac
 
-1. Turn off **Start at login** in the menu bar menu, so nothing tries to open
+1. Turn off **Open at Login** in the menu bar menu, so nothing tries to open
    Kitewell at the next login. If Kitewell is already gone, remove it under
    **System Settings → General → Login Items** instead. The wording there
    varies by macOS version.

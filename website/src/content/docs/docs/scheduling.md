@@ -62,8 +62,8 @@ the password for the sign-in itself; the card says so and asks.
 ## Keep Kitewell running
 
 Closing the window stops nothing: Kitewell stays in the menu bar on a Mac and
-in the notification area on Windows. **Start at login** opens it when you
-sign in. **Quit Kitewell** stops the engines on a Mac; on Windows with the
+in the notification area on Windows. **Open at Login** on a Mac and
+**Start at login** on Windows open it when you sign in. **Quit Kitewell** stops the engines on a Mac; on Windows with the
 service on, the engine keeps running without the window.
 
 ## Sleep, and the runs that were missed

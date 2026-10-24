@@ -31,7 +31,7 @@ tool. Install those later, only if a workflow of yours uses them.
    to start. To use your own AI key, or no AI, choose **Start on this
    device** instead.
 
-Kitewell turns on **Start at login** the first time it runs, so your schedules
+Kitewell turns on **Open at Login** the first time it runs, so your schedules
 keep running after you restart the Mac. Turn it off in the menu bar menu
 whenever you like.
 

@@ -54,7 +54,8 @@ within about half a minute. **Write results now** does not wait.
 | One per result | A value the run produced, such as a receipt number |
 
 A workbook with Japanese headers gets Japanese words: 状態, エラー, 実行日時,
-and 済 for Done.
+and 済 for Done. Chinese and Korean headers get Chinese and Korean words the
+same way.
 
 ## If the file is open in Excel
 
