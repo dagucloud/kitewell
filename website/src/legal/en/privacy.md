@@ -138,16 +138,20 @@ part describes how Kitewell handles the data it receives from Google Calendar,
 which is Google user data received through Google APIs.
 
 **What Kitewell requests.** When you connect Google Calendar, Kitewell asks
-Google for your email address (`openid`, `email`) and for permission to see
-your calendars (`https://www.googleapis.com/auth/calendar.readonly`). This
-permission lets Kitewell read the calendars your Google account can open and
-their events. It does not let Kitewell create, change, or delete events or
-calendars, and Kitewell asks for nothing more.
+Google for your email address (`openid`, `email`), for the list of calendars
+you are subscribed to
+(`https://www.googleapis.com/auth/calendar.calendarlist.readonly`), for when
+you are busy on the calendars you can open
+(`https://www.googleapis.com/auth/calendar.events.freebusy`), and, once Google
+has approved it for Kitewell, for permission to view your events
+(`https://www.googleapis.com/auth/calendar.events.readonly`). These
+permissions do not let Kitewell create, change, or delete events or calendars,
+and Kitewell asks for nothing more.
 
 **How Kitewell uses it.** Kitewell uses your email address to show which
 Google account a connection signed in as. It uses calendar access only to do
 what you ask in Kitewell: run the Google Calendar steps in your workflows,
-which list calendars, list and read events, and find busy times.
+which list calendars, find busy times, and list and read events.
 
 **Where it is stored.** Your sign-in token is stored only on your device,
 encrypted with AES-256-GCM under a key that never leaves it, and is handed to
