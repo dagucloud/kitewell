@@ -1,12 +1,12 @@
 ---
 title: プライバシーポリシー
-description: Kitewell でのデータの扱い。ワークフロー、実行履歴、認証情報、接続したメールボックスは、お使いの端末に残ります。
-updated: 2026-10-16
+description: Kitewell でのデータの扱い。ワークフロー、実行履歴、認証情報、接続したメールボックスとカレンダーは、お使いの端末に残ります。
+updated: 2026-10-25
 ---
 
 Descarty株式会社（以下「当社」）は、Kitewell を提供しています。本ポリシーは、Kitewell のアプリと kitewell.app のウェブサイトが扱う情報、その送り先、当社が受け取る情報について説明します。
 
-要点：Kitewell はお使いの端末で動きます。ワークフロー、実行履歴、ログ、認証情報、接続したメールボックスは端末に残り、当社は受け取りません。プロジェクトを同期した場合は、その定義と実行のステータスが、当社が運営する Dagu Cloud に送られます（第 4 項）。ChatGPT や Claude を接続した場合、それらが Kitewell のツールで読む内容は当社のリレーを通過しますが、保存されません。Webhook をオンにした場合、ほかのサービスが送ったリクエストは、端末が受け取るまで最大 7 日間、当社のリレーで待ちます。
+要点：Kitewell はお使いの端末で動きます。ワークフロー、実行履歴、ログ、認証情報、接続したメールボックスとカレンダーは端末に残り、当社は受け取りません。プロジェクトを同期した場合は、その定義と実行のステータスが、当社が運営する Dagu Cloud に送られます（第 4 項）。ChatGPT や Claude を接続した場合、それらが Kitewell のツールで読む内容は当社のリレーを通過しますが、保存されません。Webhook をオンにした場合、ほかのサービスが送ったリクエストは、端末が受け取るまで最大 7 日間、当社のリレーで待ちます。
 
 ## 1. 端末に残るデータ
 
@@ -18,7 +18,7 @@ Kitewell は、ワークフローの定義、実行の記録、ログ、出力�
 
 ワークフローは、お客様が設定した接続先にデータを送ります。AI の提供者、API、コマンドラインのエージェント、コンテナ、SSH サーバー、メールサーバー、Slack、Microsoft Teams などです。プロンプト、文脈、ファイル、出力は、ワークフローの定めに従ってこれらの接続先に送られます。送られたデータは、各接続先の規約とプライバシーポリシーに従って扱われます。
 
-## 3. 接続したメールボックス（Gmail、Microsoft 365、IMAP）
+## 3. 接続したメールボックスとカレンダー（Gmail、Microsoft 365、IMAP、Google カレンダー）
 
 メールボックスを接続すると、ワークフローでメールを探し、読み、整理し、送信できます。この項では、Google API を通じて受け取るデータを含め、メールボックスから受け取るデータの扱いを説明します。
 
@@ -49,7 +49,27 @@ Kitewell は、ワークフローの定義、実行の記録、ログ、出力�
 
 **Limited Use**　Kitewell's use and transfer of information received from Google APIs to any other app will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.（Google API から受け取った情報の Kitewell による利用と他のアプリへの転送は、Limited Use の要件を含む Google API サービスのユーザーデータに関するポリシーに従います。）
 
-**接続の解除**　Kitewell でメールボックスの接続を解除すると、端末からトークンを削除します。同じ端末のほかのプロジェクトがそのメールボックスを使っていなければ、Google アカウントへの Kitewell のアクセスも取り消します。取り消すと、そのアカウントの Kitewell のアクセスはすべての端末で終わります。[Google アカウントの権限のページ](https://myaccount.google.com/permissions)からも、いつでもアクセスを削除できます。Microsoft の場合は、アカウントのアプリの権限から削除できます。
+**接続の解除**　Kitewell でメールボックスの接続を解除すると、端末からトークンを削除します。同じ端末のほかのプロジェクトがそのメールボックスを使っておらず、同じアカウントの Google カレンダーも接続されていなければ、Google アカウントへの Kitewell のアクセスも取り消します。取り消すと、そのアカウントの Kitewell のアクセスはすべての端末で終わります。[Google アカウントの権限のページ](https://myaccount.google.com/permissions)からも、いつでもアクセスを削除できます。Microsoft の場合は、アカウントのアプリの権限から削除できます。
+
+### Google カレンダー
+
+Google カレンダーを接続すると、ワークフローでその予定を読めます。ここでは、Google API を通じて受け取る Google ユーザーデータである、Google カレンダーから受け取るデータの扱いを説明します。
+
+**求める権限**　Google カレンダーを接続するとき、Kitewell は Google に、メールアドレス（`openid`、`email`）と、カレンダーを見る権限（`https://www.googleapis.com/auth/calendar.readonly`）を求めます。この権限では、Google アカウントで開けるカレンダーとその予定を読めますが、予定やカレンダーの作成、変更、削除はできません。Kitewell がこれ以外の権限を求めることはありません。
+
+**使い道**　メールアドレスは、接続がどの Google アカウントでサインインしたかを表示するために使います。カレンダーへのアクセスは、お客様が Kitewell で指示したことにだけ使います。ワークフローの Google カレンダーのステップ（カレンダーの一覧、予定の一覧と読み取り、予定のある時間の確認）です。
+
+**保存場所**　サインインのトークンは、端末にだけ保存します。端末の外に出ない鍵を使い AES-256-GCM で暗号化し、ステップを実行するときに端末上のワークフローエンジンに渡します。ワークフローが読んだ予定は、実行の出力とログとして端末に保存され、実行の保存期間に従います。トークンが、ワークフローのファイル、ログ、バックアップ、エクスポート、Dagu Cloud に入ることはありません。
+
+**受け取る者**　当社は、Google ユーザーデータを含むカレンダーのデータを、販売、共有、転送、開示しません。保存のために当社に送られることはなく、当社の者が読むこともできません。データが端末の外に出るのは、上記のメールボックスのデータと同じ場合（ワークフローの送り先、接続した AI アプリ、MCP イベント）だけで、いずれもお客様の指示によります。
+
+**保護の方法**　上記のメールボックスと同じです。Google との通信は HTTPS で暗号化し、保存時も暗号化します。サインインはお客様のブラウザで、PKCE と 1 回限りの state 値を使う OAuth 2.0 で行います。リモートアクセスは制限され、ログと実行の出力ではトークンを伏せ字にします。
+
+**行わないこと**　Kitewell は、カレンダーのデータを広告に使わず、販売せず、AI や機械学習のモデルの開発、改善、学習に使いません。当社の者が予定を読むこともありません。
+
+**Limited Use**　Kitewell's use and transfer of information received from Google APIs to any other app will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.（Google API から受け取った情報の Kitewell による利用と他のアプリへの転送は、Limited Use の要件を含む Google API サービスのユーザーデータに関するポリシーに従います。）
+
+**接続の解除**　Kitewell の API ライブラリで Google カレンダーの接続を解除すると、端末からトークンを削除します。同じ Google アカウントで接続したメールボックスも終わってしまうため、Google での許可は取り消しません。[Google アカウントの権限のページ](https://myaccount.google.com/permissions)から、いつでも Kitewell のアクセスを削除できます。
 
 ## 4. Dagu Cloud のアカウントとプロジェクトの同期
 

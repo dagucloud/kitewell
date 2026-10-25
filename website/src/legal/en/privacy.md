@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
-description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes stay on your device.
-updated: 2026-10-16
+description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes and calendars stay on your device.
+updated: 2026-10-25
 ---
 
 Descarty, Inc. ("Descarty", "we") publishes Kitewell. This policy explains what
@@ -9,7 +9,8 @@ information the Kitewell application and the kitewell.app website handle, where
 it goes, and what we receive.
 
 The short version: Kitewell runs on your device. Your workflows, run history,
-logs, credentials, and connected mailboxes stay there. We do not receive them.
+logs, credentials, and connected mailboxes and calendars stay there. We do not
+receive them.
 If you sync a project, its definitions and the status of its runs go to Dagu
 Cloud, which we run (section 4).
 If you connect ChatGPT or Claude, what it reads through Kitewell's tools
@@ -39,7 +40,7 @@ Microsoft Teams. Prompts, context, files, and output may be sent to those
 destinations as your workflows define. Each destination handles that data under
 its own terms and privacy policy.
 
-## 3. Connected mailboxes (Gmail, Microsoft 365, and IMAP)
+## 3. Connected mailboxes and calendars (Gmail, Microsoft 365, IMAP, and Google Calendar)
 
 You can connect a mailbox so your workflows can find, read, organize, and send
 email in it. This section describes how Kitewell handles the data it receives
@@ -123,11 +124,63 @@ including the Limited Use requirements.
 
 **Disconnecting.** Disconnecting a mailbox in Kitewell deletes its token from
 your device. Kitewell then revokes its access to your Google account, unless
-another project on the same device still uses that mailbox; revoking ends that
-account's Kitewell access on every device. You can also
+another project on the same device still uses that mailbox or a Google Calendar
+of the same account is connected; revoking ends that account's Kitewell access
+on every device. You can also
 remove access at any time from your
 [Google Account permissions](https://myaccount.google.com/permissions) page or,
 for Microsoft, from your account's app permissions.
+
+### Google Calendar
+
+You can connect a Google Calendar so your workflows can read its events. This
+part describes how Kitewell handles the data it receives from Google Calendar,
+which is Google user data received through Google APIs.
+
+**What Kitewell requests.** When you connect Google Calendar, Kitewell asks
+Google for your email address (`openid`, `email`) and for permission to see
+your calendars (`https://www.googleapis.com/auth/calendar.readonly`). This
+permission lets Kitewell read the calendars your Google account can open and
+their events. It does not let Kitewell create, change, or delete events or
+calendars, and Kitewell asks for nothing more.
+
+**How Kitewell uses it.** Kitewell uses your email address to show which
+Google account a connection signed in as. It uses calendar access only to do
+what you ask in Kitewell: run the Google Calendar steps in your workflows,
+which list calendars, list and read events, and find busy times.
+
+**Where it is stored.** Your sign-in token is stored only on your device,
+encrypted with AES-256-GCM under a key that never leaves it, and is handed to
+the workflow engine on your device when a step runs. Events your workflows
+read are stored on your device in run output and logs, under the run's
+retention. Tokens never enter workflow files, logs, backups, exports, or Dagu
+Cloud.
+
+**Who receives it.** Descarty does not sell, share, transfer, or disclose data
+from your calendar, including Google user data, to anyone. None of it is sent
+to Descarty to be stored, and no one at Descarty can read it. It leaves your
+device only at your direction, in the same cases as mailbox data above:
+destinations your workflows send it to, an AI app you connect, and MCP Events.
+
+**How it is protected.** As for mailboxes above: HTTPS to Google, encryption
+at rest, sign-in in your own browser with OAuth 2.0, PKCE, and a one-time
+state value, access control for remote access, and tokens masked in logs and
+run output.
+
+**What Kitewell does not do.** Kitewell does not use data from your calendar
+for advertising, does not sell it, and does not use it to develop, improve, or
+train AI or machine learning models. No one at Descarty reads it.
+
+**Limited Use.** Kitewell's use and transfer of information received from
+Google APIs to any other app will adhere to the
+[Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy),
+including the Limited Use requirements.
+
+**Disconnecting.** Disconnecting Google Calendar in Kitewell's API library
+deletes its token from your device. Kitewell does not revoke the grant at
+Google, because that would also end your mailbox connections made with the
+same Google account; you can remove Kitewell's access at any time from your
+[Google Account permissions](https://myaccount.google.com/permissions) page.
 
 ## 4. Dagu Cloud account and project sync
 
