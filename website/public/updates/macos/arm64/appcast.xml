@@ -3,6 +3,19 @@
     <channel>
         <title>Kitewell</title>
         <item>
+            <title>0.19.0</title>
+            <pubDate>Sun, 25 Oct 2026 01:34:56 +0000</pubDate>
+            <sparkle:version>0.19.0</sparkle:version>
+            <sparkle:shortVersionString>0.19.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.19.0/Kitewell-0.19.0-arm64.tar.xz" length="59099796" type="application/octet-stream" sparkle:edSignature="/eoCJiYMor5JxeyMFFqOMhnioPRqwIvcRD1adV/UNh2REWSjxkfhGI6r/GFVFA5JL+iFQlAUOySwRZTIFX1GAA==" />
+            <sparkle:deltas>
+                <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.19.0/Kitewell-0.19.0-arm64-from-0.18.4.delta" sparkle:deltaFrom="0.18.4" length="3465018" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="DjLmTOMro+kdq/UtKAllup4OpqaG4xNAakRD80N7tq5uZEauaK3zV5QHAUBEjZ00t/xRe84zHPGwQK2G8toeDg==" />
+                <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.19.0/Kitewell-0.19.0-arm64-from-0.18.3.delta" sparkle:deltaFrom="0.18.3" length="11729946" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="QkoC2V7wZAyM3IbWYHUlFqCyvdk2beFPL545oGngQ6sDRCiN16AptpqRVsszd7ewjatSeVUBYkFmB2l0zWIiBg==" />
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.18.4</title>
             <pubDate>Thu, 22 Oct 2026 12:34:23 +0000</pubDate>
             <sparkle:version>0.18.4</sparkle:version>
@@ -10,10 +23,6 @@
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.18.4/Kitewell-0.18.4-arm64.tar.xz" length="58893576" type="application/octet-stream" sparkle:edSignature="KjqeVeP+aDQ/WEvzAePDVk1+dLp4yDBtUH0xRvrwu5PZl82fWeY3QNJqCpcft1yrq01ewDUyBEiQJmJrEArzAw==" />
-            <sparkle:deltas>
-                <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.18.4/Kitewell-0.18.4-arm64-from-0.18.3.delta" sparkle:deltaFrom="0.18.3" length="11333454" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Gc8usV7qKAeVR0mtuC7Do4Ii5YflN1GS6WXyLggzfvegK+60HV/owGnKqkRmG8mDqFjGIi7pURsQsAe0PMcoCA==" />
-                <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.18.4/Kitewell-0.18.4-arm64-from-0.18.2.delta" sparkle:deltaFrom="0.18.2" length="12132714" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="gHROUpsaDebz0jZbJeEjM9gEWW27cQk6Ta9DfJIhs017jAhT8g0LrllOPgz9eUt75Lp+limqaIba8t7j4qrZCw==" />
-            </sparkle:deltas>
         </item>
         <item>
             <title>0.18.3</title>
@@ -23,15 +32,6 @@
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.18.3/Kitewell-0.18.3-arm64.tar.xz" length="58397796" type="application/octet-stream" sparkle:edSignature="ew5BL7cFEU0xtVizk4zOiNOESMDy75rpMaRAesMdRBp2mpyR6NWOnJQAvv7z5IsYvi+PEEcHhXRkOqEy3ZJTDw==" />
-        </item>
-        <item>
-            <title>0.18.2</title>
-            <pubDate>Sun, 18 Oct 2026 13:46:06 +0000</pubDate>
-            <sparkle:version>0.18.2</sparkle:version>
-            <sparkle:shortVersionString>0.18.2</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.18.2/Kitewell-0.18.2-arm64.tar.xz" length="58276920" type="application/octet-stream" sparkle:edSignature="DyGXwnC20b2aE6FYGpRcgQHO9IAh8dnpQiHFkdafbYAK/x8vtlc+7aQEr27dylqtF/N1cOsaPNaVa/Yg3uatBQ==" />
         </item>
     </channel>
 </rss>
