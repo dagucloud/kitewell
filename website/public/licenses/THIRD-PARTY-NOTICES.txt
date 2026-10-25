@@ -31,6 +31,11 @@ The Mac app installs its updates with Sparkle 2.10.0, by the Sparkle Project,
 which includes bsdiff, sais-lite, and an Ed25519 implementation. Their notices
 are included in SPARKLE-LICENSE.txt.
 
+On Windows, the background service reads PDFs with PDFium, the PDF engine of
+the Chromium project, carried as WebAssembly, which builds in FreeType,
+libjpeg-turbo, OpenJPEG, Little-CMS, zlib, Anti-Grain Geometry, Abseil,
+fast_float, and ICU. Their notices are included in PDFIUM-LICENSE.txt.
+
 The Windows app runs on the .NET runtime with WPF and Windows Forms, shows its
 window through the Microsoft WebView2 SDK, and sends notifications through the
 Windows Community Toolkit. Their notices are included in WINDOWS-LICENSES.txt,
