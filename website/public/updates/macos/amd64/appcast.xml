@@ -3,16 +3,24 @@
     <channel>
         <title>Kitewell</title>
         <item>
+            <title>0.20.1</title>
+            <pubDate>Sun, 25 Oct 2026 15:55:13 +0000</pubDate>
+            <sparkle:version>0.20.1</sparkle:version>
+            <sparkle:shortVersionString>0.20.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.20.1/Kitewell-0.20.1-amd64.tar.xz" length="68161364" type="application/octet-stream" sparkle:edSignature="D6rWaQwKFdw4sLfpkKAR2Jd9NdwMLK8HdtKa0pWTUp9dlLtFebgJmaLCbkKki7P/mPrnWwjqMgnBVQDTo/v3Bw==" />
+            <sparkle:deltas>
+                <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.20.1/Kitewell-0.20.1-amd64-from-0.20.0.delta" sparkle:deltaFrom="0.20.0" length="2255794" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="LfPfOPMm2ib7oI6e2l9jKD62908ZiHUEq4iOnYe4F8dBqqzcgmJOQr7YF/mSlMPez5GaOpM3T64TNiQ/LwnrDg==" />
+                <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.20.1/Kitewell-0.20.1-amd64-from-0.19.0.delta" sparkle:deltaFrom="0.19.0" length="10328690" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="aIqCMNwp6jcvZ8Fmub5QHcZyDhx+rZ6vV2QSWDxVPZTO0UgG7V0CPZaG33RmESdO3iXVi+xA86tnfNvJCGWyCg==" />
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.20.0</title>
             <pubDate>Sun, 25 Oct 2026 14:55:14 +0000</pubDate>
             <sparkle:version>0.20.0</sparkle:version>
             <sparkle:shortVersionString>0.20.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.20.0/Kitewell-0.20.0-amd64.tar.xz" length="68158000" type="application/octet-stream" sparkle:edSignature="S4CBrlV7xRTAh4n1mcOCvqIyClzq6JDNhZQRAxDrlWzCGRpnBjmzUEVnLw6rb6Dc8pOYLyC5RzjjuIutgmgcBA==" />
-            <sparkle:deltas>
-                <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.20.0/Kitewell-0.20.0-amd64-from-0.19.0.delta" sparkle:deltaFrom="0.19.0" length="10235394" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="UKHSZrQW0SsveoY40A3G3QJoOCX5CIzYlBo8pCIfYAMOvgv/N8jCyvGbNtVxi8Z4vTwXLrv2sf62fc/hL/3yCg==" />
-                <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.20.0/Kitewell-0.20.0-amd64-from-0.18.4.delta" sparkle:deltaFrom="0.18.4" length="11679990" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="BToReETetYpwYKxhHkQbaLowSe3xQvStvdQxi3y8BojNlRHYe51EDAHUshq3ty49XhrjkJ0tJmWwmCSyNBbiCg==" />
-            </sparkle:deltas>
         </item>
         <item>
             <title>0.19.0</title>
@@ -21,14 +29,6 @@
             <sparkle:shortVersionString>0.19.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.19.0/Kitewell-0.19.0-amd64.tar.xz" length="68057988" type="application/octet-stream" sparkle:edSignature="JoLS8Q/SyLSVxxnoE0YpM4tDkPQyYIXxWgIfCUSGkWQNyJxXwa0qwUykb003pzbz5w0BHnjN9E3AcHfynbd/BA==" />
-        </item>
-        <item>
-            <title>0.18.4</title>
-            <pubDate>Thu, 22 Oct 2026 12:34:23 +0000</pubDate>
-            <sparkle:version>0.18.4</sparkle:version>
-            <sparkle:shortVersionString>0.18.4</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/dagucloud/kitewell/releases/download/v0.18.4/Kitewell-0.18.4-amd64.tar.xz" length="67817824" type="application/octet-stream" sparkle:edSignature="k8aJfCnBrQkB0QjX2Le7bJ4jAIuRR64hTpona6sS4VS99bUrtNE2Jc66T23VUf5M89FoWTx3fZ7B9QA1nKoTCQ==" />
         </item>
     </channel>
 </rss>
