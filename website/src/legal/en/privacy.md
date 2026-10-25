@@ -166,6 +166,17 @@ to Descarty to be stored, and no one at Descarty can read it. It leaves your
 device only at your direction, in the same cases as mailbox data above:
 destinations your workflows send it to, an AI app you connect, and MCP Events.
 
+**In a cloud session.** Kitewell Cloud and Kitehand run Kitewell for you in a
+session in Google Cloud, operated by Descarty, instead of on your device. There,
+your sign-in token and the events your workflows read are kept in that session
+and its storage, encrypted, in Google Cloud's Tokyo region (`asia-northeast1`),
+and you sign in to Google through Kitewell's web client, which returns to
+app.kitewell.app or app.kitehand.ai. A Kitehand assistant sends what it reads,
+which can include your events, to the AI model provider that answers it
+(OpenRouter and the model host it routes to) to do the work you asked for.
+Descarty's staff are not let into your session by the product; access through
+Google Cloud by those who operate it is not yet technically restricted.
+
 **How it is protected.** As for mailboxes above: HTTPS to Google, encryption
 at rest, sign-in in your own browser with OAuth 2.0, PKCE, and a one-time
 state value, access control for remote access, and tokens masked in logs and
