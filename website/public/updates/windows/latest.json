@@ -1,15 +1,15 @@
 {
-  "version": "0.20.1",
-  "published": "2026-10-26T00:57:20Z",
+  "version": "0.20.2",
+  "published": "2026-10-26T08:36:52Z",
   "rollout": {
-    "start": "2026-10-26T00:57:20Z",
+    "start": "2026-10-26T08:36:52Z",
     "hours": 48,
     "paused": false
   },
   "downloads": {
     "windows-amd64": {
-      "url": "https://github.com/dagucloud/kitewell/releases/download/v0.20.1/Kitewell-0.20.1-win-x64-Setup.exe",
-      "sha256": "ad95453365b5917e590d6768f5bc6ef093388bd71023c1da5579e2f4783c2061"
+      "url": "https://github.com/dagucloud/kitewell/releases/download/v0.20.2/Kitewell-0.20.2-win-x64-Setup.exe",
+      "sha256": "f36f066cbb5e19d94ed565a8a05c85f44aafd2526b46bb075025d7c8f55d2c6e"
     }
   }
 }
