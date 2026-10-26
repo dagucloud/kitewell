@@ -4,13 +4,14 @@
 .home .intro {
   padding-block: 88px 24px;
 }
+/* Each line of the headline stays on one row on a computer screen, so the
+   size follows its longest line, the second. */
 .home .intro h1 {
-  font-size: clamp(40px, 6.4vw, 84px);
+  font-size: clamp(36px, 5vw, 64px);
 }
-/* French and German run longer than English, so their headline sets a
-   size smaller. */
-:is(:lang(fr), :lang(de)) .home .intro h1 {
-  font-size: clamp(36px, 5.4vw, 72px);
+.home .intro h1 > span {
+  display: block;
+  text-wrap: balance;
 }
 :is(:lang(ja), :lang(zh), :lang(ko)) .home .intro h1 {
   font-size: clamp(32px, 4.8vw, 60px);

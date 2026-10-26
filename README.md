@@ -9,7 +9,7 @@
   </a>
 </p>
 
-<h1 align="center">AI builds the automation.<br>Your computer runs it.</h1>
+<h1 align="center">AI learns the job once.<br>Then it runs fast, without second-guessing.</h1>
 
 <p align="center">
   Describe the job, and AI builds the automation in a browser you can watch,
