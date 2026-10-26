@@ -328,6 +328,37 @@
   color: var(--muted);
 }
 
+.places {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 40px;
+  margin: 0;
+}
+.places div {
+  padding-block: 18px;
+  border-top: 1px solid var(--line);
+}
+.places dt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  font-weight: 650;
+}
+.places dd {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+/* What a place is not yet, or who it is for: plain words, no status dot. */
+.place-label {
+  padding: 1px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
 .finale {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -380,7 +411,8 @@
     grid-template-columns: 1fr;
     gap: 36px;
   }
-  .own-facts {
+  .own-facts,
+  .places {
     grid-template-columns: 1fr;
   }
 }
