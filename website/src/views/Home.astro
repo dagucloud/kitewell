@@ -6,83 +6,163 @@ import Clip from "../components/Clip.astro";
 import DownloadButton from "../components/DownloadButton.astro";
 import { readReleases } from "../lib/releases.mjs";
 import { descartyUrl } from "../lib/descarty.mjs";
-import { languages, localize, recording, type Locale } from "../lib/i18n.mjs";
+import { localize, recording, type Locale } from "../lib/i18n.mjs";
 import { choreBySlug } from "../lib/chores.mjs";
-import { hero, stills } from "../lib/hero.mjs";
-import { daguStars } from "../lib/proof.mjs";
+import { film } from "../lib/film.mjs";
+import { proofs } from "../lib/proof.mjs";
 import "../styles/home.css";
+import runEn from "../assets/docs/en/runs-run-view.png";
+import runJa from "../assets/docs/ja/runs-run-view.png";
+import runZh from "../assets/docs/zh/runs-run-view.png";
+import runKo from "../assets/docs/ko/runs-run-view.png";
+import runFr from "../assets/docs/fr/runs-run-view.png";
+import runDe from "../assets/docs/de/runs-run-view.png";
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
-const { macos } = await readReleases();
-// The figures beside the loop are the captured runs' own
-// (src/data/hero-runs.json); none is typed here.
-const run = hero[recording(locale)];
-const ai = (r: { withoutAI: { count: number; total: number } }) => r.withoutAI.total - r.withoutAI.count;
-const stars = daguStars.toLocaleString(languages[locale].format);
+// A release published for either system is enough to offer the download.
+const { macos, windows } = await readReleases();
+const release = macos ?? windows;
+const cut = film[locale];
+// The record in the browser block is a real English run, shown as
+// Kitewell shows it in each language: its own badges, the run's own words.
+const record = (labels: { open: string; act: string; check: string; collect: string; done: string; replayed: string; recovered: string }) => [
+  [labels.open, "127.0.0.1:4320/billing/invoices", [labels.done]],
+  [labels.act, "Type ops@example.com into the email field", [labels.replayed]],
+  [labels.act, "Type %password% into the password field", [labels.replayed]],
+  [labels.act, "Click Sign in", [labels.recovered]],
+  [labels.check, 'text "Invoices"', [labels.done]],
+  [labels.collect, "Every invoice issued since the last weekday", [labels.done]],
+];
 const text = {
   en: {
-    title: "AI browser and desktop automation that repeats, for Mac and Windows",
+    title: "AI builds the automation. Your computer runs it.",
     description:
-      "Describe a computer chore once and AI does it every day. Kitewell's AI does it once while you watch, then repeats the same clicks on your schedule; when a site changes, AI fixes just the step that broke. Free for up to 10 workflows on Mac and Windows.",
-    eyebrow: "Repeatable computer use on Mac and Windows",
-    heading: "Describe a computer chore once.\nAI does it every day.",
-    lead: "Type the chore in plain words. Kitewell's AI does it once in a browser or desktop app while you watch, then Kitewell repeats the same clicks on your schedule. When a site changes, AI fixes just the step that broke.",
-    offer: "Public beta for Mac and Windows. Free for up to 10 workflows, with AI included when you sign in for free. Kitewell Cloud, which runs with your computer closed, is coming soon.",
-    trust: `From the makers of Dagu, the open-source workflow engine with ${stars}+ GitHub stars`,
-    notarized: "Signed and notarized by Apple",
-    passwords: "Passwords stay on your computer, never shown to the AI",
-    loop: "Kitewell building a weekday invoice chore in its chat, then the runs after it: the next run repeats every click, the supplier's sign-in page changes and AI fixes just that click, and the new invoice lands in the spreadsheet.",
-    caption: "Real runs, sped up. The run records and the sheet show exactly what those runs recorded. Harbor Supply is a sample portal made for this demo.",
-    unedited: "Watch an unedited recording",
-    uneditedLabel: "The unedited recording of Kitewell's chat building the invoice workflow and its first run, sped up evenly.",
-    transcript: [
-      "The first time, AI does the job while you watch: it signs in to the supplier's portal in the chat's browser and reads the invoices.",
-      "Check it, then say go: the proposed workflow, weekdays at 9:00, is applied.",
-      "Every weekday at 9:00, it repeats what worked: the next run replays every click.",
-      "The site changed, and AI fixed just that click: the sign-in button moved, and only that click went back to AI.",
-      "Today's new invoice is in your sheet.",
+      "Kitewell's AI builds browser automation and fixes it when a site changes. It also runs desktop apps, Excel, email, and coding agents like Claude Code and Codex on your Mac or PC, on a schedule or a webhook, and you follow the runs from your phone. Free for up to 10 workflows.",
+    eyebrow: "AI + RPA",
+    version: release ? `Version ${release.version}` : "",
+    heading: "AI builds the automation.\nYour computer runs it.",
+    lead: "Describe the job, and AI builds the automation in a browser you can watch, then fixes it when the site changes. Desktop apps, Excel, email, and coding agents like Claude Code run the same way: on a schedule or a webhook, with your OK where it matters. Follow it from your phone, wherever you are.",
+    watch: `Watch the film (${cut.seconds} s)`,
+    setup: "Read the setup guide →",
+    platform: "Public beta for macOS 13+ and Windows 10+. Free for up to 10 workflows, with AI included when you sign in for free. Kitewell Cloud, which runs with your computer closed, is coming soon.",
+    proofTabs: ["Websites", "Coding agents"],
+    proof: [
+      "Real recording, sped up: Kitewell's chat is asked to add a supplier portal's new invoices to an Excel file every weekday. The AI opens the stand-in portal in a browser shown in the chat, has the person type the password into a card, signs in, tries its draft, and proposes the workflow. Once it is applied and run, the run waits with the invoices it found until a reply lets it add them to the workbook.",
+      "Real recording, sped up: Kitewell's chat is asked to have Claude Code fix a demo repository's failing tests every night and Codex review the change. The assistant proposes the workflow with its schedule and runs it; Claude Code fixes the test, Codex reviews it, and the run waits with their summary until a reply lets it commit the fix to a new local branch.",
     ],
-    examples: "Examples",
-    examplesTitle: "What do you still do by hand?",
-    examplesLink: "All examples →",
-    learns: "How it works",
-    learnsTitle: "Learns once. Repeats every day.",
-    learnsLead:
-      "An AI agent works the job out again on every run. A recorded macro repeats exactly, until a screen changes. Kitewell keeps what worked and asks AI only about what changed.",
-    beats: [
-      ["The first time, AI works it out", `First run with nothing recorded: ${run.cold.seconds} s`, `AI decided ${ai(run.cold)} of ${run.cold.withoutAI.total} operations`],
-      ["Every run after, it repeats them", `Next run: ${run.replayed.seconds} s`, `${run.replayed.withoutAI.count} of ${run.replayed.withoutAI.total} operations without AI`],
-      ["A site changes: AI fixes that click", `Fixed by AI: ${run.recovered.fixed}`, `${run.recovered.withoutAI.count} of ${run.recovered.withoutAI.total} operations without AI`],
+    proofNote: "Real recordings of Kitewell's chat window, unedited and sped up evenly: one request in plain words, then everything the AI and the app did. A stand-in supplier portal and a demo repository.",
+    how: "How it works",
+    steps: [
+      ["AI builds it", "Describe the job in plain words. The assistant lays out every step for you to check, works the site in a browser you can watch, and tries the draft without sending anything out. Nothing runs until you apply it."],
+      ["Your computer runs it", "On a schedule, from a webhook, or from your phone. It stops for your OK wherever you put a gate."],
+      ["AI maintains it", "When a site or app changes, AI finds the new way, keeps it, and the run shows what it fixed. When a run fails, AI tells you why."],
     ],
-    beatAlt: [
-      "Kitewell's chat with its browser signed in to the supplier portal",
-      "A run's browser step with each click marked Replayed",
-      "A run's browser step with the sign-in click marked Recovered",
+    browser: "Browser automation",
+    browserTitle: "Built by AI. Maintained by AI.",
+    browserText:
+      "Tell Kitewell the job in plain words. AI signs in, clicks, types, and collects in a browser you can watch and take over, and writes the steps from what worked. Later runs repeat them, and when the site changes, AI finds the new way and keeps it.",
+    browserItems: [
+      ["Behind any sign-in", "Sign-ins stay in Kitewell's own browser profile on the computer. Sites that ask for a client certificate work too."],
+      ["Passwords stay out of the model", "A password is named in the step and typed from the computer's secrets; the model sees only the name."],
+      ["It shows what it fixed", "Each run marks the steps it repeated and the ones AI fixed, with screenshots."],
     ],
-    reading: "Reading what's on a page, such as the new invoices, asks AI on every run.",
-    measured: "Real runs on this computer against a sample portal, with DeepSeek V4 Flash, the model behind Kitewell's included AI.",
-    compare: "How Kitewell compares →",
-    where: "Beyond the browser",
-    whereTitle: "Works where your chores are.",
+    browserLink: "How website automation works →",
+    record: {
+      title: "Collect new invoices",
+      kind: "Website",
+      facts: [["Start page", "127.0.0.1:4320/billing/invoices"], ["Browser steps", "5"], ["Ran without AI", "3 of 6 operations"]],
+      ops: record({ open: "Open page", act: "Do", check: "Make sure", collect: "Collect", done: "Completed", replayed: "Replayed", recovered: "Recovered" }),
+      label: "What the browser did",
+      caption: "From a real run against a stand-in supplier portal on this computer, as Kitewell shows it. The portal had moved its sign-in button, so AI found the new one and kept it; the next run replayed it.",
+    },
+    rpa: "AI + RPA",
+    rpaTitle: "RPA was the right idea. Building it by hand was the problem.",
+    rpaHead: ["Hand-built RPA", "Kitewell"],
+    rpaRows: [
+      ["A specialist records and scripts every click", "AI builds it from your words"],
+      ["A changed screen means someone repairs the robot", "AI finds the new way and keeps it"],
+      ["A robot PC and a license per robot", "The computer you have, free for up to 10 workflows"],
+      ["One tool per kind of system", "Websites, desktop apps, Excel, and email in one workflow"],
+      ["Hard to see what a robot did", "Every step, screenshot, and approval in the run record"],
+    ],
+    others: "How Kitewell compares →",
+    automate: "Beyond the browser",
+    automateTitle: "Desktop apps, Excel, and email, too.",
     tiles: [
-      ["Websites", "Behind a sign-in, with passwords kept on your computer.", "/docs/browser/"],
-      ["Desktop apps", "Apps with no API, with your own AI key or the included AI on a paid plan.", "/docs/desktop/"],
-      ["Excel", "Once per row of the workbook you already have, each result written back beside it.", "/docs/spreadsheets/"],
-      ["Email", "Find, read, file, and send mail in Microsoft 365, Gmail, or any IMAP mailbox.", "/docs/email/"],
-      ["On schedule, with your OK", "Weekdays at 9, on a webhook, or on request. Approve a step from your phone.", "/docs/scheduling/"],
-      ["Coding agents", "Claude Code, Codex, and 13 more, on your schedule and behind your approval.", "/coding-agents/"],
+      ["Desktop apps with no API", "A model reads the screen and works the app, with your own AI key or the included AI on a paid plan. Later runs replay on Windows by the app's own buttons and fields, and on macOS from the screen.", "/docs/desktop/"],
+      ["Excel, row by row", "Runs once per row of the workbook you already have and writes each result back beside it. Title rows, merged headers, and subtotals included.", "/docs/spreadsheets/"],
+      ["Email", "Find, read, file, and send mail in Microsoft 365, Gmail with an app password, or any IMAP mailbox.", "/docs/email/"],
+      ["Scripts, servers, and APIs", "Commands, Docker, SSH rollouts a few machines at a time, and any OpenAPI, with decision steps that choose the next path.", "/docs/workflow-builder/"],
     ],
-    safe: "Safe to hand over",
-    safeTitle: "Your computer, your sign-ins, your say.",
-    safeRows: [
-      ["Runs on your computer", "Sign-ins stay in Kitewell's own browser profile on your Mac or PC. The page text a step reads goes to the AI provider you choose."],
-      ["Passwords stay out of the model", "A step names a password, and Kitewell types it from the computer's secrets. The model only ever sees the name."],
-      ["Nothing goes out until you say", "A draft is tried without sending anything, and a step can wait for your OK before it adds, sends, or pushes."],
-      ["Every run on record", "Each run shows what it repeated, what AI fixed, and screenshots of the page."],
+    agents: "Coding agents",
+    agentsTitle: "Claude Code, Codex, and 13 more, on your schedule.",
+    agentsText: "Put the coding agents you already use to work while you're away, on the sign-in you already have. Kitewell starts the agent you installed; each vendor's terms apply.",
+    agentNames: ["Claude Code", "Codex", "Cursor", "Gemini", "GitHub Copilot", "Aider", "Amp", "Cline", "DeepSeek", "Droid", "Goose", "Kiro", "OpenCode", "Pi", "Qwen"],
+    agentMore: "Any other CLI, as a custom command",
+    agentItems: [
+      ["Chain them", "One writes, another reviews. Run them side by side, or once per repository from a sheet."],
+      ["Keep going at the limit", "When an agent hits its usage limit or fails, the next one you listed takes over."],
+      ["Nothing ships unchecked", "A gate holds the push until you approve. Send back re-runs the agent with your notes."],
+      ["Started by GitHub", "An issue or pull request can start the run through a webhook, with no open ports."],
     ],
-    safeLink: "What leaves your computer, and when →",
+    agentsLink: "Coding agents in Kitewell →",
+    chain: {
+      title: "Morning fix for a failing build",
+      steps: [
+        ["Agent · Claude Code", "Draft a fix on a branch", "If it fails: Codex, then Gemini"],
+        ["Agent · Codex", "Review the change and list what to correct", ""],
+        ["Approval", "Wait for you before pushing", ""],
+        ["Command", "Push the branch and open a pull request", ""],
+      ],
+      caption: "A sample workflow: one agent writes, another reviews, and nothing is pushed until you approve.",
+    },
+    triggers: "Triggers",
+    triggersTitle: "It starts on its own.",
+    triggerItems: [
+      ["Schedules", "Daily, on weekdays, or any schedule, in your time zone. Starts a sleeping computer missed are caught up when it wakes.", "", "/docs/scheduling/"],
+      ["Webhooks", "GitHub, Stripe, Slack, or any service starts a workflow on your computer through Kitewell's relay. Signatures are checked, no port is opened, and a request waits up to 7 days.", "Personal and Team", "/docs/webhooks/"],
+      ["From anywhere", "From ChatGPT or Claude on your phone, from Claude Code or Codex over MCP, or with a REST call.", "", "/docs/mcp/"],
+    ],
+    control: "Control",
+    controlTitle: "Approve and follow runs from your phone. Know why one failed.",
+    controlItems: [
+      ["Approve or send back", "Any step can wait for your OK. Approve it, or send it back with a note, from the run, a notification, or ChatGPT and Claude on your phone."],
+      ["Runs in your browser", "Dagu Console shows each run of a synced project and the computer it ran on. Open it on your phone. Free with a Dagu Cloud account."],
+      ["Alerts", "Slack, Microsoft Teams, PagerDuty, email, or a desktop notification when a run fails, waits for you, or misses its schedule. With Personal and Team."],
+      ["When a computer goes quiet", "Dagu Console emails you when a computer stops reporting for 10 minutes: asleep, offline, or Kitewell quit. Turn it on for computers meant to stay on."],
+      ["Failure diagnosis", "AI reads a failed run and says whether to try again, step in, or change the workflow."],
+      ["Run record", "Every step's output, screenshots, and decisions. Retry from the step that failed."],
+      ["Test first", "Run one step with real inputs before you save, and try a draft without sending anything out."],
+      ["Notes that stay", "The assistant keeps what it learns in knowledge pages, for you and whoever takes over."],
+    ],
+    controlNote: "ChatGPT Plus and Pro can read runs but not approve them.",
+    controlAlt: "A finished invoice run in Kitewell, with each step's status and the selected step's output",
+    controlLinks: [["Runs and logs →", "/docs/runs/"], ["Dagu Console →", "/docs/console/"]],
+    team: "Teams and fleets",
+    teamTitle: "Run it on every computer. Watch them all from one place.",
+    teamItems: [
+      ["Every computer, one view", "Dagu Console lists each computer's status, Kitewell version, and today's runs. One alert per workflow, however many computers run it, closed by the next success on any of them."],
+      ["Sync and roles", "Share projects with Viewer, Editor, and Admin roles. Each computer keeps its own sign-ins and secret values."],
+      ["Releases", "Promote workflows from Dev to Staging to Prod, with a diff and rollback."],
+      ["Robot ledger", "Export a ledger of every workflow for audits, one row each."],
+      ["Shared computers (Enterprise)", "Computers your organization owns, such as a VM in your own Azure or AWS, run workflows day and night with nobody signed in. Nothing stops when a laptop sleeps or its owner moves on."],
+      ["Build from a browser (Enterprise)", "Sign in with your company account, then build and try workflows on the computer they run on while you watch its browser. Approve fixes from your phone, with no remote desktop."],
+    ],
+    teamPrice: "Kitewell Team, for organizations of up to 25 people, is quoted per computer.",
+    fleet: {
+      title: "Kitewell computers",
+      head: ["Computer", "Status", "Kitewell version", "OS/arch", "In progress", "Failed today (UTC)"],
+      rows: [
+        ["Front desk PC", "Reporting", "0.17.3", "windows/amd64", "1", "0"],
+        ["Accounting PC", "Reporting", "0.17.3", "windows/amd64", "0", "1"],
+        ["Build Mac", "Reporting", "0.17.3", "darwin/arm64", "2", "0"],
+        ["Warehouse laptop", "Not reporting", "0.17.3", "windows/amd64", "0", "0"],
+      ],
+      caption: "A sample of the Kitewell computers table in Dagu Console, with some of its columns.",
+    },
+    teamLinks: [["Dagu Console →", "/docs/console/"], ["Sync with Dagu Cloud →", "/docs/cloud-sync/"], ["Project sharing →", "/docs/sharing/"], ["Releases →", "/docs/releases/"]],
     runs: "Where it runs",
     runsTitle: "On your computer, or in the cloud.",
     // Kitewell Cloud carries its label until it ships.
@@ -92,74 +172,161 @@ const text = {
       ["Your company's cloud", "For companies", "A VM in your Azure, AWS, or Google Cloud, or a server in a closed network, running with nobody signed in, with your company's own AI."],
     ],
     placesLink: "Early access partners at Descarty ↗",
+    own: "On your computer",
+    ownTitle: "Your computer, your keys, your files.",
+    ownRows: [
+      ["Secret values", "Encrypted on the computer. Never synced, exported, or backed up."],
+      ["Your choice of AI", "Anthropic, OpenAI, Gemini, OpenRouter, Kitewell's included model, or a local model that keeps everything inside your network."],
+      ["No lock-in", "Workflows are plain YAML on the open-source Dagu engine. Export a project any time."],
+      ["Quiet in the background", "Runs from the menu bar or tray, with nightly backups, edit history, and engine updates that roll back if they fail."],
+      ["What leaves, exactly", "A synced project sends run status and the names of failed steps, never logs, output, or secret values."],
+      ["Six languages", "The app speaks English, Japanese, Chinese, Korean, French, and German."],
+    ],
+    ownLink: "Everything that leaves, and when →",
+    examples: "Examples",
+    examplesTitle: "What do you still do by hand?",
+    exampleTabs: ["Everyday work", "Coding"],
+    examplesLink: "All examples →",
     pricing: "Pricing",
     pricingTitle: "Free for up to 10 workflows.",
-    pricingText:
-      "Sign in for 100 free AI credits with no API key, or use your own key. Personal adds alerts, webhooks, and more projects for $20 a month (USD, excluding tax).",
-    plans: "Compare plans →",
-    enterprise: "Larger rollouts with support: Descarty ↗",
+    pricingText: "One project with up to 10 workflows is free, and a free sign-in adds 100 AI credits with no API key. Personal adds room, alerts, and webhooks for $20 a month; Team adds people, quoted per computer for organizations (USD, excluding tax).",
+    compare: "Compare plans →",
   },
   ja: {
-    title: "くり返せる AI のブラウザー・デスクトップ自動化（Mac / Windows）",
+    title: "自動化は AI がつくる。動かすのは、あなたのパソコン。",
     description:
-      "パソコン作業を一度伝えれば、AI が毎日やってくれる。Kitewell の AI が目の前で一度やってみせ、そのあとは同じ操作を決まった時間にくり返します。サイトが変わったら、AI が変わった手順だけを直します。Mac と Windows で 10 ワークフローまで無料。",
-    eyebrow: "くり返せる AI のパソコン操作（Mac と Windows）",
-    heading: "パソコン作業を一度伝えれば、\nAI が毎日やってくれる。",
-    lead: "やってほしい作業を、ふだんの言葉で入力するだけ。Kitewell の AI がブラウザーやアプリで目の前で一度やってみせ、そのあとは同じ操作を決まった時間にくり返します。サイトが変わったら、AI が変わった手順だけを直します。",
-    offer: "Mac と Windows のパブリックベータ。10 ワークフローまで無料で、無料のサインインで AI も使えます。パソコンを閉じても動く Kitewell Cloud は近日公開です。",
-    trust: `オープンソースのワークフローエンジン Dagu（GitHub スター ${stars} 以上）の開発元から`,
-    notarized: "Apple の署名と公証済み",
-    passwords: "パスワードはパソコンに残り、AI には見せません",
-    loop: "Kitewell がチャットで平日の請求書の作業をつくり、その後の実行を見せる映像。次の実行はすべてのクリックをくり返し、仕入先のログイン画面が変わると AI がそのクリックだけを直し、新しい請求書がシートに入ります。",
-    caption: "実際の実行を早送りしています。実行の記録とシートは、その実行が記録した内容そのままです。みなと資材は、この映像のためのサンプルのポータルです。",
-    unedited: "編集なしの録画を見る",
-    uneditedLabel: "Kitewell のチャットが請求書のワークフローをつくり、最初に実行するまでの編集なしの録画。一定の速さで早送りしています。",
-    transcript: [
-      "最初の一回は、AI が目の前で作業します。チャットのブラウザーで仕入先のポータルにログインし、請求書を読み取ります。",
-      "確かめて、OK するだけ。提案された平日 9:00 のワークフローを適用します。",
-      "平日の 9:00 に、うまくいった操作をくり返します。次の実行はすべてのクリックを再生します。",
-      "サイトが変わっても、AI がその操作だけを直します。ログインボタンが動き、そのクリックだけを AI が見つけ直しました。",
-      "今日の新しい請求書が、シートに入りました。",
+      "Kitewell の AI がブラウザーの自動化をつくり、サイトが変わったら直します。デスクトップアプリ、Excel、メール、Claude Code や Codex などのコーディングエージェントも、あなたの Mac や PC で、スケジュールや Webhook で動かします。実行はスマホからも見守れます。10 ワークフローまで無料。",
+    eyebrow: "AI × RPA",
+    version: release ? `バージョン ${release.version}` : "",
+    heading: "自動化は AI がつくる。\n動かすのは、あなたのパソコン。",
+    lead: "やってほしい仕事を伝えれば、AI が目の前のブラウザーで自動化をつくり、サイトが変わったら直します。デスクトップアプリ、Excel、メール、Claude Code などのコーディングエージェントも同じように、スケジュールや Webhook で、大事なところはあなたの OK を待って動きます。外出先からも、スマホで見守れます。",
+    watch: `映像を見る（${cut.seconds} 秒）`,
+    setup: "セットアップガイドを読む →",
+    platform: "macOS 13 以降と Windows 10 以降のパブリックベータ。10 ワークフローまで無料で、無料のサインインで AI も使えます。パソコンを閉じても動く Kitewell Cloud は近日公開です。",
+    proofTabs: ["Web サイト", "コーディングエージェント"],
+    proof: [
+      "実際の録画（早送り）。Kitewell のチャットで、仕入れ先ポータルの新しい請求書を平日ごとに Excel に追加するよう頼みます。AI はチャットに映るブラウザーで代役のポータルを開き、パスワードはカードであなたが入力します。AI はログインして下書きを試し、ワークフローを提案します。適用して実行すると、見つけた請求書を見せて待ち、返信で進めるとブックに追加します。",
+      "実際の録画（早送り）。Kitewell のチャットで、デモ用リポジトリの失敗しているテストを毎晩 Claude Code に直させ、その変更を Codex にレビューさせるよう頼みます。アシスタントがスケジュール付きのワークフローを提案して実行し、Claude Code がテストを直し、Codex がレビューします。実行は 2 つの要約を見せて待ち、返信で進めると、修正がローカルの新しいブランチにコミットされます。",
     ],
-    examples: "活用例",
-    examplesTitle: "まだ、手でやっていますか。",
-    examplesLink: "すべての活用例 →",
-    learns: "しくみ",
-    learnsTitle: "一度覚えて、毎日くり返す。",
-    learnsLead:
-      "AI エージェントは、実行のたびに作業を一から考え直します。記録したマクロは、画面が変わるまで同じことをくり返します。Kitewell は、うまくいった操作を覚え、変わったところだけを AI に任せます。",
-    beats: [
-      ["最初は、AI が考える", `記録のない最初の実行：${run.cold.seconds} 秒`, `${run.cold.withoutAI.total} 件中 ${ai(run.cold)} 件の操作を AI が判断`],
-      ["次からは、その操作をくり返す", `次の実行：${run.replayed.seconds} 秒`, `${run.replayed.withoutAI.total} 件中 ${run.replayed.withoutAI.count} 件の操作を AI なしで実行`],
-      ["サイトが変わったら、その操作だけ AI が直す", `AI が直した操作：${run.recovered.fixed}`, `${run.recovered.withoutAI.total} 件中 ${run.recovered.withoutAI.count} 件の操作を AI なしで実行`],
+    proofNote: "Kitewell のチャット画面の実際の録画です。編集はせず、一定の速さで早送りしています。ふだんの言葉で 1 回頼んだあと、AI とアプリが行ったことのすべてです。仕入れ先ポータルは代役、リポジトリはデモ用です。",
+    how: "しくみ",
+    steps: [
+      ["AI がつくる", "やってほしい仕事を、ふだんの言葉で伝えるだけ。アシスタントが手順を並べて見せ、目の前のブラウザーでサイトを操作し、外部に何も送らずに試します。適用するまで、何も動きません。"],
+      ["パソコンが動かす", "スケジュールで、Webhook で、スマホから。指定した所では、あなたの OK を待ちます。"],
+      ["AI が保守する", "サイトやアプリが変われば、AI が新しい手順を見つけて覚え直し、何を直したかを実行の記録に残します。失敗したときは、理由を AI が伝えます。"],
     ],
-    beatAlt: [
-      "仕入先ポータルにログインした Kitewell のチャットのブラウザー",
-      "各クリックが「再生」と記録された実行のブラウザーステップ",
-      "ログインのクリックが「復旧」と記録された実行のブラウザーステップ",
+    browser: "ブラウザーの自動化",
+    browserTitle: "AI がつくり、AI が保守する。",
+    browserText:
+      "やってほしい仕事を、ふだんの言葉で伝えるだけ。AI が、見守ったり代わったりできるブラウザーでログインし、クリックし、入力し、情報を集め、うまくいった操作から手順を書きます。以降の実行はそれを繰り返し、サイトが変われば、AI が新しい手順を見つけて覚え直します。",
+    browserItems: [
+      ["ログインが必要なサイトも", "サインインは、コンピューター上の Kitewell 専用のブラウザープロファイルに残ります。電子証明書が必要なサイトにも対応します。"],
+      ["パスワードはモデルに見せない", "パスワードはステップに名前で書き、コンピューターのシークレットから入力します。モデルに見えるのは名前だけです。"],
+      ["何を直したかが見える", "実行ごとに、繰り返したステップと AI が直したステップを、スクリーンショット付きで記録します。"],
     ],
-    reading: "新しい請求書のように、ページの内容を読み取る操作は、毎回 AI が行います。",
-    measured: "サンプルのポータルに対する、このパソコンでの実際の実行です。モデルは Kitewell の付属 AI と同じ DeepSeek V4 Flash。",
-    compare: "Kitewell と、ほかの選択肢 →",
-    where: "ブラウザーの外も",
-    whereTitle: "作業のある場所で動く。",
+    browserLink: "Web サイトの自動化のしくみ →",
+    // The Japanese record is its own run, against the Japanese portal.
+    record: {
+      title: "新しい請求書を集める",
+      kind: "Web サイト",
+      facts: [["開始ページ", "127.0.0.1:4322/billing/invoices"], ["ブラウザーステップ", "5"], ["AI なしで実行", "6 件中 3 件の操作"]],
+      ops: [
+        ["ページを開く", "127.0.0.1:4322/billing/invoices", ["完了"]],
+        ["操作", "メールアドレス欄に ops@example.com と入力する", ["再生"]],
+        ["操作", "パスワード欄に %password% と入力する", ["再生"]],
+        ["操作", "ログインをクリックする", ["復旧"]],
+        ["確認", "text \"請求書\"", ["完了"]],
+        ["収集", "前営業日以降に発行された請求書すべて", ["完了"]],
+      ],
+      label: "ブラウザーが行ったこと",
+      caption: "このコンピューター上の代役の仕入れ先ポータルに対する、実際の実行の記録です。表示は Kitewell の画面のとおり。ポータルのログインボタンが動いたため、AI が新しいボタンを見つけて覚え直し、次の実行はそれを再生しました。",
+    },
+    rpa: "AI × RPA",
+    rpaTitle: "RPA の考え方は正しかった。問題は、手でつくることだった。",
+    rpaHead: ["手でつくる RPA", "Kitewell"],
+    rpaRows: [
+      ["専門の担当者が、クリックを一つずつ記録して組む", "あなたの言葉から、AI が組む"],
+      ["画面が変わるたびに、誰かがロボットを直す", "AI が新しい手順を見つけて、覚え直す"],
+      ["ロボット用の PC と、ロボットごとのライセンス", "いまあるパソコンで。10 ワークフローまで無料"],
+      ["システムの種類ごとに、別のツール", "Web サイト、デスクトップアプリ、Excel、メールを 1 つのワークフローに"],
+      ["ロボットが何をしたか、見えにくい", "すべてのステップ、スクリーンショット、承認が実行の記録に"],
+    ],
+    others: "Kitewell と、ほかの選択肢 →",
+    automate: "ブラウザーの外も",
+    automateTitle: "デスクトップアプリも、Excel も、メールも。",
     tiles: [
-      ["Web サイト", "ログインが必要なサイトも。パスワードはパソコンに残ります。", "/docs/browser/"],
-      ["デスクトップアプリ", "API のないアプリも。自分の AI キー、または有料プランの付属 AI で。", "/docs/desktop/"],
-      ["Excel", "いまのブックの 1 行ごとに実行し、結果を同じ行に書き戻します。", "/docs/spreadsheets/"],
-      ["メール", "Microsoft 365、Gmail、任意の IMAP のメールを検索、整理、送信します。", "/docs/email/"],
-      ["スケジュールと承認", "平日 9 時に、Webhook で、頼んだときに。承認はスマホから。", "/docs/scheduling/"],
-      ["コーディングエージェント", "Claude Code、Codex ほか 13 種類を、あなたのスケジュールと承認で。", "/coding-agents/"],
+      ["API のないデスクトップアプリ", "モデルが画面を読んでアプリを操作します。使うのは自分の AI キー、または有料プランの付属 AI。以降の実行は、Windows ではアプリ自身のボタンや入力欄を、macOS では画面を頼りに再生します。", "/docs/desktop/"],
+      ["Excel を 1 行ずつ", "いまのブックのまま 1 行ごとに実行し、結果を同じ行に書き戻します。タイトル行、結合ヘッダー、小計もそのまま。", "/docs/spreadsheets/"],
+      ["メール", "Microsoft 365、アプリパスワードを使う Gmail、任意の IMAP のメールを、検索、整理、送信します。", "/docs/email/"],
+      ["スクリプト、サーバー、API", "コマンド、Docker、数台ずつ進める SSH のロールアウト、OpenAPI の取り込み。次の道を選ぶ判定ステップも。", "/docs/workflow-builder/"],
     ],
-    safe: "安心して任せる",
-    safeTitle: "あなたのパソコン、あなたのログイン、あなたの判断。",
-    safeRows: [
-      ["あなたのパソコンで動く", "ログインは、Mac や PC 上の Kitewell 専用のブラウザープロファイルに残ります。ステップが読み取るページの文字は、選んだ AI の提供元に送られます。"],
-      ["パスワードはモデルに見せない", "ステップにはパスワードの名前だけを書き、Kitewell がパソコンのシークレットから入力します。モデルに見えるのは名前だけです。"],
-      ["OK するまで、外には出さない", "下書きは外部に何も送らずに試せます。追加、送信、プッシュの前に、あなたの OK を待つこともできます。"],
-      ["すべての実行を記録", "実行ごとに、くり返した操作、AI が直した操作、ページのスクリーンショットが残ります。"],
+    agents: "コーディングエージェント",
+    agentsTitle: "Claude Code、Codex ほか 13 種類を、あなたのスケジュールで。",
+    agentsText: "いつも使っているコーディングエージェントを、いまのサインインのまま、あなたがいない間も働かせます。Kitewell はインストール済みのエージェントを起動します。各社の利用規約に従ってお使いください。",
+    agentNames: ["Claude Code", "Codex", "Cursor", "Gemini", "GitHub Copilot", "Aider", "Amp", "Cline", "DeepSeek", "Droid", "Goose", "Kiro", "OpenCode", "Pi", "Qwen"],
+    agentMore: "ほかの CLI も、カスタムコマンドで",
+    agentItems: [
+      ["つなげる", "1 つが書き、もう 1 つがレビュー。並べて動かすことも、シートからリポジトリごとに動かすこともできます。"],
+      ["上限でも止まらない", "エージェントが利用上限に達したり失敗したりしたら、次に挙げたエージェントが引き継ぎます。"],
+      ["確認なしには出さない", "承認するまでプッシュを止めます。「差し戻し」なら、メモを添えてエージェントがやり直します。"],
+      ["GitHub から始まる", "Issue やプルリクエストの Webhook で実行が始まります。ポート開放は不要です。"],
     ],
-    safeLink: "外に出るものと、そのタイミング →",
+    agentsLink: "Kitewell のコーディングエージェント →",
+    chain: {
+      title: "失敗したビルドを朝までに直す",
+      steps: [
+        ["エージェント · Claude Code", "ブランチに修正をつくる", "失敗したら：Codex、次に Gemini"],
+        ["エージェント · Codex", "変更をレビューし、直す点を挙げる", ""],
+        ["承認", "プッシュの前にあなたを待つ", ""],
+        ["コマンド", "ブランチをプッシュしてプルリクエストを開く", ""],
+      ],
+      caption: "サンプルのワークフロー。1 つのエージェントが書き、もう 1 つがレビューし、あなたが承認するまで何もプッシュしません。",
+    },
+    triggers: "きっかけ",
+    triggersTitle: "勝手に始まる。",
+    triggerItems: [
+      ["スケジュール", "毎日、平日、どんな間隔でも、あなたのタイムゾーンで。パソコンが眠っていて逃した開始は、起きたときに追いかけます。", "", "/docs/scheduling/"],
+      ["Webhook", "GitHub、Stripe、Slack などのサービスが、Kitewell のリレーを通じてあなたのパソコンのワークフローを始めます。署名を確認し、ポートは開かず、リクエストは最大 7 日間待ちます。", "Personal と Team", "/docs/webhooks/"],
+      ["どこからでも", "スマホの ChatGPT や Claude から、MCP で Claude Code や Codex から、または REST で。", "", "/docs/mcp/"],
+    ],
+    control: "手綱を握る",
+    controlTitle: "スマホから承認も確認も。失敗の理由もわかる。",
+    controlItems: [
+      ["承認と差し戻し", "どのステップでも OK を待てます。実行の画面、通知、スマホの ChatGPT や Claude から、承認やメモ付きの差し戻しができます。"],
+      ["ブラウザーで実行を確認", "同期したプロジェクトの実行と、それを動かしたパソコンを Dagu Console で確認できます。スマホからも開けます。無料の Dagu Cloud アカウントで使えます。"],
+      ["アラート", "実行の失敗、あなたの対応待ち、スケジュールの取りこぼしを、Slack、Microsoft Teams、PagerDuty、メール、デスクトップ通知で知らせます。Personal と Team で使えます。"],
+      ["パソコンが止まったら", "パソコンからの報告が 10 分途絶えると、Dagu Console がメールで知らせます。スリープ、オフライン、Kitewell の終了も見逃しません。動かし続けるパソコンでオンにします。"],
+      ["失敗の診断", "AI が失敗した実行を読み、やり直すか、対応するか、ワークフローを変えるかを伝えます。"],
+      ["実行の記録", "各ステップの出力、スクリーンショット、判断。失敗したステップからやり直せます。"],
+      ["先に試す", "保存の前に実際の入力で 1 ステップを試し、外部に何も送らずに下書きを試せます。"],
+      ["残るメモ", "アシスタントが覚えたことをナレッジのページに残します。あなたにも、引き継ぐ人にも。"],
+    ],
+    controlNote: "ChatGPT Plus と Pro では、実行を読めますが承認はできません。",
+    controlAlt: "Kitewell で完了した請求書の実行。各ステップの状態と、選んだステップの出力",
+    controlLinks: [["実行とログ →", "/docs/runs/"], ["Dagu Console →", "/docs/console/"]],
+    team: "チームと台数",
+    teamTitle: "どのパソコンで動かしても、ひとつの画面で見守る。",
+    teamItems: [
+      ["すべてのパソコンを一覧で", "Dagu Console に、各パソコンの状態、Kitewell のバージョン、今日の実行が並びます。アラートはワークフローごとに 1 件。何台で動かしても増えず、どのパソコンでも次に成功すれば閉じます。"],
+      ["同期とロール", "閲覧・編集・管理のロールでプロジェクトを共有。サインインとシークレットの値は、それぞれのパソコンに残ります。"],
+      ["リリース", "Dev から Staging、本番へ。差分を確かめて反映し、ロールバックもできます。"],
+      ["ロボット管理台帳", "すべてのワークフローを 1 行ずつ、FISC の項目順で台帳に書き出せます。"],
+      ["共有のコンピューター（Enterprise）", "自社の Azure や AWS の VM など、組織が持つコンピューターが、誰もサインインしていなくても昼夜ワークフローを動かします。ノート PC のスリープや担当者の異動で止まりません。"],
+      ["ブラウザーから作る（Enterprise）", "会社のアカウントでサインインし、ワークフローが動くコンピューターの上で、そのブラウザーを見ながら作って試せます。修正の承認はスマホから。リモートデスクトップは要りません。"],
+    ],
+    teamPrice: "Kitewell Team は 25 人までの組織向けで、料金は台数に応じてお見積りします。",
+    fleet: {
+      title: "Kitewell コンピューター",
+      head: ["コンピューター", "状態", "Kitewell のバージョン", "OS/アーキテクチャ", "実行中", "本日の失敗 (UTC)"],
+      rows: [
+        ["受付の PC", "レポート中", "0.17.3", "windows/amd64", "1", "0"],
+        ["経理の PC", "レポート中", "0.17.3", "windows/amd64", "0", "1"],
+        ["ビルド用の Mac", "レポート中", "0.17.3", "darwin/arm64", "2", "0"],
+        ["倉庫のノート PC", "レポート停止", "0.17.3", "windows/amd64", "0", "0"],
+      ],
+      caption: "Dagu Console の「Kitewell コンピューター」の表のサンプル。列の一部を表示しています。",
+    },
+    teamLinks: [["Dagu Console →", "/docs/console/"], ["Dagu Cloud と同期 →", "/docs/cloud-sync/"], ["プロジェクトの共有 →", "/docs/sharing/"], ["リリース →", "/docs/releases/"]],
     runs: "動かす場所",
     runsTitle: "パソコンでも、クラウドでも。",
     places: [
@@ -168,74 +335,153 @@ const text = {
       ["会社のクラウド・閉域網", "法人向け", "貴社の Azure、AWS、Google Cloud の VM や閉域網のサーバーで、誰もサインインしていなくても動きます。AI も貴社のものを使えます。"],
     ],
     placesLink: "先行利用パートナー様募集（Descarty）↗",
+    own: "あなたのパソコンで",
+    ownTitle: "あなたのパソコン、あなたの鍵、あなたのファイル。",
+    ownRows: [
+      ["シークレットの値", "パソコン内で暗号化。同期、エクスポート、バックアップには入りません。"],
+      ["AI は自由に", "Anthropic、OpenAI、Gemini、OpenRouter、Kitewell の付属モデル、または社内のネットワークから何も出さないローカルモデル。"],
+      ["囲い込みなし", "ワークフローはオープンソースの Dagu エンジンで動く素の YAML。いつでもエクスポートできます。"],
+      ["裏で静かに", "メニューバーやタスクトレイから動きます。毎晩のバックアップと編集履歴、失敗したら戻るエンジン更新。"],
+      ["外に出るものは正確に", "同期したプロジェクトが送るのは、実行の状態と失敗したステップの名前だけ。ログ、出力、シークレットの値は送りません。"],
+      ["6 つの言語", "アプリは日本語、英語、中国語、韓国語、フランス語、ドイツ語に対応しています。"],
+    ],
+    ownLink: "外に出るものと、そのタイミングのすべて →",
+    examples: "活用例",
+    examplesTitle: "まだ、手でやっていますか。",
+    exampleTabs: ["業務", "コーディング"],
+    examplesLink: "すべての活用例 →",
     pricing: "料金",
     pricingTitle: "10 ワークフローまで無料。",
-    pricingText:
-      "サインインすれば、API キーなしで 100 クレジットの AI を無料で使えます。自分のキーも使えます。Personal は月額 3,000 円（税別）で、アラート、Webhook、プロジェクトを追加します。",
-    plans: "プランを比べる →",
-    enterprise: "支援付きの大規模な導入は Descarty へ ↗",
+    pricingText: "10 ワークフローまでの 1 プロジェクトは無料で、無料のサインインで API キーなしに 100 クレジットの AI を使えます。Personal は月額 3,000 円で枠、アラート、Webhook を、Team は組織向けに台数に応じたお見積りでメンバーを追加します（税別）。",
+    compare: "プランを比べる →",
   },
   zh: {
-    title: "可重复执行的 AI 浏览器与桌面自动化，支持 Mac 和 Windows",
+    title: "自动化由 AI 搭建。运行它的，是你的电脑。",
     description:
-      "电脑上的重复工作只需描述一次，AI 就会每天自动完成。Kitewell 的 AI 先做一遍给你看，之后按你定好的时间重复同样的点击；网站有变动时，AI 只修复出问题的那一步。Mac 和 Windows 均可使用，最多 10 个工作流免费。",
-    eyebrow: "Mac 和 Windows 上可重复执行的 AI 电脑操作",
-    heading: "电脑上的重复工作，只需描述一次。\nAI 每天替你完成。",
-    lead: "用平常的话写下要做的事。Kitewell 的 AI 会先在浏览器或桌面应用里做一遍给你看，之后 Kitewell 按你定好的时间重复同样的点击。网站有变动时，AI 只修复出问题的那一步。",
-    offer: "Mac 和 Windows 公开测试版。最多 10 个工作流免费，免费登录即可使用内置 AI。电脑合上也能运行的 Kitewell Cloud 即将推出。",
-    trust: `出自开源工作流引擎 Dagu 的开发团队（GitHub 星标 ${stars}+）`,
-    notarized: "已通过 Apple 签名与公证",
-    passwords: "密码留在你的电脑上，绝不展示给 AI",
-    loop: "Kitewell 在聊天中建立一个每个工作日处理发票的任务，以及之后的几次运行：下一次运行重复了每一次点击；供应商的登录页面变了，AI 只修复了那一次点击；新发票写入了电子表格。",
-    caption: "实际运行，已加速播放。运行记录和表格显示的，正是这些运行实际记录下的内容。Harbor Supply 是为本演示制作的示例门户网站。",
-    unedited: "观看未经剪辑的录屏",
-    uneditedLabel: "未经剪辑的录屏：Kitewell 的聊天建立发票工作流并完成首次运行，全程匀速加速播放。",
-    transcript: [
-      "第一次由 AI 在你眼前完成：它在聊天的浏览器中登录供应商门户，读取发票。",
-      "检查无误后说一声“开始”：提议的工作流（工作日 9:00）随即应用。",
-      "每个工作日 9:00，它重复行之有效的操作：下一次运行回放了每一次点击。",
-      "网站变了，AI 只修复了那一次点击：登录按钮换了位置，只有这一次点击重新交给 AI 处理。",
-      "今天的新发票已经在你的表格里了。",
+      "Kitewell 的 AI 搭建浏览器自动化，并在网站变化时修复它。它还能在你的 Mac 或 PC 上，按计划或由 Webhook 触发，运行桌面应用、Excel、电子邮件，以及 Claude Code、Codex 等编程智能体；运行情况可以在手机上随时查看。最多 10 个工作流免费。",
+    eyebrow: "AI + RPA",
+    version: release ? `版本 ${release.version}` : "",
+    heading: "自动化由 AI 搭建。\n运行它的，是你的电脑。",
+    lead: "说出要做的工作，AI 就会在你看得见的浏览器里搭建自动化，网站变化时再把它修好。桌面应用、Excel、电子邮件，以及 Claude Code 等编程智能体也一样：按计划或由 Webhook 触发运行，关键之处等你批准。无论身在何处，都能在手机上随时查看。",
+    watch: `观看影片（${cut.seconds} 秒）`,
+    setup: "阅读安装指南 →",
+    platform: "面向 macOS 13+ 和 Windows 10+ 的公开测试版。最多 10 个工作流免费，免费登录即可使用内置 AI。电脑合上也能运行的 Kitewell Cloud 即将推出。",
+    proofTabs: ["网站", "编程智能体"],
+    proof: [
+      "真实录屏，已加速：在 Kitewell 的聊天中提出请求，每个工作日把供应商门户的新发票添加到一个 Excel 文件中。AI 在聊天中显示的浏览器里打开代用门户，请用户在卡片中输入密码，登录后试运行草稿，并提出工作流。应用并运行后，运行会带着找到的发票等待，直到收到回复，才把它们添加到工作簿中。",
+      "真实录屏，已加速：在 Kitewell 的聊天中提出请求，让 Claude Code 每晚修复一个演示仓库中失败的测试，再让 Codex 审查改动。助手提出带计划的工作流并运行它；Claude Code 修好测试，Codex 进行审查，运行带着两者的总结等待，直到收到回复，才把修复提交到一个新的本地分支。",
     ],
-    examples: "示例",
-    examplesTitle: "你还在手动做哪些事？",
-    examplesLink: "全部示例 →",
-    learns: "工作原理",
-    learnsTitle: "一次学会，每天重复。",
-    learnsLead:
-      "AI 智能体每次运行都要从头摸索一遍。录制的宏会原样重复，直到界面发生变化。Kitewell 保留行之有效的操作，只就发生变化的部分询问 AI。",
-    beats: [
-      ["第一次，AI 自己摸索", `首次运行，尚无任何记录：${run.cold.seconds} 秒`, `${run.cold.withoutAI.total} 个操作中，${ai(run.cold)} 个由 AI 判断`],
-      ["之后每次运行，都照样重复", `下一次运行：${run.replayed.seconds} 秒`, `${run.replayed.withoutAI.total} 个操作中，${run.replayed.withoutAI.count} 个未使用 AI`],
-      ["网站变了：AI 修复那一次点击", `由 AI 修正：${run.recovered.fixed}`, `${run.recovered.withoutAI.total} 个操作中，${run.recovered.withoutAI.count} 个未使用 AI`],
+    proofNote: "Kitewell 聊天窗口的真实录屏，未经剪辑，全程匀速加速：先用日常语言提出一个请求，之后是 AI 和应用所做的一切。使用的是代用的供应商门户和演示仓库。",
+    how: "工作原理",
+    steps: [
+      ["AI 搭建", "用日常语言说出要做的工作。助手会把每个步骤列出来给你检查，在你看得见的浏览器里操作网站，并在不向外发送任何内容的情况下试运行草稿。在你应用之前，什么都不会运行。"],
+      ["你的电脑运行", "按计划、由 Webhook 触发，或从手机启动。在你设下关卡的地方，它会停下来等你批准。"],
+      ["AI 维护", "网站或应用变化时，AI 会找到新的做法并记住，运行记录会显示它修复了什么。运行失败时，AI 会告诉你原因。"],
     ],
-    beatAlt: [
-      "Kitewell 聊天中的浏览器已登录供应商门户",
-      "运行中的浏览器步骤，每次点击都标记为“已回放”",
-      "运行中的浏览器步骤，登录点击标记为“已恢复”",
+    browser: "浏览器自动化",
+    browserTitle: "由 AI 搭建，由 AI 维护。",
+    browserText:
+      "用日常语言告诉 Kitewell 要做的工作。AI 会在一个你可以旁观、也可以接手的浏览器里登录、点击、输入和收集信息，并根据行之有效的操作写出步骤。之后的运行会重复这些步骤；网站变化时，AI 会找到新的做法并记住它。",
+    browserItems: [
+      ["需要登录的网站也可以", "登录信息保存在这台电脑上 Kitewell 专用的浏览器配置文件中。需要客户端证书的网站也能用。"],
+      ["密码不交给模型", "步骤里只写密码的名称，由 Kitewell 从这台电脑的密钥中取出并输入；模型只能看到名称。"],
+      ["修复了什么，一目了然", "每次运行都会标出重复的步骤和 AI 修复的步骤，并附上截图。"],
     ],
-    reading: "读取页面上的内容（例如新发票）时，每次运行都会询问 AI。",
-    measured: "均为在这台电脑上针对示例门户的实际运行，所用模型是 DeepSeek V4 Flash，也就是 Kitewell 内置 AI 背后的模型。",
-    compare: "Kitewell 与其他方案对比 →",
-    where: "不止于浏览器",
-    whereTitle: "你在哪里做事，它就在哪里工作。",
+    browserLink: "网站自动化的工作原理 →",
+    record: {
+      title: "收集新发票",
+      kind: "网站",
+      facts: [["起始页面", "127.0.0.1:4320/billing/invoices"], ["浏览器步骤", "5"], ["无 AI 运行", "6 个操作中的 3 个"]],
+      ops: record({ open: "打开页面", act: "操作", check: "确认", collect: "收集", done: "已完成", replayed: "已回放", recovered: "已恢复" }),
+      label: "浏览器执行的操作",
+      caption: "来自这台电脑上针对代用供应商门户的一次真实运行，按 Kitewell 的显示呈现。门户移动了登录按钮，于是 AI 找到新按钮并记住了它；下一次运行回放了这个操作。",
+    },
+    rpa: "AI + RPA",
+    rpaTitle: "RPA 的思路没有错，错在要靠手工搭建。",
+    rpaHead: ["手工搭建的 RPA", "Kitewell"],
+    rpaRows: [
+      ["由专员逐个录制、编写每一次点击", "AI 根据你的话来搭建"],
+      ["界面一变，就得有人修机器人", "AI 找到新的做法并记住"],
+      ["专用的机器人电脑，每个机器人一份许可", "用你现有的电脑，最多 10 个工作流免费"],
+      ["每种系统各用一种工具", "网站、桌面应用、Excel 和电子邮件，放进同一个工作流"],
+      ["很难看清机器人做了什么", "每个步骤、截图和审批都在运行记录里"],
+    ],
+    others: "Kitewell 与其他方案对比 →",
+    automate: "不止于浏览器",
+    automateTitle: "桌面应用、Excel 和电子邮件也可以。",
     tiles: [
-      ["网站", "需要登录的网站也可以，密码保存在你的电脑上。", "/docs/browser/"],
-      ["桌面应用", "没有 API 的应用也可以。使用你自己的 AI 密钥，或付费套餐中的内置 AI。", "/docs/desktop/"],
-      ["Excel", "对你现有工作簿的每一行各运行一次，结果写回该行旁边。", "/docs/spreadsheets/"],
-      ["电子邮件", "在 Microsoft 365、Gmail 或任意 IMAP 邮箱中查找、阅读、归档和发送邮件。", "/docs/email/"],
-      ["按计划运行，由你把关", "可在工作日 9:00 运行，也可由 Webhook 触发或按需运行。用手机就能批准步骤。", "/docs/scheduling/"],
-      ["编码智能体", "Claude Code、Codex 及另外 13 种，按你的计划运行，由你批准把关。", "/coding-agents/"],
+      ["没有 API 的桌面应用", "模型读取屏幕并操作应用，使用你自己的 AI 密钥，或付费套餐中的内置 AI。之后的运行在 Windows 上按应用自身的按钮和输入框回放，在 macOS 上按屏幕画面回放。", "/docs/desktop/"],
+      ["Excel，逐行处理", "对你现有工作簿的每一行各运行一次，结果写回该行旁边。标题行、合并的表头和小计也都照常处理。", "/docs/spreadsheets/"],
+      ["电子邮件", "在 Microsoft 365、使用应用专用密码的 Gmail 或任意 IMAP 邮箱中查找、阅读、归档和发送邮件。", "/docs/email/"],
+      ["脚本、服务器和 API", "命令、Docker、每次几台机器的 SSH 分批发布，以及任意 OpenAPI，还有选择下一条路径的判断步骤。", "/docs/workflow-builder/"],
     ],
-    safe: "放心交给它",
-    safeTitle: "你的电脑，你的登录，你说了算。",
-    safeRows: [
-      ["在你的电脑上运行", "登录信息保存在你的 Mac 或 PC 上 Kitewell 专用的浏览器配置文件中。步骤读取的页面文字会发送给你选择的 AI 服务商。"],
-      ["密码不交给模型", "步骤里只写密码的名称，由 Kitewell 从这台电脑的密钥中取出并输入。模型自始至终只能看到名称。"],
-      ["你同意之前，什么都不会发出", "试运行草稿时不会发出任何内容；步骤还可以先等你确认，再执行添加、发送或推送。"],
-      ["每次运行都有记录", "每次运行都会显示重复了哪些操作、AI 修复了什么，以及页面截图。"],
+    agents: "编程智能体",
+    agentsTitle: "Claude Code、Codex 及其他 13 种智能体，按你的计划运行。",
+    agentsText: "让你已经在用的编程智能体在你离开时继续工作，沿用你现有的登录。Kitewell 启动的是你自己安装的智能体，各厂商的条款照常适用。",
+    agentNames: ["Claude Code", "Codex", "Cursor", "Gemini", "GitHub Copilot", "Aider", "Amp", "Cline", "DeepSeek", "Droid", "Goose", "Kiro", "OpenCode", "Pi", "Qwen"],
+    agentMore: "其他任何 CLI，作为自定义命令",
+    agentItems: [
+      ["串联起来", "一个编写，另一个审查。可以并行运行，也可以按一张工作表，对每个仓库各运行一次。"],
+      ["达到上限也不停", "当一个智能体达到用量上限或失败时，由你列出的下一个接手。"],
+      ["未经检查，不会发出", "一道关卡会拦住推送，直到你批准。选择“退回”，智能体会带着你的备注重新运行。"],
+      ["由 GitHub 触发", "Issue 或 Pull Request 可以通过 Webhook 启动运行，无需开放端口。"],
     ],
-    safeLink: "哪些内容会离开你的电脑，何时离开 →",
+    agentsLink: "Kitewell 中的编程智能体 →",
+    chain: {
+      title: "晨间修复失败的构建",
+      steps: [
+        ["智能体 · Claude Code", "在分支上起草修复", "失败时：Codex，然后是 Gemini"],
+        ["智能体 · Codex", "审查改动并列出需要更正的地方", ""],
+        ["审批", "推送前等你批准", ""],
+        ["命令", "推送分支并创建 Pull Request", ""],
+      ],
+      caption: "示例工作流：一个智能体编写，另一个审查，在你批准之前不会推送任何内容。",
+    },
+    triggers: "触发方式",
+    triggersTitle: "它会自己开始。",
+    triggerItems: [
+      ["计划", "每天、工作日或任何计划，按你的时区运行。电脑睡眠时错过的启动，会在唤醒后补上。", "", "/docs/scheduling/"],
+      ["Webhook", "GitHub、Stripe、Slack 或任何服务，都可以通过 Kitewell 的中继在你的电脑上启动工作流。签名会经过校验，不开放任何端口，请求最多等待 7 天。", "Personal 和 Team", "/docs/webhooks/"],
+      ["随时随地", "从手机上的 ChatGPT 或 Claude，通过 MCP 从 Claude Code 或 Codex，或者用一个 REST 调用。", "", "/docs/mcp/"],
+    ],
+    control: "掌控",
+    controlTitle: "用手机批准和查看运行，并知道失败的原因。",
+    controlItems: [
+      ["批准或退回", "任何步骤都可以等你批准。可以在运行页面、通知中，或用手机上的 ChatGPT 和 Claude 批准，或附上备注退回。"],
+      ["在浏览器中查看运行", "Dagu Console 显示已同步项目的每次运行，以及运行它的电脑。用手机也能打开。使用免费的 Dagu Cloud 账户即可。"],
+      ["提醒", "运行失败、等你处理或错过计划时，通过 Slack、Microsoft Teams、PagerDuty、电子邮件或桌面通知告诉你。Personal 和 Team 可用。"],
+      ["电脑没了动静时", "电脑停止报告 10 分钟后，Dagu Console 会发邮件通知你：可能是睡眠、离线，或 Kitewell 已退出。为需要一直开着的电脑开启此功能。"],
+      ["失败诊断", "AI 读取失败的运行，告诉你应该重试、介入处理，还是修改工作流。"],
+      ["运行记录", "每个步骤的输出、截图和判断。可以从失败的那一步重试。"],
+      ["先试一试", "保存之前，用真实输入试运行一个步骤，并在不向外发送任何内容的情况下试运行草稿。"],
+      ["留下来的笔记", "助手把学到的东西记在知识页面里，留给你，也留给接手的人。"],
+    ],
+    controlNote: "ChatGPT Plus 和 Pro 可以读取运行，但不能批准。",
+    controlAlt: "Kitewell 中一次已完成的发票运行，显示每个步骤的状态和所选步骤的输出",
+    controlLinks: [["运行与日志 →", "/docs/runs/"], ["Dagu Console →", "/docs/console/"]],
+    team: "团队与多台电脑",
+    teamTitle: "在每台电脑上运行，在一个地方统一查看。",
+    teamItems: [
+      ["所有电脑，一个视图", "Dagu Console 列出每台电脑的状态、Kitewell 版本和今天的运行。无论多少台电脑在运行，每个工作流只有一条提醒；任何一台下次成功时，提醒即关闭。"],
+      ["同步与角色", "以查看者、编辑者和管理员角色共享项目。每台电脑保留各自的登录信息和密钥值。"],
+      ["发布", "把工作流从 Dev 推进到 Staging 再到 Prod，可查看差异，也可回滚。"],
+      ["机器人台账", "导出所有工作流的台账用于审计，每个工作流一行。"],
+      ["共享电脑（Enterprise）", "由你的组织拥有的电脑，例如你自己 Azure 或 AWS 中的虚拟机，无需有人登录，昼夜运行工作流。笔记本睡眠或负责人调岗，也不会让它停下。"],
+      ["在浏览器中搭建（Enterprise）", "用公司账户登录，在工作流实际运行的那台电脑上搭建和试运行，同时看着它的浏览器。用手机批准修复，无需远程桌面。"],
+    ],
+    teamPrice: "Kitewell Team 面向最多 25 人的组织，按电脑台数报价。",
+    fleet: {
+      title: "Kitewell 电脑",
+      head: ["电脑", "状态", "Kitewell 版本", "OS/架构", "进行中", "今日失败 (UTC)"],
+      rows: [
+        ["前台电脑", "正在报告", "0.17.3", "windows/amd64", "1", "0"],
+        ["财务电脑", "正在报告", "0.17.3", "windows/amd64", "0", "1"],
+        ["构建用 Mac", "正在报告", "0.17.3", "darwin/arm64", "2", "0"],
+        ["仓库笔记本电脑", "未在报告", "0.17.3", "windows/amd64", "0", "0"],
+      ],
+      caption: "Dagu Console 中 Kitewell 电脑表格的示例，只显示了部分列。",
+    },
+    teamLinks: [["Dagu Console →", "/docs/console/"], ["与 Dagu Cloud 同步 →", "/docs/cloud-sync/"], ["项目共享 →", "/docs/sharing/"], ["发布 →", "/docs/releases/"]],
     runs: "运行位置",
     runsTitle: "在你的电脑上，或在云端。",
     places: [
@@ -244,74 +490,153 @@ const text = {
       ["公司的云或封闭网络", "面向企业", "在贵公司 Azure、AWS、Google Cloud 的虚拟机或封闭网络中的服务器上运行，无需有人登录，并可使用公司自己的 AI。"],
     ],
     placesLink: "Descarty 先行使用合作伙伴招募 ↗",
+    own: "在你的电脑上",
+    ownTitle: "你的电脑，你的密钥，你的文件。",
+    ownRows: [
+      ["密钥值", "在电脑上加密保存，从不同步、导出或备份。"],
+      ["AI 由你选择", "Anthropic、OpenAI、Gemini、OpenRouter、Kitewell 内置模型，或让一切都留在你网络内的本地模型。"],
+      ["不被绑定", "工作流是运行在开源 Dagu 引擎上的普通 YAML，随时可以导出项目。"],
+      ["在后台安静运行", "从菜单栏或托盘运行，每晚自动备份，保留编辑历史，引擎更新失败时会自动回滚。"],
+      ["离开电脑的内容，一清二楚", "已同步的项目只发送运行状态和失败步骤的名称，从不发送日志、输出或密钥值。"],
+      ["六种语言", "应用支持英语、日语、中文、韩语、法语和德语。"],
+    ],
+    ownLink: "离开电脑的全部内容及其时机 →",
+    examples: "示例",
+    examplesTitle: "你还在手动做哪些事？",
+    exampleTabs: ["日常工作", "编程"],
+    examplesLink: "全部示例 →",
     pricing: "价格",
     pricingTitle: "最多 10 个工作流免费。",
-    pricingText:
-      "登录即可免费获得 100 AI 积分，无需 API 密钥；也可以使用你自己的密钥。Personal 每月 20 美元（不含税），增加提醒、Webhook 和更多项目。",
-    plans: "比较套餐 →",
-    enterprise: "需要支持的大规模部署：Descarty ↗",
+    pricingText: "包含最多 10 个工作流的一个项目免费，免费登录还可获得 100 AI 积分，无需 API 密钥。Personal 每月 20 美元，增加容量、提醒和 Webhook；Team 面向组织，增加成员，按电脑台数报价（美元，不含税）。",
+    compare: "比较套餐 →",
   },
   ko: {
-    title: "반복 실행되는 AI 브라우저·데스크톱 자동화, Mac과 Windows 지원",
+    title: "자동화는 AI가 만듭니다. 실행은 내 컴퓨터가 합니다.",
     description:
-      "컴퓨터 반복 업무를 한 번만 설명하면 AI가 매일 자동으로 처리합니다. Kitewell의 AI가 눈앞에서 한 번 해 보인 뒤, 정해 둔 일정에 따라 같은 클릭을 반복합니다. 사이트가 바뀌면 AI가 문제가 생긴 단계만 고칩니다. Mac과 Windows에서 워크플로 10개까지 무료입니다.",
-    eyebrow: "Mac과 Windows에서 반복 실행되는 AI 컴퓨터 조작",
-    heading: "컴퓨터 반복 업무, 한 번만 설명하세요.\nAI가 매일 처리합니다.",
-    lead: "할 일을 평소 쓰는 말로 입력하세요. Kitewell의 AI가 먼저 눈앞에서 브라우저나 데스크톱 앱을 조작해 한 번 해 보이고, 그다음부터는 Kitewell이 정해 둔 일정에 따라 같은 클릭을 반복합니다. 사이트가 바뀌면 AI가 문제가 생긴 단계만 고칩니다.",
-    offer: "Mac과 Windows용 공개 베타. 워크플로 10개까지 무료이며, 무료로 로그인하면 AI도 함께 제공됩니다. 컴퓨터를 덮어도 실행되는 Kitewell Cloud가 곧 출시됩니다.",
-    trust: `GitHub 스타 ${stars}개 이상의 오픈 소스 워크플로 엔진 Dagu 개발팀이 만들었습니다`,
-    notarized: "Apple 서명 및 공증 완료",
-    passwords: "비밀번호는 컴퓨터에 남고, AI에게는 절대 보여 주지 않습니다",
-    loop: "Kitewell이 채팅에서 평일 청구서 작업을 만들고, 이어지는 실행을 보여 주는 영상입니다. 다음 실행은 모든 클릭을 반복하고, 공급업체의 로그인 페이지가 바뀌자 AI가 그 클릭만 고치며, 새 청구서가 스프레드시트에 들어갑니다.",
-    caption: "실제 실행을 빠르게 재생한 영상입니다. 실행 기록과 시트에는 해당 실행이 기록한 내용이 그대로 표시됩니다. Harbor Supply는 이 데모를 위해 만든 샘플 포털입니다.",
-    unedited: "편집하지 않은 녹화 보기",
-    uneditedLabel: "Kitewell의 채팅이 청구서 워크플로를 만들고 첫 실행을 마치기까지를 편집 없이 녹화한 영상입니다. 일정한 배속으로 빠르게 재생합니다.",
-    transcript: [
-      "처음에는 AI가 눈앞에서 작업합니다. 채팅의 브라우저에서 공급업체 포털에 로그인하고 청구서를 읽습니다.",
-      "확인하고 진행하라고 말하면, 제안된 워크플로(평일 9:00)가 적용됩니다.",
-      "평일 9:00마다 잘된 작업을 반복합니다. 다음 실행은 모든 클릭을 재생합니다.",
-      "사이트가 바뀌자 AI가 그 클릭만 고쳤습니다. 로그인 버튼의 위치가 바뀌었고, 그 클릭만 다시 AI에게 맡겼습니다.",
-      "오늘 들어온 새 청구서가 시트에 들어가 있습니다.",
+      "Kitewell의 AI가 브라우저 자동화를 만들고, 사이트가 바뀌면 고칩니다. 데스크톱 앱, Excel, 이메일, Claude Code와 Codex 같은 코딩 에이전트도 내 Mac이나 PC에서 일정이나 웹후크로 실행하며, 실행 상황은 휴대폰으로 확인할 수 있습니다. 워크플로 10개까지 무료.",
+    eyebrow: "AI + RPA",
+    version: release ? `버전 ${release.version}` : "",
+    heading: "자동화는 AI가 만듭니다.\n실행은 내 컴퓨터가 합니다.",
+    lead: "할 일을 말하면 AI가 지켜볼 수 있는 브라우저에서 자동화를 만들고, 사이트가 바뀌면 고칩니다. 데스크톱 앱, Excel, 이메일, Claude Code 같은 코딩 에이전트도 같은 방식으로 일정이나 웹후크에 따라 실행되고, 중요한 곳에서는 내 승인을 기다립니다. 어디에 있든 휴대폰으로 지켜볼 수 있습니다.",
+    watch: `영상 보기(${cut.seconds}초)`,
+    setup: "설치 가이드 읽기 →",
+    platform: "macOS 13 이상, Windows 10 이상용 공개 베타. 워크플로 10개까지 무료이며, 무료로 로그인하면 AI도 함께 제공됩니다. 컴퓨터를 덮어도 실행되는 Kitewell Cloud가 곧 출시됩니다.",
+    proofTabs: ["웹사이트", "코딩 에이전트"],
+    proof: [
+      "실제 녹화, 배속 재생: Kitewell 채팅에서 평일마다 공급업체 포털의 새 청구서를 Excel 파일에 추가하도록 요청합니다. AI는 채팅에 보이는 브라우저에서 대역 포털을 열고, 비밀번호는 사람이 카드에 직접 입력하게 한 뒤 로그인해 초안을 시험하고 워크플로를 제안합니다. 적용해 실행하면, 찾은 청구서를 보여 주며 기다리다가 답장을 받은 뒤에야 통합 문서에 추가합니다.",
+      "실제 녹화, 배속 재생: Kitewell 채팅에서 매일 밤 Claude Code가 데모 저장소의 실패한 테스트를 고치고 Codex가 그 변경을 리뷰하도록 요청합니다. 어시스턴트가 일정을 포함한 워크플로를 제안하고 실행합니다. Claude Code가 테스트를 고치고 Codex가 리뷰하면, 실행은 두 에이전트의 요약을 보여 주며 기다리다가 답장을 받은 뒤에야 수정 사항을 새 로컬 브랜치에 커밋합니다.",
     ],
-    examples: "활용 예시",
-    examplesTitle: "아직도 손으로 하는 일이 있나요?",
-    examplesLink: "모든 예시 보기 →",
-    learns: "작동 방식",
-    learnsTitle: "한 번 배우고, 매일 반복합니다.",
-    learnsLead:
-      "AI 에이전트는 실행할 때마다 작업을 처음부터 다시 궁리합니다. 녹화한 매크로는 화면이 바뀌기 전까지 똑같이 반복합니다. Kitewell은 잘된 방식은 그대로 두고, 바뀐 부분만 AI에게 묻습니다.",
-    beats: [
-      ["처음에는 AI가 방법을 찾습니다", `기록이 없는 첫 실행: ${run.cold.seconds}초`, `조작 ${run.cold.withoutAI.total}개 중 ${ai(run.cold)}개를 AI가 판단`],
-      ["그다음부터는 매번 그대로 반복합니다", `다음 실행: ${run.replayed.seconds}초`, `조작 ${run.replayed.withoutAI.total}개 중 ${run.replayed.withoutAI.count}개를 AI 없이 실행`],
-      ["사이트가 바뀌면 AI가 그 클릭을 고칩니다", `AI가 고침: ${run.recovered.fixed}`, `조작 ${run.recovered.withoutAI.total}개 중 ${run.recovered.withoutAI.count}개를 AI 없이 실행`],
+    proofNote: "Kitewell 채팅 창의 실제 녹화입니다. 편집 없이 전체를 같은 배속으로 빠르게 재생했습니다. 평소 쓰는 말로 한 번 요청한 뒤 AI와 앱이 한 모든 일을 담았으며, 대역 공급업체 포털과 데모 저장소를 사용했습니다.",
+    how: "작동 방식",
+    steps: [
+      ["AI가 만듭니다", "할 일을 평소 쓰는 말로 설명하세요. 어시스턴트가 확인할 수 있도록 모든 단계를 펼쳐 보이고, 지켜볼 수 있는 브라우저에서 사이트를 조작하며, 외부로 아무것도 보내지 않고 초안을 시험합니다. 적용하기 전에는 아무것도 실행되지 않습니다."],
+      ["내 컴퓨터가 실행합니다", "일정에 따라, 웹후크로, 또는 휴대폰에서. 게이트를 둔 곳에서는 멈추고 내 승인을 기다립니다."],
+      ["AI가 유지 관리합니다", "사이트나 앱이 바뀌면 AI가 새 방법을 찾아 기억하고, 무엇을 고쳤는지 실행 기록에 남깁니다. 실행이 실패하면 AI가 이유를 알려 줍니다."],
     ],
-    beatAlt: [
-      "공급업체 포털에 로그인한 브라우저가 열린 Kitewell 채팅",
-      "각 클릭이 ‘재생됨’으로 표시된 실행의 브라우저 단계",
-      "로그인 클릭이 ‘복구됨’으로 표시된 실행의 브라우저 단계",
+    browser: "브라우저 자동화",
+    browserTitle: "AI가 만들고, AI가 유지 관리합니다.",
+    browserText:
+      "할 일을 평소 쓰는 말로 Kitewell에 알려 주세요. AI가 지켜보거나 넘겨받을 수 있는 브라우저에서 로그인하고, 클릭하고, 입력하고, 정보를 모은 뒤, 잘된 동작으로 단계를 작성합니다. 이후 실행은 그 단계를 반복하고, 사이트가 바뀌면 AI가 새 방법을 찾아 기억합니다.",
+    browserItems: [
+      ["로그인이 필요한 사이트도", "로그인 정보는 컴퓨터에 있는 Kitewell 전용 브라우저 프로필에 남습니다. 클라이언트 인증서를 요구하는 사이트도 됩니다."],
+      ["비밀번호는 모델에 보이지 않게", "단계에는 비밀번호의 이름만 적고, 값은 컴퓨터의 시크릿에서 입력합니다. 모델에는 이름만 보입니다."],
+      ["무엇을 고쳤는지 보여 줍니다", "실행마다 반복한 단계와 AI가 고친 단계를 스크린숏과 함께 표시합니다."],
     ],
-    reading: "새 청구서처럼 페이지의 내용을 읽는 작업은 실행할 때마다 AI에게 묻습니다.",
-    measured: "샘플 포털을 대상으로 이 컴퓨터에서 실제로 실행한 결과입니다. 모델은 Kitewell 기본 제공 AI에 쓰이는 DeepSeek V4 Flash입니다.",
-    compare: "Kitewell 비교 보기 →",
-    where: "브라우저 밖에서도",
-    whereTitle: "업무가 있는 곳에서 일합니다.",
+    browserLink: "웹사이트 자동화의 작동 방식 →",
+    record: {
+      title: "새 청구서 모으기",
+      kind: "웹사이트",
+      facts: [["시작 페이지", "127.0.0.1:4320/billing/invoices"], ["브라우저 단계", "5"], ["AI 없이 실행", "작업 6개 중 3개"]],
+      ops: record({ open: "페이지 열기", act: "작업", check: "확인", collect: "수집", done: "완료", replayed: "재생됨", recovered: "복구됨" }),
+      label: "브라우저가 수행한 작업",
+      caption: "이 컴퓨터의 대역 공급업체 포털에 대한 실제 실행 기록을 Kitewell 화면 그대로 옮겼습니다. 포털이 로그인 버튼을 옮겨서 AI가 새 버튼을 찾아 기억했고, 다음 실행에서는 그 동작을 재생했습니다.",
+    },
+    rpa: "AI + RPA",
+    rpaTitle: "RPA라는 생각은 옳았습니다. 문제는 손으로 만드는 것이었습니다.",
+    rpaHead: ["손으로 만드는 RPA", "Kitewell"],
+    rpaRows: [
+      ["전문가가 클릭을 하나하나 기록하고 스크립트로 짭니다", "내 말을 바탕으로 AI가 만듭니다"],
+      ["화면이 바뀌면 누군가 로봇을 고쳐야 합니다", "AI가 새 방법을 찾아 기억합니다"],
+      ["로봇용 PC와 로봇마다 라이선스", "지금 쓰는 컴퓨터로, 워크플로 10개까지 무료"],
+      ["시스템 종류마다 다른 도구", "웹사이트, 데스크톱 앱, Excel, 이메일을 하나의 워크플로에"],
+      ["로봇이 무엇을 했는지 보기 어렵습니다", "모든 단계, 스크린숏, 승인이 실행 기록에"],
+    ],
+    others: "Kitewell 비교 보기 →",
+    automate: "브라우저 밖에서도",
+    automateTitle: "데스크톱 앱, Excel, 이메일도.",
     tiles: [
-      ["웹사이트", "로그인이 필요한 사이트도 가능하며, 비밀번호는 내 컴퓨터에 보관됩니다.", "/docs/browser/"],
-      ["데스크톱 앱", "API가 없는 앱도 가능합니다. 직접 준비한 AI 키나 유료 요금제의 기본 제공 AI를 사용합니다.", "/docs/desktop/"],
-      ["Excel", "지금 쓰는 워크북의 행마다 한 번씩 실행하고, 결과를 각 행 옆에 기록합니다.", "/docs/spreadsheets/"],
-      ["이메일", "Microsoft 365, Gmail 또는 모든 IMAP 메일함에서 메일을 찾고, 읽고, 분류하고, 보냅니다.", "/docs/email/"],
-      ["일정에 따라, 승인을 받아", "평일 9:00에, 웹후크로, 또는 요청할 때 실행합니다. 휴대폰에서 단계를 승인할 수 있습니다.", "/docs/scheduling/"],
-      ["코딩 에이전트", "Claude Code, Codex 외 13종을 내 일정에 따라, 내 승인 아래 실행합니다.", "/coding-agents/"],
+      ["API가 없는 데스크톱 앱", "모델이 화면을 읽고 앱을 조작합니다. 내 AI 키나 유료 요금제의 내장 AI를 사용합니다. 이후 실행은 Windows에서는 앱 자체의 버튼과 입력란으로, macOS에서는 화면을 기준으로 재생합니다.", "/docs/desktop/"],
+      ["Excel을 한 행씩", "지금 쓰는 통합 문서의 행마다 한 번씩 실행하고, 결과를 그 행 옆에 다시 적습니다. 제목 행, 병합된 머리글, 소계도 그대로 처리합니다.", "/docs/spreadsheets/"],
+      ["이메일", "Microsoft 365, 앱 비밀번호를 쓰는 Gmail, 또는 모든 IMAP 메일함에서 메일을 찾고, 읽고, 정리하고, 보냅니다.", "/docs/email/"],
+      ["스크립트, 서버, API", "명령, Docker, 몇 대씩 나눠 진행하는 SSH 배포, 모든 OpenAPI, 그리고 다음 경로를 고르는 판단 단계까지.", "/docs/workflow-builder/"],
     ],
-    safe: "안심하고 맡기세요",
-    safeTitle: "내 컴퓨터, 내 로그인, 내 결정.",
-    safeRows: [
-      ["내 컴퓨터에서 실행", "로그인 정보는 Mac이나 PC에 있는 Kitewell 전용 브라우저 프로필에 남습니다. 단계가 읽는 페이지 텍스트는 선택한 AI 제공업체로 전송됩니다."],
-      ["비밀번호는 모델에 보여 주지 않습니다", "단계에는 비밀번호의 이름만 적고, Kitewell이 컴퓨터의 시크릿에서 꺼내 입력합니다. 모델이 보는 것은 언제나 이름뿐입니다."],
-      ["허락하기 전에는 아무것도 나가지 않습니다", "초안은 아무것도 보내지 않고 시험해 볼 수 있습니다. 단계가 추가, 전송, 푸시 전에 승인을 기다리게 할 수도 있습니다."],
-      ["모든 실행을 기록", "실행마다 무엇을 반복했는지, AI가 무엇을 고쳤는지, 그리고 페이지 스크린샷이 남습니다."],
+    agents: "코딩 에이전트",
+    agentsTitle: "Claude Code, Codex 외 13종을 원하는 일정에.",
+    agentsText: "이미 쓰고 있는 코딩 에이전트를 지금의 로그인 그대로, 자리를 비운 동안에도 일하게 하세요. Kitewell은 사용자가 설치한 에이전트를 실행하며, 각 제공사의 약관이 적용됩니다.",
+    agentNames: ["Claude Code", "Codex", "Cursor", "Gemini", "GitHub Copilot", "Aider", "Amp", "Cline", "DeepSeek", "Droid", "Goose", "Kiro", "OpenCode", "Pi", "Qwen"],
+    agentMore: "그 밖의 CLI는 사용자 지정 명령으로",
+    agentItems: [
+      ["이어 붙이기", "하나가 작성하고 다른 하나가 리뷰합니다. 나란히 실행하거나, 시트를 바탕으로 저장소마다 한 번씩 실행할 수 있습니다."],
+      ["한도에 걸려도 계속", "에이전트가 사용 한도에 도달하거나 실패하면, 목록에서 다음 에이전트가 이어받습니다."],
+      ["확인 없이는 내보내지 않음", "승인할 때까지 게이트가 푸시를 막아 둡니다. ‘돌려보내기’를 선택하면 메모를 반영해 에이전트를 다시 실행합니다."],
+      ["GitHub에서 시작", "이슈나 풀 리퀘스트가 웹후크로 실행을 시작할 수 있으며, 포트를 열 필요가 없습니다."],
     ],
-    safeLink: "무엇이 언제 컴퓨터 밖으로 나가는지 →",
+    agentsLink: "Kitewell의 코딩 에이전트 →",
+    chain: {
+      title: "실패한 빌드를 아침에 수정",
+      steps: [
+        ["에이전트 · Claude Code", "브랜치에 수정안 작성", "실패했을 때: Codex, 다음은 Gemini"],
+        ["에이전트 · Codex", "변경 사항을 리뷰하고 고칠 점 정리", ""],
+        ["승인", "푸시하기 전에 승인 대기", ""],
+        ["명령", "브랜치를 푸시하고 풀 리퀘스트 열기", ""],
+      ],
+      caption: "샘플 워크플로: 한 에이전트가 작성하고 다른 에이전트가 리뷰하며, 승인하기 전에는 아무것도 푸시하지 않습니다.",
+    },
+    triggers: "트리거",
+    triggersTitle: "알아서 시작합니다.",
+    triggerItems: [
+      ["일정", "매일, 평일, 또는 원하는 어떤 일정이든 사용자의 시간대에 맞춰 실행합니다. 컴퓨터가 절전 중이라 놓친 시작은 깨어나면 따라잡습니다.", "", "/docs/scheduling/"],
+      ["웹후크", "GitHub, Stripe, Slack 등 어떤 서비스든 Kitewell 릴레이를 거쳐 내 컴퓨터의 워크플로를 시작합니다. 서명을 확인하고, 포트를 열지 않으며, 요청은 최대 7일 동안 기다립니다.", "Personal 및 Team", "/docs/webhooks/"],
+      ["어디서든", "휴대폰의 ChatGPT나 Claude에서, MCP로 Claude Code나 Codex에서, 또는 REST 호출로.", "", "/docs/mcp/"],
+    ],
+    control: "통제",
+    controlTitle: "휴대폰으로 승인하고 실행을 확인하세요. 실패한 이유도 알 수 있습니다.",
+    controlItems: [
+      ["승인 또는 돌려보내기", "어떤 단계든 내 승인을 기다리게 할 수 있습니다. 실행 화면, 알림, 휴대폰의 ChatGPT나 Claude에서 승인하거나 메모와 함께 돌려보냅니다."],
+      ["브라우저에서 실행 확인", "Dagu Console에서 동기화한 프로젝트의 각 실행과 그것을 실행한 컴퓨터를 볼 수 있습니다. 휴대폰에서도 열 수 있으며, 무료 Dagu Cloud 계정으로 쓸 수 있습니다."],
+      ["알림", "실행이 실패하거나, 내 응답을 기다리거나, 일정을 놓치면 Slack, Microsoft Teams, PagerDuty, 이메일, 데스크톱 알림으로 알려 줍니다. Personal과 Team에서 사용할 수 있습니다."],
+      ["컴퓨터가 조용해지면", "컴퓨터의 보고가 10분 동안 끊기면 Dagu Console이 이메일을 보냅니다. 절전, 오프라인, Kitewell 종료도 놓치지 않습니다. 계속 켜 둘 컴퓨터에서 켜세요."],
+      ["실패 진단", "AI가 실패한 실행을 읽고, 다시 시도할지, 직접 나설지, 워크플로를 바꿀지 알려 줍니다."],
+      ["실행 기록", "각 단계의 출력, 스크린숏, 판단. 실패한 단계부터 다시 시도할 수 있습니다."],
+      ["먼저 시험", "저장하기 전에 실제 입력으로 단계 하나를 시험하고, 외부로 아무것도 보내지 않고 초안을 시험할 수 있습니다."],
+      ["남는 메모", "어시스턴트가 알게 된 것을 지식 페이지에 남깁니다. 나를 위해, 그리고 일을 이어받을 사람을 위해."],
+    ],
+    controlNote: "ChatGPT Plus와 Pro에서는 실행을 읽을 수 있지만 승인할 수는 없습니다.",
+    controlAlt: "Kitewell에서 완료된 청구서 실행. 각 단계의 상태와 선택한 단계의 출력",
+    controlLinks: [["실행과 로그 →", "/docs/runs/"], ["Dagu Console →", "/docs/console/"]],
+    team: "팀과 여러 대의 컴퓨터",
+    teamTitle: "모든 컴퓨터에서 실행하고, 한곳에서 지켜보세요.",
+    teamItems: [
+      ["모든 컴퓨터를 한눈에", "Dagu Console에 각 컴퓨터의 상태, Kitewell 버전, 오늘의 실행이 나열됩니다. 몇 대에서 실행하든 알림은 워크플로마다 하나이며, 어느 컴퓨터에서든 다음에 성공하면 닫힙니다."],
+      ["동기화와 역할", "보기, 편집, 관리 역할로 프로젝트를 공유합니다. 로그인 정보와 시크릿 값은 컴퓨터마다 따로 남습니다."],
+      ["릴리스", "워크플로를 Dev에서 Staging, Prod로 올리고, 차이를 확인하며, 롤백할 수 있습니다."],
+      ["로봇 관리 대장", "모든 워크플로를 한 행씩 담은 대장을 감사용으로 내보냅니다."],
+      ["공용 컴퓨터(Enterprise)", "자사 Azure나 AWS의 VM처럼 조직이 소유한 컴퓨터가, 아무도 로그인하지 않아도 밤낮으로 워크플로를 실행합니다. 노트북이 절전 모드로 들어가거나 담당자가 바뀌어도 멈추지 않습니다."],
+      ["브라우저에서 만들기(Enterprise)", "회사 계정으로 로그인해, 워크플로가 실행될 컴퓨터에서 그 브라우저를 보며 만들고 시험합니다. 수정 승인은 휴대폰에서 하며, 원격 데스크톱은 필요 없습니다."],
+    ],
+    teamPrice: "Kitewell Team은 최대 25명 조직용이며, 컴퓨터 대수에 따라 견적을 드립니다.",
+    fleet: {
+      title: "Kitewell 컴퓨터",
+      head: ["컴퓨터", "상태", "Kitewell 버전", "OS/아키텍처", "진행 중", "오늘 실패 (UTC)"],
+      rows: [
+        ["안내 데스크 PC", "보고 중", "0.17.3", "windows/amd64", "1", "0"],
+        ["경리 PC", "보고 중", "0.17.3", "windows/amd64", "0", "1"],
+        ["빌드용 Mac", "보고 중", "0.17.3", "darwin/arm64", "2", "0"],
+        ["창고 노트북", "보고 중단", "0.17.3", "windows/amd64", "0", "0"],
+      ],
+      caption: "Dagu Console의 Kitewell 컴퓨터 표 예시로, 일부 열만 보여 줍니다.",
+    },
+    teamLinks: [["Dagu Console →", "/docs/console/"], ["Dagu Cloud와 동기화 →", "/docs/cloud-sync/"], ["프로젝트 공유 →", "/docs/sharing/"], ["릴리스 →", "/docs/releases/"]],
     runs: "실행 위치",
     runsTitle: "내 컴퓨터에서도, 클라우드에서도.",
     places: [
@@ -320,74 +645,153 @@ const text = {
       ["회사의 클라우드·폐쇄망", "기업용", "회사의 Azure, AWS, Google Cloud VM이나 폐쇄망 서버에서 아무도 로그인하지 않아도 실행되며, 회사의 AI를 사용할 수 있습니다."],
     ],
     placesLink: "Descarty 얼리 액세스 파트너 모집 ↗",
+    own: "내 컴퓨터에서",
+    ownTitle: "내 컴퓨터, 내 키, 내 파일.",
+    ownRows: [
+      ["시크릿 값", "컴퓨터 안에서 암호화됩니다. 동기화, 내보내기, 백업에 포함되지 않습니다."],
+      ["AI는 원하는 대로", "Anthropic, OpenAI, Gemini, OpenRouter, Kitewell 내장 모델, 또는 모든 것을 사내 네트워크 안에 두는 로컬 모델."],
+      ["종속 없음", "워크플로는 오픈 소스 Dagu 엔진에서 실행되는 일반 YAML입니다. 언제든 프로젝트를 내보낼 수 있습니다."],
+      ["백그라운드에서 조용히", "메뉴 막대나 트레이에서 실행되며, 매일 밤 백업과 편집 기록, 실패하면 되돌아가는 엔진 업데이트를 갖췄습니다."],
+      ["밖으로 나가는 것은 정확하게", "동기화한 프로젝트가 보내는 것은 실행 상태와 실패한 단계의 이름뿐이며, 로그, 출력, 시크릿 값은 보내지 않습니다."],
+      ["6개 언어", "앱은 영어, 일본어, 중국어, 한국어, 프랑스어, 독일어를 지원합니다."],
+    ],
+    ownLink: "밖으로 나가는 모든 것과 그 시점 →",
+    examples: "활용 예",
+    examplesTitle: "아직도 손으로 하는 일이 있나요?",
+    exampleTabs: ["일상 업무", "코딩"],
+    examplesLink: "모든 활용 예 →",
     pricing: "요금",
     pricingTitle: "워크플로 10개까지 무료.",
-    pricingText:
-      "로그인하면 API 키 없이 AI 크레딧 100개를 무료로 받을 수 있고, 직접 준비한 키도 쓸 수 있습니다. Personal은 월 20달러(USD, 세금 별도)로 알림, 웹후크, 더 많은 프로젝트를 추가합니다.",
-    plans: "요금제 비교 →",
-    enterprise: "지원이 포함된 대규모 도입: Descarty ↗",
+    pricingText: "워크플로 10개까지 담는 프로젝트 1개는 무료이며, 무료로 로그인하면 API 키 없이 AI 크레딧 100개를 받을 수 있습니다. Personal은 월 20달러로 용량, 알림, 웹후크를 더하고, Team은 조직용으로 컴퓨터 대수에 따라 견적을 드리며 사람을 추가합니다(USD, 세금 별도).",
+    compare: "요금제 비교 →",
   },
   fr: {
-    title: "Automatisation IA reproductible du navigateur et des applications de bureau, sur Mac et Windows",
+    title: "L’IA construit l’automatisation. Votre ordinateur l’exécute.",
     description:
-      "Décrivez une tâche sur ordinateur une seule fois, l’IA s’en charge chaque jour. L’IA de Kitewell la réalise d’abord sous vos yeux, puis répète les mêmes clics aux horaires que vous avez choisis ; quand un site change, l’IA ne corrige que l’étape qui ne fonctionne plus. Automatisation gratuite jusqu’à 10 workflows, sur Mac et Windows.",
-    eyebrow: "Pilotage de l’ordinateur par l’IA · Mac et Windows",
-    heading: "Décrivez une tâche sur ordinateur, une seule fois.\nL’IA s’en charge chaque jour.",
-    lead: "Écrivez la tâche avec vos propres mots. L’IA de Kitewell la réalise une fois sous vos yeux, dans un navigateur ou une application de bureau, puis Kitewell répète les mêmes clics aux horaires que vous avez choisis. Quand un site change, l’IA ne corrige que l’étape qui ne fonctionne plus.",
-    offer: "Bêta publique pour Mac et Windows. Gratuit jusqu’à 10 workflows, IA incluse avec une connexion gratuite. Kitewell Cloud, qui tourne même ordinateur fermé, arrive bientôt.",
-    trust: `Par les créateurs de Dagu, le moteur de workflows open source qui compte plus de ${stars} étoiles sur GitHub`,
-    notarized: "Signé et notarisé par Apple",
-    passwords: "Les mots de passe restent sur votre ordinateur, jamais montrés à l’IA",
-    loop: "Kitewell crée dans son chat une tâche de factures à faire chaque jour de semaine, puis les exécutions qui suivent : la suivante répète chaque clic, la page de connexion du fournisseur change et l’IA ne corrige que ce clic, puis la nouvelle facture arrive dans le tableur.",
-    caption: "De vraies exécutions, en accéléré. Les historiques d’exécution et la feuille montrent exactement ce que ces exécutions ont enregistré. Harbor Supply est un portail d’exemple conçu pour cette démo.",
-    unedited: "Voir un enregistrement non monté",
-    uneditedLabel: "L’enregistrement non monté du chat de Kitewell qui crée le workflow de factures et lance sa première exécution, accéléré de façon uniforme.",
-    transcript: [
-      "La première fois, l’IA fait le travail sous vos yeux : elle se connecte au portail du fournisseur dans le navigateur du chat et lit les factures.",
-      "Vérifiez, puis donnez le feu vert : le workflow proposé, en semaine à 9:00, est appliqué.",
-      "Chaque jour de semaine à 9:00, il répète ce qui a fonctionné : l’exécution suivante rejoue chaque clic.",
-      "Le site a changé, et l’IA n’a corrigé que ce clic : le bouton de connexion a bougé, et seul ce clic est repassé par l’IA.",
-      "La nouvelle facture du jour est dans votre feuille.",
+      "L’IA de Kitewell construit l’automatisation du navigateur et la répare quand un site change. Kitewell exécute aussi des applications de bureau, Excel, l’e-mail et des agents de codage comme Claude Code et Codex sur votre Mac ou PC, selon une planification ou un webhook, et vous suivez les exécutions depuis votre téléphone. Gratuit jusqu’à 10 workflows.",
+    eyebrow: "IA + RPA",
+    version: release ? `Version ${release.version}` : "",
+    heading: "L’IA construit l’automatisation.\nVotre ordinateur l’exécute.",
+    lead: "Décrivez la tâche : l’IA construit l’automatisation dans un navigateur que vous pouvez regarder, puis la répare quand le site change. Les applications de bureau, Excel, l’e-mail et les agents de codage comme Claude Code fonctionnent de la même façon : selon une planification ou un webhook, avec votre accord là où c’est important. Suivez tout depuis votre téléphone, où que vous soyez.",
+    watch: `Voir le film (${cut.seconds} s)`,
+    setup: "Lire le guide d’installation →",
+    platform: "Bêta publique pour macOS 13+ et Windows 10+. Gratuit jusqu’à 10 workflows, IA incluse avec une connexion gratuite. Kitewell Cloud, qui tourne même ordinateur fermé, arrive bientôt.",
+    proofTabs: ["Sites web", "Agents de codage"],
+    proof: [
+      "Enregistrement réel, accéléré : on demande au chat de Kitewell d’ajouter chaque jour de semaine les nouvelles factures du portail d’un fournisseur à un fichier Excel. L’IA ouvre le portail de substitution dans un navigateur affiché dans le chat, fait saisir le mot de passe dans une carte, se connecte, essaie son brouillon et propose le workflow. Une fois le workflow appliqué et lancé, l’exécution attend avec les factures trouvées jusqu’à ce qu’une réponse l’autorise à les ajouter au classeur.",
+      "Enregistrement réel, accéléré : on demande au chat de Kitewell que Claude Code corrige chaque nuit les tests en échec d’un dépôt de démonstration et que Codex relise la modification. L’assistant propose le workflow avec sa planification et l’exécute ; Claude Code corrige le test, Codex le relit, et l’exécution attend avec leur résumé jusqu’à ce qu’une réponse l’autorise à commiter le correctif sur une nouvelle branche locale.",
     ],
-    examples: "Exemples",
-    examplesTitle: "Que faites-vous encore à la main ?",
-    examplesLink: "Tous les exemples →",
-    learns: "Comment ça marche",
-    learnsTitle: "Appris une fois. Répété chaque jour.",
-    learnsLead:
-      "Un agent IA refait tout le raisonnement à chaque exécution. Une macro enregistrée répète tout à l’identique, jusqu’au jour où un écran change. Kitewell garde ce qui a fonctionné et ne consulte l’IA que pour ce qui a changé.",
-    beats: [
-      ["La première fois, l’IA trouve comment faire", `Première exécution, sans rien d’enregistré : ${run.cold.seconds} s`, `L’IA a décidé ${ai(run.cold)} opérations sur ${run.cold.withoutAI.total}`],
-      ["Ensuite, Kitewell répète ces opérations à chaque exécution", `Exécution suivante : ${run.replayed.seconds} s`, `${run.replayed.withoutAI.count} opérations sur ${run.replayed.withoutAI.total} sans IA`],
-      ["Un site change : l’IA corrige ce clic", `Corrigé par l’IA : ${run.recovered.fixed}`, `${run.recovered.withoutAI.count} opérations sur ${run.recovered.withoutAI.total} sans IA`],
+    proofNote: "De véritables enregistrements de la fenêtre de chat de Kitewell, sans montage et accélérés de façon uniforme : une seule demande en langage courant, puis tout ce que l’IA et l’application ont fait. Un portail fournisseur de substitution et un dépôt de démonstration.",
+    how: "Comment ça marche",
+    steps: [
+      ["L’IA la construit", "Décrivez la tâche avec vos mots. L’assistant détaille chaque étape pour que vous la vérifiiez, manipule le site dans un navigateur que vous pouvez regarder, et essaie le brouillon sans rien envoyer. Rien ne s’exécute avant que vous l’appliquiez."],
+      ["Votre ordinateur l’exécute", "Selon une planification, depuis un webhook ou depuis votre téléphone. Elle s’arrête pour attendre votre accord partout où vous avez placé un point de contrôle."],
+      ["L’IA l’entretient", "Quand un site ou une application change, l’IA trouve la nouvelle façon de faire et la garde, et l’exécution montre ce qu’elle a corrigé. Quand une exécution échoue, l’IA vous dit pourquoi."],
     ],
-    beatAlt: [
-      "Le chat de Kitewell, avec son navigateur connecté au portail du fournisseur",
-      "L’étape de navigateur d’une exécution, chaque clic marqué « Rejoué »",
-      "L’étape de navigateur d’une exécution, le clic de connexion marqué « Récupéré »",
+    browser: "Automatisation du navigateur",
+    browserTitle: "Construite par l’IA. Entretenue par l’IA.",
+    browserText:
+      "Décrivez la tâche à Kitewell avec vos mots. L’IA se connecte, clique, saisit et collecte dans un navigateur que vous pouvez regarder et reprendre en main, puis écrit les étapes à partir de ce qui a fonctionné. Les exécutions suivantes les répètent, et quand le site change, l’IA trouve la nouvelle façon de faire et la garde.",
+    browserItems: [
+      ["Derrière n’importe quelle connexion", "Les connexions restent dans le profil de navigateur propre à Kitewell, sur l’ordinateur. Les sites qui demandent un certificat client fonctionnent aussi."],
+      ["Les mots de passe restent hors du modèle", "Un mot de passe est nommé dans l’étape et saisi depuis les secrets de l’ordinateur ; le modèle ne voit que le nom."],
+      ["Elle montre ce qu’elle a corrigé", "Chaque exécution indique les étapes répétées et celles que l’IA a corrigées, avec des captures d’écran."],
     ],
-    reading: "Lire le contenu d’une page, comme les nouvelles factures, fait appel à l’IA à chaque exécution.",
-    measured: "De vraies exécutions sur cet ordinateur, sur un portail d’exemple, avec DeepSeek V4 Flash, le modèle derrière l’IA incluse dans Kitewell.",
-    compare: "Kitewell face aux autres solutions →",
-    where: "Au-delà du navigateur",
-    whereTitle: "Kitewell travaille là où sont vos tâches.",
+    browserLink: "Comment fonctionne l’automatisation des sites web →",
+    record: {
+      title: "Récupérer les nouvelles factures",
+      kind: "Site web",
+      facts: [["Page de départ", "127.0.0.1:4320/billing/invoices"], ["Étapes de navigateur", "5"], ["Exécuté sans IA", "3 opérations sur 6"]],
+      ops: record({ open: "Ouvrir la page", act: "Agir", check: "S'assurer", collect: "Collecter", done: "Terminé", replayed: "Rejoué", recovered: "Récupéré" }),
+      label: "Ce que le navigateur a fait",
+      caption: "D’après une vraie exécution sur un portail fournisseur de substitution, sur cet ordinateur, telle que Kitewell l’affiche. Le portail avait déplacé son bouton de connexion : l’IA a trouvé le nouveau et l’a gardé, et l’exécution suivante l’a rejoué.",
+    },
+    rpa: "IA + RPA",
+    rpaTitle: "La RPA était la bonne idée. La construire à la main était le problème.",
+    rpaHead: ["RPA construite à la main", "Kitewell"],
+    rpaRows: [
+      ["Un spécialiste enregistre et scripte chaque clic", "L’IA la construit à partir de vos mots"],
+      ["Un écran modifié, et quelqu’un doit réparer le robot", "L’IA trouve la nouvelle façon de faire et la garde"],
+      ["Un PC dédié et une licence par robot", "L’ordinateur que vous avez, gratuit jusqu’à 10 workflows"],
+      ["Un outil par type de système", "Sites web, applications de bureau, Excel et e-mail dans un seul workflow"],
+      ["Difficile de voir ce qu’un robot a fait", "Chaque étape, capture et approbation dans le journal d’exécution"],
+    ],
+    others: "Kitewell face aux autres solutions →",
+    automate: "Au-delà du navigateur",
+    automateTitle: "Applications de bureau, Excel et e-mail aussi.",
     tiles: [
-      ["Sites web", "Même derrière une connexion, avec des mots de passe gardés sur votre ordinateur.", "/docs/browser/"],
-      ["Apps de bureau", "Des apps sans API, avec votre propre clé d’IA ou l’IA incluse dans une offre payante.", "/docs/desktop/"],
-      ["Excel", "Une fois par ligne du classeur que vous avez déjà, chaque résultat réécrit juste à côté.", "/docs/spreadsheets/"],
-      ["E-mail", "Chercher, lire, classer et envoyer des e-mails dans Microsoft 365, Gmail ou n’importe quelle boîte mail IMAP.", "/docs/email/"],
-      ["Planifié, avec votre accord", "En semaine à 9:00, sur webhook ou à la demande. Approuvez une étape depuis votre téléphone.", "/docs/scheduling/"],
-      ["Agents de code", "Claude Code, Codex et 13 autres, à vos horaires et soumis à votre approbation.", "/coding-agents/"],
+      ["Applications de bureau sans API", "Un modèle lit l’écran et manipule l’application, avec votre propre clé d’IA ou l’IA incluse dans une offre payante. Les exécutions suivantes rejouent sous Windows à partir des boutons et champs de l’application, et sous macOS à partir de l’écran.", "/docs/desktop/"],
+      ["Excel, ligne par ligne", "Une exécution par ligne du classeur que vous avez déjà, chaque résultat réécrit à côté. Lignes de titre, en-têtes fusionnés et sous-totaux compris.", "/docs/spreadsheets/"],
+      ["E-mail", "Rechercher, lire, classer et envoyer des e-mails dans Microsoft 365, dans Gmail avec un mot de passe d’application, ou dans toute boîte IMAP.", "/docs/email/"],
+      ["Scripts, serveurs et API", "Commandes, Docker, déploiements SSH quelques machines à la fois et n’importe quelle API OpenAPI, avec des étapes de décision qui choisissent la suite.", "/docs/workflow-builder/"],
     ],
-    safe: "En toute confiance",
-    safeTitle: "Votre ordinateur, vos connexions, votre décision.",
-    safeRows: [
-      ["S’exécute sur votre ordinateur", "Vos sessions restent dans le profil de navigateur propre à Kitewell, sur votre Mac ou votre PC. Le texte de page qu’une étape lit est envoyé au fournisseur d’IA que vous choisissez."],
-      ["Les mots de passe restent hors du modèle", "Une étape désigne un mot de passe par son nom, et Kitewell le saisit à partir des secrets de l’ordinateur. Le modèle ne voit jamais que le nom."],
-      ["Rien ne part sans votre accord", "Un brouillon s’essaie sans rien envoyer, et une étape peut attendre votre accord avant d’ajouter, d’envoyer ou de pousser quoi que ce soit."],
-      ["Chaque exécution consignée", "Chaque exécution montre ce qu’elle a répété, ce que l’IA a corrigé, et des captures d’écran de la page."],
+    agents: "Agents de codage",
+    agentsTitle: "Claude Code, Codex et 13 autres, selon votre planning.",
+    agentsText: "Faites travailler pendant votre absence les agents de codage que vous utilisez déjà, avec la connexion que vous avez déjà. Kitewell lance l’agent que vous avez installé ; les conditions de chaque éditeur s’appliquent.",
+    agentNames: ["Claude Code", "Codex", "Cursor", "Gemini", "GitHub Copilot", "Aider", "Amp", "Cline", "DeepSeek", "Droid", "Goose", "Kiro", "OpenCode", "Pi", "Qwen"],
+    agentMore: "Toute autre CLI, comme commande personnalisée",
+    agentItems: [
+      ["Enchaînez-les", "L’un écrit, un autre relit. Lancez-les côte à côte, ou une fois par dépôt à partir d’une feuille."],
+      ["Pas d’arrêt à la limite", "Quand un agent atteint sa limite d’utilisation ou échoue, le suivant de votre liste prend le relais."],
+      ["Rien ne part sans contrôle", "Un point de contrôle bloque le push jusqu’à votre approbation. « Renvoyer » relance l’agent avec vos notes."],
+      ["Déclenché par GitHub", "Une issue ou une pull request peut lancer l’exécution via un webhook, sans aucun port ouvert."],
     ],
-    safeLink: "Ce qui quitte votre ordinateur, et quand →",
+    agentsLink: "Les agents de codage dans Kitewell →",
+    chain: {
+      title: "Correctif matinal pour un build en échec",
+      steps: [
+        ["Agent · Claude Code", "Préparer un correctif sur une branche", "En cas d’échec : Codex, puis Gemini"],
+        ["Agent · Codex", "Relire la modification et lister ce qu’il faut corriger", ""],
+        ["Approbation", "Attendre votre accord avant le push", ""],
+        ["Commande", "Pousser la branche et ouvrir une pull request", ""],
+      ],
+      caption: "Un exemple de workflow : un agent écrit, un autre relit, et rien n’est poussé avant votre approbation.",
+    },
+    triggers: "Déclencheurs",
+    triggersTitle: "Il démarre tout seul.",
+    triggerItems: [
+      ["Planifications", "Tous les jours, en semaine ou selon n’importe quelle planification, dans votre fuseau horaire. Les démarrages manqués pendant la veille de l’ordinateur sont rattrapés à son réveil.", "", "/docs/scheduling/"],
+      ["Webhooks", "GitHub, Stripe, Slack ou tout autre service lance un workflow sur votre ordinateur via le relais de Kitewell. Les signatures sont vérifiées, aucun port n’est ouvert, et une requête attend jusqu’à 7 jours.", "Personal et Team", "/docs/webhooks/"],
+      ["De partout", "Depuis ChatGPT ou Claude sur votre téléphone, depuis Claude Code ou Codex via MCP, ou par un appel REST.", "", "/docs/mcp/"],
+    ],
+    control: "Contrôle",
+    controlTitle: "Approuvez et suivez les exécutions depuis votre téléphone. Sachez pourquoi l’une a échoué.",
+    controlItems: [
+      ["Approuver ou renvoyer", "N’importe quelle étape peut attendre votre accord. Approuvez-la, ou renvoyez-la avec une note, depuis l’exécution, une notification, ou ChatGPT et Claude sur votre téléphone."],
+      ["Les exécutions dans votre navigateur", "Dagu Console montre chaque exécution d’un projet synchronisé et l’ordinateur sur lequel elle a tourné. Ouvrez-le sur votre téléphone. Gratuit avec un compte Dagu Cloud."],
+      ["Alertes", "Slack, Microsoft Teams, PagerDuty, e-mail ou notification de bureau quand une exécution échoue, vous attend ou manque sa planification. Avec Personal et Team."],
+      ["Quand un ordinateur se tait", "Dagu Console vous envoie un e-mail quand un ordinateur cesse de rapporter pendant 10 minutes : en veille, hors ligne, ou Kitewell fermé. Activez-le pour les ordinateurs censés rester allumés."],
+      ["Diagnostic des échecs", "L’IA lit une exécution en échec et dit s’il faut réessayer, intervenir ou modifier le workflow."],
+      ["Journal d’exécution", "La sortie, les captures et les décisions de chaque étape. Réessayez à partir de l’étape qui a échoué."],
+      ["Testez d’abord", "Lancez une étape avec de vraies entrées avant d’enregistrer, et essayez un brouillon sans rien envoyer."],
+      ["Des notes qui restent", "L’assistant garde ce qu’il apprend dans des pages de connaissances, pour vous et pour qui prendra la suite."],
+    ],
+    controlNote: "ChatGPT Plus et Pro peuvent lire les exécutions, mais pas les approuver.",
+    controlAlt: "Une exécution de factures terminée dans Kitewell, avec l’état de chaque étape et la sortie de l’étape sélectionnée",
+    controlLinks: [["Exécutions et journaux →", "/docs/runs/"], ["Dagu Console →", "/docs/console/"]],
+    team: "Équipes et parcs",
+    teamTitle: "Exécutez-le sur chaque ordinateur. Surveillez-les tous au même endroit.",
+    teamItems: [
+      ["Chaque ordinateur, une seule vue", "Dagu Console liste l’état de chaque ordinateur, sa version de Kitewell et ses exécutions du jour. Une seule alerte par workflow, quel que soit le nombre d’ordinateurs qui l’exécutent, close par la réussite suivante sur l’un d’eux."],
+      ["Synchronisation et rôles", "Partagez des projets avec les rôles Lecteur, Éditeur et Admin. Chaque ordinateur garde ses propres connexions et valeurs secrètes."],
+      ["Versions", "Faites passer les workflows de Dev à Staging puis à Prod, avec un diff et un retour arrière."],
+      ["Registre des robots", "Exportez pour les audits un registre de tous les workflows, une ligne chacun."],
+      ["Ordinateurs partagés (Enterprise)", "Des ordinateurs qui appartiennent à votre organisation, comme une VM dans votre propre Azure ou AWS, exécutent les workflows jour et nuit sans que personne ne soit connecté. Rien ne s’arrête quand un portable se met en veille ou que son propriétaire change de poste."],
+      ["Construire depuis un navigateur (Enterprise)", "Connectez-vous avec votre compte d’entreprise, puis construisez et essayez les workflows sur l’ordinateur où ils tournent, en regardant son navigateur. Approuvez les correctifs depuis votre téléphone, sans bureau à distance."],
+    ],
+    teamPrice: "Kitewell Team, pour les organisations jusqu’à 25 personnes, est proposé sur devis par ordinateur.",
+    fleet: {
+      title: "Ordinateurs Kitewell",
+      head: ["Ordinateur", "État", "Version de Kitewell", "OS/arch", "En cours", "Échecs du jour (UTC)"],
+      rows: [
+        ["PC de l’accueil", "Rapporte", "0.17.3", "windows/amd64", "1", "0"],
+        ["PC de la comptabilité", "Rapporte", "0.17.3", "windows/amd64", "0", "1"],
+        ["Mac de build", "Rapporte", "0.17.3", "darwin/arm64", "2", "0"],
+        ["Portable de l’entrepôt", "Ne rapporte plus", "0.17.3", "windows/amd64", "0", "0"],
+      ],
+      caption: "Un exemple du tableau des ordinateurs Kitewell dans Dagu Console, avec une partie de ses colonnes.",
+    },
+    teamLinks: [["Dagu Console →", "/docs/console/"], ["Synchroniser avec Dagu Cloud →", "/docs/cloud-sync/"], ["Partage de projets →", "/docs/sharing/"], ["Versions →", "/docs/releases/"]],
     runs: "Où il s’exécute",
     runsTitle: "Sur votre ordinateur, ou dans le cloud.",
     places: [
@@ -396,74 +800,153 @@ const text = {
       ["Le cloud de votre entreprise", "Pour les entreprises", "Une VM dans votre Azure, AWS ou Google Cloud, ou un serveur en réseau fermé, qui tourne sans que personne ne soit connecté, avec l’IA de votre entreprise."],
     ],
     placesLink: "Partenaires en accès anticipé chez Descarty ↗",
+    own: "Sur votre ordinateur",
+    ownTitle: "Votre ordinateur, vos clés, vos fichiers.",
+    ownRows: [
+      ["Valeurs secrètes", "Chiffrées sur l’ordinateur. Jamais synchronisées, exportées ni sauvegardées."],
+      ["L’IA de votre choix", "Anthropic, OpenAI, Gemini, OpenRouter, le modèle inclus de Kitewell, ou un modèle local qui garde tout dans votre réseau."],
+      ["Aucun enfermement", "Les workflows sont du YAML ordinaire sur le moteur open source Dagu. Exportez un projet à tout moment."],
+      ["Discret en arrière-plan", "Il tourne depuis la barre des menus ou la zone de notification, avec des sauvegardes chaque nuit, un historique des modifications et des mises à jour du moteur qui reviennent en arrière si elles échouent."],
+      ["Ce qui sort, exactement", "Un projet synchronisé envoie l’état des exécutions et le nom des étapes en échec, jamais les journaux, les sorties ni les valeurs secrètes."],
+      ["Six langues", "L’application parle anglais, japonais, chinois, coréen, français et allemand."],
+    ],
+    ownLink: "Tout ce qui sort, et quand →",
+    examples: "Exemples",
+    examplesTitle: "Que faites-vous encore à la main ?",
+    exampleTabs: ["Travail quotidien", "Code"],
+    examplesLink: "Tous les exemples →",
     pricing: "Tarifs",
     pricingTitle: "Gratuit jusqu’à 10 workflows.",
-    pricingText:
-      "Connectez-vous pour obtenir 100 crédits d’IA gratuits sans clé API, ou utilisez votre propre clé. Personal ajoute les alertes, les webhooks et davantage de projets pour 20 $ par mois (USD, hors taxes).",
-    plans: "Comparer les offres →",
-    enterprise: "Déploiements plus larges avec accompagnement : Descarty ↗",
+    pricingText: "Un projet de 10 workflows maximum est gratuit, et une connexion gratuite ajoute 100 crédits d’IA sans clé API. Personal ajoute de la place, des alertes et des webhooks pour 20 $ par mois ; Team ajoute des personnes, sur devis par ordinateur pour les organisations (USD, hors taxes).",
+    compare: "Comparer les offres →",
   },
   de: {
-    title: "Wiederholbare KI-Automatisierung für Browser und Desktop auf Mac und Windows",
+    title: "Die KI baut die Automatisierung. Ihr Computer führt sie aus.",
     description:
-      "Beschreiben Sie eine Computeraufgabe nur einmal, und die KI erledigt sie jeden Tag. Die KI von Kitewell führt sie zuerst einmal vor Ihren Augen aus und wiederholt danach dieselben Klicks nach Ihrem Zeitplan. Ändert sich eine Website, behebt die KI nur den Schritt, der nicht mehr funktioniert. Kostenlose Automatisierung für bis zu 10 Workflows auf Mac und Windows.",
-    eyebrow: "Wiederholbare KI-Computersteuerung auf Mac und Windows",
-    heading: "Beschreiben Sie eine Computeraufgabe einmal.\nDie KI erledigt sie täglich.",
-    lead: "Schreiben Sie die Aufgabe in eigenen Worten auf. Die KI von Kitewell erledigt sie einmal vor Ihren Augen im Browser oder in einer Desktop-App. Danach wiederholt Kitewell dieselben Klicks nach Ihrem Zeitplan. Ändert sich eine Website, behebt die KI nur den Schritt, der nicht mehr funktioniert.",
-    offer: "Öffentliche Beta für Mac und Windows. Kostenlos für bis zu 10 Workflows, KI inklusive bei kostenloser Anmeldung. Kitewell Cloud, das auch bei zugeklapptem Computer läuft, kommt bald.",
-    trust: `Von den Machern von Dagu, der Open-Source-Workflow-Engine mit über ${stars} GitHub-Sternen`,
-    notarized: "Von Apple signiert und notarisiert",
-    passwords: "Passwörter bleiben auf Ihrem Computer und werden der KI nie gezeigt",
-    loop: "Kitewell baut im Chat eine Rechnungsaufgabe für jeden Wochentag, danach folgen die Ausführungen: Die nächste Ausführung wiederholt jeden Klick, die Anmeldeseite des Lieferanten ändert sich und die KI behebt nur diesen Klick, und die neue Rechnung landet in der Tabelle.",
-    caption: "Echte Ausführungen, beschleunigt. Die Ausführungsprotokolle und die Tabelle zeigen genau, was diese Ausführungen aufgezeichnet haben. Harbor Supply ist ein Beispielportal, das für diese Demo erstellt wurde.",
-    unedited: "Ungeschnittene Aufnahme ansehen",
-    uneditedLabel: "Die ungeschnittene Aufnahme, wie der Chat von Kitewell den Rechnungs-Workflow erstellt und zum ersten Mal ausführt, gleichmäßig beschleunigt.",
-    transcript: [
-      "Beim ersten Mal erledigt die KI die Aufgabe vor Ihren Augen. Im Browser des Chats meldet sie sich beim Portal des Lieferanten an und liest die Rechnungen.",
-      "Prüfen Sie es und geben Sie das Startsignal: Der vorgeschlagene Workflow, wochentags um 9:00, wird übernommen.",
-      "Jeden Wochentag um 9:00 wiederholt Kitewell, was funktioniert hat: Die nächste Ausführung spielt jeden Klick erneut ab.",
-      "Die Website hat sich geändert, und die KI hat nur diesen Klick behoben: Die Anmelde-Schaltfläche ist verschoben, und nur dieser Klick ging zurück an die KI.",
-      "Die neue Rechnung von heute steht in Ihrer Tabelle.",
+      "Die KI von Kitewell baut Browser-Automatisierungen und repariert sie, wenn sich eine Website ändert. Kitewell führt auch Desktop-Apps, Excel, E-Mail und Coding-Agenten wie Claude Code und Codex auf Ihrem Mac oder PC aus, nach Zeitplan oder per Webhook, und Sie verfolgen die Ausführungen auf Ihrem Smartphone. Kostenlos für bis zu 10 Workflows.",
+    eyebrow: "KI + RPA",
+    version: release ? `Version ${release.version}` : "",
+    heading: "Die KI baut die Automatisierung.\nIhr Computer führt sie aus.",
+    lead: "Beschreiben Sie die Aufgabe, und die KI baut die Automatisierung in einem Browser, dem Sie zusehen können, und repariert sie, wenn sich die Website ändert. Desktop-Apps, Excel, E-Mail und Coding-Agenten wie Claude Code laufen genauso: nach Zeitplan oder per Webhook, mit Ihrem OK, wo es darauf ankommt. Verfolgen Sie alles auf Ihrem Smartphone, wo immer Sie sind.",
+    watch: `Film ansehen (${cut.seconds} Sek.)`,
+    setup: "Einrichtungsanleitung lesen →",
+    platform: "Öffentliche Beta für macOS 13+ und Windows 10+. Kostenlos für bis zu 10 Workflows, KI inklusive bei kostenloser Anmeldung. Kitewell Cloud, das auch bei zugeklapptem Computer läuft, kommt bald.",
+    proofTabs: ["Websites", "Coding-Agenten"],
+    proof: [
+      "Echte Aufnahme, beschleunigt: Im Chat von Kitewell wird darum gebeten, an jedem Werktag die neuen Rechnungen aus dem Portal eines Lieferanten in eine Excel-Datei einzutragen. Die KI öffnet das Ersatzportal in einem Browser, der im Chat zu sehen ist, lässt die Person das Passwort in eine Karte eingeben, meldet sich an, probiert ihren Entwurf aus und schlägt den Workflow vor. Nach dem Übernehmen und Ausführen wartet die Ausführung mit den gefundenen Rechnungen, bis eine Antwort sie in die Arbeitsmappe eintragen lässt.",
+      "Echte Aufnahme, beschleunigt: Im Chat von Kitewell wird darum gebeten, dass Claude Code jede Nacht die fehlschlagenden Tests eines Demo-Repositorys repariert und Codex die Änderung prüft. Der Assistent schlägt den Workflow mit seinem Zeitplan vor und führt ihn aus; Claude Code repariert den Test, Codex prüft ihn, und die Ausführung wartet mit der Zusammenfassung der beiden, bis eine Antwort sie den Fix in einen neuen lokalen Branch committen lässt.",
     ],
-    examples: "Beispiele",
-    examplesTitle: "Was erledigen Sie noch von Hand?",
-    examplesLink: "Alle Beispiele →",
-    learns: "So funktioniert es",
-    learnsTitle: "Einmal gelernt. Jeden Tag wiederholt.",
-    learnsLead:
-      "Ein KI-Agent erarbeitet die Aufgabe bei jeder Ausführung neu. Ein aufgezeichnetes Makro wiederholt alles exakt, bis sich ein Bildschirm ändert. Kitewell behält, was funktioniert hat, und fragt die KI nur zu dem, was sich geändert hat.",
-    beats: [
-      ["Beim ersten Mal findet die KI den Weg", `Erste Ausführung ohne Aufzeichnung: ${run.cold.seconds} s`, `Die KI hat ${ai(run.cold)} von ${run.cold.withoutAI.total} Aktionen entschieden`],
-      ["Danach wiederholt Kitewell diesen Weg bei jeder Ausführung", `Nächste Ausführung: ${run.replayed.seconds} s`, `${run.replayed.withoutAI.count} von ${run.replayed.withoutAI.total} Aktionen ohne KI`],
-      ["Eine Website ändert sich: Die KI behebt diesen Klick", `Von der KI behoben: ${run.recovered.fixed}`, `${run.recovered.withoutAI.count} von ${run.recovered.withoutAI.total} Aktionen ohne KI`],
+    proofNote: "Echte Aufnahmen des Chatfensters von Kitewell, ungeschnitten und gleichmäßig beschleunigt: eine einzige Anfrage in Alltagssprache, dann alles, was die KI und die App getan haben. Ein Ersatzportal eines Lieferanten und ein Demo-Repository.",
+    how: "So funktioniert es",
+    steps: [
+      ["Die KI baut sie", "Beschreiben Sie die Aufgabe in Ihren eigenen Worten. Der Assistent legt jeden Schritt zur Prüfung vor, bedient die Website in einem Browser, dem Sie zusehen können, und probiert den Entwurf aus, ohne etwas zu versenden. Nichts läuft, bevor Sie ihn übernehmen."],
+      ["Ihr Computer führt sie aus", "Nach Zeitplan, per Webhook oder vom Smartphone aus. Wo Sie einen Prüfschritt setzen, wartet sie auf Ihr OK."],
+      ["Die KI pflegt sie", "Ändert sich eine Website oder App, findet die KI den neuen Weg und behält ihn, und die Ausführung zeigt, was sie repariert hat. Schlägt eine Ausführung fehl, sagt Ihnen die KI, warum."],
     ],
-    beatAlt: [
-      "Der Chat von Kitewell, sein Browser beim Lieferantenportal angemeldet",
-      "Der Browser-Schritt einer Ausführung, jeder Klick als „Wiederholt“ markiert",
-      "Der Browser-Schritt einer Ausführung, der Anmeldeklick als „Wiederhergestellt“ markiert",
+    browser: "Browser-Automatisierung",
+    browserTitle: "Von der KI gebaut. Von der KI gepflegt.",
+    browserText:
+      "Beschreiben Sie Kitewell die Aufgabe in Ihren eigenen Worten. Die KI meldet sich an, klickt, tippt und sammelt in einem Browser, dem Sie zusehen und den Sie übernehmen können, und schreibt die Schritte aus dem, was funktioniert hat. Spätere Ausführungen wiederholen sie, und wenn sich die Website ändert, findet die KI den neuen Weg und behält ihn.",
+    browserItems: [
+      ["Hinter jeder Anmeldung", "Anmeldungen bleiben im eigenen Browserprofil von Kitewell auf dem Computer. Websites, die ein Client-Zertifikat verlangen, funktionieren auch."],
+      ["Passwörter bleiben dem Modell verborgen", "Ein Passwort wird im Schritt benannt und aus den Geheimnissen des Computers eingegeben; das Modell sieht nur den Namen."],
+      ["Sie zeigt, was sie repariert hat", "Jede Ausführung markiert die wiederholten Schritte und die von der KI reparierten, mit Screenshots."],
     ],
-    reading: "Um den Inhalt einer Seite zu lesen, etwa die neuen Rechnungen, wird bei jeder Ausführung die KI gefragt.",
-    measured: "Echte Ausführungen auf diesem Computer mit einem Beispielportal und DeepSeek V4 Flash, dem Modell hinter der enthaltenen KI von Kitewell.",
-    compare: "Kitewell im Vergleich →",
-    where: "Über den Browser hinaus",
-    whereTitle: "Arbeitet dort, wo Ihre Aufgaben sind.",
+    browserLink: "So funktioniert die Automatisierung von Websites →",
+    record: {
+      title: "Neue Rechnungen sammeln",
+      kind: "Website",
+      facts: [["Startseite", "127.0.0.1:4320/billing/invoices"], ["Browser-Schritte", "5"], ["Ohne KI ausgeführt", "3 von 6 Operationen"]],
+      ops: record({ open: "Seite öffnen", act: "Tun", check: "Sicherstellen", collect: "Sammeln", done: "Abgeschlossen", replayed: "Wiederholt", recovered: "Wiederhergestellt" }),
+      label: "Was der Browser getan hat",
+      caption: "Aus einer echten Ausführung gegen ein Ersatzportal eines Lieferanten auf diesem Computer, so wie Kitewell sie zeigt. Das Portal hatte seine Anmelden-Schaltfläche verschoben; die KI fand die neue und behielt sie, und die nächste Ausführung hat sie wiederholt.",
+    },
+    rpa: "KI + RPA",
+    rpaTitle: "RPA war die richtige Idee. Das Problem war, sie von Hand zu bauen.",
+    rpaHead: ["Von Hand gebaute RPA", "Kitewell"],
+    rpaRows: [
+      ["Ein Spezialist zeichnet jeden Klick auf und skriptet ihn", "Die KI baut sie aus Ihren Worten"],
+      ["Ein geänderter Bildschirm heißt: Jemand repariert den Roboter", "Die KI findet den neuen Weg und behält ihn"],
+      ["Ein Roboter-PC und eine Lizenz pro Roboter", "Der Computer, den Sie haben, kostenlos für bis zu 10 Workflows"],
+      ["Ein Werkzeug pro Art von System", "Websites, Desktop-Apps, Excel und E-Mail in einem Workflow"],
+      ["Schwer zu sehen, was ein Roboter getan hat", "Jeder Schritt, Screenshot und jede Genehmigung im Ausführungsprotokoll"],
+    ],
+    others: "Kitewell im Vergleich →",
+    automate: "Über den Browser hinaus",
+    automateTitle: "Auch Desktop-Apps, Excel und E-Mail.",
     tiles: [
-      ["Websites", "Auch hinter einer Anmeldung, die Passwörter bleiben auf Ihrem Computer.", "/docs/browser/"],
-      ["Desktop-Apps", "Apps ohne API, mit Ihrem eigenen KI-Schlüssel oder der enthaltenen KI in einem kostenpflichtigen Tarif.", "/docs/desktop/"],
-      ["Excel", "Einmal pro Zeile Ihrer vorhandenen Arbeitsmappe, jedes Ergebnis direkt daneben zurückgeschrieben.", "/docs/spreadsheets/"],
-      ["E-Mail", "E-Mails in Microsoft 365, Gmail oder jedem IMAP-Postfach finden, lesen, ablegen und senden.", "/docs/email/"],
-      ["Nach Plan, mit Ihrem OK", "Wochentags um 9:00, per Webhook oder auf Anfrage. Genehmigen Sie einen Schritt vom Smartphone aus.", "/docs/scheduling/"],
-      ["Coding-Agenten", "Claude Code, Codex und 13 weitere, nach Ihrem Zeitplan und mit Ihrer Genehmigung.", "/coding-agents/"],
+      ["Desktop-Apps ohne API", "Ein Modell liest den Bildschirm und bedient die App, mit Ihrem eigenen KI-Schlüssel oder der enthaltenen KI in einem bezahlten Tarif. Spätere Ausführungen spielen unter Windows über die eigenen Schaltflächen und Felder der App ab, unter macOS über den Bildschirm.", "/docs/desktop/"],
+      ["Excel, Zeile für Zeile", "Läuft einmal pro Zeile der Arbeitsmappe, die Sie schon haben, und schreibt jedes Ergebnis daneben zurück. Titelzeilen, verbundene Überschriften und Zwischensummen inklusive.", "/docs/spreadsheets/"],
+      ["E-Mail", "Mails in Microsoft 365, in Gmail mit einem App-Passwort oder in jedem IMAP-Postfach finden, lesen, ablegen und senden.", "/docs/email/"],
+      ["Skripte, Server und APIs", "Befehle, Docker, SSH-Rollouts auf wenigen Maschinen zugleich und jede OpenAPI, mit Entscheidungsschritten, die den nächsten Weg wählen.", "/docs/workflow-builder/"],
     ],
-    safe: "Mit gutem Gefühl übergeben",
-    safeTitle: "Ihr Computer, Ihre Anmeldungen, Ihre Entscheidung.",
-    safeRows: [
-      ["Läuft auf Ihrem Computer", "Anmeldungen bleiben im eigenen Browserprofil von Kitewell auf Ihrem Mac oder PC. Den Seitentext, den ein Schritt liest, erhält der KI-Anbieter Ihrer Wahl."],
-      ["Passwörter bleiben dem Modell verborgen", "Ein Schritt nennt ein Passwort beim Namen, und Kitewell tippt es aus den Secrets des Computers ein. Das Modell sieht immer nur den Namen."],
-      ["Nichts geht raus, bevor Sie zustimmen", "Ein Entwurf wird ausprobiert, ohne etwas zu senden, und ein Schritt kann auf Ihr OK warten, bevor er etwas hinzufügt, sendet oder pusht."],
-      ["Jede Ausführung protokolliert", "Jede Ausführung zeigt, was sie wiederholt hat, was die KI behoben hat, und Bildschirmfotos der Seite."],
+    agents: "Coding-Agenten",
+    agentsTitle: "Claude Code, Codex und 13 weitere, nach Ihrem Zeitplan.",
+    agentsText: "Lassen Sie die Coding-Agenten, die Sie schon nutzen, arbeiten, während Sie weg sind, mit der Anmeldung, die Sie bereits haben. Kitewell startet den Agenten, den Sie installiert haben; es gelten die Bedingungen des jeweiligen Anbieters.",
+    agentNames: ["Claude Code", "Codex", "Cursor", "Gemini", "GitHub Copilot", "Aider", "Amp", "Cline", "DeepSeek", "Droid", "Goose", "Kiro", "OpenCode", "Pi", "Qwen"],
+    agentMore: "Jede andere CLI als eigener Befehl",
+    agentItems: [
+      ["Verketten", "Einer schreibt, ein anderer prüft. Lassen Sie sie nebeneinander laufen oder anhand einer Tabelle einmal pro Repository."],
+      ["Weiter am Limit", "Erreicht ein Agent sein Nutzungslimit oder schlägt er fehl, übernimmt der nächste aus Ihrer Liste."],
+      ["Nichts geht ungeprüft raus", "Ein Prüfschritt hält den Push zurück, bis Sie genehmigen. „Zurückgeben“ führt den Agenten mit Ihren Notizen erneut aus."],
+      ["Von GitHub gestartet", "Ein Issue oder Pull Request kann die Ausführung per Webhook starten, ohne offene Ports."],
     ],
-    safeLink: "Was Ihren Computer verlässt und wann →",
+    agentsLink: "Coding-Agenten in Kitewell →",
+    chain: {
+      title: "Morgendlicher Fix für einen fehlschlagenden Build",
+      steps: [
+        ["Agent · Claude Code", "Einen Fix in einem Branch entwerfen", "Bei einem Fehlschlag: Codex, dann Gemini"],
+        ["Agent · Codex", "Die Änderung prüfen und auflisten, was zu korrigieren ist", ""],
+        ["Genehmigung", "Vor dem Push auf Sie warten", ""],
+        ["Befehl", "Den Branch pushen und einen Pull Request öffnen", ""],
+      ],
+      caption: "Ein Beispiel-Workflow: Ein Agent schreibt, ein anderer prüft, und nichts wird gepusht, bevor Sie genehmigen.",
+    },
+    triggers: "Auslöser",
+    triggersTitle: "Es startet von selbst.",
+    triggerItems: [
+      ["Zeitpläne", "Täglich, montags bis freitags oder nach jedem anderen Zeitplan, in Ihrer Zeitzone. Starts, die ein schlafender Computer verpasst hat, werden beim Aufwachen nachgeholt.", "", "/docs/scheduling/"],
+      ["Webhooks", "GitHub, Stripe, Slack oder jeder andere Dienst startet über das Relay von Kitewell einen Workflow auf Ihrem Computer. Signaturen werden geprüft, kein Port wird geöffnet, und eine Anfrage wartet bis zu 7 Tage.", "Personal und Team", "/docs/webhooks/"],
+      ["Von überall", "Aus ChatGPT oder Claude auf Ihrem Smartphone, aus Claude Code oder Codex über MCP oder mit einem REST-Aufruf.", "", "/docs/mcp/"],
+    ],
+    control: "Kontrolle",
+    controlTitle: "Ausführungen vom Smartphone genehmigen und verfolgen. Und wissen, warum eine fehlschlug.",
+    controlItems: [
+      ["Genehmigen oder zurückgeben", "Jeder Schritt kann auf Ihr OK warten. Genehmigen Sie ihn oder geben Sie ihn mit einer Notiz zurück, aus der Ausführung, einer Benachrichtigung oder aus ChatGPT und Claude auf Ihrem Smartphone."],
+      ["Ausführungen im Browser", "Dagu Console zeigt jede Ausführung eines synchronisierten Projekts und den Computer, auf dem sie lief. Öffnen Sie sie auf Ihrem Smartphone. Kostenlos mit einem Dagu-Cloud-Konto."],
+      ["Benachrichtigungen", "Slack, Microsoft Teams, PagerDuty, E-Mail oder eine Desktop-Benachrichtigung, wenn eine Ausführung fehlschlägt, auf Sie wartet oder ihren Zeitplan verpasst. Mit Personal und Team."],
+      ["Wenn ein Computer still wird", "Dagu Console schickt Ihnen eine E-Mail, wenn ein Computer 10 Minuten lang nichts meldet: im Ruhezustand, offline oder Kitewell beendet. Schalten Sie es für Computer ein, die eingeschaltet bleiben sollen."],
+      ["Fehlerdiagnose", "Die KI liest eine fehlgeschlagene Ausführung und sagt, ob Sie es erneut versuchen, eingreifen oder den Workflow ändern sollten."],
+      ["Ausführungsprotokoll", "Die Ausgabe, Screenshots und Entscheidungen jedes Schritts. Wiederholen Sie ab dem fehlgeschlagenen Schritt."],
+      ["Erst testen", "Führen Sie vor dem Speichern einen Schritt mit echten Eingaben aus, und probieren Sie einen Entwurf, ohne etwas zu versenden."],
+      ["Notizen, die bleiben", "Der Assistent hält in Wissensseiten fest, was er lernt, für Sie und für alle, die übernehmen."],
+    ],
+    controlNote: "ChatGPT Plus und Pro können Ausführungen lesen, aber nicht genehmigen.",
+    controlAlt: "Eine abgeschlossene Rechnungsausführung in Kitewell, mit dem Status jedes Schritts und der Ausgabe des ausgewählten Schritts",
+    controlLinks: [["Ausführungen und Protokolle →", "/docs/runs/"], ["Dagu Console →", "/docs/console/"]],
+    team: "Teams und Flotten",
+    teamTitle: "Auf jedem Computer ausführen. Alle an einem Ort im Blick.",
+    teamItems: [
+      ["Jeder Computer, eine Ansicht", "Dagu Console listet für jeden Computer den Status, die Kitewell-Version und die heutigen Ausführungen. Eine Benachrichtigung pro Workflow, egal auf wie vielen Computern er läuft, geschlossen durch den nächsten Erfolg auf einem von ihnen."],
+      ["Synchronisierung und Rollen", "Teilen Sie Projekte mit den Rollen Betrachter, Bearbeiter und Admin. Jeder Computer behält seine eigenen Anmeldungen und geheimen Werte."],
+      ["Releases", "Heben Sie Workflows von Dev über Staging nach Prod, mit Diff und Rollback."],
+      ["Roboterverzeichnis", "Exportieren Sie für Audits ein Verzeichnis aller Workflows, eine Zeile pro Workflow."],
+      ["Gemeinsame Computer (Enterprise)", "Computer, die Ihrer Organisation gehören, etwa eine VM in Ihrem eigenen Azure oder AWS, führen Workflows Tag und Nacht aus, ohne dass jemand angemeldet ist. Nichts stoppt, wenn ein Laptop schläft oder sein Besitzer wechselt."],
+      ["Im Browser bauen (Enterprise)", "Melden Sie sich mit Ihrem Firmenkonto an, und bauen und testen Sie Workflows auf dem Computer, auf dem sie laufen, während Sie seinem Browser zusehen. Genehmigen Sie Korrekturen vom Smartphone aus, ohne Remote-Desktop."],
+    ],
+    teamPrice: "Kitewell Team für Organisationen mit bis zu 25 Personen gibt es auf Angebot pro Computer.",
+    fleet: {
+      title: "Kitewell-Computer",
+      head: ["Computer", "Status", "Kitewell-Version", "OS/Arch", "Laufend", "Heute fehlgeschlagen (UTC)"],
+      rows: [
+        ["Empfangs-PC", "Meldet", "0.17.3", "windows/amd64", "1", "0"],
+        ["Buchhaltungs-PC", "Meldet", "0.17.3", "windows/amd64", "0", "1"],
+        ["Build-Mac", "Meldet", "0.17.3", "darwin/arm64", "2", "0"],
+        ["Lager-Laptop", "Meldet nicht", "0.17.3", "windows/amd64", "0", "0"],
+      ],
+      caption: "Ein Beispiel der Tabelle der Kitewell-Computer in Dagu Console, mit einigen ihrer Spalten.",
+    },
+    teamLinks: [["Dagu Console →", "/docs/console/"], ["Mit Dagu Cloud synchronisieren →", "/docs/cloud-sync/"], ["Projekte teilen →", "/docs/sharing/"], ["Releases →", "/docs/releases/"]],
     runs: "Wo es läuft",
     runsTitle: "Auf Ihrem Computer oder in der Cloud.",
     places: [
@@ -472,19 +955,34 @@ const text = {
       ["Die Cloud Ihres Unternehmens", "Für Unternehmen", "Eine VM in Ihrer Azure-, AWS- oder Google-Cloud oder ein Server in einem geschlossenen Netz, ohne dass jemand angemeldet ist, mit der KI Ihres Unternehmens."],
     ],
     placesLink: "Pilotpartner bei Descarty ↗",
+    own: "Auf Ihrem Computer",
+    ownTitle: "Ihr Computer, Ihre Schlüssel, Ihre Dateien.",
+    ownRows: [
+      ["Geheime Werte", "Auf dem Computer verschlüsselt. Nie synchronisiert, exportiert oder gesichert."],
+      ["KI nach Wahl", "Anthropic, OpenAI, Gemini, OpenRouter, das enthaltene Modell von Kitewell oder ein lokales Modell, das alles in Ihrem Netzwerk hält."],
+      ["Keine Bindung", "Workflows sind einfaches YAML auf der Open-Source-Engine Dagu. Exportieren Sie ein Projekt jederzeit."],
+      ["Leise im Hintergrund", "Läuft aus der Menüleiste oder dem Infobereich, mit nächtlichen Backups, Bearbeitungsverlauf und Engine-Updates, die sich bei einem Fehler zurückrollen."],
+      ["Was hinausgeht, genau", "Ein synchronisiertes Projekt sendet den Status der Ausführungen und die Namen fehlgeschlagener Schritte, nie Protokolle, Ausgaben oder geheime Werte."],
+      ["Sechs Sprachen", "Die App spricht Englisch, Japanisch, Chinesisch, Koreanisch, Französisch und Deutsch."],
+    ],
+    ownLink: "Alles, was hinausgeht, und wann →",
+    examples: "Beispiele",
+    examplesTitle: "Was erledigen Sie noch von Hand?",
+    exampleTabs: ["Alltagsarbeit", "Programmierung"],
+    examplesLink: "Alle Beispiele →",
     pricing: "Preise",
     pricingTitle: "Kostenlos für bis zu 10 Workflows.",
-    pricingText:
-      "Melden Sie sich an und erhalten Sie 100 kostenlose KI-Credits ohne API-Schlüssel, oder nutzen Sie Ihren eigenen Schlüssel. Personal ergänzt Benachrichtigungen, Webhooks und mehr Projekte für 20 $ pro Monat (USD, zzgl. Steuern).",
-    plans: "Tarife vergleichen →",
-    enterprise: "Größere Einführungen mit Support: Descarty ↗",
+    pricingText: "Ein Projekt mit bis zu 10 Workflows ist kostenlos, und eine kostenlose Anmeldung bringt 100 KI-Credits ohne API-Schlüssel. Personal bietet für 20 $ pro Monat mehr Platz, Benachrichtigungen und Webhooks; Team ergänzt Personen, für Organisationen nach Angebot pro Computer (USD, zuzüglich Steuern).",
+    compare: "Tarife vergleichen →",
   },
 }[locale];
 const to = (path: string) => localize(path, locale);
-const chores = ["portal-invoices", "excel-orders", "form-from-sheet", "price-watch", "desktop-data-entry", "inbox-digest"].map(choreBySlug);
-const video = `/videos/hero/${run.video}`;
+const everyday = ["supplier-invoices", "excel-orders", "invoice-intake", "inbox-digest"].map(choreBySlug);
+const coding = ["fix-failing-tests", "review-every-pr", "triage-issues", "dependency-update"].map(choreBySlug);
+const shots = { en: runEn, ja: runJa, zh: runZh, ko: runKo, fr: runFr, de: runDe };
+const strong = new Set(["Recovered", "復旧", "已恢复", "복구됨", "Récupéré", "Wiederhergestellt"]);
 const lines = (value: string) => value.replace("\n", "<br>");
-// Search engines learn what the app is, what it costs, and what the loop shows.
+// Search engines learn what the app is, what it costs, and what the film shows.
 const app = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -494,90 +992,187 @@ const app = {
   description: text.description,
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
 };
-const loop = {
+const video = {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  name: text.heading.replace("\n", " "),
-  description: text.loop,
-  thumbnailUrl: new URL(`${video}.webp`, Astro.site).href,
-  contentUrl: new URL(`${video}.mp4`, Astro.site).href,
-  uploadDate: run.capturedAt,
-  duration: "PT18S",
+  name: cut.label,
+  description: text.description,
+  thumbnailUrl: new URL(`/videos/${cut.name}.webp`, Astro.site).href,
+  contentUrl: new URL(`/videos/${cut.name}.mp4`, Astro.site).href,
+  uploadDate: cut.uploaded,
+  duration: `PT${cut.seconds}S`,
 };
 ---
 
 <Site title={text.title} description={text.description}>
   <Fragment slot="head">
-    <link rel="preload" as="image" href={`${video}.webp`} fetchpriority="high" />
     <script type="application/ld+json" set:html={JSON.stringify(app)} />
-    <script type="application/ld+json" set:html={JSON.stringify(loop)} />
+    <script type="application/ld+json" set:html={JSON.stringify(video)} />
   </Fragment>
   <div class="home">
-    <section class="intro split wrap" aria-labelledby="hero-title">
-      <div class="intro-head">
-        <p class="eyebrow">{text.eyebrow}</p>
-        <h1 id="hero-title" set:html={lines(text.heading)} />
-        <p class="intro-lead">{text.lead}</p>
+    <section class="intro wrap" aria-labelledby="hero-title">
+      <p class="eyebrow">{text.eyebrow}{text.version && ` · ${text.version}`}</p>
+      <h1 id="hero-title" set:html={lines(text.heading)} />
+      <p class="intro-lead">{text.lead}</p>
+      <div class="intro-actions">
+        {release ? (
+          <>
+            <DownloadButton locale={locale} place="hero" />
+            <a class="text-link" href="#film">{text.watch}</a>
+          </>
+        ) : (
+          <>
+            <a class="button" href="#film">
+              {text.watch} <span aria-hidden="true">▶</span>
+            </a>
+            <a class="text-link" href={to("/docs/getting-started/")}>{text.setup}</a>
+          </>
+        )}
       </div>
-      <div class="intro-cta">
-        <div class="intro-actions">
-          <DownloadButton locale={locale} place="hero" />
+      <p class="fine">{text.platform}</p>
+      <figure class="intro-media">
+        <div class="tabs" role="tablist" hidden data-tabs>
+          {text.proofTabs.map((label, i) => (
+            <button type="button" role="tab" id={`proof-tab-${i}`} aria-controls={`proof-panel-${i}`} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1}>
+              {label}
+            </button>
+          ))}
         </div>
-        <p class="intro-offer">{text.offer}</p>
-        <p class="fine intro-trust">
-          <span>{text.passwords}</span>
-          {macos && <span>{text.notarized}</span>}
-          <a href="https://github.com/dagucloud/dagu">{text.trust}</a>
-        </p>
-      </div>
-      <figure class="intro-media" id="film">
-        <div class="frame square">
-          <Clip locale={locale} src={video} phone width={1080} height={1080} label={text.loop} describedby="loop-transcript" />
-        </div>
-        <figcaption>{text.caption}</figcaption>
-        <ol class="visually-hidden" id="loop-transcript">
-          {text.transcript.map((line) => <li>{line}</li>)}
-        </ol>
-        <details class="unedited">
-          <summary>{text.unedited}</summary>
-          <div class="frame">
-            <Clip locale={locale} src={`/videos/proof/websites-${recording(locale)}`} width={1920} height={1200} label={text.uneditedLabel} />
+        {proofs.map((name, i) => (
+          <div class="tab-panel frame" id={`proof-panel-${i}`} role="tabpanel" aria-labelledby={`proof-tab-${i}`}>
+            <Clip locale={locale} src={`/videos/proof/${name}-${recording(locale)}`} width={1920} height={1200} label={text.proof[i]} />
           </div>
-        </details>
+        ))}
+        <figcaption>{text.proofNote}</figcaption>
       </figure>
     </section>
 
-    <section class="block wrap" id="examples" aria-labelledby="examples-title">
-      <p class="eyebrow">{text.examples}</p>
-      <h2 id="examples-title" class="block-title">{text.examplesTitle}</h2>
-      <ChoreList locale={locale} chores={chores} />
-      <a class="text-link" href={to("/examples/")}>{text.examplesLink}</a>
+    <section class="film-block wrap" id="film" aria-label={cut.label}>
+      <figure>
+        <div class="frame">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster={`/videos/${cut.name}.webp`}
+            width="1920"
+            height="1080"
+            aria-label={cut.label}
+            aria-describedby="film-caption"
+            data-film
+          >
+            <source src={`/videos/${cut.name}.mp4`} type="video/mp4" />
+            {cut.tracks.map(([kind, lang, label]) => (
+              <track kind={kind} src={`/videos/${cut.name}.${lang}.vtt`} srclang={lang} label={label} />
+            ))}
+            <p><a href={`/videos/${cut.name}.mp4`}>{cut.link}</a></p>
+          </video>
+        </div>
+        <figcaption id="film-caption">
+          <span>{cut.caption[0]}</span>
+          <span>{cut.caption[1]}</span>
+        </figcaption>
+      </figure>
+      <details class="film-transcript">
+        <summary>{cut.transcript}</summary>
+        <div>
+          {cut.scenes.map(([caption, scene]) => (
+            <p>
+              <strong>{caption}</strong> {scene}
+            </p>
+          ))}
+        </div>
+      </details>
     </section>
 
     <section class="block wrap" id="how" aria-labelledby="how-title">
-      <p class="eyebrow">{text.learns}</p>
-      <h2 id="how-title" class="block-title">{text.learnsTitle}</h2>
-      <p class="block-lead">{text.learnsLead}</p>
-      <ol class="beats">
-        {text.beats.map(([title, first, second], i) => (
+      <h2 class="eyebrow" id="how-title">{text.how}</h2>
+      <ol class="how-steps">
+        {text.steps.map(([name, detail]) => (
           <li>
-            <div class="frame">
-              <Image src={stills[recording(locale)][i]} alt={text.beatAlt[i]} widths={[480, 960]} sizes="(max-width: 860px) 100vw, 380px" />
-            </div>
-            <h3>{title}</h3>
-            <p>{first}</p>
-            <p>{second}</p>
+            <h3>{name}</h3>
+            <p>{detail}</p>
           </li>
         ))}
       </ol>
-      <p class="beats-note">{text.reading}</p>
-      <p class="fine">{text.measured}</p>
-      <a class="text-link" href={to("/compare/")}>{text.compare}</a>
+    </section>
+
+    <section class="block wrap" id="browser" aria-labelledby="browser-title">
+      <div class="pair">
+        <div>
+          <p class="eyebrow">{text.browser}</p>
+          <h2 id="browser-title">{text.browserTitle}</h2>
+          <p class="block-lead">{text.browserText}</p>
+          <ul class="points">
+            {text.browserItems.map(([name, detail]) => (
+              <li>
+                <strong>{name}</strong>
+                <span>{detail}</span>
+              </li>
+            ))}
+          </ul>
+          <a class="text-link" href={to("/docs/browser/")}>{text.browserLink}</a>
+        </div>
+        <figure class="record-figure">
+          <div class="record">
+            <div class="record-head">
+              <strong>{text.record.title}</strong>
+              <span>{text.record.kind}</span>
+            </div>
+            <dl class="record-facts">
+              {text.record.facts.map(([name, value]) => (
+                <div>
+                  <dt>{name}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
+            <p class="record-label">{text.record.label}</p>
+            <ol class="record-ops">
+              {text.record.ops.map(([kind, subject, badges]) => (
+                <li>
+                  <span class="record-op"><span>{kind}</span>{subject}</span>
+                  <span class="record-badges">
+                    {(badges as string[]).map((badge) => (
+                      <span class:list={["badge", { strong: strong.has(badge) }]}>{badge}</span>
+                    ))}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <figcaption>{text.record.caption}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="block wrap" id="rpa" aria-labelledby="rpa-title">
+      <p class="eyebrow">{text.rpa}</p>
+      <h2 id="rpa-title" class="block-title">{text.rpaTitle}</h2>
+      <div class="table-scroll">
+        <table class="versus">
+          <thead>
+            <tr>
+              <th scope="col">{text.rpaHead[0]}</th>
+              <th scope="col">{text.rpaHead[1]}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {text.rpaRows.map(([before, after]) => (
+              <tr>
+                <td>{before}</td>
+                <td>{after}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <a class="text-link" href={to("/compare/")}>{text.others}</a>
     </section>
 
     <section class="block wrap" id="automate" aria-labelledby="automate-title">
-      <p class="eyebrow">{text.where}</p>
-      <h2 id="automate-title" class="block-title">{text.whereTitle}</h2>
+      <p class="eyebrow">{text.automate}</p>
+      <h2 id="automate-title" class="block-title">{text.automateTitle}</h2>
       <div class="tiles">
         {text.tiles.map(([name, detail, href]) => (
           <a class="tile" href={to(href)}>
@@ -588,18 +1183,136 @@ const loop = {
       </div>
     </section>
 
-    <section class="block wrap" id="own" aria-labelledby="own-title">
-      <p class="eyebrow">{text.safe}</p>
-      <h2 id="own-title" class="block-title">{text.safeTitle}</h2>
-      <dl class="own-facts">
-        {text.safeRows.map(([name, detail]) => (
+    <section class="block wrap" id="agents" aria-labelledby="agents-title">
+      <div class="pair">
+        <div>
+          <p class="eyebrow">{text.agents}</p>
+          <h2 id="agents-title">{text.agentsTitle}</h2>
+          <p class="block-lead">{text.agentsText}</p>
+          <ul class="points">
+            {text.agentItems.map(([name, detail]) => (
+              <li>
+                <strong>{name}</strong>
+                <span>{detail}</span>
+              </li>
+            ))}
+          </ul>
+          <a class="text-link" href={to("/docs/ai/")}>{text.agentsLink}</a>
+        </div>
+        <div class="agents-proof">
+          <ul class="agent-grid">
+            {text.agentNames.map((name) => <li>{name}</li>)}
+            <li class="agent-more">{text.agentMore}</li>
+          </ul>
+          <figure class="record-figure">
+            <div class="record">
+              <div class="record-head">
+                <strong>{text.chain.title}</strong>
+              </div>
+              <ol class="chain">
+                {text.chain.steps.map(([kind, name, note]) => (
+                  <li>
+                    <span class="chain-kind">{kind}</span>
+                    <span class="chain-name">{name}</span>
+                    {note && <span class="chain-note">{note}</span>}
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <figcaption>{text.chain.caption}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="block wrap" id="triggers" aria-labelledby="triggers-title">
+      <p class="eyebrow">{text.triggers}</p>
+      <h2 id="triggers-title" class="block-title">{text.triggersTitle}</h2>
+      <div class="trio">
+        {text.triggerItems.map(([name, detail, plan, href]) => (
           <div>
-            <dt>{name}</dt>
-            <dd>{detail}</dd>
+            <h3><a href={to(href)}>{name}</a></h3>
+            <p>{detail}</p>
+            {plan && <span class="plan-tag">{plan}</span>}
           </div>
         ))}
-      </dl>
-      <a class="text-link" href={to("/docs/data-flow/")}>{text.safeLink}</a>
+      </div>
+    </section>
+
+    <section class="block wrap" id="control" aria-labelledby="control-title">
+      <p class="eyebrow">{text.control}</p>
+      <h2 id="control-title" class="block-title">{text.controlTitle}</h2>
+      <div class="pair wide-media">
+        <figure class="frame">
+          <Image src={shots[locale]} alt={text.controlAlt} widths={[720, 1440]} sizes="(max-width: 860px) 100vw, 640px" />
+        </figure>
+        <div>
+          <div class="grid-two">
+            {text.controlItems.map(([name, detail]) => (
+              <div>
+                <h3>{name}</h3>
+                <p>{detail}</p>
+              </div>
+            ))}
+          </div>
+          <p class="fine">{text.controlNote}</p>
+          <div class="links">
+            {text.controlLinks.map(([label, href]) => (
+              <a class="text-link" href={to(href)}>{label}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block wrap" id="team" aria-labelledby="team-title">
+      <p class="eyebrow">{text.team}</p>
+      <h2 id="team-title" class="block-title">{text.teamTitle}</h2>
+      <div class="pair">
+        <div>
+          <ul class="points">
+            {text.teamItems.map(([name, detail]) => (
+              <li>
+                <strong>{name}</strong>
+                <span>{detail}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="fine">{text.teamPrice}</p>
+          <div class="links">
+            {text.teamLinks.map(([label, href]) => (
+              <a class="text-link" href={to(href)}>{label}</a>
+            ))}
+          </div>
+        </div>
+        <figure class="record-figure">
+          <div class="record">
+            <div class="record-head">
+              <strong>{text.fleet.title}</strong>
+              <span>Dagu Console</span>
+            </div>
+            <div class="table-scroll">
+              <table class="fleet">
+                <thead>
+                  <tr>
+                    {text.fleet.head.map((name, i) => <th scope="col" class:list={{ num: i >= 4 }}>{name}</th>)}
+                  </tr>
+                </thead>
+                <tbody>
+                  {text.fleet.rows.map((row) => (
+                    <tr>
+                      {row.map((cell, i) =>
+                        i === 0 ? <th scope="row">{cell}</th> : <td class:list={{ num: i >= 4 }}>{cell}</td>,
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <figcaption>{text.fleet.caption}</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="block wrap" id="where" aria-labelledby="where-title">
@@ -619,20 +1332,82 @@ const loop = {
       <a class="text-link" href={descartyUrl(locale, "/early-access/")}>{text.placesLink}</a>
     </section>
 
+    <section class="block wrap" id="own" aria-labelledby="own-title">
+      <p class="eyebrow">{text.own}</p>
+      <h2 id="own-title" class="block-title">{text.ownTitle}</h2>
+      <dl class="own-facts">
+        {text.ownRows.map(([name, detail]) => (
+          <div>
+            <dt>{name}</dt>
+            <dd>{detail}</dd>
+          </div>
+        ))}
+      </dl>
+      <a class="text-link" href={to("/docs/data-flow/")}>{text.ownLink}</a>
+    </section>
+
+    <section class="block wrap" id="examples" aria-labelledby="examples-title">
+      <p class="eyebrow">{text.examples}</p>
+      <h2 id="examples-title" class="block-title">{text.examplesTitle}</h2>
+      <div class="tabs" role="tablist" hidden data-tabs>
+        {text.exampleTabs.map((label, i) => (
+          <button type="button" role="tab" id={`examples-tab-${i}`} aria-controls={`examples-panel-${i}`} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1}>
+            {label}
+          </button>
+        ))}
+      </div>
+      <div class="tab-panel" id="examples-panel-0" role="tabpanel" aria-labelledby="examples-tab-0">
+        <ChoreList locale={locale} chores={everyday} />
+      </div>
+      <div class="tab-panel" id="examples-panel-1" role="tabpanel" aria-labelledby="examples-tab-1">
+        <ChoreList locale={locale} chores={coding} />
+      </div>
+      <a class="text-link" href={to("/examples/")}>{text.examplesLink}</a>
+    </section>
+
     <section class="finale wrap" aria-labelledby="pricing-title">
       <div>
         <p class="eyebrow">{text.pricing}</p>
         <h2 id="pricing-title">{text.pricingTitle}</h2>
         <p class="block-lead">{text.pricingText}</p>
         <div class="links">
-          <a class="text-link" href={to("/pricing/")}>{text.plans}</a>
-          <a class="text-link" href={descartyUrl(locale, "/early-access/")}>{text.enterprise}</a>
+          <a class="text-link" href={to("/pricing/")}>{text.compare}</a>
+          <a class="text-link" href={to("/compare/")}>{text.others}</a>
         </div>
       </div>
       <div class="finale-action">
         <DownloadButton locale={locale} place="closing" />
-        <p class="fine">{text.offer}</p>
+        <p class="fine">{text.platform}</p>
       </div>
     </section>
   </div>
 </Site>
+
+<script>
+  // Tabs show one panel at a time; without the script every panel stays
+  // visible, one after the other.
+  for (const list of document.querySelectorAll<HTMLElement>("[data-tabs]")) {
+    const tabs = [...list.querySelectorAll<HTMLButtonElement>("[role=tab]")];
+    const select = (chosen: HTMLButtonElement) => {
+      for (const tab of tabs) {
+        const on = tab === chosen;
+        tab.setAttribute("aria-selected", String(on));
+        tab.tabIndex = on ? 0 : -1;
+        document.getElementById(tab.getAttribute("aria-controls")!)!.hidden = !on;
+      }
+    };
+    list.hidden = false;
+    select(tabs[0]);
+    list.addEventListener("click", (event) => {
+      const tab = (event.target as HTMLElement).closest<HTMLButtonElement>("[role=tab]");
+      if (tab) select(tab);
+    });
+    list.addEventListener("keydown", (event) => {
+      const index = tabs.indexOf(document.activeElement as HTMLButtonElement);
+      if (index < 0 || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+      const next = tabs[(index + (event.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+      select(next);
+      next.focus();
+    });
+  }
+</script>

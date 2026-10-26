@@ -43,7 +43,7 @@ for (const file of htmlFiles) {
   }
 }
 // Links from outside the site, such as the README and launch posts, point
-// to the home pages' loop.
+// to the home pages' film.
 for (const [page, anchor] of locales.map((l) => [l === "en" ? "index.html" : `${l}/index.html`, "film"])) {
   const html = await readFile(path.join(root, page), "utf8");
   if (!html.includes(`id="${anchor}"`)) failures.push(`/${page.replace(/index\.html$/, "")}#${anchor}, linked from outside the site`);
