@@ -152,7 +152,8 @@ h3 {
   background: var(--accent);
   color: var(--accent-ink);
 }
-.nav-partner::before {
+.nav-partner::before,
+.partner-badge::before {
   content: "";
   flex-shrink: 0;
   width: 7px;
@@ -510,6 +511,34 @@ figure {
   margin-top: -13px;
   font-size: 13px;
 }
+/* On the pricing page, the partner program welcomes companies right after
+   the plans, across the whole grid, with its action beside the text. */
+.notice.partner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 40px;
+  max-width: none;
+  padding: 34px 38px;
+  background: var(--tint);
+  border-color: var(--accent);
+}
+.notice.partner p {
+  max-width: 720px;
+}
+.notice.partner .button {
+  flex-shrink: 0;
+  margin-top: 0;
+}
+.notice.partner .partner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 650;
+}
 /* On the pricing page, Enterprise spans the plan grid, with its actions
    beside the text and what it includes below. */
 .notice.enterprise {
@@ -530,9 +559,6 @@ figure {
 .notice.enterprise .button {
   margin-top: 0;
 }
-.notice.enterprise .button + .button {
-  margin-left: 0;
-}
 .enterprise-features {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -550,7 +576,8 @@ figure {
   font-size: 15px;
 }
 @media (max-width: 960px) {
-  .enterprise-head {
+  .enterprise-head,
+  .notice.partner {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -917,7 +944,8 @@ code {
   .card {
     padding: 25px;
   }
-  .notice {
+  .notice,
+  .notice.partner {
     padding: 22px;
   }
 }
