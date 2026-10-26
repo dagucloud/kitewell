@@ -4,6 +4,7 @@ import Site from "../layouts/Site.astro";
 import ChoreList from "../components/ChoreList.astro";
 import Clip from "../components/Clip.astro";
 import DownloadButton from "../components/DownloadButton.astro";
+import { versioned } from "../lib/assets.mjs";
 import { readReleases } from "../lib/releases.mjs";
 import { descartyUrl } from "../lib/descarty.mjs";
 import { localize, recording, type Locale } from "../lib/i18n.mjs";
@@ -1060,18 +1061,18 @@ const video = {
             controls
             playsinline
             preload="metadata"
-            poster={`/videos/${cut.name}.webp`}
+            poster={versioned(`/videos/${cut.name}.webp`)}
             width="1920"
             height="1080"
             aria-label={cut.label}
             aria-describedby="film-caption"
             data-film
           >
-            <source src={`/videos/${cut.name}.mp4`} type="video/mp4" />
+            <source src={versioned(`/videos/${cut.name}.mp4`)} type="video/mp4" />
             {cut.tracks.map(([kind, lang, label]) => (
-              <track kind={kind} src={`/videos/${cut.name}.${lang}.vtt`} srclang={lang} label={label} />
+              <track kind={kind} src={versioned(`/videos/${cut.name}.${lang}.vtt`)} srclang={lang} label={label} />
             ))}
-            <p><a href={`/videos/${cut.name}.mp4`}>{cut.link}</a></p>
+            <p><a href={versioned(`/videos/${cut.name}.mp4`)}>{cut.link}</a></p>
           </video>
         </div>
         <figcaption id="film-caption">

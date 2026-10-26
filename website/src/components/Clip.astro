@@ -1,4 +1,5 @@
 ---
+import { versioned } from "../lib/assets.mjs";
 import { recording, type Locale } from "../lib/i18n.mjs";
 // A silent loop: a beat cut from the Kitewell film, or a real recording
 // from public/videos/proof. It plays while it is on screen and stays on its
@@ -34,12 +35,12 @@ const text = {
     loop
     playsinline
     preload="none"
-    poster={`${base}.webp`}
+    poster={versioned(`${base}.webp`)}
     width={width}
     height={height}
     aria-label={label}
   >
-    <source src={`${base}.mp4`} type="video/mp4" />
+    <source src={versioned(`${base}.mp4`)} type="video/mp4" />
   </video>
   <button type="button" class="clip-toggle" data-clip-toggle data-pause={text.pause} data-play={text.play} aria-label={text.pause} hidden>
     <svg class="clip-pause" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx="0.6" /><rect x="7.4" y="1.5" width="2.6" height="9" rx="0.6" /></svg>
