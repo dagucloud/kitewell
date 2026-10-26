@@ -9,16 +9,17 @@
   </a>
 </p>
 
-<h1 align="center">Describe a computer chore once.<br>AI does it every day.</h1>
+<h1 align="center">AI builds the automation.<br>Your computer runs it.</h1>
 
 <p align="center">
-  Kitewell's AI does the job in a browser or desktop app while you watch,
-  keeps the clicks that worked, and repeats them on your schedule. When a
-  site changes, it fixes just that click.
+  Describe the job, and AI builds the automation in a browser you can watch,
+  then fixes it when the site changes. Desktop apps, Excel, email, and coding
+  agents like Claude Code run the same way: on a schedule or a webhook, with
+  your OK where it matters. Follow it from your phone, wherever you are.
 </p>
 
 <p align="center">
-  <a href="https://kitewell.app/#film"><strong>▶ See it work (18 s)</strong></a> ·
+  <a href="https://kitewell.app/#film"><strong>▶ Watch the 74-second film</strong></a> ·
   <a href="https://kitewell.app/download/">Download</a> ·
   <a href="https://kitewell.app/docs/getting-started/">Get started</a> ·
   <a href="https://kitewell.app/docs/">Docs</a> ·

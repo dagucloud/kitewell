@@ -9,14 +9,14 @@
   </a>
 </p>
 
-<h1 align="center">パソコン作業を一度伝えれば、<br>AI が毎日やってくれる。</h1>
+<h1 align="center">自動化は AI がつくる。<br>動かすのは、あなたのパソコン。</h1>
 
 <p align="center">
-  Kitewell の AI が目の前でブラウザーやアプリを操作し、うまくいった操作を覚えて決まった時間にくり返します。サイトが変わったら、その操作だけを直して記録に残します。
+  やってほしい仕事を伝えれば、AI が目の前のブラウザーで自動化をつくり、サイトが変わったら直します。デスクトップアプリ、Excel、メール、Claude Code などのコーディングエージェントも同じように、スケジュールや Webhook で、大事なところはあなたの OK を待って動きます。外出先からも、スマホで見守れます。
 </p>
 
 <p align="center">
-  <a href="https://kitewell.app/ja/#film"><strong>▶ 動く様子を見る（18 秒）</strong></a> ·
+  <a href="https://kitewell.app/ja/#film"><strong>▶ 映像を見る（74 秒）</strong></a> ·
   <a href="https://kitewell.app/ja/download/">ダウンロード</a> ·
   <a href="https://kitewell.app/ja/docs/getting-started/">はじめかた</a> ·
   <a href="https://kitewell.app/ja/docs/">ドキュメント</a> ·
