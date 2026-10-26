@@ -118,6 +118,7 @@ h3 {
 }
 .header nav {
   display: flex;
+  align-items: center;
   gap: 26px;
   margin-left: auto;
 }
@@ -132,6 +133,33 @@ h3 {
 }
 .header nav a[aria-current] {
   text-decoration: underline;
+}
+/* The partner program stands apart from the plain links, a step below the
+   download button. */
+.header nav a.nav-partner {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--tint);
+  color: var(--accent);
+  font-weight: 650;
+  white-space: nowrap;
+}
+.header nav a.nav-partner:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.nav-partner::before {
+  content: "";
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--live);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--live) 20%, transparent);
 }
 /* The language menu: the language of the page, opening onto every one the
    page is written in, each named in itself. */
@@ -802,12 +830,10 @@ code {
   margin-top: 22px;
 }
 
-@media (max-width: 760px) {
-  .wrap {
-    width: calc(100% - 36px);
-  }
-  /* The navigation takes a row of its own, and a second in languages
-     whose labels run long, so the header grows with it. */
+/* Below the width where German and French fit on one row, the navigation
+   takes a row of its own, and a second in languages whose labels run
+   long, so the header grows with it. */
+@media (max-width: 1024px) {
   .header {
     height: auto;
     gap: 15px;
@@ -822,21 +848,29 @@ code {
     gap: 6px 10px;
     margin: 0;
   }
+  /* A label never splits; on the narrowest screens the last one wraps. */
+  .header nav a {
+    white-space: nowrap;
+  }
+  .header > .download-cta {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .wrap {
+    width: calc(100% - 36px);
+  }
   /* Chinese, Japanese, and Korean are set full width, so a headline needs a
      smaller size to keep a phrase such as 1 プロジェクトなら on one line. */
   :is(:lang(ja), :lang(zh), :lang(ko)) :is(.page > h1, .chores-hero h1) {
     font-size: clamp(32px, 9vw, 44px);
   }
-  /* A label never splits; on the narrowest screens the last one wraps. */
   .header nav a {
     font-size: 13px;
-    white-space: nowrap;
   }
   .languages {
     font-size: 13px;
-  }
-  .header > .download-cta {
-    margin-left: auto;
   }
   .hero {
     padding-block: 35px 28px;
