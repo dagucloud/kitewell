@@ -19,6 +19,7 @@ const text = {
     nav: "Main navigation",
     language: "Language",
     links: ["Examples", "Coding agents", "Pricing", "Docs"],
+    partner: "Early access ↗",
     tagline: "Describe a computer chore once. AI does it every day.",
     social: "Describe a computer chore once. AI does it every day. Kitewell repeats the clicks that worked, on your Mac or PC, and fixes just the click a changed screen breaks.",
     footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community", "Compare", "Releases"],
@@ -32,6 +33,7 @@ const text = {
     nav: "メインナビゲーション",
     language: "言語",
     links: ["活用例", "エージェント", "料金", "ドキュメント"],
+    partner: "先行利用パートナー様募集 ↗",
     tagline: "パソコン作業を一度伝えれば、AI が毎日やってくれる。",
     social: "パソコン作業を一度伝えれば、AI が毎日やってくれる。Kitewell は、うまくいった操作を Mac や PC でくり返し、画面が変わったら、その操作だけを直します。",
     footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ", "比較", "リリース"],
@@ -45,6 +47,7 @@ const text = {
     nav: "主导航",
     language: "语言",
     links: ["示例", "编码智能体", "价格", "文档"],
+    partner: "先行使用合作伙伴招募 ↗",
     tagline: "电脑上的重复工作，只需描述一次。AI 每天替你完成。",
     social: "电脑上的重复工作，只需描述一次。AI 每天替你完成。Kitewell 在你的 Mac 或 PC 上重复行之有效的点击；界面变化导致某次点击失效时，只修复那一次点击。",
     footer: ["文档", "第三方声明", "支持", "联系我们", "隐私政策", "使用条款", "社区", "对比", "版本发布"],
@@ -58,6 +61,7 @@ const text = {
     nav: "주 메뉴",
     language: "언어",
     links: ["예시", "코딩 에이전트", "요금", "문서"],
+    partner: "얼리 액세스 파트너 모집 ↗",
     tagline: "컴퓨터 반복 업무, 한 번만 설명하세요. AI가 매일 처리합니다.",
     social: "컴퓨터 반복 업무, 한 번만 설명하세요. AI가 매일 처리합니다. Kitewell은 Mac이나 PC에서 잘된 클릭을 반복하고, 화면이 바뀌어 막힌 클릭만 고칩니다.",
     footer: ["문서", "제3자 고지", "지원", "문의", "개인정보 처리방침", "이용약관", "커뮤니티", "비교", "릴리스"],
@@ -71,6 +75,7 @@ const text = {
     nav: "Navigation principale",
     language: "Langue",
     links: ["Exemples", "Agents de code", "Tarifs", "Documentation"],
+    partner: "Accès anticipé ↗",
     tagline: "Décrivez une tâche sur ordinateur, une seule fois. L’IA s’en charge chaque jour.",
     social: "Décrivez une tâche sur ordinateur, une seule fois. L’IA s’en charge chaque jour. Kitewell répète les clics qui ont fonctionné, sur votre Mac ou votre PC, et ne corrige que le clic qu’un écran modifié empêche d’aboutir.",
     footer: ["Documentation", "Mentions de tiers", "Assistance", "Contact", "Confidentialité", "Conditions", "Communauté", "Comparatif", "Versions"],
@@ -84,6 +89,7 @@ const text = {
     nav: "Hauptnavigation",
     language: "Sprache",
     links: ["Beispiele", "Coding-Agenten", "Preise", "Dokumentation"],
+    partner: "Pilotpartner ↗",
     tagline: "Beschreiben Sie eine Computeraufgabe einmal. Die KI erledigt sie täglich.",
     social: "Beschreiben Sie eine Computeraufgabe einmal. Die KI erledigt sie täglich. Kitewell wiederholt auf Ihrem Mac oder PC die Klicks, die funktioniert haben, und behebt nur den Klick, der nach einer Änderung am Bildschirm nicht mehr passt.",
     footer: ["Dokumentation", "Hinweise zu Drittanbietern", "Support", "Kontakt", "Datenschutz", "Nutzungsbedingungen", "Community", "Vergleich", "Versionen"],
@@ -166,6 +172,7 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
             {label}
           </a>
         ))}
+        <a href={descartyUrl(locale, "/early-access/")}>{text.partner}</a>
         {pages && (
           <details class="languages">
             <summary>
