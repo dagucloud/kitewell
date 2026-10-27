@@ -438,13 +438,22 @@
   font-weight: 600;
 }
 
+/* A row of tabs too wide for a phone scrolls sideways, each label whole on
+   one line, rather than breaking words. */
 .tabs {
   display: flex;
   gap: 4px;
   margin-bottom: 8px;
   border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar {
+  display: none;
 }
 .tabs button {
+  flex: none;
+  white-space: nowrap;
   padding: 12px 14px;
   border: 0;
   border-bottom: 2px solid transparent;
