@@ -32,25 +32,30 @@ berühren.
 
 ## Was Sie brauchen
 
-Ein Modell, das den Bildschirm liest. Jedes Projekt hat eines, festgelegt
-unter **Projekteinstellungen → Bildschirmschritte**. Solange Sie kein anderes
-wählen, ist es [das enthaltene Modell von
-Kitewell](/de/docs/ai/#use-kitewells-included-model): Es braucht keinen
-API-Schlüssel und wird in jedem Tarif aus den Dagu-Cloud-Credits des
-Arbeitsbereichs bezahlt; die Credits des kostenlosen Tarifs reichen für einen
-kurzen Test. Um den Bildschirm mit einem eigenen Modell zu lesen, etwa Claude
-Sonnet 5, GPT-5.4 oder Gemini 3.6 Flash, [fügen Sie es](/de/docs/ai/) unter
-**Agenten und Modelle** hinzu und wählen es dann dort aus, oder wählen Sie auf
-der Seite des Modells **Für Bildschirmschritte verwenden**; Kitewell lässt es
-zuerst einen Test-Screenshot lesen. Ein Desktop-Schritt verwendet das Modell
-des Projekts, sofern weder sein **Modell** noch **Einstellungen → Ausführung
-und Wiederholungen → Standardmodell für Browser- und Desktop-Schritte** des
-Workflows ein anderes nennt. Ein Modell von Anthropic, OpenAI oder Gemini
-bedient den Bildschirm mit dem Computer-Use-Werkzeug seines Anbieters, sofern
-es eines gibt; jedes andere Vision-Modell, das Werkzeuge aufrufen kann,
-arbeitet über einfache Werkzeuge zum Klicken und Tippen, allerdings langsamer
-und weniger zuverlässig. **Wie das Modell den Desktop bedient** unter
-**Desktop-Einstellungen** steht normalerweise auf **Automatisch**; mit
+Ein Modell, das den Bildschirm liest. Jedes Projekt hat eines, unter
+**Projekteinstellungen → Bildschirmschritte**. Solange Sie kein anderes
+wählen, ist es
+[das enthaltene Modell von Kitewell](/de/docs/ai/#use-kitewells-included-model):
+Es braucht keinen API-Schlüssel und wird in jedem Tarif aus den
+Dagu-Cloud-Credits des Arbeitsbereichs bezahlt; die Credits des kostenlosen
+Tarifs reichen für einen kurzen Test.
+
+Für ein eigenes Modell, etwa Claude Sonnet 5, GPT-5.4 oder Gemini 3.6 Flash,
+[fügen Sie es](/de/docs/ai/) unter **Agenten und Modelle** hinzu und wählen es
+dann unter **Bildschirmschritte** oder mit
+**Für Bildschirmschritte verwenden** auf seiner Seite. Kitewell lässt es
+zuerst einen Test-Screenshot lesen.
+
+Ein Desktop-Schritt verwendet das Modell des Projekts, sofern weder sein
+**Modell** noch
+**Einstellungen → Ausführung und Wiederholungen → Standardmodell für Browser- und Desktop-Schritte**
+des Workflows ein anderes nennt. Modelle von Anthropic, OpenAI und Gemini
+nutzen das Computer-Use-Werkzeug ihres Anbieters; andere Vision-Modelle, die
+Werkzeuge aufrufen können, nutzen einfache Werkzeuge zum Klicken und Tippen,
+allerdings langsamer und weniger zuverlässig.
+
+**Wie das Modell den Desktop bedient** unter **Desktop-Einstellungen** steht
+normalerweise auf **Automatisch**; mit
 **Einfache Werkzeuge, für jedes Vision-Modell** arbeitet jedes Modell über die
 einfachen Werkzeuge.
 

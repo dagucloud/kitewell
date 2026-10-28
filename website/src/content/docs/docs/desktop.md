@@ -28,22 +28,27 @@ them.
 
 ## What you need
 
-A model that reads the screen. Each project has one, set under **Project
-settings → Screen steps**. Until you choose another, it is [Kitewell's
-included model](/docs/ai/#use-kitewells-included-model), which needs no API
-key and is paid from the workspace's Dagu Cloud credits on every plan; the
-free plan's credits cover a short trial. To read the screen with a model of
-your own, such as Claude Sonnet 5, GPT-5.4, or Gemini 3.6 Flash, [add
-it](/docs/ai/) under **Agents & models**, then choose it there or choose **Use
-for screen steps** on the model's page; Kitewell first has it read one test
-screenshot. A desktop step uses the project's model unless its **Model**, or
-the workflow's **Settings → Execution & retries → Default model for browser
-and desktop steps**, names another. A model from Anthropic, OpenAI, or Gemini
-works the screen with its provider's computer-use tool where it has one; any
-other vision model that can call tools works through plain click-and-type
-tools, more slowly and less reliably. **How the model uses the desktop**,
-under **Desktop settings**, is normally **Automatic**; **Plain tools, for any
-vision model** makes any model use the plain tools.
+A model that reads the screen. Each project has one, under
+**Project settings → Screen steps**. Until you choose another, it is
+[Kitewell's included model](/docs/ai/#use-kitewells-included-model), which
+needs no API key and is paid from the workspace's Dagu Cloud credits on every
+plan; the free plan's credits cover a short trial.
+
+To use a model of your own, such as Claude Sonnet 5, GPT-5.4, or Gemini 3.6
+Flash, [add it](/docs/ai/) under **Agents & models**, then choose it in
+**Screen steps** or with **Use for screen steps** on its page. Kitewell first
+has it read one test screenshot.
+
+A desktop step uses the project's model unless its **Model**, or the
+workflow's
+**Settings → Execution & retries → Default model for browser and desktop steps**,
+names another. Models from Anthropic, OpenAI, and Gemini use their provider's
+computer-use tool; other vision models that can call tools use plain
+click-and-type tools, more slowly and less reliably.
+
+**How the model uses the desktop**, under **Desktop settings**, is normally
+**Automatic**; **Plain tools, for any vision model** makes any model use the
+plain tools.
 
 Permission to use the screen. Open **Device settings → Desktop automation**.
 Each row says **Not checked** until you choose **Check desktop access**, and

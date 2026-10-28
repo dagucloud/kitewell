@@ -31,25 +31,31 @@ dès que vous y touchez.
 
 ## Ce qu’il vous faut
 
-Un modèle qui lit l’écran. Chaque projet en a un, défini sous **Réglages du
-projet → Étapes d'écran**. Tant que vous n’en choisissez pas un autre, c’est
-le [modèle inclus de Kitewell](/fr/docs/ai/#use-kitewells-included-model), qui
-ne demande pas de clé d’API et se paie sur les crédits Dagu Cloud de l’espace
-de travail, quelle que soit l’offre ; les crédits de l’offre gratuite
-permettent un court essai. Pour lire l’écran avec votre propre modèle, comme
-Claude Sonnet 5, GPT-5.4 ou Gemini 3.6 Flash, [ajoutez-le](/fr/docs/ai/) dans
-**Agents et modèles**, puis choisissez-le là, ou choisissez **Utiliser pour
-les étapes d'écran** sur la page du modèle ; Kitewell lui fait d’abord lire
-une capture d’écran de test. Une étape de bureau utilise le modèle du projet,
-sauf si son **Modèle**, ou **Réglages → Exécution et reprises → Modèle par
-défaut des étapes de navigateur et de bureau** du workflow, en désigne un
-autre. Un modèle d’Anthropic, d’OpenAI ou de Gemini pilote l’écran avec
-l’outil d’utilisation de l’ordinateur de son fournisseur, s’il en a un ; tout
-autre modèle de vision capable d’appeler des outils travaille avec de simples
-outils de clic et de saisie, plus lentement et de façon moins fiable.
+Un modèle qui lit l’écran. Chaque projet en a un, sous
+**Réglages du projet → Étapes d'écran**. Tant que vous n’en choisissez pas un
+autre, c’est le
+[modèle inclus de Kitewell](/fr/docs/ai/#use-kitewells-included-model), qui ne
+demande pas de clé d’API et se paie sur les crédits Dagu Cloud de l’espace de
+travail, quelle que soit l’offre ; les crédits de l’offre gratuite permettent
+un court essai.
+
+Pour utiliser votre propre modèle, comme Claude Sonnet 5, GPT-5.4 ou Gemini
+3.6 Flash, [ajoutez-le](/fr/docs/ai/) dans **Agents et modèles**, puis
+choisissez-le dans **Étapes d'écran** ou avec
+**Utiliser pour les étapes d'écran** sur sa page. Kitewell lui fait d’abord
+lire une capture d’écran de test.
+
+Une étape de bureau utilise le modèle du projet, sauf si son **Modèle**, ou
+**Réglages → Exécution et reprises → Modèle par défaut des étapes de navigateur et de bureau**
+du workflow, en désigne un autre. Les modèles d’Anthropic, d’OpenAI et de
+Gemini utilisent l’outil d’utilisation de l’ordinateur de leur fournisseur ;
+les autres modèles de vision capables d’appeler des outils utilisent de
+simples outils de clic et de saisie, plus lentement et de façon moins fiable.
+
 **Comment le modèle utilise le bureau**, sous **Réglages du bureau**, est
-normalement réglé sur **Automatique** ; **Outils simples, pour tout modèle de
-vision** fait travailler tout modèle avec les outils simples.
+normalement réglé sur **Automatique** ;
+**Outils simples, pour tout modèle de vision** fait travailler tout modèle
+avec les outils simples.
 
 L’autorisation d’utiliser l’écran. Ouvrez
 **Réglages de l’appareil → Automatisation du bureau**. Chaque ligne affiche

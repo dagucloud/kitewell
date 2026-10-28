@@ -88,10 +88,10 @@ Arbeitsbereichs bezahlt.
   oder für die Fehlerdiagnose. Im YAML eines Workflows heißt es
   `kitewell-agent-included`.
 - **Eine Desktop-App automatisieren** liest den Bildschirm in jedem Tarif
-  damit, sofern das Projekt unter **Projekteinstellungen →
-  Bildschirmschritte** kein anderes Modell wählt. Für Screenshots setzt Dagu
-  Cloud ein Vision-Modell ein, das für Computer-Use gebaut ist.
-  **KI-Entscheidung treffen** kann es nicht nutzen.
+  damit, sofern das Projekt unter
+  **Projekteinstellungen → Bildschirmschritte** kein anderes Modell wählt. Für
+  Screenshots setzt Dagu Cloud ein Vision-Modell ein, das für Computer-Use
+  gebaut ist. **KI-Entscheidung treffen** kann es nicht nutzen.
 - Der Chat von Kitewell antwortet damit, bis ein Administrator unter
   **Geräteeinstellungen → KI-Modell von Kitewell** ein Modell einrichtet.
 
