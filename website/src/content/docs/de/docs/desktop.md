@@ -32,20 +32,27 @@ berühren.
 
 ## Was Sie brauchen
 
-Ein Modell, das einen Computer bedienen kann, etwa Gemini 3.6 Flash, Claude
-Sonnet 5 oder GPT-5.4. [Fügen Sie eines hinzu](/de/docs/ai/) unter
-**Agenten und Modelle** und wählen Sie es dann im Feld **Modell** des Schritts
-aus. Oder legen Sie eines für den ganzen Workflow fest, unter
-**Einstellungen → Ausführung und Wiederholungen → Standardmodell für Browser- und Desktop-Schritte**.
-Ein anderes Vision-Modell, das Werkzeuge aufrufen kann, funktioniert ebenfalls.
-Mit Kitewell Personal und Team funktioniert auch
-[das enthaltene Modell von Kitewell](/de/docs/ai/#use-kitewells-included-model).
-Im kostenlosen Tarif braucht ein Desktop-Schritt ein eigenes Modell.
-**Wie das Modell den Desktop bedient** unter **Desktop-Einstellungen** steht
-normalerweise auf **Automatisch**. Mit
-**Einfache Werkzeuge, für jedes Vision-Modell** arbeitet auch ein Modell ohne
-Computer-Use-Werkzeug, und zwar über einfache Werkzeuge zum Klicken und
-Tippen, allerdings langsamer und weniger zuverlässig.
+Ein Modell, das den Bildschirm liest. Jedes Projekt hat eines, festgelegt
+unter **Projekteinstellungen → Bildschirmschritte**. Solange Sie kein anderes
+wählen, ist es [das enthaltene Modell von
+Kitewell](/de/docs/ai/#use-kitewells-included-model): Es braucht keinen
+API-Schlüssel und wird in jedem Tarif aus den Dagu-Cloud-Credits des
+Arbeitsbereichs bezahlt; die Credits des kostenlosen Tarifs reichen für einen
+kurzen Test. Um den Bildschirm mit einem eigenen Modell zu lesen, etwa Claude
+Sonnet 5, GPT-5.4 oder Gemini 3.6 Flash, [fügen Sie es](/de/docs/ai/) unter
+**Agenten und Modelle** hinzu und wählen es dann dort aus, oder wählen Sie auf
+der Seite des Modells **Für Bildschirmschritte verwenden**; Kitewell lässt es
+zuerst einen Test-Screenshot lesen. Ein Desktop-Schritt verwendet das Modell
+des Projekts, sofern weder sein **Modell** noch **Einstellungen → Ausführung
+und Wiederholungen → Standardmodell für Browser- und Desktop-Schritte** des
+Workflows ein anderes nennt. Ein Modell von Anthropic, OpenAI oder Gemini
+bedient den Bildschirm mit dem Computer-Use-Werkzeug seines Anbieters, sofern
+es eines gibt; jedes andere Vision-Modell, das Werkzeuge aufrufen kann,
+arbeitet über einfache Werkzeuge zum Klicken und Tippen, allerdings langsamer
+und weniger zuverlässig. **Wie das Modell den Desktop bedient** unter
+**Desktop-Einstellungen** steht normalerweise auf **Automatisch**; mit
+**Einfache Werkzeuge, für jedes Vision-Modell** arbeitet jedes Modell über die
+einfachen Werkzeuge.
 
 Die Berechtigung, den Bildschirm zu nutzen. Öffnen Sie
 **Geräteeinstellungen → Desktop-Automatisierung**. Jede Zeile zeigt
@@ -84,7 +91,7 @@ Kunden und gibt deren Nummer an den nächsten Schritt weiter.
    Namen wie `Neueste Rechnung suchen` ein. Unter **Technische Einstellungen**
    ist **Schritt-Kennung** der kurze Name, über den spätere Schritte lesen,
    was dieser Schritt ausliest. Wählen Sie etwas Einfaches wie `invoice`.
-2. Wählen Sie das **Modell**.
+2. Lassen Sie das **Modell** auf **Projektstandard** oder wählen Sie für diesen Schritt ein anderes Modell.
 3. Wählen Sie unter **Werte, die der Schritt eingibt** die Option
    **Wert hinzufügen**, nennen Sie den Wert `client` und setzen Sie sein Feld
    **Wert** auf den Namen des Kunden. Das kann eingetippter Text sein, eine

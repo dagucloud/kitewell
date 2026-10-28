@@ -37,7 +37,11 @@ Une entrée peut passer la main à une autre en cas d’échec : sa carte affic
 Sur un ordinateur connecté à [Dagu Cloud](/fr/docs/cloud-sync/#sign-in), **Agents et modèles** liste **Kitewell (inclus)**. Aucune clé API n’est nécessaire : chaque requête passe par Dagu Cloud jusqu’à OpenRouter et est payée sur les crédits Dagu Cloud de l’espace de travail.
 
 - Choisissez-le comme **Modèle** d’une tâche **Interroger un modèle** ou **Automatiser un site web**, d’une colonne de résultat de feuille, ou du diagnostic des échecs. Dans le YAML d’un workflow, il s’écrit `kitewell-agent-included`.
-- **Automatiser une app de bureau** peut l’utiliser avec Kitewell Personal et Team, pas avec l’offre gratuite. **Demander une décision à l’IA** ne peut pas l’utiliser.
+- **Automatiser une app de bureau** lit l’écran avec lui quelle que soit
+  l’offre, sauf si le projet choisit un autre modèle sous **Réglages du projet
+  → Étapes d'écran**. Pour les captures d’écran, Dagu Cloud utilise un modèle
+  de vision conçu pour l’utilisation de l’ordinateur. **Demander une décision
+  à l’IA** ne peut pas l’utiliser.
 - Le chat de Kitewell répond avec lui tant qu’un administrateur n’a pas configuré de modèle sous **Réglages de l’appareil → Modèle d'IA de Kitewell**.
 
 Un compte gratuit reçoit 100 crédits, une seule fois. Kitewell Personal et Team reçoivent 500 crédits par mois pour chaque ordinateur payé par l’offre, partagés par l’espace de travail et renouvelés le premier de chaque mois (UTC). Les recherches web de l’assistant consomment les mêmes crédits.

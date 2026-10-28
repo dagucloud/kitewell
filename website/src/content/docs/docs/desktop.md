@@ -28,17 +28,22 @@ them.
 
 ## What you need
 
-A model that can operate a computer, such as Gemini 3.6 Flash, Claude
-Sonnet 5, or GPT-5.4. [Add one](/docs/ai/) under **Agents & models**, then
-pick it in the step's **Model**, or set one for the whole workflow in
-**Settings → Execution & retries → Default model for browser and desktop steps**.
-Another vision model that can call tools still works. On Kitewell Personal
-and Team, [Kitewell's included model](/docs/ai/#use-kitewells-included-model)
-works too; on the free plan a desktop step needs a model of your own.
-**How the model uses the desktop**, under **Desktop settings**, is normally
-**Automatic**; **Plain tools, for any vision model** makes a model without a
-computer-use tool work through plain click-and-type tools — more slowly, and
-less reliably.
+A model that reads the screen. Each project has one, set under **Project
+settings → Screen steps**. Until you choose another, it is [Kitewell's
+included model](/docs/ai/#use-kitewells-included-model), which needs no API
+key and is paid from the workspace's Dagu Cloud credits on every plan; the
+free plan's credits cover a short trial. To read the screen with a model of
+your own, such as Claude Sonnet 5, GPT-5.4, or Gemini 3.6 Flash, [add
+it](/docs/ai/) under **Agents & models**, then choose it there or choose **Use
+for screen steps** on the model's page; Kitewell first has it read one test
+screenshot. A desktop step uses the project's model unless its **Model**, or
+the workflow's **Settings → Execution & retries → Default model for browser
+and desktop steps**, names another. A model from Anthropic, OpenAI, or Gemini
+works the screen with its provider's computer-use tool where it has one; any
+other vision model that can call tools works through plain click-and-type
+tools, more slowly and less reliably. **How the model uses the desktop**,
+under **Desktop settings**, is normally **Automatic**; **Plain tools, for any
+vision model** makes any model use the plain tools.
 
 Permission to use the screen. Open **Device settings → Desktop automation**.
 Each row says **Not checked** until you choose **Check desktop access**, and
@@ -71,7 +76,7 @@ hands its number to the next step.
    `Find the latest invoice`. Under **Technical settings**,
    **Step identifier** is the short name later steps use to read what this
    step reads; make it something plain, such as `invoice`.
-2. Choose the **Model**.
+2. Leave the **Model** on **Project default**, or choose another model for this step.
 3. Under **Values the step types**, choose **Add a value**, name it `client`,
    and set its **Value** to the client's name. It can be typed text, a
    workflow input, or a secret — a password or key stored so it never shows in

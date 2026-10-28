@@ -67,8 +67,10 @@ workspace's Dagu Cloud credits.
 - Choose it as the **Model** of an **Ask a model** or **Automate a website**
   task, a sheet's result column, or failure diagnosis. In a workflow's YAML it
   is `kitewell-agent-included`.
-- **Automate a desktop app** can use it on Kitewell Personal and Team, not on
-  the free plan. **Make an AI decision** cannot use it.
+- **Automate a desktop app** reads the screen with it on every plan, unless
+  the project chooses another model under **Project settings → Screen steps**.
+  For screenshots Dagu Cloud serves a vision model built for computer use.
+  **Make an AI decision** cannot use it.
 - Kitewell's chat answers with it until an administrator sets up a model
   under **Device settings → Kitewell's AI model**.
 

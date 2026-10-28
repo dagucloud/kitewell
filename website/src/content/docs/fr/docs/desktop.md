@@ -31,20 +31,25 @@ dès que vous y touchez.
 
 ## Ce qu’il vous faut
 
-Un modèle capable de piloter un ordinateur, comme Gemini 3.6 Flash, Claude
-Sonnet 5 ou GPT-5.4. [Ajoutez-en un](/fr/docs/ai/) dans **Agents et modèles**,
-puis choisissez-le dans le champ **Modèle** de l’étape, ou définissez-en un
-pour tout le workflow dans
-**Réglages → Exécution et reprises → Modèle par défaut des étapes de navigateur et de bureau**.
-Un autre modèle de vision capable d’appeler des outils fonctionne aussi. Avec
-Kitewell Personal et Team, le
-[modèle inclus de Kitewell](/fr/docs/ai/#use-kitewells-included-model)
-fonctionne également ; avec l’offre gratuite, une étape de bureau a besoin de
-votre propre modèle. **Comment le modèle utilise le bureau**, sous
-**Réglages du bureau**, est normalement réglé sur **Automatique** ;
-**Outils simples, pour tout modèle de vision** permet à un modèle dépourvu
-d’outil d’utilisation de l’ordinateur de travailler avec de simples outils de
-clic et de saisie, plus lentement et de façon moins fiable.
+Un modèle qui lit l’écran. Chaque projet en a un, défini sous **Réglages du
+projet → Étapes d'écran**. Tant que vous n’en choisissez pas un autre, c’est
+le [modèle inclus de Kitewell](/fr/docs/ai/#use-kitewells-included-model), qui
+ne demande pas de clé d’API et se paie sur les crédits Dagu Cloud de l’espace
+de travail, quelle que soit l’offre ; les crédits de l’offre gratuite
+permettent un court essai. Pour lire l’écran avec votre propre modèle, comme
+Claude Sonnet 5, GPT-5.4 ou Gemini 3.6 Flash, [ajoutez-le](/fr/docs/ai/) dans
+**Agents et modèles**, puis choisissez-le là, ou choisissez **Utiliser pour
+les étapes d'écran** sur la page du modèle ; Kitewell lui fait d’abord lire
+une capture d’écran de test. Une étape de bureau utilise le modèle du projet,
+sauf si son **Modèle**, ou **Réglages → Exécution et reprises → Modèle par
+défaut des étapes de navigateur et de bureau** du workflow, en désigne un
+autre. Un modèle d’Anthropic, d’OpenAI ou de Gemini pilote l’écran avec
+l’outil d’utilisation de l’ordinateur de son fournisseur, s’il en a un ; tout
+autre modèle de vision capable d’appeler des outils travaille avec de simples
+outils de clic et de saisie, plus lentement et de façon moins fiable.
+**Comment le modèle utilise le bureau**, sous **Réglages du bureau**, est
+normalement réglé sur **Automatique** ; **Outils simples, pour tout modèle de
+vision** fait travailler tout modèle avec les outils simples.
 
 L’autorisation d’utiliser l’écran. Ouvrez
 **Réglages de l’appareil → Automatisation du bureau**. Chaque ligne affiche
@@ -84,7 +89,7 @@ client et transmet son numéro à l’étape suivante.
    **Identifiant de l’étape** est le nom court qu’utilisent les étapes
    suivantes pour lire ce que celle-ci lit ; choisissez quelque chose de
    simple, comme `invoice`.
-2. Choisissez le **Modèle**.
+2. Laissez le **Modèle** sur **Défaut du projet**, ou choisissez un autre modèle pour cette étape.
 3. Sous **Valeurs saisies par l'étape**, choisissez **Ajouter une valeur**,
    nommez-la `client` et réglez sa **Valeur** sur le nom du client. Ce peut
    être un texte saisi, une entrée du workflow ou un secret, c’est-à-dire un
