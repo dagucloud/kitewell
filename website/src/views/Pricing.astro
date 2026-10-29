@@ -567,7 +567,8 @@ const text = {
         <ul>
           {text.team.map((item) => <li>{item}</li>)}
         </ul>
-        <a class="button" href="https://console.dagu.sh/kitewell">{text.teamAction}</a>
+        {/* Signing in through intent=kitewell gives someone new a Kitewell workspace, not a Dagu one. */}
+        <a class="button" href="https://console.dagu.sh/login?intent=kitewell&next=%2Fkitewell">{text.teamAction}</a>
       </article>
     </div>
     <p class="fine plans-note">{text.paidNote} {text.cloudNote}</p>
