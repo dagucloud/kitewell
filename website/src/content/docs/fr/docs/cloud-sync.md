@@ -239,8 +239,8 @@ workflows, publier ou appliquer des versions, et déclarer des secrets.
 ## Quand une offre prend fin
 
 Quand l’essai prend fin, plus rien ne s’exécute tant que vous ne vous abonnez
-pas. Chaque projet reste sur l’ordinateur : vous pouvez l’ouvrir, le modifier,
-consulter son historique d’exécution et l’exporter.
+pas. Chaque projet reste sur l’ordinateur, en lecture seule : vous pouvez
+l’ouvrir, consulter son historique d’exécution et l’exporter.
 
 Quand une offre payante prend fin, les alertes, les MCP Events et les
 webhooks s’arrêtent. Tout le reste continue de fonctionner pendant 7 jours,

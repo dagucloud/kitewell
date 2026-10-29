@@ -32,7 +32,7 @@ Kitewell 刚刚推出，功能和限制仍可能变化。公开的安装程序�
 
 ## 费用
 
-Kitewell 从 14 天试用开始，无需信用卡：在最多 3 台电脑上使用 Team 的功能，并附带 100 积分，可用于 [Kitewell 的内置模型](/zh/docs/ai/#use-kitewells-included-model)。从 Kitewell 登录 Dagu Cloud 时，试用即开始。试用结束后，在你订阅之前不会运行任何内容；项目仍留在电脑上，可以打开、编辑和导出。每个项目都有各自的工作流、历史记录和密钥。
+Kitewell 从 14 天试用开始，无需信用卡：在最多 3 台电脑上使用 Team 的功能，并附带 100 积分，可用于 [Kitewell 的内置模型](/zh/docs/ai/#use-kitewells-included-model)。从 Kitewell 登录 Dagu Cloud 时，试用即开始。试用结束后，在你订阅之前不会运行任何内容；项目仍以只读方式留在电脑上，可以打开和导出。每个项目都有各自的工作流、历史记录和密钥。
 
 Kitewell Personal 为每月 20 美元，供一个人在一台电脑上处理自己的工作：五个项目，每个项目最多 100 个工作流，并可使用[提醒](/zh/docs/alerts/)和 [Webhook](/zh/docs/webhooks/)。它在你已登录时运行。Kitewell Team 为每台电脑每月 99 美元，面向最多 25 人的组织：15 个项目，一个同步这些项目的团队，并且在 Windows 上无人登录时也能运行。如果你之前用过 Kitewell，免费套餐以及 Personal 在无人登录时的运行可继续使用到 2026 年 12 月 1 日。详见[价格](/zh/pricing/)。
 

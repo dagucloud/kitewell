@@ -201,7 +201,7 @@ or applying releases, and declaring secrets.
 ## When a plan ends
 
 When the trial ends, nothing runs until you subscribe. Every project stays on
-the computer: you can open it, edit it, read its run history, and export it.
+the computer, read-only: you can open it, read its run history, and export it.
 
 When a paid plan ends, alerts, MCP Events, and webhooks stop. Everything else
 keeps running for 7 days, and a banner on every page says on which day it

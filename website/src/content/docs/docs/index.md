@@ -53,8 +53,8 @@ Kitewell starts with a 14-day trial, no card needed: Team's features on up to
 3 computers, with 100 credits for
 [Kitewell's included model](/docs/ai/#use-kitewells-included-model). It
 starts when you sign in to Dagu Cloud from Kitewell. After it, nothing runs
-until you subscribe; your projects stay on the computer, to open, edit, and
-export. Each project holds its own workflows, history, and secrets.
+until you subscribe; your projects stay on the computer, read-only, to open
+and export. Each project holds its own workflows, history, and secrets.
 
 Kitewell Personal is $20 a month for one person's own work at one computer:
 five projects of 100 workflows each, [alerts](/docs/alerts/), and

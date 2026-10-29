@@ -235,7 +235,7 @@ erstellen oder anwenden und Secrets deklarieren.
 ## Wenn ein Tarif endet
 
 Endet die Testphase, läuft nichts mehr, bis Sie ein Abonnement abschließen.
-Jedes Projekt bleibt auf dem Computer: Sie können es öffnen, bearbeiten,
+Jedes Projekt bleibt schreibgeschützt auf dem Computer: Sie können es öffnen,
 seinen Ausführungsverlauf lesen und exportieren.
 
 Endet ein kostenpflichtiger Tarif, stoppen Benachrichtigungen, MCP Events und

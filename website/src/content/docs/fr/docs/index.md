@@ -60,7 +60,7 @@ fonctionnalités de Team sur 3 ordinateurs au plus, avec 100 crédits pour le
 [modèle inclus de Kitewell](/fr/docs/ai/#use-kitewells-included-model). Il
 démarre quand vous vous connectez à Dagu Cloud depuis Kitewell. Ensuite, plus
 rien ne s’exécute tant que vous ne vous abonnez pas ; vos projets restent sur
-l’ordinateur, pour les ouvrir, les modifier et les exporter. Chaque projet a
+l’ordinateur, en lecture seule, pour les ouvrir et les exporter. Chaque projet a
 ses propres workflows, son historique et ses secrets.
 
 Kitewell Personal coûte 20 $ par mois pour le travail d’une seule personne

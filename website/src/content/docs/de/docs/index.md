@@ -59,8 +59,8 @@ Kitewell beginnt mit einer 14-tägigen Testphase ohne Kreditkarte: die
 Funktionen von Team auf bis zu 3 Computern, mit 100 Credits für
 [das enthaltene Modell von Kitewell](/de/docs/ai/#use-kitewells-included-model).
 Sie beginnt, wenn Sie sich aus Kitewell bei Dagu Cloud anmelden. Danach läuft
-nichts mehr, bis Sie ein Abo abschließen; Ihre Projekte bleiben auf dem
-Computer, und Sie können sie öffnen, bearbeiten und exportieren. Jedes Projekt
+nichts mehr, bis Sie ein Abo abschließen; Ihre Projekte bleiben schreibgeschützt
+auf dem Computer, und Sie können sie öffnen und exportieren. Jedes Projekt
 hat seine eigenen Workflows, seinen eigenen Verlauf und seine eigenen Secrets.
 
 Kitewell Personal kostet 20 $ pro Monat für die eigene Arbeit einer Person auf

@@ -380,7 +380,7 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
 
 Prices exclude tax. Every plan needs a Dagu Cloud account. Signing in from
 Kitewell starts the trial; after it nothing runs until you subscribe, and
-projects stay readable, editable, and exportable. Personal runs while you are
+projects stay read-only, to open and export. Personal runs while you are
 signed in. An organization that runs Kitewell for shared work, on several
 people's computers or on a computer set aside for it, needs Team, which you
 subscribe to in [Dagu Console](https://console.dagu.sh/kitewell). Credit packs
