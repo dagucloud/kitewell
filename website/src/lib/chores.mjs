@@ -23,12 +23,12 @@ const needs = {
     de: "Die enthaltene KI von Kitewell mit einer kostenlosen Anmeldung bei Dagu Cloud oder Ihr eigenes Modell von Anthropic, OpenAI oder Gemini, das einen Browser bedienen kann",
   },
   computerModel: {
-    en: "A model that can use a computer: your own Anthropic, OpenAI, or Gemini model, or Kitewell's included AI on Personal or Team",
-    ja: "コンピューターを操作できるモデル：ご自身の Anthropic、OpenAI、Gemini のモデル、または Personal か Team での Kitewell の付属 AI",
-    zh: "能操作电脑的模型：你自己的 Anthropic、OpenAI 或 Gemini 模型，或在 Personal 或 Team 上使用 Kitewell 内置的 AI",
-    ko: "컴퓨터를 조작할 수 있는 모델: 본인의 Anthropic, OpenAI, Gemini 모델 또는 Personal이나 Team의 Kitewell 기본 제공 AI",
-    fr: "Un modèle capable d’utiliser un ordinateur : votre propre modèle Anthropic, OpenAI ou Gemini, ou l’IA incluse dans Kitewell avec Personal ou Team",
-    de: "Ein Modell, das einen Computer bedienen kann: Ihr eigenes Modell von Anthropic, OpenAI oder Gemini oder die enthaltene KI von Kitewell mit Personal oder Team",
+    en: "A model that can use a computer: your own Anthropic, OpenAI, or Gemini model, or Kitewell's included AI on any plan",
+    ja: "コンピューターを操作できるモデル：ご自身の Anthropic、OpenAI、Gemini のモデル、またはどのプランでも使える Kitewell の付属 AI",
+    zh: "能操作电脑的模型：你自己的 Anthropic、OpenAI 或 Gemini 模型，或任何套餐都可用的 Kitewell 内置 AI",
+    ko: "컴퓨터를 조작할 수 있는 모델: 본인의 Anthropic, OpenAI, Gemini 모델 또는 모든 요금제에서 쓸 수 있는 Kitewell 기본 제공 AI",
+    fr: "Un modèle capable d’utiliser un ordinateur : votre propre modèle Anthropic, OpenAI ou Gemini, ou l’IA incluse dans Kitewell, quelle que soit l’offre",
+    de: "Ein Modell, das einen Computer bedienen kann: Ihr eigenes Modell von Anthropic, OpenAI oder Gemini oder die enthaltene KI von Kitewell in jedem Tarif",
   },
   desktop: {
     en: "Screen Recording and Accessibility allowed on macOS, or Kitewell running in your session on Windows",
