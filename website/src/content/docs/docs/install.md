@@ -14,8 +14,9 @@ workflow.
   available. If your system is not listed, its package is still being
   prepared.
 
-You do not need an account, and you do not need Python, Docker, or any AI
-tool. Install those later, only if a workflow of yours uses them.
+You do not need a card: signing in to Dagu Cloud from Kitewell starts a
+14-day trial. You do not need Python, Docker, or any AI tool either. Install
+those later, only if a workflow of yours uses them.
 
 ## Install on a Mac
 

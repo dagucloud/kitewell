@@ -14,9 +14,10 @@ leeres Projekt, bereit für Ihren ersten Workflow.
   zeigt, was verfügbar ist. Fehlt Ihr System dort, wird das Paket dafür noch
   vorbereitet.
 
-Sie brauchen kein Konto und weder Python noch Docker noch ein KI-Werkzeug.
-Installieren Sie diese später, und nur dann, wenn einer Ihrer Workflows sie
-nutzt.
+Sie brauchen keine Kreditkarte: Die Anmeldung bei Dagu Cloud in Kitewell
+startet eine 14-tägige Testphase. Sie brauchen auch weder Python noch Docker
+noch ein KI-Werkzeug. Installieren Sie diese später, und nur dann, wenn einer
+Ihrer Workflows sie nutzt.
 
 ## Auf einem Mac installieren
 

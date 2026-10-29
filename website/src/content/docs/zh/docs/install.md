@@ -9,7 +9,7 @@ Kitewell 是一款安装在你自己的 Mac 或 Windows PC 上的应用。安装
 - 运行 macOS 13 或更高版本的 Mac；或者运行 Windows 10（版本 1809 或更高）或 Windows 11 的 64 位 PC。
 - 适用于你的系统的安装程序。[下载页面](/zh/download/)列出了目前提供的版本。如果你的系统不在其中，说明对应的安装包仍在准备中。
 
-你不需要账户，也不需要 Python、Docker 或任何 AI 工具。等你的某个工作流用到它们时，再去安装即可。
+你不需要信用卡：在 Kitewell 中登录 Dagu Cloud 即开始 14 天试用。你也不需要 Python、Docker 或任何 AI 工具。等你的某个工作流用到它们时，再去安装即可。
 
 ## 在 Mac 上安装
 

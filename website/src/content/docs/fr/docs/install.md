@@ -14,8 +14,10 @@ prêt pour votre premier workflow.
   [page de téléchargement](/fr/download/) indique ce qui est disponible. Si
   votre système n’y figure pas, son paquet est encore en préparation.
 
-Vous n’avez besoin ni d’un compte, ni de Python, ni de Docker, ni d’aucun outil
-d’IA. Installez-les plus tard, seulement si l’un de vos workflows les utilise.
+Vous n’avez pas besoin de carte bancaire : la connexion à Dagu Cloud depuis
+Kitewell démarre un essai de 14 jours. Vous n’avez besoin ni de Python, ni de
+Docker, ni d’aucun outil d’IA. Installez-les plus tard, seulement si l’un de
+vos workflows les utilise.
 
 ## Installer sur Mac
 
