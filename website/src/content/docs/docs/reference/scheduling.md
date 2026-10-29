@@ -193,8 +193,10 @@ not held back. A queue a project does not define admits one run at a time.
 The menu bar and notification-area items are in the language you read
 Kitewell in: **Open Kitewell**, **Quit Kitewell**, **Keep awake while
 workflows run**, and **Open at Login** on a Mac or **Start at login** on
-Windows. A Mac also has **Keep Running in Menu Bar**, and Windows with the
-service on adds **Update the background service…**.
+Windows.
+
+A Mac also has **Keep Running in Menu Bar**, and Windows with the service on
+adds **Update the background service…**.
 
 Both menus list the projects, so you can start and stop each on its own. On
 a Mac, **Quit Kitewell** stops everything and warns first if runs are in
