@@ -28,7 +28,7 @@
 </p>
 
 <p align="center">
-  <sub>macOS 13+ · Windows 10+ · Free for one project, no account needed</sub>
+  <sub>macOS 13+ · Windows 10+ · Free for 14 days, no card needed</sub>
 </p>
 
 ---
@@ -283,7 +283,7 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
   your phone.
 - **[Runs in your browser.](https://kitewell.app/docs/console/)** Dagu Console
   shows each run of a synced project and the computer it ran on. Open it on
-  your phone. Free with a Dagu Cloud account.
+  your phone. Included in every plan.
 - **Alerts.** Slack, Microsoft Teams, PagerDuty, email, or a desktop
   notification when a run fails, waits for you, or misses its schedule. With
   Personal and Team.
@@ -327,7 +327,7 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
 | --- | --- |
 | A specialist records and scripts every click | AI builds it from your words |
 | A changed screen means someone repairs the robot | AI finds the new way and keeps it |
-| A robot PC and a license per robot | The computer you have, free for one project |
+| A robot PC and a license per robot | The computer you have, free to try for 14 days |
 | One tool per kind of system | Websites, desktop apps, Excel, and email in one workflow |
 | Hard to see what a robot did | Every step, screenshot, and approval in the run record |
 
@@ -363,26 +363,34 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
 
 ## Pricing
 
-| | Free | Personal | Team |
+| | Trial | Personal | Team |
 | --- | --- | --- | --- |
-| Price | $0 | $20 a month (¥3,000 in Japan) | Quote: an annual contract, priced per computer |
-| For | One person's own work | One person's own work, paid work included | An organization of up to 25 people |
-| Computers | 1 | 1 | 1 to 100 |
-| Projects | 1, with up to 10 workflows | Up to 5, with 100 workflows each | Up to 15, with 100 workflows each |
-| API keys and connected apps | 1 | Any number | Any number |
+| Price | $0 for 14 days, no card | $20 a month (¥3,000 in Japan) | $99 a month per computer (¥14,800 in Japan); a year is ten months' price |
+| For | Trying Kitewell on your own work | One person's own work at the computer, paid work included | An organization of up to 25 people |
+| Computers | Up to 3 | 1 | 1 to 100 |
+| People | Up to 25 | 1 | Up to 25, at no extra cost |
+| Projects | Up to 15, with 100 workflows each | Up to 5, with 100 workflows each | Up to 15, with 100 workflows each |
+| API keys and connected apps | Any number | Any number | Any number |
+| Runs with nobody signed in (Windows) | Included | | Included |
 | Runs and alerts in Dagu Console | Included | Included | Included |
-| Kitewell's alerts, webhooks, MCP Events | | Included | Included |
-| Shared projects with roles | | | Included |
-| Included model credits | 100 once, signed in | 500 a month | 500 a month per computer |
+| Kitewell's alerts, webhooks, MCP Events | Included | Included | Included |
+| Shared projects with roles | Included | | Included |
+| Included model credits | 100 once | 500 a month | 500 a month per computer |
+| Credit packs | | 1,000 for $12 | 1,000 for $12 |
 
-Prices exclude tax. Free needs no account; Personal and Team need a Dagu Cloud
-account. An organization that runs Kitewell for shared work, on several
-people's computers or on a computer set aside for it, needs Team. For more than
-25 people or 100 computers, shared computers, the workspace in the browser, SSO,
+Prices exclude tax. Every plan needs a Dagu Cloud account. Signing in from
+Kitewell starts the trial; after it nothing runs until you subscribe, and
+projects stay readable, editable, and exportable. Personal runs while you are
+signed in. An organization that runs Kitewell for shared work, on several
+people's computers or on a computer set aside for it, needs Team, which you
+subscribe to in [Dagu Console](https://console.dagu.sh/kitewell). Credit packs
+never expire and are used after the month's credits. For more than 25 people
+or 100 computers, shared computers, the workspace in the browser, SSO,
 audit-log export, closed-network sync, or an SLA, Enterprise is arranged under
-a contract. Email
-[company@descarty.com](mailto:company@descarty.com) for a Team or Enterprise
-quote. AI provider usage is separate.
+a contract; email [company@descarty.com](mailto:company@descarty.com) for a
+quote. Automation agencies resell Kitewell at $69 a computer a month through
+the [partner program](https://descarty.com/en/partners/). AI provider usage is
+separate.
 
 [Pricing details →](https://kitewell.app/pricing/)
 
