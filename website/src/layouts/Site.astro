@@ -19,7 +19,7 @@ const text = {
     nav: "Main navigation",
     language: "Language",
     links: ["Examples", "Coding agents", "Pricing", "Docs"],
-    partner: "Early access ↗",
+    partner: "For agencies ↗",
     tagline: "AI learns the job once. Then it runs fast, without second-guessing.",
     social: "AI learns the job once. Then it runs fast, without second-guessing. Kitewell: browser automation built and maintained by AI, plus desktop apps, Excel, email, and coding agents.",
     footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community", "Compare", "Releases"],
@@ -47,7 +47,7 @@ const text = {
     nav: "主导航",
     language: "语言",
     links: ["示例", "编码智能体", "价格", "文档"],
-    partner: "先行使用合作伙伴招募 ↗",
+    partner: "代理合作伙伴 ↗",
     tagline: "AI 学一次就会。之后毫不犹豫，快速运行。",
     social: "AI 学一次就会。之后毫不犹豫，快速运行。Kitewell：由 AI 搭建并维护的浏览器自动化，还能处理桌面应用、Excel、电子邮件和编程智能体。",
     footer: ["文档", "第三方声明", "支持", "联系我们", "隐私政策", "使用条款", "社区", "对比", "版本发布"],
@@ -61,7 +61,7 @@ const text = {
     nav: "주 메뉴",
     language: "언어",
     links: ["예시", "코딩 에이전트", "요금", "문서"],
-    partner: "얼리 액세스 파트너 모집 ↗",
+    partner: "에이전시 파트너 ↗",
     tagline: "AI는 한 번에 익힙니다. 그다음엔 망설임 없이 빠르게 움직입니다.",
     social: "AI는 한 번에 익힙니다. 그다음엔 망설임 없이 빠르게 움직입니다. Kitewell: AI가 만들고 유지 관리하는 브라우저 자동화, 그리고 데스크톱 앱, Excel, 이메일, 코딩 에이전트.",
     footer: ["문서", "제3자 고지", "지원", "문의", "개인정보 처리방침", "이용약관", "커뮤니티", "비교", "릴리스"],
@@ -75,7 +75,7 @@ const text = {
     nav: "Navigation principale",
     language: "Langue",
     links: ["Exemples", "Agents de code", "Tarifs", "Documentation"],
-    partner: "Accès anticipé ↗",
+    partner: "Pour les agences ↗",
     tagline: "L’IA apprend la tâche une fois. Ensuite, elle tourne vite, sans hésiter.",
     social: "L’IA apprend la tâche une fois. Ensuite, elle tourne vite, sans hésiter. Kitewell : l’automatisation du navigateur construite et entretenue par l’IA, plus les applications de bureau, Excel, l’e-mail et les agents de codage.",
     footer: ["Documentation", "Mentions de tiers", "Assistance", "Contact", "Confidentialité", "Conditions", "Communauté", "Comparatif", "Versions"],
@@ -89,7 +89,7 @@ const text = {
     nav: "Hauptnavigation",
     language: "Sprache",
     links: ["Beispiele", "Coding-Agenten", "Preise", "Dokumentation"],
-    partner: "Pilotpartner ↗",
+    partner: "Für Agenturen ↗",
     tagline: "Die KI lernt die Aufgabe einmal. Danach läuft sie schnell und ohne Zögern.",
     social: "Die KI lernt die Aufgabe einmal. Danach läuft sie schnell und ohne Zögern. Kitewell: Browser-Automatisierung, von der KI gebaut und gepflegt, dazu Desktop-Apps, Excel, E-Mail und Coding-Agenten.",
     footer: ["Dokumentation", "Hinweise zu Drittanbietern", "Support", "Kontakt", "Datenschutz", "Nutzungsbedingungen", "Community", "Vergleich", "Versionen"],
@@ -172,7 +172,7 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
             {label}
           </a>
         ))}
-        <a class="nav-partner" href={descartyUrl(locale, "/early-access/")}>{text.partner}</a>
+        <a class="nav-partner" href={descartyUrl(locale, locale === "ja" ? "/early-access/" : "/partners/")}>{text.partner}</a>
         {pages && (
           <details class="languages">
             <summary>
