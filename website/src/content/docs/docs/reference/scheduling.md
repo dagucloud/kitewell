@@ -58,7 +58,8 @@ scheduled run would use, and opens the run. The run is listed as
 
 With **Run when nobody is signed in** on, a Windows service named Kitewell
 sign-in starts the engine when the PC starts, as the run account, and keeps
-it running.
+it running. It needs Kitewell Team, or the trial; on Kitewell Personal,
+schedules run only while you are signed in.
 
 The run account is you, signed in without a password the way Windows Task
 Scheduler runs a task that keeps none; on Windows Server, a local account

@@ -13,10 +13,11 @@ until you sync it, and nothing reaches Dagu Cloud before you do.
 
 ## What you need
 
-- A Dagu Cloud account. It is free, and a free account syncs one project.
-- To share with other people, Kitewell Team. It is an annual contract for up
-  to 25 people, quoted by the number of computers the workspace connects; email
-  company@descarty.com for a quote, and a larger team takes
+- A Dagu Cloud account. It is free, and signing in from Kitewell starts a
+  14-day trial with Team's features on up to 3 computers, no card needed.
+- To share with other people, Kitewell Team. It is $99 a month for each
+  computer the workspace connects, for up to 25 people; subscribe in
+  [Dagu Console](https://console.dagu.sh/kitewell), and a larger team takes
   [Enterprise](/pricing/#enterprise). The team's owner pays for the workspace
   and members need no subscription of their own. Kitewell Personal, at
   $20 a month, is for one person's own work on one computer and cannot invite
@@ -31,11 +32,11 @@ until you sync it, and nothing reaches Dagu Cloud before you do.
    sign in, check that the code in the browser matches the one Kitewell shows,
    and connect the computer.
 
-![The Dagu Cloud account panel in Device settings, on the free plan, before signing in](../../../assets/docs/en/cloud-account.png)
+![The Dagu Cloud account panel in Device settings, before signing in](../../../assets/docs/en/cloud-account.png)
 
 A computer syncs with one workspace, named in **Dagu Cloud account** once it
-is connected. A workspace holds as many computers as its plan: one on a free
-account and on Kitewell Personal, and the number bought on Kitewell Team.
+is connected. A workspace holds as many computers as its plan: one on Kitewell
+Personal, up to 3 during the trial, and the number bought on Kitewell Team.
 Connecting one more disconnects your own oldest computer in the workspace; if
 the others all belong to other people, it is refused until one is disconnected
 or the plan holds more.
@@ -65,18 +66,20 @@ in a [secret](/docs/secrets/) instead.
 If an upload is cut short, the project shows **Upload incomplete** and offers
 **Resume upload**. Saves wait until the upload finishes.
 
-A free account syncs one project. Kitewell Personal syncs up to five projects
-and Kitewell Team up to 15, each with up to 100 workflows. A workspace holds
-as many computers as its plan: one on a free account and on Kitewell
-Personal, and the number bought on Kitewell Team. Connecting one more
+Kitewell Personal syncs up to five projects, and Kitewell Team and the trial
+up to 15, each with up to 100 workflows. A workspace holds as many computers
+as its plan: one on Kitewell Personal, up to 3 during the trial, and the
+number bought on Kitewell Team. Connecting one more
 disconnects your own oldest computer in the workspace; if the others all
 belong to other people, it is refused until one is disconnected or the plan
 holds more. Syncing a project the plan has no room for is refused, and says
 why. Synced projects count against the workspace's plan, not the computer's
 own project limit.
 
-To move from Personal to Team, or to change the computers on Team, email
-company@descarty.com. To move back to Personal, remove the other people,
+To move from Personal to Team, or to change the number of computers on Team,
+open the **Kitewell** page in [Dagu Console](https://console.dagu.sh/kitewell).
+Team is billed monthly, or yearly at ten months' price. To move back to
+Personal, remove the other people,
 revoke their invitations, and leave one computer connected first.
 
 ## Work on the project from another computer
@@ -101,9 +104,8 @@ move it.
 
 Kitewell takes changes made elsewhere when it starts, when you open the
 project, and when you open a workflow to edit it, asking Dagu Cloud at most
-once a minute. On Personal and Team a computer also checks on its own, about every
-five minutes, so a computer nobody is sitting at still picks up a new version.
-A free account checks only at those three moments and when you ask.
+once a minute. A computer also checks on its own, about every five minutes,
+so a computer nobody is sitting at still picks up a new version.
 
 To check at any other time, choose **Update from Dagu Cloud** in
 **Manage projects**. A workflow open in the editor takes the update in place
@@ -198,23 +200,27 @@ or applying releases, and declaring secrets.
 
 ## When a plan ends
 
+When the trial ends, nothing runs until you subscribe. Every project stays on
+the computer: you can open it, edit it, read its run history, and export it.
+
 When a paid plan ends, alerts, MCP Events, and webhooks stop. Everything else
-keeps running for 7 days, and a banner on every page says on which day the
-projects, workflows, and API keys or connected apps beyond the free plan stop.
+keeps running for 7 days, and a banner on every page says on which day it
+stops; after that it is as at the end of the trial. Nothing is deleted, and
+when you subscribe again everything runs as before, with its schedules.
+
+Moving to a plan with lower limits, such as from Team to Personal, gives the
+same 7 days to whatever is beyond the new plan:
 
 - **Choose what stays.** In the banner or **Device settings**, pick which
-  projects, workflows, and keys or apps stay active, up to the plan's limits.
+  projects and workflows stay active, up to the plan's limits.
   If you choose nothing, the ones that ran or were used most recently stay.
 - **Not in plan.** Anything beyond the limits is marked **Not in plan**. It does
   not run, by schedule or by hand, and cannot be edited, but you can still open
   it, read its run history, export it, or delete it. Runs already under way
   finish.
-- **Nothing is deleted.** Subscribe again and everything runs as before, with
-  its schedules.
 
-The same applies when you move to a plan with lower limits. A device that
-cannot reach Dagu Cloud keeps its last paid plan until that license expires,
-then has the same 7 days.
+A device that cannot reach Dagu Cloud keeps its last paid plan until that
+license expires, then has the same 7 days.
 
 ## Stop syncing
 

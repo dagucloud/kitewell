@@ -14,9 +14,8 @@ real system in the other.
 ## What you need
 
 Two or more projects on the same computer, named however you like — **Dev**,
-**Staging**, and **Prod** is the usual set. A computer holds one project on
-the free plan, so staging needs Kitewell Personal, which holds up to five, or
-Team, which holds 15. Cutting
+**Staging**, and **Prod** is the usual set. Kitewell Personal holds up to
+five projects on a computer and Team holds 15, so either has room. Cutting
 and applying a release needs edit access to the project.
 
 ## Cut a release

@@ -8,7 +8,7 @@ or Zapier and Make for the apps they connect. Your computer has no public
 address, so the request goes to Kitewell's relay, which hands it to Kitewell
 on your computer. No port to open, no tunnel to set up.
 
-Webhooks are part of Kitewell Personal and Team, and need Kitewell
+Webhooks come with every plan and the trial, and need Kitewell
 [signed in](/docs/cloud-sync/#sign-in) to Dagu Cloud.
 
 ## Turn on a webhook
@@ -152,7 +152,7 @@ body is kept only with a run.
 | --- | --- |
 | **Run started** | The request started a run. A request the relay sent twice starts one run. |
 | **Failed** | The run could not be queued, for example because the project's engine is stopped. Kitewell retries a busy or recovering engine for 10 minutes first. |
-| **Ignored** | The paid plan has ended, or the workflow is not in your plan. |
+| **Ignored** | The trial or the plan has ended, or the workflow is not in your plan. |
 | **Rejected** | The request had no valid signature from the sender chosen under **Accept requests from**. |
 | **Skipped** | The request is about an event the webhook does not take, or is GitHub's ping. |
 
@@ -193,7 +193,7 @@ On Windows, a body larger than about 30,000 characters may fail to start a
 run, and the request shows **Failed**. GitHub push and pull request events can
 be that large. A fix is on the way.
 
-If the paid plan ends, or the workflow is no longer in your plan, the URL
+If the trial or the plan ends, or the workflow is no longer in your plan, the URL
 still accepts requests, but they start nothing and show **Ignored**. Signing up
 again needs no new URL.
 

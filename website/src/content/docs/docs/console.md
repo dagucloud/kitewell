@@ -10,10 +10,10 @@ logs, outputs, or secret values.
 ## What you need
 
 - A Dagu Cloud account and a [synced project](/docs/cloud-sync/). Every plan
-  works, the free plan included. A project that is not synced is never
+  works, and so does the trial. A project that is not synced is never
   reported.
-- To follow more than one computer, Kitewell Team. A free account and Kitewell
-  Personal each hold one computer.
+- To follow more than one computer, Kitewell Team, or the trial, which holds
+  up to 3. Kitewell Personal holds one computer.
 
 Sign in to Dagu Console with the account your computers use. The workspace
 owner sees every synced project and every computer. Anyone else in the
@@ -77,7 +77,6 @@ side by side:
 | | Kitewell's alerts | Dagu Console's alerts |
 | --- | --- | --- |
 | Sent by | The computer | Dagu Cloud |
-| Plan | Personal and Team | Every plan |
 | Events | Fails, recovers, needs input, misses a schedule, runs long, is cancelled, succeeds, finishes a batch | A workflow failed; a computer stopped reporting |
 | Channels | This device, email, Slack, Microsoft Teams, PagerDuty, webhook | Email |
 | While the computer sleeps | Nothing is sent; missed schedules are reported when it wakes | The stopped-reporting alert opens |

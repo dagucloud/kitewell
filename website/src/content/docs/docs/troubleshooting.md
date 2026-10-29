@@ -47,8 +47,8 @@ If neither says anything, check that the workflow's **Schedule** is saved
 with **Enable saved schedules** ticked and its timezone is the one you meant.
 
 On a Mac, the computer has to be awake and you signed in at that time. On
-Windows, scheduled work runs with nobody signed in once the sign-in service
-is on; see [Schedules](/docs/scheduling/#run-with-nobody-signed-in-windows).
+Windows with Kitewell Team, scheduled work runs with nobody signed in once
+the sign-in service is on; see [Schedules](/docs/scheduling/#run-with-nobody-signed-in-windows).
 
 A start that was missed is only made up later if the workflow asks for it.
 See its **Schedule → Missed schedules**.
@@ -179,9 +179,8 @@ The change applies to the app's next call.
 - "Open Kitewell on that computer to continue": the computer is asleep,
   off, or not running Kitewell. Open Kitewell, wait for **This device → MCP**
   to show **Online**, then choose **Try again**.
-- No room: the free plan holds one API key or connected app together, and
-  this computer already has one. Revoke it under **This device → MCP**, or
-  move to Kitewell Personal or Team, then connect again.
+- No room: the computer's trial or plan has ended, so it takes no new
+  connection. Subscribe to Kitewell Personal or Team, then connect again.
 
 ### The app connects, but only reads
 

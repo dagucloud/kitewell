@@ -69,7 +69,7 @@ or Kitewell's included model.
   no key on a computer signed in to Dagu Cloud, and is paid from the
   workspace's credits. Dagu Cloud asks OpenRouter to route every request it
   passes on only to providers that neither store nor train on it. A desktop
-  step can use it only on Kitewell Personal and Team.
+  step can use it on every plan.
 
 A value a website or desktop step types, such as a password, is written as
 `%name%`. Only the name reaches the model.

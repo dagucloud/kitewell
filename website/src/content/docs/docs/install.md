@@ -27,9 +27,9 @@ tool. Install those later, only if a workflow of yours uses them.
 3. Open **Kitewell** from Applications.
 4. Choose **Sign in to use Kitewell's AI**. Your browser opens Dagu Cloud
    with a code to match. Once you confirm it, Kitewell makes your first
-   project and opens it with its AI ready: no API key, and 100 free credits
-   to start. To use your own AI key, or no AI, choose **Start on this
-   device** instead.
+   project and opens it with its AI ready: no API key, and the 14-day
+   trial's 100 credits to start. To use your own AI key, or no AI, choose
+   **Start on this device** instead.
 
 Kitewell turns on **Open at Login** the first time it runs, so your schedules
 keep running after you restart the Mac. Turn it off in the menu bar menu
@@ -49,9 +49,9 @@ Then [build your first workflow](/docs/getting-started/).
    no administrator password, and opens when it is done.
 4. Choose **Sign in to use Kitewell's AI**. Your browser opens Dagu Cloud
    with a code to match. Once you confirm it, Kitewell makes your first
-   project and opens it with its AI ready: no API key, and 100 free credits
-   to start. To use your own AI key, or no AI, choose **Start on this
-   device** instead.
+   project and opens it with its AI ready: no API key, and the 14-day
+   trial's 100 credits to start. To use your own AI key, or no AI, choose
+   **Start on this device** instead.
 
 Kitewell turns on **Start at login** the first time it runs, so your schedules
 keep running after you restart the PC. Turn it off in the tray menu whenever

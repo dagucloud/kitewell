@@ -32,7 +32,7 @@ A model that reads the screen. Each project has one, under
 **Project settings → Screen steps**. Until you choose another, it is
 [Kitewell's included model](/docs/ai/#use-kitewells-included-model), which
 needs no API key and is paid from the workspace's Dagu Cloud credits on every
-plan; the free plan's credits cover a short trial.
+plan and during the trial.
 
 To use a model of your own, such as Claude Sonnet 5, GPT-5.4, or Gemini 3.6
 Flash, [add it](/docs/ai/) under **Agents & models**, then choose it in

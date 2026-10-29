@@ -4,8 +4,8 @@ title: Schedules and background operation
 
 Kitewell can start a workflow for you: every weekday at nine, once an hour,
 or when another service sends it a request. The work happens on this
-computer. On Windows it happens whether or not you are signed in; on a Mac it
-happens while you are.
+computer. On Windows with Kitewell Team it happens whether or not you are
+signed in; on a Mac, and on Kitewell Personal, it happens while you are.
 
 ## Set a schedule
 
@@ -41,6 +41,9 @@ screen, a browser sign-in that needs your password, and a schedule written in
 another timezone.
 
 ## Run with nobody signed in (Windows)
+
+Running with nobody signed in needs Kitewell Team, or the trial. On Kitewell
+Personal, schedules run only while you are signed in.
 
 Turn on **Device settings → Run when nobody is signed in**. One
 administrator prompt, with no password, sets up a small Windows service,

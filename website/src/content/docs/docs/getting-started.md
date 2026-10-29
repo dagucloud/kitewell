@@ -10,8 +10,8 @@ walks through that first chore, from an empty chat to a run on its own.
 
 Kitewell, [installed](/docs/install/) and open. The first time it opens,
 choose **Sign in to use Kitewell's AI**. Your browser opens Dagu Cloud with a
-code to match, and Kitewell's included AI is ready with 100 free credits and
-no API key. To use your own model instead, choose **Start on this device**
+code to match, and Kitewell's included AI is ready with no API key and the
+14-day trial's 100 credits. To use your own model instead, choose **Start on this device**
 and connect it from the chat; see [AI agents and models](/docs/ai/).
 
 A website chore also needs Google Chrome, or Microsoft Edge on Windows.

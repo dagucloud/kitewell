@@ -8,12 +8,13 @@ do not have to keep Kitewell open to find out.
 
 ## What you need
 
-Alerts are part of Kitewell Personal and Team. On the free plan the **Notifications** page
-offers the upgrade instead, and nothing is sent: not an email, not a message,
-not even a notification on this computer. Nothing is held back for later
-either, so alerts start from the moment the plan is in place.
+Alerts come with every plan and the trial. Once the trial or a plan has
+ended, the **Notifications** page offers a subscription instead, and nothing
+is sent: not an email, not a message, not even a notification on this
+computer. Nothing is held back for later either, so alerts start again from
+the moment the plan is in place.
 
-These alerts come from the computer. On every plan, the free one included,
+These alerts come from the computer.
 [Dagu Console](/docs/console/#alerts-from-dagu-console) can also email you
 when a synced project's workflow fails or a computer stops reporting.
 
@@ -158,8 +159,8 @@ sent that way would answer to no rule, no mute, and no delivery record.
 
 ## Details
 
-- These alerts need Kitewell Personal or Team; Dagu Console's work on every
-  plan. Reading what is set up, and removing a channel, work on any plan.
+- These alerts need a plan or the trial. Reading what is set up, and
+  removing a channel, work after a plan ends too.
 - A device may hold up to 50 channels.
 - An undelivered alert is retried after a minute, then two, four, eight,
   sixteen and thirty, and is given up after a day. A reply that says the

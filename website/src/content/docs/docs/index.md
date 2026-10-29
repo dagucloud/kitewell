@@ -17,7 +17,7 @@ kept with its result and its output.
    to run unattended.
 4. [Share workflows with your team](/docs/sharing/).
 
-No account is needed to start.
+The 14-day trial needs no card.
 
 ## What a workflow can do
 
@@ -49,15 +49,20 @@ installers are for macOS and Windows. Linux is planned. See
 
 ## What it costs
 
-One project, up to 10 workflows in it, and one API key or connected app are
-free, and need no Kitewell account. Each project holds its own workflows,
-history, and secrets.
+Kitewell starts with a 14-day trial, no card needed: Team's features on up to
+3 computers, with 100 credits for
+[Kitewell's included model](/docs/ai/#use-kitewells-included-model). It
+starts when you sign in to Dagu Cloud from Kitewell. After it, nothing runs
+until you subscribe; your projects stay on the computer, to open, edit, and
+export. Each project holds its own workflows, history, and secrets.
 
-Kitewell Personal is $20 a month for one person on one computer:
-five projects of 100 workflows each, any number of API keys and connected apps,
-[alerts](/docs/alerts/), and [webhooks](/docs/webhooks/). Kitewell Team is
-for organizations of up to 25 people, quoted by the number of computers: 15
-projects and a team that syncs them. See [pricing](/pricing/).
+Kitewell Personal is $20 a month for one person's own work at one computer:
+five projects of 100 workflows each, [alerts](/docs/alerts/), and
+[webhooks](/docs/webhooks/). It runs while you are signed in. Kitewell Team is
+$99 a month for each computer, for organizations of up to 25 people: 15
+projects, a team that syncs them, and runs with nobody signed in on Windows.
+If you used Kitewell before, the free plan and Personal's runs with nobody
+signed in keep working until December 1, 2026. See [pricing](/pricing/).
 
 ## What runs where
 
@@ -76,8 +81,8 @@ Mac and in the tray on Windows, and your schedules keep firing.
 engines.
 
 On a Mac, your computer has to be awake and you have to be signed in for
-scheduled work to run. On Windows, scheduled work runs with nobody signed in
-once the sign-in service the installer offers is on, and the PC wakes for
+scheduled work to run. On Windows with Kitewell Team, scheduled work runs
+with nobody signed in once the sign-in service is on, and the PC wakes for
 it. Kitewell does not provide a machine in the cloud. AI providers, remote
 servers, containers, and outside services have their own requirements and
 costs.

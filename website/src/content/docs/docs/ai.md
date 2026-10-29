@@ -74,15 +74,19 @@ workspace's Dagu Cloud credits.
 - Kitewell's chat answers with it until an administrator sets up a model
   under **Device settings → Kitewell's AI model**.
 
-A free account gets 100 credits, once. Kitewell Personal and Team get 500
+The trial comes with 100 credits, once. Kitewell Personal and Team get 500
 credits a month for each computer the plan pays for, shared by the workspace
 and renewed on the first of each month (UTC). The assistant's web searches
 spend the same credits.
 
+On Personal and Team, packs of 1,000 credits cost $12 in
+[Dagu Console](https://console.dagu.sh/kitewell). A pack's credits never
+expire and are spent once the month's credits run out.
+
 An administrator sees what is left under **Dagu Cloud account** in
 **Device settings**. When the credits run out, the included model is refused
-until they are renewed, or on the free plan until you subscribe. A model of
-your own keeps working.
+until they are renewed or you buy a pack, or during the trial until you
+subscribe. A model of your own keeps working.
 
 Dagu Cloud asks OpenRouter to route these requests only to providers that
 neither store nor train on them. It keeps no prompt text, only the workspace,

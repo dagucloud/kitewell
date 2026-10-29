@@ -24,10 +24,8 @@ All of it lives on one page: **This device → MCP**. The badge beside
 
 ![The MCP page with Kitewell MCP listening and the URL a client connects to](../../../assets/docs/en/mcp-listening.png)
 
-The free plan holds one API key or connected app in total. Kitewell Personal
-and Team hold any number. Revoking one makes room for another. When a paid
-plan ends, keys and apps beyond the free plan stop working 7 days later, and
-you choose which one stays; see
+Every plan, and the trial, holds any number of API keys and connected apps.
+When a plan ends, they stop working with everything else; see
 [When a plan ends](/docs/cloud-sync/#when-a-plan-ends).
 
 ## Connect an assistant on this computer

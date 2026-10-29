@@ -30,10 +30,9 @@ being current the moment you edit something.
 Importing always makes a new project; it never replaces one you have. If a
 project of that name is already there, Kitewell asks for another name.
 
-The new project counts against that computer's limit: one project on the free
-plan, up to five on Kitewell Personal, and up to 15 on Team. A project with
-more workflows than the plan holds — 10 on the free plan, 100 on Personal and
-Team — cannot be imported at all. The file
+The new project counts against that computer's limit: up to five projects on
+Kitewell Personal, and up to 15 on Team and during the trial. A project with
+more than 100 workflows cannot be imported at all. The file
 itself may be up to 16 MiB.
 
 ## What travels, and what does not
@@ -93,9 +92,8 @@ the project.
    **Allowed projects**.
 
 They then use any MCP client, or plain HTTP requests, against that computer.
-The free plan holds one API key or connected app in total; Kitewell Personal
-and Team hold any number. When an organization's people share a computer this
-way, it takes Kitewell Team; see [pricing](/pricing/). Every run still happens as that computer's own user, so a key
+Every plan holds any number of API keys and connected apps. When an
+organization's people share a computer this way, it takes Kitewell Team; see [pricing](/pricing/). Every run still happens as that computer's own user, so a key
 limits which projects a person reaches, not what a workflow may do once it
 runs. The optional sign-in on the app itself is separate; these keys do not
 create logins for it.
