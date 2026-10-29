@@ -34,7 +34,7 @@ Jede KI-Funktion nennt ein Modell, das Sie unter [Agenten und Modelle](/de/docs/
 - Die Anbieter sind Anthropic, OpenAI, Google Gemini, OpenRouter, Z.ai, OpenCode Zen oder jeder OpenAI-kompatible Server, den Sie betreiben, etwa Ollama oder vLLM. Ein Entscheidungsmodell nutzt OpenRouter oder TypeSafe.
 - Ein eigener Server hält Prompts, Seitentext und Screenshots in Ihrem Netzwerk. Kleine lokale Modelle können meist keinen Browser und keinen Desktop steuern; wählen Sie daher pro Aufgabe.
 - Über OpenRouter bitten die Lesevorgänge, die Kitewell selbst ausführt – der Assistent, die Fehlerdiagnose und die Ergebnisspalten einer Tabelle – OpenRouter, nur an Anbieter weiterzuleiten, die das Empfangene weder speichern noch damit trainieren. Ein Modellschritt in einem Workflow wird von der Engine gesendet und bittet nicht darum.
-- [Die enthaltene KI von Kitewell](/de/docs/ai/#use-kitewells-included-model) braucht auf einem bei Dagu Cloud angemeldeten Computer keinen Schlüssel und wird aus den Credits des Workspace bezahlt. Dagu Cloud bittet OpenRouter, jede weitergegebene Anfrage nur an Anbieter zu leiten, die sie weder speichern noch damit trainieren. Ein Desktop-Schritt kann sie nur mit Kitewell Personal und Team nutzen.
+- [Die enthaltene KI von Kitewell](/de/docs/ai/#use-kitewells-included-model) braucht auf einem bei Dagu Cloud angemeldeten Computer keinen Schlüssel und wird aus den Credits des Workspace bezahlt. Dagu Cloud bittet OpenRouter, jede weitergegebene Anfrage nur an Anbieter zu leiten, die sie weder speichern noch damit trainieren. Ein Desktop-Schritt kann sie in jedem Tarif nutzen.
 
 Ein Wert, den ein Website- oder Desktop-Schritt eintippt, etwa ein Passwort, wird als `%name%` geschrieben. Nur der Name erreicht das Modell.
 

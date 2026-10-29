@@ -12,7 +12,7 @@ vide jusqu’à une exécution qui se lance toute seule.
 Kitewell, [installé](/fr/docs/install/) et ouvert. À la première ouverture,
 choisissez **Se connecter pour utiliser l'IA de Kitewell**. Votre navigateur
 ouvre Dagu Cloud avec un code à vérifier, et l’IA incluse de Kitewell est
-prête, avec 100 crédits offerts et sans clé API. Pour utiliser plutôt votre
+prête, sans clé API, avec les 100 crédits de l’essai de 14 jours. Pour utiliser plutôt votre
 propre modèle, choisissez **Commencer sur cet appareil** et connectez-le depuis
 le chat ; voir [Agents IA et modèles](/fr/docs/ai/).
 

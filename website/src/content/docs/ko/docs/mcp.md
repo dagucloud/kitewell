@@ -14,7 +14,7 @@ ChatGPT, Claude, Claude Code에게 워크플로 실행, 실행 내용 확인, �
 
 ![Kitewell MCP가 수신 중이고 클라이언트가 접속할 URL이 표시된 MCP 페이지](../../../../assets/docs/ko/mcp-listening.png)
 
-무료 플랜에서는 API 키와 연결된 앱을 합쳐 하나만 둘 수 있습니다. Kitewell Personal과 Team에서는 개수 제한이 없습니다. 하나를 폐기하면 다른 하나를 추가할 수 있습니다. 유료 플랜이 끝나면 무료 플랜 한도를 넘는 키와 앱은 7일 뒤 작동을 멈추며, 어느 것을 남길지는 직접 고릅니다. [플랜이 끝났을 때](/ko/docs/cloud-sync/#when-a-plan-ends)를 참고하세요.
+모든 플랜과 체험 기간에 API 키와 연결된 앱을 개수 제한 없이 둘 수 있습니다. 플랜이 끝나면 다른 모든 것과 함께 작동을 멈춥니다. [플랜이 끝났을 때](/ko/docs/cloud-sync/#when-a-plan-ends)를 참고하세요.
 
 ## 이 컴퓨터의 어시스턴트 연결하기
 

@@ -56,7 +56,7 @@ Si ni l’un ni l’autre n’indique quoi que ce soit, vérifiez que la
 est bien celui que vous vouliez.
 
 Sur Mac, l’ordinateur doit être sorti de veille et votre session ouverte à
-cette heure-là. Sous Windows, le travail planifié s’exécute sans que personne
+cette heure-là. Sous Windows avec Kitewell Team, le travail planifié s’exécute sans que personne
 n’ait ouvert de session une fois le service de connexion activé ; voir
 [Planifications](/fr/docs/scheduling/#run-with-nobody-signed-in-windows).
 
@@ -222,10 +222,9 @@ prochain appel de l’app.
 - « Ouvrez Kitewell sur cet ordinateur pour continuer. » : l’ordinateur est en
   veille, éteint, ou Kitewell n’y tourne pas. Ouvrez Kitewell, attendez que
   **Cet appareil → MCP** affiche **En ligne**, puis choisissez **Réessayer**.
-- Plus de place : l’offre gratuite accueille une seule clé API ou app
-  connectée en tout, et cet ordinateur en a déjà une. Révoquez-la sous
-  **Cet appareil → MCP**, ou passez à Kitewell Personal ou Team, puis
-  connectez-vous à nouveau.
+- Plus de place : l’essai ou l’offre de cet ordinateur a pris fin, il
+  n’accepte donc aucune nouvelle connexion. Abonnez-vous à Kitewell Personal
+  ou Team, puis connectez-vous à nouveau.
 
 ### L’app se connecte, mais ne fait que lire
 

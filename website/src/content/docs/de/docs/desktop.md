@@ -36,9 +36,8 @@ Ein Modell, das den Bildschirm liest. Jedes Projekt hat eines, unter
 **Projekteinstellungen → Bildschirmschritte**. Solange Sie kein anderes
 wählen, ist es
 [das enthaltene Modell von Kitewell](/de/docs/ai/#use-kitewells-included-model):
-Es braucht keinen API-Schlüssel und wird in jedem Tarif aus den
-Dagu-Cloud-Credits des Arbeitsbereichs bezahlt; die Credits des kostenlosen
-Tarifs reichen für einen kurzen Test.
+Es braucht keinen API-Schlüssel und wird in jedem Tarif und in der Testphase
+aus den Dagu-Cloud-Credits des Arbeitsbereichs bezahlt.
 
 Für ein eigenes Modell, etwa Claude Sonnet 5, GPT-5.4 oder Gemini 3.6 Flash,
 [fügen Sie es](/de/docs/ai/) unter **Agenten und Modelle** hinzu und wählen es

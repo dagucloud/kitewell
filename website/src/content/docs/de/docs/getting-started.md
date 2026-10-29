@@ -12,9 +12,9 @@ Aufgabe, vom leeren Chat bis zu einer Ausführung, die von allein läuft.
 Kitewell, [installiert](/de/docs/install/) und geöffnet. Wählen Sie beim
 ersten Öffnen **Anmelden und die KI von Kitewell nutzen**. Ihr Browser öffnet
 Dagu Cloud mit einem Code, den Sie abgleichen. Danach ist die enthaltene KI von
-Kitewell einsatzbereit, mit 100 kostenlosen Credits und ohne API-Schlüssel. Um
-stattdessen Ihr eigenes Modell zu verwenden, wählen Sie
-**Auf diesem Gerät starten** und verbinden es im Chat. Siehe
+Kitewell einsatzbereit, ohne API-Schlüssel und mit den 100 Credits der
+14-tägigen Testphase. Um stattdessen Ihr eigenes Modell zu verwenden, wählen
+Sie **Auf diesem Gerät starten** und verbinden es im Chat. Siehe
 [KI-Agenten und Modelle](/de/docs/ai/).
 
 Für eine Aufgabe auf einer Website brauchen Sie außerdem Google Chrome oder,

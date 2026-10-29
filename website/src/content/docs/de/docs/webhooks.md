@@ -9,7 +9,7 @@ die sie verbinden. Ihr Computer hat keine öffentliche Adresse, deshalb geht
 die Anfrage an das Relay von Kitewell, das sie an Kitewell auf Ihrem Computer
 weitergibt. Sie müssen keinen Port öffnen und keinen Tunnel einrichten.
 
-Webhooks gehören zu Kitewell Personal und Team und setzen voraus, dass
+Webhooks gehören zu jedem Tarif und zur Testphase und setzen voraus, dass
 Kitewell bei Dagu Cloud [angemeldet](/de/docs/cloud-sync/#sign-in) ist.
 
 ## Einen Webhook einschalten
@@ -176,7 +176,7 @@ Grund, denn ihr Inhalt wird nur zusammen mit einer Ausführung aufbewahrt.
 | --- | --- |
 | **Lauf gestartet** | Die Anfrage hat eine Ausführung gestartet. Eine Anfrage, die das Relay zweimal gesendet hat, startet nur eine Ausführung. |
 | **Fehlgeschlagen** | Die Ausführung konnte nicht in die Warteschlange gestellt werden, etwa weil die Engine des Projekts gestoppt ist. Ist die Engine ausgelastet oder gerade im Wiederanlauf, versucht Kitewell es zunächst 10 Minuten lang erneut. |
-| **Ignoriert** | Der kostenpflichtige Tarif ist abgelaufen, oder der Workflow ist nicht in Ihrem Tarif enthalten. |
+| **Ignoriert** | Die Testphase oder der Tarif ist abgelaufen, oder der Workflow ist nicht in Ihrem Tarif enthalten. |
 | **Abgelehnt** | Die Anfrage hatte keine gültige Signatur des Absenders, der unter **Anfragen annehmen von** gewählt ist. |
 | **Übersprungen** | Die Anfrage betrifft ein Ereignis, das der Webhook nicht annimmt, oder ist der Ping von GitHub. |
 
@@ -221,7 +221,7 @@ Zeichen keine Ausführung startet; die Anfrage zeigt dann **Fehlgeschlagen**.
 Push- und Pull-Request-Ereignisse von GitHub können so groß werden. Eine
 Korrektur ist in Arbeit.
 
-Endet der kostenpflichtige Tarif oder ist der Workflow nicht mehr in Ihrem
+Endet die Testphase oder der Tarif oder ist der Workflow nicht mehr in Ihrem
 Tarif enthalten, nimmt die URL weiterhin Anfragen an, aber sie starten nichts
 und zeigen **Ignoriert**. Schließen Sie den Tarif erneut ab, brauchen Sie
 keine neue URL.

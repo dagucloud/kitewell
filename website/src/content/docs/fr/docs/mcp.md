@@ -14,7 +14,7 @@ Tout se trouve sur une seule page : **Cet appareil → MCP**. Le badge à côt�
 
 ![La page MCP avec Kitewell MCP à l’écoute et l’URL à laquelle un client se connecte](../../../../assets/docs/fr/mcp-listening.png)
 
-L’offre gratuite permet une clé API ou une app connectée au total. Kitewell Personal et Team n’ont pas de limite. Révoquer une clé ou une app libère la place pour une autre. Quand une offre payante prend fin, les clés et les apps au-delà de l’offre gratuite cessent de fonctionner 7 jours plus tard, et vous choisissez celle qui reste ; voir [Quand une offre prend fin](/fr/docs/cloud-sync/#when-a-plan-ends).
+Toutes les offres, et l’essai, permettent un nombre illimité de clés API et d’apps connectées. Quand une offre prend fin, elles cessent de fonctionner avec tout le reste ; voir [Quand une offre prend fin](/fr/docs/cloud-sync/#when-a-plan-ends).
 
 ## Connecter un assistant sur cet ordinateur
 

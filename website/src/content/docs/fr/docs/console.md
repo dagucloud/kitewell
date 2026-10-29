@@ -13,10 +13,10 @@ exécution, jamais ses journaux, ses sorties ni les valeurs des secrets.
 ## Ce qu’il vous faut
 
 - Un compte Dagu Cloud et un [projet synchronisé](/fr/docs/cloud-sync/).
-  Toutes les offres conviennent, y compris l’offre gratuite. Un projet qui
-  n’est pas synchronisé n’est jamais signalé.
-- Pour suivre plus d’un ordinateur, Kitewell Team. Un compte gratuit et
-  Kitewell Personal n’acceptent chacun qu’un seul ordinateur.
+  Toutes les offres conviennent, et l’essai aussi. Un projet qui n’est pas
+  synchronisé n’est jamais signalé.
+- Pour suivre plus d’un ordinateur, Kitewell Team, ou l’essai, qui en
+  accepte 3 au plus. Kitewell Personal n’accepte qu’un seul ordinateur.
 
 Connectez-vous à Dagu Console avec le compte qu’utilisent vos ordinateurs. Le
 propriétaire de l’espace de travail voit tous les projets synchronisés et tous
@@ -99,7 +99,6 @@ Les deux fonctionnent côte à côte :
 | | Alertes de Kitewell | Alertes de Dagu Console |
 | --- | --- | --- |
 | Envoyées par | L’ordinateur | Dagu Cloud |
-| Offre | Personal et Team | Toutes les offres |
 | Événements | Échoue, se rétablit, attend une saisie, manque une planification, dure trop longtemps, est annulé, réussit, termine un lot | Un workflow a échoué ; un ordinateur a cessé d’envoyer des rapports |
 | Canaux | Cet appareil, e-mail, Slack, Microsoft Teams, PagerDuty, webhook | E-mail |
 | Pendant que l’ordinateur est en veille | Rien n’est envoyé ; les planifications manquées sont signalées à son réveil | L’alerte d’arrêt des rapports s’ouvre |

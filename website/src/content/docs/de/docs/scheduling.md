@@ -4,8 +4,9 @@ title: Planungen und Hintergrundbetrieb
 
 Kitewell kann einen Workflow für Sie starten: jeden Werktag um 9:00, einmal
 pro Stunde oder wenn ein anderer Dienst eine Anfrage schickt. Die Arbeit läuft
-auf diesem Computer. Unter Windows läuft sie, ob Sie angemeldet sind oder
-nicht; auf einem Mac, solange Sie angemeldet sind.
+auf diesem Computer. Unter Windows mit Kitewell Team läuft sie, ob Sie
+angemeldet sind oder nicht; auf einem Mac und mit Kitewell Personal, solange
+Sie angemeldet sind.
 
 ## Eine Planung festlegen
 
@@ -48,6 +49,10 @@ ist.
 <a id="run-with-nobody-signed-in-windows"></a>
 
 ## Ausführen, wenn niemand angemeldet ist (Windows)
+
+Das Ausführen ohne angemeldete Person erfordert Kitewell Team oder die
+Testphase. Mit Kitewell Personal laufen Planungen nur, solange Sie angemeldet
+sind.
 
 Schalten Sie **Geräteeinstellungen → Ausführen, wenn niemand angemeldet ist**
 ein. Eine einzige Administratorabfrage, ohne Passwort, richtet einen kleinen

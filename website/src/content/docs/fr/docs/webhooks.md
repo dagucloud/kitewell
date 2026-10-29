@@ -4,7 +4,7 @@ title: Démarrer un workflow depuis un webhook
 
 Un workflow peut démarrer quand un autre service lui envoie une requête : GitHub quand une issue est ouverte, Stripe quand un paiement aboutit, un formulaire quand quelqu’un l’envoie, ou Zapier et Make pour les apps qu’ils relient. Votre ordinateur n’a pas d’adresse publique : la requête arrive donc au relais de Kitewell, qui la transmet à Kitewell sur votre ordinateur. Aucun port à ouvrir, aucun tunnel à mettre en place.
 
-Les webhooks font partie de Kitewell Personal et Team, et nécessitent que Kitewell soit [connecté](/fr/docs/cloud-sync/#sign-in) à Dagu Cloud.
+Les webhooks sont compris dans toutes les offres et dans l’essai, et nécessitent que Kitewell soit [connecté](/fr/docs/cloud-sync/#sign-in) à Dagu Cloud.
 
 ## Activer un webhook
 
@@ -89,7 +89,7 @@ La section Webhook liste les 20 dernières requêtes : l’heure d’arrivée d
 | --- | --- |
 | **Exécution lancée** | La requête a lancé une exécution. Une requête que le relais a envoyée deux fois ne lance qu’une exécution. |
 | **Échec** | L’exécution n’a pas pu être mise en file d’attente, par exemple parce que le moteur du projet est arrêté. Si le moteur est occupé ou en cours de rétablissement, Kitewell réessaie d’abord pendant 10 minutes. |
-| **Ignorée** | L’offre payante a pris fin, ou le workflow ne fait pas partie de votre offre. |
+| **Ignorée** | L’essai ou l’offre a pris fin, ou le workflow ne fait pas partie de votre offre. |
 | **Rejeté** | La requête n’avait pas de signature valide de l’expéditeur choisi sous **Accepter les requêtes de**. |
 | **Ignoré** | La requête concerne un événement que le webhook n’accepte pas, ou il s’agit du ping de GitHub. |
 
@@ -123,7 +123,7 @@ Les réponses du relais :
 
 Sous Windows, un corps de plus de 30 000 caractères environ peut empêcher le lancement d’une exécution, et la requête affiche alors **Échec**. Les événements push et pull request de GitHub peuvent atteindre cette taille. Une correction est en préparation.
 
-Si l’offre payante prend fin, ou si le workflow ne fait plus partie de votre offre, l’URL accepte toujours les requêtes, mais elles ne lancent rien et affichent **Ignorée**. Se réabonner ne demande pas de nouvelle URL.
+Si l’essai ou l’offre prend fin, ou si le workflow ne fait plus partie de votre offre, l’URL accepte toujours les requêtes, mais elles ne lancent rien et affichent **Ignorée**. Se réabonner ne demande pas de nouvelle URL.
 
 ## Où va la requête
 

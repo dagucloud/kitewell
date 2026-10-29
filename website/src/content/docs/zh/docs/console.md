@@ -6,8 +6,8 @@ title: Dagu Console
 
 ## 准备工作
 
-- 一个 Dagu Cloud 账户和一个[已同步的项目](/zh/docs/cloud-sync/)。所有套餐均可使用，包括免费套餐。未同步的项目从不报告。
-- 如需查看多台电脑，需要 Kitewell Team。免费账户和 Kitewell Personal 各只能容纳一台电脑。
+- 一个 Dagu Cloud 账户和一个[已同步的项目](/zh/docs/cloud-sync/)。所有套餐均可使用，试用期也可以。未同步的项目从不报告。
+- 如需查看多台电脑，需要 Kitewell Team，或者使用最多可容纳 3 台电脑的试用期。Kitewell Personal 只能容纳一台电脑。
 
 使用你的电脑所用的账户登录 Dagu Console。工作区所有者可以看到每个已同步的项目和每台电脑。工作区中的其他人可以看到自己拥有角色的项目的运行、自己的电脑，以及运行过这些项目的电脑。
 
@@ -50,7 +50,6 @@ title: Dagu Console
 | | Kitewell 的提醒 | Dagu Console 的告警 |
 | --- | --- | --- |
 | 发送方 | 电脑 | Dagu Cloud |
-| 套餐 | Personal 和 Team | 所有套餐 |
 | 事件 | 失败、恢复、需要输入、错过计划、运行时间过长、被取消、成功、完成批次 | 工作流失败；电脑停止报告 |
 | 渠道 | 此设备、电子邮件、Slack、Microsoft Teams、PagerDuty、Webhook | 电子邮件 |
 | 电脑睡眠期间 | 不发送任何内容；错过的计划会在唤醒后报告 | 发出停止报告告警 |

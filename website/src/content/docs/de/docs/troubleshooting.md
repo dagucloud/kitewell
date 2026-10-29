@@ -52,8 +52,8 @@ Häkchen bei **Gespeicherte Planungen aktivieren** gespeichert ist und ihre
 Zeitzone die gewünschte ist.
 
 Auf einem Mac muss der Computer zu dieser Zeit wach und Sie angemeldet sein.
-Unter Windows läuft geplante Arbeit auch, wenn niemand angemeldet ist, sobald
-der Anmeldedienst eingeschaltet ist; siehe
+Unter Windows mit Kitewell Team läuft geplante Arbeit auch, wenn niemand
+angemeldet ist, sobald der Anmeldedienst eingeschaltet ist; siehe
 [Planungen](/de/docs/scheduling/#run-with-nobody-signed-in-windows).
 
 Ein verpasster Start wird nur dann später nachgeholt, wenn der Workflow das
@@ -216,10 +216,9 @@ Aufruf der App.
   Ruhezustand oder ausgeschaltet, oder Kitewell läuft nicht. Öffnen Sie
   Kitewell, warten Sie, bis **Dieses Gerät → MCP** **Online** zeigt, und wählen
   Sie dann **Erneut versuchen**.
-- Kein Platz: Der kostenlose Tarif umfasst insgesamt einen API-Schlüssel oder
-  eine verbundene App, und dieser Computer hat bereits eines davon. Widerrufen
-  Sie es unter **Dieses Gerät → MCP** oder wechseln Sie zu Kitewell Personal
-  oder Team, und verbinden Sie dann erneut.
+- Kein Platz: Die Testphase oder der Tarif dieses Computers ist abgelaufen,
+  daher nimmt er keine neue Verbindung an. Schließen Sie ein Abo für Kitewell
+  Personal oder Team ab, und verbinden Sie dann erneut.
 
 ### Die App verbindet sich, liest aber nur
 

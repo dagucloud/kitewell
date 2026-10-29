@@ -15,9 +15,9 @@ Projekt mit dem Testsystem und im anderen mit dem echten System.
 ## Was Sie brauchen
 
 Zwei oder mehr Projekte auf demselben Computer, beliebig benannt – **Dev**,
-**Staging** und **Prod** ist die übliche Aufteilung. Ein Computer fasst im
-kostenlosen Tarif ein Projekt; für Stufen brauchen Sie also Kitewell Personal
-mit bis zu fünf Projekten oder Team mit 15. Um ein Release zu erstellen und
+**Staging** und **Prod** ist die übliche Aufteilung. Kitewell Personal fasst
+bis zu fünf Projekte auf einem Computer und Team 15; beide haben also Platz
+dafür. Um ein Release zu erstellen und
 anzuwenden, brauchen Sie Bearbeitungsrechte für das Projekt.
 
 ## Ein Release erstellen

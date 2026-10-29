@@ -27,12 +27,9 @@ einem Client geben.
 
 ![Die MCP-Seite: Kitewell MCP lauscht, darunter die URL, mit der sich ein Client verbindet](../../../../assets/docs/de/mcp-listening.png)
 
-Der kostenlose Tarif erlaubt insgesamt einen API-Schlüssel oder eine
-verbundene App. Kitewell Personal und Team erlauben beliebig viele. Wenn Sie
-einen Schlüssel oder eine App widerrufen, wird Platz für einen neuen frei.
-Endet ein kostenpflichtiger Tarif, funktionieren Schlüssel und Apps über das
-Limit des kostenlosen Tarifs hinaus 7 Tage später nicht mehr, und Sie wählen,
-was bleibt; siehe [Wenn ein Tarif endet](/de/docs/cloud-sync/#when-a-plan-ends).
+Jeder Tarif und die Testphase erlauben beliebig viele API-Schlüssel und
+verbundene Apps. Endet ein Tarif, funktionieren sie zusammen mit allem anderen
+nicht mehr; siehe [Wenn ein Tarif endet](/de/docs/cloud-sync/#when-a-plan-ends).
 
 ## Einen Assistenten auf diesem Computer verbinden
 

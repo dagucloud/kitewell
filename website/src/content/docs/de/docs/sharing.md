@@ -37,10 +37,9 @@ Ein Import legt immer ein neues Projekt an; er ersetzt nie ein vorhandenes.
 Gibt es bereits ein Projekt mit diesem Namen, fragt Kitewell nach einem
 anderen Namen.
 
-Das neue Projekt zählt zum Limit des empfangenden Computers: ein Projekt im
-kostenlosen Tarif, bis zu fünf mit Kitewell Personal und bis zu 15 mit Team.
-Ein Projekt mit mehr Workflows, als der Tarif erlaubt (10 im kostenlosen
-Tarif, 100 mit Personal und Team), lässt sich gar nicht importieren. Die
+Das neue Projekt zählt zum Limit des empfangenden Computers: bis zu fünf
+Projekte mit Kitewell Personal und bis zu 15 mit Team und in der Testphase.
+Ein Projekt mit mehr als 100 Workflows lässt sich gar nicht importieren. Die
 Datei selbst darf bis zu 16 MiB groß sein.
 
 ## Was mitkommt und was nicht
@@ -107,10 +106,9 @@ einen Schlüssel statt einer Kopie des Projekts.
    Projekte, die die Person braucht.
 
 Die Personen verwenden dann einen beliebigen MCP-Client oder einfache
-HTTP-Anfragen an diesen Computer. Der kostenlose Tarif erlaubt insgesamt
-einen API-Schlüssel oder eine verbundene App; Kitewell Personal und Team
-erlauben beliebig viele. Wenn Personen einer Organisation einen Computer auf
-diese Weise teilen, ist Kitewell Team erforderlich; siehe
+HTTP-Anfragen an diesen Computer. Jeder Tarif erlaubt beliebig viele
+API-Schlüssel und verbundene Apps. Wenn Personen einer Organisation einen
+Computer auf diese Weise teilen, ist Kitewell Team erforderlich; siehe
 [Preise](/de/pricing/). Jede Ausführung läuft weiterhin unter dem Benutzer
 dieses Computers. Ein Schlüssel begrenzt also, welche Projekte eine Person
 erreicht, nicht, was ein Workflow tun darf, sobald er läuft. Die optionale

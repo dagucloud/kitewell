@@ -2,7 +2,7 @@
 title: Planifications et fonctionnement en arrière-plan
 ---
 
-Kitewell peut lancer un workflow pour vous : chaque jour ouvré à 9:00, une fois par heure, ou quand un autre service lui envoie une requête. Le travail se fait sur cet ordinateur. Sous Windows, il a lieu que vous soyez connecté ou non ; sur Mac, il a lieu pendant que vous êtes connecté.
+Kitewell peut lancer un workflow pour vous : chaque jour ouvré à 9:00, une fois par heure, ou quand un autre service lui envoie une requête. Le travail se fait sur cet ordinateur. Sous Windows avec Kitewell Team, il a lieu que vous soyez connecté ou non ; sur Mac, et avec Kitewell Personal, il a lieu pendant que vous êtes connecté.
 
 ## Définir une planification
 
@@ -28,6 +28,8 @@ Ce que le verdict examine : si une session sera ouverte sur l’ordinateur, le 
 <a id="run-with-nobody-signed-in-windows"></a>
 
 ## Exécuter sans personne de connecté (Windows)
+
+Exécuter sans personne de connecté nécessite Kitewell Team, ou l’essai. Avec Kitewell Personal, les planifications ne s’exécutent que lorsque vous êtes connecté.
 
 Activez **Réglages de l’appareil → Exécuter quand personne n’est connecté**. Une seule demande d’autorisation administrateur, sans mot de passe, installe un petit service Windows, Kitewell sign-in, qui démarre le moteur au démarrage du PC et exécute vos planifications sous votre compte, que vous soyez connecté ou non.
 

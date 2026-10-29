@@ -15,10 +15,9 @@ de test dans l’un et au système réel dans l’autre.
 ## Ce qu’il vous faut
 
 Au moins deux projets sur le même ordinateur, nommés comme vous le souhaitez ;
-**Dev**, **Staging** et **Prod** est la combinaison habituelle. Un ordinateur
-n’accueille qu’un projet avec l’offre gratuite : travailler par environnement
-demande donc Kitewell Personal, qui en accueille jusqu’à cinq, ou Team, qui en
-accueille 15. Publier et appliquer une version demande l’accès en
+**Dev**, **Staging** et **Prod** est la combinaison habituelle. Kitewell Personal
+accueille jusqu’à cinq projets sur un ordinateur et Team en accueille 15 : les
+deux ont donc la place nécessaire. Publier et appliquer une version demande l’accès en
 modification au projet.
 
 ## Publier une version

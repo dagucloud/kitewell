@@ -18,7 +18,7 @@ Pour que toutes les copies restent identiques à mesure que les workflows évolu
 
 L’import crée toujours un nouveau projet ; il ne remplace jamais un projet existant. Si un projet du même nom existe déjà, Kitewell demande un autre nom.
 
-Le nouveau projet compte dans la limite de cet ordinateur : un projet avec l’offre gratuite, jusqu’à cinq avec Kitewell Personal, et jusqu’à 15 avec Team. Un projet qui contient plus de workflows que l’offre n’en permet (10 avec l’offre gratuite, 100 avec Personal et Team) ne peut pas être importé du tout. Le fichier lui-même peut peser jusqu’à 16 Mio.
+Le nouveau projet compte dans la limite de cet ordinateur : jusqu’à cinq projets avec Kitewell Personal, et jusqu’à 15 avec Team et pendant l’essai. Un projet qui contient plus de 100 workflows ne peut pas être importé du tout. Le fichier lui-même peut peser jusqu’à 16 Mio.
 
 ## Ce qui voyage, et ce qui ne voyage pas
 
@@ -61,7 +61,7 @@ Parfois, le travail doit rester sur une seule machine, et vos collègues ont seu
 2. Choisissez **Connecter un agent IA** et créez une clé par personne ou par client, avec l’**Autorisation** dont son rôle a besoin : **Lecture seule** pour consulter, **Exécuter les workflows** pour lancer le travail, **Modifier et exécuter** pour modifier les workflows.
 3. Limitez chaque clé aux projets dont la personne a besoin, sous **Projets autorisés**.
 
-Vos collègues utilisent ensuite n’importe quel client MCP, ou de simples requêtes HTTP, sur cet ordinateur. L’offre gratuite permet une clé API ou une app connectée au total ; Kitewell Personal et Team n’ont pas de limite. Quand les membres d’une organisation partagent ainsi un ordinateur, il faut Kitewell Team ; voir les [tarifs](/fr/pricing/). Chaque exécution a toujours lieu sous l’utilisateur de cet ordinateur : une clé limite donc les projets qu’une personne atteint, pas ce qu’un workflow peut faire une fois lancé. La connexion facultative à l’app elle-même est distincte : ces clés ne créent pas d’identifiants pour elle.
+Vos collègues utilisent ensuite n’importe quel client MCP, ou de simples requêtes HTTP, sur cet ordinateur. Toutes les offres permettent un nombre illimité de clés API et d’apps connectées. Quand les membres d’une organisation partagent ainsi un ordinateur, il faut Kitewell Team ; voir les [tarifs](/fr/pricing/). Chaque exécution a toujours lieu sous l’utilisateur de cet ordinateur : une clé limite donc les projets qu’une personne atteint, pas ce qu’un workflow peut faire une fois lancé. La connexion facultative à l’app elle-même est distincte : ces clés ne créent pas d’identifiants pour elle.
 
 Un client sur un autre ordinateur a besoin d’une adresse qu’il peut joindre en HTTPS, que vous mettez en place. Voir [MCP et accès API](/fr/docs/mcp/) à ce sujet et pour le détail des autorisations.
 

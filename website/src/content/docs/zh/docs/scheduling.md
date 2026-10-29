@@ -2,7 +2,7 @@
 title: 计划与后台运行
 ---
 
-Kitewell 可以替你启动工作流：每个工作日 9:00、每小时一次，或者在其他服务向它发送请求时。工作在这台电脑上进行。在 Windows 上，无论你是否登录都会进行；在 Mac 上，只在你登录期间进行。
+Kitewell 可以替你启动工作流：每个工作日 9:00、每小时一次，或者在其他服务向它发送请求时。工作在这台电脑上进行。在使用 Kitewell Team 的 Windows 上，无论你是否登录都会进行；在 Mac 上以及使用 Kitewell Personal 时，只在你登录期间进行。
 
 ## 设置计划
 
@@ -28,6 +28,8 @@ Kitewell 可以替你启动工作流：每个工作日 9:00、每小时一次，
 <a id="run-with-nobody-signed-in-windows"></a>
 
 ## 无人登录时也运行（Windows）
+
+无人登录时运行需要 Kitewell Team 或试用期。在 Kitewell Personal 上，计划只在你已登录时运行。
 
 开启 **设备设置 → 无人登录时也运行**。只需确认一次管理员提示，无需输入密码，就会设置一个名为 Kitewell sign-in 的小型 Windows 服务。它会在电脑启动时启动引擎，并以你的身份运行计划，无论你是否登录。
 

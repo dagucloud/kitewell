@@ -6,9 +6,9 @@ Une alerte vous prévient quand un workflow a besoin de vous (il a échoué, il 
 
 ## Ce qu’il vous faut
 
-Les alertes font partie de Kitewell Personal et Team. Avec l’offre gratuite, la page **Notifications** propose de passer à une offre supérieure, et rien n’est envoyé : ni e-mail, ni message, pas même une notification sur cet ordinateur. Rien n’est mis de côté pour plus tard non plus : les alertes commencent dès que l’offre est en place.
+Les alertes sont comprises dans toutes les offres et dans l’essai. Une fois l’essai ou l’offre terminé, la page **Notifications** propose de vous abonner, et rien n’est envoyé : ni e-mail, ni message, pas même une notification sur cet ordinateur. Rien n’est mis de côté pour plus tard non plus : les alertes reprennent dès que l’offre est en place.
 
-Ces alertes partent de l’ordinateur. Quelle que soit l’offre, y compris l’offre gratuite, [Dagu Console](/fr/docs/console/#alerts-from-dagu-console) peut aussi vous envoyer un e-mail quand un workflow d’un projet synchronisé échoue ou qu’un ordinateur cesse de se signaler.
+Ces alertes partent de l’ordinateur. [Dagu Console](/fr/docs/console/#alerts-from-dagu-console) peut aussi vous envoyer un e-mail quand un workflow d’un projet synchronisé échoue ou qu’un ordinateur cesse de se signaler.
 
 ![La page Notifications sur un appareil sans l’offre, qui propose de passer à une offre supérieure](../../../../assets/docs/fr/alerts-notifications.png)
 
@@ -77,7 +77,7 @@ Un workflow ne peut envoyer d’e-mail à personne par lui-même : `mail_on`, `
 
 ## Détails
 
-- Ces alertes nécessitent Kitewell Personal ou Team ; celles de Dagu Console fonctionnent avec toutes les offres. Consulter la configuration et retirer un canal restent possibles avec n’importe quelle offre.
+- Ces alertes nécessitent une offre ou l’essai. Consulter la configuration et retirer un canal restent possibles même après la fin de l’offre.
 - Un appareil peut contenir jusqu’à 50 canaux.
 - Une alerte non remise est retentée après une minute, puis deux, quatre, huit, seize et trente, et abandonnée au bout d’un jour. Une réponse indiquant que le message a été compris et refusé n’entraîne pas de nouvelle tentative.
 - **Alertes récentes** conserve les 200 derniers envois et affiche les 20 plus récents.

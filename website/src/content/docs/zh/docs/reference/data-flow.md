@@ -50,7 +50,7 @@ Kitewell 可能访问的每个目的地、它收到什么，以及如何阻止�
 - 提供商包括 Anthropic、OpenAI、Google Gemini、OpenRouter、Z.ai、OpenCode Zen，或你自己运行的任何 OpenAI 兼容服务器，例如 Ollama 或 vLLM。决策模型使用 OpenRouter 或 TypeSafe。
 - 你自己的服务器会把提示词、页面文字和截屏留在你的网络之内。小型本地模型通常无法操作浏览器或桌面，因此请按任务选择。
 - 通过 OpenRouter 时，Kitewell 自己进行的读取（助手、失败诊断和表格的结果列）会要求 OpenRouter 只路由到既不存储所收内容、也不用其进行训练的提供商。工作流中的模型步骤由引擎发送，不会提出这一要求。
-- [Kitewell 的内置模型](/zh/docs/ai/#use-kitewells-included-model)在已登录 Dagu Cloud 的电脑上无需密钥，费用从工作区的积分中扣除。Dagu Cloud 会要求 OpenRouter 把它转交的每个请求只路由到既不存储请求、也不用其进行训练的提供商。桌面步骤只有在 Kitewell Personal 和 Team 上才能使用它。
+- [Kitewell 的内置模型](/zh/docs/ai/#use-kitewells-included-model)在已登录 Dagu Cloud 的电脑上无需密钥，费用从工作区的积分中扣除。Dagu Cloud 会要求 OpenRouter 把它转交的每个请求只路由到既不存储请求、也不用其进行训练的提供商。桌面步骤在所有套餐上都能使用它。
 
 网站步骤或桌面步骤输入的值（例如密码）写作 `%name%`。只有名称会到达模型。
 

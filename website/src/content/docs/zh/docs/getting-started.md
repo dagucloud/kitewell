@@ -6,7 +6,7 @@ title: 你的第一个工作流
 
 ## 准备工作
 
-已[安装](/zh/docs/install/)并打开的 Kitewell。首次打开时，选择 **登录以使用 Kitewell 的 AI**。浏览器会打开 Dagu Cloud，并显示一个需要你核对的代码，之后 Kitewell 的内置 AI 即可使用：附带 100 个免费积分，无需 API 密钥。如果想改用自己的模型，请选择 **在此设备上开始**，然后在聊天中连接模型；请参阅 [AI 智能体与模型](/zh/docs/ai/)。
+已[安装](/zh/docs/install/)并打开的 Kitewell。首次打开时，选择 **登录以使用 Kitewell 的 AI**。浏览器会打开 Dagu Cloud，并显示一个需要你核对的代码，之后 Kitewell 的内置 AI 即可使用：无需 API 密钥，并附带 14 天试用期的 100 积分。如果想改用自己的模型，请选择 **在此设备上开始**，然后在聊天中连接模型；请参阅 [AI 智能体与模型](/zh/docs/ai/)。
 
 涉及网站的工作还需要 Google Chrome；在 Windows 上也可以使用 Microsoft Edge。
 

@@ -15,16 +15,18 @@ nichts Dagu Cloud.
 
 ## Was Sie brauchen
 
-- Ein Dagu-Cloud-Konto. Es ist kostenlos, und mit einem kostenlosen Konto
-  synchronisieren Sie ein Projekt.
-- Um mit anderen Personen zu teilen: Kitewell Team. Das ist ein Jahresvertrag
-  für bis zu 25 Personen; der Preis richtet sich nach der Zahl der Computer,
-  die der Arbeitsbereich verbindet. Ein Angebot erhalten Sie über
-  company@descarty.com, und für ein größeres Team gibt es
-  [Enterprise](/de/pricing/#enterprise). Der Inhaber des Teams bezahlt den
-  Arbeitsbereich, Mitglieder brauchen kein eigenes Abonnement. Kitewell
-  Personal für 20 $ pro Monat ist für die eigene Arbeit einer Person auf einem
-  Computer gedacht und kann niemanden einladen. Siehe [Preise](/de/pricing/).
+- Ein Dagu-Cloud-Konto. Es ist kostenlos, und die Anmeldung aus Kitewell
+  startet eine 14-tägige Testphase mit den Funktionen von Team auf bis zu 3
+  Computern, ohne Kreditkarte.
+- Um mit anderen Personen zu teilen: Kitewell Team. Es kostet 99 $ pro Monat
+  für jeden Computer, den der Arbeitsbereich verbindet, für bis zu 25
+  Personen. Sie schließen es in
+  [Dagu Console](https://console.dagu.sh/kitewell) ab, und für ein größeres
+  Team gibt es [Enterprise](/de/pricing/#enterprise). Der Inhaber des Teams
+  bezahlt den Arbeitsbereich, Mitglieder brauchen kein eigenes Abonnement.
+  Kitewell Personal für 20 $ pro Monat ist für die eigene Arbeit einer Person
+  auf einem Computer gedacht und kann niemanden einladen. Siehe
+  [Preise](/de/pricing/).
 
 <a id="sign-in"></a>
 
@@ -38,13 +40,13 @@ nichts Dagu Cloud.
    prüfen Sie, ob der Code dort mit dem in Kitewell übereinstimmt, und
    verbinden Sie den Computer.
 
-![Der Bereich Dagu-Cloud-Konto in den Geräteeinstellungen, im kostenlosen Tarif, vor der Anmeldung](../../../../assets/docs/de/cloud-account.png)
+![Der Bereich Dagu-Cloud-Konto in den Geräteeinstellungen, vor der Anmeldung](../../../../assets/docs/de/cloud-account.png)
 
 Ein Computer synchronisiert mit genau einem Arbeitsbereich, dessen Name nach
 dem Verbinden unter **Dagu-Cloud-Konto** steht. Ein Arbeitsbereich fasst so
-viele Computer, wie sein Tarif vorsieht: einen bei einem kostenlosen Konto und
-bei Kitewell Personal, bei Kitewell Team die gekaufte Anzahl. Verbinden Sie
-einen weiteren, wird Ihr eigener ältester Computer im Arbeitsbereich getrennt.
+viele Computer, wie sein Tarif vorsieht: einen bei Kitewell Personal, bis zu 3
+in der Testphase, bei Kitewell Team die gekaufte Anzahl. Verbinden Sie einen
+weiteren, wird Ihr eigener ältester Computer im Arbeitsbereich getrennt.
 Gehören alle anderen Computer anderen Personen, wird die Verbindung abgelehnt,
 bis einer davon getrennt ist oder der Tarif mehr Computer umfasst.
 
@@ -76,22 +78,23 @@ Bricht ein Upload ab, zeigt das Projekt **Upload unvollständig** und bietet
 **Upload fortsetzen** an. Speichervorgänge warten, bis der Upload
 abgeschlossen ist.
 
-Ein kostenloses Konto synchronisiert ein Projekt. Kitewell Personal
-synchronisiert bis zu fünf Projekte und Kitewell Team bis zu 15, jedes mit bis
-zu 100 Workflows. Ein Arbeitsbereich fasst so viele Computer, wie sein Tarif
-vorsieht: einen bei einem kostenlosen Konto und bei Kitewell Personal, bei
-Kitewell Team die gekaufte Anzahl. Verbinden Sie einen weiteren, wird Ihr
-eigener ältester Computer im Arbeitsbereich getrennt; gehören alle anderen
-Computer anderen Personen, wird die Verbindung abgelehnt, bis einer davon
-getrennt ist oder der Tarif mehr Computer umfasst. Ein Projekt, für das der
-Tarif keinen Platz hat, lässt sich nicht synchronisieren, und Kitewell nennt
+Kitewell Personal synchronisiert bis zu fünf Projekte, Kitewell Team und die
+Testphase bis zu 15, jedes mit bis zu 100 Workflows. Ein Arbeitsbereich fasst so
+viele Computer, wie sein Tarif vorsieht: einen bei Kitewell Personal, bis zu 3
+in der Testphase, bei Kitewell Team die gekaufte Anzahl. Verbinden Sie einen
+weiteren, wird Ihr eigener ältester Computer im Arbeitsbereich getrennt; gehören
+alle anderen Computer anderen Personen, wird die Verbindung abgelehnt, bis einer
+davon getrennt ist oder der Tarif mehr Computer umfasst. Ein Projekt, für das
+der Tarif keinen Platz hat, lässt sich nicht synchronisieren, und Kitewell nennt
 den Grund. Synchronisierte Projekte zählen zum Tarif des Arbeitsbereichs, nicht
 zum eigenen Projektlimit des Computers.
 
-Für einen Wechsel von Personal zu Team oder um die Computer bei Team zu
-ändern, schreiben Sie an company@descarty.com. Um zu Personal zurückzukehren,
-entfernen Sie zuerst die anderen Personen, widerrufen Sie ihre Einladungen und
-lassen Sie nur einen Computer verbunden.
+Für einen Wechsel von Personal zu Team oder um die Zahl der Computer bei Team
+zu ändern, öffnen Sie die Seite **Kitewell** in
+[Dagu Console](https://console.dagu.sh/kitewell). Team wird monatlich
+abgerechnet oder jährlich zum Preis von zehn Monaten. Um zu Personal
+zurückzukehren, entfernen Sie zuerst die anderen Personen, widerrufen Sie ihre
+Einladungen und lassen Sie nur einen Computer verbunden.
 
 ## Auf einem anderen Computer am Projekt arbeiten
 
@@ -119,10 +122,9 @@ hierher zu holen.
 
 Kitewell übernimmt Änderungen von anderswo beim Start, beim Öffnen des Projekts
 und wenn Sie einen Workflow zum Bearbeiten öffnen; Dagu Cloud wird dabei
-höchstens einmal pro Minute gefragt. Bei Personal und Team prüft ein Computer
-zusätzlich von selbst etwa alle fünf Minuten, sodass auch ein Computer, an dem
-niemand sitzt, eine neue Version erhält. Ein kostenloses Konto prüft nur zu
-diesen drei Zeitpunkten und wenn Sie es anstoßen.
+höchstens einmal pro Minute gefragt. Ein Computer prüft zusätzlich von selbst
+etwa alle fünf Minuten, sodass auch ein Computer, an dem niemand sitzt, eine
+neue Version erhält.
 
 Um zu einem anderen Zeitpunkt zu prüfen, wählen Sie in **Projekte verwalten**
 **Aus Dagu Cloud aktualisieren**. Ein im Editor geöffneter Workflow übernimmt
@@ -232,26 +234,33 @@ erstellen oder anwenden und Secrets deklarieren.
 
 ## Wenn ein Tarif endet
 
+Endet die Testphase, läuft nichts mehr, bis Sie ein Abonnement abschließen.
+Jedes Projekt bleibt auf dem Computer: Sie können es öffnen, bearbeiten,
+seinen Ausführungsverlauf lesen und exportieren.
+
 Endet ein kostenpflichtiger Tarif, stoppen Benachrichtigungen, MCP Events und
 Webhooks. Alles andere läuft 7 Tage weiter, und ein Banner auf jeder Seite
-nennt den Tag, an dem die Projekte, Workflows und API-Schlüssel oder
-verbundenen Apps stoppen, die über den kostenlosen Tarif hinausgehen.
+nennt den Tag, an dem es stoppt; danach ist es wie am Ende der Testphase.
+Nichts wird gelöscht, und wenn Sie erneut ein Abonnement abschließen, läuft
+alles wie zuvor, mit seinen Planungen.
+
+Wechseln Sie zu einem Tarif mit niedrigeren Grenzen, etwa von Team zu
+Personal, gelten dieselben 7 Tage für alles, was über den neuen Tarif
+hinausgeht:
 
 - **Auswählen, was bleibt.** Legen Sie im Banner oder in den
-  **Geräteeinstellungen** fest, welche Projekte, Workflows und Schlüssel oder
-  Apps aktiv bleiben, bis zu den Grenzen des Tarifs. Wählen Sie nichts, bleiben
-  die, die zuletzt gelaufen sind oder benutzt wurden.
+  **Geräteeinstellungen** fest, welche Projekte und Workflows aktiv bleiben,
+  bis zu den Grenzen des Tarifs. Wählen Sie nichts, bleiben die, die zuletzt
+  gelaufen sind oder benutzt wurden.
 - **Nicht im Tarif.** Alles über den Grenzen wird als **Nicht im Tarif**
   markiert. Es läuft nicht, weder nach Planung noch von Hand, und lässt sich
   nicht bearbeiten. Sie können es aber weiterhin öffnen, seinen
   Ausführungsverlauf lesen, es exportieren oder löschen. Bereits laufende
   Ausführungen laufen zu Ende.
-- **Nichts wird gelöscht.** Schließen Sie erneut ein Abonnement ab, und alles
-  läuft wie zuvor, mit seinen Planungen.
 
-Dasselbe gilt, wenn Sie zu einem Tarif mit niedrigeren Grenzen wechseln. Ein
-Gerät, das Dagu Cloud nicht erreicht, behält seinen letzten kostenpflichtigen
-Tarif, bis diese Lizenz abläuft, und hat danach dieselben 7 Tage.
+Ein Gerät, das Dagu Cloud nicht erreicht, behält seinen letzten
+kostenpflichtigen Tarif, bis diese Lizenz abläuft, und hat danach dieselben 7
+Tage.
 
 ## Synchronisierung beenden
 

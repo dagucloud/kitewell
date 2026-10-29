@@ -36,8 +36,7 @@ Un modèle qui lit l’écran. Chaque projet en a un, sous
 autre, c’est le
 [modèle inclus de Kitewell](/fr/docs/ai/#use-kitewells-included-model), qui ne
 demande pas de clé d’API et se paie sur les crédits Dagu Cloud de l’espace de
-travail, quelle que soit l’offre ; les crédits de l’offre gratuite permettent
-un court essai.
+travail, quelle que soit l’offre et pendant l’essai.
 
 Pour utiliser votre propre modèle, comme Claude Sonnet 5, GPT-5.4 ou Gemini
 3.6 Flash, [ajoutez-le](/fr/docs/ai/) dans **Agents et modèles**, puis

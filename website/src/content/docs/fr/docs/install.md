@@ -29,7 +29,7 @@ d’IA. Installez-les plus tard, seulement si l’un de vos workflows les utilis
 4. Choisissez **Se connecter pour utiliser l'IA de Kitewell**. Votre navigateur
    ouvre Dagu Cloud avec un code à vérifier. Une fois ce code confirmé,
    Kitewell crée votre premier projet et l’ouvre avec son IA prête à l’emploi :
-   aucune clé API, et 100 crédits offerts pour commencer. Pour utiliser votre
+   aucune clé API, et les 100 crédits de l’essai de 14 jours pour commencer. Pour utiliser votre
    propre clé d’IA, ou ne pas utiliser d’IA, choisissez plutôt
    **Commencer sur cet appareil**.
 
@@ -53,7 +53,7 @@ Ensuite, [créez votre premier workflow](/fr/docs/getting-started/).
 4. Choisissez **Se connecter pour utiliser l'IA de Kitewell**. Votre navigateur
    ouvre Dagu Cloud avec un code à vérifier. Une fois ce code confirmé,
    Kitewell crée votre premier projet et l’ouvre avec son IA prête à l’emploi :
-   aucune clé API, et 100 crédits offerts pour commencer. Pour utiliser votre
+   aucune clé API, et les 100 crédits de l’essai de 14 jours pour commencer. Pour utiliser votre
    propre clé d’IA, ou ne pas utiliser d’IA, choisissez plutôt
    **Commencer sur cet appareil**.
 

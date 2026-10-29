@@ -6,7 +6,7 @@ Kitewell에 맡길 일을 평범한 말로 알려 주세요. Kitewell의 AI가 �
 
 ## 준비할 것
 
-[설치](/ko/docs/install/)해서 열어 둔 Kitewell. 처음 열 때 **로그인하고 Kitewell의 AI 사용**을 선택합니다. 브라우저에 Dagu Cloud가 열리고 대조할 코드가 표시되며, Kitewell의 기본 제공 AI를 API 키 없이 무료 크레딧 100으로 바로 쓸 수 있습니다. 대신 내 모델을 쓰려면 **이 기기에서 시작**을 선택하고 채팅에서 연결합니다. [AI 에이전트와 모델](/ko/docs/ai/)을 참조하세요.
+[설치](/ko/docs/install/)해서 열어 둔 Kitewell. 처음 열 때 **로그인하고 Kitewell의 AI 사용**을 선택합니다. 브라우저에 Dagu Cloud가 열리고 대조할 코드가 표시되며, Kitewell의 기본 제공 AI를 API 키 없이, 14일 체험의 100 크레딧으로 바로 쓸 수 있습니다. 대신 내 모델을 쓰려면 **이 기기에서 시작**을 선택하고 채팅에서 연결합니다. [AI 에이전트와 모델](/ko/docs/ai/)을 참조하세요.
 
 웹사이트에서 하는 일에는 Google Chrome도 필요합니다. Windows에서는 Microsoft Edge도 됩니다.
 

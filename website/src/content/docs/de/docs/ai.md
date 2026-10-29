@@ -95,16 +95,21 @@ Arbeitsbereichs bezahlt.
 - Der Chat von Kitewell antwortet damit, bis ein Administrator unter
   **Geräteeinstellungen → KI-Modell von Kitewell** ein Modell einrichtet.
 
-Ein kostenloses Konto erhält einmalig 100 Credits. Kitewell Personal und Team
+Die Testphase bringt einmalig 100 Credits mit. Kitewell Personal und Team
 erhalten 500 Credits pro Monat für jeden Computer, den der Tarif bezahlt; der
 Arbeitsbereich teilt sie, und sie werden am Ersten jedes Monats (UTC)
 erneuert. Die Websuchen des Assistenten verbrauchen dieselben Credits.
 
+In Personal und Team kosten Pakete mit 1.000 Credits 12 $ in
+[Dagu Console](https://console.dagu.sh/kitewell). Die Credits eines Pakets
+verfallen nie und werden verbraucht, sobald die Credits des Monats aufgebraucht
+sind.
+
 Ein Administrator sieht unter **Dagu-Cloud-Konto** in den
 **Geräteeinstellungen**, wie viele noch übrig sind. Sind die Credits
-aufgebraucht, wird das enthaltene Modell abgelehnt, bis sie erneuert werden,
-im kostenlosen Tarif, bis Sie ein Abo abschließen. Ein eigenes Modell
-funktioniert weiter.
+aufgebraucht, wird das enthaltene Modell abgelehnt, bis sie erneuert werden
+oder Sie ein Paket kaufen; in der Testphase, bis Sie ein Abo abschließen. Ein
+eigenes Modell funktioniert weiter.
 
 Dagu Cloud bittet OpenRouter, diese Anfragen nur an Anbieter weiterzuleiten,
 die sie weder speichern noch damit trainieren. Dagu Cloud speichert keinen

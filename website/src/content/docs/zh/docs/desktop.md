@@ -17,7 +17,7 @@ Kitewell 可以像人一样使用你电脑上的应用：先看屏幕，再点�
 
 ## 准备工作
 
-一个读取屏幕的模型。每个项目有一个，在 **项目设置 → 屏幕步骤** 中设置。在你选择其他模型之前，使用的是 [Kitewell 的内置模型](/zh/docs/ai/#use-kitewells-included-model)：无需 API 密钥，在所有套餐中费用都从工作区的 Dagu Cloud 积分中扣除，免费套餐的积分足够短暂试用。
+一个读取屏幕的模型。每个项目有一个，在 **项目设置 → 屏幕步骤** 中设置。在你选择其他模型之前，使用的是 [Kitewell 的内置模型](/zh/docs/ai/#use-kitewells-included-model)：无需 API 密钥，在所有套餐中以及试用期间，费用都从工作区的 Dagu Cloud 积分中扣除。
 
 要使用自己的模型，例如 Claude Sonnet 5、GPT-5.4 或 Gemini 3.6 Flash，请在 **智能体与模型** 下[添加该模型](/zh/docs/ai/)，然后在 **屏幕步骤** 中选择它，或在该模型的页面上选择 **用于屏幕步骤**。Kitewell 会先让它读取一张测试截图。
 

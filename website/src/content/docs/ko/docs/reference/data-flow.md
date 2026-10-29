@@ -50,7 +50,7 @@ Kitewell은 그 밖에는 아무것도 보내지 않습니다. 앱에는 사용 
 - 공급자는 Anthropic, OpenAI, Google Gemini, OpenRouter, Z.ai, OpenCode Zen, 또는 Ollama나 vLLM처럼 직접 운영하는 OpenAI 호환 서버입니다. 판정 모델은 OpenRouter나 TypeSafe를 씁니다.
 - 직접 운영하는 서버는 프롬프트, 페이지 텍스트, 스크린샷을 내 네트워크 안에 둡니다. 작은 로컬 모델은 대개 브라우저나 데스크톱을 조작하지 못하므로 작업마다 고르세요.
 - OpenRouter를 거칠 때, Kitewell이 직접 하는 읽기(어시스턴트, 실패 진단, 시트의 결과 열)는 받은 내용을 저장하지도 학습에 쓰지도 않는 공급자로만 보내 달라고 OpenRouter에 요청합니다. 워크플로 안의 모델 단계는 엔진이 보내며 그렇게 요청하지 않습니다.
-- [Kitewell 기본 제공 모델](/ko/docs/ai/#use-kitewells-included-model)은 Dagu Cloud에 로그인한 컴퓨터에서 키가 필요 없고, 워크스페이스의 크레딧으로 비용을 냅니다. Dagu Cloud는 넘겨주는 모든 요청을, 저장하지도 학습에 쓰지도 않는 공급자로만 보내 달라고 OpenRouter에 요청합니다. 데스크톱 단계에서는 Kitewell Personal과 Team에서만 쓸 수 있습니다.
+- [Kitewell 기본 제공 모델](/ko/docs/ai/#use-kitewells-included-model)은 Dagu Cloud에 로그인한 컴퓨터에서 키가 필요 없고, 워크스페이스의 크레딧으로 비용을 냅니다. Dagu Cloud는 넘겨주는 모든 요청을, 저장하지도 학습에 쓰지도 않는 공급자로만 보내 달라고 OpenRouter에 요청합니다. 데스크톱 단계에서는 모든 플랜에서 쓸 수 있습니다.
 
 비밀번호처럼 웹사이트 단계나 데스크톱 단계가 입력하는 값은 `%name%`으로 적습니다. 모델에는 이름만 전달됩니다.
 

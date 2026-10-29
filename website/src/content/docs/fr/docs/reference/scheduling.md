@@ -67,7 +67,9 @@ planifiée qui a été manquée.
 
 Avec **Exécuter quand personne n’est connecté** activé, un service Windows
 nommé Kitewell sign-in démarre le moteur au démarrage du PC, sous le compte
-d’exécution, et le maintient en marche.
+d’exécution, et le maintient en marche. Il nécessite Kitewell Team, ou
+l’essai ; avec Kitewell Personal, les planifications ne s’exécutent que
+lorsque vous êtes connecté.
 
 Le compte d’exécution est soit vous-même, connecté sans mot de passe, comme
 le Planificateur de tâches de Windows exécute une tâche qui n’en conserve

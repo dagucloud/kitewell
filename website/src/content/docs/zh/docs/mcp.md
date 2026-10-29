@@ -14,7 +14,7 @@ title: MCP 与 API 访问
 
 ![MCP 页面，Kitewell MCP 正在监听，并显示客户端要连接的网址](../../../../assets/docs/zh/mcp-listening.png)
 
-免费套餐总共只能有一个 API 密钥或已连接的应用。Kitewell Personal 和 Team 不限数量。吊销一个，就能为另一个腾出位置。付费套餐结束后，超出免费套餐数量的密钥和应用会在 7 天后停止工作，由你选择保留哪一个；请参阅[套餐结束时](/zh/docs/cloud-sync/#when-a-plan-ends)。
+所有套餐和试用期都不限 API 密钥和已连接的应用的数量。套餐结束后，它们会和其他一切一起停止工作；请参阅[套餐结束时](/zh/docs/cloud-sync/#when-a-plan-ends)。
 
 ## 连接这台电脑上的助手
 

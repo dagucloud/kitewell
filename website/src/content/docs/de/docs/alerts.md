@@ -9,15 +9,15 @@ Kitewell nicht geöffnet lassen, um davon zu erfahren.
 
 ## Was Sie brauchen
 
-Benachrichtigungen gehören zu Kitewell Personal und Team. Im kostenlosen Tarif
-bietet die Seite **Benachrichtigungen** stattdessen das Upgrade an, und es
-wird nichts gesendet: keine E-Mail, keine Nachricht, nicht einmal eine
-Desktop-Benachrichtigung auf diesem Computer. Es wird auch nichts für später
-aufgehoben; Benachrichtigungen beginnen also erst in dem Moment, in dem der
-Tarif aktiv ist.
+Benachrichtigungen gehören zu jedem Tarif und zur Testphase. Ist die
+Testphase oder ein Tarif abgelaufen, bietet die Seite **Benachrichtigungen**
+stattdessen ein Abo an, und es wird nichts gesendet: keine E-Mail, keine
+Nachricht, nicht einmal eine Desktop-Benachrichtigung auf diesem Computer. Es
+wird auch nichts für später aufgehoben; Benachrichtigungen beginnen also erst
+wieder in dem Moment, in dem der Tarif aktiv ist.
 
-Diese Benachrichtigungen kommen vom Computer. In jedem Tarif, auch im
-kostenlosen, kann Ihnen [Dagu Console](/de/docs/console/#alerts-from-dagu-console)
+Diese Benachrichtigungen kommen vom Computer.
+[Dagu Console](/de/docs/console/#alerts-from-dagu-console) kann Ihnen
 außerdem eine E-Mail schicken, wenn ein Workflow eines synchronisierten
 Projekts fehlschlägt oder ein Computer keine Meldungen mehr sendet.
 
@@ -193,9 +193,9 @@ Stummschaltung und keinem Zustellprotokoll.
 
 ## Details
 
-- Diese Benachrichtigungen erfordern Kitewell Personal oder Team; die von
-  Dagu Console funktionieren in jedem Tarif. Die Einstellungen ansehen und
-  einen Kanal entfernen können Sie in jedem Tarif.
+- Diese Benachrichtigungen erfordern einen Tarif oder die Testphase. Die
+  Einstellungen ansehen und einen Kanal entfernen können Sie auch nach dem
+  Ende eines Tarifs.
 - Ein Gerät kann bis zu 50 Kanäle haben.
 - Eine nicht zugestellte Benachrichtigung wird nach einer Minute erneut
   versucht, dann nach zwei, vier, acht, sechzehn und dreißig Minuten, und nach

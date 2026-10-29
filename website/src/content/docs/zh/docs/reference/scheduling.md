@@ -39,7 +39,7 @@ title: 计划参考
 
 ## Windows 登录服务
 
-开启 **无人登录时也运行** 后，一个名为 Kitewell sign-in 的 Windows 服务会在电脑启动时以运行账户的身份启动引擎，并让它保持运行。
+开启 **无人登录时也运行** 后，一个名为 Kitewell sign-in 的 Windows 服务会在电脑启动时以运行账户的身份启动引擎，并让它保持运行。这需要 Kitewell Team 或试用期；在 Kitewell Personal 上，计划只在你已登录时运行。
 
 运行账户可以是：你自己，以无密码方式登录，就像 Windows 任务计划程序运行不保存密码的任务那样；在 Windows Server 上，是 Kitewell 创建的本地账户 `Kitewell Runner`；或者你指定的另一个账户，并提供其密码。
 

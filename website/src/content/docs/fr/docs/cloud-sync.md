@@ -15,12 +15,13 @@ Cloud avant que vous le fassiez.
 
 ## Ce qu’il vous faut
 
-- Un compte Dagu Cloud. Il est gratuit, et un compte gratuit synchronise un
-  projet.
-- Pour partager avec d’autres personnes, Kitewell Team. C’est un contrat
-  annuel pour 25 personnes au plus, dont le devis dépend du nombre
-  d’ordinateurs que l’espace de travail connecte ; écrivez à
-  company@descarty.com pour obtenir un devis. Une équipe plus grande choisit
+- Un compte Dagu Cloud. Il est gratuit, et vous connecter depuis Kitewell
+  démarre un essai de 14 jours avec les fonctionnalités de Team sur
+  3 ordinateurs au plus, sans carte bancaire.
+- Pour partager avec d’autres personnes, Kitewell Team, à 99 $ par mois pour
+  chaque ordinateur que l’espace de travail connecte, pour 25 personnes au
+  plus ; abonnez-vous dans
+  [Dagu Console](https://console.dagu.sh/kitewell). Une équipe plus grande choisit
   [Enterprise](/fr/pricing/#enterprise). Le propriétaire de l’équipe paie
   l’espace de travail, et les membres n’ont besoin d’aucun abonnement
   personnel. Kitewell Personal, à 20 $ par mois, est conçu pour le travail
@@ -38,12 +39,12 @@ Cloud avant que vous le fassiez.
    Ouvrez-le, connectez-vous, vérifiez que le code affiché dans le navigateur
    correspond à celui qu’affiche Kitewell, puis connectez l’ordinateur.
 
-![La section Compte Dagu Cloud des Réglages de l’appareil, avec l’offre gratuite, avant la connexion](../../../../assets/docs/fr/cloud-account.png)
+![La section Compte Dagu Cloud des Réglages de l’appareil, avant la connexion](../../../../assets/docs/fr/cloud-account.png)
 
 Un ordinateur se synchronise avec un seul espace de travail, dont le nom
 apparaît dans **Compte Dagu Cloud** une fois la connexion établie. Un espace de
 travail accueille autant d’ordinateurs que son offre le permet : un seul avec
-un compte gratuit et avec Kitewell Personal, et le nombre acheté avec Kitewell
+Kitewell Personal, 3 au plus pendant l’essai, et le nombre acheté avec Kitewell
 Team. Connecter un ordinateur de plus déconnecte votre propre ordinateur le
 plus ancien dans l’espace de travail ; si tous les autres appartiennent à
 d’autres personnes, la connexion est refusée tant que l’un d’eux n’est pas
@@ -76,11 +77,11 @@ avant de synchroniser, et conservez-le plutôt dans un
 Si un envoi est interrompu, le projet affiche **Envoi incomplet** et propose
 **Reprendre l’envoi**. Les enregistrements attendent la fin de l’envoi.
 
-Un compte gratuit synchronise un projet. Kitewell Personal synchronise
-jusqu’à cinq projets et Kitewell Team jusqu’à 15, chacun avec 100 workflows
-au plus. Un espace de travail accueille autant d’ordinateurs que son offre le
-permet : un seul avec un compte gratuit et avec Kitewell Personal, et le
-nombre acheté avec Kitewell Team. Connecter un ordinateur de plus déconnecte
+Kitewell Personal synchronise jusqu’à cinq projets, et Kitewell Team et
+l’essai jusqu’à 15, chacun avec 100 workflows au plus. Un espace de travail
+accueille autant d’ordinateurs que son offre le permet : un seul avec
+Kitewell Personal, 3 au plus pendant l’essai, et le nombre acheté avec
+Kitewell Team. Connecter un ordinateur de plus déconnecte
 votre propre ordinateur le plus ancien dans l’espace de travail ; si tous les
 autres appartiennent à d’autres personnes, la connexion est refusée tant que
 l’un d’eux n’est pas déconnecté ou que l’offre n’en accepte pas davantage. La
@@ -89,7 +90,9 @@ refusée, avec la raison. Les projets synchronisés comptent dans l’offre de
 l’espace de travail, et non dans la limite de projets propre à l’ordinateur.
 
 Pour passer de Personal à Team, ou pour modifier le nombre d’ordinateurs sur
-Team, écrivez à company@descarty.com. Pour revenir à Personal, retirez
+Team, ouvrez la page **Kitewell** dans
+[Dagu Console](https://console.dagu.sh/kitewell). Team est facturé au mois,
+ou à l’année au prix de dix mois. Pour revenir à Personal, retirez
 d’abord les autres personnes, révoquez leurs invitations et ne laissez qu’un
 seul ordinateur connecté.
 
@@ -118,11 +121,10 @@ le déplacer.
 
 Kitewell récupère les modifications faites ailleurs à son démarrage, quand
 vous ouvrez le projet et quand vous ouvrez un workflow pour le modifier, en
-interrogeant Dagu Cloud au plus une fois par minute. Avec Personal et Team,
-un ordinateur vérifie aussi de lui-même, environ toutes les cinq minutes : un
-ordinateur devant lequel personne n’est assis récupère donc quand même une
-nouvelle version. Un compte gratuit ne vérifie qu’à ces trois moments et
-quand vous le demandez.
+interrogeant Dagu Cloud au plus une fois par minute. Un ordinateur
+vérifie aussi de lui-même, environ toutes les cinq minutes : un ordinateur
+devant lequel personne n’est assis récupère donc quand même une nouvelle
+version.
 
 Pour vérifier à un autre moment, choisissez **Mettre à jour depuis Dagu Cloud**
 dans **Gérer les projets**. Un workflow ouvert dans l’éditeur reçoit la mise à
@@ -236,15 +238,22 @@ workflows, publier ou appliquer des versions, et déclarer des secrets.
 
 ## Quand une offre prend fin
 
+Quand l’essai prend fin, plus rien ne s’exécute tant que vous ne vous abonnez
+pas. Chaque projet reste sur l’ordinateur : vous pouvez l’ouvrir, le modifier,
+consulter son historique d’exécution et l’exporter.
+
 Quand une offre payante prend fin, les alertes, les MCP Events et les
 webhooks s’arrêtent. Tout le reste continue de fonctionner pendant 7 jours,
-et un bandeau sur chaque page indique le jour où s’arrêtent les projets, les
-workflows, ainsi que les clés API ou les apps connectées, au-delà de l’offre
-gratuite.
+et un bandeau sur chaque page indique le jour où cela s’arrête ; ensuite, tout
+se passe comme à la fin de l’essai. Rien n’est supprimé, et quand vous vous
+abonnez à nouveau, tout s’exécute comme avant, avec ses planifications.
+
+Passer à une offre aux limites plus basses, par exemple de Team à Personal,
+laisse les mêmes 7 jours à tout ce qui dépasse la nouvelle offre :
 
 - **Choisissez ce qui reste.** Dans le bandeau ou dans
-  **Réglages de l’appareil**, choisissez les projets, les workflows et les
-  clés ou les apps qui restent actifs, dans les limites de l’offre. Si vous ne
+  **Réglages de l’appareil**, choisissez les projets et les workflows qui
+  restent actifs, dans les limites de l’offre. Si vous ne
   choisissez rien, ce qui a été exécuté ou utilisé le plus récemment reste
   actif.
 - **Hors offre.** Tout ce qui dépasse les limites est marqué **Hors offre**.
@@ -252,11 +261,8 @@ gratuite.
   peuvent pas être modifiés, mais vous pouvez toujours les ouvrir, consulter
   leur historique d’exécution, les exporter ou les supprimer. Les exécutions
   déjà en cours se terminent.
-- **Rien n’est supprimé.** Abonnez-vous à nouveau et tout s’exécute comme
-  avant, avec ses planifications.
 
-Il en va de même quand vous passez à une offre aux limites plus basses. Un
-appareil qui ne peut pas joindre Dagu Cloud conserve sa dernière offre
+Un appareil qui ne peut pas joindre Dagu Cloud conserve sa dernière offre
 payante jusqu’à l’expiration de cette licence, puis bénéficie des mêmes
 7 jours.
 

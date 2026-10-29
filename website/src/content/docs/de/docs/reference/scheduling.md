@@ -38,7 +38,7 @@ Führt den Workflow einmal über dieselbe Warteschlange und nach denselben Regel
 
 ## Der Windows-Anmeldedienst
 
-Ist **Ausführen, wenn niemand angemeldet ist** eingeschaltet, startet ein Windows-Dienst namens Kitewell sign-in die Engine beim Start des PCs, unter dem Ausführungskonto, und hält sie am Laufen.
+Ist **Ausführen, wenn niemand angemeldet ist** eingeschaltet, startet ein Windows-Dienst namens Kitewell sign-in die Engine beim Start des PCs, unter dem Ausführungskonto, und hält sie am Laufen. Dafür brauchen Sie Kitewell Team oder die Testphase; mit Kitewell Personal laufen Planungen nur, solange Sie angemeldet sind.
 
 Das Ausführungskonto sind Sie, ohne Passwort angemeldet, so wie die Windows- Aufgabenplanung eine Aufgabe ausführt, für die kein Passwort gespeichert ist; auf Windows Server ein lokales Konto, das Kitewell anlegt, `Kitewell Runner`; oder ein anderes Konto, das Sie mit seinem Passwort angeben.
 

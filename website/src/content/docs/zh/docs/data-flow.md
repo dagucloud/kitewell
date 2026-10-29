@@ -16,7 +16,7 @@ Kitewell 在你的电脑上运行。你的工作流、运行历史、日志、�
 <li><p class="kw-flow-dest">你选择的 AI 模型</p><dl><dt>发送内容</dt><dd>提示词、网站步骤读取的页面文字、桌面步骤拍下的截屏，以及你与助手的对话。</dd><dt>发送时机</dt><dd>步骤使用 AI 时，或你使用助手时。</dd><dt>如何阻止</dt><dd>为每项 AI 功能选择运行在你自己服务器上的模型；这样这些内容就不会离开你的网络。</dd></dl></li>
 <li><p class="kw-flow-dest">你自己的系统和网站</p><dl><dt>发送内容</dt><dd>步骤输入、上传和发送的内容。</dd><dt>发送时机</dt><dd>工作流运行时，完全按照你搭建的方式。</dd><dt>如何阻止</dt><dd>删除该步骤。</dd></dl></li>
 <li><p class="kw-flow-dest">你的邮件服务器和提醒渠道</p><dl><dt>发送内容</dt><dd>步骤发送的邮件。对于提醒：发生了什么、哪个工作流，以及一个返回链接，从不包含运行的输出。</dd><dt>发送时机</dt><dd>你连接邮箱或添加提醒渠道时。</dd><dt>如何阻止</dt><dd>断开邮箱连接，或移除该渠道。</dd></dl></li>
-<li><p class="kw-flow-dest">由 Descarty 运营的 Dagu Cloud</p><dl><dt>发送内容</dt><dd>你的套餐、Kitewell 版本，以及这台电脑的名称和 ID。对于已同步的项目：其工作流和密钥的名称（从不包含密钥的值），以及每次运行的状态和失败步骤的名称。对于 Kitewell 的内置模型：每个请求，由 Dagu Cloud 转交给 OpenRouter。对于助手的网络搜索：每次搜索的关键词，由 Dagu Cloud 转交给 Serper，且不会保存。</dd><dt>发送时机</dt><dd>你登录、同步项目、使用内置模型，或助手搜索网络时。免费套餐无需账户，也不会发送任何内容。</dd><dt>如何阻止</dt><dd>退出登录，或停止同步该项目。工作区所有者可以在 Dagu Cloud 中关闭运行状态共享。</dd></dl></li>
+<li><p class="kw-flow-dest">由 Descarty 运营的 Dagu Cloud</p><dl><dt>发送内容</dt><dd>你的套餐、Kitewell 版本，以及这台电脑的名称和 ID。对于已同步的项目：其工作流和密钥的名称（从不包含密钥的值），以及每次运行的状态和失败步骤的名称。对于 Kitewell 的内置模型：每个请求，由 Dagu Cloud 转交给 OpenRouter。对于助手的网络搜索：每次搜索的关键词，由 Dagu Cloud 转交给 Serper，且不会保存。</dd><dt>发送时机</dt><dd>你登录、同步项目、使用内置模型，或助手搜索网络时。登录之前不会发送任何内容。</dd><dt>如何阻止</dt><dd>退出登录，或停止同步该项目。工作区所有者可以在 Dagu Cloud 中关闭运行状态共享。</dd></dl></li>
 <li><p class="kw-flow-dest">经由 Kitewell 中继的 ChatGPT 或 Claude</p><dl><dt>发送内容</dt><dd>应用向 Kitewell 请求的内容：工作流、运行及其日志、表格、知识库。中继只负责转发，不保存任何内容。</dd><dt>发送时机</dt><dd>你连接应用时。</dd><dt>如何阻止</dt><dd>关闭远程访问，或吊销该应用。</dd></dl></li>
 </ol>
 </div>

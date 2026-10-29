@@ -39,7 +39,7 @@ title: 일정 참조
 
 ## Windows 로그인 서비스
 
-**로그인하지 않아도 실행**을 켜면 Kitewell sign-in이라는 Windows 서비스가 PC가 시작될 때 실행 계정으로 엔진을 시작하고 계속 실행합니다.
+**로그인하지 않아도 실행**을 켜면 Kitewell sign-in이라는 Windows 서비스가 PC가 시작될 때 실행 계정으로 엔진을 시작하고 계속 실행합니다. 이 기능에는 Kitewell Team이나 체험 기간이 필요합니다. Kitewell Personal에서는 로그인해 있는 동안에만 일정이 실행됩니다.
 
 실행 계정은, 비밀번호를 저장하지 않은 작업을 Windows 작업 스케줄러가 실행하는 방식대로 비밀번호 없이 로그인한 본인입니다. Windows Server에서는 Kitewell이 만드는 로컬 계정 `Kitewell Runner`이고, 비밀번호와 함께 지정한 다른 계정일 수도 있습니다.
 

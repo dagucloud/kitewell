@@ -30,7 +30,8 @@ nutzt.
 4. Wählen Sie **Anmelden und die KI von Kitewell nutzen**. Ihr Browser öffnet
    Dagu Cloud mit einem Code, den Sie abgleichen. Sobald Sie ihn bestätigen,
    legt Kitewell Ihr erstes Projekt an und öffnet es mit einsatzbereiter KI:
-   ohne API-Schlüssel und mit 100 kostenlosen Credits zum Start. Um Ihren
+   ohne API-Schlüssel und mit den 100 Credits der 14-tägigen Testphase zum
+   Start. Um Ihren
    eigenen KI-Schlüssel oder gar keine KI zu verwenden, wählen Sie stattdessen
    **Auf diesem Gerät starten**.
 
@@ -53,7 +54,8 @@ Danach [erstellen Sie Ihren ersten Workflow](/de/docs/getting-started/).
 4. Wählen Sie **Anmelden und die KI von Kitewell nutzen**. Ihr Browser öffnet
    Dagu Cloud mit einem Code, den Sie abgleichen. Sobald Sie ihn bestätigen,
    legt Kitewell Ihr erstes Projekt an und öffnet es mit einsatzbereiter KI:
-   ohne API-Schlüssel und mit 100 kostenlosen Credits zum Start. Um Ihren
+   ohne API-Schlüssel und mit den 100 Credits der 14-tägigen Testphase zum
+   Start. Um Ihren
    eigenen KI-Schlüssel oder gar keine KI zu verwenden, wählen Sie stattdessen
    **Auf diesem Gerät starten**.
 

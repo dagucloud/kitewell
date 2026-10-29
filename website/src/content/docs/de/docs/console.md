@@ -11,10 +11,10 @@ Secrets.
 ## Was Sie brauchen
 
 - Ein Dagu-Cloud-Konto und ein [synchronisiertes Projekt](/de/docs/cloud-sync/).
-  Jeder Tarif funktioniert, auch der kostenlose. Ein nicht synchronisiertes
+  Jeder Tarif funktioniert, ebenso die Testphase. Ein nicht synchronisiertes
   Projekt wird nie gemeldet.
-- Um mehr als einen Computer zu verfolgen: Kitewell Team. Ein kostenloses Konto
-  und Kitewell Personal umfassen jeweils einen Computer.
+- Um mehr als einen Computer zu verfolgen: Kitewell Team oder die Testphase,
+  die bis zu 3 umfasst. Kitewell Personal umfasst einen Computer.
 
 Melden Sie sich bei Dagu Console mit dem Konto an, das Ihre Computer verwenden.
 Der Inhaber des Arbeitsbereichs sieht jedes synchronisierte Projekt und jeden
@@ -91,7 +91,6 @@ Computer. Beide arbeiten nebeneinander:
 | | Benachrichtigungen von Kitewell | Benachrichtigungen von Dagu Console |
 | --- | --- | --- |
 | Absender | Der Computer | Dagu Cloud |
-| Tarif | Personal und Team | Jeder Tarif |
 | Ereignisse | Schlägt fehl, wird wiederhergestellt, benötigt Eingabe, verpasst einen Zeitplan, läuft zu lange, wird abgebrochen, ist erfolgreich, beendet einen Stapel | Ein Workflow ist fehlgeschlagen; ein Computer meldet sich nicht mehr |
 | Kanäle | Dieses Gerät, E-Mail, Slack, Microsoft Teams, PagerDuty, Webhook | E-Mail |
 | Während der Computer schläft | Nichts wird gesendet; verpasste Planungen werden beim Aufwachen gemeldet | Die Benachrichtigung über fehlende Meldungen öffnet sich |

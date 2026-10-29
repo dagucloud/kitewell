@@ -19,7 +19,7 @@ ihrer Ausgabe aufbewahrt.
    Kitewell braucht, um ohne Aufsicht zu laufen.
 4. [Teilen Sie Workflows mit Ihrem Team](/de/docs/sharing/).
 
-Für den Einstieg brauchen Sie kein Konto.
+Die 14-tägige Testphase braucht keine Kreditkarte.
 
 ## Was ein Workflow kann
 
@@ -55,16 +55,24 @@ geplant. Was derzeit verfügbar ist, sehen Sie unter [Downloads](/de/download/).
 
 ## Was es kostet
 
-Ein Projekt mit bis zu 10 Workflows sowie ein API-Schlüssel oder eine
-verbundene App sind kostenlos und brauchen kein Kitewell-Konto. Jedes Projekt
+Kitewell beginnt mit einer 14-tägigen Testphase ohne Kreditkarte: die
+Funktionen von Team auf bis zu 3 Computern, mit 100 Credits für
+[das enthaltene Modell von Kitewell](/de/docs/ai/#use-kitewells-included-model).
+Sie beginnt, wenn Sie sich aus Kitewell bei Dagu Cloud anmelden. Danach läuft
+nichts mehr, bis Sie ein Abo abschließen; Ihre Projekte bleiben auf dem
+Computer, und Sie können sie öffnen, bearbeiten und exportieren. Jedes Projekt
 hat seine eigenen Workflows, seinen eigenen Verlauf und seine eigenen Secrets.
 
-Kitewell Personal kostet 20 $ pro Monat für eine Person auf einem Computer:
-fünf Projekte mit je 100 Workflows, beliebig viele API-Schlüssel und verbundene
-Apps, [Benachrichtigungen](/de/docs/alerts/) und [Webhooks](/de/docs/webhooks/).
-Kitewell Team richtet sich an Organisationen mit bis zu 25 Personen. Den Preis
-erhalten Sie als Angebot nach der Zahl der Computer: 15 Projekte und ein Team,
-das sie synchronisiert. Siehe [Preise](/de/pricing/).
+Kitewell Personal kostet 20 $ pro Monat für die eigene Arbeit einer Person auf
+einem Computer: fünf Projekte mit je 100 Workflows,
+[Benachrichtigungen](/de/docs/alerts/) und [Webhooks](/de/docs/webhooks/). Es
+führt Workflows aus, solange Sie angemeldet sind. Kitewell Team kostet 99 $ pro
+Monat für jeden Computer und richtet sich an Organisationen mit bis zu 25
+Personen: 15 Projekte, ein Team, das sie synchronisiert, und unter Windows
+Ausführungen, auch wenn niemand angemeldet ist. Wenn Sie Kitewell schon vorher
+genutzt haben, funktionieren der kostenlose Tarif und die Ausführungen von
+Personal ohne angemeldete Person bis zum 1. Dezember 2026 weiter. Siehe
+[Preise](/de/pricing/).
 
 ## Was wo läuft
 
@@ -83,9 +91,9 @@ Planungen werden weiter ausgelöst. Erst **Kitewell beenden** in diesem Menü
 beendet den Dienst und die Workflow-Engines.
 
 Auf dem Mac muss Ihr Computer wach sein und Sie müssen angemeldet sein, damit
-geplante Arbeit läuft. Unter Windows läuft geplante Arbeit auch, wenn niemand
-angemeldet ist, sobald der Anmeldedienst eingeschaltet ist, den das
-Installationsprogramm anbietet. Der PC wacht dafür auf. Kitewell stellt keinen
+geplante Arbeit läuft. Unter Windows mit Kitewell Team läuft geplante Arbeit
+auch, wenn niemand angemeldet ist, sobald der Anmeldedienst eingeschaltet ist.
+Der PC wacht dafür auf. Kitewell stellt keinen
 Rechner in der Cloud bereit. KI-Anbieter, entfernte Server, Container und
 externe Dienste haben ihre eigenen Anforderungen und Kosten.
 
