@@ -1,7 +1,7 @@
 ---
 title: Terms of Use
 description: The terms for using the Kitewell application and the kitewell.app website.
-updated: 2026-10-15
+updated: 2026-10-29
 ---
 
 These terms apply to the Kitewell application and the kitewell.app website,
@@ -13,9 +13,11 @@ Enterprise contract, takes precedence over these terms where the two differ.
 
 Kitewell is proprietary software. Descarty grants you a non-exclusive,
 non-transferable license to install and use Kitewell within the limits of your
-plan. You may not sell, rent, or redistribute the application, or reverse
-engineer it, except where the law or the license of an included open-source
-component allows it. This license does not transfer ownership of the
+plan. You may not sell, rent, or redistribute the application, resell
+subscriptions to it, or reverse engineer it, except where the law or the
+license of an included open-source component allows it. A partner that has a
+written partner agreement with Descarty may resell Kitewell subscriptions to its
+clients under that agreement. This license does not transfer ownership of the
 application.
 
 ## 2. Open-source components
@@ -51,22 +53,40 @@ to use, or to place excessive load on other services.
 ## 5. Public beta
 
 Kitewell 0.x releases are public beta versions. Features, limits, and
-interfaces may change. Scheduled work runs only while the device is awake, you
-are logged in, and the engine is running.
+interfaces may change. Scheduled work runs only while the device is awake and
+the engine is running. On a Mac, and on Windows outside the Team plan and the
+trial, you must also be logged in; on Windows with the Team plan or during the
+trial, it can run with nobody logged in.
 
 ## 6. Plans and payments
 
-The Free plan needs no account. Paid plans are purchased and managed in Dagu
-Cloud and are subject to the
+Kitewell starts with a free trial of 14 days. It begins when you sign in to
+Dagu Cloud from Kitewell and needs no payment card. During the trial you can
+use the features of the Team plan within the limits shown on the pricing page.
+After the trial, until you subscribe to a paid plan, your projects are
+read-only: you can open and export them, but workflows do not run and projects
+cannot be edited.
+
+Paid plans are purchased and managed in Dagu Cloud and are subject to the
 [Dagu Terms of Service](https://dagu.sh/terms). Current prices and limits are
-shown on the [pricing page](/pricing/). The Free and Personal plans are for one
-person's own work. An organization that runs Kitewell for shared work, on
-several people's computers or on a computer set aside for it, needs the Team
-plan, which Descarty provides under a separate contract. If a paid plan ends, projects,
-workflows, API keys, and connected apps beyond your current plan stop running 7
-days later. You choose which stay within the plan, nothing is deleted, and they
-run again when you subscribe. Charges from AI providers and other services your workflows
-use are separate and paid to those providers.
+shown on the [pricing page](/pricing/). The Personal plan is for one person's
+own work at the computer and does not run workflows while nobody is logged in.
+An organization that runs Kitewell for shared work, on several people's
+computers or on a computer set aside for it, needs the Team plan. The Team plan
+is purchased in Dagu Cloud for each computer and billed monthly or yearly. On
+the Personal and Team plans you can buy credit packs for Kitewell's included
+model; they are non-refundable, never expire, and are used after the credits
+your plan includes. If a paid plan ends, or you move to a plan with lower
+limits, then 7 days later the projects, workflows, API keys, and connected apps
+beyond your current plan stop running, and those projects become read-only.
+You choose which stay within the plan, nothing is deleted, and they run again
+when you subscribe. Charges from AI providers and other services your
+workflows use are separate and paid to those providers.
+
+The end of the Free plan, and the end of Personal plan workflows running while
+nobody is logged in, reduce existing rights and take effect on December 1,
+2026. Until then, those who already use them keep the Free plan and those
+runs.
 
 ## 7. Disclaimer
 
