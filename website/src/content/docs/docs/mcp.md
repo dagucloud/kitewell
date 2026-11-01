@@ -317,6 +317,10 @@ management, the Dagu Cloud account, backups, and engine controls stay in the
 app and are not exposed. Imported APIs are managed in the app or through the
 MCP `change` tool.
 
+To run a workflow as one task in another system's flow, passing values in and
+taking the result back, see
+[Call Kitewell from another system](/docs/call-from-other-systems/).
+
 ### Another computer's client
 
 The listener accepts local connections only, at `127.0.0.1:19742`. ChatGPT and

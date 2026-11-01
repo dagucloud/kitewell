@@ -52,6 +52,8 @@ GitHub の **Recent Deliveries** タブでは、リクエストごとに Kitewel
 
 HTTP の `POST` を送れるサービスなら使えます。Stripe では、URL を指定してイベントの送信先を追加し、イベントを選びます。Slack アプリでは、Event Subscriptions に URL を貼り付けます。Zapier や Make では、URL に POST する Webhook のアクションを追加します。フォームのサービスには、たいてい Webhook や「URL に通知」の設定があります。
 
+ワークフロー基盤やスケジューラーなど、自分のフローのタスクの 1 つとして Kitewell を動かすシステムについては、[他のシステムから Kitewell を呼び出す](/ja/docs/call-from-other-systems/)を参照してください。
+
 <a id="check-who-sent-the-request"></a>
 
 ## 送り手を確かめる

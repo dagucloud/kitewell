@@ -101,6 +101,10 @@ in einer Slack-App die URL unter Event Subscriptions ein. Fügen Sie in Zapier
 oder Make eine Webhook-Aktion hinzu, die an die URL sendet. Ein Formulardienst
 hat meist eine Einstellung für Webhooks oder für „eine URL benachrichtigen“.
 
+Für eine Workflow-Plattform, einen Scheduler oder ein anderes System, das
+Kitewell als eine Aufgabe in seinem eigenen Ablauf ausführt, siehe
+[Kitewell aus einem anderen System aufrufen](/de/docs/call-from-other-systems/).
+
 <a id="check-who-sent-the-request"></a>
 
 ## Prüfen, wer die Anfrage gesendet hat

@@ -52,6 +52,8 @@ L’onglet **Recent Deliveries** de GitHub montre chaque requête avec la répon
 
 Tout service capable d’envoyer un `POST` HTTP fonctionne. Dans Stripe, ajoutez une destination d’événements avec l’URL et choisissez les événements. Dans une app Slack, collez l’URL sous Event Subscriptions. Dans Zapier ou Make, ajoutez une action webhook qui envoie vers l’URL. Un service de formulaires propose généralement un réglage webhook ou « notifier une URL ».
 
+Pour une plateforme de workflows, un ordonnanceur ou un autre système qui exécute Kitewell comme une tâche de son propre flux, voir [Appeler Kitewell depuis un autre système](/fr/docs/call-from-other-systems/).
+
 <a id="check-who-sent-the-request"></a>
 
 ## Vérifier qui a envoyé la requête

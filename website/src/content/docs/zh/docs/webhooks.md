@@ -52,6 +52,8 @@ GitHub 的 **Recent Deliveries** 标签页会显示每个请求以及 Kitewell �
 
 任何能发送 HTTP `POST` 的服务都可以使用。在 Stripe 中，用该 URL 添加一个事件目标（event destination）并选择事件。在 Slack 应用中，将 URL 粘贴到 Event Subscriptions 下。在 Zapier 或 Make 中，添加一个向该 URL 发送 POST 的 Webhook 操作。表单服务通常有 Webhook 或“通知某个 URL”之类的设置。
 
+如果工作流平台、调度器或其他系统要把 Kitewell 作为自己流程中的一项任务来运行，请参见[从其他系统调用 Kitewell](/zh/docs/call-from-other-systems/)。
+
 <a id="check-who-sent-the-request"></a>
 
 ## 确认请求的发送方

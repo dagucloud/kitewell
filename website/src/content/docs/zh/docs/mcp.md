@@ -189,6 +189,8 @@ Authorization: Bearer <Kitewell API key>
 
 REST 涵盖工作流和批量表格。设备设置、密钥、API 密钥管理、Dagu Cloud 账户、备份和引擎控制都只在应用中进行，不会对外开放。已导入的 API 在应用中或通过 MCP 的 `change` 工具管理。
 
+若要把工作流作为其他系统流程中的一项任务来运行，传入值并取回结果，请参见[从其他系统调用 Kitewell](/zh/docs/call-from-other-systems/)。
+
 ### 其他电脑上的客户端
 
 监听器只接受 `127.0.0.1:19742` 上的本地连接。ChatGPT 和 Claude 改为经由中继连接，不需要下面的任何设置。

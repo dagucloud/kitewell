@@ -363,6 +363,10 @@ Steuerung der Engine bleiben in der App und sind darüber nicht zugänglich.
 Importierte APIs werden in der App oder über das MCP-Werkzeug `change`
 verwaltet.
 
+Um einen Workflow als eine Aufgabe im Ablauf eines anderen Systems
+auszuführen, mit Werten hinein und dem Ergebnis zurück, siehe
+[Kitewell aus einem anderen System aufrufen](/de/docs/call-from-other-systems/).
+
 ### Ein Client auf einem anderen Computer
 
 Der Listener nimmt nur lokale Verbindungen an, unter `127.0.0.1:19742`.

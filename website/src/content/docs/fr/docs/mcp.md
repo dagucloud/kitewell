@@ -191,6 +191,8 @@ Les lectures de journaux acceptent `stepId`, `stream=stdout`, `stderr` ou `run`,
 
 REST couvre les workflows et les feuilles de lot. Les réglages de l’appareil, les secrets, la gestion des clés API, le compte Dagu Cloud, les sauvegardes et les commandes du moteur restent dans l’app et ne sont pas exposés. Les API importées se gèrent dans l’app ou avec l’outil MCP `change`.
 
+Pour exécuter un workflow comme une tâche du flux d’un autre système, en lui passant des valeurs et en récupérant le résultat, voir [Appeler Kitewell depuis un autre système](/fr/docs/call-from-other-systems/).
+
 ### Le client d’un autre ordinateur
 
 L’écouteur n’accepte que les connexions locales, sur `127.0.0.1:19742`. ChatGPT et Claude passent plutôt par le relais et n’ont besoin de rien de ce qui suit.

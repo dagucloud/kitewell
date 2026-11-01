@@ -52,6 +52,8 @@ GitHub의 **Recent Deliveries** 탭에는 요청마다 Kitewell의 응답이 표
 
 HTTP `POST`를 보내는 서비스라면 어떤 것이든 됩니다. Stripe에서는 URL로 이벤트 대상(event destination)을 추가하고 이벤트를 고릅니다. Slack 앱에서는 Event Subscriptions에 URL을 붙여 넣습니다. Zapier나 Make에서는 URL로 POST하는 웹후크 작업을 추가합니다. 양식 서비스에는 보통 웹후크나 ‘URL로 알림’ 설정이 있습니다.
 
+워크플로 플랫폼, 스케줄러처럼 자기 흐름의 작업 하나로 Kitewell을 실행하는 시스템은 [다른 시스템에서 Kitewell 호출하기](/ko/docs/call-from-other-systems/)를 참고하세요.
+
 <a id="check-who-sent-the-request"></a>
 
 ## 요청을 보낸 쪽 확인하기

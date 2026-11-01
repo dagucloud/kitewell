@@ -62,6 +62,7 @@ export default defineConfig({
             { label: "AI agents and models", translations: { ja: "AI エージェントとモデル", "zh-CN": "AI 智能体与模型", ko: "AI 에이전트와 모델", fr: "Agents IA et modèles", de: "KI-Agenten und Modelle" }, slug: "docs/ai" },
             { label: "Knowledge", translations: { ja: "ナレッジ", "zh-CN": "知识库", ko: "지식", fr: "Connaissances", de: "Wissen" }, slug: "docs/knowledge" },
             { label: "MCP and API access", translations: { ja: "MCP と API アクセス", "zh-CN": "MCP 与 API 访问", ko: "MCP와 API 액세스", fr: "MCP et accès API", de: "MCP und API-Zugriff" }, slug: "docs/mcp" },
+            { label: "Call from another system", translations: { ja: "他のシステムから呼び出す", "zh-CN": "从其他系统调用", ko: "다른 시스템에서 호출하기", fr: "Appeler depuis un autre système", de: "Aus einem anderen System aufrufen" }, slug: "docs/call-from-other-systems" },
             { label: "Share workflows with your team", translations: { ja: "チームでワークフローを共有", "zh-CN": "与团队共享工作流", ko: "팀과 워크플로 공유하기", fr: "Partager avec votre équipe", de: "Workflows im Team teilen" }, slug: "docs/sharing" },
             { label: "Sync with Dagu Cloud", translations: { ja: "Dagu Cloud と同期", "zh-CN": "与 Dagu Cloud 同步", ko: "Dagu Cloud와 동기화", fr: "Synchroniser avec Dagu Cloud", de: "Mit Dagu Cloud synchronisieren" }, slug: "docs/cloud-sync" },
             { label: "Dagu Console", translations: { ja: "Dagu Console", "zh-CN": "Dagu Console", ko: "Dagu Console", fr: "Dagu Console", de: "Dagu Console" }, slug: "docs/console" },

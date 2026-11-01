@@ -189,6 +189,8 @@ Authorization: Bearer <Kitewell API key>
 
 REST는 워크플로와 배치 시트를 다룹니다. 기기 설정, 시크릿, API 키 관리, Dagu Cloud 계정, 백업, 엔진 제어는 앱에만 있으며 공개되지 않습니다. 가져온 API는 앱이나 MCP `change` 도구로 관리합니다.
 
+값을 넘기고 결과를 돌려받으며 다른 시스템 흐름의 작업 하나로 워크플로를 실행하려면 [다른 시스템에서 Kitewell 호출하기](/ko/docs/call-from-other-systems/)를 참고하세요.
+
 ### 다른 컴퓨터의 클라이언트
 
 리스너는 `127.0.0.1:19742`에서 로컬 연결만 받습니다. ChatGPT와 Claude는 대신 릴레이를 통해 들어오므로 아래 내용은 전혀 필요 없습니다.

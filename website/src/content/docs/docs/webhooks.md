@@ -91,6 +91,10 @@ destination with the URL and choose the events. In a Slack app, paste the URL
 under Event Subscriptions. In Zapier or Make, add a webhook action that posts
 to the URL. A form service usually has a webhook or "notify a URL" setting.
 
+For a workflow platform, a scheduler, or another system that runs Kitewell as
+one task in its own flow, see
+[Call Kitewell from another system](/docs/call-from-other-systems/).
+
 ## Check who sent the request
 
 Anyone who has the URL can send a request to it. To start runs only for
