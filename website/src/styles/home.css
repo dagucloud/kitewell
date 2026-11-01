@@ -193,12 +193,17 @@
   background: var(--surface);
   box-shadow: var(--frame-shadow);
 }
+/* A neutral title bar, as on every product window. */
 .record-head {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 16px 20px;
+  min-height: 36px;
+  padding: 6px 16px;
   border-bottom: 1px solid var(--line);
+  background: var(--sunk);
+  font-size: 13px;
 }
 .record-head span {
   color: var(--muted);

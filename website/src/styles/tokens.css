@@ -31,7 +31,8 @@
 
   --radius: 8px;
   --radius-small: 5px;
-  --frame-shadow: 0 0 0 1px var(--line), 0 18px 40px -24px rgba(0, 0, 0, 0.35);
+  /* The window around a product screen or film, as on descarty.com. */
+  --frame-shadow: 0 0 0 1px rgb(14 20 18 / 0.08), 0 2px 4px rgb(14 20 18 / 0.04), 0 32px 64px -24px rgb(14 20 18 / 0.28);
   --page: 1200px;
   --gutter: 32px;
 
