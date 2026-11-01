@@ -43,7 +43,6 @@ p {
 }
 h1,
 h2 {
-  font-family: var(--sans);
   font-weight: var(--display-weight);
   letter-spacing: var(--display-track);
   line-height: 1.04;
@@ -51,6 +50,17 @@ h2 {
 }
 h1 {
   font-size: clamp(40px, 6vw, 76px);
+}
+/* Display text: headings, the header, buttons, and labels. */
+:is(h1, h2, h3, h4),
+.brand,
+.header nav,
+.button,
+.text-link,
+.eyebrow,
+.partner-badge,
+.sample-label {
+  font-family: var(--font-display);
 }
 h2 {
   font-size: clamp(30px, 4vw, 48px);
@@ -445,7 +455,7 @@ figure {
   font-size: 15px;
 }
 .price {
-  font: var(--display-weight) 52px/1 var(--sans);
+  font: var(--display-weight) 52px/1 var(--font-display);
   letter-spacing: var(--display-track);
   margin-block: 22px;
 }

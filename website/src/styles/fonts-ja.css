@@ -1,4 +1,6 @@
 /* Noto Sans JP, regular and bold, for Japanese pages only. Each weight is
-   split by unicode-range, so a page downloads only the pieces its text uses. */
+   split by unicode-range, so a page downloads only the pieces its display
+   text uses. Two static weights weigh less than the variable font, whose
+   every piece carries all weights. */
 @import "@fontsource/noto-sans-jp/400.css";
 @import "@fontsource/noto-sans-jp/700.css";

@@ -8,10 +8,14 @@
   --sl-font: "Inter Variable", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", "Noto Sans JP", sans-serif;
   --sl-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 }
-/* As on the rest of the site: Inter for Latin text, Noto Sans JP for
-   Japanese, and Chinese and Korean name their own fonts. */
+/* As on the rest of the site: Inter for Latin text; on Japanese pages, Noto
+   Sans JP for headings and the system's Japanese font for running text; and
+   Chinese and Korean name their own fonts. */
 :root:lang(ja) {
-  --sl-font: "Inter Variable", "Noto Sans JP", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", sans-serif;
+  --sl-font: "Inter Variable", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", "Noto Sans JP", sans-serif;
+}
+:root:lang(ja) :is(h1, h2, h3, h4) {
+  font-family: "Inter Variable", "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", sans-serif;
 }
 :root:lang(zh) {
   --sl-font: "Inter Variable", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", sans-serif;

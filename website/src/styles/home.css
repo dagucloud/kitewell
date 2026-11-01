@@ -458,7 +458,7 @@
   border: 0;
   border-bottom: 2px solid transparent;
   background: none;
-  font: 600 14px/1 var(--sans);
+  font: 600 14px/1 var(--font-display);
   color: var(--muted);
   cursor: pointer;
 }
