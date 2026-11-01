@@ -1,5 +1,9 @@
 ---
+import "@fontsource-variable/inter";
 import "../styles/site.css";
+// Only Japanese pages link Noto Sans JP, so no other language loads its
+// stylesheet.
+import japaneseFonts from "../styles/fonts-ja.css?url";
 import Analytics from "../components/Analytics.astro";
 import DownloadButton from "../components/DownloadButton.astro";
 import { descartyUrl } from "../lib/descarty.mjs";
@@ -138,6 +142,7 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
     <script is:inline src="/lang.js"></script>
     <script is:inline set:html={platformScript} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {locale === "ja" && <link rel="stylesheet" href={japaneseFonts} />}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Kitewell" />
     <meta property="og:locale" content={languages[locale].og} />

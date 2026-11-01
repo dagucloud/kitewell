@@ -1,0 +1,4 @@
+/* Noto Sans JP, regular and bold, for Japanese pages only. Each weight is
+   split by unicode-range, so a page downloads only the pieces its text uses. */
+@import "@fontsource/noto-sans-jp/400.css";
+@import "@fontsource/noto-sans-jp/700.css";
