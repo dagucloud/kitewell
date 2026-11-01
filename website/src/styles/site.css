@@ -134,25 +134,6 @@ h3 {
 .header nav a[aria-current] {
   text-decoration: underline;
 }
-/* The partner program stands apart from the plain links, a step below the
-   download button. */
-.header nav a.nav-partner {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 5px 12px;
-  border: 1px solid var(--accent);
-  border-radius: 999px;
-  background: var(--tint);
-  color: var(--accent);
-  font-weight: 650;
-  white-space: nowrap;
-}
-.header nav a.nav-partner:hover {
-  background: var(--accent);
-  color: var(--accent-ink);
-}
-.nav-partner::before,
 .partner-badge::before {
   content: "";
   flex-shrink: 0;
