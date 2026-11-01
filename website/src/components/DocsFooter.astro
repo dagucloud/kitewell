@@ -1,7 +1,11 @@
 ---
 import Footer from "@astrojs/starlight/components/Footer.astro";
 import Analytics from "./Analytics.astro";
+import Endorsement from "./Endorsement.astro";
+import { localeOf } from "../lib/i18n.mjs";
+const locale = localeOf(Astro.url.pathname);
 ---
 
 <Footer><slot /></Footer>
+<Endorsement locale={locale} />
 <Analytics />

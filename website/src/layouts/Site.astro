@@ -6,6 +6,7 @@ import "../styles/site.css";
 import japaneseFonts from "../styles/fonts-ja.css?url";
 import Analytics from "../components/Analytics.astro";
 import DownloadButton from "../components/DownloadButton.astro";
+import Endorsement from "../components/Endorsement.astro";
 import { descartyUrl } from "../lib/descarty.mjs";
 import { counterparts, languages, localeOf, locales, localize } from "../lib/i18n.mjs";
 import { detectPlatform } from "../lib/platform.mjs";
@@ -243,7 +244,10 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
         <a href={localize("/terms/", locale)}>{text.footer[5]}</a>
         <Analytics />
       </div>
-      <p class="fine">© {new Date().getFullYear()} <a href={descartyUrl(locale)}>Descarty, Inc.</a> {text.fine}</p>
+      <div class="footer-company">
+        <Endorsement locale={locale} />
+        <p class="fine">© {new Date().getFullYear()} <a href={descartyUrl(locale)}>Descarty, Inc.</a> {text.fine}</p>
+      </div>
     </footer>
   </body>
 </html>

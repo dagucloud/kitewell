@@ -368,6 +368,23 @@ figure {
   grid-column: 1/-1;
   font-size: 11px;
 }
+/* The company behind Kitewell, above the copyright: its wordmark and one
+   line, as quiet as the links. */
+.footer-company {
+  grid-column: 1/-1;
+}
+.footer .endorsement {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin: 0;
+  font-size: 12px;
+}
+.endorsement a {
+  display: inline-flex;
+  text-decoration: none;
+}
 .skip {
   position: absolute;
   left: 20px;

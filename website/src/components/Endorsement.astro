@@ -1,0 +1,24 @@
+---
+// One quiet line naming the company behind Kitewell, with its wordmark,
+// at the foot of every page.
+import DescartyWordmark from "./DescartyWordmark.astro";
+import { descartyUrl } from "../lib/descarty.mjs";
+import type { Locale } from "../lib/i18n.mjs";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = {
+  en: "Kitewell is developed and supplied by Descarty, Inc. (Tokyo).",
+  ja: "Kitewell は Descarty株式会社（東京）が開発・提供しています。",
+  zh: "Kitewell 由 Descarty, Inc.（东京）开发并提供。",
+  ko: "Kitewell은 Descarty, Inc.(도쿄)가 개발하고 제공합니다.",
+  fr: "Kitewell est développé et fourni par Descarty, Inc. (Tokyo).",
+  de: "Kitewell wird von Descarty, Inc. (Tokio) entwickelt und bereitgestellt.",
+}[locale];
+---
+
+<p class="endorsement">
+  <a class="endorsement-mark" href={descartyUrl(locale)}><DescartyWordmark /></a>
+  <a href={descartyUrl(locale, "/company/")}>{text}</a>
+</p>
