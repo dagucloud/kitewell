@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://kitewell.app/ja/#film">
+  <a href="https://kitewell.com/ja/#film">
     <img src=".github/readme/hero-ja.webp" width="100%"
       alt="AI が請求書を読み取り、会計ソフトに入力する。ログイン画面が変わっても、AI が操作を覚え直して保存まで続ける。">
   </a>
@@ -16,12 +16,12 @@
 </p>
 
 <p align="center">
-  <a href="https://kitewell.app/ja/#film"><strong>▶ 映像を見る（74 秒）</strong></a> ·
-  <a href="https://kitewell.app/ja/download/">ダウンロード</a> ·
-  <a href="https://kitewell.app/ja/docs/getting-started/">はじめかた</a> ·
-  <a href="https://kitewell.app/ja/docs/">ドキュメント</a> ·
-  <a href="https://kitewell.app/ja/examples/">活用例</a> ·
-  <a href="https://kitewell.app/ja/pricing/">料金</a>
+  <a href="https://kitewell.com/ja/#film"><strong>▶ 映像を見る（74 秒）</strong></a> ·
+  <a href="https://kitewell.com/ja/download/">ダウンロード</a> ·
+  <a href="https://kitewell.com/ja/docs/getting-started/">はじめかた</a> ·
+  <a href="https://kitewell.com/ja/docs/">ドキュメント</a> ·
+  <a href="https://kitewell.com/ja/examples/">活用例</a> ·
+  <a href="https://kitewell.com/ja/pricing/">料金</a>
 </p>
 
 <p align="center">
@@ -37,11 +37,11 @@ Kitewell のチャット画面の実際の録画です。編集はせず、一�
 <table>
   <tr>
     <td width="50%" valign="top">
-      <a href="https://kitewell.app/ja/"><img src="website/public/videos/proof/websites-ja.webp" alt="Kitewell のチャットが、仕入れ先ポータルの新しい請求書を平日ごとに Excel に集めるワークフローを提案している。実際の録画、3 倍速。"></a>
+      <a href="https://kitewell.com/ja/"><img src="website/public/videos/proof/websites-ja.webp" alt="Kitewell のチャットが、仕入れ先ポータルの新しい請求書を平日ごとに Excel に集めるワークフローを提案している。実際の録画、3 倍速。"></a>
       <p><strong>Web サイト。</strong>仕入れ先ポータルの新しい請求書を平日ごとに Excel に追加するよう頼むと、AI はチャットに映るブラウザーで代役のポータルを開き、パスワードはカードであなたが入力します。AI はログインして下書きを試し、ワークフローを提案します。実行は、見つけた請求書を見せて、あなたの返信を待ちます。</p>
     </td>
     <td width="50%" valign="top">
-      <a href="https://kitewell.app/ja/coding-agents/"><img src="website/public/videos/proof/agents-ja.webp" alt="Kitewell のチャットが、Claude Code が失敗したテストを直し Codex がレビューする毎晩のワークフローを提案している。実際の録画、2 倍速。"></a>
+      <a href="https://kitewell.com/ja/coding-agents/"><img src="website/public/videos/proof/agents-ja.webp" alt="Kitewell のチャットが、Claude Code が失敗したテストを直し Codex がレビューする毎晩のワークフローを提案している。実際の録画、2 倍速。"></a>
       <p><strong>コーディングエージェント。</strong>デモ用リポジトリの失敗しているテストを毎晩 Claude Code に直させ、その変更を Codex にレビューさせるよう頼むと、アシスタントがスケジュール付きのワークフローを提案して実行します。実行は 2 つの要約を見せて待ち、返信で進めると、修正がローカルの新しいブランチにコミットされます。</p>
     </td>
   </tr>
@@ -72,7 +72,7 @@ Kitewell のチャット画面の実際の録画です。編集はせず、一�
 - **パスワードはモデルに見せない。** パスワードはステップに名前で書き、コンピューターのシークレットから入力します。モデルに見えるのは名前だけです。
 - **何を直したかが見える。** 実行ごとに、繰り返したステップと AI が直したステップを、スクリーンショット付きで記録します。
 
-[Web サイトの自動化のしくみ →](https://kitewell.app/ja/docs/browser/)
+[Web サイトの自動化のしくみ →](https://kitewell.com/ja/docs/browser/)
 
 ## コーディングエージェント：Claude Code、Codex ほか 13 種類を、あなたのスケジュールで
 
@@ -85,29 +85,29 @@ Kitewell のチャット画面の実際の録画です。編集はせず、一�
 - **確認なしには出さない。** 承認するまでプッシュを止めます。「差し戻し」なら、メモを添えてエージェントがやり直します。
 - **GitHub から始まる。** Issue やプルリクエストの Webhook で実行が始まります。ポート開放は不要です。
 
-ワークフローは素の YAML です。[失敗したテストを夜のうちに直すワークフローの全文 →](https://kitewell.app/ja/examples/fix-failing-tests/)
+ワークフローは素の YAML です。[失敗したテストを夜のうちに直すワークフローの全文 →](https://kitewell.com/ja/examples/fix-failing-tests/)
 
-各社の利用規約に従ってお使いください。[Kitewell のコーディングエージェント →](https://kitewell.app/ja/docs/ai/)
+各社の利用規約に従ってお使いください。[Kitewell のコーディングエージェント →](https://kitewell.com/ja/docs/ai/)
 
 ## ブラウザーの外も
 
-- **[API のないデスクトップアプリ。](https://kitewell.app/ja/docs/desktop/)** モデルが画面を読んでアプリを操作します。以降の実行は、Windows ではアプリ自身のボタンや入力欄を、macOS では画面を頼りに再生します。
-- **[Excel を 1 行ずつ。](https://kitewell.app/ja/docs/spreadsheets/)** いまのブックのまま 1 行ごとに実行し、結果を同じ行に書き戻します。結合ヘッダー、和暦、全角数字もそのまま。
-- **[メール。](https://kitewell.app/ja/docs/email/)** Microsoft 365、アプリパスワードを使う Gmail、任意の IMAP のメールを、検索、整理、送信します。
-- **[スクリプト、サーバー、API。](https://kitewell.app/ja/docs/workflow-builder/)** コマンド、Docker、数台ずつ進める SSH のロールアウト、OpenAPI の取り込み。次の道を選ぶ判定ステップも。
+- **[API のないデスクトップアプリ。](https://kitewell.com/ja/docs/desktop/)** モデルが画面を読んでアプリを操作します。以降の実行は、Windows ではアプリ自身のボタンや入力欄を、macOS では画面を頼りに再生します。
+- **[Excel を 1 行ずつ。](https://kitewell.com/ja/docs/spreadsheets/)** いまのブックのまま 1 行ごとに実行し、結果を同じ行に書き戻します。結合ヘッダー、和暦、全角数字もそのまま。
+- **[メール。](https://kitewell.com/ja/docs/email/)** Microsoft 365、アプリパスワードを使う Gmail、任意の IMAP のメールを、検索、整理、送信します。
+- **[スクリプト、サーバー、API。](https://kitewell.com/ja/docs/workflow-builder/)** コマンド、Docker、数台ずつ進める SSH のロールアウト、OpenAPI の取り込み。次の道を選ぶ判定ステップも。
 
 ## 勝手に始まる
 
-- **[スケジュール。](https://kitewell.app/ja/docs/scheduling/)** 毎日、平日、どんな間隔でも、あなたのタイムゾーンで。パソコンが眠っていて逃した開始は、起きたときに追いかけます。
-- **[Webhook。](https://kitewell.app/ja/docs/webhooks/)** GitHub、Stripe、Slack などのサービスが、Kitewell のリレーを通じてあなたのパソコンのワークフローを始めます。署名を確認し、ポートは開かず、リクエストは最大 7 日間待ちます。
-- **[どこからでも。](https://kitewell.app/ja/docs/mcp/)** スマホの ChatGPT や Claude から、MCP で Claude Code や Codex から、または REST で。
+- **[スケジュール。](https://kitewell.com/ja/docs/scheduling/)** 毎日、平日、どんな間隔でも、あなたのタイムゾーンで。パソコンが眠っていて逃した開始は、起きたときに追いかけます。
+- **[Webhook。](https://kitewell.com/ja/docs/webhooks/)** GitHub、Stripe、Slack などのサービスが、Kitewell のリレーを通じてあなたのパソコンのワークフローを始めます。署名を確認し、ポートは開かず、リクエストは最大 7 日間待ちます。
+- **[どこからでも。](https://kitewell.com/ja/docs/mcp/)** スマホの ChatGPT や Claude から、MCP で Claude Code や Codex から、または REST で。
 
 ## スマホから承認も確認も。失敗の理由もわかる。
 
 ![Kitewell で完了した請求書の実行。各ステップの状態と、選んだステップの出力](website/src/assets/docs/ja/runs-run-view.png)
 
 - **承認と差し戻し。** どのステップでも OK を待てます。実行の画面、通知、スマホの ChatGPT や Claude から、承認やメモ付きの差し戻しができます。
-- **[ブラウザーで実行を確認。](https://kitewell.app/ja/docs/console/)** 同期したプロジェクトの実行と、それを動かしたパソコンを Dagu Console で確認できます。スマホからも開けます。どのプランでも使えます。
+- **[ブラウザーで実行を確認。](https://kitewell.com/ja/docs/console/)** 同期したプロジェクトの実行と、それを動かしたパソコンを Dagu Console で確認できます。スマホからも開けます。どのプランでも使えます。
 - **アラート。** 実行の失敗、あなたの対応待ち、スケジュールの取りこぼしを、Slack、Microsoft Teams、PagerDuty、メール、デスクトップ通知で知らせます。Personal と Team で使えます。
 - **パソコンが止まったら。** パソコンからの報告が 10 分途絶えると、Dagu Console がメールで知らせます。スリープ、オフライン、Kitewell の終了も見逃しません。動かし続けるパソコンでオンにします。
 - **失敗の診断。** AI が失敗した実行を読み、やり直すか、対応するか、ワークフローを変えるかを伝えます。
@@ -119,9 +119,9 @@ Kitewell のチャット画面の実際の録画です。編集はせず、一�
 
 ## どのパソコンで動かしても、ひとつの画面で見守る
 
-- **[すべてのパソコンを一覧で。](https://kitewell.app/ja/docs/console/)** Dagu Console に、各パソコンの状態、Kitewell のバージョン、今日の実行が並びます。アラートはワークフローごとに 1 件。何台で動かしても増えず、どのパソコンでも次に成功すれば閉じます。
-- **[同期とロール。](https://kitewell.app/ja/docs/cloud-sync/)** 閲覧・編集・管理のロールでプロジェクトを共有。サインインとシークレットの値は、それぞれのパソコンに残ります。
-- **[リリース。](https://kitewell.app/ja/docs/releases/)** Dev から Staging、本番へ。差分を確かめて反映し、ロールバックもできます。
+- **[すべてのパソコンを一覧で。](https://kitewell.com/ja/docs/console/)** Dagu Console に、各パソコンの状態、Kitewell のバージョン、今日の実行が並びます。アラートはワークフローごとに 1 件。何台で動かしても増えず、どのパソコンでも次に成功すれば閉じます。
+- **[同期とロール。](https://kitewell.com/ja/docs/cloud-sync/)** 閲覧・編集・管理のロールでプロジェクトを共有。サインインとシークレットの値は、それぞれのパソコンに残ります。
+- **[リリース。](https://kitewell.com/ja/docs/releases/)** Dev から Staging、本番へ。差分を確かめて反映し、ロールバックもできます。
 - **ロボット管理台帳。** すべてのワークフローを 1 行ずつ、FISC の項目順で台帳に書き出せます。
 - **共有のコンピューター（Enterprise）。** 自社の Azure や AWS の VM など、組織が持つコンピューターが、誰もサインインしていなくても昼夜ワークフローを動かします。ノート PC のスリープや担当者の異動で止まりません。
 - **ブラウザーから作る（Enterprise）。** 会社のアカウントでサインインし、ワークフローが動くコンピューターの上で、そのブラウザーを見ながら作って試せます。修正の承認はスマホから。リモートデスクトップは要りません。
@@ -136,7 +136,7 @@ Kitewell のチャット画面の実際の録画です。編集はせず、一�
 | システムの種類ごとに、別のツール | Web サイト、デスクトップアプリ、Excel、メールを 1 つのワークフローに |
 | ロボットが何をしたか、見えにくい | すべてのステップ、スクリーンショット、承認が実行の記録に |
 
-[Kitewell と、ほかの選択肢 →](https://kitewell.app/ja/compare/)
+[Kitewell と、ほかの選択肢 →](https://kitewell.com/ja/compare/)
 
 ## あなたのパソコン、あなたの鍵、あなたのファイル
 
@@ -147,18 +147,18 @@ Kitewell のチャット画面の実際の録画です。編集はせず、一�
 - **外に出るものは正確に。** 同期したプロジェクトが送るのは、実行の状態と失敗したステップの名前だけ。ログ、出力、シークレットの値は送りません。
 - **6 つの言語。** アプリは日本語、英語、中国語、韓国語、フランス語、ドイツ語に対応しています。
 
-[外に出るものと、そのタイミングのすべて →](https://kitewell.app/ja/docs/data-flow/)
+[外に出るものと、そのタイミングのすべて →](https://kitewell.com/ja/docs/data-flow/)
 
 ## 活用例
 
 | 業務 | コーディング |
 | --- | --- |
-| [仕入れ先ポータルの請求書ダウンロード](https://kitewell.app/ja/examples/supplier-invoices/)：平日の朝 | [失敗したテストを Claude Code で夜のうちに修正](https://kitewell.app/ja/examples/fix-failing-tests/)：平日の 2:00 |
-| [Excel の一覧から Web サイトへの発注](https://kitewell.app/ja/examples/excel-orders/)：受注が入るたびに | [Codex と Claude Code でプルリクエストをレビュー](https://kitewell.app/ja/examples/review-every-pr/)：プルリクエストが開くたびに |
-| [メールで届く請求書の転記](https://kitewell.app/ja/examples/invoice-intake/)：数日おきに | [GitHub の Issue の仕分け](https://kitewell.app/ja/examples/triage-issues/)：Issue が開くたびに |
-| [毎朝のメールのダイジェスト](https://kitewell.app/ja/examples/inbox-digest/)：毎朝 | [Codex で依存関係を定期的に更新](https://kitewell.app/ja/examples/dependency-update/)：毎週月曜 |
+| [仕入れ先ポータルの請求書ダウンロード](https://kitewell.com/ja/examples/supplier-invoices/)：平日の朝 | [失敗したテストを Claude Code で夜のうちに修正](https://kitewell.com/ja/examples/fix-failing-tests/)：平日の 2:00 |
+| [Excel の一覧から Web サイトへの発注](https://kitewell.com/ja/examples/excel-orders/)：受注が入るたびに | [Codex と Claude Code でプルリクエストをレビュー](https://kitewell.com/ja/examples/review-every-pr/)：プルリクエストが開くたびに |
+| [メールで届く請求書の転記](https://kitewell.com/ja/examples/invoice-intake/)：数日おきに | [GitHub の Issue の仕分け](https://kitewell.com/ja/examples/triage-issues/)：Issue が開くたびに |
+| [毎朝のメールのダイジェスト](https://kitewell.com/ja/examples/inbox-digest/)：毎朝 | [Codex で依存関係を定期的に更新](https://kitewell.com/ja/examples/dependency-update/)：毎週月曜 |
 
-[すべての活用例 →](https://kitewell.app/ja/examples/)
+[すべての活用例 →](https://kitewell.com/ja/examples/)
 
 ## 料金
 
@@ -179,21 +179,21 @@ Kitewell のチャット画面の実際の録画です。編集はせず、一�
 
 価格は税抜です。日本国外からのお申し込みは米ドルでの決済となり、Personal は月額 20 ドル、Team は 1 台につき月額 99 ドル（いずれも税抜）です。どのプランにも Dagu Cloud アカウントが必要です。Kitewell からサインインするとトライアルが始まり、終了後は契約するまで何も実行されず、プロジェクトは読み取り専用で、開いたり書き出したりできます。Personal はサインインしている間に動きます。組織の共有の仕事に使う場合、つまり複数の人のコンピューターや、そのために用意したコンピューターで動かす場合は Team が必要で、[Dagu Console](https://console.dagu.sh/kitewell) で申し込めます。クレジットパックに期限はなく、その月のクレジットのあとに使われます。25 人・100 台を超える場合や、共有のコンピューター、ブラウザーのワークスペース、SSO、監査ログの書き出し、閉域網での同期、SLA が必要な場合は、Enterprise 契約でご用意します。お見積りは [company@descarty.com](mailto:company@descarty.com) までご連絡ください。業務自動化の支援会社様は、[パートナープログラム](https://descarty.com/partners/)で Kitewell を Team の 30% 引きで再販できます。AI プロバイダーの利用料は別途かかります。
 
-[料金の詳細 →](https://kitewell.app/ja/pricing/)
+[料金の詳細 →](https://kitewell.com/ja/pricing/)
 
 ## インストール
 
 Kitewell は、macOS 13 以降（Apple シリコンと Intel）と、Windows 10 バージョン 1809 以降および Windows 11（x64）で動きます。Web サイトの自動化には Chrome を使います。Windows では Edge も使えます。
 
-インストーラーは[ダウンロードのページ](https://kitewell.app/ja/download/)または [GitHub Releases](https://github.com/dagucloud/kitewell/releases) から入手できます。インストールしたら、[最初のワークフロー](https://kitewell.app/ja/docs/getting-started/)に進んでください。
+インストーラーは[ダウンロードのページ](https://kitewell.com/ja/download/)または [GitHub Releases](https://github.com/dagucloud/kitewell/releases) から入手できます。インストールしたら、[最初のワークフロー](https://kitewell.com/ja/docs/getting-started/)に進んでください。
 
 ## ドキュメント
 
-- **はじめる：** [Kitewell をインストールする](https://kitewell.app/ja/docs/install/) · [最初のワークフロー](https://kitewell.app/ja/docs/getting-started/) · [ワークフローを組み立てる](https://kitewell.app/ja/docs/workflow-builder/)
-- **自動化する：** [Web サイト](https://kitewell.app/ja/docs/browser/) · [デスクトップアプリ](https://kitewell.app/ja/docs/desktop/) · [Excel](https://kitewell.app/ja/docs/spreadsheets/) · [メール](https://kitewell.app/ja/docs/email/) · [API のインポート](https://kitewell.app/ja/docs/apis/) · [AI エージェントとモデル](https://kitewell.app/ja/docs/ai/) · [シートでワークフローを一括実行](https://kitewell.app/ja/docs/batches/)
-- **動かす：** [スケジュール](https://kitewell.app/ja/docs/scheduling/) · [Webhook](https://kitewell.app/ja/docs/webhooks/) · [実行とログ](https://kitewell.app/ja/docs/runs/) · [アラート](https://kitewell.app/ja/docs/alerts/) · [シークレット](https://kitewell.app/ja/docs/secrets/) · [ナレッジ](https://kitewell.app/ja/docs/knowledge/)
-- **つなぐ・共有する：** [MCP と API アクセス](https://kitewell.app/ja/docs/mcp/) · [Dagu Cloud で同期](https://kitewell.app/ja/docs/cloud-sync/) · [チームで共有](https://kitewell.app/ja/docs/sharing/) · [リリースと段階的なプロジェクト](https://kitewell.app/ja/docs/releases/)
-- **運用する：** [コンピューターの外に出るもの](https://kitewell.app/ja/docs/data-flow/) · [バックアップと復旧](https://kitewell.app/ja/docs/backups/) · [更新](https://kitewell.app/ja/docs/updates/) · [トラブルシューティング](https://kitewell.app/ja/docs/troubleshooting/) · [アンインストール](https://kitewell.app/ja/docs/uninstall/)
+- **はじめる：** [Kitewell をインストールする](https://kitewell.com/ja/docs/install/) · [最初のワークフロー](https://kitewell.com/ja/docs/getting-started/) · [ワークフローを組み立てる](https://kitewell.com/ja/docs/workflow-builder/)
+- **自動化する：** [Web サイト](https://kitewell.com/ja/docs/browser/) · [デスクトップアプリ](https://kitewell.com/ja/docs/desktop/) · [Excel](https://kitewell.com/ja/docs/spreadsheets/) · [メール](https://kitewell.com/ja/docs/email/) · [API のインポート](https://kitewell.com/ja/docs/apis/) · [AI エージェントとモデル](https://kitewell.com/ja/docs/ai/) · [シートでワークフローを一括実行](https://kitewell.com/ja/docs/batches/)
+- **動かす：** [スケジュール](https://kitewell.com/ja/docs/scheduling/) · [Webhook](https://kitewell.com/ja/docs/webhooks/) · [実行とログ](https://kitewell.com/ja/docs/runs/) · [アラート](https://kitewell.com/ja/docs/alerts/) · [シークレット](https://kitewell.com/ja/docs/secrets/) · [ナレッジ](https://kitewell.com/ja/docs/knowledge/)
+- **つなぐ・共有する：** [MCP と API アクセス](https://kitewell.com/ja/docs/mcp/) · [Dagu Cloud で同期](https://kitewell.com/ja/docs/cloud-sync/) · [チームで共有](https://kitewell.com/ja/docs/sharing/) · [リリースと段階的なプロジェクト](https://kitewell.com/ja/docs/releases/)
+- **運用する：** [コンピューターの外に出るもの](https://kitewell.com/ja/docs/data-flow/) · [バックアップと復旧](https://kitewell.com/ja/docs/backups/) · [更新](https://kitewell.com/ja/docs/updates/) · [トラブルシューティング](https://kitewell.com/ja/docs/troubleshooting/) · [アンインストール](https://kitewell.com/ja/docs/uninstall/)
 
 ## サポート
 

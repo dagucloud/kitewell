@@ -1,4 +1,4 @@
-// Visit statistics for kitewell.app. PostHog loads only after the page has
+// Visit statistics for kitewell.com. PostHog loads only after the page has
 // finished loading, so it never competes with what a visitor came to read,
 // and it records page views and the events named here, never clicks at
 // large. Elsewhere, such as a preview build, nothing loads or is sent.
@@ -6,7 +6,7 @@ import type { PostHog } from "posthog-js";
 
 type Properties = Record<string, string | number | boolean>;
 
-const hosts = ["kitewell.app", "www.kitewell.app"];
+const hosts = ["kitewell.com", "www.kitewell.com", "kitewell.app", "www.kitewell.app"];
 let client: Promise<PostHog | null> | undefined;
 
 const loaded = () =>

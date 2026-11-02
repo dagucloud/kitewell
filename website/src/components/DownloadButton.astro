@@ -79,7 +79,7 @@ const text = {
 }[locale];
 const page = localize("/download/", locale);
 const link = (get?: string) => `${page}?${get ? `get=${get}&` : ""}from=${place}`;
-const share = new URL(`${page}?from=share`, "https://kitewell.app").href;
+const share = new URL(`${page}?from=share`, "https://kitewell.com").href;
 ---
 
 <span

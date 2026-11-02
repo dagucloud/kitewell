@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Documentation
-    url: https://kitewell.app/docs/
+    url: https://kitewell.com/docs/
     about: Installation, workflows, and troubleshooting.
   - name: Private security report
     url: https://github.com/dagucloud/kitewell/security/advisories/new

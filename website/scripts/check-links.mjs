@@ -24,7 +24,7 @@ for (const file of htmlFiles) {
     if (/^(?:https?:|mailto:|data:|javascript:|\/\/)/.test(value)) continue;
     const url = new URL(
       value.replaceAll("&amp;", "&"),
-      "https://kitewell.app" + route,
+      "https://kitewell.com" + route,
     );
     let target = path.join(root, decodeURIComponent(url.pathname));
     try {

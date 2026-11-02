@@ -1,12 +1,12 @@
 ---
 title: Privacy Policy
 description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes and calendars stay on your device.
-updated: 2026-10-25
+updated: 2026-11-02
 ---
 
 Descarty, Inc. ("Descarty", "we") publishes Kitewell. This policy explains what
-information the Kitewell application and the kitewell.app website handle, where
-it goes, and what we receive.
+information the Kitewell application and the kitewell.com website (also served
+at kitewell.app) handle, where it goes, and what we receive.
 
 The short version: Kitewell runs on your device. Your workflows, run history,
 logs, credentials, and connected mailboxes and calendars stay there. We do not
@@ -309,15 +309,17 @@ it. A new URL replaces the old one the same way.
 ## 7. Updates and downloads
 
 To check for updates, Kitewell requests the public version list from
-kitewell.app: about once a day while the app runs, and when you choose
+kitewell.com, or kitewell.app in earlier builds: about once a day while the
+app runs, and when you choose
 **Check for Updates…**. Installers download from GitHub Releases, and engine
 updates come from their release service. Like any web request, these reveal
 your IP address to the service that receives them. They carry no workflow
 data.
 
-## 8. The kitewell.app website
+## 8. The kitewell.com website
 
-The website is hosted on Cloudflare Pages. We use PostHog to count visits: it
+The website, at kitewell.com and also at kitewell.app, is hosted on Cloudflare
+Pages. We use PostHog to count visits: it
 records the pages viewed, the referring site, and the device and browser type,
 and stores an identifier in your browser to do so. It does not record your
 screen or keystrokes. Cloudflare may keep request logs for security and

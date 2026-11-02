@@ -24,7 +24,7 @@ Each entry says what is sent, who receives it, and how to stop it.
 - **[ChatGPT or Claude connected to Kitewell](/docs/mcp/).** Sends whatever the app asks for: workflows, runs and logs, artifacts, sheets, knowledge, and — with edit permission — rows of an Excel file on this computer. To the app, through Kitewell's relay at `mcp.kitewell.app`. Stop it with **Remote access** off, or **Revoke** the app.
 - **An event an app or API key subscribed to.** Sends each event: the project, workflow, run, how it ended, the times, failed step names, a waiting step's question, a sheet launch's counts, or why a schedule was missed. To the address the subscriber gave. Stop it with **Remove** on the subscription.
 - **A workflow's Webhook.** Nothing goes out. Requests come in and wait at Kitewell's relay at `hooks.kitewell.app`, with their headers and body, for at most 7 days, until this computer takes them. Stop it with **Turn off** on that webhook.
-- **Update checks.** Sends a request that says nothing about you or your work. To GitHub for the workflow engine, and kitewell.app for the Kitewell app. Stop the engine's with **Automatic engine updates** off; the app is checked only when you ask.
+- **Update checks.** Sends a request that says nothing about you or your work. To GitHub for the workflow engine, and kitewell.com (kitewell.app in earlier builds) for the Kitewell app. Stop the engine's with **Automatic engine updates** off; the app is checked only when you ask.
 - **Install WebView2 on Windows.** Sends a download request to Microsoft. The installer normally carries the runtime, so this appears only if it is missing.
 
 Kitewell sends nothing else. There is no usage tracking, no crash reporting,

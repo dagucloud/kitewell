@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://kitewell.app/#film">
+  <a href="https://kitewell.com/#film">
     <img src=".github/readme/hero-en.webp" width="100%"
       alt="A script written by hand stops when a supplier portal's sign-in page changes. Kitewell's next run finds the new Sign in button, keeps it, and the run after that replays it.">
   </a>
@@ -19,12 +19,12 @@
 </p>
 
 <p align="center">
-  <a href="https://kitewell.app/#film"><strong>▶ Watch the 74-second film</strong></a> ·
-  <a href="https://kitewell.app/download/">Download</a> ·
-  <a href="https://kitewell.app/docs/getting-started/">Get started</a> ·
-  <a href="https://kitewell.app/docs/">Docs</a> ·
-  <a href="https://kitewell.app/examples/">Examples</a> ·
-  <a href="https://kitewell.app/pricing/">Pricing</a>
+  <a href="https://kitewell.com/#film"><strong>▶ Watch the 74-second film</strong></a> ·
+  <a href="https://kitewell.com/download/">Download</a> ·
+  <a href="https://kitewell.com/docs/getting-started/">Get started</a> ·
+  <a href="https://kitewell.com/docs/">Docs</a> ·
+  <a href="https://kitewell.com/examples/">Examples</a> ·
+  <a href="https://kitewell.com/pricing/">Pricing</a>
 </p>
 
 <p align="center">
@@ -41,7 +41,7 @@ request in plain words, then everything the AI and the app did.
 <table>
   <tr>
     <td width="50%" valign="top">
-      <a href="https://kitewell.app/"><img src="website/public/videos/proof/websites-en.webp" alt="Kitewell's chat proposes a weekday workflow that collects a supplier portal's new invoices into Excel. Real recording, 3x speed."></a>
+      <a href="https://kitewell.com/"><img src="website/public/videos/proof/websites-en.webp" alt="Kitewell's chat proposes a weekday workflow that collects a supplier portal's new invoices into Excel. Real recording, 3x speed."></a>
       <p><strong>Websites.</strong> Asked to add a supplier portal's new
       invoices to an Excel file every weekday, the AI signs in to a stand-in
       portal in a browser shown in the chat, while you type the password into
@@ -49,7 +49,7 @@ request in plain words, then everything the AI and the app did.
       the invoices it found until you say go.</p>
     </td>
     <td width="50%" valign="top">
-      <a href="https://kitewell.app/coding-agents/"><img src="website/public/videos/proof/agents-en.webp" alt="Kitewell's chat proposes a nightly workflow where Claude Code fixes failing tests and Codex reviews the change. Real recording, 2x speed."></a>
+      <a href="https://kitewell.com/coding-agents/"><img src="website/public/videos/proof/agents-en.webp" alt="Kitewell's chat proposes a nightly workflow where Claude Code fixes failing tests and Codex reviews the change. Real recording, 2x speed."></a>
       <p><strong>Coding agents.</strong> Asked to have Claude Code fix a demo
       repository's failing tests every night and Codex review the change, the
       assistant proposes the scheduled workflow and runs it. The run waits
@@ -172,11 +172,11 @@ steps:
         ${steps.collect.outputs.invoices}
 ```
 
-[See this example in full →](https://kitewell.app/examples/supplier-invoices/)
+[See this example in full →](https://kitewell.com/examples/supplier-invoices/)
 
 </details>
 
-[How website automation works →](https://kitewell.app/docs/browser/)
+[How website automation works →](https://kitewell.com/docs/browser/)
 
 ## Coding agents: Claude Code, Codex, and 13 more, on your schedule
 
@@ -243,35 +243,35 @@ steps:
       gh pr create --fill --base main --head fix/nightly-tests
 ```
 
-[See this example in full →](https://kitewell.app/examples/fix-failing-tests/)
+[See this example in full →](https://kitewell.com/examples/fix-failing-tests/)
 
 </details>
 
-Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/docs/ai/)
+Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.com/docs/ai/)
 
 ## Beyond the browser
 
-- **[Desktop apps with no API.](https://kitewell.app/docs/desktop/)** A model
+- **[Desktop apps with no API.](https://kitewell.com/docs/desktop/)** A model
   reads the screen and works the app. Later runs replay on Windows by the
   app's own buttons and fields, and on macOS from the screen.
-- **[Excel, row by row.](https://kitewell.app/docs/spreadsheets/)** Runs once
+- **[Excel, row by row.](https://kitewell.com/docs/spreadsheets/)** Runs once
   per row of the workbook you already have and writes each result back beside
   it. Merged headers, era dates, and full-width digits included.
-- **[Email.](https://kitewell.app/docs/email/)** Find, read, file, and send
+- **[Email.](https://kitewell.com/docs/email/)** Find, read, file, and send
   mail in Microsoft 365, Gmail with an app password, or any IMAP mailbox.
-- **[Scripts, servers, and APIs.](https://kitewell.app/docs/workflow-builder/)**
+- **[Scripts, servers, and APIs.](https://kitewell.com/docs/workflow-builder/)**
   Commands, Docker, SSH rollouts a few machines at a time, and any OpenAPI,
   with decision steps that choose the next path.
 
 ## It starts on its own
 
-- **[Schedules.](https://kitewell.app/docs/scheduling/)** Daily, on weekdays,
+- **[Schedules.](https://kitewell.com/docs/scheduling/)** Daily, on weekdays,
   or any schedule, in your time zone. Starts a sleeping computer missed are
   caught up when it wakes.
-- **[Webhooks.](https://kitewell.app/docs/webhooks/)** GitHub, Stripe, Slack,
+- **[Webhooks.](https://kitewell.com/docs/webhooks/)** GitHub, Stripe, Slack,
   or any service starts a workflow on your computer through Kitewell's relay.
   Signatures are checked, no port is opened, and a request waits up to 7 days.
-- **[From anywhere.](https://kitewell.app/docs/mcp/)** From ChatGPT or Claude
+- **[From anywhere.](https://kitewell.com/docs/mcp/)** From ChatGPT or Claude
   on your phone, from Claude Code or Codex over MCP, or with a REST call.
 
 ## Approve and follow runs from your phone. Know why one failed.
@@ -281,7 +281,7 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
 - **Approve or send back.** Any step can wait for your OK. Approve it, or send
   it back with a note, from the run, a notification, or ChatGPT and Claude on
   your phone.
-- **[Runs in your browser.](https://kitewell.app/docs/console/)** Dagu Console
+- **[Runs in your browser.](https://kitewell.com/docs/console/)** Dagu Console
   shows each run of a synced project and the computer it ran on. Open it on
   your phone. Included in every plan.
 - **Alerts.** Slack, Microsoft Teams, PagerDuty, email, or a desktop
@@ -303,14 +303,14 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
 
 ## Run it on every computer. Watch them all from one place.
 
-- **[Every computer, one view.](https://kitewell.app/docs/console/)** Dagu
+- **[Every computer, one view.](https://kitewell.com/docs/console/)** Dagu
   Console lists each computer's status, Kitewell version, and today's runs.
   One alert per workflow, however many computers run it, closed by the next
   success on any of them.
-- **[Sync and roles.](https://kitewell.app/docs/cloud-sync/)** Share projects
+- **[Sync and roles.](https://kitewell.com/docs/cloud-sync/)** Share projects
   with Viewer, Editor, and Admin roles. Each computer keeps its own sign-ins
   and secret values.
-- **[Releases.](https://kitewell.app/docs/releases/)** Promote workflows from
+- **[Releases.](https://kitewell.com/docs/releases/)** Promote workflows from
   Dev to Staging to Prod, with a diff and rollback.
 - **Robot ledger.** Export a ledger of every workflow for audits, one row
   each.
@@ -331,7 +331,7 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
 | One tool per kind of system | Websites, desktop apps, Excel, and email in one workflow |
 | Hard to see what a robot did | Every step, screenshot, and approval in the run record |
 
-[How Kitewell compares →](https://kitewell.app/compare/)
+[How Kitewell compares →](https://kitewell.com/compare/)
 
 ## Your computer, your keys, your files
 
@@ -348,18 +348,18 @@ Each vendor's terms apply. [Coding agents in Kitewell →](https://kitewell.app/
 - **Six languages.** The app speaks English, Japanese, Chinese, Korean,
   French, and German.
 
-[Everything that leaves, and when →](https://kitewell.app/docs/data-flow/)
+[Everything that leaves, and when →](https://kitewell.com/docs/data-flow/)
 
 ## Examples
 
 | Everyday work | Coding |
 | --- | --- |
-| [Supplier invoice downloads](https://kitewell.app/examples/supplier-invoices/), every weekday morning | [Fix failing tests overnight with Claude Code](https://kitewell.app/examples/fix-failing-tests/), every weekday at 2:00 |
-| [Website orders from an Excel list](https://kitewell.app/examples/excel-orders/), whenever new orders come in | [Pull request reviews with Codex and Claude Code](https://kitewell.app/examples/review-every-pr/), on every new pull request |
-| [Invoice data entry from email](https://kitewell.app/examples/invoice-intake/), every few days | [GitHub issue triage](https://kitewell.app/examples/triage-issues/), on every new issue |
-| [A daily email digest](https://kitewell.app/examples/inbox-digest/), every morning | [Dependency updates with Codex](https://kitewell.app/examples/dependency-update/), every Monday |
+| [Supplier invoice downloads](https://kitewell.com/examples/supplier-invoices/), every weekday morning | [Fix failing tests overnight with Claude Code](https://kitewell.com/examples/fix-failing-tests/), every weekday at 2:00 |
+| [Website orders from an Excel list](https://kitewell.com/examples/excel-orders/), whenever new orders come in | [Pull request reviews with Codex and Claude Code](https://kitewell.com/examples/review-every-pr/), on every new pull request |
+| [Invoice data entry from email](https://kitewell.com/examples/invoice-intake/), every few days | [GitHub issue triage](https://kitewell.com/examples/triage-issues/), on every new issue |
+| [A daily email digest](https://kitewell.com/examples/inbox-digest/), every morning | [Dependency updates with Codex](https://kitewell.com/examples/dependency-update/), every Monday |
 
-[All examples →](https://kitewell.app/examples/)
+[All examples →](https://kitewell.com/examples/)
 
 ## Pricing
 
@@ -392,7 +392,7 @@ quote. Automation agencies resell Kitewell at $69 a computer a month through
 the [partner program](https://descarty.com/en/partners/). AI provider usage is
 separate.
 
-[Pricing details →](https://kitewell.app/pricing/)
+[Pricing details →](https://kitewell.com/pricing/)
 
 ## Install
 
@@ -400,37 +400,37 @@ Kitewell runs on macOS 13 or later, on Apple silicon and Intel, and on Windows
 10 version 1809 or later and Windows 11, on x64. Website automation uses
 Chrome, or Edge on Windows.
 
-Download the installer from the [download page](https://kitewell.app/download/)
+Download the installer from the [download page](https://kitewell.com/download/)
 or [GitHub Releases](https://github.com/dagucloud/kitewell/releases), then
-follow [Your first workflow](https://kitewell.app/docs/getting-started/).
+follow [Your first workflow](https://kitewell.com/docs/getting-started/).
 
 ## Documentation
 
-- **Start:** [Install Kitewell](https://kitewell.app/docs/install/) ·
-  [Your first workflow](https://kitewell.app/docs/getting-started/) ·
-  [Build a workflow](https://kitewell.app/docs/workflow-builder/)
-- **Automate:** [A website](https://kitewell.app/docs/browser/) ·
-  [A desktop app](https://kitewell.app/docs/desktop/) ·
-  [Excel](https://kitewell.app/docs/spreadsheets/) ·
-  [Email](https://kitewell.app/docs/email/) ·
-  [Import an API](https://kitewell.app/docs/apis/) ·
-  [AI agents and models](https://kitewell.app/docs/ai/) ·
-  [Run a workflow over a sheet](https://kitewell.app/docs/batches/)
-- **Run:** [Schedules](https://kitewell.app/docs/scheduling/) ·
-  [Webhooks](https://kitewell.app/docs/webhooks/) ·
-  [Runs and logs](https://kitewell.app/docs/runs/) ·
-  [Alerts](https://kitewell.app/docs/alerts/) ·
-  [Secrets](https://kitewell.app/docs/secrets/) ·
-  [Knowledge](https://kitewell.app/docs/knowledge/)
-- **Connect and share:** [MCP and API access](https://kitewell.app/docs/mcp/) ·
-  [Sync with Dagu Cloud](https://kitewell.app/docs/cloud-sync/) ·
-  [Share with your team](https://kitewell.app/docs/sharing/) ·
-  [Releases and staged projects](https://kitewell.app/docs/releases/)
-- **Operate:** [What leaves your computer](https://kitewell.app/docs/data-flow/) ·
-  [Backups](https://kitewell.app/docs/backups/) ·
-  [Updates](https://kitewell.app/docs/updates/) ·
-  [Troubleshooting](https://kitewell.app/docs/troubleshooting/) ·
-  [Uninstall](https://kitewell.app/docs/uninstall/)
+- **Start:** [Install Kitewell](https://kitewell.com/docs/install/) ·
+  [Your first workflow](https://kitewell.com/docs/getting-started/) ·
+  [Build a workflow](https://kitewell.com/docs/workflow-builder/)
+- **Automate:** [A website](https://kitewell.com/docs/browser/) ·
+  [A desktop app](https://kitewell.com/docs/desktop/) ·
+  [Excel](https://kitewell.com/docs/spreadsheets/) ·
+  [Email](https://kitewell.com/docs/email/) ·
+  [Import an API](https://kitewell.com/docs/apis/) ·
+  [AI agents and models](https://kitewell.com/docs/ai/) ·
+  [Run a workflow over a sheet](https://kitewell.com/docs/batches/)
+- **Run:** [Schedules](https://kitewell.com/docs/scheduling/) ·
+  [Webhooks](https://kitewell.com/docs/webhooks/) ·
+  [Runs and logs](https://kitewell.com/docs/runs/) ·
+  [Alerts](https://kitewell.com/docs/alerts/) ·
+  [Secrets](https://kitewell.com/docs/secrets/) ·
+  [Knowledge](https://kitewell.com/docs/knowledge/)
+- **Connect and share:** [MCP and API access](https://kitewell.com/docs/mcp/) ·
+  [Sync with Dagu Cloud](https://kitewell.com/docs/cloud-sync/) ·
+  [Share with your team](https://kitewell.com/docs/sharing/) ·
+  [Releases and staged projects](https://kitewell.com/docs/releases/)
+- **Operate:** [What leaves your computer](https://kitewell.com/docs/data-flow/) ·
+  [Backups](https://kitewell.com/docs/backups/) ·
+  [Updates](https://kitewell.com/docs/updates/) ·
+  [Troubleshooting](https://kitewell.com/docs/troubleshooting/) ·
+  [Uninstall](https://kitewell.com/docs/uninstall/)
 
 ## Support
 
@@ -446,7 +446,7 @@ Kitewell is made by [Descarty, Inc.](https://descarty.com/en/)
 
 ## About this repository
 
-This repository holds the kitewell.app website, customer documentation,
+This repository holds the kitewell.com website, customer documentation,
 release notes, and public releases. The application source is not published
 here.
 

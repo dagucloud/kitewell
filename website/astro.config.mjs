@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import { languages, locales } from "./src/lib/i18n.mjs";
 
 export default defineConfig({
-  site: "https://kitewell.app",
+  site: "https://kitewell.com",
   trailingSlash: "always",
   redirects: {
     "/community": "https://join.slack.com/t/kitewell/shared_invite/zt-4c4b7g551-nkAwJqwfdeBhrtnMMm3vZg",

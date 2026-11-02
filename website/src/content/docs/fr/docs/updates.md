@@ -25,7 +25,7 @@ est activé, Kitewell :
    de la zone de notification disparaît quelques secondes puis revient, et une
    fenêtre qui était ouverte se rouvre sur la même page.
 
-Ensuite, une notification indique **Kitewell a été mis à jour vers la version x.y.z** ; un clic dessus ouvre les notes de version sur kitewell.app.
+Ensuite, une notification indique **Kitewell a été mis à jour vers la version x.y.z** ; un clic dessus ouvre les notes de version sur kitewell.com.
 
 Une nouvelle version arrive sur les appareils en deux jours : tous les
 ordinateurs ne la voient donc pas le même jour. **Rechercher les mises à jour…** dans le
@@ -118,8 +118,9 @@ les versions de l’app et du service.
 ## Détails
 
 - Les builds publics lisent leur flux de mises à jour à l’adresse
-  `https://kitewell.app/updates/macos/latest.json` sur Mac et
-  `https://kitewell.app/updates/windows/latest.json` sous Windows.
+  `/updates/macos/latest.json` sur Mac et `/updates/windows/latest.json` sous
+  Windows, sur kitewell.com ou, pour les builds antérieurs au passage à
+  kitewell.com, sur kitewell.app. Les deux servent les mêmes fichiers.
 - La vérification et le téléchargement laissent les workflows s’exécuter.
   Seule l’installation redémarre quelque chose.
 - Un téléchargement attend que le disque dispose de 2 Go d’espace libre et

@@ -12,7 +12,7 @@ Kitewell 会自动保持最新。它在后台下载新版本，确认该版本�
 2. 在后台下载新版本并验证其签名。整个过程不显示任何内容。
 3. 在下一个安全的时机安装：下次你退出 Kitewell、登录或重启电脑时，或者没有打开任何 Kitewell 窗口、或你已离开半小时的空闲时刻。菜单栏或托盘中的图标会消失几秒钟后重新出现，原本打开的窗口会重新打开到同一页面。
 
-之后会收到一条通知，显示 **Kitewell 已更新到 x.y.z**；点击通知即可打开 kitewell.app 上的发布说明。
+之后会收到一条通知，显示 **Kitewell 已更新到 x.y.z**；点击通知即可打开 kitewell.com 上的发布说明。
 
 新版本会在两天内陆续推送到各台设备，因此并非每台电脑都在同一天收到。Kitewell 菜单（Mac 上为菜单栏菜单，Windows 上为托盘图标菜单）中的 **检查更新…** 会立即查找并马上获取新版本；如果没有新版本，则显示 **Kitewell 已是最新版本**。
 
@@ -52,7 +52,7 @@ Dagu Cloud 可能会停止为不再支持的版本提供服务。工作流、计
 
 ## 详细信息
 
-- 公开版本在 Mac 上从 `https://kitewell.app/updates/macos/latest.json` 读取更新源，在 Windows 上从 `https://kitewell.app/updates/windows/latest.json` 读取。
+- 公开版本从 kitewell.com 读取更新源：Mac 上为 `/updates/macos/latest.json`，Windows 上为 `/updates/windows/latest.json`。迁移到 kitewell.com 之前的版本从 kitewell.app 读取，两处提供相同的文件。
 - 检查和下载不会影响正在运行的工作流。只有安装才会导致重启。
 - 下载会等到磁盘可用空间达到 2 GB，并且连接不是按流量计费时才进行。已下载但尚未安装的更新，会在该版本被暂停或替换时丢弃。
 - 更新后的通知每个版本只出现一次，并且只在允许 Kitewell 发送通知时出现。

@@ -27,7 +27,7 @@ ist, geht Kitewell so vor:
 
 Danach meldet eine einzige Mitteilung **Kitewell wurde auf x.y.z aktualisiert**;
 ein Klick darauf öffnet die Neuerungen in den Versionshinweisen auf
-kitewell.app.
+kitewell.com.
 
 Eine neue Version erreicht die Geräte über zwei Tage verteilt, daher sieht sie
 nicht jeder Computer am selben Tag. **Nach Updates suchen…** im Kitewell-Menü –
@@ -118,8 +118,9 @@ Infobereichs die Versionen von App und Dienst.
 ## Details
 
 - Öffentliche Builds lesen ihren Update-Feed auf dem Mac von
-  `https://kitewell.app/updates/macos/latest.json` und unter Windows von
-  `https://kitewell.app/updates/windows/latest.json`.
+  `/updates/macos/latest.json` und unter Windows von
+  `/updates/windows/latest.json`, auf kitewell.com oder, in Builds vor dem
+  Umzug zu kitewell.com, auf kitewell.app. Beide liefern dieselben Dateien.
 - Prüfen und Herunterladen lassen Workflows weiterlaufen. Nur das Installieren
   startet etwas neu.
 - Ein Download wartet auf 2 GB freien Speicherplatz und auf eine Verbindung,

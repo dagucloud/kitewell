@@ -22,7 +22,7 @@ Device settings → Updates**. With it on, Kitewell:
    that was open opens again on the same page.
 
 Afterwards, one notification says **Kitewell updated to x.y.z**; clicking it
-opens the release notes on kitewell.app.
+opens the release notes on kitewell.com.
 
 A new version reaches devices over two days, so not every computer sees it on
 the same day. **Check for Updates…** in the Kitewell menu, the menu bar menu
@@ -100,9 +100,10 @@ and service versions.
 
 ## Details
 
-- Public builds read their update feed from
-  `https://kitewell.app/updates/macos/latest.json` on a Mac and
-  `https://kitewell.app/updates/windows/latest.json` on Windows.
+- Public builds read their update feed from `/updates/macos/latest.json` on
+  a Mac and `/updates/windows/latest.json` on Windows, at kitewell.com or, in
+  builds before the move to kitewell.com, at kitewell.app. Both serve the same
+  files.
 - Checking and downloading leave workflows running. Only installing restarts
   anything.
 - A download waits for 2 GB of free disk space and for a connection that is
