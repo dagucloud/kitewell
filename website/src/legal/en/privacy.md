@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes, calendars, and Google files stay on your device.
-updated: 2026-11-02
+updated: 2026-11-03
 ---
 
 Descarty, Inc. ("Descarty", "we") publishes Kitewell. This policy explains what
@@ -10,7 +10,9 @@ at kitewell.app) handle, where it goes, and what we receive.
 
 The short version: Kitewell runs on your device. Your workflows, run history,
 logs, credentials, and connected mailboxes, calendars, and Google files stay
-there. We do not receive them.
+there. We do not receive them. In Kitewell Cloud and Kitehand, Kitewell runs
+instead in a session we operate in Google Cloud, which keeps them for you
+(section 3).
 If you sync a project, its definitions and the status of its runs go to Dagu
 Cloud, which we run (section 4).
 If you connect ChatGPT or Claude, what it reads through Kitewell's tools
@@ -61,17 +63,17 @@ to do what you ask in Kitewell: test the connection, list folders, and run the
 email steps in your workflows, which search, read, mark, move, and send email
 in that mailbox.
 
-**Where it is stored.** Your sign-in token, or the app password you enter, is
-stored only on your device, in two places: Kitewell's mailbox file and the
+**Where it is stored.** When Kitewell runs on your device, your sign-in token,
+or the app password you enter, is stored only there, in two places: Kitewell's mailbox file and the
 workflow engine's secret store. Both are encrypted (see "How it is protected"
 below). Email your workflows read is stored on your device in run output and
 logs, under the run's retention. Tokens never enter workflow files, logs,
 backups, exports, or Dagu Cloud.
 
 **Who receives it.** Descarty does not sell, share, transfer, or disclose data
-from your mailbox, including Google user data, to anyone. None of it is sent to
-Descarty to be stored, and no one at Descarty can read it. It leaves your
-device only in these cases, each at your direction:
+from your mailbox, including Google user data, to anyone. From your device,
+none of it is sent to Descarty to be stored, and no one at Descarty can read
+it. It leaves your device only in these cases, each at your direction:
 
 - **Destinations your workflows send it to.** A workflow step you write can
   send email content to the destination you choose, such as an AI provider
@@ -86,8 +88,21 @@ device only in these cases, each at your direction:
   its question or task text, which can quote email, to the HTTPS address the
   subscribing app provided.
 
-Because Descarty holds no data from your mailbox, it has none to disclose,
-including in response to a legal request.
+For a mailbox connected on your device, Descarty holds no data from it, so it
+has none to disclose, including in response to a legal request.
+
+**In a cloud session.** Kitewell Cloud and Kitehand run Kitewell for you in a
+session in Google Cloud, operated by Descarty, instead of on your device.
+There, your mailbox's sign-in token or app password and the email your
+workflows read are kept in that session and its storage, encrypted, in Google
+Cloud's Tokyo region (`asia-northeast1`), and a Google sign-in goes through
+Kitewell's web client, which returns to app.kitewell.com or app.kitehand.ai.
+A Kitehand assistant sends what it reads, which can include your email, to the
+AI model provider that answers it (OpenRouter and the model host it routes to)
+to do the work you asked for. The cases above, at your direction, are the only
+other ways it leaves the session. Descarty's staff are not let into your
+session by the product; access through Google Cloud by those who operate it
+is not yet technically restricted.
 
 **How it is protected.**
 
@@ -103,15 +118,16 @@ including in response to a legal request.
 - **Sign-in.** You sign in to Google or Microsoft in your own browser, so
   Kitewell never sees your account password. The sign-in uses OAuth 2.0 with
   PKCE and a one-time state value, and returns only to Kitewell at your
-  device's loopback address.
+  device's loopback address or, in a cloud session, at app.kitewell.com or
+  app.kitehand.ai.
 - **Access control.** Remote access stays off until you turn it on. Each AI
   app you connect needs your approval, and you can revoke it at any time.
   Local MCP and REST clients need an API key limited to the projects you
   choose.
 - **No credentials in output.** The workflow engine masks tokens and passwords
   in logs and run output.
-- **Removal.** Disconnecting a mailbox deletes its token from your device (see
-  "Disconnecting" below).
+- **Removal.** Disconnecting a mailbox deletes its token from your device, or
+  from your session in a cloud session (see "Disconnecting" below).
 
 **What Kitewell does not do.** Kitewell does not use data from your mailbox for
 advertising, does not sell it, and does not use it to develop, improve, or train
@@ -161,8 +177,8 @@ retention. Tokens never enter workflow files, logs, backups, exports, or Dagu
 Cloud.
 
 **Who receives it.** Descarty does not sell, share, transfer, or disclose data
-from your calendar, including Google user data, to anyone. None of it is sent
-to Descarty to be stored, and no one at Descarty can read it. It leaves your
+from your calendar, including Google user data, to anyone. From your device,
+none of it is sent to Descarty to be stored, and no one at Descarty can read it. It leaves your
 device only at your direction, in the same cases as mailbox data above:
 destinations your workflows send it to, an AI app you connect, and MCP Events.
 
@@ -171,7 +187,7 @@ session in Google Cloud, operated by Descarty, instead of on your device. There,
 your sign-in token and the events your workflows read are kept in that session
 and its storage, encrypted, in Google Cloud's Tokyo region (`asia-northeast1`),
 and you sign in to Google through Kitewell's web client, which returns to
-app.kitewell.app or app.kitehand.ai. A Kitehand assistant sends what it reads,
+app.kitewell.com or app.kitehand.ai. A Kitehand assistant sends what it reads,
 which can include your events, to the AI model provider that answers it
 (OpenRouter and the model host it routes to) to do the work you asked for.
 Descarty's staff are not let into your session by the product; access through
@@ -223,8 +239,8 @@ leaves it, and file contents your workflows read are stored on your device in
 run output and logs, under the run's retention.
 
 **Who receives it.** Descarty does not sell, share, transfer, or disclose data
-from your files, including Google user data, to anyone. None of it is sent to
-Descarty to be stored, and no one at Descarty can read it. It leaves your
+from your files, including Google user data, to anyone. From your device, none
+of it is sent to Descarty to be stored, and no one at Descarty can read it. It leaves your
 device only at your direction, in the same cases as mailbox data above.
 
 **In a cloud session.** As for Google Calendar above: in Kitewell Cloud and
