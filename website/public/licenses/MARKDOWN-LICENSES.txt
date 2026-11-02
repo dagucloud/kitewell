@@ -1,6 +1,6 @@
 Libraries bundled in the Kitewell artifact viewer.
 
---- dompurify 3.4.16 ---
+--- dompurify 3.4.17 ---
 
 
                                  Apache License
