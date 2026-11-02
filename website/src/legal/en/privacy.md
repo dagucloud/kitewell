@@ -1,6 +1,6 @@
 ---
 title: Privacy Policy
-description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes and calendars stay on your device.
+description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes, calendars, and Google files stay on your device.
 updated: 2026-11-02
 ---
 
@@ -9,8 +9,8 @@ information the Kitewell application and the kitewell.com website (also served
 at kitewell.app) handle, where it goes, and what we receive.
 
 The short version: Kitewell runs on your device. Your workflows, run history,
-logs, credentials, and connected mailboxes and calendars stay there. We do not
-receive them.
+logs, credentials, and connected mailboxes, calendars, and Google files stay
+there. We do not receive them.
 If you sync a project, its definitions and the status of its runs go to Dagu
 Cloud, which we run (section 4).
 If you connect ChatGPT or Claude, what it reads through Kitewell's tools
@@ -40,7 +40,7 @@ Microsoft Teams. Prompts, context, files, and output may be sent to those
 destinations as your workflows define. Each destination handles that data under
 its own terms and privacy policy.
 
-## 3. Connected mailboxes and calendars (Gmail, Microsoft 365, IMAP, and Google Calendar)
+## 3. Connected mailboxes, calendars, and files (Gmail, Microsoft 365, IMAP, Google Calendar, Google Sheets, and Google Drive)
 
 You can connect a mailbox so your workflows can find, read, organize, and send
 email in it. This section describes how Kitewell handles the data it receives
@@ -195,6 +195,56 @@ including the Limited Use requirements.
 deletes its token from your device. Kitewell does not revoke the grant at
 Google, because that would also end your mailbox connections made with the
 same Google account; you can remove Kitewell's access at any time from your
+[Google Account permissions](https://myaccount.google.com/permissions) page.
+
+### Google Sheets and Google Drive
+
+You can connect Google Sheets or Google Drive so your workflows can read and
+write the files you choose. This part describes how Kitewell handles the data
+it receives from them, which is Google user data received through Google APIs.
+
+**What Kitewell requests.** When you connect Google Sheets or Google Drive,
+Kitewell asks Google for your email address (`openid`, `email`) and for access
+to the files you use with Kitewell
+(`https://www.googleapis.com/auth/drive.file`). That permission reaches only
+the files you choose in Google's file picker, which opens as you finish
+signing in, and the files Kitewell creates for you. It does not let Kitewell
+see the rest of your Google Drive, and Kitewell asks for nothing more.
+
+**How Kitewell uses it.** Kitewell uses your email address to show which
+Google account a connection signed in as. It uses file access only to do what
+you ask in Kitewell: run the Google Sheets and Google Drive steps in your
+workflows, which read cells, write cells, add rows, create spreadsheets and
+folders, and list, read, export, copy, rename, or move the files you chose.
+
+**Where it is stored.** As for Google Calendar above: your sign-in token is
+stored only on your device, encrypted with AES-256-GCM under a key that never
+leaves it, and file contents your workflows read are stored on your device in
+run output and logs, under the run's retention.
+
+**Who receives it.** Descarty does not sell, share, transfer, or disclose data
+from your files, including Google user data, to anyone. None of it is sent to
+Descarty to be stored, and no one at Descarty can read it. It leaves your
+device only at your direction, in the same cases as mailbox data above.
+
+**In a cloud session.** As for Google Calendar above: in Kitewell Cloud and
+Kitehand, your sign-in token and the file contents your workflows read are
+kept in your session and its storage, encrypted, in Google Cloud's Tokyo
+region (`asia-northeast1`), and a Kitehand assistant sends what it reads to
+the AI model provider that answers it to do the work you asked for.
+
+**How it is protected.** As for mailboxes above.
+
+**What Kitewell does not do.** Kitewell does not use data from your files for
+advertising, does not sell it, and does not use it to develop, improve, or
+train AI or machine learning models. No one at Descarty reads it.
+
+**Limited Use.** The Limited Use statement in the Google Calendar part above
+applies to data from Google Sheets and Google Drive too.
+
+**Disconnecting.** Disconnecting Google Sheets or Google Drive in Kitewell's
+API library deletes its token from your device. Your files stay in your
+Google Drive. You can remove Kitewell's access at any time from your
 [Google Account permissions](https://myaccount.google.com/permissions) page.
 
 ## 4. Dagu Cloud account and project sync
