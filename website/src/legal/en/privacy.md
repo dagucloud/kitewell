@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes, calendars, and Google files stay on your device.
-updated: 2026-11-03
+updated: 2026-11-06
 ---
 
 Descarty, Inc. ("Descarty", "we") publishes Kitewell. This policy explains what
@@ -95,7 +95,7 @@ has none to disclose, including in response to a legal request.
 session in Google Cloud, operated by Descarty, instead of on your device.
 There, your mailbox's sign-in token or app password and the email your
 workflows read are kept in that session and its storage, encrypted, in Google
-Cloud's Tokyo region (`asia-northeast1`), and a Google sign-in goes through
+Cloud's Iowa region (`us-central1`) in the United States, and a Google sign-in goes through
 Kitewell's web client, which returns to app.kitewell.com or app.kitehand.ai.
 A Kitehand assistant sends what it reads, which can include your email, to the
 AI model provider that answers it (OpenRouter and the model host it routes to)
@@ -185,7 +185,7 @@ destinations your workflows send it to, an AI app you connect, and MCP Events.
 **In a cloud session.** Kitewell Cloud and Kitehand run Kitewell for you in a
 session in Google Cloud, operated by Descarty, instead of on your device. There,
 your sign-in token and the events your workflows read are kept in that session
-and its storage, encrypted, in Google Cloud's Tokyo region (`asia-northeast1`),
+and its storage, encrypted, in Google Cloud's Iowa region (`us-central1`) in the United States,
 and you sign in to Google through Kitewell's web client, which returns to
 app.kitewell.com or app.kitehand.ai. A Kitehand assistant sends what it reads,
 which can include your events, to the AI model provider that answers it
@@ -245,8 +245,8 @@ device only at your direction, in the same cases as mailbox data above.
 
 **In a cloud session.** As for Google Calendar above: in Kitewell Cloud and
 Kitehand, your sign-in token and the file contents your workflows read are
-kept in your session and its storage, encrypted, in Google Cloud's Tokyo
-region (`asia-northeast1`), and a Kitehand assistant sends what it reads to
+kept in your session and its storage, encrypted, in Google Cloud's Iowa
+region (`us-central1`) in the United States, and a Kitehand assistant sends what it reads to
 the AI model provider that answers it to do the work you asked for.
 
 **How it is protected.** As for mailboxes above.
@@ -409,7 +409,8 @@ provide it to third parties except with your consent or as required by law.
 
 PostHog, Inc., Cloudflare, Inc. (which hosts the website and Kitewell's
 relay), and GitHub, Inc. are companies in the United States and process
-information on servers there. Information on the personal information
+information on servers there. Kitewell Cloud and Kitehand sessions, and their storage,
+are in Google Cloud's Iowa region (`us-central1`) in the United States. Information on the personal information
 protection system of the United States is published by the
 [Personal Information Protection Commission of Japan](https://www.ppc.go.jp/).
 
