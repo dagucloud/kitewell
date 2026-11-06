@@ -12,8 +12,10 @@ interface Props {
   place: string;
   // small is the header's size, with shorter labels.
   small?: boolean;
+  // secondary draws it as the second choice beside another button.
+  secondary?: boolean;
 }
-const { locale, place, small = false } = Astro.props;
+const { locale, place, small = false, secondary = false } = Astro.props;
 const { macos, windows } = await readReleases();
 const text = {
   en: {
@@ -89,7 +91,7 @@ const share = new URL(`${page}?from=share`, "https://kitewell.com").href;
   data-share-text={text.shareText}
   data-copied={text.copied}
 >
-  <a class:list={["button", { small }]} href={link()} data-download-link>
+  <a class:list={["button", { small, secondary }]} href={link()} data-download-link>
     {macos || windows ? (
       <>
         <span class="for-any">{text.any}</span>
@@ -102,7 +104,7 @@ const share = new URL(`${page}?from=share`, "https://kitewell.com").href;
   </a>
   {(macos || windows) && (
     <>
-      <button type="button" class:list={["button", "for-mobile", { small }]} data-share>
+      <button type="button" class:list={["button", "for-mobile", { small, secondary }]} data-share>
         {text.share}
       </button>
       {!small && (

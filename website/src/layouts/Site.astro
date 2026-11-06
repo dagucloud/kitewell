@@ -5,9 +5,8 @@ import "../styles/site.css";
 // stylesheet.
 import japaneseFonts from "../styles/fonts-ja.css?url";
 import Analytics from "../components/Analytics.astro";
-import DownloadButton from "../components/DownloadButton.astro";
 import Endorsement from "../components/Endorsement.astro";
-import { cloudApp } from "../lib/cloud.mjs";
+import { cloudApp, cloudSignup } from "../lib/cloud.mjs";
 import { descartyUrl } from "../lib/descarty.mjs";
 import { counterparts, languages, localeOf, locales, localize } from "../lib/i18n.mjs";
 import { detectPlatform } from "../lib/platform.mjs";
@@ -19,15 +18,16 @@ const locale = localeOf(Astro.url.pathname);
 const text = {
   en: {
     description:
-      "Kitewell automates websites, desktop apps, email, scripts, and coding agents on your own computer, with schedules, approvals, and a log of every run.",
+      "Kitewell automates websites, desktop apps, email, scripts, and coding agents, in the cloud or on your own computer, with schedules, approvals, and a log of every run.",
     skip: "Skip to content",
     home: "Kitewell home",
     nav: "Main navigation",
     language: "Language",
-    links: ["Examples", "Coding agents", "Pricing", "Docs"],
+    links: ["Examples", "Coding agents", "Pricing", "Docs", "Download"],
     companies: "For companies ↗",
     partner: "For agencies ↗",
-    cloud: "Start in browser",
+    signIn: "Sign in",
+    trial: "Start free trial",
     tagline: "AI learns the job once. Then it runs fast, without second-guessing.",
     social: "AI learns the job once. Then it runs fast, without second-guessing. Kitewell: browser automation built and maintained by AI, plus desktop apps, Excel, email, and coding agents.",
     footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community", "Compare", "Releases"],
@@ -35,15 +35,16 @@ const text = {
   },
   ja: {
     description:
-      "Kitewell は、Web サイト、デスクトップアプリ、メール、スクリプト、コーディングエージェントを、自分のコンピューターで自動化します。スケジュール、承認、すべての実行の記録付き。",
+      "Kitewell は、Web サイト、デスクトップアプリ、メール、スクリプト、コーディングエージェントを、クラウドや自分のコンピューターで自動化します。スケジュール、承認、すべての実行の記録付き。",
     skip: "本文へスキップ",
     home: "Kitewell ホーム",
     nav: "メインナビゲーション",
     language: "言語",
-    links: ["活用例", "エージェント", "料金", "ドキュメント"],
+    links: ["活用例", "エージェント", "料金", "ドキュメント", "ダウンロード"],
     companies: "法人のお客様 ↗",
     partner: "",
-    cloud: "ブラウザーで始める",
+    signIn: "サインイン",
+    trial: "無料で試す",
     tagline: "AI は一度で覚える。あとは迷わず、速く動く。",
     social: "AI は一度で覚える。あとは迷わず、速く動く。Kitewell：AI がつくり保守するブラウザーの自動化と、デスクトップアプリ、Excel、メール、コーディングエージェント。",
     footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ", "比較", "リリース"],
@@ -51,15 +52,16 @@ const text = {
   },
   zh: {
     description:
-      "Kitewell 在你自己的电脑上自动化网站、桌面应用、电子邮件、脚本和编程智能体，并提供计划、审批和每次运行的记录。",
+      "Kitewell 在云端或你自己的电脑上自动化网站、桌面应用、电子邮件、脚本和编程智能体，并提供计划、审批和每次运行的记录。",
     skip: "跳到正文",
     home: "Kitewell 首页",
     nav: "主导航",
     language: "语言",
-    links: ["示例", "编码智能体", "价格", "文档"],
+    links: ["示例", "编码智能体", "价格", "文档", "下载"],
     companies: "企业客户 ↗",
     partner: "",
-    cloud: "在浏览器中开始",
+    signIn: "登录",
+    trial: "免费试用",
     tagline: "AI 学一次就会。之后毫不犹豫，快速运行。",
     social: "AI 学一次就会。之后毫不犹豫，快速运行。Kitewell：由 AI 搭建并维护的浏览器自动化，还能处理桌面应用、Excel、电子邮件和编程智能体。",
     footer: ["文档", "第三方声明", "支持", "联系我们", "隐私政策", "使用条款", "社区", "对比", "版本发布"],
@@ -67,15 +69,16 @@ const text = {
   },
   ko: {
     description:
-      "Kitewell은 웹사이트, 데스크톱 앱, 이메일, 스크립트, 코딩 에이전트를 내 컴퓨터에서 자동화합니다. 일정, 승인, 모든 실행의 기록을 갖췄습니다.",
+      "Kitewell은 웹사이트, 데스크톱 앱, 이메일, 스크립트, 코딩 에이전트를 클라우드나 내 컴퓨터에서 자동화합니다. 일정, 승인, 모든 실행의 기록을 갖췄습니다.",
     skip: "본문으로 건너뛰기",
     home: "Kitewell 홈",
     nav: "주 메뉴",
     language: "언어",
-    links: ["예시", "코딩 에이전트", "요금", "문서"],
+    links: ["예시", "코딩 에이전트", "요금", "문서", "다운로드"],
     companies: "기업 고객 ↗",
     partner: "",
-    cloud: "브라우저에서 시작",
+    signIn: "로그인",
+    trial: "무료 체험",
     tagline: "AI는 한 번에 익힙니다. 그다음엔 망설임 없이 빠르게 움직입니다.",
     social: "AI는 한 번에 익힙니다. 그다음엔 망설임 없이 빠르게 움직입니다. Kitewell: AI가 만들고 유지 관리하는 브라우저 자동화, 그리고 데스크톱 앱, Excel, 이메일, 코딩 에이전트.",
     footer: ["문서", "제3자 고지", "지원", "문의", "개인정보 처리방침", "이용약관", "커뮤니티", "비교", "릴리스"],
@@ -83,15 +86,16 @@ const text = {
   },
   fr: {
     description:
-      "Kitewell automatise sites web, applications de bureau, e-mail, scripts et agents de codage sur votre propre ordinateur, avec des planifications, des approbations et un journal de chaque exécution.",
+      "Kitewell automatise sites web, applications de bureau, e-mail, scripts et agents de codage, dans le cloud ou sur votre propre ordinateur, avec des planifications, des approbations et un journal de chaque exécution.",
     skip: "Aller au contenu",
     home: "Accueil Kitewell",
     nav: "Navigation principale",
     language: "Langue",
-    links: ["Exemples", "Agents de code", "Tarifs", "Documentation"],
+    links: ["Exemples", "Agents de code", "Tarifs", "Documentation", "Télécharger"],
     companies: "Pour les entreprises ↗",
     partner: "",
-    cloud: "Commencer en ligne",
+    signIn: "Se connecter",
+    trial: "Essai gratuit",
     tagline: "L’IA apprend la tâche une fois. Ensuite, elle tourne vite, sans hésiter.",
     social: "L’IA apprend la tâche une fois. Ensuite, elle tourne vite, sans hésiter. Kitewell : l’automatisation du navigateur construite et entretenue par l’IA, plus les applications de bureau, Excel, l’e-mail et les agents de codage.",
     footer: ["Documentation", "Mentions de tiers", "Assistance", "Contact", "Confidentialité", "Conditions", "Communauté", "Comparatif", "Versions"],
@@ -99,15 +103,16 @@ const text = {
   },
   de: {
     description:
-      "Kitewell automatisiert Websites, Desktop-Apps, E-Mail, Skripte und Coding-Agenten auf Ihrem eigenen Computer, mit Zeitplänen, Genehmigungen und einem Protokoll jeder Ausführung.",
+      "Kitewell automatisiert Websites, Desktop-Apps, E-Mail, Skripte und Coding-Agenten in der Cloud oder auf Ihrem eigenen Computer, mit Zeitplänen, Genehmigungen und einem Protokoll jeder Ausführung.",
     skip: "Zum Inhalt springen",
     home: "Kitewell-Startseite",
     nav: "Hauptnavigation",
     language: "Sprache",
-    links: ["Beispiele", "Coding-Agenten", "Preise", "Dokumentation"],
+    links: ["Beispiele", "Coding-Agenten", "Preise", "Dokumentation", "Download"],
     companies: "Für Unternehmen ↗",
     partner: "",
-    cloud: "Im Browser starten",
+    signIn: "Anmelden",
+    trial: "Kostenlos testen",
     tagline: "Die KI lernt die Aufgabe einmal. Danach läuft sie schnell und ohne Zögern.",
     social: "Die KI lernt die Aufgabe einmal. Danach läuft sie schnell und ohne Zögern. Kitewell: Browser-Automatisierung, von der KI gebaut und gepflegt, dazu Desktop-Apps, Excel, E-Mail und Coding-Agenten.",
     footer: ["Dokumentation", "Hinweise zu Drittanbietern", "Support", "Kontakt", "Datenschutz", "Nutzungsbedingungen", "Community", "Vergleich", "Versionen"],
@@ -133,7 +138,7 @@ const site = {
 const platformScript = `document.documentElement.dataset.os = (${detectPlatform})({ userAgent: navigator.userAgent, uaPlatform: navigator.userAgentData ? navigator.userAgentData.platform : "", maxTouchPoints: navigator.maxTouchPoints }).os;`;
 const pages = counterparts(Astro.url.pathname);
 const versions = locales.filter((l) => pages?.[l]);
-const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href, i) => [
+const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/", "/download/"].map((href, i) => [
   localize(href, locale),
   text.links[i],
 ]);
@@ -212,8 +217,8 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/"].map((href
         )}
       </nav>
       <div class="header-actions">
-        <a class="button secondary small" href={cloudApp}>{text.cloud}</a>
-        <DownloadButton locale={locale} place="header" small />
+        <a class="header-sign-in" href={cloudApp}>{text.signIn}</a>
+        <a class="button small" href={cloudSignup}>{text.trial}</a>
       </div>
     </header>
     <script is:inline>

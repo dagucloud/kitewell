@@ -140,7 +140,17 @@ h3 {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
+}
+.header-sign-in {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--ink);
+}
+.header-sign-in:hover {
+  text-decoration: underline;
 }
 .header nav a:hover,
 .header nav a[aria-current] {

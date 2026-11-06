@@ -488,6 +488,12 @@
 .finale-action {
   max-width: 26rem;
 }
+.finale-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
 .finale-action .fine {
   margin-top: 12px;
 }
