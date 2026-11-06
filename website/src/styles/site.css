@@ -137,6 +137,11 @@ h3 {
   text-decoration: none;
   color: var(--muted);
 }
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .header nav a:hover,
 .header nav a[aria-current] {
   color: var(--ink);
@@ -900,7 +905,7 @@ code {
   .header nav a {
     white-space: nowrap;
   }
-  .header > .download-cta {
+  .header-actions {
     margin-left: auto;
   }
 }

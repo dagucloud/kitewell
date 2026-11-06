@@ -6,6 +6,7 @@ import Clip from "../components/Clip.astro";
 import DownloadButton from "../components/DownloadButton.astro";
 import { versioned } from "../lib/assets.mjs";
 import { readReleases } from "../lib/releases.mjs";
+import { cloudApp } from "../lib/cloud.mjs";
 import { descartyUrl } from "../lib/descarty.mjs";
 import { localize, recording, type Locale } from "../lib/i18n.mjs";
 import { choreBySlug } from "../lib/chores.mjs";
@@ -983,8 +984,6 @@ const text = {
   },
 }[locale];
 const to = (path: string) => localize(path, locale);
-// Kitewell Cloud, where a visitor signs in or signs up in the browser.
-const cloudApp = "https://app.kitewell.com/";
 const everyday = ["supplier-invoices", "excel-orders", "invoice-intake", "inbox-digest"].map(choreBySlug);
 const coding = ["fix-failing-tests", "review-every-pr", "triage-issues", "dependency-update"].map(choreBySlug);
 const shots = { en: runEn, ja: runJa, zh: runZh, ko: runKo, fr: runFr, de: runDe };
