@@ -4,7 +4,8 @@ title: Kitewell installieren
 
 Kitewell ist eine einzige App, die Sie auf Ihrem eigenen Mac oder Windows-PC
 installieren. Die Installation dauert wenige Minuten. Danach haben Sie ein
-leeres Projekt, bereit für Ihren ersten Workflow.
+leeres Projekt, bereit für Ihren ersten Workflow. Um Kitewell ohne Installation
+im Browser zu nutzen, lesen Sie [Kitewell Cloud](/de/docs/cloud/).
 
 ## Was Sie brauchen
 

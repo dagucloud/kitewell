@@ -2,7 +2,7 @@
 title: 安装 Kitewell
 ---
 
-Kitewell 是一款安装在你自己的 Mac 或 Windows PC 上的应用。安装只需几分钟，完成后你会得到一个空项目，可以直接开始搭建第一个工作流。
+Kitewell 是一款安装在你自己的 Mac 或 Windows PC 上的应用。安装只需几分钟，完成后你会得到一个空项目，可以直接开始搭建第一个工作流。如果想不安装、直接在浏览器中使用，请参阅 [Kitewell Cloud](/zh/docs/cloud/)。
 
 ## 准备工作
 

@@ -11,7 +11,8 @@ conservée avec son résultat et sa sortie.
 
 ## Par où commencer
 
-1. [Installez Kitewell](/fr/docs/install/) sur un Mac ou un PC Windows.
+1. [Installez Kitewell](/fr/docs/install/) sur un Mac ou un PC Windows, ou
+   [commencez dans votre navigateur](/fr/docs/cloud/) avec Kitewell Cloud.
 2. [Créez votre premier workflow](/fr/docs/getting-started/). Un workflow est
    une tâche récurrente, composée d’étapes.
 3. [Définissez une planification](/fr/docs/scheduling/), et découvrez ce dont

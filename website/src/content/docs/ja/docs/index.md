@@ -8,7 +8,7 @@ Kitewell は、チームが手作業でこなしている定期的な仕事を�
 
 ## はじめに
 
-1. Mac または Windows の PC に [Kitewell をインストールする](/ja/docs/install/)。
+1. Mac または Windows の PC に [Kitewell をインストールする](/ja/docs/install/)。または、[ブラウザーで始める](/ja/docs/cloud/)（Kitewell Cloud）。
 2. [最初のワークフローを作る](/ja/docs/getting-started/)。ワークフローとは、ステップを組み合わせた 1 つの定期作業です。
 3. [スケジュールを設定する](/ja/docs/scheduling/)。無人で実行するために何が必要かも、ここで確かめます。
 4. [ワークフローをチームと共有する](/ja/docs/sharing/)。

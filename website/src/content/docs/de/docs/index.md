@@ -12,7 +12,7 @@ ihrer Ausgabe aufbewahrt.
 ## Erste Schritte
 
 1. [Installieren Sie Kitewell](/de/docs/install/) auf einem Mac oder einem
-   Windows-PC.
+   Windows-PC, oder [starten Sie im Browser](/de/docs/cloud/) mit Kitewell Cloud.
 2. [Erstellen Sie Ihren ersten Workflow](/de/docs/getting-started/). Ein
    Workflow ist eine Routine, die aus Schritten besteht.
 3. [Legen Sie eine Planung fest](/de/docs/scheduling/) und erfahren Sie, was

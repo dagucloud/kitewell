@@ -10,7 +10,8 @@ kept with its result and its output.
 
 ## Start here
 
-1. [Install Kitewell](/docs/install/) on a Mac or a Windows PC.
+1. [Install Kitewell](/docs/install/) on a Mac or a Windows PC, or
+   [start in your browser](/docs/cloud/) with Kitewell Cloud.
 2. [Build your first workflow](/docs/getting-started/). A workflow is one
    routine, made of steps.
 3. [Set a schedule](/docs/scheduling/), and learn what Kitewell needs in order

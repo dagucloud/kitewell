@@ -10,7 +10,7 @@ Kitewell은 팀이 손으로 하던 반복 업무를 대신 처리합니다. 업
 
 ## 시작하기
 
-1. Mac 또는 Windows PC에 [Kitewell을 설치합니다](/ko/docs/install/).
+1. Mac 또는 Windows PC에 [Kitewell을 설치합니다](/ko/docs/install/). 또는 Kitewell Cloud로 [브라우저에서 시작합니다](/ko/docs/cloud/).
 2. [첫 워크플로를 만듭니다](/ko/docs/getting-started/). 워크플로는 여러 단계로
    이루어진 하나의 반복 업무입니다.
 3. [일정을 설정하고](/ko/docs/scheduling/), 무인으로 실행하려면 Kitewell에

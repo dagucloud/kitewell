@@ -37,6 +37,7 @@ export default defineConfig({
           items: [
             { label: "Introduction", translations: { ja: "概要", "zh-CN": "简介", ko: "소개", fr: "Introduction", de: "Einführung" }, slug: "docs" },
             { label: "Install Kitewell", translations: { ja: "Kitewell のインストール", "zh-CN": "安装 Kitewell", ko: "Kitewell 설치", fr: "Installer Kitewell", de: "Kitewell installieren" }, slug: "docs/install" },
+            { label: "Kitewell Cloud", translations: { ja: "Kitewell Cloud", "zh-CN": "Kitewell Cloud", ko: "Kitewell Cloud", fr: "Kitewell Cloud", de: "Kitewell Cloud" }, slug: "docs/cloud" },
             { label: "Your first workflow", translations: { ja: "最初のワークフロー", "zh-CN": "你的第一个工作流", ko: "첫 워크플로", fr: "Votre premier workflow", de: "Ihr erster Workflow" }, slug: "docs/getting-started" },
             { label: "Build a workflow", translations: { ja: "ワークフローを組み立てる", "zh-CN": "搭建工作流", ko: "워크플로 구성하기", fr: "Construire un workflow", de: "Einen Workflow erstellen" }, slug: "docs/workflow-builder" },
             { label: "Automate a website", translations: { ja: "Web サイトを自動操作", "zh-CN": "自动操作网站", ko: "웹사이트 자동화", fr: "Automatiser un site web", de: "Eine Website automatisieren" }, slug: "docs/browser" },

@@ -8,7 +8,7 @@ Kitewell 替你的团队完成那些一直靠手工做的例行工作。你只�
 
 ## 从这里开始
 
-1. 在 Mac 或 Windows PC 上[安装 Kitewell](/zh/docs/install/)。
+1. 在 Mac 或 Windows PC 上[安装 Kitewell](/zh/docs/install/)，或使用 Kitewell Cloud [在浏览器中开始](/zh/docs/cloud/)。
 2. [搭建你的第一个工作流](/zh/docs/getting-started/)。一个工作流就是一项例行工作，由若干步骤组成。
 3. [设置计划](/zh/docs/scheduling/)，并了解 Kitewell 要在无人值守时运行需要满足哪些条件。
 4. [与团队共享工作流](/zh/docs/sharing/)。

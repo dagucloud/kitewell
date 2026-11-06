@@ -25,7 +25,7 @@
 </p>
 
 <p align="center">
-  <sub>macOS 13 以降 · Windows 10 以降 · 14 日間無料、カード登録不要</sub>
+  <sub>macOS 13 以降と Windows 10 以降で、またはブラウザーで <a href="https://app.kitewell.com/">Kitewell Cloud</a> として使えます。14 日間無料、カード登録不要。</sub>
 </p>
 
 ---
@@ -186,6 +186,8 @@ Kitewell のチャット画面の実際の録画です。編集はせず、一�
 Kitewell は、macOS 13 以降（Apple シリコンと Intel）と、Windows 10 バージョン 1809 以降および Windows 11（x64）で動きます。Web サイトの自動化には Chrome を使います。Windows では Edge も使えます。
 
 インストーラーは[ダウンロードのページ](https://kitewell.com/ja/download/)または [GitHub Releases](https://github.com/dagucloud/kitewell/releases) から入手できます。インストールしたら、[最初のワークフロー](https://kitewell.com/ja/docs/getting-started/)に進んでください。
+
+インストールせずに使うなら、[app.kitewell.com](https://app.kitewell.com/) を開いてサインインします。そこで作ったプロジェクトは [Kitewell Cloud](https://kitewell.com/ja/docs/cloud/) で動くので、パソコンを閉じていても実行されます。
 
 ## ドキュメント
 

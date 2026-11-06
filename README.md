@@ -28,7 +28,7 @@
 </p>
 
 <p align="center">
-  <sub>macOS 13+ · Windows 10+ · Free for 14 days, no card needed</sub>
+  <sub>On macOS 13+ and Windows 10+, or in your browser with <a href="https://app.kitewell.com/">Kitewell Cloud</a>. Free for 14 days, no card needed.</sub>
 </p>
 
 ---
@@ -403,6 +403,11 @@ Chrome, or Edge on Windows.
 Download the installer from the [download page](https://kitewell.com/download/)
 or [GitHub Releases](https://github.com/dagucloud/kitewell/releases), then
 follow [Your first workflow](https://kitewell.com/docs/getting-started/).
+
+To use Kitewell with nothing to install, open
+[app.kitewell.com](https://app.kitewell.com/) and sign in. Each project made
+there runs in [Kitewell Cloud](https://kitewell.com/docs/cloud/), with your
+computer closed.
 
 ## Documentation
 

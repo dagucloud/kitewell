@@ -2,7 +2,7 @@
 title: Kitewell 설치
 ---
 
-Kitewell은 내 Mac 또는 Windows PC에 설치하는 앱 하나입니다. 설치는 몇 분이면 끝나고, 첫 워크플로를 만들 수 있는 빈 프로젝트가 준비됩니다.
+Kitewell은 내 Mac 또는 Windows PC에 설치하는 앱 하나입니다. 설치는 몇 분이면 끝나고, 첫 워크플로를 만들 수 있는 빈 프로젝트가 준비됩니다. 설치 없이 브라우저에서 쓰려면 [Kitewell Cloud](/ko/docs/cloud/)를 참고하세요.
 
 ## 준비할 것
 
