@@ -20,6 +20,23 @@ Ihr erstes Projekt startet die 14-tägige Testphase, ohne Kreditkarte. Die
 Testphase erlaubt ein Projekt. Für mehr abonnieren Sie Kitewell Personal oder
 Team.
 
+## Cloud-Stunden
+
+Die Maschine eines Projekts zählt Cloud-Stunden, solange sie wach ist: beim
+Ausführen, beim Bauen mit dem Assistenten oder beim Anzeigen ihres Browsers.
+Schlafend zählt sie nichts.
+
+- Die Testphase enthält 30 Stunden.
+- Personal enthält 100 Stunden pro Monat, Team 300 pro Monat und Computer,
+  im Arbeitsbereich geteilt.
+- Darüber hinaus zahlen gekaufte Credits weiter, 10 Credits pro Stunde. Ohne
+  sie startet Kitewell Cloud keine neuen Ausführungen, bis Sie ein Abo
+  abschließen oder der Monat neu beginnt, und die App zeigt das an.
+- Auch dann können Sie Projekte öffnen, frühere Ausführungen lesen und
+  exportieren.
+- Ausführungen auf Ihrem eigenen Computer werden nie nach Verbrauch
+  abgerechnet.
+
 ## So läuft es
 
 - Jedes Projekt läuft auf einer eigenen Maschine in Google Cloud, mit derselben

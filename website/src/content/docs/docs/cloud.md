@@ -19,6 +19,20 @@ phone.
 Your first project starts the 14-day trial, with no card. The trial holds one
 project. Subscribe to Kitewell Personal or Team for more.
 
+## Cloud hours
+
+A project's machine counts cloud hours while it is awake: running, building
+with the assistant, or showing its browser. Asleep, it counts nothing.
+
+- The trial includes 30 hours.
+- Personal includes 100 hours a month, and Team 300 a month for each
+  computer, shared by the workspace.
+- Past them, credits you bought pay for more, at 10 credits an hour. Without
+  them, Kitewell Cloud starts no new runs until you subscribe or the month
+  resets, and the app says so.
+- Meanwhile you can still open projects, read past runs, and export.
+- Runs on your own computer are never metered.
+
 ## How it runs
 
 - Each project runs on its own machine in Google Cloud, with the same Kitewell

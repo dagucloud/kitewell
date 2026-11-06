@@ -20,6 +20,24 @@ Votre premier projet lance l’essai de 14 jours, sans carte bancaire. L’essai
 permet un seul projet. Abonnez-vous à Kitewell Personal ou Team pour en avoir
 davantage.
 
+## Heures de cloud
+
+La machine d’un projet compte des heures de cloud tant qu’elle est éveillée :
+en exécution, en construction avec l’assistant ou en affichant son navigateur.
+En veille, elle ne compte rien.
+
+- L’essai comprend 30 heures.
+- Personal comprend 100 heures par mois, et Team 300 par mois et par
+  ordinateur, partagées dans l’espace de travail.
+- Au-delà, les crédits que vous avez achetés paient la suite, à 10 crédits
+  l’heure. Sans eux, Kitewell Cloud ne lance plus de nouvelle exécution
+  jusqu’à ce que vous vous abonniez ou que le mois recommence, et l’app
+  l’indique.
+- Pendant ce temps, vous pouvez toujours ouvrir vos projets, lire les
+  exécutions passées et exporter.
+- Les exécutions sur votre propre ordinateur ne sont jamais facturées à
+  l’usage.
+
 ## Comment il fonctionne
 
 - Chaque projet tourne sur sa propre machine dans Google Cloud, avec le même
