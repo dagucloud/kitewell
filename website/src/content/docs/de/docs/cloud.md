@@ -37,6 +37,27 @@ Schlafend zählt sie nichts.
 - Ausführungen auf Ihrem eigenen Computer werden nie nach Verbrauch
   abgerechnet.
 
+## Im Team arbeiten
+
+Mit Kitewell Team, auch in der Testphase, lädt der Inhaber des Arbeitsbereichs
+Personen im Browser ein:
+
+1. Wählen Sie das Zahnrad neben Ihrem Namen, um **Konto** zu öffnen. Geben Sie
+   unter **Team** die E-Mail-Adresse der Person ein und wählen Sie
+   **Einladen**. Kitewell schickt ihr einen Link per E-Mail und zeigt ihn Ihnen
+   einmal an, damit Sie ihn auch selbst senden können.
+2. Die Person öffnet den Link, meldet sich mit dieser Adresse an oder legt ein
+   Konto an und wählt, beizutreten. Kitewell öffnet Ihren Arbeitsbereich für
+   sie.
+3. Geben Sie ihr unter **Synchronisierte Projekte** für jedes Projekt, an dem
+   sie arbeitet, die Rolle **Bearbeiter** oder **Administrator** und wählen
+   Sie **Zugriff speichern**. Ein Cloud-Projekt zu öffnen erfordert eine der
+   beiden.
+
+Jede Person behält auch ihren eigenen Arbeitsbereich. Sobald sie mehreren
+angehört, steht der Name des geöffneten Arbeitsbereichs unter ihrem Namen; ihn
+zu wählen wechselt zu einem anderen.
+
 ## So läuft es
 
 - Jedes Projekt läuft auf einer eigenen Maschine in Google Cloud, mit derselben

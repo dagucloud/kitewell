@@ -38,6 +38,26 @@ En veille, elle ne compte rien.
 - Les exécutions sur votre propre ordinateur ne sont jamais facturées à
   l’usage.
 
+## Travailler en équipe
+
+Avec Kitewell Team, essai compris, le propriétaire de l’espace de travail
+invite des personnes depuis le navigateur :
+
+1. Choisissez la roue dentée à côté de votre nom pour ouvrir **Compte**. Sous
+   **Équipe**, saisissez l’adresse e-mail de la personne et choisissez
+   **Inviter**. Kitewell lui envoie un lien par e-mail et vous l’affiche une
+   fois, pour que vous puissiez aussi l’envoyer.
+2. La personne ouvre le lien, se connecte ou crée un compte avec cette
+   adresse, puis choisit de rejoindre l’espace de travail. Kitewell l’ouvre
+   pour elle.
+3. Sous **Projets synchronisés**, donnez-lui le rôle **Éditeur** ou
+   **Administrateur** sur chaque projet où elle travaille, puis choisissez
+   **Enregistrer les accès**. Ouvrir un projet cloud demande l’un des deux.
+
+Chacun garde aussi son propre espace de travail. Dès qu’une personne fait
+partie de plusieurs, le nom de l’espace ouvert s’affiche sous son nom ; le
+choisir permet d’en changer.
+
 ## Comment il fonctionne
 
 - Chaque projet tourne sur sa propre machine dans Google Cloud, avec le même

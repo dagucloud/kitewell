@@ -33,6 +33,24 @@ with the assistant, or showing its browser. Asleep, it counts nothing.
 - Meanwhile you can still open projects, read past runs, and export.
 - Runs on your own computer are never metered.
 
+## Work as a team
+
+On Kitewell Team, the trial included, the workspace owner invites people from
+the browser:
+
+1. Choose the gear beside your name to open **Account**. Under **Team**, enter
+   the person's email address and choose **Invite**. Kitewell emails them a
+   link, and shows it to you once so you can send it too.
+2. They open the link, sign in or sign up with that address, and choose to
+   join. Kitewell opens your workspace for them.
+3. Under **Synced projects**, give them **Editor** or **Admin** on each project
+   they work on, and choose **Save access**. Opening a cloud project takes one
+   of the two.
+
+Everyone keeps their own workspace as well. Once someone belongs to more than
+one, the open workspace's name shows under their name, and choosing it
+switches to another.
+
 ## How it runs
 
 - Each project runs on its own machine in Google Cloud, with the same Kitewell
