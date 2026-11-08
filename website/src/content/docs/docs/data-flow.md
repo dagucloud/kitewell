@@ -49,8 +49,11 @@ you.
 Every AI feature uses a model you added under **Agents & models**, or
 Kitewell's included model. On a computer signed in to Dagu Cloud, the
 included model needs no key: its requests go through Dagu Cloud to
-OpenRouter. A server you run yourself, such as Ollama, keeps prompts, page
-text, and screenshots inside your network.
+OpenRouter, and only to hosts that keep nothing, headquartered in the United
+States or the EU for its DeepSeek model, never in China
+([which model, and where it runs](/docs/ai/#which-model-and-where-it-runs)).
+A server you run yourself, such as Ollama, keeps prompts, page text, and
+screenshots inside your network.
 
 A password a website or desktop step types is written as `%name%`, so only
 the name reaches the model.

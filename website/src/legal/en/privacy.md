@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes, calendars, and Google files stay on your device.
-updated: 2026-11-06
+updated: 2026-11-08
 ---
 
 Descarty, Inc. ("Descarty", "we") publishes Kitewell. This policy explains what
@@ -41,6 +41,17 @@ APIs, command-line agents, containers, SSH servers, email servers, Slack, and
 Microsoft Teams. Prompts, context, files, and output may be sent to those
 destinations as your workflows define. Each destination handles that data under
 its own terms and privacy policy.
+
+**Kitewell's included model.** On a device signed in to Dagu Cloud, and in
+Kitewell Cloud and Kitehand, prompts and their context for the included model
+go through Dagu Cloud to OpenRouter, Inc., which passes them to a host that
+runs the model. Dagu Cloud keeps no prompt text. OpenRouter may send them only
+to hosts that neither keep nor train on them (its Zero Data Retention policy).
+DeepSeek V4.1 Flash runs only on hosts headquartered in the United States or
+the European Union, never DeepSeek itself or a host based in China; OpenAI
+GPT-6.1 Terra, which reads screenshots, runs only on Microsoft Azure in the
+EU. The model may change; the
+[AI models page](/docs/ai/#which-model-and-where-it-runs) names the current one.
 
 ## 3. Connected mailboxes, calendars, and files (Gmail, Microsoft 365, IMAP, Google Calendar, Google Sheets, and Google Drive)
 

@@ -88,9 +88,30 @@ An administrator sees what is left under **Dagu Cloud account** in
 until they are renewed or you buy a pack, or during the trial until you
 subscribe. A model of your own keeps working.
 
-Dagu Cloud asks OpenRouter to route these requests only to providers that
-neither store nor train on them. It keeps no prompt text, only the workspace,
-the device, the model, and the credits used.
+### Which model, and where it runs
+
+Dagu Cloud picks the model behind the included model, so it can change
+without a Kitewell update; this section names the current one. As of
+November 8, 2026:
+
+- Reading a desktop step's screenshots uses **OpenAI GPT-6.1 Terra**.
+- Everything else, the chat and the assistant included, uses **DeepSeek V4.1
+  Flash**.
+
+Each request goes through Dagu Cloud to OpenRouter, which may send it only to
+hosts under its Zero Data Retention policy: they neither keep the request nor
+train on it.
+
+- DeepSeek V4.1 Flash runs only on hosts headquartered in the United States
+  or the European Union, such as DeepInfra, Together AI, Fireworks AI,
+  Cloudflare, Mistral, and Nebius. No request goes to DeepSeek itself or to a
+  host based in China.
+- GPT-6.1 Terra runs only on Microsoft Azure in the EU.
+
+Dagu Cloud keeps no prompt text, only the workspace, the device, the model,
+and the credits used. To keep requests away from OpenRouter, choose a model of
+your own under **Agents & models**, or a server you run yourself, such as
+Ollama.
 
 ## Use a coding agent on this computer
 
@@ -259,6 +280,7 @@ lives on your computer does not mean every task stays on it.
   its requests ask OpenRouter to route them only to providers that neither
   store nor train on what they receive.
 - Kitewell's included model sends each request to Dagu Cloud, which passes it
-  to OpenRouter.
+  to OpenRouter; [Which model, and where it runs](#which-model-and-where-it-runs)
+  says which hosts may answer.
 
 See [What leaves your computer](/docs/data-flow/) for the whole picture.

@@ -1,7 +1,7 @@
 ---
 title: プライバシーポリシー
 description: Kitewell でのデータの扱い。ワークフロー、実行履歴、認証情報、接続したメールボックス、カレンダー、Google のファイルは、お使いの端末に残ります。
-updated: 2026-11-06
+updated: 2026-11-08
 ---
 
 Descarty株式会社（以下「当社」）は、Kitewell を提供しています。本ポリシーは、Kitewell のアプリと kitewell.com のウェブサイト（kitewell.app でも配信）が扱う情報、その送り先、当社が受け取る情報について説明します。
@@ -17,6 +17,8 @@ Kitewell は、ワークフローの定義、実行の記録、ログ、出力�
 ## 2. お客様が選ぶ接続先
 
 ワークフローは、お客様が設定した接続先にデータを送ります。AI の提供者、API、コマンドラインのエージェント、コンテナ、SSH サーバー、メールサーバー、Slack、Microsoft Teams などです。プロンプト、文脈、ファイル、出力は、ワークフローの定めに従ってこれらの接続先に送られます。送られたデータは、各接続先の規約とプライバシーポリシーに従って扱われます。
+
+**Kitewell の付属モデル**　Dagu Cloud にサインインした端末、Kitewell Cloud、Kitehand では、付属モデルへのプロンプトと文脈が Dagu Cloud を経由して OpenRouter, Inc. に送られ、そこからモデルを動かす事業者に渡ります。Dagu Cloud はプロンプトの本文を保存しません。OpenRouter が送る先は、送られた内容を保存も学習もしない事業者（OpenRouter のゼロデータ保持の対象）に限ります。DeepSeek V4.1 Flash は本社が米国または EU にある事業者だけが動かし、DeepSeek 社や中国に拠点を置く事業者には送りません。画面を読む OpenAI GPT-6.1 Terra は、EU の Microsoft Azure だけが動かします。モデルは変わることがあり、現在のモデルは [AI モデルのページ](/docs/ai/#which-model-and-where-it-runs) に載せます。
 
 ## 3. 接続したメールボックス、カレンダー、ファイル（Gmail、Microsoft 365、IMAP、Google カレンダー、Google スプレッドシート、Google ドライブ）
 

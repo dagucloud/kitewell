@@ -67,9 +67,12 @@ or Kitewell's included model.
   step inside a workflow is sent by the engine and does not ask for that.
 - [Kitewell's included model](/docs/ai/#use-kitewells-included-model) needs
   no key on a computer signed in to Dagu Cloud, and is paid from the
-  workspace's credits. Dagu Cloud asks OpenRouter to route every request it
-  passes on only to providers that neither store nor train on it. A desktop
-  step can use it on every plan.
+  workspace's credits. Dagu Cloud sends every request it passes on only to
+  OpenRouter's Zero Data Retention hosts, which neither store nor train on it,
+  and for DeepSeek V4.1 Flash only to those headquartered in the United States
+  or the EU, never DeepSeek itself or a host based in China
+  ([which model, and where it runs](/docs/ai/#which-model-and-where-it-runs)).
+  A desktop step can use it on every plan.
 
 A value a website or desktop step types, such as a password, is written as
 `%name%`. Only the name reaches the model.
