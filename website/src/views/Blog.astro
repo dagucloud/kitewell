@@ -1,0 +1,20 @@
+---
+import Site from "../layouts/Site.astro";
+import { dated, posts } from "../lib/blog";
+---
+
+<Site title="ブログ" description="業務の自動化、RPA、AI エージェントについての Kitewell のブログです。">
+  <section class="page wrap">
+    <h1>ブログ</h1>
+    <p class="lead">業務の自動化、RPA、AI エージェントについて書いています。</p>
+    <div class="prose">
+      {posts.map((post) => (
+        <section>
+          <h2><a href={`/ja/blog/${post.slug}/`}>{post.frontmatter.title}</a></h2>
+          <p class="fine"><time datetime={post.frontmatter.published}>{dated(post.frontmatter.published)}</time></p>
+          <p>{post.frontmatter.description}</p>
+        </section>
+      ))}
+    </div>
+  </section>
+</Site>

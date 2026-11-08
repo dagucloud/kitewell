@@ -1,0 +1,43 @@
+---
+import Site from "../layouts/Site.astro";
+import { dated, type Post } from "../lib/blog";
+interface Props {
+  post: Post;
+}
+const { post } = Astro.props;
+const { frontmatter, Content } = post;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+// Search engines read the post's headline, dates, and publisher from here.
+const article = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: frontmatter.title,
+  description: frontmatter.description,
+  datePublished: frontmatter.published,
+  dateModified: frontmatter.updated,
+  inLanguage: "ja",
+  mainEntityOfPage: canonical,
+  image: new URL("/social-ja.png", Astro.site).href,
+  author: { "@type": "Organization", name: "Kitewell", url: new URL("/ja/", Astro.site).href },
+  publisher: { "@type": "Organization", name: "Descarty, Inc." },
+};
+---
+
+<Site title={frontmatter.title} description={frontmatter.description}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(article)} />
+  <article class="page wrap">
+    <p class="eyebrow"><a href="/ja/blog/">ブログ</a></p>
+    <h1>{frontmatter.title}</h1>
+    <p class="fine">
+      公開日：<time datetime={frontmatter.published}>{dated(frontmatter.published)}</time>
+      {frontmatter.updated !== frontmatter.published && (
+        <>
+          （更新日：<time datetime={frontmatter.updated}>{dated(frontmatter.updated)}</time>）
+        </>
+      )}
+    </p>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Site>

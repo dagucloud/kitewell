@@ -249,6 +249,7 @@ const links = ["/examples/", "/coding-agents/", "/pricing/", "/docs/", "/downloa
         <a href={localize("/docs/", locale)}>{text.footer[0]}</a>
         <a href={localize("/releases/", locale)}>{text.footer[8]}</a>
         <a href={localize("/compare/", locale)}>{text.footer[7]}</a>
+        {locale === "ja" && <a href="/ja/blog/">ブログ</a>}
         <a href="https://github.com/dagucloud/kitewell">GitHub</a>
         <a href="https://www.youtube.com/@kitewell">YouTube</a>
         <a href="/third-party/">{text.footer[1]}</a>
