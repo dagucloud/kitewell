@@ -39,7 +39,7 @@ Microsoft が告知で案内している方法は 2 つです。
 
 ### 1. Power Automate プラグイン（GitHub Copilot CLI、Claude Code）
 
-ターミナルで動く AI コーディングアシスタント、GitHub Copilot CLI と Claude Code のためのプラグインです。Microsoft Learn の手順のページは 2026 年 9 月に公開されました。
+ターミナルで動く AI コーディングアシスタント、GitHub Copilot CLI と Claude Code のための、Microsoft のプラグインです。
 
 作りたいフローを言葉で伝えると、プラグインがトリガーとアクションを決め、必要な接続を探し、フローの定義を組み立てて確かめます。できたフローは、確認してから有効にできるよう、停止した状態で作られます。既存のフローの編集、失敗した実行の調査、接続の確認や修復、環境内のフローの一覧づくりも頼めます。デスクトップフローは一覧と実行だけで、Power Automate Desktop のスクリプトは編集できません。
 
