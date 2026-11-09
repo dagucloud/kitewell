@@ -5,7 +5,7 @@
 // each narrated line with what is shown.
 const englishCut = {
   name: "kitewell-launch",
-  seconds: 74,
+  seconds: 67,
   uploaded: "2026-10-14",
   tracks: [
     ["captions", "en", "English"],
@@ -16,9 +16,9 @@ const englishCut = {
 export const film = {
   en: {
     ...englishCut,
-    label: "Kitewell film, 74 seconds, narrated",
+    label: "Kitewell film, 67 seconds, narrated",
     link: "Watch the Kitewell film.",
-    caption: ["74 seconds · Narrated · Captions", "Kitewell's own screens and real runs against a stand-in supplier portal; the company, its portal, Ledger, the team chat, and the email are made up"],
+    caption: ["67 seconds · Narrated · Captions", "Kitewell's own screens and real runs against a stand-in supplier portal; the company, its portal, Ledger, the team chat, and the email are made up"],
     transcript: "Read the film's narration",
     scenes: [
       [
@@ -58,10 +58,6 @@ export const film = {
         "A sheet linked to orders.xlsx runs the workflow once per row; then the workbook itself fills in each row's result.",
       ],
       [
-        "Coding agents too. Claude Code writes the fix, Codex reviews it, and nothing ships until you approve.",
-        "A real workflow on a demo repository: Claude Code fixes a failing test, with Codex and then Gemini behind it if it fails; Codex reviews the change; the run waits at the approval with Approve and Send back before the fix is committed on a local branch.",
-      ],
-      [
         "It runs on your computer, and your passwords stay there.",
         "On another computer that took the project, its portal password named but not filled, the person there sets the value, and the page notes that values stay on each device.",
       ],
@@ -77,15 +73,15 @@ export const film = {
   },
   ja: {
     name: "kitewell-launch-ja",
-    seconds: 74,
+    seconds: 67,
     uploaded: "2026-10-14",
     tracks: [
       ["captions", "ja", "日本語"],
       ["subtitles", "en", "English"],
     ],
-    label: "Kitewell 紹介映像（74 秒・ナレーション付き）",
+    label: "Kitewell 紹介映像（67 秒・ナレーション付き）",
     link: "Kitewell の紹介映像を見る。",
-    caption: ["74 秒 · ナレーション · 日本語字幕と英語字幕", "Kitewell の実際の画面と、代役の仕入れ先ポータルでの実際の実行。会社、ポータル、会計アプリ「台帳」、チャット、メールは架空のものです"],
+    caption: ["67 秒 · ナレーション · 日本語字幕と英語字幕", "Kitewell の実際の画面と、代役の仕入れ先ポータルでの実際の実行。会社、ポータル、会計アプリ「台帳」、チャット、メールは架空のものです"],
     transcript: "ナレーションをテキストで読む",
     scenes: [
       [
@@ -125,10 +121,6 @@ export const film = {
         "発注一覧.xlsx にリンクしたシートが 1 行ごとにワークフローを実行し、ブックの各行に結果が書き戻されます。",
       ],
       [
-        "コーディングエージェントも。Claude Code が直し、Codex がレビュー。承認まで、何も出しません。",
-        "デモ用リポジトリでの実際のワークフロー。Claude Code が失敗するテストを直し（失敗したら Codex、次に Gemini が引き継ぎます）、Codex が変更をレビューし、実行は「承認」と「差し戻し」のある承認で待ってから、ローカルのブランチにコミットします。",
-      ],
-      [
         "あなたのパソコンで動き、パスワードもそこに残ります。",
         "プロジェクトを受け取ったもう 1 台のパソコンで、名前だけが入ったポータルのパスワードに、その人が値を設定します。値は各デバイスにとどまると画面に書かれています。",
       ],
@@ -144,9 +136,9 @@ export const film = {
   },
   zh: {
     ...englishCut,
-    label: "Kitewell 介绍影片（74 秒，英语旁白）",
+    label: "Kitewell 介绍影片（67 秒，英语旁白）",
     link: "观看 Kitewell 介绍影片。",
-    caption: ["74 秒 · 英语旁白 · 英文字幕与日文字幕", "Kitewell 的真实界面，以及针对代用供应商门户的真实运行；其中的公司、门户、Ledger、团队聊天和邮件均为虚构"],
+    caption: ["67 秒 · 英语旁白 · 英文字幕与日文字幕", "Kitewell 的真实界面，以及针对代用供应商门户的真实运行；其中的公司、门户、Ledger、团队聊天和邮件均为虚构"],
     transcript: "阅读影片旁白的文字版",
     scenes: [
       [
@@ -186,10 +178,6 @@ export const film = {
         "一张关联到 orders.xlsx 的工作表为每一行运行一次工作流；然后，工作簿本身填入了每一行的结果。",
       ],
       [
-        "编程智能体也一样。Claude Code 写修复，Codex 审查，你批准之前什么都不会发出。",
-        "演示仓库上的一个真实工作流：Claude Code 修复一个失败的测试，如果它失败，由 Codex、再由 Gemini 接手；Codex 审查改动；运行停在带有“批准”和“退回”的审批处等待，之后才把修复提交到一个本地分支。",
-      ],
-      [
         "它在你的电脑上运行，你的密码也留在那里。",
         "在接手这个项目的另一台电脑上，门户密码只有名称、没有填值，那里的人设置这个值，页面注明这些值只保存在各自的设备上。",
       ],
@@ -205,9 +193,9 @@ export const film = {
   },
   ko: {
     ...englishCut,
-    label: "Kitewell 소개 영상(74초, 영어 내레이션)",
+    label: "Kitewell 소개 영상(67초, 영어 내레이션)",
     link: "Kitewell 소개 영상 보기.",
-    caption: ["74초 · 영어 내레이션 · 영어 자막과 일본어 자막", "Kitewell의 실제 화면과 대역 공급업체 포털에서의 실제 실행입니다. 회사, 포털, Ledger, 팀 채팅, 이메일은 가상입니다"],
+    caption: ["67초 · 영어 내레이션 · 영어 자막과 일본어 자막", "Kitewell의 실제 화면과 대역 공급업체 포털에서의 실제 실행입니다. 회사, 포털, Ledger, 팀 채팅, 이메일은 가상입니다"],
     transcript: "영상 내레이션을 텍스트로 읽기",
     scenes: [
       [
@@ -247,10 +235,6 @@ export const film = {
         "orders.xlsx에 연결된 시트가 행마다 워크플로를 한 번씩 실행하고, 이어서 통합 문서 자체에 각 행의 결과가 채워집니다.",
       ],
       [
-        "코딩 에이전트도 마찬가지입니다. Claude Code가 고치고, Codex가 리뷰하며, 승인하기 전에는 아무것도 내보내지 않습니다.",
-        "데모 저장소에서 실제로 실행한 워크플로입니다. Claude Code가 실패한 테스트를 고치고, 실패하면 Codex, 다음은 Gemini가 이어받습니다. Codex가 변경을 리뷰하고, 실행은 ‘승인’과 ‘돌려보내기’가 있는 승인 단계에서 기다린 뒤 수정을 로컬 브랜치에 커밋합니다.",
-      ],
-      [
         "내 컴퓨터에서 실행되고, 비밀번호도 그곳에 남습니다.",
         "프로젝트를 받은 다른 컴퓨터에는 포털 비밀번호의 이름만 있고 값은 비어 있습니다. 그곳의 사람이 값을 설정하고, 화면에는 값이 각 기기에 머문다는 안내가 표시됩니다.",
       ],
@@ -266,9 +250,9 @@ export const film = {
   },
   fr: {
     ...englishCut,
-    label: "Film Kitewell, 74 secondes, narration en anglais",
+    label: "Film Kitewell, 67 secondes, narration en anglais",
     link: "Regarder le film Kitewell.",
-    caption: ["74 secondes · Narration en anglais · Sous-titres anglais et japonais", "Les vrais écrans de Kitewell et de vraies exécutions sur un portail fournisseur de substitution ; l’entreprise, son portail, Ledger, le chat d’équipe et l’e-mail sont fictifs"],
+    caption: ["67 secondes · Narration en anglais · Sous-titres anglais et japonais", "Les vrais écrans de Kitewell et de vraies exécutions sur un portail fournisseur de substitution ; l’entreprise, son portail, Ledger, le chat d’équipe et l’e-mail sont fictifs"],
     transcript: "Lire la narration du film",
     scenes: [
       [
@@ -308,10 +292,6 @@ export const film = {
         "Une feuille liée à orders.xlsx exécute le workflow une fois par ligne ; puis le classeur lui-même se remplit du résultat de chaque ligne.",
       ],
       [
-        "Les agents de codage aussi. Claude Code écrit le correctif, Codex le relit, et rien ne part avant votre approbation.",
-        "Un vrai workflow sur un dépôt de démonstration : Claude Code corrige un test en échec, avec Codex puis Gemini en relais s’il échoue ; Codex relit la modification ; l’exécution attend à l’approbation, avec Approuver et Renvoyer, avant que le correctif soit commité sur une branche locale.",
-      ],
-      [
         "Il tourne sur votre ordinateur, et vos mots de passe y restent.",
         "Sur un autre ordinateur qui a repris le projet, le mot de passe du portail est nommé mais vide ; la personne sur place saisit la valeur, et la page précise que les valeurs restent sur chaque appareil.",
       ],
@@ -327,9 +307,9 @@ export const film = {
   },
   de: {
     ...englishCut,
-    label: "Kitewell-Film, 74 Sekunden, englischer Sprecher",
+    label: "Kitewell-Film, 67 Sekunden, englischer Sprecher",
     link: "Den Kitewell-Film ansehen.",
-    caption: ["74 Sekunden · Englischer Sprecher · Englische und japanische Untertitel", "Die echten Bildschirme von Kitewell und echte Ausführungen gegen ein Ersatzportal eines Lieferanten; das Unternehmen, sein Portal, Ledger, der Team-Chat und die E-Mail sind erfunden"],
+    caption: ["67 Sekunden · Englischer Sprecher · Englische und japanische Untertitel", "Die echten Bildschirme von Kitewell und echte Ausführungen gegen ein Ersatzportal eines Lieferanten; das Unternehmen, sein Portal, Ledger, der Team-Chat und die E-Mail sind erfunden"],
     transcript: "Den Sprechertext des Films lesen",
     scenes: [
       [
@@ -367,10 +347,6 @@ export const film = {
       [
         "Eine Liste in Excel? Es arbeitet jede Zeile ab und schreibt die Ergebnisse zurück.",
         "Eine mit orders.xlsx verknüpfte Tabelle führt den Workflow einmal pro Zeile aus; dann füllt sich die Arbeitsmappe selbst mit dem Ergebnis jeder Zeile.",
-      ],
-      [
-        "Auch Coding-Agenten. Claude Code schreibt den Fix, Codex prüft ihn, und nichts geht raus, bevor Sie genehmigen.",
-        "Ein echter Workflow an einem Demo-Repository: Claude Code repariert einen fehlschlagenden Test, mit Codex und dann Gemini dahinter, falls es scheitert; Codex prüft die Änderung; die Ausführung wartet an der Genehmigung mit Genehmigen und Zurückgeben, bevor der Fix in einem lokalen Branch committet wird.",
       ],
       [
         "Es läuft auf Ihrem Computer, und Ihre Passwörter bleiben dort.",
