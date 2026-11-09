@@ -6,7 +6,7 @@
 const englishCut = {
   name: "kitewell-launch",
   seconds: 67,
-  uploaded: "2026-10-14",
+  uploaded: "2026-11-09",
   tracks: [
     ["captions", "en", "English"],
     ["subtitles", "ja", "日本語"],
@@ -31,7 +31,7 @@ export const film = {
       ],
       [
         "Now, AI builds it.",
-        "The three places, checked off, above the headline: AI builds the automation. Your computer runs it.",
+        "The three places, checked off, above the headline: AI builds your flows and fixes them. RPA that gets smarter on its own.",
       ],
       [
         "Describe the job, and Kitewell lays out every step for you to check.",
@@ -67,14 +67,14 @@ export const film = {
       ],
       [
         "Kitewell. It flies on its own. You hold the string.",
-        "The kite leaves the logo and flies, its string running back to the last word. kitewell.app. Free for one project, on macOS and Windows.",
+        "The kite leaves the logo and flies, its string running back to the last word. kitewell.com. Free for 14 days, no card needed.",
       ],
     ],
   },
   ja: {
     name: "kitewell-launch-ja",
     seconds: 67,
-    uploaded: "2026-10-14",
+    uploaded: "2026-11-09",
     tracks: [
       ["captions", "ja", "日本語"],
       ["subtitles", "en", "English"],
@@ -94,7 +94,7 @@ export const film = {
       ],
       [
         "いまは、AI がつくる。",
-        "チェックの付いた 3 つの場所の下に、見出しが現れます。自動化は AI がつくる。動かすのは、あなたのパソコン。",
+        "チェックの付いた 3 つの場所の下に、見出しが現れます。AI がフローをつくる、なおす。自動的に賢くなる RPA。",
       ],
       [
         "伝えるだけで、Kitewell が手順を並べて見せます。",
@@ -130,7 +130,7 @@ export const film = {
       ],
       [
         "Kitewell。ひとりでに、飛んでいく。糸は、あなたの手に。",
-        "凧がロゴから飛び立ち、その糸は最後の言葉までつながっています。kitewell.app。1 プロジェクトまで無料、macOS と Windows に対応。",
+        "凧がロゴから飛び立ち、その糸は最後の言葉までつながっています。kitewell.com。カード登録なしで 14 日間無料。",
       ],
     ],
   },
@@ -151,7 +151,7 @@ export const film = {
       ],
       [
         "现在，由 AI 来搭建。",
-        "打上勾的三个地方下方出现标题：自动化由 AI 搭建。运行它的，是你的电脑。",
+        "打上勾的三个地方下方出现标题：AI 搭建流程，也修复流程。自动变聪明的 RPA。",
       ],
       [
         "说出要做的工作，Kitewell 会把每个步骤列出来给你检查。",
@@ -187,7 +187,7 @@ export const film = {
       ],
       [
         "Kitewell。它自己飞翔，线握在你手中。",
-        "风筝离开标志飞上天，线一直连到最后一个词。kitewell.app。一个项目免费，支持 macOS 和 Windows。",
+        "风筝离开标志飞上天，线一直连到最后一个词。kitewell.com。无需信用卡，免费试用 14 天。",
       ],
     ],
   },
@@ -208,7 +208,7 @@ export const film = {
       ],
       [
         "이제는 AI가 만듭니다.",
-        "체크 표시가 된 세 곳 아래에 제목이 나타납니다. 자동화는 AI가 만듭니다. 실행은 내 컴퓨터가 합니다.",
+        "체크 표시가 된 세 곳 아래에 제목이 나타납니다. AI가 플로를 만들고, 고칩니다. 스스로 똑똑해지는 RPA.",
       ],
       [
         "할 일을 말하면, Kitewell이 확인할 수 있도록 모든 단계를 펼쳐 보여 줍니다.",
@@ -244,7 +244,7 @@ export const film = {
       ],
       [
         "Kitewell. 스스로 날아오릅니다. 줄은 당신의 손에.",
-        "연이 로고를 떠나 날아오르고, 그 줄은 마지막 단어까지 이어집니다. kitewell.app. 프로젝트 1개 무료, macOS와 Windows 지원.",
+        "연이 로고를 떠나 날아오르고, 그 줄은 마지막 단어까지 이어집니다. kitewell.com. 카드 없이 14일 동안 무료.",
       ],
     ],
   },
@@ -265,7 +265,7 @@ export const film = {
       ],
       [
         "Désormais, c’est l’IA qui la construit.",
-        "Les trois endroits, cochés, au-dessus du titre : L’IA construit l’automatisation. Votre ordinateur l’exécute.",
+        "Les trois endroits, cochés, au-dessus du titre : L’IA crée vos flux et les répare. Le RPA qui s’améliore tout seul.",
       ],
       [
         "Décrivez la tâche, et Kitewell détaille chaque étape pour que vous la vérifiiez.",
@@ -301,7 +301,7 @@ export const film = {
       ],
       [
         "Kitewell. Il vole tout seul. Vous tenez le fil.",
-        "Le cerf-volant quitte le logo et s’envole, son fil courant jusqu’au dernier mot. kitewell.app. Gratuit pour un projet, sur macOS et Windows.",
+        "Le cerf-volant quitte le logo et s’envole, son fil courant jusqu’au dernier mot. kitewell.com. Gratuit pendant 14 jours, sans carte bancaire.",
       ],
     ],
   },
@@ -322,7 +322,7 @@ export const film = {
       ],
       [
         "Jetzt baut sie die KI.",
-        "Die drei Orte, abgehakt, über der Überschrift: Die KI baut die Automatisierung. Ihr Computer führt sie aus.",
+        "Die drei Orte, abgehakt, über der Überschrift: Die KI baut und repariert Ihre Abläufe. RPA, das von selbst klüger wird.",
       ],
       [
         "Beschreiben Sie die Aufgabe, und Kitewell legt jeden Schritt zur Prüfung vor.",
@@ -358,7 +358,7 @@ export const film = {
       ],
       [
         "Kitewell. Er fliegt von allein. Sie halten die Schnur.",
-        "Der Drachen löst sich vom Logo und fliegt, seine Schnur reicht bis zum letzten Wort. kitewell.app. Kostenlos für ein Projekt, auf macOS und Windows.",
+        "Der Drachen löst sich vom Logo und fliegt, seine Schnur reicht bis zum letzten Wort. kitewell.com. 14 Tage kostenlos, ohne Kreditkarte.",
       ],
     ],
   },
