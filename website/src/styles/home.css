@@ -16,12 +16,6 @@
 :is(:lang(ja), :lang(zh), :lang(ko)) .home .intro h1 {
   font-size: clamp(32px, 4.8vw, 60px);
 }
-.home #hero-title {
-  font-size: clamp(36px, 4.6vw, 60px);
-}
-:is(:lang(ja), :lang(zh), :lang(ko)) .home #hero-title {
-  font-size: clamp(28px, 4vw, 52px);
-}
 .intro-lead {
   max-width: 44em;
   margin-top: 24px;

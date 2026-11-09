@@ -9,7 +9,7 @@
   </a>
 </p>
 
-<h1 align="center">AI builds it. AI fixes it.<br>Ask once, and screen-only work runs itself.</h1>
+<h1 align="center">AI builds your flows and fixes them.<br>RPA that gets smarter on its own.</h1>
 
 <p align="center">
   Describe the job, and AI builds the automation in a browser you can watch,
