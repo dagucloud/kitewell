@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <a href="https://kitewell.com/#film"><strong>▶ Watch the 67-second film</strong></a> ·
+  <a href="https://kitewell.com/#film"><strong>▶ Watch the 62-second film</strong></a> ·
   <a href="https://kitewell.com/download/">Download</a> ·
   <a href="https://kitewell.com/docs/getting-started/">Get started</a> ·
   <a href="https://kitewell.com/docs/">Docs</a> ·

@@ -5,7 +5,7 @@
 // each narrated line with what is shown.
 const englishCut = {
   name: "kitewell-launch",
-  seconds: 67,
+  seconds: 62,
   uploaded: "2026-11-09",
   tracks: [
     ["captions", "en", "English"],
@@ -16,9 +16,9 @@ const englishCut = {
 export const film = {
   en: {
     ...englishCut,
-    label: "Kitewell film, 67 seconds, narrated",
+    label: "Kitewell film, 62 seconds, narrated",
     link: "Watch the Kitewell film.",
-    caption: ["67 seconds · Narrated · Captions", "Kitewell's own screens and real runs against a stand-in supplier portal; the company, its portal, Ledger, the team chat, and the email are made up"],
+    caption: ["62 seconds · Narrated · Captions", "Kitewell's own screens and real runs against a stand-in supplier portal; the company, its portal, Ledger, the team chat, and the email are made up"],
     transcript: "Read the film's narration",
     scenes: [
       [
@@ -36,10 +36,6 @@ export const film = {
       [
         "Describe the job, and Kitewell lays out every step for you to check.",
         "In Kitewell's chat window, the request is typed: “Every weekday at 9, collect new invoices from the Harbor Supply portal, enter them in Ledger, and email me a summary.” Kitewell proposes the workflow as a card with its steps drawn as a graph; applied, the workflow draws itself in the editor.",
-      ],
-      [
-        "Or build it from Claude Code or Codex, over MCP.",
-        "For developers: the workflow's YAML, then a terminal where a coding agent changes it through Kitewell's MCP tools, checking the draft and then saving it.",
       ],
       [
         "On the first run, AI learns the job in your browser. Then your computer runs it, every day.",
@@ -73,15 +69,15 @@ export const film = {
   },
   ja: {
     name: "kitewell-launch-ja",
-    seconds: 67,
+    seconds: 62,
     uploaded: "2026-11-09",
     tracks: [
       ["captions", "ja", "日本語"],
       ["subtitles", "en", "English"],
     ],
-    label: "Kitewell 紹介映像（67 秒・ナレーション付き）",
+    label: "Kitewell 紹介映像（62 秒・ナレーション付き）",
     link: "Kitewell の紹介映像を見る。",
-    caption: ["67 秒 · ナレーション · 日本語字幕と英語字幕", "Kitewell の実際の画面と、代役の仕入れ先ポータルでの実際の実行。会社、ポータル、会計アプリ「台帳」、チャット、メールは架空のものです"],
+    caption: ["62 秒 · ナレーション · 日本語字幕と英語字幕", "Kitewell の実際の画面と、代役の仕入れ先ポータルでの実際の実行。会社、ポータル、会計アプリ「台帳」、チャット、メールは架空のものです"],
     transcript: "ナレーションをテキストで読む",
     scenes: [
       [
@@ -99,10 +95,6 @@ export const film = {
       [
         "伝えるだけで、Kitewell が手順を並べて見せます。",
         "Kitewell のチャットに「平日の朝9時に、みなと資材のポータルから新しい請求書を集めて台帳に入力し、概要をメールで送って」と入力します。Kitewell は手順をグラフで描いたカードでワークフローを提案し、適用するとエディターにワークフローが描かれます。",
-      ],
-      [
-        "Claude Code や Codex から、MCP でも組めます。",
-        "開発者向けに、ワークフローの YAML と、コーディングエージェントが Kitewell の MCP ツールで下書きを検証し、保存するターミナル。",
       ],
       [
         "最初の一回で、AI がブラウザーで仕事を覚え、あとは毎日、あなたのパソコンが動かします。",
@@ -136,9 +128,9 @@ export const film = {
   },
   zh: {
     ...englishCut,
-    label: "Kitewell 介绍影片（67 秒，英语旁白）",
+    label: "Kitewell 介绍影片（62 秒，英语旁白）",
     link: "观看 Kitewell 介绍影片。",
-    caption: ["67 秒 · 英语旁白 · 英文字幕与日文字幕", "Kitewell 的真实界面，以及针对代用供应商门户的真实运行；其中的公司、门户、Ledger、团队聊天和邮件均为虚构"],
+    caption: ["62 秒 · 英语旁白 · 英文字幕与日文字幕", "Kitewell 的真实界面，以及针对代用供应商门户的真实运行；其中的公司、门户、Ledger、团队聊天和邮件均为虚构"],
     transcript: "阅读影片旁白的文字版",
     scenes: [
       [
@@ -156,10 +148,6 @@ export const film = {
       [
         "说出要做的工作，Kitewell 会把每个步骤列出来给你检查。",
         "在 Kitewell 的聊天窗口中输入请求：“每个工作日 9 点，从 Harbor Supply 门户收集新发票，录入 Ledger，并用邮件给我发一份摘要。”Kitewell 以卡片形式提出工作流，步骤画成一张图；应用后，工作流在编辑器中自动绘出。",
-      ],
-      [
-        "也可以通过 MCP，在 Claude Code 或 Codex 里搭建。",
-        "面向开发者：先是工作流的 YAML，然后是一个终端，编程智能体通过 Kitewell 的 MCP 工具修改它，先检查草稿，再保存。",
       ],
       [
         "第一次运行时，AI 在你的浏览器里学会这项工作。之后，你的电脑每天运行它。",
@@ -193,9 +181,9 @@ export const film = {
   },
   ko: {
     ...englishCut,
-    label: "Kitewell 소개 영상(67초, 영어 내레이션)",
+    label: "Kitewell 소개 영상(62초, 영어 내레이션)",
     link: "Kitewell 소개 영상 보기.",
-    caption: ["67초 · 영어 내레이션 · 영어 자막과 일본어 자막", "Kitewell의 실제 화면과 대역 공급업체 포털에서의 실제 실행입니다. 회사, 포털, Ledger, 팀 채팅, 이메일은 가상입니다"],
+    caption: ["62초 · 영어 내레이션 · 영어 자막과 일본어 자막", "Kitewell의 실제 화면과 대역 공급업체 포털에서의 실제 실행입니다. 회사, 포털, Ledger, 팀 채팅, 이메일은 가상입니다"],
     transcript: "영상 내레이션을 텍스트로 읽기",
     scenes: [
       [
@@ -213,10 +201,6 @@ export const film = {
       [
         "할 일을 말하면, Kitewell이 확인할 수 있도록 모든 단계를 펼쳐 보여 줍니다.",
         "Kitewell 채팅 창에 요청을 입력합니다. “평일 9시마다 Harbor Supply 포털에서 새 청구서를 모아 Ledger에 입력하고, 요약을 이메일로 보내 줘.” Kitewell은 단계를 그래프로 그린 카드로 워크플로를 제안하고, 적용하면 편집기에 워크플로가 그려집니다.",
-      ],
-      [
-        "또는 MCP로 Claude Code나 Codex에서 만들 수도 있습니다.",
-        "개발자를 위한 장면입니다. 워크플로의 YAML, 이어서 코딩 에이전트가 Kitewell의 MCP 도구로 이를 수정하는 터미널. 초안을 확인한 뒤 저장합니다.",
       ],
       [
         "첫 실행에서 AI가 브라우저에서 일을 익힙니다. 그다음부터는 내 컴퓨터가 매일 실행합니다.",
@@ -250,9 +234,9 @@ export const film = {
   },
   fr: {
     ...englishCut,
-    label: "Film Kitewell, 67 secondes, narration en anglais",
+    label: "Film Kitewell, 62 secondes, narration en anglais",
     link: "Regarder le film Kitewell.",
-    caption: ["67 secondes · Narration en anglais · Sous-titres anglais et japonais", "Les vrais écrans de Kitewell et de vraies exécutions sur un portail fournisseur de substitution ; l’entreprise, son portail, Ledger, le chat d’équipe et l’e-mail sont fictifs"],
+    caption: ["62 secondes · Narration en anglais · Sous-titres anglais et japonais", "Les vrais écrans de Kitewell et de vraies exécutions sur un portail fournisseur de substitution ; l’entreprise, son portail, Ledger, le chat d’équipe et l’e-mail sont fictifs"],
     transcript: "Lire la narration du film",
     scenes: [
       [
@@ -270,10 +254,6 @@ export const film = {
       [
         "Décrivez la tâche, et Kitewell détaille chaque étape pour que vous la vérifiiez.",
         "Dans la fenêtre de chat de Kitewell, la demande est saisie : « Chaque jour de semaine à 9 h, récupère les nouvelles factures du portail Harbor Supply, saisis-les dans Ledger et envoie-moi un résumé par e-mail. » Kitewell propose le workflow sous forme de carte, ses étapes dessinées en graphe ; une fois appliqué, le workflow se dessine dans l’éditeur.",
-      ],
-      [
-        "Ou construisez-la depuis Claude Code ou Codex, via MCP.",
-        "Pour les développeurs : le YAML du workflow, puis un terminal où un agent de codage le modifie avec les outils MCP de Kitewell, vérifie le brouillon, puis l’enregistre.",
       ],
       [
         "À la première exécution, l’IA apprend la tâche dans votre navigateur. Ensuite, votre ordinateur l’exécute, chaque jour.",
@@ -307,9 +287,9 @@ export const film = {
   },
   de: {
     ...englishCut,
-    label: "Kitewell-Film, 67 Sekunden, englischer Sprecher",
+    label: "Kitewell-Film, 62 Sekunden, englischer Sprecher",
     link: "Den Kitewell-Film ansehen.",
-    caption: ["67 Sekunden · Englischer Sprecher · Englische und japanische Untertitel", "Die echten Bildschirme von Kitewell und echte Ausführungen gegen ein Ersatzportal eines Lieferanten; das Unternehmen, sein Portal, Ledger, der Team-Chat und die E-Mail sind erfunden"],
+    caption: ["62 Sekunden · Englischer Sprecher · Englische und japanische Untertitel", "Die echten Bildschirme von Kitewell und echte Ausführungen gegen ein Ersatzportal eines Lieferanten; das Unternehmen, sein Portal, Ledger, der Team-Chat und die E-Mail sind erfunden"],
     transcript: "Den Sprechertext des Films lesen",
     scenes: [
       [
@@ -327,10 +307,6 @@ export const film = {
       [
         "Beschreiben Sie die Aufgabe, und Kitewell legt jeden Schritt zur Prüfung vor.",
         "Im Chatfenster von Kitewell wird die Anfrage eingegeben: „Hole an jedem Werktag um 9 Uhr die neuen Rechnungen aus dem Portal von Harbor Supply, trage sie in Ledger ein und schick mir eine Zusammenfassung per E-Mail.“ Kitewell schlägt den Workflow als Karte vor, die Schritte als Graph gezeichnet; nach dem Übernehmen zeichnet sich der Workflow im Editor.",
-      ],
-      [
-        "Oder bauen Sie sie aus Claude Code oder Codex heraus, über MCP.",
-        "Für Entwickler: das YAML des Workflows, dann ein Terminal, in dem ein Coding-Agent ihn über die MCP-Werkzeuge von Kitewell ändert, den Entwurf prüft und ihn dann speichert.",
       ],
       [
         "Beim ersten Lauf lernt die KI die Aufgabe in Ihrem Browser. Danach führt Ihr Computer sie aus, jeden Tag.",

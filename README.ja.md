@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <a href="https://kitewell.com/ja/#film"><strong>▶ 映像を見る（67 秒）</strong></a> ·
+  <a href="https://kitewell.com/ja/#film"><strong>▶ 映像を見る（62 秒）</strong></a> ·
   <a href="https://kitewell.com/ja/download/">ダウンロード</a> ·
   <a href="https://kitewell.com/ja/docs/getting-started/">はじめかた</a> ·
   <a href="https://kitewell.com/ja/docs/">ドキュメント</a> ·
