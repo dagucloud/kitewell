@@ -7,7 +7,7 @@ export default defineConfig({
   site: "https://kitewell.com",
   trailingSlash: "always",
   redirects: {
-    "/community": "https://join.slack.com/t/kitewell/shared_invite/zt-4c4b7g551-nkAwJqwfdeBhrtnMMm3vZg",
+    "/community": "https://join.slack.com/t/kitewell/shared_invite/zt-4g3uwyk5e-B0TyQHAsNzk9YmErUfSvnw",
   },
   integrations: [
     starlight({
