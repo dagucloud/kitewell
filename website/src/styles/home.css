@@ -16,6 +16,12 @@
 :is(:lang(ja), :lang(zh), :lang(ko)) .home .intro h1 {
   font-size: clamp(32px, 4.8vw, 60px);
 }
+.home #hero-title {
+  font-size: clamp(36px, 4.6vw, 60px);
+}
+:is(:lang(ja), :lang(zh), :lang(ko)) .home #hero-title {
+  font-size: clamp(28px, 4vw, 52px);
+}
 .intro-lead {
   max-width: 44em;
   margin-top: 24px;
@@ -35,6 +41,13 @@
 }
 .intro > .fine {
   margin-top: 16px;
+}
+.intro-stalled {
+  max-width: 44em;
+  margin-top: 40px;
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 600;
+  line-height: 1.55;
 }
 .intro-media {
   margin: 48px 0 0;

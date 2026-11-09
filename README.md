@@ -9,7 +9,7 @@
   </a>
 </p>
 
-<h1 align="center">AI learns the job once.<br>Then it runs fast, without second-guessing.</h1>
+<h1 align="center">AI builds it. AI fixes it.<br>Ask once, and screen-only work runs itself.</h1>
 
 <p align="center">
   Describe the job, and AI builds the automation in a browser you can watch,
@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <a href="https://kitewell.com/#film"><strong>▶ Watch the 74-second film</strong></a> ·
+  <a href="https://kitewell.com/#film"><strong>▶ Watch the 67-second film</strong></a> ·
   <a href="https://kitewell.com/download/">Download</a> ·
   <a href="https://kitewell.com/docs/getting-started/">Get started</a> ·
   <a href="https://kitewell.com/docs/">Docs</a> ·

@@ -9,14 +9,14 @@
   </a>
 </p>
 
-<h1 align="center">AI は一度で覚える。<br>あとは迷わず、速く動く。</h1>
+<h1 align="center">作るのも、直すのも、AI。<br>画面でしかできない仕事も、頼むだけで自動に。</h1>
 
 <p align="center">
   やってほしい仕事を伝えれば、AI が目の前のブラウザーで自動化をつくり、サイトが変わったら直します。デスクトップアプリ、Excel、メール、Claude Code などのコーディングエージェントも同じように、スケジュールや Webhook で、大事なところはあなたの OK を待って動きます。外出先からも、スマホで見守れます。
 </p>
 
 <p align="center">
-  <a href="https://kitewell.com/ja/#film"><strong>▶ 映像を見る（74 秒）</strong></a> ·
+  <a href="https://kitewell.com/ja/#film"><strong>▶ 映像を見る（67 秒）</strong></a> ·
   <a href="https://kitewell.com/ja/download/">ダウンロード</a> ·
   <a href="https://kitewell.com/ja/docs/getting-started/">はじめかた</a> ·
   <a href="https://kitewell.com/ja/docs/">ドキュメント</a> ·

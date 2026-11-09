@@ -39,16 +39,17 @@ const record = (labels: { open: string; act: string; check: string; collect: str
 ];
 const text = {
   en: {
-    title: "AI learns the job once. Then it runs fast, without second-guessing.",
+    title: "AI builds it. AI fixes it. Ask once, and screen-only work runs itself.",
     description:
       "Kitewell's AI builds browser automation and fixes it when a site changes. It also runs desktop apps, Excel, and email on your Mac or PC, on a schedule or a webhook, and you follow the runs from your phone. Free for 14 days.",
     eyebrow: "AI-native RPA",
-    heading: "AI learns the job once.\nThen it runs fast, without second\u2011guessing.",
-    lead: "Describe the job, and AI does it once in a browser or app you can watch, and remembers what worked. From then on, Kitewell repeats it. It doesn't ask the model for every click, so runs stay fast and costs don't grow with every run. When a screen changes, AI relearns it, and it stops for your OK where it matters.",
+    heading: "AI builds it. AI fixes it.\nAsk once, and screen-only work runs itself.",
+    lead: "Describe the job, and AI does it once in a browser or app you can watch, and saves what worked. From then on, Kitewell repeats the same steps on your schedule and records every run. When a screen changes, AI finds the new way and saves it. It stops for your OK where it matters.",
     watch: `Watch the film (${cut.seconds} s)`,
     setup: "Read the setup guide →",
     trial: "Start free trial",
-    platform: "Kitewell Cloud runs in your browser, with nothing to install. The desktop app is a public beta for macOS 13+ and Windows 10+. Free for 14 days with AI included, no card needed.",
+    platform: "Work on websites you can try in your browser, with nothing to install. To automate internal systems or desktop apps, use the download (a public beta for macOS 13+ and Windows 10+). Free for 14 days with AI included, no card needed.",
+    stalled: "The robot stopped. The person who built it is gone. AI can take over the work of keeping hand-built RPA running.",
     proofTabs: ["Websites", "Desktop apps"],
     proof: [
       "Real recording, sped up: Kitewell's chat is asked to add a supplier portal's new invoices to an Excel file every weekday. The AI opens the stand-in portal in a browser shown in the chat, has the person type the password into a card, signs in, tries its draft, and proposes the workflow. Once it is applied and run, the run waits with the invoices it found until a reply lets it add them to the workbook.",
@@ -172,16 +173,17 @@ const text = {
     compare: "Compare plans →",
   },
   ja: {
-    title: "AI は一度で覚える。あとは迷わず、速く動く。",
+    title: "作るのも、直すのも、AI。画面でしかできない仕事も、頼むだけで自動に。",
     description:
       "Kitewell の AI がブラウザーの自動化をつくり、サイトが変わったら直します。デスクトップアプリ、Excel、メールも、あなたの Mac や PC で、スケジュールや Webhook で動かします。実行はスマホからも見守れます。14 日間無料で試せます。",
     eyebrow: "AI ネイティブ RPA",
-    heading: "AI は一度で覚える。\nあとは迷わず、速く動く。",
-    lead: "やってほしい仕事を伝えれば、AI が目の前のブラウザーやアプリで一度やってみせ、うまくいった操作を覚えます。2 回目からは、覚えた操作をそのままくり返します。クリックや入力のたびに AI に聞かないので、回数を増やしても速く、費用もふくらみません。画面が変わったときは AI が覚え直し、大事なところはあなたの OK を待ちます。",
+    heading: "作るのも、直すのも、AI。\n画面でしかできない仕事も、頼むだけで自動に。",
+    lead: "やってほしい仕事を伝えれば、AI がブラウザーやアプリで一度やってみせ、できた操作を保存します。次からは同じ手順をくり返し、決めた時間に動き、すべての実行が記録に残ります。画面が変わったら、AI が新しいやり方を見つけて保存し直します。大事なところは、あなたの OK を待ちます。",
     watch: `映像を見る（${cut.seconds} 秒）`,
     setup: "セットアップガイドを読む →",
     trial: "無料で試す",
-    platform: "Kitewell Cloud はインストール不要で、ブラウザーで使えます。デスクトップアプリは macOS 13 以降と Windows 10 以降のパブリックベータです。AI 付きで 14 日間無料、カード登録は不要です。",
+    platform: "Web サイトの仕事は、インストールなしでブラウザーから試せます。社内システムやデスクトップアプリを自動化するなら、ダウンロード版（macOS 13 以降と Windows 10 以降のパブリックベータ）を使います。AI 付きで 14 日間無料、カード登録は不要です。",
+    stalled: "ロボットが止まる。作った人はもういない。手作りの RPA を直し続ける仕事は、AI に任せられます。",
     proofTabs: ["Web サイト", "デスクトップアプリ"],
     proof: [
       "実際の録画（早送り）。Kitewell のチャットで、仕入れ先ポータルの新しい請求書を平日ごとに Excel に追加するよう頼みます。AI はチャットに映るブラウザーで代役のポータルを開き、パスワードはカードであなたが入力します。AI はログインして下書きを試し、ワークフローを提案します。適用して実行すると、見つけた請求書を見せて待ち、返信で進めるとブックに追加します。",
@@ -313,16 +315,17 @@ const text = {
     compare: "プランを比べる →",
   },
   zh: {
-    title: "AI 学一次就会。之后毫不犹豫，快速运行。",
+    title: "搭建靠 AI，修复也靠 AI。只能在屏幕上做的工作，说一声就自动完成。",
     description:
       "Kitewell 的 AI 搭建浏览器自动化，并在网站变化时修复它。它还能在你的 Mac 或 PC 上，按计划或由 Webhook 触发，运行桌面应用、Excel 和电子邮件；运行情况可以在手机上随时查看。可免费试用 14 天。",
     eyebrow: "AI 原生 RPA",
-    heading: "AI 学一次就会。\n之后毫不犹豫，快速运行。",
-    lead: "说出要做的工作，AI 会在你看得见的浏览器或应用里先做一遍，并记住有效的操作。之后，Kitewell 会照样重复。它不会每次点击都去问模型，所以运行次数再多也一样快，费用也不会膨胀。界面变化时，AI 会重新学会；关键之处会等你批准。",
+    heading: "搭建靠 AI，修复也靠 AI。\n只能在屏幕上做的工作，说一声就自动完成。",
+    lead: "说出要做的工作，AI 会在你看得见的浏览器或应用里先做一遍，并保存有效的操作。之后，Kitewell 按你定的时间重复同样的步骤，并记录每一次运行。界面变化时，AI 会找到新的做法并重新保存。关键之处会等你批准。",
     watch: `观看影片（${cut.seconds} 秒）`,
     setup: "阅读安装指南 →",
     trial: "免费试用",
-    platform: "Kitewell Cloud 在浏览器中使用，无需安装。桌面应用是面向 macOS 13+ 和 Windows 10+ 的公开测试版。含 AI，可免费试用 14 天，无需信用卡。",
+    platform: "网站上的工作，无需安装，在浏览器中就能试用。要自动化公司内部系统或桌面应用，请使用下载版（面向 macOS 13+ 和 Windows 10+ 的公开测试版）。含 AI，可免费试用 14 天，无需信用卡。",
+    stalled: "机器人停了。做它的人已经不在了。一直修手工搭建的 RPA 这件事，可以交给 AI。",
     proofTabs: ["网站", "桌面应用"],
     proof: [
       "真实录屏，已加速：在 Kitewell 的聊天中提出请求，每个工作日把供应商门户的新发票添加到一个 Excel 文件中。AI 在聊天中显示的浏览器里打开代用门户，请用户在卡片中输入密码，登录后试运行草稿，并提出工作流。应用并运行后，运行会带着找到的发票等待，直到收到回复，才把它们添加到工作簿中。",
@@ -446,16 +449,17 @@ const text = {
     compare: "比较套餐 →",
   },
   ko: {
-    title: "AI는 한 번에 익힙니다. 그다음엔 망설임 없이 빠르게 움직입니다.",
+    title: "만드는 것도, 고치는 것도 AI. 화면에서만 할 수 있는 일도 말 한마디로 자동화.",
     description:
       "Kitewell의 AI가 브라우저 자동화를 만들고, 사이트가 바뀌면 고칩니다. 데스크톱 앱, Excel, 이메일도 내 Mac이나 PC에서 일정이나 웹후크로 실행하며, 실행 상황은 휴대폰으로 확인할 수 있습니다. 14일 동안 무료로 써 볼 수 있습니다.",
     eyebrow: "AI 네이티브 RPA",
-    heading: "AI는 한 번에 익힙니다.\n그다음엔 망설임 없이 빠르게 움직입니다.",
-    lead: "할 일을 말하면 AI가 지켜볼 수 있는 브라우저나 앱에서 한 번 해 보이고, 효과가 있었던 조작을 기억합니다. 그다음부터는 Kitewell이 그대로 반복합니다. 클릭할 때마다 모델에 묻지 않으므로 실행 횟수가 늘어도 빠르고, 비용도 불어나지 않습니다. 화면이 바뀌면 AI가 다시 익히고, 중요한 곳에서는 내 승인을 기다립니다.",
+    heading: "만드는 것도, 고치는 것도 AI.\n화면에서만 할 수 있는 일도 말 한마디로 자동화.",
+    lead: "할 일을 말하면 AI가 지켜볼 수 있는 브라우저나 앱에서 한 번 해 보이고, 효과가 있었던 조작을 저장합니다. 그다음부터는 Kitewell이 정한 시간에 같은 순서를 반복하고, 모든 실행을 기록합니다. 화면이 바뀌면 AI가 새로운 방법을 찾아 다시 저장합니다. 중요한 곳에서는 내 승인을 기다립니다.",
     watch: `영상 보기(${cut.seconds}초)`,
     setup: "설치 가이드 읽기 →",
     trial: "무료 체험 시작",
-    platform: "Kitewell Cloud는 설치 없이 브라우저에서 씁니다. 데스크톱 앱은 macOS 13 이상, Windows 10 이상용 공개 베타입니다. AI를 포함해 14일 동안 무료이며, 카드는 필요 없습니다.",
+    platform: "웹사이트 작업은 설치 없이 브라우저에서 써 볼 수 있습니다. 사내 시스템이나 데스크톱 앱을 자동화하려면 다운로드 버전(macOS 13 이상, Windows 10 이상용 공개 베타)을 사용하세요. AI를 포함해 14일 동안 무료이며, 카드는 필요 없습니다.",
+    stalled: "로봇이 멈췄습니다. 만든 사람은 이제 없습니다. 손으로 만든 RPA를 계속 고치는 일은 AI에게 맡길 수 있습니다.",
     proofTabs: ["웹사이트", "데스크톱 앱"],
     proof: [
       "실제 녹화, 배속 재생: Kitewell 채팅에서 평일마다 공급업체 포털의 새 청구서를 Excel 파일에 추가하도록 요청합니다. AI는 채팅에 보이는 브라우저에서 대역 포털을 열고, 비밀번호는 사람이 카드에 직접 입력하게 한 뒤 로그인해 초안을 시험하고 워크플로를 제안합니다. 적용해 실행하면, 찾은 청구서를 보여 주며 기다리다가 답장을 받은 뒤에야 통합 문서에 추가합니다.",
@@ -579,16 +583,17 @@ const text = {
     compare: "요금제 비교 →",
   },
   fr: {
-    title: "L’IA apprend la tâche une fois. Ensuite, elle tourne vite, sans hésiter.",
+    title: "L’IA le construit. L’IA le répare. Le travail à l’écran, sur simple demande.",
     description:
       "L’IA de Kitewell construit l’automatisation du navigateur et la répare quand un site change. Kitewell exécute aussi des applications de bureau, Excel et l’e-mail sur votre Mac ou PC, selon une planification ou un webhook, et vous suivez les exécutions depuis votre téléphone. Gratuit pendant 14 jours.",
     eyebrow: "RPA native IA",
-    heading: "L’IA apprend la tâche une fois.\nEnsuite, elle tourne vite, sans hésiter.",
-    lead: "Décrivez la tâche : l’IA la fait une fois dans un navigateur ou une application que vous pouvez regarder, et retient ce qui a fonctionné. Ensuite, Kitewell le répète. Il ne demande pas au modèle à chaque clic : les exécutions restent rapides et les coûts n’enflent pas à chaque exécution. Quand un écran change, l’IA réapprend, et Kitewell attend votre accord là où c’est important.",
+    heading: "L’IA le construit. L’IA le répare.\nLe travail à l’écran, sur simple demande.",
+    lead: "Décrivez la tâche : l’IA la fait une fois dans un navigateur ou une application que vous pouvez regarder, et enregistre ce qui a fonctionné. Ensuite, Kitewell répète les mêmes étapes à l’heure que vous choisissez et garde une trace de chaque exécution. Quand un écran change, l’IA trouve la nouvelle façon de faire et l’enregistre. Kitewell attend votre accord là où c’est important.",
     watch: `Voir le film (${cut.seconds} s)`,
     setup: "Lire le guide d’installation →",
     trial: "Commencer l’essai gratuit",
-    platform: "Kitewell Cloud s’utilise dans votre navigateur, sans rien installer. L’app de bureau est en bêta publique pour macOS 13+ et Windows 10+. Gratuit pendant 14 jours, IA incluse, sans carte bancaire.",
+    platform: "Le travail sur les sites web s’essaie dans votre navigateur, sans rien installer. Pour automatiser des systèmes internes ou des applications de bureau, utilisez la version à télécharger (bêta publique pour macOS 13+ et Windows 10+). Gratuit pendant 14 jours, IA incluse, sans carte bancaire.",
+    stalled: "Le robot s’est arrêté. La personne qui l’a construit est partie. L’IA peut reprendre l’entretien du RPA construit à la main.",
     proofTabs: ["Sites web", "Applications de bureau"],
     proof: [
       "Enregistrement réel, accéléré : on demande au chat de Kitewell d’ajouter chaque jour de semaine les nouvelles factures du portail d’un fournisseur à un fichier Excel. L’IA ouvre le portail de substitution dans un navigateur affiché dans le chat, fait saisir le mot de passe dans une carte, se connecte, essaie son brouillon et propose le workflow. Une fois le workflow appliqué et lancé, l’exécution attend avec les factures trouvées jusqu’à ce qu’une réponse l’autorise à les ajouter au classeur.",
@@ -712,16 +717,17 @@ const text = {
     compare: "Comparer les offres →",
   },
   de: {
-    title: "Die KI lernt die Aufgabe einmal. Danach läuft sie schnell und ohne Zögern.",
+    title: "Die KI baut es. Die KI repariert es. Bildschirmarbeit automatisiert auf Zuruf.",
     description:
       "Die KI von Kitewell baut Browser-Automatisierungen und repariert sie, wenn sich eine Website ändert. Kitewell führt auch Desktop-Apps, Excel und E-Mail auf Ihrem Mac oder PC aus, nach Zeitplan oder per Webhook, und Sie verfolgen die Ausführungen auf Ihrem Smartphone. 14 Tage kostenlos.",
     eyebrow: "KI-native RPA",
-    heading: "Die KI lernt die Aufgabe einmal.\nDanach läuft sie schnell und ohne Zögern.",
-    lead: "Beschreiben Sie die Aufgabe: Die KI erledigt sie einmal in einem Browser oder einer App, der Sie zusehen können, und merkt sich, was funktioniert hat. Danach wiederholt Kitewell es. Es fragt das Modell nicht bei jedem Klick, deshalb bleiben die Läufe schnell und die Kosten wachsen nicht mit jedem Lauf. Ändert sich ein Bildschirm, lernt die KI neu, und wo es darauf ankommt, wartet Kitewell auf Ihr OK.",
+    heading: "Die KI baut es. Die KI repariert es.\nBildschirmarbeit automatisiert auf Zuruf.",
+    lead: "Beschreiben Sie die Aufgabe: Die KI erledigt sie einmal in einem Browser oder einer App, der Sie zusehen können, und speichert, was funktioniert hat. Danach wiederholt Kitewell dieselben Schritte nach Ihrem Zeitplan und protokolliert jeden Lauf. Ändert sich ein Bildschirm, findet die KI den neuen Weg und speichert ihn. Wo es darauf ankommt, wartet Kitewell auf Ihr OK.",
     watch: `Film ansehen (${cut.seconds} Sek.)`,
     setup: "Einrichtungsanleitung lesen →",
     trial: "Kostenlos testen",
-    platform: "Kitewell Cloud läuft im Browser, ohne Installation. Die Desktop-App ist eine öffentliche Beta für macOS 13+ und Windows 10+. 14 Tage kostenlos, KI inklusive, ohne Kreditkarte.",
+    platform: "Arbeit auf Websites testen Sie im Browser, ohne Installation. Um interne Systeme oder Desktop-Apps zu automatisieren, nutzen Sie die Download-Version (öffentliche Beta für macOS 13+ und Windows 10+). 14 Tage kostenlos, KI inklusive, ohne Kreditkarte.",
+    stalled: "Der Roboter steht. Die Person, die ihn gebaut hat, ist weg. Die Pflege von handgebautem RPA kann die KI übernehmen.",
     proofTabs: ["Websites", "Desktop-Apps"],
     proof: [
       "Echte Aufnahme, beschleunigt: Im Chat von Kitewell wird darum gebeten, an jedem Werktag die neuen Rechnungen aus dem Portal eines Lieferanten in eine Excel-Datei einzutragen. Die KI öffnet das Ersatzportal in einem Browser, der im Chat zu sehen ist, lässt die Person das Passwort in eine Karte eingeben, meldet sich an, probiert ihren Entwurf aus und schlägt den Workflow vor. Nach dem Übernehmen und Ausführen wartet die Ausführung mit den gefundenen Rechnungen, bis eine Antwort sie in die Arbeitsmappe eintragen lässt.",
@@ -913,6 +919,7 @@ const video = {
         ))}
         <figcaption>{text.proofNote}</figcaption>
       </figure>
+      <p class="intro-stalled">{text.stalled}</p>
     </section>
 
     <section class="film-block wrap" id="film" aria-label={cut.label}>
