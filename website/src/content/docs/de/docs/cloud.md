@@ -70,6 +70,10 @@ zu wählen wechselt zu einem anderen.
 - Dateien und Anmeldungen des Projekts liegen verschlüsselt in seinem eigenen
   Speicher, in der Google-Cloud-Region Iowa (`us-central1`) in den USA. Was
   wo gespeichert wird, steht in der [Datenschutzerklärung](/privacy/).
+- Das enthaltene Modell von Kitewell läuft nur bei Hosts mit Zero Data
+  Retention und Hauptsitz in den USA oder der EU. Was Sie senden, wird weder
+  gespeichert noch zum Training verwendet
+  ([Das enthaltene Modell von Kitewell verwenden](/de/docs/ai/#use-kitewells-included-model)).
 
 ## Was in der Cloud läuft und was Ihren Computer braucht
 

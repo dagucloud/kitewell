@@ -71,6 +71,10 @@ choisir permet d’en changer.
   stockage, dans la région Iowa de Google Cloud (`us-central1`), aux
   États-Unis. La [politique de confidentialité](/privacy/) précise ce qui est
   conservé et où.
+- Le modèle inclus de Kitewell ne tourne que chez des hébergeurs à conservation
+  zéro des données, dont le siège est aux États-Unis ou dans l’UE. Ce que vous
+  envoyez n’est ni conservé ni utilisé pour l’entraînement
+  ([Utiliser le modèle inclus de Kitewell](/fr/docs/ai/#use-kitewells-included-model)).
 
 ## Ce qui tourne dans le cloud, et ce qui demande votre ordinateur
 

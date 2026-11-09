@@ -46,7 +46,21 @@ Personal と Team では、1,000 クレジットのパックを [Dagu Console](h
 
 残りのクレジットは、管理者が **デバイス設定** の **Dagu Cloud アカウント** で確認できます。使い切ると、補充されるかパックを購入するまで（トライアル中はプランに登録するまで）付属モデルは使えません。自分で追加したモデルはそのまま使えます。
 
-Dagu Cloud は、受け取った内容を保存も学習もしないプロバイダーにだけ振り分けるよう OpenRouter に求めます。Dagu Cloud 自身はプロンプトの文面を残さず、残すのはワークスペース、デバイス、モデル、使ったクレジットだけです。
+<a id="which-model-and-where-it-runs"></a>
+
+### どのモデルで、どこで動くか
+
+付属モデルの中身は Dagu Cloud が選ぶので、Kitewell を更新しなくても変わることがあります。ここには現在のものを書いています。2026 年 11 月 8 日時点では、次のとおりです。
+
+- デスクトップのステップのスクリーンショットを読むのは **OpenAI GPT-6.1 Terra** です。
+- それ以外は、チャットとアシスタントも含めて **DeepSeek V4.1 Flash** です。
+
+リクエストは Dagu Cloud を経由して OpenRouter に届き、OpenRouter のゼロデータ保持（Zero Data Retention）の対象の事業者にだけ送られます。対象の事業者は、リクエストを保存も学習もしません。
+
+- DeepSeek V4.1 Flash は、DeepInfra、Together AI、Fireworks AI、Cloudflare、Mistral、Nebius など、本社が米国または EU にある事業者だけが動かします。DeepSeek 社や中国に拠点を置く事業者には送りません。
+- GPT-6.1 Terra は EU の Microsoft Azure だけで動きます。
+
+Dagu Cloud はプロンプトの文面を残さず、残すのはワークスペース、デバイス、モデル、使ったクレジットだけです。OpenRouter にリクエストを送りたくない場合は、**エージェントとモデル** で自分のモデルを選ぶか、Ollama のように自分で動かすサーバーを使ってください。
 
 ## このコンピューターのコーディングエージェントを使う
 

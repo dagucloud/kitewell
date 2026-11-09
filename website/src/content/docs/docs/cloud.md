@@ -62,6 +62,9 @@ switches to another.
 - The project's files and sign-ins are kept encrypted in its own storage, in
   Google Cloud's Iowa region (`us-central1`) in the United States. The
   [privacy policy](/privacy/) says what is kept and where.
+- Kitewell's included model runs only on zero data retention hosts
+  headquartered in the US or EU, so what you send is neither kept nor used
+  for training ([which model, and where it runs](/docs/ai/#which-model-and-where-it-runs)).
 
 ## What runs in the cloud, and what needs your computer
 
