@@ -1,0 +1,111 @@
+---
+import Site from "../layouts/Site.astro";
+import { localize, type Locale } from "../lib/i18n.mjs";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = {
+  en: {
+    title: "Open a template in Kitewell",
+    description: "Open this template in Kitewell on your computer.",
+    eyebrow: "Template",
+    heading: "Open this template in Kitewell.",
+    lead: "Kitewell opens on your computer at this template. Nothing is added until you choose to use it.",
+    open: "Open in Kitewell",
+    missing: "This link doesn't name a template.",
+    notOpened: "Kitewell didn't open?",
+    install: "Download and install the latest version, come back to this page, and choose Open in Kitewell again.",
+    download: "Download Kitewell",
+  },
+  ja: {
+    title: "Kitewell でテンプレートを開く",
+    description: "このテンプレートを、お使いのパソコンの Kitewell で開きます。",
+    eyebrow: "テンプレート",
+    heading: "このテンプレートを Kitewell で開きます。",
+    lead: "お使いのパソコンの Kitewell が、このテンプレートの画面で開きます。使うと決めるまで、何も追加されません。",
+    open: "Kitewell で開く",
+    missing: "このリンクにはテンプレートの指定がありません。",
+    notOpened: "Kitewell が開かない場合",
+    install: "最新版をダウンロードしてインストールし、このページに戻って、もう一度「Kitewell で開く」を押してください。",
+    download: "Kitewell をダウンロード",
+  },
+  zh: {
+    title: "在 Kitewell 中打开模板",
+    description: "在您电脑上的 Kitewell 中打开此模板。",
+    eyebrow: "模板",
+    heading: "在 Kitewell 中打开此模板。",
+    lead: "您电脑上的 Kitewell 会打开此模板。在您决定使用之前，不会添加任何内容。",
+    open: "在 Kitewell 中打开",
+    missing: "此链接未指定模板。",
+    notOpened: "Kitewell 没有打开？",
+    install: "请下载并安装最新版本，然后回到此页面，再次选择“在 Kitewell 中打开”。",
+    download: "下载 Kitewell",
+  },
+  ko: {
+    title: "Kitewell에서 템플릿 열기",
+    description: "컴퓨터의 Kitewell에서 이 템플릿을 엽니다.",
+    eyebrow: "템플릿",
+    heading: "Kitewell에서 이 템플릿을 엽니다.",
+    lead: "컴퓨터의 Kitewell이 이 템플릿 화면으로 열립니다. 사용하기로 결정하기 전에는 아무것도 추가되지 않습니다.",
+    open: "Kitewell에서 열기",
+    missing: "이 링크에는 템플릿이 지정되어 있지 않습니다.",
+    notOpened: "Kitewell이 열리지 않나요?",
+    install: "최신 버전을 다운로드해 설치한 뒤 이 페이지로 돌아와 \"Kitewell에서 열기\"를 다시 선택하세요.",
+    download: "Kitewell 다운로드",
+  },
+  fr: {
+    title: "Ouvrir un modèle dans Kitewell",
+    description: "Ouvrez ce modèle dans Kitewell sur votre ordinateur.",
+    eyebrow: "Modèle",
+    heading: "Ouvrez ce modèle dans Kitewell.",
+    lead: "Kitewell s'ouvre sur votre ordinateur, à ce modèle. Rien n'est ajouté tant que vous n'avez pas choisi de l'utiliser.",
+    open: "Ouvrir dans Kitewell",
+    missing: "Ce lien n'indique aucun modèle.",
+    notOpened: "Kitewell ne s'est pas ouvert ?",
+    install: "Téléchargez et installez la dernière version, revenez sur cette page, puis choisissez à nouveau « Ouvrir dans Kitewell ».",
+    download: "Télécharger Kitewell",
+  },
+  de: {
+    title: "Vorlage in Kitewell öffnen",
+    description: "Öffnen Sie diese Vorlage in Kitewell auf Ihrem Computer.",
+    eyebrow: "Vorlage",
+    heading: "Öffnen Sie diese Vorlage in Kitewell.",
+    lead: "Kitewell öffnet sich auf Ihrem Computer bei dieser Vorlage. Nichts wird hinzugefügt, bevor Sie sich für die Nutzung entscheiden.",
+    open: "In Kitewell öffnen",
+    missing: "Dieser Link nennt keine Vorlage.",
+    notOpened: "Kitewell hat sich nicht geöffnet?",
+    install: "Laden Sie die neueste Version herunter, installieren Sie sie, kehren Sie zu dieser Seite zurück und wählen Sie erneut „In Kitewell öffnen“.",
+    download: "Kitewell herunterladen",
+  },
+}[locale];
+---
+
+<Site title={text.title} description={text.description} noindex>
+  <section class="page wrap">
+    <p class="eyebrow">{text.eyebrow}</p>
+    <h1>{text.heading}</h1>
+    <p class="lead">{text.lead}</p>
+    <p data-open hidden><a class="button">{text.open}</a></p>
+    <p data-missing hidden>{text.missing}</p>
+    <div class="prose">
+      <h2>{text.notOpened}</h2>
+      <p>{text.install}</p>
+      {/* A new tab keeps this page, and its link to the template, for after the install. */}
+      <p><a class="button secondary" href={localize("/download/", locale)} target="_blank" rel="noopener">{text.download}</a></p>
+    </div>
+  </section>
+</Site>
+
+<script>
+  import { templateLink } from "../lib/template-link.mjs";
+
+  const link = templateLink(location.search);
+  const open = document.querySelector<HTMLElement>("[data-open]")!;
+  if (link) {
+    open.querySelector("a")!.href = link;
+    open.hidden = false;
+  } else {
+    document.querySelector<HTMLElement>("[data-missing]")!.hidden = false;
+  }
+</script>

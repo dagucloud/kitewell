@@ -104,6 +104,7 @@ export default defineConfig({
     }),
     sitemap({
       i18n: { defaultLocale: "en", locales: Object.fromEntries(locales.map((l) => [l, languages[l].lang])) },
+      filter: (page) => !page.endsWith("/open/"),
     }),
   ],
 });

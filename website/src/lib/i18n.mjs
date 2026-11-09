@@ -19,7 +19,7 @@ export const languages = {
 // the English ones.
 export const recorded = /** @type {const} */ (["en", "ja"]);
 
-const translatedPages = ["/", "/coding-agents/", "/pricing/", "/compare/", "/download/", "/releases/", "/support/", "/privacy/", "/terms/"];
+const translatedPages = ["/", "/coding-agents/", "/pricing/", "/compare/", "/download/", "/open/", "/releases/", "/support/", "/privacy/", "/terms/"];
 // Every page under these paths is translated too.
 const translatedSections = ["/docs/", "/examples/"];
 // The terms and the privacy policy are published in Japanese and English

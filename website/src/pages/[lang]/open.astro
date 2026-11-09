@@ -1,0 +1,9 @@
+---
+import Open from "../../views/Open.astro";
+import { translations } from "../../lib/i18n.mjs";
+
+export const getStaticPaths = translations;
+const { locale } = Astro.props;
+---
+
+<Open locale={locale} />
