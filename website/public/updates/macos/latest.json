@@ -1,19 +1,19 @@
 {
-  "version": "0.24.0",
-  "published": "2026-11-09T15:56:53Z",
+  "version": "0.25.0",
+  "published": "2026-11-10T08:03:32Z",
   "rollout": {
-    "start": "2026-11-09T15:56:53Z",
+    "start": "2026-11-10T08:03:32Z",
     "hours": 48,
     "paused": false
   },
   "downloads": {
     "darwin-arm64": {
-      "url": "https://github.com/dagucloud/kitewell/releases/download/v0.24.0/Kitewell-0.24.0-arm64.pkg",
-      "sha256": "95c9ed9ea2da62d3f685e81f4264f9f9570166add3bd68bfdd3ca6328b9ebdea"
+      "url": "https://github.com/dagucloud/kitewell/releases/download/v0.25.0/Kitewell-0.25.0-arm64.pkg",
+      "sha256": "f21f5596a9d53f16f71655fed03253f78b724ccd198e1d56fd7b5aa9cb887a95"
     },
     "darwin-amd64": {
-      "url": "https://github.com/dagucloud/kitewell/releases/download/v0.24.0/Kitewell-0.24.0-amd64.pkg",
-      "sha256": "ea9ca9bc5027b20069c6733c22173583743fe1497ca7be6e94321aad29b71252"
+      "url": "https://github.com/dagucloud/kitewell/releases/download/v0.25.0/Kitewell-0.25.0-amd64.pkg",
+      "sha256": "6b58bda85b856ed6dcef3612f9ea39ff7b6e3ec2f5c793a59b9912cd7165f95a"
     }
   }
 }
