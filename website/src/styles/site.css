@@ -361,7 +361,8 @@ figure {
   border-top: 1px solid var(--line);
   padding-block: 35px;
   display: grid;
-  grid-template-columns: 1fr auto;
+  /* The brand keeps room for its name and line; the links wrap instead. */
+  grid-template-columns: minmax(15rem, 1fr) auto;
   gap: 30px;
 }
 .footer p {

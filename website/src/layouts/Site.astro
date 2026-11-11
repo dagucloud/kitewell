@@ -34,7 +34,7 @@ const text = {
     trial: "Start free trial",
     tagline: "AI builds your flows and fixes them. RPA that gets smarter on its own.",
     social: "AI builds your flows and fixes them. RPA that gets smarter on its own. Kitewell: browser automation built and maintained by AI, plus desktop apps, Excel, and email.",
-    footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community", "Compare", "Releases"],
+    footer: ["Documentation", "Third-party notices", "Support", "Contact", "Privacy", "Terms", "Community", "Compare", "Releases", "For teams"],
     fine: "",
   },
   ja: {
@@ -51,7 +51,7 @@ const text = {
     trial: "無料で試す",
     tagline: "AI がフローをつくる、なおす。自動的に賢くなる RPA。",
     social: "AI がフローをつくる、なおす。自動的に賢くなる RPA。Kitewell：AI がつくり保守するブラウザーの自動化と、デスクトップアプリ、Excel、メール。",
-    footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ", "比較", "リリース"],
+    footer: ["ドキュメント", "サードパーティのライセンス", "サポート", "お問い合わせ", "プライバシー", "利用規約", "コミュニティ", "比較", "リリース", "チームで使う"],
     fine: "",
   },
   zh: {
@@ -68,7 +68,7 @@ const text = {
     trial: "免费试用",
     tagline: "AI 搭建流程，也修复流程。自动变聪明的 RPA。",
     social: "AI 搭建流程，也修复流程。自动变聪明的 RPA。Kitewell：由 AI 搭建并维护的浏览器自动化，还能处理桌面应用、Excel 和电子邮件。",
-    footer: ["文档", "第三方声明", "支持", "联系我们", "隐私政策", "使用条款", "社区", "对比", "版本发布"],
+    footer: ["文档", "第三方声明", "支持", "联系我们", "隐私政策", "使用条款", "社区", "对比", "版本发布", "团队使用"],
     fine: "",
   },
   ko: {
@@ -85,7 +85,7 @@ const text = {
     trial: "무료 체험",
     tagline: "AI가 플로를 만들고, 고칩니다. 스스로 똑똑해지는 RPA.",
     social: "AI가 플로를 만들고, 고칩니다. 스스로 똑똑해지는 RPA. Kitewell: AI가 만들고 유지 관리하는 브라우저 자동화, 그리고 데스크톱 앱, Excel, 이메일.",
-    footer: ["문서", "제3자 고지", "지원", "문의", "개인정보 처리방침", "이용약관", "커뮤니티", "비교", "릴리스"],
+    footer: ["문서", "제3자 고지", "지원", "문의", "개인정보 처리방침", "이용약관", "커뮤니티", "비교", "릴리스", "팀용"],
     fine: "",
   },
   fr: {
@@ -102,7 +102,7 @@ const text = {
     trial: "Essai gratuit",
     tagline: "L’IA crée vos flux et les répare. Le RPA qui s’améliore tout seul.",
     social: "L’IA crée vos flux et les répare. Le RPA qui s’améliore tout seul. Kitewell : l’automatisation du navigateur construite et entretenue par l’IA, plus les applications de bureau, Excel et l’e-mail.",
-    footer: ["Documentation", "Mentions de tiers", "Assistance", "Contact", "Confidentialité", "Conditions", "Communauté", "Comparatif", "Versions"],
+    footer: ["Documentation", "Mentions de tiers", "Assistance", "Contact", "Confidentialité", "Conditions", "Communauté", "Comparatif", "Versions", "Pour les équipes"],
     fine: "",
   },
   de: {
@@ -119,7 +119,7 @@ const text = {
     trial: "Kostenlos testen",
     tagline: "Die KI baut und repariert Ihre Abläufe. RPA, das von selbst klüger wird.",
     social: "Die KI baut und repariert Ihre Abläufe. RPA, das von selbst klüger wird. Kitewell: Browser-Automatisierung, von der KI gebaut und gepflegt, dazu Desktop-Apps, Excel und E-Mail.",
-    footer: ["Dokumentation", "Hinweise zu Drittanbietern", "Support", "Kontakt", "Datenschutz", "Nutzungsbedingungen", "Community", "Vergleich", "Versionen"],
+    footer: ["Dokumentation", "Hinweise zu Drittanbietern", "Support", "Kontakt", "Datenschutz", "Nutzungsbedingungen", "Community", "Vergleich", "Versionen", "Für Teams"],
     fine: "",
   },
 }[locale];
@@ -254,6 +254,7 @@ const links = ["/examples/", "/pricing/", "/docs/", "/download/"].map((href, i) 
       <div class="footer-links">
         <a href={localize("/docs/", locale)}>{text.footer[0]}</a>
         <a href={localize("/releases/", locale)}>{text.footer[8]}</a>
+        <a href={localize("/teams/", locale)}>{text.footer[9]}</a>
         <a href={localize("/compare/", locale)}>{text.footer[7]}</a>
         {locale === "ja" && <a href="/ja/blog/">ブログ</a>}
         <a href="https://github.com/dagucloud/kitewell">GitHub</a>
