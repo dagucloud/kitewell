@@ -16,6 +16,15 @@
 :is(:lang(ja), :lang(zh), :lang(ko)) .home .intro h1 {
   font-size: clamp(32px, 4.8vw, 60px);
 }
+/* The promise in the headline, marked as with a highlighter. */
+.home .intro h1 mark {
+  padding-inline: 0.04em;
+  background: none;
+  color: inherit;
+  box-shadow: inset 0 -0.3em 0 var(--marker);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
 .intro-lead {
   max-width: 44em;
   margin-top: 24px;
@@ -35,13 +44,6 @@
 }
 .intro > .fine {
   margin-top: 16px;
-}
-.intro-stalled {
-  max-width: 44em;
-  margin-top: 40px;
-  font-size: clamp(18px, 1.8vw, 22px);
-  font-weight: 600;
-  line-height: 1.55;
 }
 .intro-media {
   margin: 48px 0 0;
@@ -639,4 +641,132 @@
 .fleet .num {
   text-align: right;
   font-variant-numeric: tabular-nums;
+}
+
+/* Ideas: each chore on a card of its own color, set down a little crooked,
+   with the notice that replaces it. */
+.ideas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ideas li {
+  --card: var(--play-sun);
+  --tilt: -0.6deg;
+}
+.ideas li:nth-child(6n + 2) {
+  --card: var(--play-sky);
+  --tilt: 0.5deg;
+}
+.ideas li:nth-child(6n + 3) {
+  --card: var(--play-coral);
+  --tilt: -0.3deg;
+}
+.ideas li:nth-child(6n + 4) {
+  --card: var(--play-mint);
+  --tilt: 0.4deg;
+}
+.ideas li:nth-child(6n + 5) {
+  --card: var(--play-lilac);
+  --tilt: -0.5deg;
+}
+.ideas li:nth-child(6n + 6) {
+  --card: var(--play-sand);
+  --tilt: 0.6deg;
+}
+.ideas a {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  padding: 24px 22px 22px;
+  border-radius: 14px;
+  background: var(--card);
+  color: inherit;
+  text-decoration: none;
+  transform: rotate(var(--tilt));
+  transition: transform 0.18s ease;
+}
+.ideas a:hover,
+.ideas a:focus-visible {
+  transform: translateY(-3px);
+}
+.idea-when {
+  font-size: 12.5px;
+  font-weight: 650;
+  color: var(--muted);
+}
+.idea-chore {
+  flex: 1;
+  font-size: 17px;
+  line-height: 1.5;
+}
+.ideas .moment {
+  max-width: none;
+  box-shadow: 0 2px 6px rgb(14 20 18 / 0.06);
+}
+#ideas .links {
+  margin-top: 36px;
+}
+
+.tiles.reach-tiles {
+  grid-template-columns: repeat(3, 1fr);
+}
+.reach-start {
+  max-width: 44em;
+  margin-top: 28px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.together {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.together li {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.together p {
+  flex: 1;
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--muted);
+}
+.block .together .text-link {
+  margin-top: 20px;
+}
+
+@media (max-width: 960px) {
+  .ideas,
+  .tiles.reach-tiles,
+  .together {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .ideas,
+  .tiles.reach-tiles,
+  .together {
+    grid-template-columns: 1fr;
+  }
+  /* Stacked in one column, the cards sit straight. */
+  .ideas li {
+    --tilt: 0deg;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ideas a {
+    transition: none;
+  }
 }
