@@ -28,8 +28,6 @@ const text = {
     nav: "Main navigation",
     language: "Language",
     links: ["Examples", "Pricing", "Docs", "Download"],
-    companies: "For companies ↗",
-    partner: "For agencies ↗",
     signIn: "Sign in",
     trial: "Start free trial",
     tagline: "Ask your computer for something. Watch it learn how.",
@@ -45,8 +43,6 @@ const text = {
     nav: "メインナビゲーション",
     language: "言語",
     links: ["活用例", "料金", "ドキュメント", "ダウンロード"],
-    companies: "法人のお客様 ↗",
-    partner: "",
     signIn: "サインイン",
     trial: "無料で試す",
     tagline: "パソコンに、ひとこと頼む。AI がやり方を覚えていく。",
@@ -62,8 +58,6 @@ const text = {
     nav: "主导航",
     language: "语言",
     links: ["示例", "价格", "文档", "下载"],
-    companies: "企业客户 ↗",
-    partner: "",
     signIn: "登录",
     trial: "免费试用",
     tagline: "跟电脑说一句，看它学会怎么做。",
@@ -79,8 +73,6 @@ const text = {
     nav: "주 메뉴",
     language: "언어",
     links: ["예시", "요금", "문서", "다운로드"],
-    companies: "기업 고객 ↗",
-    partner: "",
     signIn: "로그인",
     trial: "무료 체험",
     tagline: "컴퓨터에 한마디 부탁하세요. 방법을 배우는 모습이 보입니다.",
@@ -96,8 +88,6 @@ const text = {
     nav: "Navigation principale",
     language: "Langue",
     links: ["Exemples", "Tarifs", "Documentation", "Télécharger"],
-    companies: "Pour les entreprises ↗",
-    partner: "",
     signIn: "Se connecter",
     trial: "Essai gratuit",
     tagline: "Demandez quelque chose à votre ordinateur. Regardez-le apprendre.",
@@ -113,8 +103,6 @@ const text = {
     nav: "Hauptnavigation",
     language: "Sprache",
     links: ["Beispiele", "Preise", "Dokumentation", "Download"],
-    companies: "Für Unternehmen ↗",
-    partner: "",
     signIn: "Anmelden",
     trial: "Kostenlos testen",
     tagline: "Bitten Sie Ihren Computer um etwas. Sehen Sie zu, wie er es lernt.",
@@ -202,8 +190,6 @@ const links = ["/examples/", "/pricing/", "/docs/", "/download/"].map((href, i) 
             {label}
           </a>
         ))}
-        <a href={descartyUrl(locale)}>{text.companies}</a>
-        {text.partner && <a href={descartyUrl(locale, "/partners/")}>{text.partner}</a>}
         {pages && (
           <details class="languages">
             <summary>
