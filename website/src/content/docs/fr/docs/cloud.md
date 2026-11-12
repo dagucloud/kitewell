@@ -20,21 +20,22 @@ Votre premier projet lance l’essai de 14 jours, sans carte bancaire. L’essai
 permet un seul projet. Abonnez-vous à Kitewell Personal ou Team pour en avoir
 davantage.
 
-## Heures de cloud
+## Minutes de cloud
 
-La machine d’un projet compte des heures de cloud tant qu’elle est éveillée :
-en exécution, en construction avec l’assistant ou en affichant son navigateur.
-En veille, elle ne compte rien.
+Kitewell Cloud est facturé séparément des offres, à la minute d’exécution.
+Chaque exécution est arrondie à la minute supérieure. L’attente d’une
+approbation ne compte pas, ni la construction avec l’assistant.
 
-- L’essai comprend 30 heures.
-- Personal comprend 100 heures par mois, et Team 300 par mois et par
-  ordinateur, partagées dans l’espace de travail.
-- Au-delà, les crédits que vous avez achetés paient la suite, à 10 crédits
-  l’heure. Sans eux, Kitewell Cloud ne lance plus de nouvelle exécution
-  jusqu’à ce que vous vous abonniez ou que le mois recommence, et l’app
-  l’indique.
-- Pendant ce temps, vous pouvez toujours ouvrir vos projets, lire les
-  exécutions passées et exporter.
+- Chaque espace de travail dispose de 1 000 minutes gratuites par mois,
+  quelle que soit l’offre.
+- Au-delà, la minute coûte 0,007 $ (1 ¥ au Japon) hors taxes, jusqu’au budget
+  mensuel que le propriétaire de l’espace fixe sur la page du compte, après
+  avoir ajouté une carte.
+- Sans budget, Kitewell Cloud ne lance plus de nouvelle exécution une fois les
+  minutes gratuites utilisées, jusqu’au mois suivant, et l’application le
+  signale. Rien n’est facturé.
+- Entre-temps, vous pouvez toujours ouvrir les projets, lire les exécutions
+  passées et exporter.
 - Les exécutions sur votre propre ordinateur ne sont jamais facturées à
   l’usage.
 

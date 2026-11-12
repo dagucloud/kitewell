@@ -19,17 +19,17 @@ phone.
 Your first project starts the 14-day trial, with no card. The trial holds one
 project. Subscribe to Kitewell Personal or Team for more.
 
-## Cloud hours
+## Cloud minutes
 
-A project's machine counts cloud hours while it is awake: running, building
-with the assistant, or showing its browser. Asleep, it counts nothing.
+Kitewell Cloud is billed apart from the plans, by the minutes its runs take.
+Each run is rounded up to a whole minute. Waiting for a person's approval
+counts nothing, and neither does building with the assistant.
 
-- The trial includes 30 hours.
-- Personal includes 100 hours a month, and Team 300 a month for each
-  computer, shared by the workspace.
-- Past them, credits you bought pay for more, at 10 credits an hour. Without
-  them, Kitewell Cloud starts no new runs until you subscribe or the month
-  resets, and the app says so.
+- Every workspace has 1,000 free minutes a month, on any plan.
+- Past them, a minute costs $0.007 (¥1 in Japan) before tax, up to a monthly
+  budget the workspace's owner sets on the account page, after adding a card.
+- Without a budget, Kitewell Cloud starts no new runs once the free minutes
+  are used, until the month resets, and the app says so. Nothing is charged.
 - Meanwhile you can still open projects, read past runs, and export.
 - Runs on your own computer are never metered.
 

@@ -20,20 +20,22 @@ Ihr erstes Projekt startet die 14-tägige Testphase, ohne Kreditkarte. Die
 Testphase erlaubt ein Projekt. Für mehr abonnieren Sie Kitewell Personal oder
 Team.
 
-## Cloud-Stunden
+## Cloud-Minuten
 
-Die Maschine eines Projekts zählt Cloud-Stunden, solange sie wach ist: beim
-Ausführen, beim Bauen mit dem Assistenten oder beim Anzeigen ihres Browsers.
-Schlafend zählt sie nichts.
+Kitewell Cloud wird getrennt von den Plänen nach den Minuten abgerechnet, die
+Ausführungen dauern. Jede Ausführung wird auf eine volle Minute aufgerundet.
+Das Warten auf eine Freigabe zählt nicht, das Bauen mit dem Assistenten auch
+nicht.
 
-- Die Testphase enthält 30 Stunden.
-- Personal enthält 100 Stunden pro Monat, Team 300 pro Monat und Computer,
-  im Arbeitsbereich geteilt.
-- Darüber hinaus zahlen gekaufte Credits weiter, 10 Credits pro Stunde. Ohne
-  sie startet Kitewell Cloud keine neuen Ausführungen, bis Sie ein Abo
-  abschließen oder der Monat neu beginnt, und die App zeigt das an.
-- Auch dann können Sie Projekte öffnen, frühere Ausführungen lesen und
-  exportieren.
+- Jeder Arbeitsbereich hat 1.000 Freiminuten pro Monat, in jedem Plan.
+- Danach kostet eine Minute 0,007 $ (1 ¥ in Japan) zuzüglich Steuern, bis zu
+  dem Monatsbudget, das der Inhaber des Arbeitsbereichs auf der Kontoseite
+  festlegt, nachdem er eine Karte hinterlegt hat.
+- Ohne Budget startet Kitewell Cloud keine neuen Ausführungen mehr, sobald die
+  Freiminuten aufgebraucht sind, bis der Monat neu beginnt; die App zeigt das
+  an. Es wird nichts berechnet.
+- In der Zwischenzeit können Sie weiterhin Projekte öffnen, vergangene
+  Ausführungen ansehen und exportieren.
 - Ausführungen auf Ihrem eigenen Computer werden nie nach Verbrauch
   abgerechnet.
 
