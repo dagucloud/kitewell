@@ -16,9 +16,10 @@ depuis un navigateur ou votre téléphone.
 3. Décrivez le travail à l’assistant, comme dans
    [votre premier workflow](/fr/docs/getting-started/).
 
-Votre premier projet lance l’essai de 14 jours, sans carte bancaire. L’essai
-permet un seul projet. Abonnez-vous à Kitewell Personal ou Team pour en avoir
-davantage.
+Kitewell Cloud ne demande ni essai ni offre : chaque espace de travail
+dispose de 1 000 minutes d’exécution gratuites par mois, décrites ci-dessous.
+Sans carte, il garde un projet ; ajoutez une carte sur la page du compte pour
+en garder jusqu’à 15.
 
 ## Minutes de cloud
 

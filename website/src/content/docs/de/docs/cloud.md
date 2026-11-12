@@ -16,9 +16,10 @@ Sie im Browser oder auf dem Handy.
 3. Beschreiben Sie dem Assistenten die Aufgabe, wie bei
    [Ihrem ersten Workflow](/de/docs/getting-started/).
 
-Ihr erstes Projekt startet die 14-tägige Testphase, ohne Kreditkarte. Die
-Testphase erlaubt ein Projekt. Für mehr abonnieren Sie Kitewell Personal oder
-Team.
+Kitewell Cloud braucht weder Testphase noch Plan: Jeder Arbeitsbereich hat
+1.000 kostenlose Ausführungsminuten pro Monat, unten beschrieben. Ohne Karte
+hält es ein Projekt; hinterlegen Sie auf der Kontoseite eine Karte für bis
+zu 15.
 
 ## Cloud-Minuten
 

@@ -16,8 +16,9 @@ phone.
 3. Tell the assistant what the job is, as in
    [your first workflow](/docs/getting-started/).
 
-Your first project starts the 14-day trial, with no card. The trial holds one
-project. Subscribe to Kitewell Personal or Team for more.
+Kitewell Cloud needs no trial and no plan: every workspace has 1,000 free run
+minutes a month, described below. Without a card it keeps one project; add a
+card on your account page for up to 15.
 
 ## Cloud minutes
 
