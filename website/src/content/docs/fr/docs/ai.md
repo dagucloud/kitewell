@@ -46,9 +46,9 @@ Sur un ordinateur connecté à [Dagu Cloud](/fr/docs/cloud-sync/#sign-in), **Age
 
 L’essai comprend 100 crédits, une seule fois. Kitewell Personal et Team reçoivent 500 crédits par mois pour chaque ordinateur payé par l’offre, partagés par l’espace de travail et renouvelés le premier de chaque mois (UTC). Les recherches web de l’assistant consomment les mêmes crédits.
 
-Avec Personal et Team, des packs de 1 000 crédits coûtent 12 $ dans [Dagu Console](https://console.dagu.sh/kitewell). Les crédits d’un pack n’expirent jamais et sont consommés une fois ceux du mois épuisés.
+Tout espace de travail, avec ou sans offre, peut acheter des packs de 1 000 crédits pour 12 $ sur la [page du compte](https://app.kitewell.com/account). Les crédits d’un pack n’expirent jamais et sont consommés une fois ceux du mois épuisés.
 
-Un administrateur voit ce qu’il reste sous **Compte Dagu Cloud**, dans **Réglages de l’appareil**. Quand les crédits sont épuisés, le modèle inclus est refusé jusqu’à leur renouvellement ou l’achat d’un pack, ou, pendant l’essai, jusqu’à ce que vous vous abonniez. Un modèle à vous continue de fonctionner.
+Un administrateur voit ce qu’il reste sous **Compte Dagu Cloud**, dans **Réglages de l’appareil**. Quand les crédits sont épuisés, le modèle inclus est refusé jusqu’à leur renouvellement ou l’achat d’un pack. Un modèle à vous continue de fonctionner.
 
 Dagu Cloud demande à OpenRouter de n’acheminer ces requêtes que vers des fournisseurs qui ne les stockent pas et ne s’en servent pas pour l’entraînement. Il ne conserve aucun texte de consigne : seulement l’espace de travail, l’appareil, le modèle et les crédits utilisés.
 

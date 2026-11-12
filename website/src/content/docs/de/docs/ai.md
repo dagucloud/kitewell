@@ -100,15 +100,16 @@ erhalten 500 Credits pro Monat für jeden Computer, den der Tarif bezahlt; der
 Arbeitsbereich teilt sie, und sie werden am Ersten jedes Monats (UTC)
 erneuert. Die Websuchen des Assistenten verbrauchen dieselben Credits.
 
-In Personal und Team kosten Pakete mit 1.000 Credits 12 $ in
-[Dagu Console](https://console.dagu.sh/kitewell). Die Credits eines Pakets
+Jeder Arbeitsbereich, mit oder ohne Tarif, kann auf der
+[Kontoseite](https://app.kitewell.com/account) Pakete mit 1.000 Credits für
+12 $ kaufen. Die Credits eines Pakets
 verfallen nie und werden verbraucht, sobald die Credits des Monats aufgebraucht
 sind.
 
 Ein Administrator sieht unter **Dagu-Cloud-Konto** in den
 **Geräteeinstellungen**, wie viele noch übrig sind. Sind die Credits
 aufgebraucht, wird das enthaltene Modell abgelehnt, bis sie erneuert werden
-oder Sie ein Paket kaufen; in der Testphase, bis Sie ein Abo abschließen. Ein
+oder Sie ein Paket kaufen. Ein
 eigenes Modell funktioniert weiter.
 
 Dagu Cloud bittet OpenRouter, diese Anfragen nur an Anbieter weiterzuleiten,
