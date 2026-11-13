@@ -1,14 +1,14 @@
 ---
 title: Terms of Use
 description: The terms for using the Kitewell application and the kitewell.com website.
-updated: 2026-11-02
+updated: 2026-11-13
 ---
 
 These terms apply to the Kitewell application and the kitewell.com website
 (also served at kitewell.app), published by Descarty, Inc. ("Descarty",
 "we"). By installing or using Kitewell, you agree to them. A separate written
-agreement with Descarty, such as an Enterprise contract, takes precedence over
-these terms where the two differ.
+agreement with Descarty takes precedence over these terms where the two
+differ.
 
 ## 1. License
 

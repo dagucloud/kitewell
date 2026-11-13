@@ -17,9 +17,10 @@ until you sync it, and nothing reaches Dagu Cloud before you do.
   14-day trial with Team's features on up to 3 computers, no card needed.
 - To share with other people, Kitewell Team. It is $99 a month for each
   computer the workspace connects, for up to 25 people; subscribe in
-  [Dagu Console](https://console.dagu.sh/kitewell), and a larger team takes
-  [Enterprise](/pricing/#enterprise). The team's owner pays for the workspace
-  and members need no subscription of their own. Kitewell Personal, at
+  [Dagu Console](https://console.dagu.sh/kitewell). For more than 25 people,
+  [contact Descarty](https://descarty.com/en/contact/?inquiry=billing). The
+  team's owner pays for the workspace and members need no subscription of
+  their own. Kitewell Personal, at
   $20 a month, is for one person's own work on one computer and cannot invite
   anyone. See [Pricing](/pricing/).
 

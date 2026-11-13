@@ -563,37 +563,35 @@ figure {
   font-size: 14px;
   font-weight: 650;
 }
-/* On the pricing page, Enterprise spans the plan grid, with its actions
-   beside the text and what it includes below. */
-.notice.enterprise {
+/* On the pricing page, consulting spans the plan grid, with its action
+   beside the text and what it covers below. */
+.notice.consulting {
   max-width: none;
 }
-.enterprise-head {
+.consulting-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px 32px;
 }
-.notice.enterprise .actions {
+.notice.consulting .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   flex-shrink: 0;
 }
-.notice.enterprise .button {
+.notice.consulting .button {
   margin-top: 0;
 }
-/* What is included today, then what the contract schedules, each under a
-   label of its own. */
-.enterprise-group {
+.consulting-body {
   margin-top: 25px;
   padding-top: 22px;
   border-top: 1px solid var(--line);
 }
-.enterprise-group .eyebrow {
+.consulting-body .eyebrow {
   margin-bottom: 14px;
 }
-.enterprise-features {
+.consulting-items {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px 32px;
@@ -601,26 +599,26 @@ figure {
   padding: 0;
   list-style: none;
 }
-.enterprise-features h4 {
+.consulting-items h4 {
   margin: 0;
   font-size: 16px;
   font-weight: 650;
   line-height: 1.35;
   letter-spacing: -0.01em;
 }
-.notice.enterprise .enterprise-features p {
+.notice.consulting .consulting-items p {
   margin-top: 2px;
   font-size: 15px;
 }
 @media (max-width: 960px) {
-  .enterprise-head,
+  .consulting-head,
   .notice.partner {
     flex-direction: column;
     align-items: flex-start;
   }
 }
 @media (max-width: 760px) {
-  .enterprise-features {
+  .consulting-items {
     grid-template-columns: 1fr;
   }
 }
