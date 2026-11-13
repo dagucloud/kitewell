@@ -58,23 +58,41 @@ const text = {
       "Projects shared through Dagu Cloud, with a role for each person on each project",
       "Every computer in Dagu Console, with one alert per workflow across computers",
       "Secret values stay on each computer",
+      "Help from Descarty building your workflows (quoted)",
+      "Features your work needs, added to Kitewell itself (quoted)",
     ],
     teamAction: "Subscribe ↗",
     paidNote:
-      "Prices exclude tax. In Japan, plans are billed in yen: Personal at ¥3,000 a month and Team at ¥14,800 a computer a month, plus consumption tax. Personal is for one person's own work at the computer; an organization that runs Kitewell for shared work, on several people's computers or on a computer set aside for it, needs Team. For more than 25 people or 100 computers, or for computers with no internet access, contact Descarty. Every plan needs a Dagu Cloud account. Connecting one computer more than your plan holds disconnects your own oldest one. When the trial ends, nothing runs until you subscribe. When a plan ends, Kitewell's alerts, MCP Events, and webhooks stop, and 7 days later workflows stop running. Nothing is deleted: projects stay read-only, to open and export, and everything starts again when you subscribe. If you used Kitewell before, the free plan and Personal's runs with nobody signed in keep working until December 1, 2026.",
-    consultingName: "Consulting from Descarty",
-    consulting:
-      "Descarty, which makes Kitewell, helps your staff put Kitewell to work, online. It is ¥500,000 a month before tax, billed in yen, for only the months you need. Your staff build and fix the workflows, so they carry on alone when it ends.",
-    consultingHeading: "What it covers",
-    consultingItems: [
-      ["Where to start", "Choose the jobs to hand over first, and agree how success is measured."],
-      ["Your first job, built together", "Your staff build it with Descarty's developer, on the same screens and data as the real work."],
-      ["Computers and AI", "Set up the Windows PCs or VMs that run with nobody signed in, a license key for computers with no internet, and the AI model you choose."],
-      ["Your systems", "Decide how your systems start workflows by webhook or REST API and take back the results."],
-      ["When a run stops", "Find why it stopped, and how your staff fix it."],
-      ["Security reviews", "Answers for your security questionnaire and review."],
+      "Prices exclude tax. In Japan, plans are billed in yen: Personal at ¥3,000 a month and Team at ¥14,800 a computer a month, plus consumption tax. Personal is for one person's own work at the computer; an organization that runs Kitewell for shared work, on several people's computers or on a computer set aside for it, needs Team. Every plan needs a Dagu Cloud account. Connecting one computer more than your plan holds disconnects your own oldest one. When the trial ends, nothing runs until you subscribe. When a plan ends, Kitewell's alerts, MCP Events, and webhooks stop, and 7 days later workflows stop running. Nothing is deleted: projects stay read-only, to open and export, and everything starts again when you subscribe. If you used Kitewell before, the free plan and Personal's runs with nobody signed in keep working until December 1, 2026.",
+    enterpriseName: "Enterprise",
+    enterprise:
+      "For more than 25 people or 100 computers, or for a company that needs the features below. It is an annual contract, priced per computer at volume plus an annual fee. Contact us and we'll set it up with you.",
+    enterpriseFeatures: [
+      {
+        heading: "Available now",
+        items: [
+          ["Your company's AI", "Run AI steps on your own Azure OpenAI, Amazon Bedrock, Google Vertex AI, or an in-house model."],
+          ["Part of your systems", "Your systems start workflows by webhook or REST API and receive the results, with nobody at the computer."],
+          ["Roles", "A role for each person on each project."],
+          ["Maintenance and support", "Kitewell bug fixes, help finding why a run stopped, update guidance, and a monthly report. Your team fixes its own workflows."],
+          ["Security reviews", "Answers for your security questionnaire and review."],
+        ],
+      },
+      {
+        heading: "Agreed in your contract",
+        items: [
+          ["Shared computers", "Computers your organization owns, in your own Azure, AWS, or Google Cloud, on your servers or in a closed network, or hosted by Descarty, run workflows with nobody signed in. Each workflow says which computer it runs on."],
+          ["Workspace in the browser", "Build, try, fix, and approve workflows from one address with your company sign-in, whichever computer they run on. A password typed there is encrypted for that computer before it leaves the page."],
+          ["OEM and white label", "Build Kitewell into your own product and offer it under your brand."],
+          ["SSO and SCIM", "Sign in with SAML, and add or remove people automatically from your identity provider."],
+          ["Audit log export", "Every change and every run on every computer, exported and kept for the long term."],
+          ["Fleet policies", "Which workflows may run on which computers, and which sites and apps workflows may use, set for the whole organization."],
+          ["Closed-network sync", "Projects sync inside your own environment instead of through Dagu Cloud."],
+          ["SLA", "Response times agreed in the contract for when something goes wrong."],
+        ],
+      },
     ],
-    consultingAction: "Ask about consulting ↗",
+    enterpriseAction: "Contact us ↗",
     partnerBadge: "Partners",
     partnerTitle: "Automate your clients' work with Kitewell",
     partnerBody:
@@ -142,23 +160,41 @@ const text = {
       "Dagu Cloud を通じてチームでプロジェクトを共有し、プロジェクトごとにメンバーのロールを設定",
       "すべてのコンピューターを Dagu Console で一覧でき、アラートはコンピューターをまたいでワークフローごとに 1 件",
       "シークレットの値は各コンピューターにとどまります",
+      "Descarty によるワークフローの構築支援（お見積り）",
+      "業務に必要な機能を Kitewell 本体に追加する開発（お見積り）",
     ],
     teamAction: "申し込む ↗",
     paidNote:
-      "価格は税抜で、括弧内は消費税 10% を含む税込価格です。日本国外からのお申し込みは米ドルでの決済となり、Personal は月額 20 ドル、Team は 1 台につき月額 99 ドルです（いずれも税抜）。Personal は、1 人がコンピューターの前で自分の仕事に使うためのプランです。組織の共有の仕事に使う場合、つまり複数の人のコンピューターや、そのために用意したコンピューターで動かす場合は Team が必要です。26 人以上、101 台以上で使う場合や、インターネットに出られないコンピューターで使う場合は、Descarty にお問い合わせください。どのプランにも Dagu Cloud アカウントが必要です。プランの台数を超えてコンピューターを接続すると、自分の最も古いコンピューターの接続が解除されます。無料トライアルが終わると、契約するまで何も実行されません。プランが終わると、Kitewell のアラート、MCP Events、Webhook が止まり、その 7 日後にワークフローの実行が止まります。データは削除されず、プロジェクトは読み取り専用で開いたり書き出したりでき、再び契約すればすべて元どおりに動きます。これまで Kitewell をお使いの方は、Free プランと、Personal で誰もサインインしていないときの実行を 2026 年 12 月 1 日まで使えます。",
-    consultingName: "Descarty のコンサルティング",
-    consulting:
-      "Kitewell を作る Descarty が、Kitewell を貴社の業務に入れるところを、オンラインで支えます。1 か月 50 万円（税別）で、必要な月だけ頼めます。ワークフローを作り、直すのは貴社の担当者なので、終わったあとも自分たちで続けられます。",
-    consultingHeading: "含まれるもの",
-    consultingItems: [
-      ["どこから任せるか", "最初に任せる業務を選び、うまくいったかを測る基準を決めます。"],
-      ["最初の業務を一緒に作る", "貴社の担当者が Descarty の開発者と一緒に、本番と同じ画面とデータで作ります。"],
-      ["動かす環境", "誰もサインインしていなくても動く Windows の PC や VM、インターネットに出られない PC のライセンスキー、使う AI モデルを整えます。"],
-      ["社内のシステムとつなぐ", "貴社のシステムから Webhook や REST API でワークフローを動かし、結果を受け取る形を決めます。"],
-      ["止まったとき", "止まった原因を切り分け、担当者が直す方法を助言します。"],
-      ["セキュリティ審査", "セキュリティチェックシートへの回答や審査に対応します。"],
+      "価格は税抜で、括弧内は消費税 10% を含む税込価格です。日本国外からのお申し込みは米ドルでの決済となり、Personal は月額 20 ドル、Team は 1 台につき月額 99 ドルです（いずれも税抜）。Personal は、1 人がコンピューターの前で自分の仕事に使うためのプランです。組織の共有の仕事に使う場合、つまり複数の人のコンピューターや、そのために用意したコンピューターで動かす場合は Team が必要です。どのプランにも Dagu Cloud アカウントが必要です。プランの台数を超えてコンピューターを接続すると、自分の最も古いコンピューターの接続が解除されます。無料トライアルが終わると、契約するまで何も実行されません。プランが終わると、Kitewell のアラート、MCP Events、Webhook が止まり、その 7 日後にワークフローの実行が止まります。データは削除されず、プロジェクトは読み取り専用で開いたり書き出したりでき、再び契約すればすべて元どおりに動きます。これまで Kitewell をお使いの方は、Free プランと、Personal で誰もサインインしていないときの実行を 2026 年 12 月 1 日まで使えます。",
+    enterpriseName: "Enterprise",
+    enterprise:
+      "25 人・100 台を超える場合や、次の機能が必要な会社のためのプランです。年間契約で、料金は台数に応じたコンピューター単価と年額の基本料で決まります。お問い合わせいただければ、一緒に準備を進めます。",
+    enterpriseFeatures: [
+      {
+        heading: "すぐに使えるもの",
+        items: [
+          ["自社の AI", "AI のステップを、自社の Azure OpenAI、Amazon Bedrock、Google Vertex AI、社内のモデルで動かします。"],
+          ["システム連携", "自社のシステムから Webhook や REST API でワークフローを動かし、結果を受け取ります。人の操作は要りません。"],
+          ["ロール", "プロジェクトごとに、メンバーのロールを設定します。"],
+          ["保守サポート", "Kitewell の不具合の修正、止まった原因の切り分け、アップデートのご案内、月次の稼働報告。ワークフローの修正は貴社で行います。"],
+          ["セキュリティ審査への対応", "セキュリティチェックシートへの回答や審査に対応します。"],
+        ],
+      },
+      {
+        heading: "ご契約時に提供時期を合意するもの",
+        items: [
+          ["共有のコンピューター", "自社の Azure、AWS、Google Cloud、社内のサーバーや閉域網、または Descarty がホストする組織のコンピューターで、誰もサインインせずにワークフローを動かします。どのコンピューターで動かすかは、ワークフローごとに決まります。"],
+          ["ブラウザーのワークスペース", "会社のアカウントでひとつのアドレスにサインインし、どのコンピューターで動くワークフローも、ブラウザーで作り、試し、直し、承認できます。そこで入力したパスワードは、そのコンピューター用に暗号化してから送ります。"],
+          ["OEM・ホワイトラベル", "Kitewell を自社の製品に組み込み、自社のブランドで提供します。"],
+          ["SSO と SCIM", "SAML でサインインし、ID 管理サービスでのメンバーの追加・削除を自動で反映します。"],
+          ["監査ログの書き出し", "すべてのコンピューターの変更と実行を書き出し、長期間保管します。"],
+          ["コンピューターのポリシー", "どのコンピューターでどのワークフローを動かしてよいか、ワークフローが使えるサイト・アプリはどれかを、組織全体で設定します。"],
+          ["閉域網での同期", "Dagu Cloud を使わず、貴社の環境内でプロジェクトを同期します。"],
+          ["SLA", "障害時の対応時間を契約で定めます。"],
+        ],
+      },
     ],
-    consultingAction: "コンサルティングを相談する ↗",
+    enterpriseAction: "お問い合わせ ↗",
     partnerBadge: "パートナー募集",
     partnerTitle: "お客様の業務を、Kitewell で自動化しませんか",
     partnerBody:
@@ -226,23 +262,41 @@ const text = {
       "通过 Dagu Cloud 共享项目，可为每个人在每个项目中分配角色",
       "在 Dagu Console 中查看所有电脑；同一个工作流跨电脑只发一条提醒",
       "密钥的值保留在各自的电脑上",
+      "由 Descarty 协助构建你的工作流（另行报价）",
+      "把你的业务需要的功能加入 Kitewell 本身（另行报价）",
     ],
     teamAction: "订阅 ↗",
     paidNote:
-      "价格不含税。在日本以日元计费：Personal 每月 3,000 日元，Team 每台电脑每月 14,800 日元，另加消费税。Personal 供一个人在电脑前处理自己的工作；如果组织用 Kitewell 处理共享的工作，无论是在多个人的电脑上，还是在专门为此准备的电脑上运行，都需要 Team。超过 25 人或 100 台电脑，或在无法联网的电脑上使用时，请联系 Descarty。所有套餐都需要 Dagu Cloud 账户。如果连接的电脑比套餐允许的多一台，你自己最早连接的那台电脑会被断开。试用结束后，订阅之前不会运行任何内容。套餐结束后，Kitewell 的提醒、MCP Events 和 Webhook 会停止；7 天后，工作流也会停止运行。不会删除任何内容：项目变为只读，仍可打开和导出，重新订阅后一切都会恢复运行。如果你以前用过 Kitewell，Free 套餐和 Personal 的无人登录运行可以继续使用到 2026 年 12 月 1 日。",
-    consultingName: "Descarty 咨询服务",
-    consulting:
-      "Kitewell 的开发商 Descarty 在线帮助你的员工把 Kitewell 用到业务中。费用为每月 500,000 日元（不含税），以日元结算，只在需要的月份购买。工作流由你的员工搭建和修复，结束后他们也能自己继续。",
-    consultingHeading: "包含内容",
-    consultingItems: [
-      ["从哪里开始", "选出最先交给 Kitewell 的业务，并约定衡量成功的标准。"],
-      ["一起搭建第一项业务", "你的员工与 Descarty 的开发者一起，在与实际工作相同的界面和数据上搭建。"],
-      ["电脑与 AI", "准备无需有人登录即可运行的 Windows 电脑或虚拟机、无法联网的电脑所用的许可证密钥，以及你选择的 AI 模型。"],
-      ["你的系统", "确定你的系统如何通过 Webhook 或 REST API 启动工作流并取回结果。"],
-      ["运行停下时", "查明停下的原因，并就员工如何修复给出建议。"],
-      ["安全审查", "回答你的安全问卷，配合审查。"],
+      "价格不含税。在日本以日元计费：Personal 每月 3,000 日元，Team 每台电脑每月 14,800 日元，另加消费税。Personal 供一个人在电脑前处理自己的工作；如果组织用 Kitewell 处理共享的工作，无论是在多个人的电脑上，还是在专门为此准备的电脑上运行，都需要 Team。所有套餐都需要 Dagu Cloud 账户。如果连接的电脑比套餐允许的多一台，你自己最早连接的那台电脑会被断开。试用结束后，订阅之前不会运行任何内容。套餐结束后，Kitewell 的提醒、MCP Events 和 Webhook 会停止；7 天后，工作流也会停止运行。不会删除任何内容：项目变为只读，仍可打开和导出，重新订阅后一切都会恢复运行。如果你以前用过 Kitewell，Free 套餐和 Personal 的无人登录运行可以继续使用到 2026 年 12 月 1 日。",
+    enterpriseName: "Enterprise",
+    enterprise:
+      "适用于超过 25 人或 100 台电脑的组织，或需要以下功能的公司。采用年度合同，按电脑台数以批量单价计费，另加年费。请联系我们，我们会和你一起完成设置。",
+    enterpriseFeatures: [
+      {
+        heading: "立即可用",
+        items: [
+          ["公司自己的 AI", "在你自己的 Azure OpenAI、Amazon Bedrock、Google Vertex AI 或内部模型上运行 AI 步骤。"],
+          ["融入你的系统", "你的系统通过 Webhook 或 REST API 启动工作流并接收结果，电脑前无需有人。"],
+          ["角色", "为每个人在每个项目中分配角色。"],
+          ["维护与支持", "修复 Kitewell 的缺陷，协助查明运行停止的原因，提供更新指导和月度报告。工作流由你的团队自行修复。"],
+          ["安全审查", "回答你的安全问卷，配合你的安全审查。"],
+        ],
+      },
+      {
+        heading: "签约时商定",
+        items: [
+          ["共享电脑", "你的组织自有的电脑可以在无人登录的情况下运行工作流。这些电脑可以位于你自己的 Azure、AWS 或 Google Cloud 中，也可以在你的服务器上或封闭网络内，或由 Descarty 托管。每个工作流都会指明在哪台电脑上运行。"],
+          ["浏览器中的工作区", "用公司账户登录同一个网址，即可构建、试运行、修复和审批工作流，无论它们在哪台电脑上运行。在那里输入的密码，会先针对那台电脑加密，然后才离开页面。"],
+          ["OEM 与白标", "把 Kitewell 集成到你自己的产品中，以你的品牌提供。"],
+          ["SSO 与 SCIM", "通过 SAML 登录，并从你的身份提供商自动添加或移除人员。"],
+          ["审计日志导出", "每台电脑上的每一次更改和每一次运行，都可以导出并长期保存。"],
+          ["设备群策略", "为整个组织设定哪些工作流可以在哪些电脑上运行，以及工作流可以使用哪些网站和应用。"],
+          ["封闭网络内同步", "项目在你自己的环境中同步，而不经过 Dagu Cloud。"],
+          ["SLA", "在合同中约定出现问题时的响应时间。"],
+        ],
+      },
     ],
-    consultingAction: "咨询此服务 ↗",
+    enterpriseAction: "联系我们 ↗",
     partnerBadge: "合作伙伴",
     partnerTitle: "用 Kitewell 为你的客户实现自动化",
     partnerBody:
@@ -310,23 +364,41 @@ const text = {
       "Dagu Cloud로 프로젝트를 공유하고, 프로젝트마다 사람별 역할 지정",
       "모든 컴퓨터를 Dagu Console에서 확인, 알림은 컴퓨터와 관계없이 워크플로당 1건",
       "시크릿 값은 각 컴퓨터에만 보관",
+      "Descarty의 워크플로 구축 지원(별도 견적)",
+      "업무에 필요한 기능을 Kitewell 자체에 추가(별도 견적)",
     ],
     teamAction: "구독하기 ↗",
     paidNote:
-      "가격은 세금 별도입니다. 일본에서는 엔화로 청구하며, Personal은 월 3,000엔, Team은 컴퓨터당 월 14,800엔에 소비세가 추가됩니다. Personal은 한 사람이 컴퓨터 앞에서 자기 업무에 쓰는 요금제입니다. 조직이 공유 업무에 Kitewell을 사용하는 경우, 즉 여러 사람의 컴퓨터나 그 용도로 따로 마련한 컴퓨터에서 실행하는 경우에는 Team이 필요합니다. 25명 또는 컴퓨터 100대를 넘는 경우나, 인터넷에 연결할 수 없는 컴퓨터에서 사용하는 경우에는 Descarty에 문의해 주세요. 모든 요금제에는 Dagu Cloud 계정이 필요합니다. 요금제가 허용하는 대수보다 컴퓨터를 하나 더 연결하면, 본인 컴퓨터 중 가장 오래된 컴퓨터의 연결이 끊깁니다. 무료 체험이 끝나면 구독하기 전까지 아무것도 실행되지 않습니다. 요금제가 끝나면 Kitewell의 알림, MCP Events, 웹후크가 멈추고, 7일 뒤에는 워크플로 실행이 멈춥니다. 아무것도 삭제되지 않으며, 프로젝트는 읽기 전용으로 열어 보고 내보낼 수 있고, 다시 구독하면 모두 다시 실행됩니다. 이전부터 Kitewell을 사용해 온 경우, Free 요금제와 Personal에서 아무도 로그인하지 않았을 때의 실행은 2026년 12월 1일까지 계속 사용할 수 있습니다.",
-    consultingName: "Descarty 컨설팅",
-    consulting:
-      "Kitewell을 만든 Descarty가, 직원분들이 Kitewell을 업무에 들이는 과정을 온라인으로 돕습니다. 월 500,000엔(세금 별도)이며 엔화로 청구되고, 필요한 달에만 이용할 수 있습니다. 워크플로를 만들고 고치는 것은 직원분들이므로, 끝난 뒤에도 스스로 이어갈 수 있습니다.",
-    consultingHeading: "포함 내용",
-    consultingItems: [
-      ["어디서부터 맡길지", "먼저 맡길 업무를 고르고, 성공을 판단할 기준을 정합니다."],
-      ["첫 업무를 함께 만들기", "직원분들이 Descarty의 개발자와 함께, 실제 업무와 같은 화면과 데이터로 만듭니다."],
-      ["컴퓨터와 AI", "아무도 로그인하지 않아도 실행되는 Windows PC나 VM, 인터넷에 연결할 수 없는 컴퓨터용 라이선스 키, 사용할 AI 모델을 준비합니다."],
-      ["사내 시스템 연동", "사내 시스템이 웹후크나 REST API로 워크플로를 실행하고 결과를 받는 방식을 정합니다."],
-      ["실행이 멈췄을 때", "멈춘 원인을 찾고, 직원분들이 고치는 방법을 조언합니다."],
-      ["보안 심사", "보안 체크시트 답변과 심사에 대응합니다."],
+      "가격은 세금 별도입니다. 일본에서는 엔화로 청구하며, Personal은 월 3,000엔, Team은 컴퓨터당 월 14,800엔에 소비세가 추가됩니다. Personal은 한 사람이 컴퓨터 앞에서 자기 업무에 쓰는 요금제입니다. 조직이 공유 업무에 Kitewell을 사용하는 경우, 즉 여러 사람의 컴퓨터나 그 용도로 따로 마련한 컴퓨터에서 실행하는 경우에는 Team이 필요합니다. 모든 요금제에는 Dagu Cloud 계정이 필요합니다. 요금제가 허용하는 대수보다 컴퓨터를 하나 더 연결하면, 본인 컴퓨터 중 가장 오래된 컴퓨터의 연결이 끊깁니다. 무료 체험이 끝나면 구독하기 전까지 아무것도 실행되지 않습니다. 요금제가 끝나면 Kitewell의 알림, MCP Events, 웹후크가 멈추고, 7일 뒤에는 워크플로 실행이 멈춥니다. 아무것도 삭제되지 않으며, 프로젝트는 읽기 전용으로 열어 보고 내보낼 수 있고, 다시 구독하면 모두 다시 실행됩니다. 이전부터 Kitewell을 사용해 온 경우, Free 요금제와 Personal에서 아무도 로그인하지 않았을 때의 실행은 2026년 12월 1일까지 계속 사용할 수 있습니다.",
+    enterpriseName: "Enterprise",
+    enterprise:
+      "25명 또는 컴퓨터 100대를 넘는 경우, 또는 아래 기능이 필요한 회사를 위한 요금제입니다. 연간 계약이며, 요금은 수량에 따른 컴퓨터당 단가에 연간 기본료를 더해 정합니다. 문의해 주시면 함께 준비해 드립니다.",
+    enterpriseFeatures: [
+      {
+        heading: "바로 사용 가능",
+        items: [
+          ["회사의 AI", "AI 단계를 자체 Azure OpenAI, Amazon Bedrock, Google Vertex AI 또는 사내 모델에서 실행합니다."],
+          ["시스템 연동", "회사 시스템이 웹후크나 REST API로 워크플로를 시작하고 결과를 받습니다. 컴퓨터 앞에 사람이 없어도 됩니다."],
+          ["역할", "프로젝트마다 사람별 역할을 정합니다."],
+          ["유지보수 및 지원", "Kitewell 버그 수정, 실행이 멈춘 원인 파악 지원, 업데이트 안내, 월간 보고서를 제공합니다. 워크플로 수정은 고객의 팀이 직접 합니다."],
+          ["보안 검토", "보안 질문서와 검토에 답변합니다."],
+        ],
+      },
+      {
+        heading: "계약 시 합의",
+        items: [
+          ["공유 컴퓨터", "조직이 소유한 컴퓨터에서 아무도 로그인하지 않은 상태로 워크플로를 실행합니다. 자체 Azure, AWS, Google Cloud, 자체 서버나 폐쇄망의 컴퓨터, 또는 Descarty가 호스팅하는 컴퓨터를 쓸 수 있습니다. 각 워크플로에는 실행할 컴퓨터가 지정됩니다."],
+          ["브라우저 워크스페이스", "회사 계정으로 하나의 주소에 로그인해, 어느 컴퓨터에서 실행되는 워크플로든 만들고, 시험하고, 고치고, 승인합니다. 그곳에서 입력한 비밀번호는 페이지를 떠나기 전에 해당 컴퓨터용으로 암호화됩니다."],
+          ["OEM 및 화이트 라벨", "Kitewell을 자사 제품에 내장해 자사 브랜드로 제공합니다."],
+          ["SSO 및 SCIM", "SAML로 로그인하고, ID 공급자를 통해 사람을 자동으로 추가하거나 제거합니다."],
+          ["감사 로그 내보내기", "모든 컴퓨터의 모든 변경과 실행을 내보내 장기간 보관합니다."],
+          ["컴퓨터 정책", "어떤 워크플로를 어떤 컴퓨터에서 실행할 수 있는지, 워크플로가 어떤 사이트와 앱을 사용할 수 있는지 조직 전체에 설정합니다."],
+          ["폐쇄망 동기화", "Dagu Cloud를 거치지 않고 자체 환경 안에서 프로젝트를 동기화합니다."],
+          ["SLA", "문제가 생겼을 때의 대응 시간을 계약으로 정합니다."],
+        ],
+      },
     ],
-    consultingAction: "컨설팅 문의하기 ↗",
+    enterpriseAction: "문의하기 ↗",
     partnerBadge: "파트너 모집",
     partnerTitle: "Kitewell로 고객의 업무를 자동화하세요",
     partnerBody:
@@ -394,23 +466,41 @@ const text = {
       "Projets partagés via Dagu Cloud, avec un rôle pour chaque personne dans chaque projet",
       "Tous les ordinateurs dans Dagu Console, avec une seule alerte par workflow, tous ordinateurs confondus",
       "Les valeurs des secrets restent sur chaque ordinateur",
+      "Aide de Descarty pour créer vos workflows (sur devis)",
+      "Fonctionnalités dont votre activité a besoin, ajoutées à Kitewell lui-même (sur devis)",
     ],
     teamAction: "S’abonner ↗",
     paidNote:
-      "Prix hors taxes. Au Japon, les offres sont facturées en yens : Personal à 3 000 ¥ par mois et Team à 14 800 ¥ par ordinateur et par mois, plus la taxe sur la consommation. Personal est destiné au travail d’une personne pour elle-même, devant son ordinateur ; une organisation qui utilise Kitewell pour un travail partagé, sur les ordinateurs de plusieurs personnes ou sur un ordinateur qui y est dédié, a besoin de Team. Au-delà de 25 personnes ou de 100 ordinateurs, ou pour des ordinateurs sans accès à internet, contactez Descarty. Toutes les offres nécessitent un compte Dagu Cloud. Si vous connectez un ordinateur de plus que ce que permet votre offre, le plus ancien de vos propres ordinateurs est déconnecté. À la fin de l’essai, rien ne s’exécute tant que vous ne vous abonnez pas. À la fin d’une offre, les alertes de Kitewell, MCP Events et les webhooks s’arrêtent, puis, 7 jours plus tard, les workflows cessent de s’exécuter. Rien n’est supprimé : les projets restent en lecture seule, à ouvrir et à exporter, et tout repart dès que vous vous abonnez. Si vous utilisiez déjà Kitewell, l’offre gratuite et les exécutions de Personal sans personne de connecté continuent de fonctionner jusqu’au 1er décembre 2026.",
-    consultingName: "Conseil par Descarty",
-    consulting:
-      "Descarty, l’éditeur de Kitewell, aide vos équipes à mettre Kitewell au travail, à distance. Le tarif est de 500 000 ¥ par mois hors taxes, facturé en yens, pour les seuls mois dont vous avez besoin. Vos équipes construisent et corrigent les workflows, et continuent seules ensuite.",
-    consultingHeading: "Ce qui est compris",
-    consultingItems: [
-      ["Par où commencer", "Choisir les premières tâches à confier et convenir de la façon de mesurer la réussite."],
-      ["Une première tâche, construite ensemble", "Vos équipes la construisent avec un développeur de Descarty, sur les mêmes écrans et les mêmes données que le travail réel."],
-      ["Ordinateurs et IA", "Préparer les PC ou VM Windows qui tournent sans personne de connecté, une clé de licence pour les ordinateurs sans internet, et le modèle d’IA de votre choix."],
-      ["Vos systèmes", "Définir comment vos systèmes lancent les workflows par webhook ou API REST et en récupèrent les résultats."],
-      ["Quand une exécution s’arrête", "Trouver pourquoi elle s’est arrêtée et comment vos équipes la corrigent."],
-      ["Revues de sécurité", "Réponses à votre questionnaire de sécurité et à votre revue."],
+      "Prix hors taxes. Au Japon, les offres sont facturées en yens : Personal à 3 000 ¥ par mois et Team à 14 800 ¥ par ordinateur et par mois, plus la taxe sur la consommation. Personal est destiné au travail d’une personne pour elle-même, devant son ordinateur ; une organisation qui utilise Kitewell pour un travail partagé, sur les ordinateurs de plusieurs personnes ou sur un ordinateur qui y est dédié, a besoin de Team. Toutes les offres nécessitent un compte Dagu Cloud. Si vous connectez un ordinateur de plus que ce que permet votre offre, le plus ancien de vos propres ordinateurs est déconnecté. À la fin de l’essai, rien ne s’exécute tant que vous ne vous abonnez pas. À la fin d’une offre, les alertes de Kitewell, MCP Events et les webhooks s’arrêtent, puis, 7 jours plus tard, les workflows cessent de s’exécuter. Rien n’est supprimé : les projets restent en lecture seule, à ouvrir et à exporter, et tout repart dès que vous vous abonnez. Si vous utilisiez déjà Kitewell, l’offre gratuite et les exécutions de Personal sans personne de connecté continuent de fonctionner jusqu’au 1er décembre 2026.",
+    enterpriseName: "Enterprise",
+    enterprise:
+      "Pour plus de 25 personnes ou 100 ordinateurs, ou pour une entreprise qui a besoin des fonctionnalités ci-dessous. C’est un contrat annuel, avec un tarif par ordinateur selon le volume plus des frais annuels. Contactez-nous, et nous mettrons tout cela en place avec vous.",
+    enterpriseFeatures: [
+      {
+        heading: "Disponible dès maintenant",
+        items: [
+          ["L’IA de votre entreprise", "Exécutez les étapes d’IA sur votre propre Azure OpenAI, Amazon Bedrock, Google Vertex AI ou sur un modèle interne."],
+          ["Intégré à vos systèmes", "Vos systèmes lancent des workflows par webhook ou API REST et en reçoivent les résultats, sans personne devant l’ordinateur."],
+          ["Rôles", "Un rôle pour chaque personne dans chaque projet."],
+          ["Maintenance et support", "Corrections de bugs de Kitewell, aide pour trouver pourquoi une exécution s’est arrêtée, conseils pour les mises à jour et rapport mensuel. Votre équipe corrige elle-même ses workflows."],
+          ["Revues de sécurité", "Des réponses à votre questionnaire de sécurité et pour votre revue."],
+        ],
+      },
+      {
+        heading: "Convenu dans votre contrat",
+        items: [
+          ["Ordinateurs partagés", "Des ordinateurs appartenant à votre organisation, dans votre propre Azure, AWS ou Google Cloud, sur vos serveurs ou dans un réseau fermé, ou hébergés par Descarty, exécutent les workflows sans que personne ne soit connecté. Chaque workflow indique sur quel ordinateur il s’exécute."],
+          ["Espace de travail dans le navigateur", "Créez, essayez, corrigez et approuvez les workflows depuis une seule adresse, avec la connexion de votre entreprise, quel que soit l’ordinateur sur lequel ils s’exécutent. Un mot de passe saisi là est chiffré pour cet ordinateur avant de quitter la page."],
+          ["OEM et marque blanche", "Intégrez Kitewell à votre propre produit et proposez-le sous votre marque."],
+          ["SSO et SCIM", "Connexion via SAML, avec ajout ou retrait automatique des personnes depuis votre fournisseur d’identité."],
+          ["Export du journal d’audit", "Chaque modification et chaque exécution, sur chaque ordinateur, exportées et conservées sur le long terme."],
+          ["Politiques du parc", "Quels workflows peuvent s’exécuter sur quels ordinateurs, et quels sites et applications ils peuvent utiliser, défini pour toute l’organisation."],
+          ["Synchronisation en réseau fermé", "Les projets se synchronisent dans votre propre environnement plutôt que via Dagu Cloud."],
+          ["SLA", "Des délais de réponse fixés par contrat pour les cas où quelque chose ne va pas."],
+        ],
+      },
     ],
-    consultingAction: "Parler du conseil ↗",
+    enterpriseAction: "Nous contacter ↗",
     partnerBadge: "Partenaires",
     partnerTitle: "Automatisez le travail de vos clients avec Kitewell",
     partnerBody:
@@ -478,23 +568,41 @@ const text = {
       "Projekte über Dagu Cloud geteilt, mit einer Rolle für jede Person in jedem Projekt",
       "Alle Computer in Dagu Console, mit einer Benachrichtigung pro Workflow über alle Computer hinweg",
       "Werte von Secrets bleiben auf dem jeweiligen Computer",
+      "Unterstützung durch Descarty beim Aufbau Ihrer Workflows (nach Angebot)",
+      "Funktionen, die Ihre Arbeit braucht, in Kitewell selbst ergänzt (nach Angebot)",
     ],
     teamAction: "Abonnieren ↗",
     paidNote:
-      "Preise zuzüglich Steuern. In Japan werden die Tarife in Yen abgerechnet: Personal für 3.000 ¥ pro Monat und Team für 14.800 ¥ pro Computer und Monat, jeweils zuzüglich Verbrauchsteuer. Personal ist für die eigene Arbeit einer Person am Computer gedacht; eine Organisation, die Kitewell für gemeinsame Arbeit nutzt, auf den Computern mehrerer Personen oder auf einem eigens dafür bereitgestellten Computer, braucht Team. Für mehr als 25 Personen oder 100 Computer oder für Computer ohne Internetzugang wenden Sie sich an Descarty. Jeder Tarif erfordert ein Dagu-Cloud-Konto. Wenn Sie einen Computer mehr verbinden, als Ihr Tarif zulässt, wird Ihr eigener ältester Computer getrennt. Nach der Testphase läuft nichts, bis Sie ein Abo abschließen. Endet ein Tarif, stoppen die Benachrichtigungen von Kitewell, MCP Events und Webhooks, und 7 Tage später laufen die Workflows nicht mehr. Nichts wird gelöscht: Projekte bleiben schreibgeschützt, zum Öffnen und Exportieren, und alles läuft wieder, sobald Sie ein Abo abschließen. Wer Kitewell schon genutzt hat, behält den kostenlosen Tarif und die Ausführungen von Personal ohne Anmeldung bis zum 1. Dezember 2026.",
-    consultingName: "Beratung durch Descarty",
-    consulting:
-      "Descarty, der Hersteller von Kitewell, hilft Ihren Mitarbeitenden online, Kitewell in die Arbeit zu bringen. Sie kostet 500.000 ¥ pro Monat zzgl. Steuern, abgerechnet in Yen, nur für die Monate, die Sie brauchen. Ihre Mitarbeitenden bauen und korrigieren die Workflows selbst und machen danach allein weiter.",
-    consultingHeading: "Was dazugehört",
-    consultingItems: [
-      ["Wo anfangen", "Die ersten Aufgaben auswählen, die übergeben werden, und vereinbaren, woran der Erfolg gemessen wird."],
-      ["Die erste Aufgabe, gemeinsam gebaut", "Ihre Mitarbeitenden bauen sie mit einem Entwickler von Descarty, auf denselben Bildschirmen und Daten wie die echte Arbeit."],
-      ["Computer und KI", "Die Windows-PCs oder -VMs einrichten, die ohne Anmeldung laufen, einen Lizenzschlüssel für Computer ohne Internet und das KI-Modell Ihrer Wahl."],
-      ["Ihre Systeme", "Festlegen, wie Ihre Systeme Workflows per Webhook oder REST-API starten und die Ergebnisse zurückbekommen."],
-      ["Wenn ein Lauf stoppt", "Herausfinden, warum er gestoppt hat, und wie Ihre Mitarbeitenden ihn korrigieren."],
-      ["Sicherheitsprüfungen", "Antworten für Ihren Sicherheitsfragebogen und Ihre Prüfung."],
+      "Preise zuzüglich Steuern. In Japan werden die Tarife in Yen abgerechnet: Personal für 3.000 ¥ pro Monat und Team für 14.800 ¥ pro Computer und Monat, jeweils zuzüglich Verbrauchsteuer. Personal ist für die eigene Arbeit einer Person am Computer gedacht; eine Organisation, die Kitewell für gemeinsame Arbeit nutzt, auf den Computern mehrerer Personen oder auf einem eigens dafür bereitgestellten Computer, braucht Team. Jeder Tarif erfordert ein Dagu-Cloud-Konto. Wenn Sie einen Computer mehr verbinden, als Ihr Tarif zulässt, wird Ihr eigener ältester Computer getrennt. Nach der Testphase läuft nichts, bis Sie ein Abo abschließen. Endet ein Tarif, stoppen die Benachrichtigungen von Kitewell, MCP Events und Webhooks, und 7 Tage später laufen die Workflows nicht mehr. Nichts wird gelöscht: Projekte bleiben schreibgeschützt, zum Öffnen und Exportieren, und alles läuft wieder, sobald Sie ein Abo abschließen. Wer Kitewell schon genutzt hat, behält den kostenlosen Tarif und die Ausführungen von Personal ohne Anmeldung bis zum 1. Dezember 2026.",
+    enterpriseName: "Enterprise",
+    enterprise:
+      "Für mehr als 25 Personen oder 100 Computer oder für Unternehmen, die die unten genannten Funktionen brauchen. Es ist ein Jahresvertrag, mit einem Preis pro Computer nach Volumen plus einer Jahresgebühr. Kontaktieren Sie uns, und wir richten alles gemeinsam mit Ihnen ein.",
+    enterpriseFeatures: [
+      {
+        heading: "Sofort verfügbar",
+        items: [
+          ["Die KI Ihres Unternehmens", "KI-Schritte auf Ihrem eigenen Azure OpenAI, Amazon Bedrock, Google Vertex AI oder einem hauseigenen Modell ausführen."],
+          ["Teil Ihrer Systeme", "Ihre Systeme starten Workflows per Webhook oder REST-API und erhalten die Ergebnisse, ohne dass jemand am Computer sitzt."],
+          ["Rollen", "Eine Rolle für jede Person in jedem Projekt."],
+          ["Wartung und Support", "Fehlerbehebungen in Kitewell, Hilfe bei der Suche, warum eine Ausführung angehalten hat, Hinweise zu Updates und ein monatlicher Bericht. Ihr Team korrigiert seine Workflows selbst."],
+          ["Sicherheitsprüfungen", "Antworten für Ihren Sicherheitsfragebogen und Ihre Prüfung."],
+        ],
+      },
+      {
+        heading: "In Ihrem Vertrag vereinbart",
+        items: [
+          ["Gemeinsam genutzte Computer", "Computer Ihrer Organisation führen Workflows aus, ohne dass jemand angemeldet ist: in Ihrer eigenen Azure-, AWS- oder Google-Cloud-Umgebung, auf Ihren Servern, in einem geschlossenen Netzwerk oder von Descarty gehostet. Jeder Workflow legt fest, auf welchem Computer er läuft."],
+          ["Arbeitsbereich im Browser", "Workflows unter einer Adresse mit der Anmeldung Ihres Unternehmens erstellen, testen, korrigieren und genehmigen, egal auf welchem Computer sie laufen. Ein dort eingegebenes Passwort wird für diesen Computer verschlüsselt, bevor es die Seite verlässt."],
+          ["OEM und White Label", "Kitewell in Ihr eigenes Produkt einbauen und unter Ihrer Marke anbieten."],
+          ["SSO und SCIM", "Anmeldung per SAML; Personen werden automatisch aus Ihrem Identitätsanbieter hinzugefügt oder entfernt."],
+          ["Export des Audit-Logs", "Jede Änderung und jede Ausführung auf jedem Computer, exportiert und langfristig aufbewahrt."],
+          ["Richtlinien für alle Computer", "Für die ganze Organisation festlegen, welche Workflows auf welchen Computern laufen dürfen und welche Websites und Apps sie nutzen dürfen."],
+          ["Synchronisierung im geschlossenen Netzwerk", "Projekte werden in Ihrer eigenen Umgebung synchronisiert statt über Dagu Cloud."],
+          ["SLA", "Vertraglich vereinbarte Reaktionszeiten für den Fall, dass etwas schiefgeht."],
+        ],
+      },
     ],
-    consultingAction: "Beratung anfragen ↗",
+    enterpriseAction: "Kontakt aufnehmen ↗",
     partnerBadge: "Partner",
     partnerTitle: "Automatisieren Sie die Arbeit Ihrer Kunden mit Kitewell",
     partnerBody:
@@ -578,30 +686,32 @@ const text = {
       </div>
       <a class="button" href={descartyUrl(locale, "/partners/")}>{text.partnerAction}</a>
     </section>
-    <section class="notice consulting" id="consulting" aria-labelledby="consulting-title">
-      <div class="consulting-head">
+    <div class="notice enterprise" id="enterprise">
+      <div class="enterprise-head">
         <div>
-          <h2 id="consulting-title">{text.consultingName}</h2>
-          <p>{text.consulting}</p>
+          <h2>{text.enterpriseName}</h2>
+          <p>{text.enterprise}</p>
         </div>
         <div class="actions">
-          <a class="button" href={descartyUrl(locale, "/contact/?inquiry=support")}>{text.consultingAction}</a>
+          <a class="button" href={descartyUrl(locale, "/contact/?inquiry=quote")}>{text.enterpriseAction}</a>
         </div>
       </div>
-      <section class="consulting-body">
-        <h3 class="eyebrow">{text.consultingHeading}</h3>
-        <ul class="consulting-items">
-          {
-            text.consultingItems.map(([name, detail]) => (
-              <li>
-                <h4>{name}</h4>
-                <p>{detail}</p>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </section>
+      {
+        text.enterpriseFeatures.map(({ heading, items }) => (
+          <section class="enterprise-group">
+            <h3 class="eyebrow">{heading}</h3>
+            <ul class="enterprise-features">
+              {items.map(([name, detail]) => (
+                <li>
+                  <h4>{name}</h4>
+                  <p>{detail}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
     <div class="prose">
       <h2>{text.costs}</h2>
       <p>{text.costsText}</p>

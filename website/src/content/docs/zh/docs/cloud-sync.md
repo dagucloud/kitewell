@@ -9,7 +9,7 @@ title: 与 Dagu Cloud 同步项目
 ## 准备工作
 
 - 一个 Dagu Cloud 账户。账户免费，从 Kitewell 登录即开始 14 天试用：在最多 3 台电脑上使用 Team 的功能，无需信用卡。
-- 如需与他人共享，需要 Kitewell Team。工作区连接的每台电脑每月 99 美元，最多 25 人；请在 [Dagu Console](https://console.dagu.sh/kitewell) 中订阅，超过 25 人时，请[联系 Descarty](https://descarty.com/en/contact/?inquiry=billing)。团队所有者为工作区付费，成员无需单独订阅。Kitewell Personal 每月 20 美元，供一个人在一台电脑上处理自己的工作，不能邀请他人。请参阅[价格](/zh/pricing/)。
+- 如需与他人共享，需要 Kitewell Team。工作区连接的每台电脑每月 99 美元，最多 25 人；请在 [Dagu Console](https://console.dagu.sh/kitewell) 中订阅，更大的团队请选择 [Enterprise](/zh/pricing/#enterprise)。团队所有者为工作区付费，成员无需单独订阅。Kitewell Personal 每月 20 美元，供一个人在一台电脑上处理自己的工作，不能邀请他人。请参阅[价格](/zh/pricing/)。
 
 <a id="sign-in"></a>
 

@@ -9,7 +9,7 @@ title: Dagu Cloud와 프로젝트 동기화
 ## 필요한 것
 
 - Dagu Cloud 계정. 무료이며, Kitewell에서 로그인하면 컴퓨터 최대 3대에서 Team 기능을 쓸 수 있는 14일 체험이 시작됩니다. 카드는 필요 없습니다.
-- 다른 사람과 공유하려면 Kitewell Team. 워크스페이스에 연결하는 컴퓨터 1대당 월 99달러이며, 최대 25명까지 쓸 수 있습니다. [Dagu Console](https://console.dagu.sh/kitewell)에서 구독하세요. 25명을 넘는 경우에는 [Descarty에 문의하세요](https://descarty.com/en/contact/?inquiry=billing). 팀 소유자가 워크스페이스 비용을 내므로 멤버는 따로 구독할 필요가 없습니다. 월 20달러인 Kitewell Personal은 한 사람이 컴퓨터 1대에서 자신의 업무에 쓰는 플랜이라 다른 사람을 초대할 수 없습니다. [요금](/ko/pricing/)을 참고하세요.
+- 다른 사람과 공유하려면 Kitewell Team. 워크스페이스에 연결하는 컴퓨터 1대당 월 99달러이며, 최대 25명까지 쓸 수 있습니다. [Dagu Console](https://console.dagu.sh/kitewell)에서 구독하세요. 더 큰 팀은 [Enterprise](/ko/pricing/#enterprise)를 이용합니다. 팀 소유자가 워크스페이스 비용을 내므로 멤버는 따로 구독할 필요가 없습니다. 월 20달러인 Kitewell Personal은 한 사람이 컴퓨터 1대에서 자신의 업무에 쓰는 플랜이라 다른 사람을 초대할 수 없습니다. [요금](/ko/pricing/)을 참고하세요.
 
 <a id="sign-in"></a>
 

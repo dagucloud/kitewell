@@ -21,10 +21,10 @@ Cloud avant que vous le fassiez.
 - Pour partager avec d’autres personnes, Kitewell Team, à 99 $ par mois pour
   chaque ordinateur que l’espace de travail connecte, pour 25 personnes au
   plus ; abonnez-vous dans
-  [Dagu Console](https://console.dagu.sh/kitewell). Au-delà de 25 personnes,
-  [contactez Descarty](https://descarty.com/en/contact/?inquiry=billing).
-  Le propriétaire de l’équipe paie l’espace de travail, et les membres n’ont
-  besoin d’aucun abonnement personnel. Kitewell Personal, à 20 $ par mois, est conçu pour le travail
+  [Dagu Console](https://console.dagu.sh/kitewell). Une équipe plus grande choisit
+  [Enterprise](/fr/pricing/#enterprise). Le propriétaire de l’équipe paie
+  l’espace de travail, et les membres n’ont besoin d’aucun abonnement
+  personnel. Kitewell Personal, à 20 $ par mois, est conçu pour le travail
   d’une seule personne sur un seul ordinateur et ne permet d’inviter
   personne. Voir les [tarifs](/fr/pricing/).
 

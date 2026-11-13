@@ -21,11 +21,9 @@ nichts Dagu Cloud.
 - Um mit anderen Personen zu teilen: Kitewell Team. Es kostet 99 $ pro Monat
   für jeden Computer, den der Arbeitsbereich verbindet, für bis zu 25
   Personen. Sie schließen es in
-  [Dagu Console](https://console.dagu.sh/kitewell) ab. Für mehr als 25
-  Personen
-  [wenden Sie sich an Descarty](https://descarty.com/en/contact/?inquiry=billing).
-  Der Inhaber des Teams bezahlt den Arbeitsbereich, Mitglieder brauchen kein
-  eigenes Abonnement.
+  [Dagu Console](https://console.dagu.sh/kitewell) ab, und für ein größeres
+  Team gibt es [Enterprise](/de/pricing/#enterprise). Der Inhaber des Teams
+  bezahlt den Arbeitsbereich, Mitglieder brauchen kein eigenes Abonnement.
   Kitewell Personal für 20 $ pro Monat ist für die eigene Arbeit einer Person
   auf einem Computer gedacht und kann niemanden einladen. Siehe
   [Preise](/de/pricing/).
