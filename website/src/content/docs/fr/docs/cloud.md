@@ -17,7 +17,7 @@ depuis un navigateur ou votre téléphone.
    [votre premier workflow](/fr/docs/getting-started/).
 
 Kitewell Cloud ne demande ni essai ni offre : chaque espace de travail
-dispose de 1 000 minutes d’exécution gratuites par mois, décrites ci-dessous.
+reçoit 1 000 minutes d’exécution gratuites, une seule fois, décrites ci-dessous.
 Sans carte, il garde un projet ; ajoutez une carte sur la page du compte pour
 en garder jusqu’à 15.
 
@@ -27,14 +27,15 @@ Kitewell Cloud est facturé séparément des offres, à la minute d’exécution
 Chaque exécution est arrondie à la minute supérieure. L’attente d’une
 approbation ne compte pas, ni la construction avec l’assistant.
 
-- Chaque espace de travail dispose de 1 000 minutes gratuites par mois,
-  quelle que soit l’offre.
+- Chaque espace de travail reçoit 1 000 minutes gratuites, une seule fois,
+  quelle que soit l’offre. Un nouveau mois n’en rend aucune.
 - Au-delà, la minute coûte 0,007 $ (1 ¥ au Japon) hors taxes, jusqu’au budget
   mensuel que le propriétaire de l’espace fixe sur la page du compte, après
   avoir ajouté une carte.
-- Sans budget, Kitewell Cloud ne lance plus de nouvelle exécution une fois les
-  minutes gratuites utilisées, jusqu’au mois suivant, et l’application le
-  signale. Rien n’est facturé.
+- Sans carte ni budget, Kitewell Cloud ne lance plus de nouvelle exécution une
+  fois les minutes gratuites utilisées, et l’application le signale. Rien n’est
+  facturé. Avec un budget, les exécutions s’arrêtent une fois le budget du mois
+  utilisé, jusqu’au mois suivant.
 - Entre-temps, vous pouvez toujours ouvrir les projets, lire les exécutions
   passées et exporter.
 - Les exécutions sur votre propre ordinateur ne sont jamais facturées à

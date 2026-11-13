@@ -16,8 +16,8 @@ phone.
 3. Tell the assistant what the job is, as in
    [your first workflow](/docs/getting-started/).
 
-Kitewell Cloud needs no trial and no plan: every workspace has 1,000 free run
-minutes a month, described below. Without a card it keeps one project; add a
+Kitewell Cloud needs no trial and no plan: every workspace gets 1,000 free run
+minutes, once, described below. Without a card it keeps one project; add a
 card on your account page for up to 15.
 
 ## Cloud minutes
@@ -26,11 +26,13 @@ Kitewell Cloud is billed apart from the plans, by the minutes its runs take.
 Each run is rounded up to a whole minute. Waiting for a person's approval
 counts nothing, and neither does building with the assistant.
 
-- Every workspace has 1,000 free minutes a month, on any plan.
+- Every workspace gets 1,000 free minutes, once, on any plan. A new month
+  gives none back.
 - Past them, a minute costs $0.007 (¥1 in Japan) before tax, up to a monthly
   budget the workspace's owner sets on the account page, after adding a card.
-- Without a budget, Kitewell Cloud starts no new runs once the free minutes
-  are used, until the month resets, and the app says so. Nothing is charged.
+- Without a card and a budget, Kitewell Cloud starts no new runs once the free
+  minutes are used, and the app says so. Nothing is charged. With a budget,
+  runs stop when the month's budget is used, until the next month.
 - Meanwhile you can still open projects, read past runs, and export.
 - Runs on your own computer are never metered.
 

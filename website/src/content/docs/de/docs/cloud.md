@@ -16,8 +16,8 @@ Sie im Browser oder auf dem Handy.
 3. Beschreiben Sie dem Assistenten die Aufgabe, wie bei
    [Ihrem ersten Workflow](/de/docs/getting-started/).
 
-Kitewell Cloud braucht weder Testphase noch Plan: Jeder Arbeitsbereich hat
-1.000 kostenlose Ausführungsminuten pro Monat, unten beschrieben. Ohne Karte
+Kitewell Cloud braucht weder Testphase noch Plan: Jeder Arbeitsbereich erhält
+einmalig 1.000 kostenlose Ausführungsminuten, unten beschrieben. Ohne Karte
 hält es ein Projekt; hinterlegen Sie auf der Kontoseite eine Karte für bis
 zu 15.
 
@@ -28,13 +28,15 @@ Ausführungen dauern. Jede Ausführung wird auf eine volle Minute aufgerundet.
 Das Warten auf eine Freigabe zählt nicht, das Bauen mit dem Assistenten auch
 nicht.
 
-- Jeder Arbeitsbereich hat 1.000 Freiminuten pro Monat, in jedem Plan.
+- Jeder Arbeitsbereich erhält einmalig 1.000 Freiminuten, in jedem Plan. Ein
+  neuer Monat gibt keine zurück.
 - Danach kostet eine Minute 0,007 $ (1 ¥ in Japan) zuzüglich Steuern, bis zu
   dem Monatsbudget, das der Inhaber des Arbeitsbereichs auf der Kontoseite
   festlegt, nachdem er eine Karte hinterlegt hat.
-- Ohne Budget startet Kitewell Cloud keine neuen Ausführungen mehr, sobald die
-  Freiminuten aufgebraucht sind, bis der Monat neu beginnt; die App zeigt das
-  an. Es wird nichts berechnet.
+- Ohne Karte und Budget startet Kitewell Cloud keine neuen Ausführungen mehr,
+  sobald die Freiminuten aufgebraucht sind; die App zeigt das an. Es wird nichts
+  berechnet. Mit Budget stoppen Ausführungen, sobald das Budget des Monats
+  aufgebraucht ist, bis zum nächsten Monat.
 - In der Zwischenzeit können Sie weiterhin Projekte öffnen, vergangene
   Ausführungen ansehen und exportieren.
 - Ausführungen auf Ihrem eigenen Computer werden nie nach Verbrauch
