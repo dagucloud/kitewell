@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes, calendars, and Google files stay on your device.
-updated: 2026-11-08
+updated: 2026-11-14
 ---
 
 Descarty, Inc. ("Descarty", "we") publishes Kitewell. This policy explains what
@@ -160,7 +160,8 @@ for Microsoft, from your account's app permissions.
 
 ### Google Calendar
 
-You can connect a Google Calendar so your workflows can read its events. This
+You can connect a Google Calendar so your workflows can read its events and,
+when you build them to, add, change, or delete them. This
 part describes how Kitewell handles the data it receives from Google Calendar,
 which is Google user data received through Google APIs.
 
@@ -169,16 +170,20 @@ Google for your email address (`openid`, `email`), for the list of calendars
 you are subscribed to
 (`https://www.googleapis.com/auth/calendar.calendarlist.readonly`), for when
 you are busy on the calendars you can open
-(`https://www.googleapis.com/auth/calendar.events.freebusy`), and, once Google
-has approved it for Kitewell, for permission to view your events
-(`https://www.googleapis.com/auth/calendar.events.readonly`). These
-permissions do not let Kitewell create, change, or delete events or calendars,
-and Kitewell asks for nothing more.
+(`https://www.googleapis.com/auth/calendar.events.freebusy`), and for
+permission to view your events
+(`https://www.googleapis.com/auth/calendar.events.readonly`) or, once Google
+has approved it for Kitewell, to view and edit them
+(`https://www.googleapis.com/auth/calendar.events`) in its place. These
+permissions do not let Kitewell create, change, or delete calendars, or change
+their sharing, and Kitewell asks for nothing more.
 
 **How Kitewell uses it.** Kitewell uses your email address to show which
 Google account a connection signed in as. It uses calendar access only to do
 what you ask in Kitewell: run the Google Calendar steps in your workflows,
-which list calendars, find busy times, and list and read events.
+which list calendars, find busy times, list and read events, and add, change,
+or delete events. Kitewell adds, changes, or deletes an event only when a step
+of a workflow you built or approved does so, never on its own.
 
 **Where it is stored.** Your sign-in token is stored only on your device,
 encrypted with AES-256-GCM under a key that never leaves it, and is handed to
