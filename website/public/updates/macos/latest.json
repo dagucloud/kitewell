@@ -4,7 +4,7 @@
   "rollout": {
     "start": "2026-11-16T12:19:48Z",
     "hours": 48,
-    "paused": false
+    "paused": true
   },
   "downloads": {
     "darwin-arm64": {
