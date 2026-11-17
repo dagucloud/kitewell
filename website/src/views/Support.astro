@@ -30,6 +30,7 @@ const text = {
       ["/docs/backups/", "Back up and restore your workspace"],
     ],
     business: "For team rollouts, pricing, or other business questions, email",
+    call: "Book a 30-minute online call ↗",
   },
   ja: {
     title: "サポート",
@@ -56,6 +57,7 @@ const text = {
       ["/docs/backups/", "ワークスペースをバックアップ・復元する"],
     ],
     business: "チームでの導入、料金、そのほかのビジネスに関するご質問は、こちらへメールでご連絡ください：",
+    call: "30 分のオンライン相談を予約 ↗",
   },
   zh: {
     title: "支持",
@@ -81,6 +83,7 @@ const text = {
       ["/docs/backups/", "备份和恢复你的工作区"],
     ],
     business: "团队部署、价格或其他商务问题，请发邮件至：",
+    call: "预约 30 分钟的在线交流 ↗",
   },
   ko: {
     title: "지원",
@@ -106,6 +109,7 @@ const text = {
       ["/docs/backups/", "워크스페이스 백업 및 복원"],
     ],
     business: "팀 도입, 요금 및 기타 비즈니스 문의는 이메일로 보내 주세요:",
+    call: "30분 온라인 상담 예약하기 ↗",
   },
   fr: {
     title: "Assistance",
@@ -131,6 +135,7 @@ const text = {
       ["/docs/backups/", "Sauvegarder et restaurer votre espace de travail"],
     ],
     business: "Pour un déploiement en équipe, les tarifs ou toute autre question commerciale, contactez-nous par e-mail :",
+    call: "Réserver un appel en ligne de 30 minutes ↗",
   },
   de: {
     title: "Support",
@@ -156,6 +161,7 @@ const text = {
       ["/docs/backups/", "Ihren Arbeitsbereich sichern und wiederherstellen"],
     ],
     business: "Bei Fragen zur Einführung im Team, zu Preisen oder zu anderen geschäftlichen Themen schreiben Sie uns eine E-Mail:",
+    call: "Ein 30-minütiges Online-Gespräch buchen ↗",
   },
 }[locale];
 ---
@@ -200,6 +206,9 @@ const text = {
       <p>
         {text.business}{" "}
         <a href="mailto:company@descarty.com?subject=Kitewell">company@descarty.com</a>{locale === "en" ? "." : ""}
+      </p>
+      <p>
+        <a href="https://calendly.com/yota-hamada-descarty/30min">{text.call}</a>
       </p>
     </div>
   </section>

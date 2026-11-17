@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes, calendars, and Google files stay on your device.
-updated: 2026-11-14
+updated: 2026-11-17
 ---
 
 Descarty, Inc. ("Descarty", "we") publishes Kitewell. This policy explains what
@@ -411,7 +411,9 @@ operations.
 
 Public GitHub issues are visible to anyone. Do not include secrets or private
 workflow data. Security reports sent through GitHub's private reporting and
-emails to us are seen only by the Kitewell team.
+emails to us are seen only by the Kitewell team. When you book a call with us,
+Calendly receives the name, email address, and other details you enter, and
+passes them to us.
 
 ## 10. How we use the information we receive
 
@@ -424,8 +426,8 @@ provide it to third parties except with your consent or as required by law.
 ## 11. Services outside Japan
 
 PostHog, Inc., Cloudflare, Inc. (which hosts the website and Kitewell's
-relay), and GitHub, Inc. are companies in the United States and process
-information on servers there. Kitewell Cloud and Kitehand sessions, and their storage,
+relay), Calendly LLC, and GitHub, Inc. are companies in the United States and
+process information on servers there. Kitewell Cloud and Kitehand sessions, and their storage,
 are in Google Cloud's Iowa region (`us-central1`) in the United States. Information on the personal information
 protection system of the United States is published by the
 [Personal Information Protection Commission of Japan](https://www.ppc.go.jp/).
