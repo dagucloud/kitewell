@@ -35,34 +35,25 @@ const text = {
     proofNote: "Real screen recordings on demo sites and apps, sped up.",
     versus: {
       title: "Learns like an agent.\nRepeats like a script.",
-      lead: "Traditional automation breaks whenever a screen changes. AI agents rethink every step on every run. Kitewell learns the job once, repeats it fast, and fixes the flow if a run fails.",
-      cols: ["Scripts and RPA", "AI agents", "Kitewell"],
-      rows: [
-        ["Building", "A specialist builds each bot, step by step.", "You ask in words.", "Ask in chat, and AI builds the flow right on the real site."],
-        ["Every run", "Fast, and identical every time.", "Rethinks every step on every run, making it slow and costly.", "Repeats what it learned, so runs get faster and cheaper over time."],
-        ["A screen changes", "Stops at the button that moved.", "Figures everything out again from scratch.", "Finds the moved button mid-run and remembers its new spot."],
-        ["A run fails", "Stays broken until the person who built it steps in.", "Tries again, with no guarantee it acts the same way.", "Finds the cause, fixes and tests the flow, and tells you what changed."],
+      change: "The site changes",
+      lanes: [
+        ["AI agents", "AI works out every click, every run. Slow, costly, never quite the same."],
+        ["Traditional RPA", "Fast and consistent, until a site change stops it cold."],
+        ["Kitewell", "AI builds and fixes the flow. Known steps run fast."],
       ],
-    },
-    tuning: {
-      title: "When a run fails, AI finds the cause and fixes it.",
-      lead: "Flow tuning steps in once per streak of failures, handling everything from finding the cause to verifying the fix.",
-      steps: [
-        ["Spots the failure", "Picks up the run that stopped."],
-        ["Finds the cause", "Reviews the run history and logs."],
-        ["Fixes the flow", "Rewrites the steps that broke."],
-        ["Tests the fix", "Runs the flow up to the step that failed."],
-        ["Saves and reports", "Saves the fix and tells you in chat what changed."],
-      ],
-      note: "When the problem is outside the flow, such as a site outage or an expired login, it leaves the flow untouched and tells you what to do.",
+      build: "Build",
+      fix: "Fix",
+      stop: "Stopped",
+      legend: ["AI thinking and judgment", "Learned clicks and typing", "Bar height = time per run"],
+      measured: "Median of 20 runs of a three-step demo sign-in: 7.9 s with AI choosing every click, 1.8 s with Kitewell repeating.",
     },
     reach: {
       title: "Works the screens your team already uses.",
       items: [
-        ["Websites", "Handles sites that require a login, too. You type passwords into a card, so the AI never sees them.", "/docs/browser/"],
-        ["Desktop apps", "Reads the screen to operate software with no API and no import tool. Runs in the Mac or Windows app.", "/docs/desktop/"],
-        ["Excel", "Works row by row and writes each result right beside its row.", "/docs/spreadsheets/"],
-        ["Email", "Finds, reads, organizes, and sends mail across Microsoft 365, Gmail, and other mailboxes.", "/docs/email/"],
+        ["Websites", "Even behind a login. AI never sees your password.", "/docs/browser/"],
+        ["Desktop apps", "Even with no API. Needs the Mac or Windows app.", "/docs/desktop/"],
+        ["Excel", "Row by row, with each result beside its row.", "/docs/spreadsheets/"],
+        ["Email", "Microsoft 365, Gmail, and other mailboxes.", "/docs/email/"],
       ],
       start: "Runs on a set schedule, or whenever you ask ChatGPT or Claude from your phone.",
     },
@@ -97,34 +88,25 @@ const text = {
     proofNote: "デモ用のサイトとアプリで実際に動かした画面を、早送りしています。",
     versus: {
       title: "エージェントのように覚え、\nスクリプトのように速く回る。",
-      lead: "従来の自動化ツールは、画面が変わると止まってしまいます。AI エージェントは、毎回すべての手順を一から考え直します。Kitewell は一度覚えた仕事を速くくり返し、失敗したときは自分でフローを直します。",
-      cols: ["RPA やスクリプト", "AI エージェント", "Kitewell"],
-      rows: [
-        ["つくる", "専門の担当者が、1 つずつ手順を組みます。", "言葉で頼めます。", "チャットで頼むと、AI が実際のサイトを動かしてフローを組みます。"],
-        ["毎回の実行", "速く、毎回同じ動きです。", "毎回すべての手順を考え直すため、時間も費用もかかります。", "覚えた操作をくり返すため、回すほど速く、安くなります。"],
-        ["画面が変わる", "ボタンの位置が変わると止まります。", "一から手順を考え直します。", "実行中に新しいボタンを見つけて、そのまま覚え直します。"],
-        ["失敗する", "つくった人が直すまで止まったままです。", "やり直しますが、毎回同じ動きになるとは限りません。", "原因を調べてフローを直し、動作を確かめてから変更点を報告します。"],
+      change: "画面が変わる",
+      lanes: [
+        ["AI エージェント", "毎回画面を見て操作を判断。遅く、AI コストもかさむ。"],
+        ["従来の RPA", "速くて正確。ただし画面が変わると止まり、改修待ちに。"],
+        ["Kitewell", "AI がフローをつくり、なおす。覚えた手順は速くくり返す。"],
       ],
-    },
-    tuning: {
-      title: "失敗したら、AI が原因を調べてフローを直す。",
-      lead: "連続した失敗ごとにフローチューニングが 1 回だけ動き、原因の特定から直ったことの確認まで進めます。",
-      steps: [
-        ["失敗を見つける", "途中で止まった実行を受け取ります。"],
-        ["原因を調べる", "実行の記録とログを読み解きます。"],
-        ["フローを直す", "原因に合わせて手順を書き換えます。"],
-        ["試す", "失敗した箇所まで実際に動かして確かめます。"],
-        ["保存して報告", "修正を保存し、変えた点をチャットで伝えます。"],
-      ],
-      note: "サイトの障害やログイン切れなど、原因がフローの外にあるときは手順を変えず、必要な対応を伝えます。",
+      build: "つくる",
+      fix: "なおす",
+      stop: "停止",
+      legend: ["AI の思考・判断", "覚えた操作の反復", "棒の高さ＝1 回の実行時間"],
+      measured: "3 ステップのデモログインを各 20 回計測（中央値）。毎回 AI が操作を選ぶと 7.9 秒、Kitewell の反復は 1.8 秒。",
     },
     reach: {
       title: "API がない業務ソフトも、いつもの画面から動かす。",
       items: [
-        ["Web サイト", "ログインが必要なサイトにも対応。パスワードはカードに入力するため、AI には見えません。", "/docs/browser/"],
-        ["デスクトップアプリ", "API や取り込み機能がないソフトも、画面を読み取って動かします。Mac または Windows のアプリで動きます。", "/docs/desktop/"],
-        ["Excel", "データを 1 行ずつ処理し、結果をその行の隣に書き戻します。", "/docs/spreadsheets/"],
-        ["メール", "Microsoft 365 や Gmail などのメールを探し、読み取り、整理、送信までこなします。", "/docs/email/"],
+        ["Web サイト", "ログインが必要なサイトも。パスワードは AI に見えない。", "/docs/browser/"],
+        ["デスクトップアプリ", "API がないソフトも。Mac か Windows のアプリで動く。", "/docs/desktop/"],
+        ["Excel", "1 行ずつ処理し、結果をその行の隣に書く。", "/docs/spreadsheets/"],
+        ["メール", "Microsoft 365、Gmail などのメール。", "/docs/email/"],
       ],
       start: "決まった時刻に動くほか、スマホの ChatGPT や Claude から頼んでも動きます。",
     },
@@ -159,34 +141,25 @@ const text = {
     proofNote: "在演示网站和软件上实际录制的画面，已做倍速处理。",
     versus: {
       title: "像智能体一样学习，\n像脚本一样快速重复。",
-      lead: "传统自动化工具一旦遇到界面变化就会中断。AI 智能体每次运行都要重新思考每一步。Kitewell 只需学会一次就能快速重复执行，并在运行失败时自行修复流程。",
-      cols: ["脚本与 RPA", "AI 智能体", "Kitewell"],
-      rows: [
-        ["搭建", "由专业人员逐步编写每个机器人。", "直接用语言提出需求。", "在聊天中说明需求，AI 直接操作真实网站来搭建流程。"],
-        ["每次运行", "速度快，每次操作完全一致。", "每次都要重新推理所有步骤，既慢又费钱。", "重复已掌握的操作，越跑越快、成本越低。"],
-        ["界面变化", "停在移动过的按钮处无法继续。", "从头重新摸索整个过程。", "在运行中定位新按钮，并记住新位置。"],
-        ["运行失败", "一直停摆，直到搭建人员前来修复。", "重新尝试，每次的做法未必一致。", "查明原因，修复并测试流程，随后汇报修改内容。"],
+      change: "网页改版",
+      lanes: [
+        ["AI 智能体", "每次运行都要重新判断点击。慢、耗费算力且不稳定。"],
+        ["传统 RPA", "快速且稳定，但网页一改版就会停摆，等待人工修复。"],
+        ["Kitewell", "AI 负责搭建与修复流程，熟悉的步骤高速重复执行。"],
       ],
-    },
-    tuning: {
-      title: "运行失败时，AI 会查明原因并完成修复。",
-      lead: "每出现一次连续失败，流程调优就会启动一次，完成从排查原因到验证修复的全过程。",
-      steps: [
-        ["发现失败", "接管中断的运行任务。"],
-        ["查明原因", "读取运行记录与日志。"],
-        ["修复流程", "重写出错的操作步骤。"],
-        ["测试修复", "运行至出错步骤以验证效果。"],
-        ["保存并汇报", "保存修改结果，并在聊天中告知变更内容。"],
-      ],
-      note: "当原因出在流程之外时，例如网站故障或登录过期，系统会保持流程不变，并告知您需要处理的事项。",
+      build: "搭建",
+      fix: "修复",
+      stop: "停摆",
+      legend: ["AI 思考与判断", "已掌握的点击与输入", "柱高 = 单次运行耗时"],
+      measured: "3 步演示登录各运行 20 次的中位数。AI 每次判断点击耗时 7.9 秒；Kitewell 重复执行仅需 1.8 秒。",
     },
     reach: {
       title: "直接操作团队日常使用的软件界面。",
       items: [
-        ["网站", "需要登录的网站同样适用。密码输入在卡片中，AI 全程无法看到。", "/docs/browser/"],
-        ["桌面应用", "没有 API 和导入功能的软件，也能通过读取屏幕来操作。通过 Mac 或 Windows 客户端运行。", "/docs/desktop/"],
-        ["Excel", "逐行处理数据，并将每条结果写回对应行的旁边。", "/docs/spreadsheets/"],
-        ["邮件", "在 Microsoft 365、Gmail 等邮箱中查找、阅读、归档和发送邮件。", "/docs/email/"],
+        ["网站", "需要登录的网站也可以。AI 看不到密码。", "/docs/browser/"],
+        ["桌面应用", "没有 API 也能操作。需要 Mac 或 Windows 应用。", "/docs/desktop/"],
+        ["Excel", "逐行处理，结果写在每行旁边。", "/docs/spreadsheets/"],
+        ["邮件", "Microsoft 365、Gmail 等邮箱。", "/docs/email/"],
       ],
       start: "既可以按计划定时运行，也可以随时在手机上通过 ChatGPT 或 Claude 启动。",
     },
@@ -221,34 +194,25 @@ const text = {
     proofNote: "데모 사이트와 앱에서 실제 작동한 화면을 빠르게 재생한 영상입니다.",
     versus: {
       title: "에이전트처럼 배우고,\n스크립트처럼 빠르게 반복합니다.",
-      lead: "기존 자동화 도구는 화면이 바뀌면 멈춥니다. AI 에이전트는 실행할 때마다 모든 단계를 새로 고민합니다. Kitewell은 한 번 배운 업무를 빠르게 반복하고, 실행에 실패하면 스스로 흐름을 고칩니다.",
-      cols: ["스크립트 및 RPA", "AI 에이전트", "Kitewell"],
-      rows: [
-        ["만들기", "전문 담당자가 단계별로 하나씩 구축합니다.", "말로 업무를 요청합니다.", "채팅으로 요청하면 AI가 실제 사이트를 직접 움직여 흐름을 만듭니다."],
-        ["매회 실행", "빠르고 매번 똑같이 작동합니다.", "매번 모든 단계를 다시 생각하므로 느리고 비용이 많이 듭니다.", "배운 동작을 반복하므로 실행할수록 빠르고 저렴해집니다."],
-        ["화면 변경", "위치가 바뀐 버튼 앞에서 멈춥니다.", "처음부터 다시 방법을 찾습니다.", "실행 중에 바뀐 버튼을 찾아내고 새로 기억합니다."],
-        ["실행 실패", "만든 사람이 고칠 때까지 멈춰 있습니다.", "다시 시도하지만 매번 같은 방식으로 움직인다는 보장이 없습니다.", "원인을 찾아 흐름을 고치고 테스트한 뒤, 무엇이 바뀌었는지 알려줍니다."],
+      change: "사이트 화면 변경",
+      lanes: [
+        ["AI 에이전트", "매번 화면을 읽고 클릭을 새로 판단합니다. 느리고 비용이 듭니다."],
+        ["기존 RPA", "빠르고 일정하지만, 화면이 바뀌면 멈춰 수정을 기다립니다."],
+        ["Kitewell", "AI가 플로우를 만들고 고치며, 익힌 단계는 빠르게 반복합니다."],
       ],
-    },
-    tuning: {
-      title: "실행에 실패하면 AI가 원인을 찾아 직접 고칩니다.",
-      lead: "연속된 실패가 발생할 때마다 플로우 튜닝이 1회 작동하여, 원인 파악부터 수정 확인까지 마무리합니다.",
-      steps: [
-        ["실패 감지", "멈춘 실행 내역을 가져옵니다."],
-        ["원인 파악", "실행 기록과 로그를 읽어 분석합니다."],
-        ["흐름 수정", "원인에 맞춰 문제가 생긴 단계를 다시 작성합니다."],
-        ["수정 테스트", "실패했던 단계까지 실행해 정상 작동을 확인합니다."],
-        ["저장 및 보고", "수정 사항을 저장하고 바뀐 내용을 채팅으로 알립니다."],
-      ],
-      note: "사이트 장애나 로그인 만료처럼 원인이 흐름 외부에 있을 때는 기존 흐름을 그대로 유지하며 필요한 조치를 알려줍니다.",
+      build: "생성",
+      fix: "수정",
+      stop: "중단됨",
+      legend: ["AI 탐색 및 판단", "학습된 클릭 및 입력", "막대 높이 = 1회 실행 시간"],
+      measured: "3단계 데모 로그인 각 20회 실행 중앙값. 매번 AI가 클릭을 고르면 7.9초, Kitewell 반복 실행은 1.8초 소요.",
     },
     reach: {
       title: "팀에서 이미 쓰는 화면 그대로 작동합니다.",
       items: [
-        ["웹사이트", "로그인이 필요한 사이트도 지원합니다. 비밀번호는 카드에 입력하므로 AI에게 보이지 않습니다.", "/docs/browser/"],
-        ["데스크톱 앱", "API도 가져오기 기능도 없는 소프트웨어를 화면을 읽어 조작합니다. Mac 또는 Windows 앱에서 작동합니다.", "/docs/desktop/"],
-        ["Excel", "한 행씩 처리하고 각 결과를 해당 행 바로 옆에 기록합니다.", "/docs/spreadsheets/"],
-        ["이메일", "Microsoft 365, Gmail 및 기타 메일함에서 메일을 찾고, 읽고, 정리하고, 보냅니다.", "/docs/email/"],
+        ["웹사이트", "로그인이 필요한 사이트도. AI는 비밀번호를 보지 못합니다.", "/docs/browser/"],
+        ["데스크톱 앱", "API가 없어도 됩니다. Mac 또는 Windows 앱이 필요합니다.", "/docs/desktop/"],
+        ["Excel", "한 행씩 처리하고 결과를 그 옆에 기록합니다.", "/docs/spreadsheets/"],
+        ["이메일", "Microsoft 365, Gmail 등 메일함.", "/docs/email/"],
       ],
       start: "정해진 일정에 따라 실행하거나, 스마트폰의 ChatGPT 또는 Claude에 요청해 실행할 수 있습니다.",
     },
@@ -283,34 +247,25 @@ const text = {
     proofNote: "Captures vidéo réelles sur des sites et logiciels de démonstration, en accéléré.",
     versus: {
       title: "Apprend comme un agent.\nRépète comme un script.",
-      lead: "L'automatisation classique casse dès qu'un écran change. Les agents IA repensent chaque étape à chaque passage. Kitewell apprend la tâche une seule fois, la répète vite et corrige le flux si une exécution échoue.",
-      cols: ["Scripts et RPA", "Agents IA", "Kitewell"],
-      rows: [
-        ["Création", "Un spécialiste construit chaque robot, étape par étape.", "Vous demandez avec vos propres mots.", "Vous demandez par chat. L'IA construit le flux directement sur le vrai site."],
-        ["Chaque exécution", "Rapide et identique à chaque fois.", "Repense chaque étape à chaque lancement, ce qui le rend lent et coûteux.", "Répète ce qu'il a appris : les exécutions deviennent plus rapides et plus économiques."],
-        ["Un écran change", "S'arrête sur le bouton qui a changé de place.", "Repart de zéro pour tout recalculer.", "Trouve le nouveau bouton en pleine exécution et le mémorise."],
-        ["Une exécution échoue", "Reste bloqué jusqu'à ce que son créateur le répare.", "Réessaie, au risque de procéder différemment.", "Trouve la cause, corrige le flux, le teste et vous indique ce qui a changé."],
+      change: "Le site change",
+      lanes: [
+        ["Agents IA", "L'IA recalcule chaque clic à chaque fois. Lent, coûteux et variable."],
+        ["RPA classique", "Rapide et fiable, jusqu'à ce qu'un changement du site le bloque."],
+        ["Kitewell", "L'IA crée et répare le flux. Les étapes connues vont vite."],
       ],
-    },
-    tuning: {
-      title: "Quand une exécution échoue, l'IA trouve la cause et la corrige.",
-      lead: "L'ajustement de flux intervient une fois par série d'échecs, de la recherche de la cause jusqu'à la vérification du correctif.",
-      steps: [
-        ["Repère l'échec", "Récupère l'exécution interrompue."],
-        ["Trouve la cause", "Examine l'exécution et ses journaux."],
-        ["Corrige le flux", "Réécrit les étapes défaillantes."],
-        ["Teste le correctif", "Relance les étapes jusqu'à celle qui a échoué."],
-        ["Enregistre et informe", "Sauvegarde le correctif et vous précise les changements dans le chat."],
-      ],
-      note: "Lorsque la cause est extérieure au flux, comme un site hors ligne ou une session expirée, il laisse le flux intact et vous indique la marche à suivre.",
+      build: "Création",
+      fix: "Réparation",
+      stop: "À l'arrêt",
+      legend: ["Réflexion et jugement IA", "Clics et saisies appris", "Hauteur = durée d'exécution"],
+      measured: "Médiane sur 20 essais d'une connexion démo en 3 étapes. 7,9 s quand l'IA choisit chaque clic ; 1,8 s en répétition Kitewell.",
     },
     reach: {
       title: "Agit sur les écrans que votre équipe utilise déjà.",
       items: [
-        ["Sites web", "Y compris les sites nécessitant une connexion. Vous saisissez vos mots de passe dans une carte dédiée, invisible pour l'IA.", "/docs/browser/"],
-        ["Applications de bureau", "Lit l'écran des logiciels sans API ni fonction d'import. Fonctionne via l'application Mac ou Windows.", "/docs/desktop/"],
-        ["Excel", "Traite vos feuilles ligne par ligne et inscrit chaque résultat à côté de sa ligne.", "/docs/spreadsheets/"],
-        ["E-mail", "Trouve, lit, classe et envoie des messages dans Microsoft 365, Gmail et d'autres messageries.", "/docs/email/"],
+        ["Sites web", "Même derrière une connexion. L'IA ne voit jamais le mot de passe.", "/docs/browser/"],
+        ["Applications de bureau", "Même sans API. Avec l'application Mac ou Windows.", "/docs/desktop/"],
+        ["Excel", "Ligne par ligne, chaque résultat à côté de sa ligne.", "/docs/spreadsheets/"],
+        ["E-mail", "Microsoft 365, Gmail et autres boîtes mail.", "/docs/email/"],
       ],
       start: "Fonctionne à horaires programmés, ou à la demande depuis ChatGPT ou Claude sur votre téléphone.",
     },
@@ -345,34 +300,25 @@ const text = {
     proofNote: "Echte Bildschirmaufnahmen auf Demo-Websites und -Programmen, beschleunigt abgespielt.",
     versus: {
       title: "Lernt wie ein Agent.\nWiederholt wie ein Skript.",
-      lead: "Herkömmliche Automatisierung bricht ab, sobald sich ein Bildschirm ändert. KI-Agenten durchdenken bei jedem Durchlauf jeden Schritt neu. Kitewell lernt die Aufgabe einmal, wiederholt sie schnell und repariert den Ablauf, wenn ein Durchlauf fehlschlägt.",
-      cols: ["Skripte und RPA", "KI-Agenten", "Kitewell"],
-      rows: [
-        ["Aufbau", "Eine Fachkraft erstellt jeden Bot Schritt für Schritt.", "Sie formulieren Ihren Wunsch in Worten.", "Sie fragen im Chat. Die KI baut den Ablauf direkt auf der echten Website auf."],
-        ["Jeder Durchlauf", "Schnell und jedes Mal gleich.", "Durchdenkt jeden Schritt jedes Mal neu, was jeden Durchlauf langsam und teuer macht.", "Wiederholt das Gelernte, sodass Durchläufe schneller und günstiger werden."],
-        ["Ein Bildschirm ändert sich", "Stoppt an der Schaltfläche, die verschoben wurde.", "Erarbeitet sich alles wieder komplett von vorn.", "Findet die neue Schaltfläche während des Durchlaufs und merkt sie sich."],
-        ["Ein Durchlauf schlägt fehl", "Wartet, bis die Person, die ihn gebaut hat, den Fehler behebt.", "Versucht es erneut und geht dabei womöglich anders vor.", "Findet die Ursache, repariert und testet den Ablauf und teilt Ihnen mit, was geändert wurde."],
+      change: "Website ändert sich",
+      lanes: [
+        ["KI-Agenten", "KI plant jeden Klick pro Lauf neu. Langsam, teuer und schwankend."],
+        ["Klassisches RPA", "Schnell und präzise, bis eine Website-Änderung den Bot stoppt."],
+        ["Kitewell", "KI baut und repariert den Ablauf. Bekannte Schritte laufen schnell."],
       ],
-    },
-    tuning: {
-      title: "Schlägt ein Durchlauf fehl, findet die KI die Ursache und behebt sie.",
-      lead: "Die Ablaufoptimierung läuft einmal pro Fehlerstrecke, von der Ursachensuche bis zur Prüfung der Korrektur.",
-      steps: [
-        ["Erkennt den Fehler", "Greift den fehlgeschlagenen Durchlauf auf."],
-        ["Findet die Ursache", "Liest den Durchlauf und die zugehörigen Protokolle."],
-        ["Repariert den Ablauf", "Schreibt die fehlerhaften Schritte um."],
-        ["Testet die Korrektur", "Führt die Schritte bis zu der Stelle aus, an der der Fehler auftrat."],
-        ["Speichert und berichtet", "Speichert die Korrektur und teilt Ihnen im Chat mit, was sich geändert hat."],
-      ],
-      note: "Liegt die Ursache außerhalb des Ablaufs, etwa bei einer ausgefallenen Website oder einer abgelaufenen Anmeldung, lässt das System alles unverändert und sagt Ihnen, was zu tun ist.",
+      build: "Aufbau",
+      fix: "Reparatur",
+      stop: "Gestoppt",
+      legend: ["KI-Denkzeit und Urteil", "Gelernte Klicks und Eingaben", "Balkenhöhe = Dauer pro Lauf"],
+      measured: "Median aus je 20 Läufen eines 3-Schritt-Demo-Logins. KI-Auswahl pro Klick dauerte 7,9 Sek., Wiederholung mit Kitewell 1,8 Sek.",
     },
     reach: {
       title: "Bedient genau die Bildschirme, die Ihr Team bereits nutzt.",
       items: [
-        ["Websites", "Auch Seiten mit Anmeldung. Sie geben Passwörter in eine Karte ein, sodass die KI sie niemals sieht.", "/docs/browser/"],
-        ["Desktop-Apps", "Liest den Bildschirm von Software ohne API und ohne Importfunktion. Läuft in der App für Mac oder Windows.", "/docs/desktop/"],
-        ["Excel", "Arbeitet Zeile für Zeile und schreibt jedes Ergebnis direkt neben die jeweilige Zeile.", "/docs/spreadsheets/"],
-        ["E-Mail", "Sucht, liest, ordnet und versendet E-Mails in Microsoft 365, Gmail und anderen Postfächern.", "/docs/email/"],
+        ["Websites", "Auch hinter einem Login. Die KI sieht nie das Passwort.", "/docs/browser/"],
+        ["Desktop-Apps", "Auch ohne API. Mit der Mac- oder Windows-App.", "/docs/desktop/"],
+        ["Excel", "Zeile für Zeile, jedes Ergebnis neben seiner Zeile.", "/docs/spreadsheets/"],
+        ["E-Mail", "Microsoft 365, Gmail und andere Postfächer.", "/docs/email/"],
       ],
       start: "Läuft nach Zeitplan oder auf Zuruf über ChatGPT oder Claude auf Ihrem Smartphone.",
     },
@@ -403,6 +349,19 @@ const breaks = (value: string) =>
     .split("\n")
     .map((line) => `<span>${line}</span>`)
     .join("");
+// The diagram runs one chore nine times in each lane: an AI agent, RPA, and
+// Kitewell. A run is its height, as a share of the slowest, and the part of
+// it the AI spends thinking; a stopped run is null. The site changes before
+// the sixth run, where home.css draws its line. Heights follow the measured
+// sign-in: replay takes about a quarter of the time AI does.
+const runs: ([number, number] | null)[][] = [
+  [[86, 86], [100, 100], [78, 78], [94, 94], [88, 88], [92, 92], [80, 80], [97, 97], [84, 84]],
+  [[18, 0], [18, 0], [18, 0], [18, 0], [18, 0], null, null, null, [18, 0]],
+  [[100, 100], [22, 4], [22, 4], [22, 4], [22, 4], [56, 40], [22, 4], [22, 4], [22, 4]],
+];
+// Callouts by lane and run: Kitewell builds on its first run and fixes on
+// the run where the site changed; RPA stops there.
+const marks: Record<string, string> = { "1-5": text.versus.stop, "2-0": text.versus.build, "2-5": text.versus.fix };
 // Search engines learn what the app is, what it costs, and what the film shows.
 const app = {
   "@context": "https://schema.org",
@@ -466,41 +425,37 @@ const video = {
     <section class="band" id="versus" aria-labelledby="versus-title">
       <div class="wrap">
         <h2 id="versus-title" class="band-title" set:html={breaks(text.versus.title)} />
-        <p class="band-lead">{text.versus.lead}</p>
-        <table class="versus-table">
-          <thead>
-            <tr>
-              <td></td>
-              {text.versus.cols.map((col, i) => <th scope="col" class:list={{ ours: i === 2 }}>{col}</th>)}
-            </tr>
-          </thead>
-          <tbody>
-            {text.versus.rows.map(([moment, ...cells]) => (
-              <tr data-reveal>
-                <th scope="row">{moment}</th>
-                {cells.map((cell, i) => (
-                  <td class:list={{ ours: i === 2 }} data-label={text.versus.cols[i]}>{cell}</td>
+        <figure class="runs" data-reveal>
+          <div class="runs-head" aria-hidden="true">
+            <span>{text.versus.change}</span>
+          </div>
+          {text.versus.lanes.map(([name, caption], lane) => (
+            <div class:list={["lane", { ours: lane === 2 }]} style={`--lane: ${lane}`}>
+              <div class="lane-text">
+                <h3>{name}</h3>
+                <p>{caption}</p>
+              </div>
+              <ol class="lane-runs" aria-hidden="true">
+                {runs[lane].map((run, i) => (
+                  <li style={`--i: ${i}`}>
+                    {run ? (
+                      <span class="bar" style={`--h: ${run[0]}%; --ai: ${Math.round((run[1] / run[0]) * 100)}%`} />
+                    ) : (
+                      <span class="bar stopped" style="--h: 18%" />
+                    )}
+                    {marks[`${lane}-${i}`] && <em style={`--h: ${run?.[0] ?? 18}%`}>{marks[`${lane}-${i}`]}</em>}
+                  </li>
                 ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="band sunk" id="tuning" aria-labelledby="tuning-title">
-      <div class="wrap">
-        <h2 id="tuning-title" class="band-title small">{text.tuning.title}</h2>
-        <p class="band-lead">{text.tuning.lead}</p>
-        <ol class="sequence" data-reveal>
-          {text.tuning.steps.map(([name, detail]) => (
-            <li>
-              <h3>{name}</h3>
-              <p>{detail}</p>
-            </li>
+              </ol>
+            </div>
           ))}
-        </ol>
-        <p class="sequence-note">{text.tuning.note}</p>
+          <figcaption class="runs-legend">
+            <span><i class="key ai" />{text.versus.legend[0]}</span>
+            <span><i class="key learned" />{text.versus.legend[1]}</span>
+            <span>{text.versus.legend[2]}</span>
+          </figcaption>
+        </figure>
+        <p class="runs-measured">{text.versus.measured}</p>
       </div>
     </section>
 
