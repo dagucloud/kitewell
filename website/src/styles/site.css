@@ -168,6 +168,38 @@ h3 {
   background: var(--live);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--live) 20%, transparent);
 }
+/* A header on ink, for a page that opens on ink: white words, a quieter
+   rule, and the primary action in white. The language menu still opens on
+   paper. */
+.masthead.ink {
+  --muted: rgb(255 255 255 / 0.62);
+  --line: rgb(255 255 255 / 0.1);
+  background: var(--ink);
+  color: #fff;
+}
+.masthead.ink .brand,
+.masthead.ink .header-sign-in,
+.masthead.ink .header nav a:hover,
+.masthead.ink .header nav a[aria-current],
+.masthead.ink .languages summary:hover,
+.masthead.ink .languages[open] summary {
+  color: #fff;
+}
+.masthead.ink .button {
+  border-color: #fff;
+  background: #fff;
+  color: var(--ink);
+}
+.masthead.ink .button:hover {
+  border-color: var(--code-ink);
+  background: var(--code-ink);
+}
+.masthead.ink .languages ul {
+  --line: var(--line-strong);
+}
+.masthead.ink .header nav .languages a {
+  color: var(--ink);
+}
 /* The language menu: the language of the page, opening onto every one the
    page is written in, each named in itself. */
 .languages {

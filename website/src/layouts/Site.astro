@@ -17,6 +17,8 @@ interface Props {
   // what it shows.
   image?: { src: string; width: number; height: number; alt: string };
   noindex?: boolean;
+  // ink sets the header on near-black, for a page that opens on ink.
+  tone?: "ink";
 }
 const locale = localeOf(Astro.url.pathname);
 const text = {
@@ -111,7 +113,7 @@ const text = {
     fine: "",
   },
 }[locale];
-const { title, description = text.description, image, noindex = false } = Astro.props;
+const { title, description = text.description, image, noindex = false, tone } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 // Each language has its own card for link previews.
 const social = image ?? { src: locale === "en" ? "/social.png" : `/social-${locale}.png`, width: 1200, height: 630, alt: text.social };
@@ -174,45 +176,47 @@ const links = ["/examples/", "/pricing/", "/docs/", "/download/"].map((href, i) 
     <a class="skip" href="#main">
       {text.skip}
     </a>
-    <header class="header wrap">
-      <a class="brand" href={localize("/", locale)} aria-label={text.home}>
-        <img class="brand-mark" src="/favicon.svg" alt="" width="36" height="36" />
-        Kitewell
-      </a>
-      <nav aria-label={text.nav}>
-        {links.map(([href, label]) => (
-          <a
-            href={href}
-            aria-current={
-              Astro.url.pathname.startsWith(href) ? "page" : undefined
-            }
-          >
-            {label}
-          </a>
-        ))}
-        {pages && (
-          <details class="languages">
-            <summary>
-              <span class="visually-hidden">{text.language}: </span>
-              {languages[locale].label}
-            </summary>
-            <ul>
-              {versions.map((l) => (
-                <li>
-                  <a href={pages[l]} lang={languages[l].lang} hreflang={languages[l].lang} aria-current={l === locale ? "true" : undefined}>
-                    {languages[l].label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </details>
-        )}
-      </nav>
-      <div class="header-actions">
-        <a class="header-sign-in" href={cloudApp}>{text.signIn}</a>
-        <a class="button small" href={cloudSignup}>{text.trial}</a>
-      </div>
-    </header>
+    <div class:list={["masthead", { ink: tone === "ink" }]}>
+      <header class="header wrap">
+        <a class="brand" href={localize("/", locale)} aria-label={text.home}>
+          <img class="brand-mark" src="/favicon.svg" alt="" width="36" height="36" />
+          Kitewell
+        </a>
+        <nav aria-label={text.nav}>
+          {links.map(([href, label]) => (
+            <a
+              href={href}
+              aria-current={
+                Astro.url.pathname.startsWith(href) ? "page" : undefined
+              }
+            >
+              {label}
+            </a>
+          ))}
+          {pages && (
+            <details class="languages">
+              <summary>
+                <span class="visually-hidden">{text.language}: </span>
+                {languages[locale].label}
+              </summary>
+              <ul>
+                {versions.map((l) => (
+                  <li>
+                    <a href={pages[l]} lang={languages[l].lang} hreflang={languages[l].lang} aria-current={l === locale ? "true" : undefined}>
+                      {languages[l].label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </nav>
+        <div class="header-actions">
+          <a class="header-sign-in" href={cloudApp}>{text.signIn}</a>
+          <a class="button small" href={cloudSignup}>{text.trial}</a>
+        </div>
+      </header>
+    </div>
     <script is:inline>
       // The language menu closes on a click elsewhere or on Escape.
       document.addEventListener("click", (event) => {
