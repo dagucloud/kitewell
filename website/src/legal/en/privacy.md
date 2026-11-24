@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: How Kitewell handles your data. Workflows, run history, credentials, and connected mailboxes, calendars, and Google files stay on your device.
-updated: 2026-11-17
+updated: 2026-11-25
 ---
 
 Descarty, Inc. ("Descarty", "we") publishes Kitewell. This policy explains what
@@ -52,6 +52,12 @@ the European Union, never DeepSeek itself or a host based in China; OpenAI
 GPT-6.1 Terra, which reads screenshots, runs only on Microsoft Azure in the
 EU. The model may change; the
 [AI models page](/docs/ai/#which-model-and-where-it-runs) names the current one.
+
+**Models you run yourself.** A workflow step can instead use a model served on
+your own computer or network, such as with Ollama or vLLM. Kitewell then sends
+its prompts only to that server, so what they carry, including data received
+from Google APIs, is processed there and never sent to the model's developer
+for training or any other purpose.
 
 ## 3. Connected mailboxes, calendars, and files (Gmail, Microsoft 365, IMAP, Google Calendar, Google Sheets, and Google Drive)
 
@@ -142,11 +148,15 @@ is not yet technically restricted.
 
 **What Kitewell does not do.** Kitewell does not use data from your mailbox for
 advertising, does not sell it, and does not use it to develop, improve, or train
-AI or machine learning models. No one at Descarty reads it.
+AI or machine learning models, or transfer it to anyone for that purpose. No
+one at Descarty reads it.
 
 **Limited Use.** Kitewell's use and transfer of information received from
 Google APIs to any other app will adhere to the
 [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy),
+including the Limited Use requirements. The use of raw or derived user data
+received from Google Workspace APIs will adhere to the
+[Google Workspace API User Data and Developer Policy](https://developers.google.com/workspace/workspace-api-user-data-developer-policy),
 including the Limited Use requirements.
 
 **Disconnecting.** Disconnecting a mailbox in Kitewell deletes its token from
@@ -216,11 +226,15 @@ run output.
 
 **What Kitewell does not do.** Kitewell does not use data from your calendar
 for advertising, does not sell it, and does not use it to develop, improve, or
-train AI or machine learning models. No one at Descarty reads it.
+train AI or machine learning models, or transfer it to anyone for that purpose.
+No one at Descarty reads it.
 
 **Limited Use.** Kitewell's use and transfer of information received from
 Google APIs to any other app will adhere to the
 [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy),
+including the Limited Use requirements. The use of raw or derived user data
+received from Google Workspace APIs will adhere to the
+[Google Workspace API User Data and Developer Policy](https://developers.google.com/workspace/workspace-api-user-data-developer-policy),
 including the Limited Use requirements.
 
 **Disconnecting.** Disconnecting Google Calendar in Kitewell's API library
@@ -269,7 +283,8 @@ the AI model provider that answers it to do the work you asked for.
 
 **What Kitewell does not do.** Kitewell does not use data from your files for
 advertising, does not sell it, and does not use it to develop, improve, or
-train AI or machine learning models. No one at Descarty reads it.
+train AI or machine learning models, or transfer it to anyone for that purpose.
+No one at Descarty reads it.
 
 **Limited Use.** The Limited Use statement in the Google Calendar part above
 applies to data from Google Sheets and Google Drive too.

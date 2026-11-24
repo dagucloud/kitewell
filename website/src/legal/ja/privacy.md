@@ -1,7 +1,7 @@
 ---
 title: プライバシーポリシー
 description: Kitewell でのデータの扱い。ワークフロー、実行履歴、認証情報、接続したメールボックス、カレンダー、Google のファイルは、お使いの端末に残ります。
-updated: 2026-11-17
+updated: 2026-11-25
 ---
 
 Descarty株式会社（以下「当社」）は、Kitewell を提供しています。本ポリシーは、Kitewell のアプリと kitewell.com のウェブサイト（kitewell.app でも配信）が扱う情報、その送り先、当社が受け取る情報について説明します。
@@ -19,6 +19,8 @@ Kitewell は、ワークフローの定義、実行の記録、ログ、出力�
 ワークフローは、お客様が設定した接続先にデータを送ります。AI の提供者、API、コマンドラインのエージェント、コンテナ、SSH サーバー、メールサーバー、Slack、Microsoft Teams などです。プロンプト、文脈、ファイル、出力は、ワークフローの定めに従ってこれらの接続先に送られます。送られたデータは、各接続先の規約とプライバシーポリシーに従って扱われます。
 
 **Kitewell の付属モデル**　Dagu Cloud にサインインした端末、Kitewell Cloud、Kitehand では、付属モデルへのプロンプトと文脈が Dagu Cloud を経由して OpenRouter, Inc. に送られ、そこからモデルを動かす事業者に渡ります。Dagu Cloud はプロンプトの本文を保存しません。OpenRouter が送る先は、送られた内容を保存も学習もしない事業者（OpenRouter のゼロデータ保持の対象）に限ります。DeepSeek V4.1 Flash は本社が米国または EU にある事業者だけが動かし、DeepSeek 社や中国に拠点を置く事業者には送りません。画面を読む OpenAI GPT-6.1 Terra は、EU の Microsoft Azure だけが動かします。モデルは変わることがあり、現在のモデルは [AI モデルのページ](/docs/ai/#which-model-and-where-it-runs) に載せます。
+
+**お客様が動かすモデル**　ワークフローのステップでは、Ollama や vLLM など、お客様の端末やネットワークで動かすモデルも使えます。その場合、Kitewell はプロンプトをそのサーバーにだけ送ります。Google API から受け取ったデータを含め、プロンプトの内容はそこで処理され、学習その他の目的でモデルの開発元に送られることはありません。
 
 ## 3. 接続したメールボックス、カレンダー、ファイル（Gmail、Microsoft 365、IMAP、Google カレンダー、Google スプレッドシート、Google ドライブ）
 
@@ -49,9 +51,9 @@ Kitewell は、ワークフローの定義、実行の記録、ログ、出力�
 - **出力での秘匿**　ワークフローエンジンは、ログと実行の出力に現れるトークンやパスワードを伏せ字にします。
 - **削除**　メールボックスの接続を解除すると、端末から、クラウドのセッションではセッションから、トークンを削除します（後述の「接続の解除」を参照）。
 
-**行わないこと**　Kitewell は、メールボックスのデータを広告に使わず、販売せず、AI や機械学習のモデルの開発、改善、学習に使いません。当社の者がメールを読むこともありません。
+**行わないこと**　Kitewell は、メールボックスのデータを広告に使わず、販売せず、AI や機械学習のモデルの開発、改善、学習に使わず、そのために誰かに渡すこともありません。当社の者がメールを読むこともありません。
 
-**Limited Use**　Kitewell's use and transfer of information received from Google APIs to any other app will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.（Google API から受け取った情報の Kitewell による利用と他のアプリへの転送は、Limited Use の要件を含む Google API サービスのユーザーデータに関するポリシーに従います。）
+**Limited Use**　Kitewell's use and transfer of information received from Google APIs to any other app will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements. The use of raw or derived user data received from Google Workspace APIs will adhere to the [Google Workspace API User Data and Developer Policy](https://developers.google.com/workspace/workspace-api-user-data-developer-policy), including the Limited Use requirements.（Google API から受け取った情報の Kitewell による利用と他のアプリへの転送は、Limited Use の要件を含む Google API サービスのユーザーデータに関するポリシーに従います。Google Workspace API から受け取ったユーザーデータ（未加工のもの、それから得たものを含みます）の利用は、Limited Use の要件を含む Google Workspace API のユーザーデータと開発者に関するポリシーに従います。）
 
 **接続の解除**　Kitewell でメールボックスの接続を解除すると、端末からトークンを削除します。同じ端末のほかのプロジェクトがそのメールボックスを使っておらず、同じアカウントの Google カレンダーも接続されていなければ、Google アカウントへの Kitewell のアクセスも取り消します。取り消すと、そのアカウントの Kitewell のアクセスはすべての端末で終わります。[Google アカウントの権限のページ](https://myaccount.google.com/permissions)からも、いつでもアクセスを削除できます。Microsoft の場合は、アカウントのアプリの権限から削除できます。
 
@@ -71,9 +73,9 @@ Google カレンダーを接続すると、ワークフローでその予定を�
 
 **保護の方法**　上記のメールボックスと同じです。Google との通信は HTTPS で暗号化し、保存時も暗号化します。サインインはお客様のブラウザで、PKCE と 1 回限りの state 値を使う OAuth 2.0 で行います。リモートアクセスは制限され、ログと実行の出力ではトークンを伏せ字にします。
 
-**行わないこと**　Kitewell は、カレンダーのデータを広告に使わず、販売せず、AI や機械学習のモデルの開発、改善、学習に使いません。当社の者が予定を読むこともありません。
+**行わないこと**　Kitewell は、カレンダーのデータを広告に使わず、販売せず、AI や機械学習のモデルの開発、改善、学習に使わず、そのために誰かに渡すこともありません。当社の者が予定を読むこともありません。
 
-**Limited Use**　Kitewell's use and transfer of information received from Google APIs to any other app will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.（Google API から受け取った情報の Kitewell による利用と他のアプリへの転送は、Limited Use の要件を含む Google API サービスのユーザーデータに関するポリシーに従います。）
+**Limited Use**　Kitewell's use and transfer of information received from Google APIs to any other app will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements. The use of raw or derived user data received from Google Workspace APIs will adhere to the [Google Workspace API User Data and Developer Policy](https://developers.google.com/workspace/workspace-api-user-data-developer-policy), including the Limited Use requirements.（Google API から受け取った情報の Kitewell による利用と他のアプリへの転送は、Limited Use の要件を含む Google API サービスのユーザーデータに関するポリシーに従います。Google Workspace API から受け取ったユーザーデータ（未加工のもの、それから得たものを含みます）の利用は、Limited Use の要件を含む Google Workspace API のユーザーデータと開発者に関するポリシーに従います。）
 
 **接続の解除**　Kitewell の API ライブラリで Google カレンダーの接続を解除すると、端末からトークンを削除します。同じ Google アカウントで接続したメールボックスも終わってしまうため、Google での許可は取り消しません。[Google アカウントの権限のページ](https://myaccount.google.com/permissions)から、いつでも Kitewell のアクセスを削除できます。
 
@@ -93,7 +95,7 @@ Google スプレッドシートや Google ドライブを接続すると、ワ�
 
 **保護の方法**　上記のメールボックスと同じです。
 
-**行わないこと**　Kitewell は、ファイルのデータを広告に使わず、販売せず、AI や機械学習のモデルの開発、改善、学習に使いません。当社の者がファイルを読むこともありません。
+**行わないこと**　Kitewell は、ファイルのデータを広告に使わず、販売せず、AI や機械学習のモデルの開発、改善、学習に使わず、そのために誰かに渡すこともありません。当社の者がファイルを読むこともありません。
 
 **Limited Use**　上記の Google カレンダーの Limited Use の記載は、Google スプレッドシートと Google ドライブのデータにも適用されます。
 
